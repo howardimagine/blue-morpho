@@ -4,301 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BLUE MORPHO · 本週週報</title>
-  <meta name="description" content="Blue Morpho 第 23 期週報：AI CapEx 超週期加速——Hyperscaler 資本支出再上修。精選 6 檔、賣出訊號 2 組、政策觀察 4 項。">
+  <meta name="description" content="Blue Morpho 每週美股精選週報 — 引擎選股、Bloomberg 風分析、賣出訊號與政策觀察。">
   <meta property="og:title" content="BLUE MORPHO · 本週週報">
   <meta property="og:type" content="article">
   <meta name="theme-color" content="#02020A">
   <link rel="stylesheet" href="style.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "AI CapEx 超週期加速——Hyperscaler 資本支出再上修",
-    "publisher": { "@type": "Organization", "name": "Blue Morpho" },
-    "datePublished": ""
-  }
-  </script>
   <style>
-    /* ── Weekly-specific styles ── */
-    .weekly-hero {
-      padding: var(--space-10) 0 var(--space-8);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .weekly-vol {
-      font-family: var(--font-mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.2em;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      margin-bottom: var(--space-3);
-    }
-
-    .weekly-title {
-      font-size: clamp(1.4rem, 3.5vw, 2.2rem);
-      font-weight: 700;
-      color: var(--text-primary);
-      line-height: 1.25;
-      margin-bottom: var(--space-4);
-    }
-
-    .weekly-subtitle {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-      line-height: 1.7;
-      max-width: 680px;
-    }
-
-    .weekly-hero-meta {
-      display: flex;
-      align-items: center;
-      gap: var(--space-4);
-      margin-top: var(--space-5);
-      flex-wrap: wrap;
-    }
-
-    .weekly-toc {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      padding: var(--space-5);
-      margin-bottom: var(--space-8);
-    }
-
-    .weekly-toc-title {
-      font-family: var(--font-mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.15em;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      margin-bottom: var(--space-3);
-    }
-
-    .weekly-toc-links {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-1);
-    }
-
-    .weekly-toc-links a {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: var(--text-secondary);
-      padding: var(--space-1) 0;
-      letter-spacing: 0.04em;
-      opacity: 1;
-      transition: color 0.15s;
-    }
-
-    .weekly-toc-links a:hover { color: var(--accent); opacity: 1; }
-    .weekly-toc-links a::before { content: '→ '; color: var(--border); }
-
-    .pick-card-full {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: border-color 0.2s;
-    }
-    .pick-card-full:hover { border-color: var(--accent); }
-
-    .pick-card-header {
-      border-bottom: 1px solid var(--border);
-      padding: var(--space-4) var(--space-5);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: var(--space-3);
-    }
-
-    .pick-card-ticker-block {
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-    }
-
-    .pick-card-ticker {
-      font-family: var(--font-mono);
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--accent);
-      letter-spacing: 0.05em;
-    }
-
-    .pick-card-name {
-      font-size: 0.82rem;
-      color: var(--text-secondary);
-    }
-
-    .pick-card-body {
-      padding: var(--space-5);
-      display: grid;
-      grid-template-columns: 1fr 200px;
-      gap: var(--space-5);
-    }
-
-    @media (max-width: 600px) {
-      .pick-card-body { grid-template-columns: 1fr; }
-    }
-
-    .pick-card-why-label {
-      font-family: var(--font-mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.12em;
-      color: var(--text-dim);
-      text-transform: uppercase;
-      margin-bottom: var(--space-2);
-    }
-
-    .pick-card-why-text {
-      font-size: 0.85rem;
-      color: var(--text-primary);
-      line-height: 1.65;
-    }
-
-    .pick-card-theme-tag {
-      font-family: var(--font-mono);
-      font-size: 0.62rem;
-      color: var(--accent);
-      border: 1px solid var(--border);
-      padding: 3px 8px;
-      margin-top: var(--space-3);
-      display: inline-block;
-      letter-spacing: 0.06em;
-    }
-
-    .pick-stats-col { display: flex; flex-direction: column; gap: var(--space-2); }
-
-    .sell-row {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--negative);
-      padding: var(--space-4) var(--space-5);
-    }
-
-    .sell-row-header {
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-      margin-bottom: var(--space-2);
-    }
-
-    .sell-ticker {
-      font-family: var(--font-mono);
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--negative);
-    }
-
-    .sell-reason {
-      font-size: 0.82rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
-    .policy-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      padding: var(--space-4) var(--space-5);
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: var(--space-4);
-      align-items: start;
-      transition: border-color 0.2s;
-    }
-
-    .policy-card:hover { border-color: var(--warning); }
-
-    .policy-icon {
-      width: 32px; height: 32px;
-      background: var(--warning-dim);
-      border: 1px solid var(--warning);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--warning);
-      flex-shrink: 0;
-    }
-
-    .policy-topic {
-      font-family: var(--font-mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.1em;
-      color: var(--warning);
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .policy-title {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 4px;
-    }
-
-    .policy-desc {
-      font-size: 0.78rem;
-      color: var(--text-secondary);
-      line-height: 1.55;
-    }
-
-    .risk-item {
-      border-left: 2px solid var(--border);
-      padding: var(--space-3) 0 var(--space-3) var(--space-4);
-      margin-bottom: var(--space-4);
-    }
-
-    .risk-item.risk-high { border-left-color: var(--negative); }
-    .risk-item.risk-med  { border-left-color: var(--warning); }
-    .risk-item.risk-low  { border-left-color: var(--text-dim); }
-
-    .risk-level {
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .risk-item.risk-high .risk-level { color: var(--negative); }
-    .risk-item.risk-med  .risk-level { color: var(--warning); }
-    .risk-item.risk-low  .risk-level { color: var(--text-dim); }
-
-    .risk-title {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 4px;
-    }
-
-    .risk-desc {
-      font-size: 0.78rem;
-      color: var(--text-secondary);
-      line-height: 1.55;
-    }
-
-    .sticky-aside {
-      position: sticky;
-      top: 68px;
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-4);
-    }
-
-    @media (max-width: 860px) {
-      .sticky-aside { position: static; }
-    }
-
-    .picks-grid-weekly {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: var(--space-4);
-    }
-
+    .weekly-bar { border-bottom: 1px solid var(--border); padding: var(--space-6) 0; }
+    .weekly-bar-row { display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; }
+    .weekly-bar-title { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.18em; color: var(--accent); text-transform: uppercase; }
+    .weekly-theme { font-size: clamp(1.1rem, 3vw, 1.6rem); font-weight: 700; color: var(--text-primary); margin-top: var(--space-2); line-height: 1.3; }
+    #weekly-switcher { margin-left: auto; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-primary); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: .05em; padding: 7px 10px; border-radius: 2px; outline: none; cursor: pointer; max-width: 280px; }
+    .weekly-frame-wrap { width: 100%; max-width: 760px; margin: 0 auto; padding: var(--space-6) var(--space-4) var(--space-12); }
+    #weekly-frame { width: 100%; border: 0; background: transparent; display: block; min-height: 70vh; }
+    .weekly-loading { font-family: var(--font-mono); font-size: .75rem; color: var(--text-dim); padding: var(--space-10) var(--space-4); text-align: center; letter-spacing: .08em; }
     @media (max-width: 640px) {
-      .picks-grid-weekly { grid-template-columns: 1fr; }
+      #weekly-switcher { margin-left: 0; width: 100%; }
+      .weekly-frame-wrap { padding: var(--space-4) var(--space-2) var(--space-10); }
     }
   </style>
 </head>
@@ -326,136 +48,24 @@
 </nav>
 
 <main>
-  <!-- ── Weekly Hero ── -->
-  <div class="weekly-hero">
+  <!-- ── 標頭(主題 / regime / 日期 / 期數下拉)── -->
+  <div class="weekly-bar">
     <div class="container">
-      <div class="masthead">
-        <span class="masthead-title" id="masthead-title">▎ BLUE MORPHO · 週報</span>
-        <div class="masthead-meta">
-          <span id="regime-masthead"></span>
-          <span class="masthead-date mono-xs">—</span>
-          <select id="weekly-switcher" aria-label="切換期數"
-            style="background:var(--bg-card);border:1px solid var(--border);color:var(--text-primary);font-family:var(--font-mono);font-size:0.7rem;letter-spacing:.05em;padding:5px 9px;border-radius:2px;outline:none;cursor:pointer;max-width:260px;">
-          </select>
-        </div>
+      <div class="weekly-bar-row">
+        <span class="weekly-bar-title">▎ BLUE MORPHO · 週報</span>
+        <span id="regime-masthead"></span>
+        <span class="mono-xs text-dim" id="weekly-date">—</span>
+        <select id="weekly-switcher" aria-label="切換期數"></select>
       </div>
-      <div class="weekly-vol" id="weekly-vol">BLUE MORPHO WEEKLY</div>
-      <h1 class="weekly-title" id="weekly-main-title">—</h1>
-      <p class="weekly-subtitle" id="weekly-sub" style="display:none;">
-        本期精選 6 檔，聚焦算力鏈直接受益者。
-      </p>
-      <div class="weekly-hero-meta">
-        <span id="regime-hero"></span>
-        <span class="mono-xs text-secondary">6 精選 · 2 賣出訊號 · 4 政策觀察</span>
-      </div>
+      <div class="weekly-theme" id="weekly-theme">—</div>
     </div>
   </div>
 
-  <div class="container" style="padding-top: var(--space-8);">
-    <div class="layout-main-aside">
-
-      <!-- ── Main Content ── -->
-      <div>
-
-        <!-- TOC -->
-        <div class="weekly-toc mb-8">
-          <div class="weekly-toc-title">本期目錄</div>
-          <div class="weekly-toc-links">
-            <a href="#picks">精選個股 (6)</a>
-            <a href="#exits">賣出訊號 (2)</a>
-            <a href="#policy">政策觀察 (4)</a>
-            <a href="#risks">風險監控</a>
-          </div>
-        </div>
-
-        <!-- ── PICKS ── -->
-        <section id="picks" class="mb-8">
-          <div class="section-header">▎ FEATURED PICKS · 精選個股</div>
-          <div style="display: flex; flex-direction: column; gap: var(--space-4);" id="picks-list">
-            <!-- JS 渲染 -->
-          </div>
-        </section>
-
-        <!-- ── EXITS — hidden when sell_signals is empty ── -->
-        <section id="exits-section" class="mb-8" style="display:none;">
-          <div class="section-header">▎ EXIT SIGNALS · 賣出訊號</div>
-          <div style="display: flex; flex-direction: column; gap: var(--space-3);" id="exits-list">
-            <!-- JS 渲染 -->
-          </div>
-        </section>
-
-        <!-- ── POLICY ── -->
-        <section id="policy" class="mb-8">
-          <div class="section-header">▎ POLICY RADAR · 政策觀察</div>
-          <div class="picks-grid-weekly" id="policy-list">
-            <!-- JS 渲染 -->
-          </div>
-        </section>
-
-        <!-- ── RISKS ── -->
-        <section id="risks" class="mb-8">
-          <div class="section-header">▎ RISK MONITOR · 風險監控</div>
-          <div id="risks-list">
-            <!-- JS 渲染 -->
-          </div>
-        </section>
-
-      </div><!-- /main -->
-
-      <!-- ── Aside ── -->
-      <aside>
-        <div class="sticky-aside">
-
-          <!-- Regime Summary -->
-          <div class="card card--flat">
-            <div class="section-header" style="margin-bottom: var(--space-4); padding-bottom: var(--space-3);">▎ MACRO</div>
-            <div class="metric-row">
-              <span class="metric-label">機制</span>
-              <span id="aside-regime"></span>
-            </div>
-            <div class="metric-row">
-              <span class="metric-label">SPY 趨勢</span>
-              <span class="metric-value text-positive mono-sm">↑ 上升</span>
-            </div>
-            <div class="metric-row">
-              <span class="metric-label">VIX</span>
-              <span class="metric-value mono-sm">16.4</span>
-            </div>
-            <div class="metric-row">
-              <span class="metric-label">SMH RS (4W)</span>
-              <span class="metric-value text-positive mono-sm">+2.3%</span>
-            </div>
-            <div class="metric-row">
-              <span class="metric-label">10Y 殖利率</span>
-              <span class="metric-value mono-sm">4.28%</span>
-            </div>
-          </div>
-
-          <!-- Archive -->
-          <div class="card card--flat">
-            <div class="section-header" style="margin-bottom: var(--space-4); padding-bottom: var(--space-3);">▎ ARCHIVE</div>
-            <div style="display: flex; flex-direction: column; gap: var(--space-1);">
-              <a href="#" class="ext-link" style="padding: var(--space-2) var(--space-3);">
-                <div><div class="ext-link-label mono-xs">Vol.22 · 2026.05.19</div></div>
-                <span class="ext-link-arrow mono-xs">→</span>
-              </a>
-              <a href="#" class="ext-link" style="padding: var(--space-2) var(--space-3);">
-                <div><div class="ext-link-label mono-xs">Vol.21 · 2026.05.12</div></div>
-                <span class="ext-link-arrow mono-xs">→</span>
-              </a>
-              <a href="#" class="ext-link" style="padding: var(--space-2) var(--space-3);">
-                <div><div class="ext-link-label mono-xs">Vol.20 · 2026.05.05</div></div>
-                <span class="ext-link-arrow mono-xs">→</span>
-              </a>
-              <a href="#" class="mono-xs text-secondary" style="padding: var(--space-2) var(--space-3); text-align: center; opacity: 1; letter-spacing: 0.08em;">查看全部 →</a>
-            </div>
-          </div>
-
-        </div>
-      </aside><!-- /aside -->
-
-    </div><!-- /layout -->
-  </div><!-- /container -->
+  <!-- ── 完整週報(與 email 同一份 HTML,iframe 隔離 CSS)── -->
+  <div class="weekly-frame-wrap">
+    <div id="weekly-loading" class="weekly-loading">載入完整週報…</div>
+    <iframe id="weekly-frame" title="Blue Morpho 週報" loading="eager"></iframe>
+  </div>
 </main>
 
 <!-- ── Footer ── -->
@@ -473,216 +83,60 @@
 </footer>
 
 <script>
-/* ════════════════════════════════════════════════════════
-   HELPERS
-   ════════════════════════════════════════════════════════ */
 const regimeConfig = {
   'risk-on':  { label: 'RISK-ON',  cls: 'regime-risk-on'  },
   'neutral':  { label: 'NEUTRAL',  cls: 'regime-neutral'  },
   'risk-off': { label: 'RISK-OFF', cls: 'regime-risk-off' }
 };
-const tierConfig = {
-  enter: { label: '進場', cls: 'tier-enter' },
-  ready: { label: '準備', cls: 'tier-ready' },
-  watch: { label: '追蹤', cls: 'tier-watch' }
-};
-
 function regimeBadge(r) {
-  const cfg = regimeConfig[r] || regimeConfig.neutral;
-  return `<span class="regime-badge ${cfg.cls}">${cfg.label}</span>`;
+  const c = regimeConfig[r] || regimeConfig.neutral;
+  return `<span class="regime-badge ${c.cls}">${c.label}</span>`;
 }
-function tierBadge(t) {
-  const cfg = tierConfig[t] || tierConfig.watch;
-  return `<span class="tier-badge ${cfg.cls}">${cfg.label}</span>`;
-}
-function maStackLabel(s) {
-  return { bullish:'多頭', bearish:'空頭', mixed:'混合' }[s] ?? '—';
-}
-function maStackClass(s) {
-  return { bullish:'text-positive', bearish:'text-negative', mixed:'text-warning' }[s] ?? 'text-dim';
-}
-function rsiDisplay(v) {
-  if (v == null) return { cls: 'text-dim', txt: '—' };
-  const n = Number(v);
-  return { cls: n > 70 ? 'text-warning' : n < 40 ? 'text-negative' : 'text-accent', txt: n.toFixed(1) };
-}
-const topicIconMap = {
-  '出口管制':'EX','CapEx 指引':'CI','能源':'EN','貿易':'TR','央行':'FD','監管':'RG'
-};
 
-/* ════════════════════════════════════════════════════════
-   FETCH + RENDER
-   ════════════════════════════════════════════════════════ */
 (async function init() {
-  document.getElementById('picks-list').innerHTML =
-    '<div class="mono-xs text-dim" style="padding:var(--space-4);letter-spacing:.08em;">載入中…</div>';
-
-  // 期數清單 + 選擇(?d=YYYY-MM-DD;預設最新)
-  let wkIndex = [];
-  try { wkIndex = await (await fetch('/data/weekly/index.json')).json(); } catch {}
+  // 期數清單
+  let idx = [];
+  try { idx = await (await fetch('/data/weekly/index.json')).json(); } catch {}
   const qs = new URLSearchParams(location.search);
-  const latest = wkIndex.length ? wkIndex[0].date : null;
+  const latest = idx.length ? idx[0].date : null;
   const want = qs.get('d');
-  const useDate = (want && wkIndex.some(w => w.date === want)) ? want : latest;
-  // 最新一期讀 report_cards.json(永遠最新),其餘讀存檔
-  const src = (!useDate || useDate === latest) ? '/data/report_cards.json' : `/data/weekly/${useDate}.json`;
+  const useDate = (want && idx.some(w => w.date === want)) ? want : latest;
 
-  let d;
-  try {
-    const res = await fetch(src);
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    d = await res.json();
-  } catch (e) {
-    document.getElementById('picks-list').innerHTML =
-      `<div class="mono-xs text-negative" style="padding:var(--space-4);">無法載入資料 · ${e.message}</div>`;
-    return;
-  }
-
-  // 期數下拉
+  // 下拉
   const sw = document.getElementById('weekly-switcher');
-  if (sw && wkIndex.length) {
-    sw.innerHTML = wkIndex.map(w =>
-      `<option value="${w.date}"${w.date === (useDate || latest) ? ' selected' : ''}>${w.date} · ${w.theme}</option>`).join('');
+  if (sw && idx.length) {
+    sw.innerHTML = idx.map(w =>
+      `<option value="${w.date}"${w.date === useDate ? ' selected' : ''}>${w.date} · ${w.theme}</option>`).join('');
     sw.addEventListener('change', () => { location.href = 'weekly.html?d=' + sw.value; });
   } else if (sw) { sw.style.display = 'none'; }
 
-  // ── Masthead / regime ───────────────────────────────────
-  document.getElementById('weekly-main-title').textContent = d.theme || '—';
-  const wv = document.getElementById('weekly-vol');
-  if (wv) wv.textContent = 'BLUE MORPHO WEEKLY · ' + (d.date || '');
-  ['regime-masthead','regime-hero','aside-regime'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.innerHTML = regimeBadge(d.regime);
+  // 標頭資料(主題 / 日期 / regime)
+  try {
+    const src = (!useDate || useDate === latest) ? '/data/report_cards.json' : `/data/weekly/${useDate}.json`;
+    const d = await (await fetch(src)).json();
+    document.getElementById('weekly-theme').textContent = d.theme || '—';
+    document.getElementById('weekly-date').textContent = d.date || '';
+    const rb = document.getElementById('regime-masthead');
+    if (rb) rb.innerHTML = regimeBadge(d.regime);
+    document.title = `BLUE MORPHO · 週報 · ${d.date || ''}`;
+  } catch {}
+
+  // iframe 載入完整 email 報告(同一份 HTML)
+  const frame = document.getElementById('weekly-frame');
+  const loading = document.getElementById('weekly-loading');
+  if (!useDate) { loading.textContent = '尚無週報'; frame.style.display = 'none'; return; }
+  frame.src = `/data/weekly/${useDate}.html`;
+  frame.addEventListener('load', () => {
+    loading.style.display = 'none';
+    try {
+      const doc = frame.contentWindow.document;
+      const resize = () => { frame.style.height = doc.body.scrollHeight + 'px'; };
+      resize(); setTimeout(resize, 300); setTimeout(resize, 1200);
+      doc.querySelectorAll('img').forEach(img => { if (!img.complete) img.addEventListener('load', resize); });
+      window.addEventListener('resize', resize);
+    } catch (e) { frame.style.height = '4000px'; }
   });
-  const dateEl = document.querySelector('.masthead-date');
-  if (dateEl) dateEl.textContent = d.date || '';
-
-  // ── Picks ───────────────────────────────────────────────
-  const picks = d.picks || [];
-  document.getElementById('picks-list').innerHTML = picks.length === 0
-    ? '<div class="mono-xs text-dim" style="padding:var(--space-4);">本期暫無精選</div>'
-    : picks.map(p => {
-        const rsi = rsiDisplay(p.rsi);
-        const priceStr = p.price != null ? '$' + Number(p.price).toFixed(2) : '—';
-        const rrHtml = p.rr
-          ? `<div class="pick-card-why-text" style="color:var(--text-dim);font-size:.78rem;margin-top:var(--space-3);">${p.rr}</div>`
-          : '';
-        return `
-          <div class="pick-card-full">
-            <div class="pick-card-header">
-              <div class="pick-card-ticker-block">
-                <span class="pick-card-ticker">${p.symbol}</span>
-                <div>
-                  <div class="pick-card-name">${p.name}</div>
-                  <div class="mono-xs text-dim" style="margin-top:2px;">${p.business || ''}</div>
-                </div>
-              </div>
-              <div class="flex gap-2">${tierBadge(p.tier)}</div>
-            </div>
-            <div class="pick-card-body">
-              <div>
-                <div class="pick-card-why-label">引擎觀點</div>
-                <div class="pick-card-why-text">${p.why || ''}</div>
-                ${rrHtml}
-                <div class="pick-card-theme-tag"># ${p.theme}</div>
-              </div>
-              <div class="pick-stats-col">
-                <div class="metric-row">
-                  <span class="metric-label">RSI(14)</span>
-                  <span class="metric-value mono-sm ${rsi.cls}">${rsi.txt}</span>
-                </div>
-                <div class="metric-row">
-                  <span class="metric-label">MA 排列</span>
-                  <span class="metric-value mono-sm ${maStackClass(p.ma_stack)}">${maStackLabel(p.ma_stack)}</span>
-                </div>
-                <div class="metric-row">
-                  <span class="metric-label">收盤價</span>
-                  <span class="metric-value mono-sm">${priceStr}</span>
-                </div>
-                <a href="stock.html?t=${p.symbol}" style="margin-top:auto;display:block;font-family:var(--font-mono);font-size:.68rem;color:var(--accent);letter-spacing:.08em;opacity:1;text-align:right;padding-top:var(--space-3);">
-                  完整分析 →
-                </a>
-              </div>
-            </div>
-          </div>`;
-      }).join('');
-
-  // ── Sell signals — hide if empty ────────────────────────
-  const ss = d.sell_signals || {};
-  const exSection = document.getElementById('exits-section');
-  const hasRegime = ss.regime_shift && ss.regime_shift.curr_regime;
-  const hasDecay  = Array.isArray(ss.tier_decay) && ss.tier_decay.length > 0;
-  if (!hasRegime && !hasDecay) {
-    if (exSection) exSection.style.display = 'none';
-  } else {
-    if (exSection) exSection.style.display = 'block';
-    let html = '';
-    if (hasRegime) {
-      const rs = ss.regime_shift;
-      html += `
-        <div class="sell-row" style="border-left-color:var(--warning);">
-          <div class="sell-row-header">
-            <span class="sell-ticker" style="color:var(--warning);">REGIME</span>
-            <span class="tier-badge" style="color:var(--warning);border-color:var(--warning);background:var(--warning-dim);margin-left:auto;">${rs.severity}</span>
-          </div>
-          <div class="sell-reason">
-            總經機制切換：<strong style="color:var(--text-primary);">${rs.prev_regime} → ${rs.curr_regime}</strong>
-            <span style="margin-left:12px;color:var(--warning);font-family:var(--font-mono);font-size:.78rem;">${rs.action}</span>
-          </div>
-        </div>`;
-    }
-    if (hasDecay) {
-      ss.tier_decay.forEach(row => {
-        html += `
-          <div class="sell-row">
-            <div class="sell-row-header">
-              <span class="sell-ticker">${row.symbol}</span>
-              <span class="mono-xs text-secondary" style="margin-left:var(--space-3);">評級衰退</span>
-              <span class="tier-badge" style="color:var(--negative);border-color:var(--negative);background:var(--negative-dim);margin-left:auto;">${row.severity}</span>
-            </div>
-            <div class="sell-reason" style="font-family:var(--font-mono);font-size:.8rem;">
-              ${row.from_tier}<span style="color:var(--text-dim);margin:0 8px;">→</span><span style="color:var(--negative);">${row.to_tier}</span>
-            </div>
-          </div>`;
-      });
-    }
-    document.getElementById('exits-list').innerHTML = html;
-  }
-
-  // ── Policy ──────────────────────────────────────────────
-  const policy = d.policy || [];
-  const policySection = document.getElementById('policy');
-  if (policy.length === 0) {
-    if (policySection) policySection.style.display = 'none';
-  } else {
-    document.getElementById('policy-list').innerHTML = policy.map(p => {
-      const icon = topicIconMap[p.topic] || p.topic.slice(0, 2).toUpperCase();
-      return `
-        <div class="policy-card">
-          <div class="policy-icon">${icon}</div>
-          <div>
-            <div class="policy-topic">${p.topic}</div>
-            <div class="policy-title">${p.title}</div>
-            <div class="mono-xs text-dim" style="margin-top:var(--space-2);">來源：${p.source}</div>
-          </div>
-        </div>`;
-    }).join('');
-  }
-
-  // ── Risks ───────────────────────────────────────────────
-  const risks = d.risks || [];
-  const riskSection = document.getElementById('risks');
-  if (risks.length === 0) {
-    if (riskSection) riskSection.style.display = 'none';
-  } else {
-    const levelLabel = { high:'高風險', med:'中風險', low:'低風險' };
-    document.getElementById('risks-list').innerHTML = risks.map(r => `
-      <div class="risk-item risk-${r.level}">
-        <div class="risk-level">${levelLabel[r.level] || r.level}</div>
-        <div class="risk-title">${r.title}</div>
-        <div class="risk-desc">${r.desc || ''}</div>
-      </div>`).join('');
-  }
+  frame.addEventListener('error', () => { loading.textContent = '載入失敗'; });
 })();
 </script>
 
