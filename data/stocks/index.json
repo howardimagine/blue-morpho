@@ -1,0 +1,230 @@
+[
+  {
+    "symbol": "ABB",
+    "name": "ABB",
+    "tier": "ready",
+    "theme": "Memory (HBM / DRAM / NAND)"
+  },
+  {
+    "symbol": "ACLS",
+    "name": "艾克塞利",
+    "tier": "ready",
+    "theme": "Semiconductor Equipment (WFE)"
+  },
+  {
+    "symbol": "AEHR",
+    "name": "Aehr Test",
+    "tier": "ready",
+    "theme": "Semiconductor Equipment (WFE)"
+  },
+  {
+    "symbol": "AEIS",
+    "name": "先進能源",
+    "tier": "ready",
+    "theme": "Semiconductor Equipment (WFE)"
+  },
+  {
+    "symbol": "AMAT",
+    "name": "應用材料",
+    "tier": "enter",
+    "theme": "AI Compute"
+  },
+  {
+    "symbol": "AMD",
+    "name": "超微",
+    "tier": "watch",
+    "theme": "AI Compute"
+  },
+  {
+    "symbol": "AMZN",
+    "name": "亞馬遜",
+    "tier": "watch",
+    "theme": "AI Compute"
+  },
+  {
+    "symbol": "ARM",
+    "name": "安謀",
+    "tier": "ready",
+    "theme": "AI Compute"
+  },
+  {
+    "symbol": "ASML",
+    "name": "艾司摩爾",
+    "tier": "enter",
+    "theme": "Semiconductor Equipment (WFE)"
+  },
+  {
+    "symbol": "AVGO",
+    "name": "博通",
+    "tier": "ready",
+    "theme": "Memory (HBM / DRAM / NAND)"
+  },
+  {
+    "symbol": "BEPC",
+    "name": "Brookfield Renewable Corporatio",
+    "tier": "watch",
+    "theme": "Solar / Renewables"
+  },
+  {
+    "symbol": "CEG",
+    "name": "Constellation Energy",
+    "tier": "ready",
+    "theme": "Memory (HBM / DRAM / NAND)"
+  },
+  {
+    "symbol": "CRWD",
+    "name": "CrowdStrike",
+    "tier": "ready",
+    "theme": "Cybersecurity"
+  },
+  {
+    "symbol": "CYBR",
+    "name": "CYBR",
+    "tier": "ready",
+    "theme": "Cybersecurity"
+  },
+  {
+    "symbol": "ENB",
+    "name": "Enbridge Inc",
+    "tier": "ready",
+    "theme": "Electrification / Power"
+  },
+  {
+    "symbol": "ENTG",
+    "name": "英特格",
+    "tier": "watch",
+    "theme": "AI Compute"
+  },
+  {
+    "symbol": "GEV",
+    "name": "GE Vernova",
+    "tier": "ready",
+    "theme": "Electrification / Power"
+  },
+  {
+    "symbol": "GFS",
+    "name": "格羅方德",
+    "tier": "watch",
+    "theme": "AI Compute"
+  },
+  {
+    "symbol": "HON",
+    "name": "霍尼韋爾",
+    "tier": "watch",
+    "theme": "Quantum Computing"
+  },
+  {
+    "symbol": "IBM",
+    "name": "IBM",
+    "tier": "watch",
+    "theme": "Quantum Computing"
+  },
+  {
+    "symbol": "INTC",
+    "name": "英特爾",
+    "tier": "watch",
+    "theme": "AI Compute"
+  },
+  {
+    "symbol": "ISRG",
+    "name": "Intuitive Surgical",
+    "tier": "ready",
+    "theme": "Healthcare AI"
+  },
+  {
+    "symbol": "KLAC",
+    "name": "科磊",
+    "tier": "ready",
+    "theme": "Semiconductor Equipment (WFE)"
+  },
+  {
+    "symbol": "KLIC",
+    "name": "庫力索法",
+    "tier": "ready",
+    "theme": "Semiconductor Equipment (WFE)"
+  },
+  {
+    "symbol": "LRCX",
+    "name": "科林研發",
+    "tier": "enter",
+    "theme": "Semiconductor Equipment (WFE)"
+  },
+  {
+    "symbol": "META",
+    "name": "Meta",
+    "tier": "watch",
+    "theme": "AI Compute"
+  },
+  {
+    "symbol": "MKSI",
+    "name": "MKS Inc.",
+    "tier": "enter",
+    "theme": "AI Compute"
+  },
+  {
+    "symbol": "MRVL",
+    "name": "美滿科技",
+    "tier": "ready",
+    "theme": "Memory (HBM / DRAM / NAND)"
+  },
+  {
+    "symbol": "MU",
+    "name": "美光",
+    "tier": "enter",
+    "theme": "AI Compute"
+  },
+  {
+    "symbol": "NOW",
+    "name": "ServiceNow",
+    "tier": "ready",
+    "theme": "AI Software"
+  },
+  {
+    "symbol": "ROK",
+    "name": "羅克韋爾自動化",
+    "tier": "watch",
+    "theme": "Industrial Automation"
+  },
+  {
+    "symbol": "SIMO",
+    "name": "慧榮科技",
+    "tier": "ready",
+    "theme": "Memory (HBM / DRAM / NAND)"
+  },
+  {
+    "symbol": "SNDK",
+    "name": "SanDisk",
+    "tier": "ready",
+    "theme": "Memory (HBM / DRAM / NAND)"
+  },
+  {
+    "symbol": "STX",
+    "name": "希捷",
+    "tier": "ready",
+    "theme": "Memory (HBM / DRAM / NAND)"
+  },
+  {
+    "symbol": "TER",
+    "name": "泰瑞達",
+    "tier": "ready",
+    "theme": "Semiconductor Equipment (WFE)"
+  },
+  {
+    "symbol": "VRT",
+    "name": "Vertiv",
+    "tier": "watch",
+    "theme": "Data Center"
+  },
+  {
+    "symbol": "VST",
+    "name": "Vistra",
+    "tier": "watch",
+    "theme": "Nuclear / SMR"
+  },
+  {
+    "symbol": "WDC",
+    "name": "威騰電子",
+    "tier": "ready",
+    "theme": "Memory (HBM / DRAM / NAND)"
+  }
+]

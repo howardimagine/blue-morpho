@@ -1,0 +1,119 @@
+{
+  "symbol": "ASML",
+  "name": "艾司摩爾",
+  "tier": "enter",
+  "regime": "neutral",
+  "theme": "Semiconductor Equipment (WFE)",
+  "business": "EUV 微影設備獨家供應商;3nm 以下節點必經;荷蘭出口管制為主要變數。",
+  "why": "NEWS_CATALYST",
+  "rsi": null,
+  "sma50": null,
+  "sma200": null,
+  "factors": [
+    {
+      "key": "theme_tailwind",
+      "label": "主題順風",
+      "score": 8.5
+    },
+    {
+      "key": "technical_setup",
+      "label": "技術形態",
+      "score": 9.4
+    },
+    {
+      "key": "macro_context",
+      "label": "總經環境",
+      "score": null
+    },
+    {
+      "key": "business_quality",
+      "label": "基本面品質",
+      "score": 5.5
+    },
+    {
+      "key": "news_catalyst",
+      "label": "新聞催化",
+      "score": 8.8
+    },
+    {
+      "key": "risk_reward",
+      "label": "風險回報",
+      "score": 5.0
+    }
+  ],
+  "tracking": [
+    {
+      "date": "2026-05-28",
+      "theme": "Semiconductor Equipment (WFE)",
+      "tier": "enter",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
+    {
+      "date": "2026-04-28",
+      "theme": "Semiconductor Equipment (WFE)",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
+    {
+      "date": "2026-04-26",
+      "theme": "—",
+      "tier": "enter",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    }
+  ],
+  "links": [
+    {
+      "label": "Finviz",
+      "desc": "技術快照 / 圖",
+      "href": "https://finviz.com/quote.ashx?t=ASML"
+    },
+    {
+      "label": "StockAnalysis",
+      "desc": "財報 / 估值",
+      "href": "https://stockanalysis.com/stocks/ASML/"
+    },
+    {
+      "label": "TradingView",
+      "desc": "互動圖",
+      "href": "https://www.tradingview.com/symbols/ASML/"
+    },
+    {
+      "label": "Macrotrends",
+      "desc": "長期財務",
+      "href": "https://www.macrotrends.net/stocks/charts/ASML/x/"
+    },
+    {
+      "label": "TipRanks",
+      "desc": "分析師",
+      "href": "https://www.tipranks.com/stocks/ASML/forecast"
+    }
+  ],
+  "peers": [
+    {
+      "symbol": "LRCX",
+      "name": "科林研發",
+      "tier": "enter"
+    },
+    {
+      "symbol": "KLIC",
+      "name": "庫力索法",
+      "tier": "ready"
+    },
+    {
+      "symbol": "TER",
+      "name": "泰瑞達",
+      "tier": "ready"
+    },
+    {
+      "symbol": "ACLS",
+      "name": "艾克塞利",
+      "tier": "ready"
+    }
+  ]
+}

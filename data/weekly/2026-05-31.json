@@ -1,0 +1,75 @@
+{
+  "date": "2026-05-31",
+  "theme": "Memory (HBM / DRAM / NAND)",
+  "regime": "neutral",
+  "picks": [
+    {
+      "symbol": "ARM",
+      "name": "安謀",
+      "tier": "ready",
+      "theme": "AI Compute",
+      "rsi": 77.5,
+      "ma_stack": "bullish",
+      "price": null,
+      "business": "處理器 IP 授權(行動/PC/AI 邊緣);軟銀控股,授權費滲透率上升。",
+      "why": "主題面，Memory (HBM / DRAM / NAND) 本週相對 SPY 的 1 個月強度排名靠前，市場資金持續流入。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
+      "rr": null
+    },
+    {
+      "symbol": "VRT",
+      "name": "Vertiv",
+      "tier": "watch",
+      "theme": "Data Center",
+      "rsi": 45.4,
+      "ma_stack": "bullish",
+      "price": null,
+      "business": "資料中心關鍵基礎設施(電源/散熱);AI 訓練中心建設核心。",
+      "why": "本週篩選邏輯下相對其他候選股表現較佳。",
+      "rr": null
+    },
+    {
+      "symbol": "VST",
+      "name": "Vistra",
+      "tier": "watch",
+      "theme": "Nuclear / SMR",
+      "rsi": 56.7,
+      "ma_stack": "mixed",
+      "price": null,
+      "business": "獨立電力業者(核+天然氣+儲能);AI 用電題材核心受惠。",
+      "why": "本週篩選邏輯下相對其他候選股表現較佳。",
+      "rr": null
+    },
+    {
+      "symbol": "ROK",
+      "name": "羅克韋爾自動化",
+      "tier": "watch",
+      "theme": "Industrial Automation",
+      "rsi": 59.8,
+      "ma_stack": "bullish",
+      "price": null,
+      "business": "工廠自動化/工業控制(PLC/軟體)龍頭;再工業化+製造 AI 受惠。",
+      "why": "本週篩選邏輯下相對其他候選股表現較佳。",
+      "rr": null
+    }
+  ],
+  "sell_signals": {},
+  "policy": [
+    {
+      "topic": "川普 × 個股機會",
+      "title": "Micron and Dell soar on 'Trump praise'! Will NVIDIA or quantum be the next 'favorite stock'? — Exploring from 'Trump's holdings'",
+      "source": "Moomoo"
+    },
+    {
+      "topic": "川普 × 個股機會",
+      "title": "Dell wins a $9.7 billion Pentagon software deal after donating to Trump accounts",
+      "source": "CNBC"
+    }
+  ],
+  "themes": [],
+  "stats": {
+    "n_picks": 4,
+    "n_themes": 0,
+    "journal_total": 88
+  },
+  "_note": "命中率/超額待回測樣本成熟;entry/alpha/vol 未提供(歷史不足)。"
+}

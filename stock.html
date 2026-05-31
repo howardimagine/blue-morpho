@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NVDA · 輝達 — Blue Morpho 個股分析</title>
+  <meta name="description" content="Blue Morpho 引擎觀點：NVDA 輝達。AI Compute / Data Center 主題，追蹤記錄、五因子評分、技術快照。">
+  <meta property="og:title" content="NVDA · 輝達 — Blue Morpho 個股分析">
+  <meta property="og:type" content="article">
+  <meta name="theme-color" content="#02020A">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "NVDA 輝達 — Blue Morpho 引擎觀點",
+    "publisher": { "@type": "Organization", "name": "Blue Morpho" }
+  }
+  </script>
+  <style>
+    /* ── Stock page styles ── */
+    .stock-hero {
+      padding: var(--space-8) 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stock-breadcrumb {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-4);
+    }
+
+    .stock-breadcrumb a { color: var(--text-dim); opacity: 1; }
+    .stock-breadcrumb a:hover { color: var(--accent); opacity: 1; }
+    .stock-breadcrumb span { margin: 0 var(--space-2); }
+
+    .stock-header-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--space-6);
+      flex-wrap: wrap;
+    }
+
+    .stock-ticker-block { display: flex; flex-direction: column; gap: var(--space-2); }
+
+    .stock-ticker {
+      font-family: var(--font-mono);
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      letter-spacing: 0.05em;
+    }
+
+    .stock-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .stock-business {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      max-width: 500px;
+      line-height: 1.5;
+    }
+
+    .stock-badges {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+      margin-top: var(--space-2);
+    }
+
+    .stock-price-block {
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .stock-price {
+      font-family: var(--font-mono);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+    }
+
+    .stock-price-change {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-variant-numeric: tabular-nums;
+      margin-top: var(--space-1);
+    }
+
+    .stock-price-date {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      color: var(--text-dim);
+      letter-spacing: 0.08em;
+      margin-top: var(--space-2);
+    }
+
+    /* Five-factor ── */
+    .factor-section { display: flex; flex-direction: column; gap: var(--space-2); }
+
+    /* Tracking table ── */
+    .tracking-row-positive td:last-child { color: var(--positive); }
+    .tracking-row-negative td:last-child { color: var(--negative); }
+
+    /* Technical chart approximation ── */
+    .tech-viz {
+      position: relative;
+      height: 80px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      margin-bottom: var(--space-4);
+      overflow: hidden;
+    }
+
+    .tech-viz-label {
+      position: absolute;
+      top: var(--space-2);
+      left: var(--space-3);
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+      z-index: 2;
+    }
+
+    /* Inline bar chart for RSI ── */
+    .rsi-bar-wrap {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .rsi-track {
+      flex: 1;
+      height: 6px;
+      background: var(--border);
+      border-radius: 3px;
+      position: relative;
+      overflow: visible;
+    }
+
+    .rsi-zone-ob {
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 30%;
+      background: var(--negative-dim);
+      border-radius: 0 3px 3px 0;
+    }
+
+    .rsi-zone-os {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 30%;
+      background: var(--positive-dim);
+      border-radius: 3px 0 0 3px;
+    }
+
+    .rsi-needle {
+      position: absolute;
+      top: -4px;
+      width: 2px;
+      height: 14px;
+      background: var(--accent);
+      border-radius: 1px;
+      transform: translateX(-50%);
+    }
+
+    /* Related stocks ── */
+    .related-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-3) var(--space-4);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      opacity: 1;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .related-card:hover {
+      border-color: var(--accent);
+      background: var(--bg-card);
+      opacity: 1;
+      color: inherit;
+    }
+
+    .related-ticker {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .related-name { font-size: 0.78rem; color: var(--text-secondary); }
+
+    @media (max-width: 640px) {
+      .stock-header-row { flex-direction: column; }
+      .stock-price-block { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img class="nav-logo-icon" src="assets/icon.svg" alt="Blue Morpho">
+        <div>
+          <div class="nav-logo-text">BLUE MORPHO</div>
+          <div class="nav-logo-sub">美股前沿觀察</div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="weekly.html">WEEKLY</a></li>
+        <li><a href="stock.html" class="active">STOCKS</a></li>
+      </ul>
+      <a href="index.html#subscribe" class="nav-cta">訂閱週報</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <!-- ── Stock Hero ── -->
+  <div class="stock-hero">
+    <div class="container">
+      <div class="stock-breadcrumb">
+        <a href="index.html">HOME</a><span>·</span>
+        <a href="#">STOCKS</a><span>·</span>
+        <span id="bc-ticker">—</span>
+        <select id="stock-switcher" aria-label="切換個股"
+          style="margin-left:auto;background:var(--bg-card);border:1px solid var(--border);color:var(--text-primary);font-family:var(--font-mono);font-size:0.72rem;letter-spacing:.06em;padding:6px 10px;border-radius:2px;outline:none;cursor:pointer;max-width:240px;">
+        </select>
+      </div>
+      <div class="stock-header-row">
+        <div class="stock-ticker-block">
+          <div class="stock-ticker" id="hdr-ticker">NVDA</div>
+          <div class="stock-name" id="hdr-name">—</div>
+          <div class="stock-business" id="hdr-business"></div>
+          <div class="stock-badges">
+            <span id="hdr-tier"></span>
+            <span id="hdr-regime"></span>
+            <span class="theme-tag" id="hdr-theme">AI Compute / Data Center</span>
+          </div>
+        </div>
+        <div class="stock-price-block">
+          <div class="stock-price" id="hdr-price">—</div>
+          <div class="stock-price-change" id="hdr-change"></div>
+          <div class="stock-price-date" id="hdr-date"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" style="padding-top: var(--space-8); padding-bottom: var(--space-12);">
+    <div class="layout-main-aside">
+
+      <!-- ── Main ── -->
+      <div>
+
+        <!-- Engine View ── -->
+        <section class="mb-8">
+          <div class="section-header">▎ ENGINE VIEW · 引擎觀點</div>
+          <div class="card card--accent mb-4">
+            <div class="section-header" style="margin-bottom: var(--space-3); padding-bottom: var(--space-3); font-size:0.62rem;">▎ 為何上榜</div>
+            <p style="font-size: 0.9rem; line-height: 1.7; color: var(--text-primary);" id="why-featured">
+              Blackwell 訂單能見度拉長至 Q2 2027，CoWoS 封裝產能仍是瓶頸，ASP 上升動能明確。
+              GB200 NVL72 機架訂單超出市場預期，Inference 需求從低谷反彈中。三大 Hyperscaler 同步上調
+              CapEx，而 NVDA 是唯一能在 Training 與 Inference 兩端通吃的供應商。
+            </p>
+            <div class="divider" style="margin: var(--space-5) 0;"></div>
+            <div class="section-header" style="margin-bottom: var(--space-3); padding-bottom: var(--space-3); font-size:0.62rem;">▎ R/R 評估</div>
+            <p style="font-size: 0.85rem; line-height: 1.65; color: var(--text-secondary);" id="rr-text">
+              R/R 正面：進入點仍在 MA50 上方，論點完整，出場條件明確。
+              主要風險：出口管制進一步升級（觸發即重新評估），以及 Hyperscaler CapEx 展望出現
+              系統性下修（觀察 Q2 法說）。
+            </p>
+          </div>
+
+          <!-- Five Factors ── -->
+          <div class="card card--flat">
+            <div class="section-header" style="margin-bottom: var(--space-4); padding-bottom: var(--space-3);">▎ 引擎六因子評分</div>
+            <div class="factor-section" id="five-factors">
+              <!-- JS 渲染 -->
+            </div>
+          </div>
+        </section>
+
+        <!-- Tracking History ── -->
+        <section class="mb-8">
+          <div class="section-header">▎ TRACK RECORD · 追蹤記錄</div>
+          <div class="card card--flat" style="padding: 0; overflow: hidden;">
+            <table class="data-table" id="tracking-table">
+              <thead>
+                <tr>
+                  <th>日期</th>
+                  <th>期號</th>
+                  <th>主題</th>
+                  <th>Tier</th>
+                  <th>上榜時價</th>
+                  <th>4W 超額 vs SPY</th>
+                </tr>
+              </thead>
+              <tbody id="tracking-tbody">
+                <!-- JS 渲染 -->
+              </tbody>
+            </table>
+          </div>
+          <div class="card card--flat mt-4" style="padding: var(--space-4);">
+            <div class="flex gap-8" style="flex-wrap:wrap;">
+              <div class="stat-item">
+                <span class="stat-label">上榜次數</span>
+                <span class="stat-value text-accent" id="stat-count">8 次</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">超額次數</span>
+                <span class="stat-value text-dim" id="stat-positive">—</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">平均超額</span>
+                <span class="stat-value text-dim" id="stat-avg-alpha">累積中</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">命中率</span>
+                <span class="stat-value text-dim" id="stat-hitrate">累積中</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Technical Snapshot ── -->
+        <section class="mb-8">
+          <div class="section-header">▎ TECHNICAL SNAPSHOT · 技術快照</div>
+          <div class="card card--flat">
+
+            <!-- RSI -->
+            <div class="metric-row">
+              <span class="metric-label">RSI (14)</span>
+              <div class="rsi-bar-wrap" style="flex:1; margin: 0 var(--space-4);">
+                <div class="rsi-track">
+                  <div class="rsi-zone-os"></div>
+                  <div class="rsi-zone-ob"></div>
+                  <div class="rsi-needle" id="rsi-needle" style="left: 61.2%;"></div>
+                </div>
+              </div>
+              <span class="metric-value mono-sm text-accent" id="tech-rsi">61.2</span>
+            </div>
+
+            <!-- MA Stack (SMA50 vs SMA200) -->
+            <div class="metric-row">
+              <span class="metric-label">MA 排列</span>
+              <span class="metric-value mono-sm" id="tech-ma-label">—</span>
+            </div>
+
+            <!-- Price vs MAs -->
+            <div class="metric-row">
+              <span class="metric-label">SMA 50</span>
+              <span class="metric-value mono-sm" id="tech-sma50">—</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">SMA 200</span>
+              <span class="metric-value mono-sm" id="tech-sma200">—</span>
+            </div>
+
+            <div class="mono-xs text-dim" style="margin-top: var(--space-4); letter-spacing:0.05em;">
+              * 技術數據每週五收盤後更新 · 即時圖表請見下方外連
+            </div>
+          </div>
+        </section>
+
+      </div><!-- /main -->
+
+      <!-- ── Aside ── -->
+      <aside>
+        <div class="sticky-aside">
+
+          <!-- Quick Metrics ── -->
+          <div class="card card--flat">
+            <div class="section-header" style="margin-bottom: var(--space-4); padding-bottom: var(--space-3);">▎ KEY METRICS</div>
+            <div class="metric-row">
+              <span class="metric-label">市值</span>
+              <span class="metric-value mono-sm">$2.67T</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">P/E (FWD)</span>
+              <span class="metric-value mono-sm">38.4x</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">P/S</span>
+              <span class="metric-value mono-sm">24.1x</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">EPS YoY</span>
+              <span class="metric-value text-positive mono-sm">+89%</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">Rev YoY</span>
+              <span class="metric-value text-positive mono-sm">+78%</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">毛利率</span>
+              <span class="metric-value mono-sm">74.6%</span>
+            </div>
+          </div>
+
+          <!-- External Links ── -->
+          <div class="card card--flat">
+            <div class="section-header" style="margin-bottom: var(--space-4); padding-bottom: var(--space-3);">▎ DEEP DATA · 外部資源</div>
+            <div style="display:flex;flex-direction:column;gap:var(--space-2);" id="ext-links">
+              <!-- JS 渲染 -->
+            </div>
+          </div>
+
+          <!-- Same Theme ── -->
+          <div class="card card--flat">
+            <div class="section-header" style="margin-bottom: var(--space-4); padding-bottom: var(--space-3);">▎ SAME THEME · 同主題</div>
+            <div style="display:flex;flex-direction:column;gap:var(--space-2);" id="related-stocks">
+              <!-- JS 渲染 -->
+            </div>
+          </div>
+
+          <!-- Subscribe CTA ── -->
+          <div class="card" style="border-color:var(--accent); background: var(--accent-dim);">
+            <div class="mono-xs text-accent mb-4" style="letter-spacing:0.12em;">▎ 訂閱週報</div>
+            <p class="text-secondary text-xs mb-4" style="line-height:1.6;">每週引擎選股直送信箱，包含完整分析與追蹤記錄更新。</p>
+            <form onsubmit="handleSubAside(event)" style="display:flex;flex-direction:column;gap:var(--space-2);">
+              <input type="email" name="email"    class="subscribe-input" placeholder="your@email.com" required style="font-size:0.75rem;">
+              <input type="text"  name="nickname" class="subscribe-input" placeholder="你的暱稱（選填）" maxlength="30" style="font-size:0.75rem;">
+              <button type="submit" class="subscribe-btn" style="font-size:0.65rem;">立即訂閱</button>
+            </form>
+          </div>
+
+        </div>
+      </aside>
+
+    </div><!-- /layout -->
+  </div><!-- /container -->
+</main>
+
+<!-- ── Footer ── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-copy">© 2026 BLUE MORPHO · 本站僅供資訊參考，非投資建議</div>
+      <div class="footer-links">
+        <a href="index.html">首頁</a>
+        <a href="weekly.html">本週週報</a>
+        <a href="index.html#subscribe">訂閱</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const tierConfig = { enter:{label:'進場',cls:'tier-enter'}, ready:{label:'準備',cls:'tier-ready'}, watch:{label:'追蹤',cls:'tier-watch'} };
+const regimeConfig = { 'risk-on':{label:'RISK-ON',cls:'regime-risk-on'}, 'neutral':{label:'NEUTRAL',cls:'regime-neutral'}, 'risk-off':{label:'RISK-OFF',cls:'regime-risk-off'} };
+const tierBadge = t => { const c = tierConfig[t]||tierConfig.watch; return `<span class="tier-badge ${c.cls}">${c.label}</span>`; };
+const regimeBadge = r => { const c = regimeConfig[r]||regimeConfig.neutral; return `<span class="regime-badge ${c.cls}">${c.label}</span>`; };
+const $ = id => document.getElementById(id);
+const hide = el => { if (el) el.style.display = 'none'; };
+const fmt = (n,d=2) => (n==null||isNaN(n)) ? '—' : Number(n).toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+
+(async function init(){
+  const qs = new URLSearchParams(location.search);
+  let t = (qs.get('t') || qs.get('ticker') || '').toUpperCase();
+
+  // 個股清單(下拉 + 預設)
+  let index = [];
+  try { index = await (await fetch('/data/stocks/index.json')).json(); } catch {}
+  if (!t && index.length) t = index[0].symbol;
+  const sw = $('stock-switcher');
+  if (sw && index.length){
+    sw.innerHTML = index.map(it => `<option value="${it.symbol}"${it.symbol===t?' selected':''}>${it.symbol} · ${it.name}</option>`).join('');
+    sw.addEventListener('change', () => { location.href = 'stock.html?t=' + sw.value; });
+  } else { hide(sw); }
+
+  // 個股資料
+  let s;
+  try {
+    const res = await fetch(`/data/stocks/${t}.json`);
+    if (!res.ok) throw new Error('HTTP '+res.status);
+    s = await res.json();
+  } catch(e){
+    document.querySelector('main').insertAdjacentHTML('afterbegin',
+      `<div class="container" style="padding:var(--space-8);"><div class="mono-xs text-negative">找不到 ${t} 的資料 · ${e.message}</div></div>`);
+    return;
+  }
+
+  // 本期報告(取價格 / R-R)
+  let pick = null, rptDate = null;
+  try { const rc = await (await fetch('/data/report_cards.json')).json(); rptDate = rc.date; pick = (rc.picks||[]).find(p => p.symbol === s.symbol) || null; } catch {}
+
+  // Header
+  document.title = `${s.symbol} · ${s.name} — Blue Morpho 個股分析`;
+  $('bc-ticker').textContent = s.symbol;
+  $('hdr-ticker').textContent = s.symbol;
+  $('hdr-name').textContent = s.name;
+  $('hdr-business').textContent = s.business || '';
+  $('hdr-tier').innerHTML = tierBadge(s.tier);
+  $('hdr-regime').innerHTML = regimeBadge(s.regime);
+  $('hdr-theme').textContent = s.theme || '—';
+
+  // 價格:只有本期精選才有(report_cards),否則整塊隱藏(不放假資料)
+  if (pick && pick.price != null){
+    $('hdr-price').textContent = '$' + fmt(pick.price);
+    $('hdr-date').textContent = (rptDate || '') + ' 收盤';
+    hide($('hdr-change'));
+  } else {
+    hide(document.querySelector('.stock-price-block'));
+  }
+
+  // 為何上榜 / R-R
+  $('why-featured').textContent = s.why || '—';
+  const rrText = $('rr-text');
+  if (pick && pick.rr){ rrText.textContent = pick.rr; }
+  else {
+    rrText.style.display='none';
+    const hdr = rrText.previousElementSibling; if (hdr) hdr.style.display='none';
+    const dv = hdr && hdr.previousElementSibling; if (dv && dv.classList && dv.classList.contains('divider')) dv.style.display='none';
+  }
+
+  // 六因子
+  $('five-factors').innerHTML = (s.factors||[]).map(f => f.score==null
+    ? `<div class="factor-row"><span class="factor-label">${f.label}</span><div class="factor-bar-wrap" style="background:transparent;"></div><span class="factor-score" style="color:var(--text-dim);">—</span></div>`
+    : `<div class="factor-row"><span class="factor-label">${f.label}</span><div class="factor-bar-wrap"><div class="factor-bar-fill" style="width:${f.score*10}%;"></div></div><span class="factor-score">${Number(f.score).toFixed(1)}</span></div>`
+  ).join('');
+
+  // 技術
+  if (s.rsi!=null){ $('rsi-needle').style.left = s.rsi+'%'; $('tech-rsi').textContent = Number(s.rsi).toFixed(1); }
+  else { $('tech-rsi').textContent='—'; }
+  $('tech-sma50').textContent = s.sma50!=null ? '$'+fmt(s.sma50) : '—';
+  $('tech-sma200').textContent = s.sma200!=null ? '$'+fmt(s.sma200) : '—';
+  const ml = $('tech-ma-label');
+  if (s.sma50!=null && s.sma200!=null){
+    const bull = s.sma50 >= s.sma200;
+    ml.textContent = bull ? '多頭 (SMA50 > SMA200)' : '空頭 (SMA50 < SMA200)';
+    ml.className = 'metric-value mono-sm ' + (bull ? 'text-positive' : 'text-negative');
+  } else { ml.textContent='—'; }
+
+  // 追蹤記錄
+  const tr = s.tracking || [];
+  $('stat-count').textContent = tr.length + ' 次';
+  $('stat-positive').textContent = '—';
+  $('stat-avg-alpha').textContent = '累積中';
+  $('stat-hitrate').textContent = '累積中';
+  document.querySelector('#tracking-table thead tr').innerHTML = `<th>入選日期</th><th>當時主題</th><th>當時評級</th>`;
+  $('tracking-tbody').innerHTML = tr.length ? tr.map(r => {
+    const c = tierConfig[r.tier]||tierConfig.watch;
+    return `<tr><td class="mono-cell">${r.date}</td><td>${r.theme}</td><td><span class="tier-badge ${c.cls}" style="font-size:.58rem;">${c.label}</span></td></tr>`;
+  }).join('') : `<tr><td colspan="3" class="mono-xs text-dim" style="padding:var(--space-4);">尚無記錄</td></tr>`;
+
+  // 外部資源
+  $('ext-links').innerHTML = (s.links||[]).map(l =>
+    `<a href="${l.href}" target="_blank" rel="noopener" class="ext-link"><div><div class="ext-link-label">${l.label}</div><div class="ext-link-desc">${l.desc||''}</div></div><span class="ext-link-arrow">↗</span></a>`
+  ).join('');
+
+  // 同主題
+  const peers = s.peers || [];
+  $('related-stocks').innerHTML = peers.length
+    ? peers.map(r => { const c = tierConfig[r.tier]||tierConfig.watch; return `<a href="stock.html?t=${r.symbol}" class="related-card"><div><div class="related-ticker">${r.symbol}</div><div class="related-name">${r.name}</div></div><span class="tier-badge ${c.cls}" style="font-size:.58rem;">${c.label}</span></a>`; }).join('')
+    : `<div class="mono-xs text-dim">同主題暫無其他標的</div>`;
+})();
+
+async function handleSubAside(e){
+  e.preventDefault();
+  const form = e.target;
+  const email = form.querySelector('input[name="email"]').value.trim();
+  const nickname = form.querySelector('input[name="nickname"]').value.trim();
+  const btn = form.querySelector('button[type="submit"]');
+  btn.disabled = true; btn.textContent = '送出中...';
+  try { await fetch('/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,nickname})}); } catch {}
+  btn.textContent = '✓ 已加入名單'; form.reset();
+}
+</script>
+
+</body>
+</html>

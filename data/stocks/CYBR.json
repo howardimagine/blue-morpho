@@ -1,0 +1,88 @@
+{
+  "symbol": "CYBR",
+  "name": "CYBR",
+  "tier": "ready",
+  "regime": "risk-on",
+  "theme": "Cybersecurity",
+  "business": "",
+  "why": "THEME_TAILWIND",
+  "rsi": null,
+  "sma50": null,
+  "sma200": null,
+  "factors": [
+    {
+      "key": "theme_tailwind",
+      "label": "主題順風",
+      "score": 8.4
+    },
+    {
+      "key": "technical_setup",
+      "label": "技術形態",
+      "score": 4.4
+    },
+    {
+      "key": "macro_context",
+      "label": "總經環境",
+      "score": null
+    },
+    {
+      "key": "business_quality",
+      "label": "基本面品質",
+      "score": 4.9
+    },
+    {
+      "key": "news_catalyst",
+      "label": "新聞催化",
+      "score": null
+    },
+    {
+      "key": "risk_reward",
+      "label": "風險回報",
+      "score": null
+    }
+  ],
+  "tracking": [
+    {
+      "date": "2026-05-29",
+      "theme": "Cybersecurity",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    }
+  ],
+  "links": [
+    {
+      "label": "Finviz",
+      "desc": "技術快照 / 圖",
+      "href": "https://finviz.com/quote.ashx?t=CYBR"
+    },
+    {
+      "label": "StockAnalysis",
+      "desc": "財報 / 估值",
+      "href": "https://stockanalysis.com/stocks/CYBR/"
+    },
+    {
+      "label": "TradingView",
+      "desc": "互動圖",
+      "href": "https://www.tradingview.com/symbols/CYBR/"
+    },
+    {
+      "label": "Macrotrends",
+      "desc": "長期財務",
+      "href": "https://www.macrotrends.net/stocks/charts/CYBR/x/"
+    },
+    {
+      "label": "TipRanks",
+      "desc": "分析師",
+      "href": "https://www.tipranks.com/stocks/CYBR/forecast"
+    }
+  ],
+  "peers": [
+    {
+      "symbol": "CRWD",
+      "name": "CrowdStrike",
+      "tier": "ready"
+    }
+  ]
+}

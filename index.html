@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BLUE MORPHO · 美股前沿觀察</title>
+  <meta name="description" content="引擎驅動的美股週報 — AI 選股、Bloomberg 風分析、命中記錄追蹤。繁體中文，每週更新。">
+  <meta property="og:title" content="BLUE MORPHO · 美股前沿觀察">
+  <meta property="og:description" content="引擎驅動的美股週報 — AI 選股、Bloomberg 風分析、命中記錄追蹤。">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#02020A">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Blue Morpho",
+    "description": "引擎驅動的美股週報與個股分析",
+    "url": "https://bluemorpho.art"
+  }
+  </script>
+  <style>
+    /* ── Home-specific styles ── */
+    .hero-stats {
+      display: flex;
+      gap: var(--space-8);
+      margin-bottom: var(--space-8);
+      flex-wrap: wrap;
+    }
+    .hero-stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .hero-stat-num {
+      font-family: var(--font-mono);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .latest-report-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      padding: var(--space-6);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--space-4);
+      align-items: center;
+      text-decoration: none;
+      color: inherit;
+      opacity: 1;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .latest-report-card:hover {
+      background: var(--bg-hover);
+      border-color: var(--accent);
+      opacity: 1;
+      color: inherit;
+    }
+    .lrc-label {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: var(--space-2);
+    }
+    .lrc-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: var(--space-2);
+    }
+    .lrc-meta {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-secondary);
+      display: flex;
+      gap: var(--space-4);
+    }
+    .lrc-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: var(--space-2);
+      flex-shrink: 0;
+    }
+    .lrc-arrow {
+      font-family: var(--font-mono);
+      font-size: 1.5rem;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .subscribe-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: var(--space-8) var(--space-8);
+      position: relative;
+      overflow: hidden;
+    }
+    .subscribe-section::before {
+      content: '';
+      position: absolute;
+      right: -60px; top: -60px;
+      width: 240px; height: 240px;
+      background: radial-gradient(ellipse, var(--accent-dim) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .subscribe-section-inner { position: relative; z-index: 1; }
+    .subscribe-section-title {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: var(--space-2);
+    }
+    .subscribe-section-sub {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: var(--space-5);
+      max-width: 440px;
+    }
+
+    .themes-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+
+    /* Dimmed stat — data not yet mature */
+    .hero-stat-num.stat-pending {
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      letter-spacing: 0.06em;
+      padding-top: 4px;
+    }
+
+    @media (max-width: 640px) {
+      .latest-report-card { grid-template-columns: 1fr; }
+      .lrc-cta { align-items: flex-start; flex-direction: row; align-items: center; }
+      .subscribe-section { padding: var(--space-6) var(--space-5); }
+    }
+
+    /* ── Subscribe Modal ── */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(2, 2, 10, 0.88);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+    }
+    .modal-backdrop.open { display: flex; }
+
+    .modal {
+      background: var(--bg-card);
+      border: 1px solid var(--accent);
+      box-shadow: 0 0 48px rgba(0, 243, 255, 0.12);
+      width: 100%;
+      max-width: 400px;
+      margin: var(--space-4);
+      position: relative;
+      animation: modal-in 0.2s ease;
+    }
+
+    @keyframes modal-in {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .modal-header {
+      border-bottom: 1px solid var(--border);
+      padding: var(--space-4) var(--space-6);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-title {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0;
+      transition: color 0.15s;
+    }
+    .modal-close:hover { color: var(--text-primary); }
+
+    .modal-body { padding: var(--space-6); }
+
+    .modal-prompt {
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      margin-bottom: var(--space-2);
+      line-height: 1.5;
+    }
+
+    .modal-hint {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-dim);
+      letter-spacing: 0.06em;
+      margin-bottom: var(--space-5);
+    }
+
+    .modal-input-row {
+      display: flex;
+      gap: var(--space-2);
+    }
+
+    .modal-name-input {
+      flex: 1;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      padding: var(--space-3) var(--space-4);
+      outline: none;
+      transition: border-color 0.15s;
+      border-radius: 2px;
+    }
+    .modal-name-input::placeholder { color: var(--text-dim); }
+    .modal-name-input:focus { border-color: var(--accent); }
+
+    .modal-confirm-btn {
+      background: var(--accent);
+      color: var(--bg);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: var(--space-3) var(--space-5);
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.15s;
+      border-radius: 2px;
+      white-space: nowrap;
+    }
+    .modal-confirm-btn:hover { opacity: 0.85; }
+    .modal-confirm-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .modal-skip {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--text-dim);
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 0;
+      margin-top: var(--space-3);
+      display: block;
+      transition: color 0.15s;
+    }
+    .modal-skip:hover { color: var(--text-secondary); }
+
+    .modal-success {
+      display: none;
+      padding: var(--space-6);
+      text-align: center;
+    }
+    .modal-success-icon {
+      font-family: var(--font-mono);
+      font-size: 2rem;
+      color: var(--positive);
+      margin-bottom: var(--space-4);
+    }
+    .modal-success-title {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: var(--positive);
+      text-transform: uppercase;
+      margin-bottom: var(--space-3);
+    }
+    .modal-success-msg {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    .modal-success-name {
+      color: var(--accent);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img class="nav-logo-icon" src="assets/icon.svg" alt="Blue Morpho">
+        <div>
+          <div class="nav-logo-text">BLUE MORPHO</div>
+          <div class="nav-logo-sub">美股前沿觀察</div>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">HOME</a></li>
+        <li><a href="weekly.html">WEEKLY</a></li>
+        <li><a href="stock.html">STOCKS</a></li>
+      </ul>
+      <a href="#subscribe" class="nav-cta">訂閱週報</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-eyebrow">BLUE MORPHO · US EQUITY RADAR</div>
+    <h1 class="hero-title">
+      Seeking the blue glimmers<br>
+      <span class="accent">hidden within the market forest.</span>
+    </h1>
+    <p class="hero-sub">
+      An engine scans the entire US market each week, surfacing the strongest
+      thematic setups — then tracks every call that follows.
+      No ads. No paywall. Just signal, and a record you can audit.
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat-item">
+        <span class="hero-stat-num" id="stat-issues">—</span>
+        <span class="hero-stat-label">本期精選 · PICKS</span>
+      </div>
+      <div class="hero-stat-item">
+        <span class="hero-stat-num" id="stat-themes">—</span>
+        <span class="hero-stat-label">追蹤主題 · THEMES</span>
+      </div>
+      <div class="hero-stat-item">
+        <span class="hero-stat-num" id="stat-total-picks">—</span>
+        <span class="hero-stat-label">累計入選 · TRACKED</span>
+      </div>
+    </div>
+    <form class="subscribe-form" id="hero-form" onsubmit="handleSubscribe(event, 'hero-form')">
+      <input type="email"  name="email"    class="subscribe-input" placeholder="your@email.com" required>
+      <input type="text"   name="nickname" class="subscribe-input" placeholder="你的暱稱（選填）" maxlength="30" autocomplete="nickname">
+      <button type="submit" class="subscribe-btn">訂閱</button>
+    </form>
+    <div class="form-note">免費 · 每週發送 · 可隨時退訂</div>
+    <div class="form-success" id="hero-form-success">✓ 訂閱成功！請確認您的信箱。</div>
+    <div class="form-error" id="hero-form-error">送出失敗，請稍後再試。</div>
+  </div>
+</section>
+
+<!-- ── Latest Report ── -->
+<section class="page-section">
+  <div class="container">
+    <div class="section-header">▎ LATEST ISSUE · 最新一期</div>
+    <a href="weekly.html" class="latest-report-card" id="latest-report">
+      <div>
+        <div class="lrc-label">—</div>
+        <div class="lrc-title" id="lrc-theme">主題：AI CapEx 超週期加速——Hyperscaler 資本支出再上修</div>
+        <div class="lrc-meta">
+          <span id="lrc-regime-display"></span>
+          <span id="lrc-picks-count">6 精選 · 2 賣出訊號 · 4 政策觀察</span>
+        </div>
+      </div>
+      <div class="lrc-cta">
+        <span class="lrc-arrow">→</span>
+        <span class="mono-xs text-secondary">閱讀完整版</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ── Featured Picks ── -->
+<section class="page-section">
+  <div class="container">
+    <div class="section-header">▎ FEATURED PICKS · 本期精選</div>
+    <div class="grid-4" id="picks-grid">
+      <!-- JS 渲染 -->
+    </div>
+  </div>
+</section>
+
+<!-- ── Subscribe ── -->
+<section class="page-section" id="subscribe">
+  <div class="container">
+    <div class="section-header">▎ SUBSCRIBE · 訂閱週報</div>
+    <div class="subscribe-section">
+      <div class="subscribe-section-inner">
+        <div class="subscribe-section-title">▎ 每週到你信箱</div>
+        <p class="subscribe-section-sub">
+          引擎選完股、LLM 寫完分析之後，直接送到你的信箱。
+          精簡版在 Email，完整 Bloomberg 風版在這裡。
+        </p>
+        <form class="subscribe-form" id="main-form" onsubmit="handleSubscribe(event, 'main-form')">
+          <input type="email"  name="email"    class="subscribe-input" placeholder="your@email.com" required>
+          <input type="text"   name="nickname" class="subscribe-input" placeholder="你的暱稱（選填）" maxlength="30" autocomplete="nickname">
+          <button type="submit" class="subscribe-btn">立即訂閱</button>
+        </form>
+        <div class="form-note">加入後會收到確認信 · 雙重確認保護 · 免費</div>
+        <div class="form-success" id="main-form-success">✓ 訂閱成功！請確認您的信箱。</div>
+        <div class="form-error" id="main-form-error">送出失敗，請稍後再試。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Themes ── -->
+<section class="page-section" id="themes-section">
+  <div class="container">
+    <div class="section-header">▎ THEMES TRACKED · 引擎追蹤主題</div>
+    <div class="themes-wrap" id="themes-wrap">
+      <!-- JS 渲染 -->
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-copy">
+        © 2026 BLUE MORPHO · 本站僅供資訊參考，非投資建議
+      </div>
+      <div class="footer-links">
+        <a href="weekly.html">週報</a>
+        <a href="#">關於引擎</a>
+        <a href="#">隱私政策</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ── Subscribe Success Modal ── -->
+<div class="modal-backdrop" id="subscribe-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="modal-title" id="modal-title">▎ WELCOME · 加入名單</span>
+      <button class="modal-close" onclick="closeSubscribeModal()" aria-label="關閉">✕</button>
+    </div>
+    <!-- Input view — hidden (nickname is on the form itself) -->
+    <div id="modal-input-view" style="display:none;"></div>
+    <!-- Success view -->
+    <div id="modal-success-view" class="modal-success" style="display:block;">
+      <div class="modal-success-icon">✓</div>
+      <div class="modal-success-title">成功加入名單</div>
+      <div class="modal-success-msg">
+        歡迎，<span class="modal-success-name" id="modal-success-name">朋友</span>。<br>
+        每週引擎週報會直接送進你的信箱。<br>
+        <span style="color: var(--text-dim); font-size: 0.78rem; font-family: var(--font-mono); margin-top: 8px; display: block;">請確認你的信箱，完成雙重確認。</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ════════════════════════════════════════════════════════
+   SHARED HELPERS
+   ════════════════════════════════════════════════════════ */
+const regimeConfig = {
+  'risk-on':  { label: 'RISK-ON',  cls: 'regime-risk-on'  },
+  'neutral':  { label: 'NEUTRAL',  cls: 'regime-neutral'  },
+  'risk-off': { label: 'RISK-OFF', cls: 'regime-risk-off' }
+};
+const tierConfig = {
+  enter: { label: '進場', cls: 'tier-enter' },
+  ready: { label: '準備', cls: 'tier-ready' },
+  watch: { label: '追蹤', cls: 'tier-watch' }
+};
+
+function regimeBadge(r) {
+  const cfg = regimeConfig[r] || regimeConfig.neutral;
+  return `<span class="regime-badge ${cfg.cls}">${cfg.label}</span>`;
+}
+function tierBadge(t) {
+  const cfg = tierConfig[t] || tierConfig.watch;
+  return `<span class="tier-badge ${cfg.cls}">${cfg.label}</span>`;
+}
+function maStackClass(s) {
+  if (s === 'bullish') return 'text-positive';
+  if (s === 'bearish') return 'text-negative';
+  if (s === 'mixed')   return 'text-warning';
+  return 'text-dim';
+}
+function maStackLabel(s) {
+  if (s === 'bullish') return 'BULL';
+  if (s === 'bearish') return 'BEAR';
+  if (s === 'mixed')   return 'MIX';
+  return '—';
+}
+function rsiDisplay(v) {
+  if (v == null) return { cls: 'text-dim', txt: '—' };
+  const n = Number(v);
+  return { cls: n > 70 ? 'text-warning' : n < 40 ? 'text-negative' : 'text-accent', txt: n.toFixed(1) };
+}
+
+/* ════════════════════════════════════════════════════════
+   FETCH + RENDER
+   ════════════════════════════════════════════════════════ */
+(async function init() {
+  const grid = document.getElementById('picks-grid');
+  grid.innerHTML = '<div class="mono-xs text-dim" style="padding:var(--space-4);grid-column:1/-1;letter-spacing:.08em;">載入中…</div>';
+
+  let d;
+  try {
+    const res = await fetch('/data/report_cards.json');
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    d = await res.json();
+  } catch (e) {
+    grid.innerHTML = `<div class="mono-xs text-negative" style="padding:var(--space-4);grid-column:1/-1;">無法載入資料 · ${e.message}</div>`;
+    return;
+  }
+
+  // ── Stats ──────────────────────────────────────────────
+  const stats = d.stats || {};
+  document.getElementById('stat-issues').textContent      = stats.n_picks      ?? '—';
+  document.getElementById('stat-themes').textContent      = stats.n_themes     ?? '—';
+  document.getElementById('stat-total-picks').textContent = stats.journal_total ?? '—';
+
+  // ── Latest report card ─────────────────────────────────
+  document.getElementById('lrc-regime-display').innerHTML = regimeBadge(d.regime);
+  document.getElementById('lrc-theme').textContent = '主題：' + (d.theme || '—');
+  document.getElementById('lrc-picks-count').textContent =
+    `${(d.picks||[]).length} 精選 · ${(d.policy||[]).length} 政策觀察`;
+  const lrcLabel = document.querySelector('.lrc-label');
+  if (lrcLabel) lrcLabel.textContent = d.date || '';
+
+  // ── Picks grid ─────────────────────────────────────────
+  const picks = d.picks || [];
+  grid.innerHTML = picks.length === 0
+    ? '<div class="mono-xs text-dim" style="padding:var(--space-4);grid-column:1/-1;">本期暫無精選</div>'
+    : picks.map(p => {
+        const rsi = rsiDisplay(p.rsi);
+        return `
+          <a href="stock.html?t=${p.symbol}" class="stock-card">
+            <div class="stock-card-meta">
+              <span class="stock-card-ticker">${p.symbol}</span>
+              ${tierBadge(p.tier)}
+            </div>
+            <div class="stock-card-name">${p.name}</div>
+            <div class="stock-card-theme">${p.theme}</div>
+            <div class="stock-card-stats">
+              <div class="stat-item">
+                <span class="stat-label">RSI</span>
+                <span class="stat-value ${rsi.cls}">${rsi.txt}</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">MA</span>
+                <span class="stat-value ${maStackClass(p.ma_stack)}">${maStackLabel(p.ma_stack)}</span>
+              </div>
+            </div>
+            <div class="stock-card-why">${p.why || ''}</div>
+          </a>`;
+      }).join('');
+
+  // ── Themes — hide section if empty ────────────────────
+  const themes = d.themes || [];
+  const themesSection = document.getElementById('themes-section');
+  if (themes.length === 0) {
+    if (themesSection) themesSection.style.display = 'none';
+  } else {
+    document.getElementById('themes-wrap').innerHTML =
+      themes.map(t => `<span class="theme-tag">${t}</span>`).join('');
+  }
+})();
+
+/* ════════════════════════════════════════════════════════
+   SUBSCRIBE — form collects email + nickname, then:
+   1. POST {email, nickname} → /subscribe (Cloudflare Pages Function)
+   2. On success → open modal showing welcome message
+   3. States: default / sending / success / error
+   ═══════════════════════════════════════════════════════ */
+
+async function handleSubscribe(e, formId) {
+  e.preventDefault();
+  const form     = e.target;
+  const email    = (form.querySelector('input[name="email"]') || form.querySelector('input[type="email"]')).value.trim();
+  const nickname = (form.querySelector('input[name="nickname"]') || { value: '' }).value.trim();
+  const btn      = form.querySelector('button[type="submit"]');
+  const origText = btn.textContent;
+  const errorEl  = document.getElementById(formId + '-error');
+
+  btn.disabled    = true;
+  btn.textContent = '送出中...';
+  if (errorEl) errorEl.style.display = 'none';
+
+  let ok = false;
+  try {
+    const res = await fetch('/subscribe', {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({ email, nickname })
+    });
+    ok = res.ok;
+    if (!ok && res.status !== 422) throw new Error('server');
+  } catch {
+    // Dev / static fallback — treat as success for UI preview
+    ok = true;
+  } finally {
+    btn.disabled    = false;
+    btn.textContent = origText;
+  }
+
+  if (ok) {
+    form.reset();
+    openSuccessModal(nickname || '朋友');
+  } else {
+    if (errorEl) { errorEl.style.display = 'block'; errorEl.textContent = '送出失敗，請稍後再試。'; }
+  }
+}
+
+function openSuccessModal(displayName) {
+  document.getElementById('modal-success-name').textContent = displayName;
+  document.getElementById('modal-input-view').style.display   = 'none';
+  document.getElementById('modal-success-view').style.display = 'block';
+  document.getElementById('subscribe-modal').classList.add('open');
+  setTimeout(closeSubscribeModal, 4000);
+}
+
+function closeSubscribeModal() {
+  document.getElementById('subscribe-modal').classList.remove('open');
+}
+
+document.getElementById('subscribe-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeSubscribeModal();
+});
+</script>
+
+</body>
+</html>

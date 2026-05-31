@@ -1,0 +1,119 @@
+{
+  "symbol": "MU",
+  "name": "美光",
+  "tier": "enter",
+  "regime": "risk-on",
+  "theme": "AI Compute",
+  "business": "DRAM/NAND 記憶體大廠;HBM3E 量產供應 NVDA,AI 記憶體實體瓶頸的關鍵受惠者。",
+  "why": "THEME_TAILWIND",
+  "rsi": null,
+  "sma50": null,
+  "sma200": null,
+  "factors": [
+    {
+      "key": "theme_tailwind",
+      "label": "主題順風",
+      "score": 10.0
+    },
+    {
+      "key": "technical_setup",
+      "label": "技術形態",
+      "score": 8.4
+    },
+    {
+      "key": "macro_context",
+      "label": "總經環境",
+      "score": 7.6
+    },
+    {
+      "key": "business_quality",
+      "label": "基本面品質",
+      "score": 5.0
+    },
+    {
+      "key": "news_catalyst",
+      "label": "新聞催化",
+      "score": null
+    },
+    {
+      "key": "risk_reward",
+      "label": "風險回報",
+      "score": 5.0
+    }
+  ],
+  "tracking": [
+    {
+      "date": "2026-05-27",
+      "theme": "AI Compute",
+      "tier": "enter",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
+    {
+      "date": "2026-04-29",
+      "theme": "Memory (HBM / DRAM / NAND)",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
+    {
+      "date": "2026-04-28",
+      "theme": "Memory (HBM / DRAM / NAND)",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    }
+  ],
+  "links": [
+    {
+      "label": "Finviz",
+      "desc": "技術快照 / 圖",
+      "href": "https://finviz.com/quote.ashx?t=MU"
+    },
+    {
+      "label": "StockAnalysis",
+      "desc": "財報 / 估值",
+      "href": "https://stockanalysis.com/stocks/MU/"
+    },
+    {
+      "label": "TradingView",
+      "desc": "互動圖",
+      "href": "https://www.tradingview.com/symbols/MU/"
+    },
+    {
+      "label": "Macrotrends",
+      "desc": "長期財務",
+      "href": "https://www.macrotrends.net/stocks/charts/MU/x/"
+    },
+    {
+      "label": "TipRanks",
+      "desc": "分析師",
+      "href": "https://www.tipranks.com/stocks/MU/forecast"
+    }
+  ],
+  "peers": [
+    {
+      "symbol": "ARM",
+      "name": "安謀",
+      "tier": "ready"
+    },
+    {
+      "symbol": "AMAT",
+      "name": "應用材料",
+      "tier": "enter"
+    },
+    {
+      "symbol": "AMD",
+      "name": "超微",
+      "tier": "watch"
+    },
+    {
+      "symbol": "AMZN",
+      "name": "亞馬遜",
+      "tier": "watch"
+    }
+  ]
+}

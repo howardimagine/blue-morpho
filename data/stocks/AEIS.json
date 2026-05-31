@@ -1,0 +1,103 @@
+{
+  "symbol": "AEIS",
+  "name": "先進能源",
+  "tier": "ready",
+  "regime": "risk-on",
+  "theme": "Semiconductor Equipment (WFE)",
+  "business": "半導體製程電源供應(PVD/CVD/蝕刻設備用 RF/DC 電源)+ 工業/醫療電源;製程節點微縮直接受惠。",
+  "why": "THEME_TAILWIND",
+  "rsi": null,
+  "sma50": null,
+  "sma200": null,
+  "factors": [
+    {
+      "key": "theme_tailwind",
+      "label": "主題順風",
+      "score": 9.8
+    },
+    {
+      "key": "technical_setup",
+      "label": "技術形態",
+      "score": 4.4
+    },
+    {
+      "key": "macro_context",
+      "label": "總經環境",
+      "score": null
+    },
+    {
+      "key": "business_quality",
+      "label": "基本面品質",
+      "score": 6.8
+    },
+    {
+      "key": "news_catalyst",
+      "label": "新聞催化",
+      "score": null
+    },
+    {
+      "key": "risk_reward",
+      "label": "風險回報",
+      "score": null
+    }
+  ],
+  "tracking": [
+    {
+      "date": "2026-05-29",
+      "theme": "Semiconductor Equipment (WFE)",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    }
+  ],
+  "links": [
+    {
+      "label": "Finviz",
+      "desc": "技術快照 / 圖",
+      "href": "https://finviz.com/quote.ashx?t=AEIS"
+    },
+    {
+      "label": "StockAnalysis",
+      "desc": "財報 / 估值",
+      "href": "https://stockanalysis.com/stocks/AEIS/"
+    },
+    {
+      "label": "TradingView",
+      "desc": "互動圖",
+      "href": "https://www.tradingview.com/symbols/AEIS/"
+    },
+    {
+      "label": "Macrotrends",
+      "desc": "長期財務",
+      "href": "https://www.macrotrends.net/stocks/charts/AEIS/x/"
+    },
+    {
+      "label": "TipRanks",
+      "desc": "分析師",
+      "href": "https://www.tipranks.com/stocks/AEIS/forecast"
+    }
+  ],
+  "peers": [
+    {
+      "symbol": "LRCX",
+      "name": "科林研發",
+      "tier": "enter"
+    },
+    {
+      "symbol": "ASML",
+      "name": "艾司摩爾",
+      "tier": "enter"
+    },
+    {
+      "symbol": "KLIC",
+      "name": "庫力索法",
+      "tier": "ready"
+    },
+    {
+      "symbol": "TER",
+      "name": "泰瑞達",
+      "tier": "ready"
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "symbol": "CRWD",
+  "name": "CrowdStrike",
+  "tier": "ready",
+  "regime": "risk-on",
+  "theme": "Cybersecurity",
+  "business": "雲原生端點防護(Falcon)龍頭;AI 驅動威脅偵測。",
+  "why": "QUALITY_COMPOUNDER",
+  "rsi": null,
+  "sma50": null,
+  "sma200": null,
+  "factors": [
+    {
+      "key": "theme_tailwind",
+      "label": "主題順風",
+      "score": 4.0
+    },
+    {
+      "key": "technical_setup",
+      "label": "技術形態",
+      "score": 6.0
+    },
+    {
+      "key": "macro_context",
+      "label": "總經環境",
+      "score": null
+    },
+    {
+      "key": "business_quality",
+      "label": "基本面品質",
+      "score": 8.8
+    },
+    {
+      "key": "news_catalyst",
+      "label": "新聞催化",
+      "score": null
+    },
+    {
+      "key": "risk_reward",
+      "label": "風險回報",
+      "score": null
+    }
+  ],
+  "tracking": [
+    {
+      "date": "2026-05-25",
+      "theme": "Cybersecurity",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
+    {
+      "date": "2026-05-21",
+      "theme": "Cybersecurity",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
+    {
+      "date": "2026-05-20",
+      "theme": "Cybersecurity",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
+    {
+      "date": "2026-05-18",
+      "theme": "Cybersecurity",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
+    {
+      "date": "2026-05-13",
+      "theme": "Cybersecurity",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
+    {
+      "date": "2026-05-11",
+      "theme": "Cybersecurity",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
+    {
+      "date": "2026-05-06",
+      "theme": "Cybersecurity",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
+    {
+      "date": "2026-05-04",
+      "theme": "Cybersecurity",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
+    {
+      "date": "2026-04-29",
+      "theme": "Cybersecurity",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
+    {
+      "date": "2026-04-28",
+      "theme": "Cybersecurity",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    }
+  ],
+  "links": [
+    {
+      "label": "Finviz",
+      "desc": "技術快照 / 圖",
+      "href": "https://finviz.com/quote.ashx?t=CRWD"
+    },
+    {
+      "label": "StockAnalysis",
+      "desc": "財報 / 估值",
+      "href": "https://stockanalysis.com/stocks/CRWD/"
+    },
+    {
+      "label": "TradingView",
+      "desc": "互動圖",
+      "href": "https://www.tradingview.com/symbols/CRWD/"
+    },
+    {
+      "label": "Macrotrends",
+      "desc": "長期財務",
+      "href": "https://www.macrotrends.net/stocks/charts/CRWD/x/"
+    },
+    {
+      "label": "TipRanks",
+      "desc": "分析師",
+      "href": "https://www.tipranks.com/stocks/CRWD/forecast"
+    }
+  ],
+  "peers": [
+    {
+      "symbol": "CYBR",
+      "name": "CYBR",
+      "tier": "ready"
+    }
+  ]
+}
