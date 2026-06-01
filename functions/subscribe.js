@@ -43,10 +43,29 @@ export async function onRequestPost(context) {
   try {
     // KV key = email (de-dupe); value = JSON record
     // TTL intentionally omitted — keep indefinitely
-    await env.SUBSCRIBERS.put(email, JSON.stringify(record));
+    if (env.SUBSCRIBERS) await env.SUBSCRIBERS.put(email, JSON.stringify(record));
   } catch (err) {
     // KV not bound yet (local dev) — log and continue
     console.error('[subscribe] KV write failed:', err?.message ?? err);
+  }
+
+  /* ── Add to Brevo list (寄送名單;失敗不擋使用者)──────── */
+  // Cloudflare Pages → Settings → Variables：BREVO_API_KEY + BREVO_LIST_ID
+  if (env.BREVO_API_KEY && env.BREVO_LIST_ID) {
+    try {
+      await fetch('https://api.brevo.com/v3/contacts', {
+        method: 'POST',
+        headers: { 'api-key': env.BREVO_API_KEY, 'content-type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          attributes: nickname ? { NICKNAME: nickname } : {},
+          listIds: [Number(env.BREVO_LIST_ID)],
+          updateEnabled: true
+        })
+      });
+    } catch (err) {
+      console.error('[subscribe] Brevo add failed:', err?.message ?? err);
+    }
   }
 
   /* ── Success ────────────────────────────────────── */
