@@ -51,12 +51,9 @@ export async function onRequestPost(context) {
 
   /* ── Add to Brevo list (寄送名單;失敗不擋使用者)──────── */
   // Cloudflare Pages → Settings → Variables：BREVO_API_KEY + BREVO_LIST_ID
-  // 偵錯:把結果寫進 KV key "__brevo_debug",可在 KV 介面直接看。
-  const dbg = { ts: new Date().toISOString(), hasKey: !!env.BREVO_API_KEY,
-                hasList: !!env.BREVO_LIST_ID, status: null, body: null, err: null };
   if (env.BREVO_API_KEY && env.BREVO_LIST_ID) {
     try {
-      const r = await fetch('https://api.brevo.com/v3/contacts', {
+      await fetch('https://api.brevo.com/v3/contacts', {
         method: 'POST',
         headers: { 'api-key': env.BREVO_API_KEY, 'content-type': 'application/json' },
         body: JSON.stringify({
@@ -66,15 +63,10 @@ export async function onRequestPost(context) {
           updateEnabled: true
         })
       });
-      dbg.status = r.status;
-      dbg.body = (await r.text()).slice(0, 300);
     } catch (err) {
-      dbg.err = String(err?.message ?? err);
+      console.error('[subscribe] Brevo add failed:', err?.message ?? err);
     }
-  } else {
-    dbg.err = 'env vars missing at runtime';
   }
-  try { if (env.SUBSCRIBERS) await env.SUBSCRIBERS.put('__brevo_debug', JSON.stringify(dbg)); } catch {}
 
   /* ── Success ────────────────────────────────────── */
   return json({ ok: true, message: '已加入名單' }, 200);
