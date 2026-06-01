@@ -80,23 +80,23 @@
   ],
   "peers": [
     {
-      "symbol": "MU",
-      "name": "美光",
-      "tier": "enter"
-    },
-    {
       "symbol": "ARM",
       "name": "安謀",
       "tier": "ready"
     },
     {
-      "symbol": "AMAT",
-      "name": "應用材料",
-      "tier": "enter"
-    },
-    {
       "symbol": "AMD",
       "name": "超微",
+      "tier": "watch"
+    },
+    {
+      "symbol": "AMZN",
+      "name": "亞馬遜",
+      "tier": "watch"
+    },
+    {
+      "symbol": "GFS",
+      "name": "格羅方德",
       "tier": "watch"
     }
   ]

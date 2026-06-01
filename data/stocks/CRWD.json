@@ -2,10 +2,10 @@
   "symbol": "CRWD",
   "name": "CrowdStrike",
   "tier": "ready",
-  "regime": "risk-on",
+  "regime": "neutral",
   "theme": "Cybersecurity",
   "business": "雲原生端點防護(Falcon)龍頭;AI 驅動威脅偵測。",
-  "why": "QUALITY_COMPOUNDER",
+  "why": "WATCHLIST_CONVICTION",
   "rsi": null,
   "sma50": null,
   "sma200": null,
@@ -13,12 +13,12 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 4.0
+      "score": 7.0
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 6.0
+      "score": 5.5
     },
     {
       "key": "macro_context",
@@ -28,7 +28,7 @@
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 8.8
+      "score": 6.2
     },
     {
       "key": "news_catalyst",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-06-01",
+      "theme": "Cybersecurity",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-05-25",
       "theme": "Cybersecurity",

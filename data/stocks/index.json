@@ -27,7 +27,7 @@
     "symbol": "AMAT",
     "name": "應用材料",
     "tier": "enter",
-    "theme": "AI Compute"
+    "theme": "Semiconductor Equipment (WFE)"
   },
   {
     "symbol": "AMD",
@@ -99,7 +99,7 @@
     "symbol": "GEV",
     "name": "GE Vernova",
     "tier": "ready",
-    "theme": "Electrification / Power"
+    "theme": "Solar / Renewables"
   },
   {
     "symbol": "GFS",
@@ -128,7 +128,7 @@
   {
     "symbol": "ISRG",
     "name": "Intuitive Surgical",
-    "tier": "ready",
+    "tier": "watch",
     "theme": "Healthcare AI"
   },
   {
@@ -170,8 +170,8 @@
   {
     "symbol": "MU",
     "name": "美光",
-    "tier": "enter",
-    "theme": "AI Compute"
+    "tier": "ready",
+    "theme": "Memory (HBM / DRAM / NAND)"
   },
   {
     "symbol": "NOW",

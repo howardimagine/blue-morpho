@@ -90,13 +90,13 @@
       "tier": "enter"
     },
     {
-      "symbol": "KLIC",
-      "name": "庫力索法",
-      "tier": "ready"
+      "symbol": "AMAT",
+      "name": "應用材料",
+      "tier": "enter"
     },
     {
-      "symbol": "ACLS",
-      "name": "艾克塞利",
+      "symbol": "KLIC",
+      "name": "庫力索法",
       "tier": "ready"
     }
   ]

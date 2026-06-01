@@ -2,8 +2,8 @@
   "symbol": "AMAT",
   "name": "應用材料",
   "tier": "enter",
-  "regime": "risk-on",
-  "theme": "AI Compute",
+  "regime": "neutral",
+  "theme": "Semiconductor Equipment (WFE)",
   "business": "WFE 半導體設備龍頭(沉積/蝕刻/CMP/離子植入);先進製程+先進封裝雙受惠。",
   "why": "THEME_TAILWIND",
   "rsi": null,
@@ -13,7 +13,7 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 9.7
+      "score": 8.5
     },
     {
       "key": "technical_setup",
@@ -23,12 +23,12 @@
     {
       "key": "macro_context",
       "label": "總經環境",
-      "score": 7.6
+      "score": null
     },
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 5.0
+      "score": 7.8
     },
     {
       "key": "news_catalyst",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-06-01",
+      "theme": "Semiconductor Equipment (WFE)",
+      "tier": "enter",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-05-27",
       "theme": "AI Compute",
@@ -80,24 +88,24 @@
   ],
   "peers": [
     {
-      "symbol": "MU",
-      "name": "美光",
+      "symbol": "LRCX",
+      "name": "科林研發",
       "tier": "enter"
     },
     {
-      "symbol": "ARM",
-      "name": "安謀",
+      "symbol": "ASML",
+      "name": "艾司摩爾",
+      "tier": "enter"
+    },
+    {
+      "symbol": "KLIC",
+      "name": "庫力索法",
       "tier": "ready"
     },
     {
-      "symbol": "AMD",
-      "name": "超微",
-      "tier": "watch"
-    },
-    {
-      "symbol": "AMZN",
-      "name": "亞馬遜",
-      "tier": "watch"
+      "symbol": "TER",
+      "name": "泰瑞達",
+      "tier": "ready"
     }
   ]
 }
