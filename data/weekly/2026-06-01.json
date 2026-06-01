@@ -1,5 +1,6 @@
 {
   "date": "2026-06-01",
+  "headline": "記憶體強勢領跑,但資安與先進製程現分歧訊號 — 川普政策紅利能否延續到半導體全鏈",
   "theme": "Memory (HBM / DRAM / NAND)",
   "regime": "neutral",
   "picks": [
@@ -12,19 +13,19 @@
       "ma_stack": "bullish",
       "price": null,
       "business": "雲原生端點防護(Falcon)龍頭;AI 驅動威脅偵測。",
-      "why": "主題面，Memory (HBM / DRAM / NAND) 本週相對 SPY 的 1 個月強度排名靠前，市場資金持續流入。 基本面通過半數以上 Screener 條件。",
+      "why": "基本面通過半數以上 Screener 條件。",
       "rr": null
     },
     {
       "symbol": "AMAT",
       "name": "應用材料",
       "tier": "enter",
-      "theme": "Semiconductor Equipment (WFE)",
+      "theme": "AI Compute",
       "rsi": 61.9,
       "ma_stack": "bullish",
       "price": null,
       "business": "WFE 半導體設備龍頭(沉積/蝕刻/CMP/離子植入);先進製程+先進封裝雙受惠。",
-      "why": "主題面，Memory (HBM / DRAM / NAND) 本週相對 SPY 的 1 個月強度排名靠前，市場資金持續流入。 近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面呈現「uptrend, near highs」，MA 結構為 <strong>bullish</strong>，RSI 56.3。",
+      "why": "近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面呈現「uptrend, near highs」，MA 結構為 <strong>bullish</strong>，RSI 56.3。",
       "rr": null
     },
     {
@@ -36,7 +37,7 @@
       "ma_stack": "bullish",
       "price": null,
       "business": "DRAM/NAND 記憶體大廠;HBM3E 量產供應 NVDA,AI 記憶體實體瓶頸的關鍵受惠者。",
-      "why": "主題面，Memory (HBM / DRAM / NAND) 本週相對 SPY 的 1 個月強度排名靠前，市場資金持續流入。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
+      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
       "rr": null
     },
     {
@@ -49,18 +50,6 @@
       "price": null,
       "business": "手術機器人 da Vinci 龍頭(>80% 市佔),耗材+服務經常性收入。",
       "why": "基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
-      "rr": null
-    },
-    {
-      "symbol": "GEV",
-      "name": "GE Vernova",
-      "tier": "ready",
-      "theme": "Solar / Renewables",
-      "rsi": 40.3,
-      "ma_stack": "bullish",
-      "price": null,
-      "business": "GE 分拆之能源/電氣化公司(天然氣+風電+電網);資料中心電力受惠。",
-      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過半數以上 Screener 條件。",
       "rr": null
     }
   ],
@@ -79,7 +68,7 @@
   ],
   "themes": [],
   "stats": {
-    "n_picks": 5,
+    "n_picks": 4,
     "n_themes": 0,
     "journal_total": 93
   },
