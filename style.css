@@ -519,6 +519,28 @@ img { max-width: 100%; display: block; }
   opacity: 1;
 }
 
+/* ── 手機底部 tab bar(桌機隱藏)────────────────────────────── */
+.mobile-tabbar { display: none; }
+@media (max-width: 640px) {
+  .nav-links { display: none; }              /* 頂部三導航改到底部 */
+  .mobile-tabbar {
+    display: flex;
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 200;
+    background: var(--bg-card);
+    border-top: 1px solid var(--border);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .mobile-tabbar a {
+    flex: 1; text-align: center; text-decoration: none;
+    font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.12em;
+    color: var(--text-secondary); padding: 13px 0;
+    border-right: 1px solid var(--border);
+  }
+  .mobile-tabbar a:last-child { border-right: none; }
+  .mobile-tabbar a.active { color: var(--accent); background: var(--accent-dim); }
+  body { padding-bottom: 52px; }             /* 內容不被 tab bar 蓋住 */
+}
+
 /* ── Hero ───────────────────────────────────────────────────── */
 .hero {
   padding: var(--space-16) 0 var(--space-12);
