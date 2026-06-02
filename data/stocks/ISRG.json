@@ -18,7 +18,7 @@
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 4.4
+      "score": 5.5
     },
     {
       "key": "macro_context",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-06-02",
+      "theme": "Healthcare AI",
+      "tier": "watch",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-06-01",
       "theme": "Healthcare AI",

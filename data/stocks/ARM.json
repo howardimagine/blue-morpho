@@ -96,6 +96,11 @@
   ],
   "peers": [
     {
+      "symbol": "AMAT",
+      "name": "應用材料",
+      "tier": "enter"
+    },
+    {
       "symbol": "AMD",
       "name": "超微",
       "tier": "watch"
@@ -108,11 +113,6 @@
     {
       "symbol": "ENTG",
       "name": "英特格",
-      "tier": "watch"
-    },
-    {
-      "symbol": "GFS",
-      "name": "格羅方德",
       "tier": "watch"
     }
   ]

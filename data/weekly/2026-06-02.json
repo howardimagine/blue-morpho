@@ -1,29 +1,66 @@
 {
   "date": "2026-06-02",
-  "headline": "台菜打入全球AI供應鏈 · 記憶體強勢反彈後,AI 軟體堆棧成新焦點;政策風向利好國防供應鏈,ServiceNow、Veeva 進場信號浮現",
+  "headline": "台菜打入全球AI供應鏈 · 記憶體需求反彈帶動產業鏈,HBM/DRAM 檢測設備商迎季節性機會 — 應材、美光、ServiceNow 三檔進場評估",
   "theme": "Memory (HBM / DRAM / NAND)",
   "regime": "neutral",
-  "picks": [],
+  "picks": [
+    {
+      "symbol": "AMAT",
+      "name": "應用材料",
+      "tier": "enter",
+      "theme": "AI Compute",
+      "rsi": 64.4,
+      "ma_stack": "bullish",
+      "price": null,
+      "business": "WFE 半導體設備龍頭(沉積/蝕刻/CMP/離子植入);先進製程+先進封裝雙受惠。",
+      "why": "近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面呈現「uptrend, near highs」，MA 結構為 <strong>bullish</strong>，RSI 56.3。",
+      "rr": null
+    },
+    {
+      "symbol": "MU",
+      "name": "美光",
+      "tier": "ready",
+      "theme": "Memory (HBM / DRAM / NAND)",
+      "rsi": 80.7,
+      "ma_stack": "bullish",
+      "price": null,
+      "business": "DRAM/NAND 記憶體大廠;HBM3E 量產供應 NVDA,AI 記憶體實體瓶頸的關鍵受惠者。",
+      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
+      "rr": null
+    },
+    {
+      "symbol": "ISRG",
+      "name": "Intuitive Surgical",
+      "tier": "watch",
+      "theme": "Healthcare AI",
+      "rsi": 35.2,
+      "ma_stack": "bearish",
+      "price": null,
+      "business": "手術機器人 da Vinci 龍頭(>80% 市佔),耗材+服務經常性收入。",
+      "why": "基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
+      "rr": null
+    }
+  ],
   "sell_signals": {},
   "policy": [
     {
       "topic": "川普 × 個股機會",
       "title": "Trump praised IBM's 'legend' CEO, government floated a $1B quantum award — is the stock still a 'very nice price'?",
-      "summary_zh": "川普稱讚 IBM[?] 執行長為「傳奇」人物,政府傳浮現 USD 10 億量子運算獎勵計畫,暗示科技政策傾斜國內龍頭。",
+      "summary_zh": "川普讚揚 IBM[?][?] CEO[?] 為傳奇人物,政府浮現十億美元量子計畫獎勵,IBM 股價受政策面支持重評",
       "source": "Yahoo Finance"
     },
     {
       "topic": "川普 × 個股機會",
       "title": "Micron and Dell soar on 'Trump praise'! Will NVIDIA or quantum be the next 'favorite stock'? — Exploring from 'Trump's holdings'",
-      "summary_zh": "美光與 Dell 因川普公開表揚而股價飆升,市場開始追蹤川普個人持股與政策受惠名單的關聯性。",
+      "summary_zh": "美光與 Dell 因川普點讚出現跳漲,市場猜測 NVIDIA[?] 或量子技術公司可能成為下一個「寵兒」",
       "source": "Moomoo"
     }
   ],
   "themes": [],
   "stats": {
-    "n_picks": 0,
+    "n_picks": 3,
     "n_themes": 0,
-    "journal_total": 93
+    "journal_total": 96
   },
   "_note": "命中率/超額待回測樣本成熟;entry/alpha/vol 未提供(歷史不足)。"
 }

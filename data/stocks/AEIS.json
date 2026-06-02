@@ -90,13 +90,13 @@
       "tier": "enter"
     },
     {
-      "symbol": "AMAT",
-      "name": "應用材料",
-      "tier": "enter"
-    },
-    {
       "symbol": "KLIC",
       "name": "庫力索法",
+      "tier": "ready"
+    },
+    {
+      "symbol": "TER",
+      "name": "泰瑞達",
       "tier": "ready"
     }
   ]

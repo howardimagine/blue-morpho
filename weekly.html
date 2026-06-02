@@ -119,7 +119,7 @@ function regimeBadge(r) {
   try {
     const src = (!useDate || useDate === latest) ? '/data/report_cards.json' : `/data/weekly/${useDate}.json`;
     const d = await (await fetch(src)).json();
-    document.getElementById('weekly-theme').textContent = d.theme || '—';
+    document.getElementById('weekly-theme').textContent = d.headline || d.theme || '—';
     document.getElementById('weekly-date').textContent = d.date || '';
     const rb = document.getElementById('regime-masthead');
     if (rb) rb.innerHTML = regimeBadge(d.regime);
