@@ -2,8 +2,8 @@
   "symbol": "LRCX",
   "name": "科林研發",
   "tier": "enter",
-  "regime": "risk-on",
-  "theme": "Semiconductor Equipment (WFE)",
+  "regime": "neutral",
+  "theme": "AI Compute",
   "business": "WFE 蝕刻/沉積龍頭,3D NAND 主力,HBM 擴產直接受惠。",
   "why": "NEWS_CATALYST",
   "rsi": null,
@@ -13,7 +13,7 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 8.5
+      "score": 2.3
     },
     {
       "key": "technical_setup",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-06-02",
+      "theme": "AI Compute",
+      "tier": "enter",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-05-29",
       "theme": "Semiconductor Equipment (WFE)",
@@ -120,24 +128,24 @@
   ],
   "peers": [
     {
-      "symbol": "ASML",
-      "name": "艾司摩爾",
+      "symbol": "ARM",
+      "name": "安謀",
+      "tier": "ready"
+    },
+    {
+      "symbol": "AMAT",
+      "name": "應用材料",
       "tier": "enter"
     },
     {
-      "symbol": "KLIC",
-      "name": "庫力索法",
-      "tier": "ready"
+      "symbol": "AMD",
+      "name": "超微",
+      "tier": "watch"
     },
     {
-      "symbol": "TER",
-      "name": "泰瑞達",
-      "tier": "ready"
-    },
-    {
-      "symbol": "ACLS",
-      "name": "艾克塞利",
-      "tier": "ready"
+      "symbol": "AMZN",
+      "name": "亞馬遜",
+      "tier": "watch"
     }
   ]
 }

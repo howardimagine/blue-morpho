@@ -160,23 +160,23 @@
   ],
   "peers": [
     {
-      "symbol": "ABB",
-      "name": "ABB",
-      "tier": "ready"
-    },
-    {
       "symbol": "MU",
       "name": "美光",
       "tier": "ready"
     },
     {
-      "symbol": "CEG",
-      "name": "Constellation Energy",
+      "symbol": "MRVL",
+      "name": "美滿科技",
       "tier": "ready"
     },
     {
-      "symbol": "MRVL",
-      "name": "美滿科技",
+      "symbol": "SIMO",
+      "name": "慧榮科技",
+      "tier": "ready"
+    },
+    {
+      "symbol": "SNDK",
+      "name": "SanDisk",
       "tier": "ready"
     }
   ]

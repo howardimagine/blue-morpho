@@ -96,11 +96,6 @@
   ],
   "peers": [
     {
-      "symbol": "LRCX",
-      "name": "科林研發",
-      "tier": "enter"
-    },
-    {
       "symbol": "KLIC",
       "name": "庫力索法",
       "tier": "ready"
@@ -113,6 +108,11 @@
     {
       "symbol": "ACLS",
       "name": "艾克塞利",
+      "tier": "ready"
+    },
+    {
+      "symbol": "AEHR",
+      "name": "Aehr Test",
       "tier": "ready"
     }
   ]

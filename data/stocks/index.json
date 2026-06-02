@@ -2,8 +2,8 @@
   {
     "symbol": "ABB",
     "name": "ABB",
-    "tier": "ready",
-    "theme": "Memory (HBM / DRAM / NAND)"
+    "tier": "watch",
+    "theme": "Electrification / Power"
   },
   {
     "symbol": "ACLS",
@@ -68,8 +68,8 @@
   {
     "symbol": "CEG",
     "name": "Constellation Energy",
-    "tier": "ready",
-    "theme": "Memory (HBM / DRAM / NAND)"
+    "tier": "watch",
+    "theme": "Nuclear / SMR"
   },
   {
     "symbol": "CRWD",
@@ -147,7 +147,7 @@
     "symbol": "LRCX",
     "name": "科林研發",
     "tier": "enter",
-    "theme": "Semiconductor Equipment (WFE)"
+    "theme": "AI Compute"
   },
   {
     "symbol": "META",

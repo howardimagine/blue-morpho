@@ -1,42 +1,42 @@
 {
   "date": "2026-06-02",
-  "headline": "台菜打入全球AI供應鏈 · 記憶體需求反彈帶動產業鏈,HBM/DRAM 檢測設備商迎季節性機會 — 應材、美光、ServiceNow 三檔進場評估",
+  "headline": "台菜打入全球AI供應鏈 · 記憶體鏈市值修復帶動上游檢測設備補漲,電力基礎設施同步受惠 — 本週聚焦 LRCX、ABB 兩條主線",
   "theme": "Memory (HBM / DRAM / NAND)",
   "regime": "neutral",
   "picks": [
     {
-      "symbol": "AMAT",
-      "name": "應用材料",
+      "symbol": "LRCX",
+      "name": "科林研發",
       "tier": "enter",
       "theme": "AI Compute",
-      "rsi": 64.4,
+      "rsi": 65.3,
       "ma_stack": "bullish",
       "price": null,
-      "business": "WFE 半導體設備龍頭(沉積/蝕刻/CMP/離子植入);先進製程+先進封裝雙受惠。",
-      "why": "近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面呈現「uptrend, near highs」，MA 結構為 <strong>bullish</strong>，RSI 56.3。",
+      "business": "WFE 蝕刻/沉積龍頭,3D NAND 主力,HBM 擴產直接受惠。",
+      "why": "近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面呈現「uptrend, near highs」，MA 結構為 <strong>bullish</strong>，RSI 60.8。",
       "rr": null
     },
     {
-      "symbol": "MU",
-      "name": "美光",
-      "tier": "ready",
-      "theme": "Memory (HBM / DRAM / NAND)",
-      "rsi": 80.7,
-      "ma_stack": "bullish",
-      "price": null,
-      "business": "DRAM/NAND 記憶體大廠;HBM3E 量產供應 NVDA,AI 記憶體實體瓶頸的關鍵受惠者。",
-      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
-      "rr": null
-    },
-    {
-      "symbol": "ISRG",
-      "name": "Intuitive Surgical",
+      "symbol": "ABB",
+      "name": "ABB",
       "tier": "watch",
-      "theme": "Healthcare AI",
-      "rsi": 35.2,
-      "ma_stack": "bearish",
+      "theme": "Electrification / Power",
+      "rsi": 60.2,
+      "ma_stack": "bullish",
       "price": null,
-      "business": "手術機器人 da Vinci 龍頭(>80% 市佔),耗材+服務經常性收入。",
+      "business": "瑞士工業電氣化/自動化巨頭;電網/機器人/驅動裝置。",
+      "why": "基本面通過半數以上 Screener 條件。",
+      "rr": null
+    },
+    {
+      "symbol": "CEG",
+      "name": "Constellation Energy",
+      "tier": "watch",
+      "theme": "Nuclear / SMR",
+      "rsi": 39.2,
+      "ma_stack": "mixed",
+      "price": null,
+      "business": "美國最大核電業者;與 Microsoft/AI 資料中心簽長期 PPA。",
       "why": "基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
       "rr": null
     }
@@ -46,13 +46,13 @@
     {
       "topic": "川普 × 個股機會",
       "title": "Trump praised IBM's 'legend' CEO, government floated a $1B quantum award — is the stock still a 'very nice price'?",
-      "summary_zh": "川普讚揚 IBM[?][?] CEO[?] 為傳奇人物,政府浮現十億美元量子計畫獎勵,IBM 股價受政策面支持重評",
+      "summary_zh": "川普讚揚 IBM[?] CEO[?] 為傳奇人物,政府浮現十億美元量子獎項計畫,帶動市場重估量子運算投資週期。",
       "source": "Yahoo Finance"
     },
     {
       "topic": "川普 × 個股機會",
       "title": "Micron and Dell soar on 'Trump praise'! Will NVIDIA or quantum be the next 'favorite stock'? — Exploring from 'Trump's holdings'",
-      "summary_zh": "美光與 Dell 因川普點讚出現跳漲,市場猜測 NVIDIA[?] 或量子技術公司可能成為下一個「寵兒」",
+      "summary_zh": "美光、戴爾因川普點名後股價飆升,市場猜測下一個受讚揚對象可能為 NVIDIA[?] 或量子運算相關公司。",
       "source": "Moomoo"
     }
   ],
@@ -60,7 +60,7 @@
   "stats": {
     "n_picks": 3,
     "n_themes": 0,
-    "journal_total": 96
+    "journal_total": 99
   },
   "_note": "命中率/超額待回測樣本成熟;entry/alpha/vol 未提供(歷史不足)。"
 }

@@ -111,7 +111,7 @@ function regimeBadge(r) {
   const sw = document.getElementById('weekly-switcher');
   if (sw && idx.length) {
     sw.innerHTML = idx.map(w =>
-      `<option value="${w.date}"${w.date === useDate ? ' selected' : ''}>${w.date} · ${w.theme}</option>`).join('');
+      `<option value="${w.date}"${w.date === useDate ? ' selected' : ''}>${w.date} · ${w.headline || w.theme}</option>`).join('');
     sw.addEventListener('change', () => { location.href = 'weekly.html?d=' + sw.value; });
   } else if (sw) { sw.style.display = 'none'; }
 

@@ -88,11 +88,6 @@
   ],
   "peers": [
     {
-      "symbol": "LRCX",
-      "name": "科林研發",
-      "tier": "enter"
-    },
-    {
       "symbol": "ASML",
       "name": "艾司摩爾",
       "tier": "enter"
@@ -105,6 +100,11 @@
     {
       "symbol": "ACLS",
       "name": "艾克塞利",
+      "tier": "ready"
+    },
+    {
+      "symbol": "AEHR",
+      "name": "Aehr Test",
       "tier": "ready"
     }
   ]

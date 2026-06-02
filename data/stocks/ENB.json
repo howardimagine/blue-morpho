@@ -78,5 +78,11 @@
       "href": "https://www.tipranks.com/stocks/ENB/forecast"
     }
   ],
-  "peers": []
+  "peers": [
+    {
+      "symbol": "ABB",
+      "name": "ABB",
+      "tier": "watch"
+    }
+  ]
 }

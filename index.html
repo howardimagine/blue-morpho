@@ -547,7 +547,7 @@ function rsiDisplay(v) {
 
   // ── Latest report card ─────────────────────────────────
   document.getElementById('lrc-regime-display').innerHTML = regimeBadge(d.regime);
-  document.getElementById('lrc-theme').textContent = '主題：' + (d.theme || '—');
+  document.getElementById('lrc-theme').textContent = (d.headline || d.theme || '—');
   document.getElementById('lrc-picks-count').textContent =
     `${(d.picks||[]).length} 精選 · ${(d.policy||[]).length} 政策觀察`;
   const lrcLabel = document.querySelector('.lrc-label');
