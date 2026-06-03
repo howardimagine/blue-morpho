@@ -1,6 +1,6 @@
 {
   "date": "2026-06-03",
-  "headline": "核能與太陽能接力 AI 算力,政策風向轉向能源基礎建設 — CEG、GEV 成為 Trump 新政下的隱形受益者",
+  "headline": "川普政策轉向國安科技,量子運算與核能電力成新寵 — AVGO、CEG 站上政策風口",
   "theme": "Memory (HBM / DRAM / NAND)",
   "regime": "neutral",
   "picks": [
@@ -33,7 +33,7 @@
       "name": "Constellation Energy",
       "tier": "watch",
       "theme": "Nuclear / SMR",
-      "rsi": 39.2,
+      "rsi": 42.9,
       "ma_stack": "mixed",
       "price": null,
       "business": "美國最大核電業者;與 Microsoft/AI 資料中心簽長期 PPA。",
@@ -46,13 +46,13 @@
     {
       "topic": "川普 × 個股機會",
       "title": "Trump praised IBM's 'legend' CEO, government floated a $1B quantum award — is the stock still a 'very nice price'?",
-      "summary_zh": "Trump 讚揚 IBM[?][?] CEO[?] 為傳奇人物,政府浮現約十億美元量子運算獎項,暗示量子技術成為國家戰略優先項,IBM 估值支撐點增強。",
+      "summary_zh": "川普讚譽 IBM[?] CEO[?] 為「傳奇」,政府浮出約十億美元量子運算獎項計畫,暗示量子科技將成為政策優先項。",
       "source": "Yahoo Finance"
     },
     {
       "topic": "川普 × 個股機會",
-      "title": "Trump said \"Go buy a Dell\" — 3 weeks later: +38% after hours 🚀",
-      "summary_zh": "Trump 在三週內公開建議民眾購買 Dell,股價隨後盤後飆漲逾三十個百分比,體現政策層級背書對個股的即時市場影響。",
+      "title": "Micron and Dell soar on 'Trump praise'! Will NVIDIA or quantum be the next 'favorite stock'? — Exploring from 'Trump's holdings'",
+      "summary_zh": "市場分析川普個人持股轉折,Micron 與 Dell 因被川普公開點名而大漲,投資者開始尋找下一個潛在「最愛股」。",
       "source": "Moomoo"
     }
   ],
