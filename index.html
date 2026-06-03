@@ -472,11 +472,11 @@
     <!-- Success view -->
     <div id="modal-success-view" class="modal-success" style="display:block;">
       <div class="modal-success-icon">✓</div>
-      <div class="modal-success-title">成功加入名單</div>
+      <div class="modal-success-title">訂閱成功</div>
       <div class="modal-success-msg">
         歡迎，<span class="modal-success-name" id="modal-success-name">朋友</span>。<br>
         每週引擎週報會直接送進你的信箱。<br>
-        <span style="color: var(--text-dim); font-size: 0.78rem; font-family: var(--font-mono); margin-top: 8px; display: block;">請確認你的信箱，完成雙重確認。</span>
+        <span style="color: #8A9BB0; font-size: 0.78rem; font-family: var(--font-mono); margin-top: 8px; display: block;">歡迎信已寄出,請查收。</span>
       </div>
     </div>
   </div>
@@ -643,7 +643,7 @@ function openSuccessModal(displayName) {
   document.getElementById('modal-input-view').style.display   = 'none';
   document.getElementById('modal-success-view').style.display = 'block';
   document.getElementById('subscribe-modal').classList.add('open');
-  setTimeout(closeSubscribeModal, 4000);
+  setTimeout(closeSubscribeModal, 4500);
 }
 
 function closeSubscribeModal() {
