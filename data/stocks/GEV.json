@@ -13,12 +13,12 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 7.0
+      "score": 2.5
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 4.4
+      "score": 8.4
     },
     {
       "key": "macro_context",
@@ -28,7 +28,7 @@
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 5.6
+      "score": 5.7
     },
     {
       "key": "news_catalyst",
@@ -38,10 +38,18 @@
     {
       "key": "risk_reward",
       "label": "風險回報",
-      "score": null
+      "score": 5.0
     }
   ],
   "tracking": [
+    {
+      "date": "2026-06-03",
+      "theme": "Solar / Renewables",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-06-01",
       "theme": "Solar / Renewables",

@@ -85,11 +85,6 @@
       "tier": "ready"
     },
     {
-      "symbol": "AVGO",
-      "name": "博通",
-      "tier": "ready"
-    },
-    {
       "symbol": "MRVL",
       "name": "美滿科技",
       "tier": "ready"
@@ -97,6 +92,11 @@
     {
       "symbol": "SIMO",
       "name": "慧榮科技",
+      "tier": "ready"
+    },
+    {
+      "symbol": "SNDK",
+      "name": "SanDisk",
       "tier": "ready"
     }
   ]

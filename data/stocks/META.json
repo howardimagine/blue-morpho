@@ -90,14 +90,14 @@
       "tier": "ready"
     },
     {
+      "symbol": "AVGO",
+      "name": "博通",
+      "tier": "ready"
+    },
+    {
       "symbol": "AMAT",
       "name": "應用材料",
       "tier": "enter"
-    },
-    {
-      "symbol": "AMD",
-      "name": "超微",
-      "tier": "watch"
     }
   ]
 }
