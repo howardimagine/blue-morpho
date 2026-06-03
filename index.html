@@ -237,18 +237,18 @@
 
     .modal-name-input {
       flex: 1;
-      background: var(--bg);
-      border: 1px solid var(--border);
+      background: #141C30;
+      border: 1.5px solid #38476A;
       color: var(--text-primary);
       font-family: var(--font-mono);
       font-size: 0.85rem;
       padding: var(--space-3) var(--space-4);
       outline: none;
-      transition: border-color 0.15s;
+      transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
       border-radius: 2px;
     }
-    .modal-name-input::placeholder { color: var(--text-dim); }
-    .modal-name-input:focus { border-color: var(--accent); }
+    .modal-name-input::placeholder { color: #8A9BB0; }
+    .modal-name-input:focus { border-color: var(--accent); background: #182138; box-shadow: 0 0 0 3px var(--accent-dim); }
 
     .modal-confirm-btn {
       background: var(--accent);
@@ -330,7 +330,7 @@
         <li><a href="weekly.html">WEEKLY</a></li>
         <li><a href="stock.html">STOCKS</a></li>
       </ul>
-      <a href="#subscribe" class="nav-cta">訂閱週報</a>
+      <a href="https://lin.ee/xt0mgJH" target="_blank" rel="noopener" class="nav-cta">追蹤 LINE</a>
     </div>
   </div>
 </nav>

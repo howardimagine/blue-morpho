@@ -621,19 +621,23 @@ img { max-width: 100%; display: block; }
 
 .subscribe-input {
   flex: 1;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
+  background: #141C30;            /* 比 --bg-card 亮一階,輸入框看得出是可輸入區 */
+  border: 1.5px solid #38476A;    /* 邊框提亮,清楚框出輸入區 */
   color: var(--text-primary);
   font-family: var(--font-mono);
   font-size: 0.8rem;
   padding: var(--space-3) var(--space-4);
   border-radius: var(--radius);
   outline: none;
-  transition: border-color 0.15s;
+  transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
 }
 
-.subscribe-input::placeholder { color: var(--text-dim); }
-.subscribe-input:focus { border-color: var(--accent); }
+.subscribe-input::placeholder { color: #8A9BB0; }   /* 提示字提亮,不再融底 */
+.subscribe-input:focus {
+  border-color: var(--accent);
+  background: #182138;
+  box-shadow: 0 0 0 3px var(--accent-dim);
+}
 
 .subscribe-btn {
   background: var(--accent);
