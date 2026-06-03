@@ -53,7 +53,8 @@ export async function onRequestPost(context) {
   if (env.BREVO_API_KEY && env.BREVO_LIST_ID) {
     const listId = Number(env.BREVO_LIST_ID);
     try {
-      // 1) 加入名單
+      // 1) 加入名單。emailBlacklisted:false → 若對方曾退訂、這次主動回來填表單
+      //    (= 重新表達意願,合法),解除封鎖讓他真正重新訂閱,而非靜默失敗。
       await fetch('https://api.brevo.com/v3/contacts', {
         method: 'POST',
         headers: { 'api-key': env.BREVO_API_KEY, 'content-type': 'application/json' },
@@ -61,7 +62,8 @@ export async function onRequestPost(context) {
           email,
           attributes: nickname ? { NICKNAME: nickname } : {},
           listIds: [listId],
-          updateEnabled: true
+          updateEnabled: true,
+          emailBlacklisted: false
         })
       });
       // 2) 寄歡迎信(transactional;sender 用已驗證寄件人)
