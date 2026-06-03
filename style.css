@@ -621,8 +621,9 @@ img { max-width: 100%; display: block; }
 
 .subscribe-input {
   flex: 1;
-  background: #141C30;            /* 比 --bg-card 亮一階,輸入框看得出是可輸入區 */
-  border: 1.5px solid #38476A;    /* 邊框提亮,清楚框出輸入區 */
+  background: #141C30;
+  border: 1.5px solid var(--accent);          /* 淺藍外框 */
+  box-shadow: 0 0 8px rgba(0,243,255,0.45);    /* 淺藍發光 */
   color: var(--text-primary);
   font-family: var(--font-mono);
   font-size: 0.8rem;
@@ -636,7 +637,7 @@ img { max-width: 100%; display: block; }
 .subscribe-input:focus {
   border-color: var(--accent);
   background: #182138;
-  box-shadow: 0 0 0 3px var(--accent-dim);
+  box-shadow: 0 0 14px rgba(0,243,255,0.7);     /* focus 發光更強 */
 }
 
 .subscribe-btn {
