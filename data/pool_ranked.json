@@ -1,193 +1,2902 @@
 {
   "date": "2026-06-04",
-  "method": "composite = 主題順風 × 技術形態 × 新聞催化 × 品質基本面 的綜合分;每產業依 composite 由高到低排序,取前 6 名。● 近期推薦(近三期曾入精選)◆ 潛力觀察。",
+  "method": "完整掃描宇宙(全產業)。引擎本期評分的個股顯示綜合分並排前;● 近期推薦 = 近三期曾入精選 · 潛力 = 同主題達標未入選。",
   "themes": [
     {
-      "theme": "Memory (HBM / DRAM / NAND)",
-      "n": 1,
-      "rs_1m": 32.9,
-      "rs_3m": 159.4,
-      "news_7d": 121,
-      "stocks": [
-        {
-          "rank": 1,
-          "symbol": "MU",
-          "name": "MU",
-          "composite": 0.194,
-          "is_pick": false,
-          "is_recent": true,
-          "is_watch": false
-        }
-      ]
-    },
-    {
       "theme": "AI Compute",
-      "n": 3,
+      "n": 24,
       "rs_1m": 17.83,
       "rs_3m": 50.34,
       "news_7d": 159,
       "stocks": [
         {
-          "rank": 1,
+          "symbol": "MU",
+          "name": "美光",
+          "composite": 0.194,
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
           "symbol": "LRCX",
-          "name": "LRCX",
+          "name": "科林研發",
           "composite": 0.119,
-          "is_pick": true,
           "is_recent": true,
-          "is_watch": false
+          "is_watch": false,
+          "rank": 2
         },
         {
-          "rank": 2,
           "symbol": "AMAT",
-          "name": "AMAT",
+          "name": "應用材料",
           "composite": 0.077,
-          "is_pick": false,
           "is_recent": true,
-          "is_watch": true
+          "is_watch": true,
+          "rank": 3
         },
         {
-          "rank": 3,
           "symbol": "ARM",
-          "name": "ARM",
+          "name": "安謀",
           "composite": 0.029,
-          "is_pick": false,
           "is_recent": false,
-          "is_watch": true
-        }
-      ]
-    },
-    {
-      "theme": "Cybersecurity",
-      "n": 1,
-      "rs_1m": 25.14,
-      "rs_3m": 28.57,
-      "news_7d": 107,
-      "stocks": [
+          "is_watch": true,
+          "rank": 4
+        },
         {
-          "rank": 1,
-          "symbol": "CRWD",
-          "name": "CRWD",
-          "composite": 0.305,
-          "is_pick": true,
+          "symbol": "AEHR",
+          "name": "Aehr Test",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "AMD",
+          "name": "超微",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "AMZN",
+          "name": "亞馬遜",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "ASML",
+          "name": "艾司摩爾",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        },
+        {
+          "symbol": "AVGO",
+          "name": "博通",
+          "composite": null,
           "is_recent": true,
-          "is_watch": false
+          "is_watch": false,
+          "rank": 9
+        },
+        {
+          "symbol": "ENTG",
+          "name": "英特格",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 10
         }
       ]
     },
     {
       "theme": "AI Software",
-      "n": 1,
+      "n": 16,
       "rs_1m": 9.31,
       "rs_3m": 3.35,
       "news_7d": 165,
       "stocks": [
         {
-          "rank": 1,
           "symbol": "NOW",
-          "name": "NOW",
+          "name": "ServiceNow",
           "composite": 0.377,
-          "is_pick": false,
           "is_recent": true,
-          "is_watch": false
-        }
-      ]
-    },
-    {
-      "theme": "Healthcare AI",
-      "n": 2,
-      "rs_1m": null,
-      "rs_3m": null,
-      "news_7d": null,
-      "stocks": [
-        {
-          "rank": 1,
-          "symbol": "ISRG",
-          "name": "ISRG",
-          "composite": 0.337,
-          "is_pick": false,
-          "is_recent": true,
-          "is_watch": false
+          "is_watch": false,
+          "rank": 1
         },
         {
-          "rank": 2,
-          "symbol": "VEEV",
-          "name": "VEEV",
-          "composite": 0.303,
-          "is_pick": false,
+          "symbol": "ADBE",
+          "name": "ADBE",
+          "composite": null,
           "is_recent": false,
-          "is_watch": false
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "AI",
+          "name": "AI",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "ANSS",
+          "name": "ANSS",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "BBAI",
+          "name": "BBAI",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "CDNS",
+          "name": "CDNS",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "CRM",
+          "name": "CRM",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "DDOG",
+          "name": "DDOG",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        },
+        {
+          "symbol": "ESTC",
+          "name": "ESTC",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
+        },
+        {
+          "symbol": "GOOG",
+          "name": "Alphabet",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 10
         }
       ]
     },
     {
-      "theme": "Electrification / Power",
-      "n": 1,
+      "theme": "Cybersecurity",
+      "n": 9,
+      "rs_1m": 25.14,
+      "rs_3m": 28.57,
+      "news_7d": 107,
+      "stocks": [
+        {
+          "symbol": "CRWD",
+          "name": "CrowdStrike",
+          "composite": 0.305,
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "CYBR",
+          "name": "CYBR",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "FTNT",
+          "name": "Fortinet",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "OKTA",
+          "name": "Okta, Inc.",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "PANW",
+          "name": "派拓網路",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "PFPT",
+          "name": "PFPT",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "S",
+          "name": "SentinelOne",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "TENB",
+          "name": "Tenable Holdings, Inc.",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        },
+        {
+          "symbol": "ZS",
+          "name": "Zscaler",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
+        }
+      ]
+    },
+    {
+      "theme": "Memory (HBM / DRAM / NAND)",
+      "n": 6,
+      "rs_1m": 32.9,
+      "rs_3m": 159.4,
+      "news_7d": 121,
+      "stocks": [
+        {
+          "symbol": "MU",
+          "name": "美光",
+          "composite": 0.194,
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "MRVL",
+          "name": "美滿科技",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "SIMO",
+          "name": "慧榮科技",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "SNDK",
+          "name": "SanDisk",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "STX",
+          "name": "希捷",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "WDC",
+          "name": "威騰電子",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        }
+      ]
+    },
+    {
+      "theme": "AI Robotics / Automation",
+      "n": 10,
       "rs_1m": null,
       "rs_3m": null,
       "news_7d": null,
       "stocks": [
         {
-          "rank": 1,
+          "symbol": "ISRG",
+          "name": "Intuitive Surgical",
+          "composite": 0.337,
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
           "symbol": "ABB",
           "name": "ABB",
           "composite": 0.1,
-          "is_pick": false,
           "is_recent": true,
-          "is_watch": false
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "ROK",
+          "name": "羅克韋爾自動化",
+          "composite": 0,
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "AMZN",
+          "name": "亞馬遜",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "COGN",
+          "name": "COGN",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "FANUY",
+          "name": "發那科",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "SYM",
+          "name": "SYM",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "TER",
+          "name": "泰瑞達",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        },
+        {
+          "symbol": "TSLA",
+          "name": "特斯拉",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
+        },
+        {
+          "symbol": "ZBRA",
+          "name": "ZBRA",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 10
         }
       ]
     },
     {
       "theme": "Industrial Automation",
-      "n": 1,
+      "n": 8,
       "rs_1m": null,
       "rs_3m": null,
       "news_7d": null,
       "stocks": [
         {
-          "rank": 1,
-          "symbol": "ROK",
-          "name": "ROK",
-          "composite": 0,
-          "is_pick": true,
+          "symbol": "ISRG",
+          "name": "Intuitive Surgical",
+          "composite": 0.337,
           "is_recent": true,
-          "is_watch": false
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "ABB",
+          "name": "ABB",
+          "composite": 0.1,
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "ROK",
+          "name": "羅克韋爾自動化",
+          "composite": 0,
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "CAT",
+          "name": "開拓重工",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "DE",
+          "name": "強鹿",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "EMR",
+          "name": "艾默生電氣",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "FANUY",
+          "name": "發那科",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "PH",
+          "name": "派克漢尼汾",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
         }
       ]
     },
     {
-      "theme": "Data Center",
-      "n": 1,
+      "theme": "Semiconductor Equipment (WFE)",
+      "n": 10,
       "rs_1m": null,
       "rs_3m": null,
       "news_7d": null,
       "stocks": [
         {
-          "rank": 1,
-          "symbol": "VRT",
-          "name": "VRT",
-          "composite": 0,
-          "is_pick": false,
+          "symbol": "LRCX",
+          "name": "科林研發",
+          "composite": 0.119,
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "AMAT",
+          "name": "應用材料",
+          "composite": 0.077,
+          "is_recent": true,
+          "is_watch": true,
+          "rank": 2
+        },
+        {
+          "symbol": "ACLS",
+          "name": "艾克塞利",
+          "composite": null,
           "is_recent": false,
-          "is_watch": false
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "AEHR",
+          "name": "Aehr Test",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "AEIS",
+          "name": "先進能源",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "ASML",
+          "name": "艾司摩爾",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "KLAC",
+          "name": "科磊",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "KLIC",
+          "name": "庫力索法",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        },
+        {
+          "symbol": "ONTO",
+          "name": "Onto Innovation",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
+        },
+        {
+          "symbol": "TER",
+          "name": "泰瑞達",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 10
+        }
+      ]
+    },
+    {
+      "theme": "Electrification / Power",
+      "n": 10,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "ABB",
+          "name": "ABB",
+          "composite": 0.1,
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "VRT",
+          "name": "Vertiv",
+          "composite": 0,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "ENB",
+          "name": "Enbridge Inc",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "ENS",
+          "name": "ENS",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "ETN",
+          "name": "伊頓",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "GEV",
+          "name": "GE Vernova",
+          "composite": null,
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "HUBB",
+          "name": "HUBB",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "MYR",
+          "name": "MYR",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        },
+        {
+          "symbol": "PWR",
+          "name": "Quanta Services",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
+        },
+        {
+          "symbol": "WMB",
+          "name": "WMB",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 10
         }
       ]
     },
     {
       "theme": "Nuclear / SMR",
-      "n": 1,
+      "n": 9,
       "rs_1m": null,
       "rs_3m": null,
       "news_7d": null,
       "stocks": [
         {
-          "rank": 1,
           "symbol": "VST",
-          "name": "VST",
+          "name": "Vistra",
           "composite": 0,
-          "is_pick": false,
           "is_recent": false,
-          "is_watch": false
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "BWXT",
+          "name": "BWXT",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "CCJ",
+          "name": "Cameco",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "CEG",
+          "name": "Constellation Energy",
+          "composite": null,
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "NNE",
+          "name": "Nano Nuclear Energy",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "OKLO",
+          "name": "Oklo",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "SMR",
+          "name": "NuScale Power",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "URA",
+          "name": "URA",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        },
+        {
+          "symbol": "URNM",
+          "name": "URNM",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
+        }
+      ]
+    },
+    {
+      "theme": "Solar / Renewables",
+      "n": 7,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "BEPC",
+          "name": "Brookfield Renewable Corporatio",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "ENPH",
+          "name": "Enphase Energy, Inc.",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "FSLR",
+          "name": "First Solar, Inc.",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "GE",
+          "name": "GE",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "GEV",
+          "name": "GE Vernova",
+          "composite": null,
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "NEP",
+          "name": "NEP",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "SEDG",
+          "name": "SEDG",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        }
+      ]
+    },
+    {
+      "theme": "Medical Devices",
+      "n": 9,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "ISRG",
+          "name": "Intuitive Surgical",
+          "composite": 0.337,
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "ABT",
+          "name": "ABT",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "BSX",
+          "name": "BSX",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "DXCM",
+          "name": "DXCM",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "EW",
+          "name": "EW",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "MDT",
+          "name": "MDT",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "PODD",
+          "name": "PODD",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "SWAV",
+          "name": "SWAV",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        },
+        {
+          "symbol": "TNDM",
+          "name": "TNDM",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
+        }
+      ]
+    },
+    {
+      "theme": "Healthcare AI / Digital Health",
+      "n": 10,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "ISRG",
+          "name": "Intuitive Surgical",
+          "composite": 0.337,
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "VEEV",
+          "name": "Veeva Systems Inc.",
+          "composite": 0.303,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "DOCS",
+          "name": "DOCS",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "EXAS",
+          "name": "EXAS",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "GEHC",
+          "name": "GEHC",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "GH",
+          "name": "GH",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "HIMS",
+          "name": "HIMS",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "NTRA",
+          "name": "NTRA",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        },
+        {
+          "symbol": "RXRX",
+          "name": "RXRX",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
+        },
+        {
+          "symbol": "TEM",
+          "name": "TEM",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 10
+        }
+      ]
+    },
+    {
+      "theme": "Quantum Computing",
+      "n": 8,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "GOOG",
+          "name": "Alphabet",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "HON",
+          "name": "霍尼韋爾",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "IBM",
+          "name": "IBM",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "IONQ",
+          "name": "IonQ, Inc.",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "MSFT",
+          "name": "微軟",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "QBTS",
+          "name": "D-Wave Quantum Inc.",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "QUBT",
+          "name": "Quantum Computing Inc.",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "RGTI",
+          "name": "RGTI",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        }
+      ]
+    },
+    {
+      "theme": "Cloud Infrastructure",
+      "n": 10,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "AMZN",
+          "name": "亞馬遜",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "ANET",
+          "name": "ANET",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "CSCO",
+          "name": "CSCO",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "DLR",
+          "name": "DLR",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "EQIX",
+          "name": "EQIX",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "GOOG",
+          "name": "Alphabet",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "JNPR",
+          "name": "JNPR",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "MSFT",
+          "name": "微軟",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        },
+        {
+          "symbol": "NTAP",
+          "name": "NTAP",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
+        },
+        {
+          "symbol": "PSTG",
+          "name": "PSTG",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 10
+        }
+      ]
+    },
+    {
+      "theme": "Edge Computing / IoT",
+      "n": 8,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "ADI",
+          "name": "ADI",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "AMZN",
+          "name": "亞馬遜",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "MSFT",
+          "name": "微軟",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "NVDA",
+          "name": "輝達",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "QCOM",
+          "name": "Qualcomm",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "TRMB",
+          "name": "TRMB",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "TXN",
+          "name": "TXN",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "ZBRA",
+          "name": "ZBRA",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        }
+      ]
+    },
+    {
+      "theme": "Battery / Energy Storage",
+      "n": 7,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "ALB",
+          "name": "ALB",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "FLNC",
+          "name": "FLNC",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "LAC",
+          "name": "LAC",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "LG Chem",
+          "name": "LG Chem",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "PCRFY",
+          "name": "PCRFY",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "SQM",
+          "name": "SQM",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "STEM",
+          "name": "STEM",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        }
+      ]
+    },
+    {
+      "theme": "Defense",
+      "n": 8,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "AVAV",
+          "name": "AVAV",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "GD",
+          "name": "GD",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "HII",
+          "name": "HII",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "KTOS",
+          "name": "KTOS",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "LMT",
+          "name": "LMT",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "NOC",
+          "name": "NOC",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "PLTR",
+          "name": "Palantir",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "RTX",
+          "name": "RTX",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        }
+      ]
+    },
+    {
+      "theme": "Space / Satellites",
+      "n": 6,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "ASTS",
+          "name": "ASTS",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "BA",
+          "name": "BA",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "IRDM",
+          "name": "IRDM",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "LMT",
+          "name": "LMT",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "RKLB",
+          "name": "Rocket Lab",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "VSAT",
+          "name": "VSAT",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        }
+      ]
+    },
+    {
+      "theme": "Construction / Infrastructure",
+      "n": 7,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "ACM",
+          "name": "ACM",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "CAT",
+          "name": "開拓重工",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "J",
+          "name": "J",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "MLM",
+          "name": "MLM",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "PWR",
+          "name": "Quanta Services",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "URI",
+          "name": "URI",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "VMC",
+          "name": "VMC",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        }
+      ]
+    },
+    {
+      "theme": "Materials / Mining",
+      "n": 8,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "ALB",
+          "name": "ALB",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "CCJ",
+          "name": "Cameco",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "DNN",
+          "name": "DNN",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "FCX",
+          "name": "Freeport-McMoRan",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "MP",
+          "name": "MP",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "SCCO",
+          "name": "SCCO",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "SQM",
+          "name": "SQM",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "TECK",
+          "name": "TECK",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        }
+      ]
+    },
+    {
+      "theme": "Biotech — Oncology",
+      "n": 8,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "AMGN",
+          "name": "AMGN",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "BMRN",
+          "name": "BMRN",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "DNLI",
+          "name": "DNLI",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "EXEL",
+          "name": "EXEL",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "GILD",
+          "name": "GILD",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "IMCR",
+          "name": "IMCR",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "REGN",
+          "name": "REGN",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "VRTX",
+          "name": "VRTX",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        }
+      ]
+    },
+    {
+      "theme": "Biotech — Obesity / GLP-1",
+      "n": 5,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "ALT",
+          "name": "ALT",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "AMGN",
+          "name": "AMGN",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "LLY",
+          "name": "Eli Lilly",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "NVO",
+          "name": "NVO",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "VKTX",
+          "name": "VKTX",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        }
+      ]
+    },
+    {
+      "theme": "Healthcare Services / Payors",
+      "n": 7,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "CI",
+          "name": "CI",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "ELV",
+          "name": "ELV",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "ESRX",
+          "name": "ESRX",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "HCA",
+          "name": "HCA",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "HUM",
+          "name": "HUM",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "UHS",
+          "name": "UHS",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "UNH",
+          "name": "UNH",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        }
+      ]
+    },
+    {
+      "theme": "Streaming / Media",
+      "n": 6,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "DIS",
+          "name": "DIS",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "MGNI",
+          "name": "MGNI",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "NFLX",
+          "name": "Netflix",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "SPOT",
+          "name": "SPOT",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "TTD",
+          "name": "TTD",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "WBD",
+          "name": "WBD",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        }
+      ]
+    },
+    {
+      "theme": "Gaming",
+      "n": 7,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "EA",
+          "name": "EA",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "LVS",
+          "name": "LVS",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "MGM",
+          "name": "MGM",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "ROBLX",
+          "name": "ROBLX",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "TTWO",
+          "name": "TTWO",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "U",
+          "name": "U",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "WYNN",
+          "name": "WYNN",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        }
+      ]
+    },
+    {
+      "theme": "Payments / FinTech",
+      "n": 8,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "AFRM",
+          "name": "AFRM",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "FI",
+          "name": "FI",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "FIS",
+          "name": "FIS",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "GPN",
+          "name": "GPN",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "MA",
+          "name": "MA",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "NU",
+          "name": "NU",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "SOFI",
+          "name": "SOFI",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "V",
+          "name": "Visa",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        }
+      ]
+    },
+    {
+      "theme": "Banks",
+      "n": 8,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "BAC",
+          "name": "BAC",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "C",
+          "name": "C",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "GS",
+          "name": "GS",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "JPM",
+          "name": "JPM",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "KEY",
+          "name": "KEY",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "MS",
+          "name": "MS",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "RF",
+          "name": "RF",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "WFC",
+          "name": "WFC",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        }
+      ]
+    },
+    {
+      "theme": "Asset Managers / Alternatives",
+      "n": 7,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "APO",
+          "name": "APO",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "ARES",
+          "name": "ARES",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "BLK",
+          "name": "BLK",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "BX",
+          "name": "BX",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "COIN",
+          "name": "COIN",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "HOOD",
+          "name": "HOOD",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "KKR",
+          "name": "KKR",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        }
+      ]
+    },
+    {
+      "theme": "Crypto Infrastructure",
+      "n": 8,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "CLSK",
+          "name": "CLSK",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "COIN",
+          "name": "COIN",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "FBTC",
+          "name": "FBTC",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "HOOD",
+          "name": "HOOD",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "IBIT",
+          "name": "IBIT",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "MARA",
+          "name": "MARA",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "MSTR",
+          "name": "MSTR",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "RIOT",
+          "name": "RIOT",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        }
+      ]
+    },
+    {
+      "theme": "EV / Auto",
+      "n": 10,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "ALB",
+          "name": "ALB",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "CHPT",
+          "name": "CHPT",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "EVGO",
+          "name": "EVGO",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "F",
+          "name": "F",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "GM",
+          "name": "GM",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "LI",
+          "name": "LI",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "NIO",
+          "name": "NIO",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "RIVN",
+          "name": "RIVN",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        },
+        {
+          "symbol": "TSLA",
+          "name": "特斯拉",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
+        },
+        {
+          "symbol": "XPEV",
+          "name": "XPEV",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 10
+        }
+      ]
+    },
+    {
+      "theme": "Travel & Leisure",
+      "n": 10,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "ABNB",
+          "name": "ABNB",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "BKNG",
+          "name": "BKNG",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "CCL",
+          "name": "CCL",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "DAL",
+          "name": "DAL",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "H",
+          "name": "H",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "HLT",
+          "name": "HLT",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "LUV",
+          "name": "LUV",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "MAR",
+          "name": "MAR",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        },
+        {
+          "symbol": "RCL",
+          "name": "RCL",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
+        },
+        {
+          "symbol": "UAL",
+          "name": "UAL",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 10
+        }
+      ]
+    },
+    {
+      "theme": "E-commerce / Marketplaces",
+      "n": 7,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "AMZN",
+          "name": "亞馬遜",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "EBAY",
+          "name": "EBAY",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "FDX",
+          "name": "FDX",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "MELI",
+          "name": "MELI",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "SE",
+          "name": "SE",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "SHOP",
+          "name": "SHOP",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "UPS",
+          "name": "UPS",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        }
+      ]
+    },
+    {
+      "theme": "Consumer Defensive",
+      "n": 8,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "COST",
+          "name": "COST",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "DG",
+          "name": "DG",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "DLTR",
+          "name": "DLTR",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "KO",
+          "name": "KO",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "MCD",
+          "name": "MCD",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "PG",
+          "name": "PG",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "SBUX",
+          "name": "SBUX",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "WMT",
+          "name": "沃爾瑪",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        }
+      ]
+    },
+    {
+      "theme": "Luxury / Premium Consumer",
+      "n": 4,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "LVMUY",
+          "name": "LVMUY",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "RACE",
+          "name": "RACE",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "RL",
+          "name": "RL",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "TPR",
+          "name": "TPR",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        }
+      ]
+    },
+    {
+      "theme": "REIT — Data Center",
+      "n": 3,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "DLR",
+          "name": "DLR",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "EQIX",
+          "name": "EQIX",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "IRM",
+          "name": "IRM",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        }
+      ]
+    },
+    {
+      "theme": "REIT — Net Lease",
+      "n": 4,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "NNN",
+          "name": "NNN",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "O",
+          "name": "Realty Income",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "STOR",
+          "name": "STOR",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "WPC",
+          "name": "WPC",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        }
+      ]
+    },
+    {
+      "theme": "REIT — Telecom Infra",
+      "n": 3,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "AMT",
+          "name": "美國電塔",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "CCI",
+          "name": "CCI",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "SBAC",
+          "name": "SBAC",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        }
+      ]
+    },
+    {
+      "theme": "REIT — Industrial / Logistics",
+      "n": 3,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "PLD",
+          "name": "PLD",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "REXR",
+          "name": "REXR",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "STAG",
+          "name": "STAG",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        }
+      ]
+    },
+    {
+      "theme": "Energy / Oil & Gas",
+      "n": 7,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "COP",
+          "name": "COP",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "CVX",
+          "name": "CVX",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "EOG",
+          "name": "EOG",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "FANG",
+          "name": "FANG",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "HAL",
+          "name": "HAL",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "SLB",
+          "name": "SLB",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "XOM",
+          "name": "XOM",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        }
+      ]
+    },
+    {
+      "theme": "Pipelines / Midstream",
+      "n": 6,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "ENB",
+          "name": "Enbridge Inc",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "KMI",
+          "name": "KMI",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "LNG",
+          "name": "LNG",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "OKE",
+          "name": "OKE",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "TRGP",
+          "name": "TRGP",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "WMB",
+          "name": "WMB",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        }
+      ]
+    },
+    {
+      "theme": "Defensive Compounders",
+      "n": 6,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "BRK.B",
+          "name": "波克夏",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "COST",
+          "name": "COST",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "PG",
+          "name": "PG",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "PGR",
+          "name": "PGR",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "TRV",
+          "name": "TRV",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "WMT",
+          "name": "沃爾瑪",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        }
+      ]
+    },
+    {
+      "theme": "REIT / Real Estate",
+      "n": 11,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "AMT",
+          "name": "美國電塔",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "CCI",
+          "name": "CCI",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "DLR",
+          "name": "DLR",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "EQIX",
+          "name": "EQIX",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "IRM",
+          "name": "IRM",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "O",
+          "name": "Realty Income",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "PLD",
+          "name": "PLD",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "SBAC",
+          "name": "SBAC",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        },
+        {
+          "symbol": "SPG",
+          "name": "SPG",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
+        },
+        {
+          "symbol": "VICI",
+          "name": "VICI",
+          "composite": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 10
         }
       ]
     }
