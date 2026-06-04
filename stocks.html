@@ -151,7 +151,7 @@
         <span class="sr-sym">${s.symbol}</span>
         <span class="sr-name">${s.name || ''}</span>
         ${dot}
-        <span class="sr-score">${(s.composite ?? 0).toFixed(2)}</span>
+        <span class="sr-score">${s.composite == null ? '' : (+s.composite).toFixed(2)}</span>
       </a>`;
     }).join('');
     return `<div class="theme-card">

@@ -1,6 +1,6 @@
 {
   "date": "2026-06-04",
-  "headline": "記憶體強勢反彈後,製程控制檢測股悄悄起動 — AI 算力擁塞期,上游設備廠 LRCX 面臨轉機",
+  "headline": "記憶體周期啟動後的設備分化:AI 算力沉積蝕刻退守,檢測控制獨強 — LRCX 新聞催化劑升溫,CRWD 駭客防線再現剛需",
   "theme": "Memory (HBM / DRAM / NAND)",
   "regime": "neutral",
   "picks": [
@@ -45,15 +45,27 @@
   "policy": [
     {
       "topic": "川普 × 個股機會",
-      "title": "US cites forced labor concerns as grounds for new tariffs",
-      "summary_zh": "美國以強制勞動為由發動新關稅措施,衝擊全球供應鏈分佈。美國本土製造與自動化投資可望受惠。",
-      "source": "Reuters"
+      "title": "Mercedes-Benz may be shut out of U.S. market under bill aimed at Chinese automaker ownership",
+      "summary_zh": "梅賽德斯-賓士恐遭美國市場禁入,川普政府擬以立法限制中資汽車製造商進口 — 美國車系與相關供應鏈保護意圖明確。",
+      "source": "CNBC"
     },
     {
       "topic": "川普 × 個股機會",
-      "title": "Deere (DE) Shares Skyrocket, What You Need To Know",
-      "summary_zh": "約翰迪爾股價飆升,反映農機與重工製造在關稅與製造回流預期下的追捧。",
-      "source": "StockStory"
+      "title": "White House Intervention Bolsters Trump Jr–Connected Rare Earths Firm",
+      "summary_zh": "白宮干預支持川普關係人士創辦之稀土公司,政策對本土礦產與關鍵物資供應鏈的扶植力度升高。",
+      "source": "Cato Institute"
+    },
+    {
+      "topic": "政策 / 立法",
+      "title": "The Diversified Energy Bet For A Power-Hungry World",
+      "summary_zh": "能源多元化佈局成為政策優先項,風電、核能、化石燃料並行政策預期強化 — 能源成本與供應穩定性將重塑製造業成本結構。",
+      "source": "Kalkine Media"
+    },
+    {
+      "topic": "政策 / 立法",
+      "title": "House subcommittee splits on SECURE Data Act that preempts state privacy laws",
+      "summary_zh": "聯邦隱私保護法案在眾議院小組委員會陷入分歧,SECURE[?] Data Act 推進受阻 — 企業資料防禦投資確定性延後。",
+      "source": "StateScoop"
     }
   ],
   "themes": [],
