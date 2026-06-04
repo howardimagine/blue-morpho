@@ -405,6 +405,18 @@
   </div>
 </section>
 
+<!-- ── 機構驗證 · Smart Money(13F)── 預設隱藏,有 /data/whale_validation.json 才顯示 -->
+<section class="page-section" id="whale-section" style="display:none;">
+  <div class="container">
+    <div class="section-header">▎ SMART MONEY · 機構驗證</div>
+    <p class="mono-xs text-dim" style="letter-spacing:.06em;margin:-6px 0 16px;line-height:1.7;">
+      頂級機構(13F)本季對精選個股的動向 — <b style="color:var(--text-primary);">聰明錢背書或警訊</b>。
+      <span id="whale-asof"></span> · 13F 落後約 45 天,僅供論點驗證,非進場訊號。
+    </p>
+    <div class="grid-4" id="whale-grid"></div>
+  </div>
+</section>
+
 <!-- ── Subscribe ── -->
 <section class="page-section" id="subscribe">
   <div class="container">
@@ -591,6 +603,48 @@ function rsiDisplay(v) {
     document.getElementById('themes-wrap').innerHTML =
       themes.map(t => `<span class="theme-tag">${t}</span>`).join('');
   }
+
+  // ── 機構驗證 · Smart Money(13F)— 有資料才顯示 ─────────
+  try {
+    const wr = await fetch('/data/whale_validation.json');
+    if (wr.ok) {
+      const wd = await wr.json();
+      const stocks = (wd && wd.stocks) || [];
+      if (stocks.length) {
+        const sec = document.getElementById('whale-section');
+        const asof = document.getElementById('whale-asof');
+        if (asof && wd.as_of) asof.textContent = '資料截至 ' + wd.as_of;
+        const SIG = {
+          buy:   { t: '機構淨買入', c: '#00ff9d' },
+          split: { t: '機構分歧',   c: '#ffd000' },
+          sell:  { t: '機構淨賣出', c: '#ff3b6b' }
+        };
+        const pct = v => (v == null ? '—' : (v).toFixed(1) + '%');
+        const dlt = v => (v == null ? '' : (v >= 0 ? '↑+' : '↓') + Math.abs(v).toFixed(1) + 'pt');
+        document.getElementById('whale-grid').innerHTML = stocks.map(s => {
+          const sig = SIG[s.signal] || SIG.split;
+          const whales = (s.whales || []).slice(0, 3).join(' · ');
+          return `
+            <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:16px;">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;">
+                <span style="font-family:var(--font-mono);font-size:1.1rem;font-weight:700;color:var(--accent);">${s.symbol}</span>
+                <span style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.1em;color:#8a9bb0;">${s.theme || ''}</span>
+              </div>
+              <div style="color:var(--text-primary);font-size:.8rem;margin:2px 0 10px;">${s.name || ''}</div>
+              <div style="font-size:.78rem;color:#aebccd;line-height:1.9;">
+                機構持股 <b style="color:var(--text-primary);">${pct(s.ownership_pct)}</b> <span style="color:#8a9bb0;">${dlt(s.ownership_delta_pt)}</span><br>
+                持有機構 <b style="color:var(--text-primary);">${s.holders ?? '—'}</b> ${s.holders_delta != null ? `<span style="color:#8a9bb0;">(${s.holders_delta>=0?'+':''}${s.holders_delta})</span>` : ''}<br>
+                <span style="color:#00ff9d;">加碼 ${s.increased ?? '—'}</span> · <span style="color:#ff3b6b;">減碼 ${s.reduced ?? '—'}</span><br>
+                新進 ${s.new_pos ?? '—'} · 清倉 ${s.closed_pos ?? '—'}
+              </div>
+              ${whales ? `<div style="font-size:.72rem;color:#9fb2c6;margin-top:8px;border-top:1px solid var(--border);padding-top:8px;">鯨魚:${whales}</div>` : ''}
+              <div style="margin-top:10px;display:inline-block;font-family:var(--font-mono);font-size:.66rem;font-weight:700;letter-spacing:.06em;color:${sig.c};border:1px solid ${sig.c}55;border-radius:4px;padding:3px 9px;">● ${sig.t}</div>
+            </div>`;
+        }).join('');
+        if (sec) sec.style.display = '';
+      }
+    }
+  } catch (e) { /* 無資料 → 區塊保持隱藏 */ }
 })();
 
 /* ════════════════════════════════════════════════════════

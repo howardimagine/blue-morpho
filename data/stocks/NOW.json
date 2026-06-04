@@ -1,11 +1,11 @@
 {
   "symbol": "NOW",
   "name": "ServiceNow",
-  "tier": "ready",
-  "regime": "risk-on",
+  "tier": "watch",
+  "regime": "neutral",
   "theme": "AI Software",
   "business": "企業工作流(IT/HR)SaaS;agentic AI(Now Assist)變現加速中。",
-  "why": "WATCHLIST_CONVICTION",
+  "why": "QUALITY_COMPOUNDER",
   "rsi": null,
   "sma50": null,
   "sma200": null,
@@ -18,17 +18,17 @@
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 5.5
+      "score": 4.4
     },
     {
       "key": "macro_context",
       "label": "總經環境",
-      "score": 7.6
+      "score": null
     },
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 5.0
+      "score": 8.1
     },
     {
       "key": "news_catalyst",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-06-04",
+      "theme": "AI Software",
+      "tier": "watch",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-05-27",
       "theme": "AI Software",

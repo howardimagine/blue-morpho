@@ -146,7 +146,7 @@
   {
     "symbol": "LRCX",
     "name": "科林研發",
-    "tier": "enter",
+    "tier": "ready",
     "theme": "AI Compute"
   },
   {
@@ -176,13 +176,13 @@
   {
     "symbol": "NOW",
     "name": "ServiceNow",
-    "tier": "ready",
+    "tier": "watch",
     "theme": "AI Software"
   },
   {
     "symbol": "ROK",
     "name": "羅克韋爾自動化",
-    "tier": "watch",
+    "tier": "ready",
     "theme": "Industrial Automation"
   },
   {

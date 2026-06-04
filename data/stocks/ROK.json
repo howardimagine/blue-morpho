@@ -1,7 +1,7 @@
 {
   "symbol": "ROK",
   "name": "羅克韋爾自動化",
-  "tier": "watch",
+  "tier": "ready",
   "regime": "neutral",
   "theme": "Industrial Automation",
   "business": "工廠自動化/工業控制(PLC/軟體)龍頭;再工業化+製造 AI 受惠。",
@@ -18,7 +18,7 @@
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 3.5
+      "score": 9.4
     },
     {
       "key": "macro_context",
@@ -28,7 +28,7 @@
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": null
+      "score": 7.2
     },
     {
       "key": "news_catalyst",
@@ -38,10 +38,18 @@
     {
       "key": "risk_reward",
       "label": "風險回報",
-      "score": null
+      "score": 5.0
     }
   ],
   "tracking": [
+    {
+      "date": "2026-06-04",
+      "theme": "Industrial Automation",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-05-31",
       "theme": "Industrial Automation",
