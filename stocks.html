@@ -68,7 +68,7 @@
     <div class="container">
       <span class="pool-title">▎ BLUE MORPHO · 選股池</span>
       <h1 class="pool-h1">排名透明化 · 引擎怎麼選</h1>
-      <p class="pool-method" id="pool-method">載入排序邏輯…</p>
+      <p class="pool-method" id="pool-method">每檔個股的 <b style="color:var(--text-primary)">綜合分(composite)</b> = 主題順風 × 技術形態 × 新聞催化 × 品質基本面;每個產業內依綜合分由高到低排序,取前 6 名。<span style="color:#00ff9d">近期推薦</span> = 近三期曾入精選 · <span style="color:#00f3ff">潛力</span> = 同主題達標但未入選。</p>
       <div class="pool-date" id="pool-date"></div>
     </div>
   </div>
@@ -92,7 +92,7 @@
     return;
   }
   loading.style.display = 'none';
-  document.getElementById('pool-method').textContent = d.method || '';
+  if (d.method) document.getElementById('pool-method').textContent = d.method;  // 有就用引擎版,否則保留靜態說明
   document.getElementById('pool-date').textContent = d.date ? ('資料日期 · ' + d.date) : '';
 
   const themes = d.themes || [];
