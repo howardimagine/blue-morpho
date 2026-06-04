@@ -1,6 +1,6 @@
 {
   "date": "2026-06-04",
-  "headline": "記憶體強勢反彈、資安成川普政策寵兒 — 本週科技輪動加速,設備鏈與軟體應用分化",
+  "headline": "記憶體強勢反彈後,製程控制檢測股悄悄起動 — AI 算力擁塞期,上游設備廠 LRCX 面臨轉機",
   "theme": "Memory (HBM / DRAM / NAND)",
   "regime": "neutral",
   "picks": [
@@ -13,7 +13,7 @@
       "ma_stack": "bullish",
       "price": null,
       "business": "工廠自動化/工業控制(PLC/軟體)龍頭;再工業化+製造 AI 受惠。",
-      "why": "基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面呈現「uptrend, near highs」，MA 結構為 <strong>bullish</strong>，RSI 54.7。",
+      "why": "本週篩選邏輯下相對其他候選股表現較佳。",
       "rr": null
     },
     {
@@ -26,18 +26,6 @@
       "price": null,
       "business": "WFE 蝕刻/沉積龍頭,3D NAND 主力,HBM 擴產直接受惠。",
       "why": "近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
-      "rr": null
-    },
-    {
-      "symbol": "NOW",
-      "name": "ServiceNow",
-      "tier": "watch",
-      "theme": "AI Software",
-      "rsi": 59.6,
-      "ma_stack": "mixed",
-      "price": null,
-      "business": "企業工作流(IT/HR)SaaS;agentic AI(Now Assist)變現加速中。",
-      "why": "基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
       "rr": null
     },
     {
@@ -57,20 +45,20 @@
   "policy": [
     {
       "topic": "川普 × 個股機會",
-      "title": "Why Is IBM Stock Surging Nearly 7% Higher In Overnight Trading?",
-      "summary_zh": "IBM[?] 股價夜盤大漲逾七個百分點,市場推測與川普政府政策傾斜相關,藍籌科技股在政策紅利預期下重獲關注。",
-      "source": "Yahoo Finance"
+      "title": "US cites forced labor concerns as grounds for new tariffs",
+      "summary_zh": "美國以強制勞動為由發動新關稅措施,衝擊全球供應鏈分佈。美國本土製造與自動化投資可望受惠。",
+      "source": "Reuters"
     },
     {
       "topic": "川普 × 個股機會",
-      "title": "Trump’s AI Cybersecurity Order: A Voluntary Framework with Mandatory Implications",
-      "summary_zh": "川普政府發佈 AI 資安行政令,採自願框架但包含強制合規意涵,推升企業資安投資預算向端點檢測與網路防護傾斜。",
-      "source": "Ropes &amp; Gray LLP"
+      "title": "Deere (DE) Shares Skyrocket, What You Need To Know",
+      "summary_zh": "約翰迪爾股價飆升,反映農機與重工製造在關稅與製造回流預期下的追捧。",
+      "source": "StockStory"
     }
   ],
   "themes": [],
   "stats": {
-    "n_picks": 4,
+    "n_picks": 3,
     "n_themes": 0,
     "journal_total": 107
   },
