@@ -44,28 +44,16 @@
   "sell_signals": {},
   "policy": [
     {
-      "topic": "川普 × 個股機會",
-      "title": "Mercedes-Benz may be shut out of U.S. market under bill aimed at Chinese automaker ownership",
+      "topic": "政策 / 立法",
+      "title": "Kentucky’s Bipartisan Data Privacy Law Serves as Model for Federal Legislation as Watts Testifies Before Congress",
       "summary_zh": "梅賽德斯-賓士恐遭美國市場禁入,川普政府擬以立法限制中資汽車製造商進口 — 美國車系與相關供應鏈保護意圖明確。",
-      "source": "CNBC"
+      "source": "kychamberbottomline.com"
     },
     {
-      "topic": "川普 × 個股機會",
-      "title": "White House Intervention Bolsters Trump Jr–Connected Rare Earths Firm",
+      "topic": "政策 / 立法",
+      "title": "Trump cuts tariffs on tractors, combines, other farm equipment",
       "summary_zh": "白宮干預支持川普關係人士創辦之稀土公司,政策對本土礦產與關鍵物資供應鏈的扶植力度升高。",
-      "source": "Cato Institute"
-    },
-    {
-      "topic": "政策 / 立法",
-      "title": "The Diversified Energy Bet For A Power-Hungry World",
-      "summary_zh": "能源多元化佈局成為政策優先項,風電、核能、化石燃料並行政策預期強化 — 能源成本與供應穩定性將重塑製造業成本結構。",
-      "source": "Kalkine Media"
-    },
-    {
-      "topic": "政策 / 立法",
-      "title": "House subcommittee splits on SECURE Data Act that preempts state privacy laws",
-      "summary_zh": "聯邦隱私保護法案在眾議院小組委員會陷入分歧,SECURE[?] Data Act 推進受阻 — 企業資料防禦投資確定性延後。",
-      "source": "StateScoop"
+      "source": "Capital Press"
     }
   ],
   "themes": [],

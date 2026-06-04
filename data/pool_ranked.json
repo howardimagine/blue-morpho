@@ -13,7 +13,7 @@
           "rank": 1,
           "symbol": "MU",
           "name": "MU",
-          "composite": 0.201,
+          "composite": 0.194,
           "is_pick": false,
           "is_recent": true,
           "is_watch": false
@@ -25,13 +25,13 @@
       "n": 3,
       "rs_1m": 17.83,
       "rs_3m": 50.34,
-      "news_7d": 168,
+      "news_7d": 159,
       "stocks": [
         {
           "rank": 1,
           "symbol": "LRCX",
           "name": "LRCX",
-          "composite": 0.094,
+          "composite": 0.119,
           "is_pick": true,
           "is_recent": true,
           "is_watch": false
@@ -40,7 +40,7 @@
           "rank": 2,
           "symbol": "AMAT",
           "name": "AMAT",
-          "composite": 0.071,
+          "composite": 0.077,
           "is_pick": false,
           "is_recent": true,
           "is_watch": true
@@ -49,7 +49,7 @@
           "rank": 3,
           "symbol": "ARM",
           "name": "ARM",
-          "composite": 0,
+          "composite": 0.029,
           "is_pick": false,
           "is_recent": false,
           "is_watch": true
@@ -67,7 +67,7 @@
           "rank": 1,
           "symbol": "CRWD",
           "name": "CRWD",
-          "composite": 0.348,
+          "composite": 0.305,
           "is_pick": true,
           "is_recent": true,
           "is_watch": false
@@ -85,7 +85,7 @@
           "rank": 1,
           "symbol": "NOW",
           "name": "NOW",
-          "composite": 0.385,
+          "composite": 0.377,
           "is_pick": false,
           "is_recent": true,
           "is_watch": false
@@ -103,7 +103,7 @@
           "rank": 1,
           "symbol": "ISRG",
           "name": "ISRG",
-          "composite": 0.322,
+          "composite": 0.337,
           "is_pick": false,
           "is_recent": true,
           "is_watch": false
@@ -112,7 +112,7 @@
           "rank": 2,
           "symbol": "VEEV",
           "name": "VEEV",
-          "composite": 0.277,
+          "composite": 0.303,
           "is_pick": false,
           "is_recent": false,
           "is_watch": false
@@ -138,24 +138,6 @@
       ]
     },
     {
-      "theme": "Data Center",
-      "n": 1,
-      "rs_1m": null,
-      "rs_3m": null,
-      "news_7d": null,
-      "stocks": [
-        {
-          "rank": 1,
-          "symbol": "VRT",
-          "name": "VRT",
-          "composite": 0,
-          "is_pick": false,
-          "is_recent": false,
-          "is_watch": false
-        }
-      ]
-    },
-    {
       "theme": "Industrial Automation",
       "n": 1,
       "rs_1m": null,
@@ -169,6 +151,24 @@
           "composite": 0,
           "is_pick": true,
           "is_recent": true,
+          "is_watch": false
+        }
+      ]
+    },
+    {
+      "theme": "Data Center",
+      "n": 1,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "rank": 1,
+          "symbol": "VRT",
+          "name": "VRT",
+          "composite": 0,
+          "is_pick": false,
+          "is_recent": false,
           "is_watch": false
         }
       ]
