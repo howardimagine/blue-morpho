@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BLUE MORPHO · 選股池 · 排名透明化</title>
+  <meta name="description" content="Blue Morpho 引擎選股池 — 依產業分組、依綜合分排名,完全透明。點個股看完整分析。">
+  <meta name="theme-color" content="#02020A">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .pool-head { border-bottom: 1px solid var(--border); padding: var(--space-6) 0; }
+    .pool-title { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: .18em; color: var(--accent); text-transform: uppercase; }
+    .pool-h1 { font-size: clamp(1.2rem, 3vw, 1.7rem); font-weight: 700; color: var(--text-primary); margin: var(--space-2) 0; }
+    .pool-method { font-size: .8rem; color: #9fb2c6; line-height: 1.75; max-width: 720px; }
+    .pool-date { font-family: var(--font-mono); font-size: .72rem; color: var(--text-dim); }
+    .theme-block { margin: var(--space-8) 0; }
+    .theme-bar { display: flex; align-items: baseline; gap: var(--space-3); flex-wrap: wrap; border-left: 3px solid var(--accent); padding-left: 10px; margin-bottom: var(--space-3); }
+    .theme-name { font-family: var(--font-mono); font-size: .95rem; font-weight: 700; color: var(--text-primary); letter-spacing: .04em; }
+    .theme-meta { font-family: var(--font-mono); font-size: .68rem; color: #8a9bb0; letter-spacing: .04em; }
+    .theme-meta b { color: #00ff9d; }
+    .theme-desc { font-size: .76rem; color: #9fb2c6; line-height: 1.65; margin: 8px 0 12px; }
+    /* 一個產業 = 一張排行榜卡;卡片 RWD 一排 1~3 張 */
+    .pool-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; align-items: start; }
+    @media (max-width: 900px) { .pool-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 560px) { .pool-grid { grid-template-columns: minmax(0, 1fr); } }
+    .theme-card { border: 1px solid var(--border); border-radius: 10px; background: var(--bg-card); padding: 16px; }
+    .tc-head { border-left: 3px solid var(--accent); padding-left: 10px; margin-bottom: 4px; }
+    .tc-name { font-family: var(--font-mono); font-size: .92rem; font-weight: 700; color: var(--text-primary); letter-spacing: .03em; }
+    .tc-meta { font-family: var(--font-mono); font-size: .64rem; color: #8a9bb0; letter-spacing: .03em; margin-top: 3px; }
+    .tc-meta b { color: #00ff9d; }
+    /* 卡內排行 LIST */
+    .sr-row { display: flex; align-items: center; gap: 8px; padding: 8px 6px; border-top: 1px solid #131a2b; text-decoration: none; transition: background .12s; }
+    .sr-row:first-of-type { border-top: none; }
+    .sr-row:hover { background: #11182b; }
+    .sr-rank { font-family: var(--font-mono); font-size: .68rem; color: var(--text-dim); width: 22px; flex-shrink: 0; }
+    .sr-sym { font-family: var(--font-mono); font-size: .9rem; font-weight: 700; color: var(--accent); width: 58px; flex-shrink: 0; }
+    .sr-name { font-size: .76rem; color: var(--text-primary); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .sr-score { font-family: var(--font-mono); font-size: .74rem; font-weight: 700; color: #00ff9d; flex-shrink: 0; }
+    .sr-dot { font-family: var(--font-mono); font-size: .56rem; font-weight: 700; letter-spacing: .04em; flex-shrink: 0; white-space: nowrap; padding: 2px 7px; border-radius: 4px; }
+    .sr-pick { color: #02020a; background: #00ff9d; }
+    .sr-watch { color: #00f3ff; background: rgba(0,243,255,.12); border: 1px solid #00f3ff55; }
+    .pool-wrap { max-width: 820px; margin: 0 auto; padding: var(--space-6) var(--space-4) var(--space-12); }
+    .pool-loading { font-family: var(--font-mono); font-size: .75rem; color: var(--text-dim); padding: var(--space-10) var(--space-4); text-align: center; letter-spacing: .08em; }
+    @media (max-width: 640px) { .sr-bar-wrap { display: none; } .sr-name { font-size: .78rem; } }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img class="nav-logo-icon" src="assets/icon.svg" alt="Blue Morpho">
+        <div><div class="nav-logo-text">BLUE MORPHO</div><div class="nav-logo-sub">美股前沿觀察</div></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="weekly.html">WEEKLY</a></li>
+        <li><a href="stocks.html" class="active">STOCKS</a></li>
+      </ul>
+      <a href="https://lin.ee/xt0mgJH" target="_blank" rel="noopener" class="nav-cta">追蹤 LINE</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="pool-head">
+    <div class="container">
+      <span class="pool-title">▎ BLUE MORPHO · 選股池</span>
+      <h1 class="pool-h1">排名透明化 · 引擎怎麼選</h1>
+      <p class="pool-method" id="pool-method">載入排序邏輯…</p>
+      <div class="pool-date" id="pool-date"></div>
+    </div>
+  </div>
+  <div class="pool-wrap">
+    <div id="pool-loading" class="pool-loading">載入選股池…</div>
+    <div id="pool-body"></div>
+  </div>
+</main>
+
+<script>
+(async function () {
+  const body = document.getElementById('pool-body');
+  const loading = document.getElementById('pool-loading');
+  let d;
+  try {
+    const r = await fetch('/data/pool_ranked.json');
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    d = await r.json();
+  } catch (e) {
+    loading.textContent = '選股池資料尚未產生(下次引擎執行後出現)。';
+    return;
+  }
+  loading.style.display = 'none';
+  document.getElementById('pool-method').textContent = d.method || '';
+  document.getElementById('pool-date').textContent = d.date ? ('資料日期 · ' + d.date) : '';
+
+  const themes = d.themes || [];
+  // 找全池最大 composite 做 bar 正規化
+  let maxC = 0.0001;
+  themes.forEach(t => (t.stocks || []).forEach(s => { if ((s.composite || 0) > maxC) maxC = s.composite; }));
+
+  const pct = v => (v == null ? '—' : (v >= 0 ? '+' : '') + (+v).toFixed(1) + '%');
+
+  // 產業簡述(找不到用空字串)
+  const DESC = {
+    "Memory (HBM / DRAM / NAND)": "記憶體:HBM/DRAM/NAND。AI 訓練吃高頻寬記憶體,供需與報價循環是主軸。",
+    "Semiconductor Equipment (WFE)": "晶圓製造設備:蝕刻/沉積/檢測。產能擴張與先進製程資本支出的上游受惠者。",
+    "AI Compute": "AI 算力:GPU/加速器/雲端資本支出。Hyperscaler CapEx 是需求引擎。",
+    "AI Software": "AI 軟體:企業導入 AI、Copilot 變現。從『算力』走向『應用變現』的一層。",
+    "AI Robotics / Automation": "AI 機器人/自動化:人形機器人、工業自動化的訂單與落地。",
+    "Quantum Computing": "量子運算:早期主題,政策與里程碑驅動,波動大。",
+    "Cloud Infrastructure": "雲端基建:資料中心建置、雲端容量擴張。",
+    "Cybersecurity": "網路安全:平台化資安、AI 防禦,訂閱制現金流穩。",
+    "Defense": "國防:國防預算、五角大廈合約、無人機採購。政策紅利明確。",
+    "Space / Satellites": "太空/衛星:發射、衛星星系。長期主題、波動大。",
+    "Electrification / Power": "電氣化/電力:資料中心用電、電網投資。AI 用電暴增的賣鏟人。",
+    "Nuclear / SMR": "核能/小型模組反應爐:AI 資料中心穩定基載電力需求。",
+    "Solar / Renewables": "太陽能/再生能源:政策與裝置量驅動,利率敏感。",
+    "Battery / Energy Storage": "電池/儲能:鋰價、電芯、電網儲能。",
+    "Industrial Automation": "工業自動化:工廠自動化、PLC 訂單。",
+    "Biotech — Oncology": "腫瘤生技:臨床試驗、癌症新藥 FDA 進度。",
+    "Biotech — Obesity / GLP-1": "減重/GLP-1:Lilly/Novo 主導,需求強勁。",
+    "Medical Devices": "醫療器材:微創手術、CGM 等裝置。",
+    "Healthcare AI / Digital Health": "醫療 AI/數位健康:AI 診斷、健康數據。",
+    "Streaming / Media": "串流/媒體:訂閱數、廣告層成長。",
+    "Gaming": "遊戲:遊戲銷售、平台。",
+    "Payments / FinTech": "支付/金融科技:刷卡量、Visa/MA、新型銀行。",
+    "Banks": "銀行:存款、放款、利差。",
+    "Crypto Infrastructure": "加密基建:比特幣 ETF 資金流、礦工、交易所。",
+    "EV / Auto": "電動車/汽車:交車量、Tesla/BYD。",
+    "Travel & Leisure": "旅遊/休閒:旅遊需求、飯店、航空。",
+    "E-commerce / Marketplaces": "電商/平台:GMV 成長、Amazon/MELI。",
+    "Energy / Oil & Gas": "能源/油氣:OPEC、油價、頁岩產量。",
+    "Defensive Compounders": "防禦型複利股:消費必需,抗波動。",
+    "REIT / Real Estate": "REIT/房地產:資料中心/電塔/零售 REIT,利率敏感。"
+  };
+
+  body.innerHTML = '<div class="pool-grid">' + themes.map(t => {
+    const meta = [];
+    if (t.rs_1m != null) meta.push(`1M RS <b>${pct(t.rs_1m)}</b>`);
+    if (t.rs_3m != null) meta.push(`3M ${pct(t.rs_3m)}`);
+    if (t.news_7d != null) meta.push(`新聞 ${t.news_7d}`);
+    meta.push(`池中 ${t.n} 檔`);
+    const desc = DESC[t.theme] || '';
+    const rows = (t.stocks || []).map(s => {
+      const dot = (s.is_recent || s.is_pick) ? '<span class="sr-dot sr-pick" title="近三期曾入精選">近期推薦</span>'
+                : s.is_watch ? '<span class="sr-dot sr-watch" title="潛力觀察">潛力</span>' : '';
+      return `<a class="sr-row" href="stock.html?t=${s.symbol}">
+        <span class="sr-rank">#${s.rank}</span>
+        <span class="sr-sym">${s.symbol}</span>
+        <span class="sr-name">${s.name || ''}</span>
+        ${dot}
+        <span class="sr-score">${(s.composite ?? 0).toFixed(2)}</span>
+      </a>`;
+    }).join('');
+    return `<div class="theme-card">
+      <div class="tc-head">
+        <div class="tc-name">${t.theme}</div>
+        <div class="tc-meta">${meta.join(' · ')}</div>
+      </div>
+      ${desc ? `<div class="theme-desc">${desc}</div>` : ''}
+      ${rows}
+    </div>`;
+  }).join('') + '</div>';
+})();
+</script>
+</body>
+</html>

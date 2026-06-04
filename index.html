@@ -312,6 +312,27 @@
       font-weight: 600;
     }
   </style>
+  <!-- LED 數字字體(走馬燈用)-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/dseg@0.46.0/css/dseg.css">
+  <style>
+    .ticker-tape { background: #05060f; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      overflow: hidden; white-space: nowrap; position: relative; }
+    .ticker-tape::before, .ticker-tape::after { content: ""; position: absolute; top: 0; bottom: 0; width: 60px; z-index: 2; pointer-events: none; }
+    .ticker-tape::before { left: 0;  background: linear-gradient(90deg, #05060f, transparent); }
+    .ticker-tape::after  { right: 0; background: linear-gradient(270deg, #05060f, transparent); }
+    .ticker-track { display: inline-flex; align-items: center; gap: 38px; padding: 11px 0;
+      animation: ticker-scroll 38s linear infinite; will-change: transform; }
+    .ticker-tape:hover .ticker-track { animation-play-state: paused; }
+    @keyframes ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .tk-lead { font-family: var(--font-mono); font-size: .6rem; letter-spacing: .22em; color: var(--accent); text-transform: uppercase; }
+    .tk-item { display: inline-flex; align-items: center; gap: 9px; }
+    .tk-sym { font-family: "DSEG14 Classic", "Share Tech Mono", var(--font-mono); font-size: 1.05rem; font-weight: 700;
+      color: #00f3ff; text-shadow: 0 0 8px rgba(0,243,255,.6); letter-spacing: .04em; }
+    .tk-up   { color: #00ff9d; font-family: "DSEG7 Classic", var(--font-mono); font-size: .85rem; text-shadow: 0 0 7px rgba(0,255,157,.5); }
+    .tk-tag  { font-family: var(--font-mono); font-size: .56rem; letter-spacing: .08em; color: #ffd000; }
+    .tk-sep  { color: #2a3550; }
+    @media (max-width: 560px) { .tk-sym { font-size: .92rem; } .ticker-track { gap: 26px; } }
+  </style>
 </head>
 <body>
 
@@ -329,12 +350,17 @@
       <ul class="nav-links">
         <li><a href="index.html" class="active">HOME</a></li>
         <li><a href="weekly.html">WEEKLY</a></li>
-        <li><a href="stock.html">STOCKS</a></li>
+        <li><a href="stocks.html">STOCKS</a></li>
       </ul>
       <a href="https://lin.ee/xt0mgJH" target="_blank" rel="noopener" class="nav-cta">追蹤 LINE</a>
     </div>
   </div>
 </nav>
+
+<!-- ── 華爾街走馬燈:本期推薦(LED 字體)── 預設隱藏,有 picks 才顯示 -->
+<div class="ticker-tape" id="ticker-tape" style="display:none;">
+  <div class="ticker-track" id="ticker-track"></div>
+</div>
 
 <!-- ── Hero ── -->
 <section class="hero">
@@ -594,6 +620,19 @@ function rsiDisplay(v) {
           </a>`;
       }).join('');
 
+  // ── 華爾街走馬燈:本期推薦(LED 字體)─────────────────
+  const tkSyms = picks.map(p => p.symbol).filter(Boolean);
+  if (tkSyms.length) {
+    const lead  = `<span class="tk-lead">▶&nbsp;BLUE MORPHO · WEEKLY PICKS${d.date ? ' · ' + d.date : ''}</span>`;
+    const items = tkSyms.map(s =>
+      `<span class="tk-item"><span class="tk-sym">${s}</span><span class="tk-up">&#9650;</span></span>`
+    ).join('<span class="tk-sep">·</span>');
+    const seq = lead + '<span class="tk-sep">·</span>' + items;
+    // 放兩份相同序列 → translateX(-50%) 無縫循環
+    document.getElementById('ticker-track').innerHTML = seq + '<span class="tk-sep">·</span>' + seq;
+    document.getElementById('ticker-tape').style.display = '';
+  }
+
   // ── Themes — hide section if empty ────────────────────
   const themes = d.themes || [];
   const themesSection = document.getElementById('themes-section');
@@ -712,7 +751,7 @@ document.getElementById('subscribe-modal').addEventListener('click', function(e)
 <nav class="mobile-tabbar">
   <a href="index.html" class="active">HOME</a>
   <a href="weekly.html">WEEKLY</a>
-  <a href="stock.html">STOCKS</a>
+  <a href="stocks.html">STOCKS</a>
 </nav>
 </body>
 </html>
