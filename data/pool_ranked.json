@@ -1,0 +1,186 @@
+{
+  "date": "2026-06-04",
+  "method": "composite = 主題順風 × 技術形態 × 新聞催化 × 品質基本面 的綜合分;每產業依 composite 由高到低排序,取前 6 名。● 近期推薦(近三期曾入精選)◆ 潛力觀察。",
+  "themes": [
+    {
+      "theme": "Memory (HBM / DRAM / NAND)",
+      "n": 1,
+      "rs_1m": 32.9,
+      "rs_3m": 159.4,
+      "news_7d": 121,
+      "stocks": [
+        {
+          "rank": 1,
+          "symbol": "MU",
+          "name": "MU",
+          "composite": 0.211,
+          "is_pick": false,
+          "is_recent": true,
+          "is_watch": false
+        }
+      ]
+    },
+    {
+      "theme": "AI Compute",
+      "n": 3,
+      "rs_1m": 17.83,
+      "rs_3m": 50.34,
+      "news_7d": 97,
+      "stocks": [
+        {
+          "rank": 1,
+          "symbol": "LRCX",
+          "name": "LRCX",
+          "composite": 0.146,
+          "is_pick": true,
+          "is_recent": true,
+          "is_watch": false
+        },
+        {
+          "rank": 2,
+          "symbol": "AMAT",
+          "name": "AMAT",
+          "composite": 0.076,
+          "is_pick": false,
+          "is_recent": true,
+          "is_watch": true
+        },
+        {
+          "rank": 3,
+          "symbol": "ARM",
+          "name": "ARM",
+          "composite": 0,
+          "is_pick": false,
+          "is_recent": false,
+          "is_watch": true
+        }
+      ]
+    },
+    {
+      "theme": "Cybersecurity",
+      "n": 1,
+      "rs_1m": 25.14,
+      "rs_3m": 28.57,
+      "news_7d": 106,
+      "stocks": [
+        {
+          "rank": 1,
+          "symbol": "CRWD",
+          "name": "CRWD",
+          "composite": 0.399,
+          "is_pick": true,
+          "is_recent": true,
+          "is_watch": false
+        }
+      ]
+    },
+    {
+      "theme": "Industrial Automation",
+      "n": 3,
+      "rs_1m": 4.63,
+      "rs_3m": 11.2,
+      "news_7d": 79,
+      "stocks": [
+        {
+          "rank": 1,
+          "symbol": "ROK",
+          "name": "ROK",
+          "composite": 0.546,
+          "is_pick": true,
+          "is_recent": true,
+          "is_watch": false
+        },
+        {
+          "rank": 2,
+          "symbol": "ISRG",
+          "name": "ISRG",
+          "composite": 0.272,
+          "is_pick": false,
+          "is_recent": true,
+          "is_watch": true
+        },
+        {
+          "rank": 3,
+          "symbol": "ABB",
+          "name": "ABB",
+          "composite": 0.158,
+          "is_pick": false,
+          "is_recent": true,
+          "is_watch": true
+        }
+      ]
+    },
+    {
+      "theme": "AI Software",
+      "n": 1,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "rank": 1,
+          "symbol": "NOW",
+          "name": "NOW",
+          "composite": 0.572,
+          "is_pick": true,
+          "is_recent": true,
+          "is_watch": false
+        }
+      ]
+    },
+    {
+      "theme": "Data Center",
+      "n": 1,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "rank": 1,
+          "symbol": "VRT",
+          "name": "VRT",
+          "composite": 0,
+          "is_pick": false,
+          "is_recent": false,
+          "is_watch": false
+        }
+      ]
+    },
+    {
+      "theme": "Nuclear / SMR",
+      "n": 1,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "rank": 1,
+          "symbol": "VST",
+          "name": "VST",
+          "composite": 0,
+          "is_pick": false,
+          "is_recent": false,
+          "is_watch": false
+        }
+      ]
+    },
+    {
+      "theme": "Healthcare AI",
+      "n": 1,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "rank": 1,
+          "symbol": "VEEV",
+          "name": "VEEV",
+          "composite": 0,
+          "is_pick": false,
+          "is_recent": false,
+          "is_watch": false
+        }
+      ]
+    }
+  ]
+}

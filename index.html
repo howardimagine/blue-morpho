@@ -364,6 +364,7 @@
 
 <!-- ── Hero ── -->
 <section class="hero">
+  <div class="hero-bg" id="hero-bg" aria-hidden="true"></div>
   <div class="container">
     <div class="hero-eyebrow">BLUE MORPHO · US EQUITY RADAR</div>
     <h1 class="hero-title">
@@ -753,5 +754,24 @@ document.getElementById('subscribe-modal').addEventListener('click', function(e)
   <a href="weekly.html">WEEKLY</a>
   <a href="stocks.html">STOCKS</a>
 </nav>
+
+<!-- Hero 視差滾動:底圖慢速位移(content 不動);尊重 prefers-reduced-motion -->
+<script>
+(function () {
+  var bg = document.getElementById('hero-bg');
+  if (!bg) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var ticking = false;
+  function update() {
+    var y = window.scrollY || window.pageYOffset || 0;
+    bg.style.transform = 'translate3d(0,' + (y * 0.3).toFixed(1) + 'px,0)';
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { requestAnimationFrame(update); ticking = true; }
+  }, { passive: true });
+  update();
+})();
+</script>
 </body>
 </html>

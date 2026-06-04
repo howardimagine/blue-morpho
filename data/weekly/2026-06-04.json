@@ -1,6 +1,6 @@
 {
   "date": "2026-06-04",
-  "headline": "記憶體景氣起漣漪,AI 算力鏈重估序幕開啟 — ROK 工業角度、LRCX 製程側翼浮現",
+  "headline": "記憶體強勢反彈、資安成川普政策寵兒 — 本週科技輪動加速,設備鏈與軟體應用分化",
   "theme": "Memory (HBM / DRAM / NAND)",
   "regime": "neutral",
   "picks": [
@@ -51,50 +51,26 @@
       "business": "雲原生端點防護(Falcon)龍頭;AI 驅動威脅偵測。",
       "why": "近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過半數以上 Screener 條件。",
       "rr": null
-    },
-    {
-      "symbol": "ISRG",
-      "name": "Intuitive Surgical",
-      "tier": "watch",
-      "theme": "Healthcare AI",
-      "rsi": 35.2,
-      "ma_stack": "bearish",
-      "price": null,
-      "business": "手術機器人 da Vinci 龍頭(>80% 市佔),耗材+服務經常性收入。",
-      "why": "基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
-      "rr": null
     }
   ],
   "sell_signals": {},
   "policy": [
     {
       "topic": "川普 × 個股機會",
-      "title": "Prediction: After Intel, This Artificial Intelligence (AI) Semiconductor Stock Could be Next to Secure an Investment From the Trump Administration",
-      "summary_zh": "川普政府評估在 Intel 投資後,再次向 AI 晶片製造商提供支持,暗示半導體支援政策拓寬至整個產業鏈,而非單一企業。",
-      "source": "The Motley Fool"
+      "title": "Why Is IBM Stock Surging Nearly 7% Higher In Overnight Trading?",
+      "summary_zh": "IBM[?] 股價夜盤大漲逾七個百分點,市場推測與川普政府政策傾斜相關,藍籌科技股在政策紅利預期下重獲關注。",
+      "source": "Yahoo Finance"
     },
     {
-      "topic": "政策 / 立法",
-      "title": "Lockheed Martin stock (US5398301094): Steady defense demand underpins outlook after Q1 2026 results",
-      "summary_zh": "Lockheed Martin 在 Q1 2026 財報後,防禦預算穩定需求成為長期支撐,映照美國地緣政策優先順序從晶片轉向整體防禦產業。",
-      "source": "AD HOC NEWS"
-    },
-    {
-      "topic": "地緣 / 國際 / 能源",
-      "title": "TSM Stock Analysis: Is 2026 The Biggest Year For TSMC? The Chi (1RIW1uTni7)",
-      "summary_zh": "市場分析 2026 可能成為 TSMC 關鍵轉折年,地緣風險與產能擴張預期並存,供應鏈本土化趨勢加強。",
-      "source": "Mshale"
-    },
-    {
-      "topic": "地緣 / 國際 / 能源",
-      "title": "Taiwan Semiconductor Manufacturing Co. (TSMC)",
-      "summary_zh": "TSMC 企業介紹與角色重申,作為全球最大代工廠在晶片戰爭中地位核心,政策關注度持續升溫。",
-      "source": "Britannica"
+      "topic": "川普 × 個股機會",
+      "title": "Trump’s AI Cybersecurity Order: A Voluntary Framework with Mandatory Implications",
+      "summary_zh": "川普政府發佈 AI 資安行政令,採自願框架但包含強制合規意涵,推升企業資安投資預算向端點檢測與網路防護傾斜。",
+      "source": "Ropes &amp; Gray LLP"
     }
   ],
   "themes": [],
   "stats": {
-    "n_picks": 5,
+    "n_picks": 4,
     "n_themes": 0,
     "journal_total": 107
   },
