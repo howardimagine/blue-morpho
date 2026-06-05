@@ -1,10 +1,10 @@
 {
-  "symbol": "VST",
-  "name": "Vistra",
+  "symbol": "VEEV",
+  "name": "Veeva Systems Inc.",
   "tier": "watch",
   "regime": "neutral",
-  "theme": "Nuclear / SMR",
-  "business": "獨立電力業者(核+天然氣+儲能);AI 用電題材核心受惠。",
+  "theme": "Healthcare AI",
+  "business": "Veeva Systems Inc. provides cloud-based software for the life sciences industry in North America, Europe, the Asia Pacific, the Middle East, Africa, and Latin America. The company offers Veeva Commercial Cloud comprising Veeva Vault CRM Su…",
   "why": "WATCHLIST_CONVICTION",
   "rsi": null,
   "sma50": null,
@@ -44,23 +44,7 @@
   "tracking": [
     {
       "date": "2026-06-06",
-      "theme": "Nuclear / SMR",
-      "tier": "watch",
-      "entry": null,
-      "alpha_4w": null,
-      "vol": null
-    },
-    {
-      "date": "2026-06-05",
-      "theme": "Nuclear / SMR",
-      "tier": "watch",
-      "entry": null,
-      "alpha_4w": null,
-      "vol": null
-    },
-    {
-      "date": "2026-05-31",
-      "theme": "Nuclear / SMR",
+      "theme": "Healthcare AI",
       "tier": "watch",
       "entry": null,
       "alpha_4w": null,
@@ -71,33 +55,33 @@
     {
       "label": "Finviz",
       "desc": "技術快照 / 圖",
-      "href": "https://finviz.com/quote.ashx?t=VST"
+      "href": "https://finviz.com/quote.ashx?t=VEEV"
     },
     {
       "label": "StockAnalysis",
       "desc": "財報 / 估值",
-      "href": "https://stockanalysis.com/stocks/VST/"
+      "href": "https://stockanalysis.com/stocks/VEEV/"
     },
     {
       "label": "TradingView",
       "desc": "互動圖",
-      "href": "https://www.tradingview.com/symbols/VST/"
+      "href": "https://www.tradingview.com/symbols/VEEV/"
     },
     {
       "label": "Macrotrends",
       "desc": "長期財務",
-      "href": "https://www.macrotrends.net/stocks/charts/VST/x/"
+      "href": "https://www.macrotrends.net/stocks/charts/VEEV/x/"
     },
     {
       "label": "TipRanks",
       "desc": "分析師",
-      "href": "https://www.tipranks.com/stocks/VST/forecast"
+      "href": "https://www.tipranks.com/stocks/VEEV/forecast"
     }
   ],
   "peers": [
     {
-      "symbol": "CEG",
-      "name": "Constellation Energy",
+      "symbol": "ISRG",
+      "name": "Intuitive Surgical",
       "tier": "watch"
     }
   ]

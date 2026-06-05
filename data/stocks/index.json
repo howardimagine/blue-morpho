@@ -210,6 +210,12 @@
     "theme": "Semiconductor Equipment (WFE)"
   },
   {
+    "symbol": "VEEV",
+    "name": "Veeva Systems Inc.",
+    "tier": "watch",
+    "theme": "Healthcare AI"
+  },
+  {
     "symbol": "VRT",
     "name": "Vertiv",
     "tier": "watch",

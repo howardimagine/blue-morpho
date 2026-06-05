@@ -118,5 +118,11 @@
       "href": "https://www.tipranks.com/stocks/ISRG/forecast"
     }
   ],
-  "peers": []
+  "peers": [
+    {
+      "symbol": "VEEV",
+      "name": "Veeva Systems Inc.",
+      "tier": "watch"
+    }
+  ]
 }
