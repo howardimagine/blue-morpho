@@ -7,43 +7,16 @@
       "n": 24,
       "rs_1m": 10.98,
       "rs_3m": 51.99,
-      "news_7d": 176,
+      "news_7d": 175,
       "stocks": [
-        {
-          "symbol": "AMAT",
-          "name": "應用材料",
-          "composite": 0,
-          "score_kind": "engine",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 1
-        },
         {
           "symbol": "ARM",
           "name": "安謀",
           "composite": 0,
           "score_kind": "engine",
-          "is_recent": false,
-          "is_watch": true,
-          "rank": 2
-        },
-        {
-          "symbol": "AVGO",
-          "name": "博通",
-          "composite": 0,
-          "score_kind": "engine",
-          "is_recent": true,
-          "is_watch": true,
-          "rank": 3
-        },
-        {
-          "symbol": "MU",
-          "name": "美光",
-          "composite": 0,
-          "score_kind": "engine",
           "is_recent": true,
           "is_watch": false,
-          "rank": 4
+          "rank": 1
         },
         {
           "symbol": "AEHR",
@@ -52,7 +25,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 5
+          "rank": 2
         },
         {
           "symbol": "ASML",
@@ -61,7 +34,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 6
+          "rank": 3
         },
         {
           "symbol": "KLAC",
@@ -70,7 +43,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 7
+          "rank": 4
         },
         {
           "symbol": "MKSI",
@@ -79,7 +52,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 8
+          "rank": 5
         },
         {
           "symbol": "TER",
@@ -88,7 +61,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 9
+          "rank": 6
         },
         {
           "symbol": "TSM",
@@ -97,142 +70,34 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 10
-        }
-      ]
-    },
-    {
-      "theme": "Memory (HBM / DRAM / NAND)",
-      "n": 6,
-      "rs_1m": 24.6,
-      "rs_3m": 162.2,
-      "news_7d": 119,
-      "stocks": [
-        {
-          "symbol": "MU",
-          "name": "美光",
-          "composite": 0,
-          "score_kind": "engine",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
-          "symbol": "SIMO",
-          "name": "慧榮科技",
-          "composite": 1.0,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 2
-        },
-        {
-          "symbol": "SNDK",
-          "name": "SanDisk",
-          "composite": 0.9,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
-          "symbol": "STX",
-          "name": "希捷",
-          "composite": 0.9,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 4
-        },
-        {
-          "symbol": "WDC",
-          "name": "威騰電子",
-          "composite": 0.9,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 5
-        },
-        {
-          "symbol": "MRVL",
-          "name": "美滿科技",
-          "composite": 0.81,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 6
-        }
-      ]
-    },
-    {
-      "theme": "Solar / Renewables",
-      "n": 7,
-      "rs_1m": 13.32,
-      "rs_3m": 19.3,
-      "news_7d": 107,
-      "stocks": [
-        {
-          "symbol": "GEV",
-          "name": "GE Vernova",
-          "composite": 0.067,
-          "score_kind": "engine",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
-          "symbol": "ENPH",
-          "name": "Enphase Energy, Inc.",
-          "composite": 0.854,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 2
-        },
-        {
-          "symbol": "SEDG",
-          "name": "SEDG",
-          "composite": 0.843,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
-          "symbol": "FSLR",
-          "name": "First Solar, Inc.",
-          "composite": 0.685,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 4
-        },
-        {
-          "symbol": "GE",
-          "name": "GE",
-          "composite": 0.566,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 5
-        },
-        {
-          "symbol": "BEPC",
-          "name": "Brookfield Renewable Corporatio",
-          "composite": 0.541,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 6
-        },
-        {
-          "symbol": "NEP",
-          "name": "NEP",
-          "composite": null,
-          "score_kind": null,
-          "is_recent": false,
-          "is_watch": false,
           "rank": 7
+        },
+        {
+          "symbol": "GFS",
+          "name": "格羅方德",
+          "composite": 0.956,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        },
+        {
+          "symbol": "ONTO",
+          "name": "Onto Innovation",
+          "composite": 0.909,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
+        },
+        {
+          "symbol": "AMAT",
+          "name": "應用材料",
+          "composite": 0.9,
+          "score_kind": "tech",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 10
         }
       ]
     },
@@ -244,22 +109,13 @@
       "news_7d": null,
       "stocks": [
         {
-          "symbol": "ABB",
-          "name": "ABB",
-          "composite": 0.1,
-          "score_kind": "engine",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
           "symbol": "ROK",
           "name": "羅克韋爾自動化",
           "composite": 0.996,
           "score_kind": "tech",
           "is_recent": true,
           "is_watch": false,
-          "rank": 2
+          "rank": 1
         },
         {
           "symbol": "TER",
@@ -268,7 +124,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 3
+          "rank": 2
         },
         {
           "symbol": "FANUY",
@@ -277,7 +133,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 4
+          "rank": 3
         },
         {
           "symbol": "AMZN",
@@ -286,7 +142,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 5
+          "rank": 4
         },
         {
           "symbol": "ZBRA",
@@ -295,7 +151,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 6
+          "rank": 5
         },
         {
           "symbol": "TSLA",
@@ -304,7 +160,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 7
+          "rank": 6
         },
         {
           "symbol": "ISRG",
@@ -313,13 +169,22 @@
           "score_kind": "tech",
           "is_recent": true,
           "is_watch": false,
-          "rank": 8
+          "rank": 7
         },
         {
           "symbol": "SYM",
           "name": "SYM",
           "composite": 0.18,
           "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        },
+        {
+          "symbol": "ABB",
+          "name": "ABB",
+          "composite": null,
+          "score_kind": null,
           "is_recent": false,
           "is_watch": false,
           "rank": 9
@@ -343,22 +208,13 @@
       "news_7d": null,
       "stocks": [
         {
-          "symbol": "AMAT",
-          "name": "應用材料",
-          "composite": 0,
-          "score_kind": "engine",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
           "symbol": "AEHR",
           "name": "Aehr Test",
           "composite": 1.0,
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 2
+          "rank": 1
         },
         {
           "symbol": "ASML",
@@ -367,7 +223,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 3
+          "rank": 2
         },
         {
           "symbol": "KLAC",
@@ -376,7 +232,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 4
+          "rank": 3
         },
         {
           "symbol": "KLIC",
@@ -385,7 +241,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 5
+          "rank": 4
         },
         {
           "symbol": "TER",
@@ -394,7 +250,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 6
+          "rank": 5
         },
         {
           "symbol": "ACLS",
@@ -403,7 +259,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 7
+          "rank": 6
         },
         {
           "symbol": "ONTO",
@@ -411,6 +267,15 @@
           "composite": 0.909,
           "score_kind": "tech",
           "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "AMAT",
+          "name": "應用材料",
+          "composite": 0.9,
+          "score_kind": "tech",
+          "is_recent": true,
           "is_watch": false,
           "rank": 8
         },
@@ -435,6 +300,195 @@
       ]
     },
     {
+      "theme": "Electrification / Power",
+      "n": 10,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "VRT",
+          "name": "Vertiv",
+          "composite": 0,
+          "score_kind": "engine",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "ENS",
+          "name": "ENS",
+          "composite": 0.987,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "ETN",
+          "name": "伊頓",
+          "composite": 0.905,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "ENB",
+          "name": "Enbridge Inc",
+          "composite": 0.812,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "PWR",
+          "name": "Quanta Services",
+          "composite": 0.721,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "HUBB",
+          "name": "HUBB",
+          "composite": 0.597,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "WMB",
+          "name": "WMB",
+          "composite": 0.458,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "GEV",
+          "name": "GE Vernova",
+          "composite": 0.45,
+          "score_kind": "tech",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 8
+        },
+        {
+          "symbol": "ABB",
+          "name": "ABB",
+          "composite": null,
+          "score_kind": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
+        },
+        {
+          "symbol": "MYR",
+          "name": "MYR",
+          "composite": null,
+          "score_kind": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 10
+        }
+      ]
+    },
+    {
+      "theme": "Nuclear / SMR",
+      "n": 9,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "VST",
+          "name": "Vistra",
+          "composite": 0,
+          "score_kind": "engine",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "CCJ",
+          "name": "Cameco",
+          "composite": 0.704,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "NNE",
+          "name": "Nano Nuclear Energy",
+          "composite": 0.475,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "SMR",
+          "name": "NuScale Power",
+          "composite": 0.475,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "URA",
+          "name": "URA",
+          "composite": 0.44,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "OKLO",
+          "name": "Oklo",
+          "composite": 0.375,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "URNM",
+          "name": "URNM",
+          "composite": 0.305,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "CEG",
+          "name": "Constellation Energy",
+          "composite": 0.28,
+          "score_kind": "tech",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 8
+        },
+        {
+          "symbol": "BWXT",
+          "name": "BWXT",
+          "composite": 0.241,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
+        }
+      ]
+    },
+    {
       "theme": "Industrial Automation",
       "n": 8,
       "rs_1m": null,
@@ -442,22 +496,13 @@
       "news_7d": null,
       "stocks": [
         {
-          "symbol": "ABB",
-          "name": "ABB",
-          "composite": 0.1,
-          "score_kind": "engine",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
           "symbol": "CAT",
           "name": "開拓重工",
           "composite": 0.999,
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 2
+          "rank": 1
         },
         {
           "symbol": "ROK",
@@ -466,7 +511,7 @@
           "score_kind": "tech",
           "is_recent": true,
           "is_watch": false,
-          "rank": 3
+          "rank": 2
         },
         {
           "symbol": "FANUY",
@@ -475,7 +520,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 4
+          "rank": 3
         },
         {
           "symbol": "DE",
@@ -484,7 +529,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 5
+          "rank": 4
         },
         {
           "symbol": "EMR",
@@ -493,7 +538,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 6
+          "rank": 5
         },
         {
           "symbol": "PH",
@@ -502,7 +547,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 7
+          "rank": 6
         },
         {
           "symbol": "ISRG",
@@ -510,6 +555,15 @@
           "composite": 0.18,
           "score_kind": "tech",
           "is_recent": true,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "ABB",
+          "name": "ABB",
+          "composite": null,
+          "score_kind": null,
+          "is_recent": false,
           "is_watch": false,
           "rank": 8
         }
@@ -606,191 +660,137 @@
       ]
     },
     {
-      "theme": "Electrification / Power",
-      "n": 10,
+      "theme": "Memory (HBM / DRAM / NAND)",
+      "n": 6,
       "rs_1m": null,
       "rs_3m": null,
       "news_7d": null,
       "stocks": [
         {
-          "symbol": "ABB",
-          "name": "ABB",
-          "composite": 0.1,
-          "score_kind": "engine",
+          "symbol": "SIMO",
+          "name": "慧榮科技",
+          "composite": 1.0,
+          "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
         },
         {
-          "symbol": "GEV",
-          "name": "GE Vernova",
-          "composite": 0.067,
-          "score_kind": "engine",
+          "symbol": "MU",
+          "name": "美光",
+          "composite": 0.9,
+          "score_kind": "tech",
           "is_recent": true,
           "is_watch": false,
           "rank": 2
         },
         {
-          "symbol": "VRT",
-          "name": "Vertiv",
-          "composite": 0,
-          "score_kind": "engine",
+          "symbol": "SNDK",
+          "name": "SanDisk",
+          "composite": 0.9,
+          "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
         },
         {
-          "symbol": "ENS",
-          "name": "ENS",
-          "composite": 0.987,
+          "symbol": "STX",
+          "name": "希捷",
+          "composite": 0.9,
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
         },
         {
-          "symbol": "ETN",
-          "name": "伊頓",
-          "composite": 0.905,
+          "symbol": "WDC",
+          "name": "威騰電子",
+          "composite": 0.9,
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
         },
         {
-          "symbol": "ENB",
-          "name": "Enbridge Inc",
-          "composite": 0.812,
+          "symbol": "MRVL",
+          "name": "美滿科技",
+          "composite": 0.81,
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
-        },
-        {
-          "symbol": "PWR",
-          "name": "Quanta Services",
-          "composite": 0.721,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 7
-        },
-        {
-          "symbol": "HUBB",
-          "name": "HUBB",
-          "composite": 0.597,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 8
-        },
-        {
-          "symbol": "WMB",
-          "name": "WMB",
-          "composite": 0.458,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 9
-        },
-        {
-          "symbol": "MYR",
-          "name": "MYR",
-          "composite": null,
-          "score_kind": null,
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 10
         }
       ]
     },
     {
-      "theme": "Nuclear / SMR",
-      "n": 9,
+      "theme": "Solar / Renewables",
+      "n": 7,
       "rs_1m": null,
       "rs_3m": null,
       "news_7d": null,
       "stocks": [
         {
-          "symbol": "CEG",
-          "name": "Constellation Energy",
-          "composite": 0.105,
-          "score_kind": "engine",
-          "is_recent": true,
+          "symbol": "ENPH",
+          "name": "Enphase Energy, Inc.",
+          "composite": 0.854,
+          "score_kind": "tech",
+          "is_recent": false,
           "is_watch": false,
           "rank": 1
         },
         {
-          "symbol": "VST",
-          "name": "Vistra",
-          "composite": 0,
-          "score_kind": "engine",
+          "symbol": "SEDG",
+          "name": "SEDG",
+          "composite": 0.843,
+          "score_kind": "tech",
           "is_recent": false,
-          "is_watch": true,
+          "is_watch": false,
           "rank": 2
         },
         {
-          "symbol": "CCJ",
-          "name": "Cameco",
-          "composite": 0.704,
+          "symbol": "FSLR",
+          "name": "First Solar, Inc.",
+          "composite": 0.685,
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
         },
         {
-          "symbol": "NNE",
-          "name": "Nano Nuclear Energy",
-          "composite": 0.475,
+          "symbol": "GE",
+          "name": "GE",
+          "composite": 0.566,
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
         },
         {
-          "symbol": "SMR",
-          "name": "NuScale Power",
-          "composite": 0.475,
+          "symbol": "BEPC",
+          "name": "Brookfield Renewable Corporatio",
+          "composite": 0.541,
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
         },
         {
-          "symbol": "URA",
-          "name": "URA",
-          "composite": 0.44,
+          "symbol": "GEV",
+          "name": "GE Vernova",
+          "composite": 0.45,
           "score_kind": "tech",
-          "is_recent": false,
+          "is_recent": true,
           "is_watch": false,
           "rank": 6
         },
         {
-          "symbol": "OKLO",
-          "name": "Oklo",
-          "composite": 0.375,
-          "score_kind": "tech",
+          "symbol": "NEP",
+          "name": "NEP",
+          "composite": null,
+          "score_kind": null,
           "is_recent": false,
           "is_watch": false,
           "rank": 7
-        },
-        {
-          "symbol": "URNM",
-          "name": "URNM",
-          "composite": 0.305,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 8
-        },
-        {
-          "symbol": "BWXT",
-          "name": "BWXT",
-          "composite": 0.241,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 9
         }
       ]
     },

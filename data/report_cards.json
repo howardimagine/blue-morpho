@@ -1,55 +1,43 @@
 {
   "date": "2026-06-05",
-  "headline": "電力鏈大分化:核能與電氣化雙線進擊,AI 算力海嘯倒逼基礎設施升級",
+  "headline": "電力困境催化核能復興 — Vertiv 與電力股成政策紅利承接者,AI 算力鏈面臨成本重定價",
   "theme": "Memory (HBM / DRAM / NAND)",
   "regime": "neutral",
   "picks": [
     {
-      "symbol": "MU",
-      "name": "美光",
+      "symbol": "ARM",
+      "name": "安謀",
       "tier": "ready",
-      "theme": "Memory (HBM / DRAM / NAND)",
-      "rsi": 69.7,
+      "theme": "AI Compute",
+      "rsi": 74.7,
       "ma_stack": "bullish",
       "price": null,
-      "business": "DRAM/NAND 記憶體大廠;HBM3E 量產供應 NVDA,AI 記憶體實體瓶頸的關鍵受惠者。",
-      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
-      "rr": null
-    },
-    {
-      "symbol": "CEG",
-      "name": "Constellation Energy",
-      "tier": "watch",
-      "theme": "Nuclear / SMR",
-      "rsi": 39.8,
-      "ma_stack": "mixed",
-      "price": null,
-      "business": "美國最大核電業者;與 Microsoft/AI 資料中心簽長期 PPA。",
+      "business": "處理器 IP 授權(行動/PC/AI 邊緣);軟銀控股,授權費滲透率上升。",
       "why": "基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
       "rr": null
     },
     {
-      "symbol": "GEV",
-      "name": "GE Vernova",
-      "tier": "ready",
-      "theme": "Solar / Renewables",
-      "rsi": 41.2,
+      "symbol": "VRT",
+      "name": "Vertiv",
+      "tier": "watch",
+      "theme": "Data Center",
+      "rsi": 48.9,
       "ma_stack": "bullish",
       "price": null,
-      "business": "GE 分拆之能源/電氣化公司(天然氣+風電+電網);資料中心電力受惠。",
-      "why": "基本面通過半數以上 Screener 條件。 技術面呈現「uptrend, near highs」，MA 結構為 <strong>bullish</strong>，RSI 28.9。",
+      "business": "資料中心關鍵基礎設施(電源/散熱);AI 訓練中心建設核心。",
+      "why": "本週篩選邏輯下相對其他候選股表現較佳。",
       "rr": null
     },
     {
-      "symbol": "AMAT",
-      "name": "應用材料",
-      "tier": "ready",
-      "theme": "AI Compute",
-      "rsi": 74.1,
-      "ma_stack": "bullish",
+      "symbol": "VST",
+      "name": "Vistra",
+      "tier": "watch",
+      "theme": "Nuclear / SMR",
+      "rsi": 49.8,
+      "ma_stack": "bearish",
       "price": null,
-      "business": "WFE 半導體設備龍頭(沉積/蝕刻/CMP/離子植入);先進製程+先進封裝雙受惠。",
-      "why": "近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
+      "business": "獨立電力業者(核+天然氣+儲能);AI 用電題材核心受惠。",
+      "why": "本週篩選邏輯下相對其他候選股表現較佳。",
       "rr": null
     }
   ],
@@ -57,28 +45,28 @@
   "policy": [
     {
       "topic": "川普 × 個股機會",
-      "title": "Publicly naming a stock leads to an immediate surge—what will Trump, the 'Oracle of Equity,' call next?",
-      "summary_zh": "川普公開點名個股現象再現,提示政策偏好對資本市場的非常規影響力。歷史案例(IBM[?] 上漲 15%)顯示時間窗口短暫但衝擊力大。",
-      "source": "富途牛牛"
+      "title": "Trump’s Next Government Investment May Be Drones. His Son Could Be the Big Winner",
+      "summary_zh": "川普政府下一步政府投資焦點可能轉向無人機,其中川普之子亦有相關利益關係。此舉暗示國防與基礎設施投資優先級提升。",
+      "source": "24/7 Wall St."
     },
     {
-      "topic": "川普 × 個股機會",
-      "title": "IBM Shares Surge 15% Premarket After Old Trump Video Of “Very Nice Price” Resurfaces",
-      "summary_zh": "IBM[?] 於川普舊影片背景中被提及「價格不錯」,觸發股價跳升。反映市場對政治人物言論的敏感度,但不構成基本面驅動。",
-      "source": "NDTV"
+      "topic": "政策 / 立法",
+      "title": "US House lawmakers release draft bill to prohibit state AI rules",
+      "summary_zh": "美國眾議院推出草案擬禁止州級 AI 監管規則,意在統一聯邦層級 AI 政策框架以避免監管碎片化。",
+      "source": "Reuters"
     },
     {
-      "topic": "地緣 / 國際 / 能源",
-      "title": "TSMC Bets on AI Boom as CEO Signals Potential Chip Price Hikes",
-      "summary_zh": "台積電 CEO[?] 示信 AI 需求强勢,並暗示晶片價格上升預期。反映供應端對周期強度的信心,但對美國設備廠商(AMAT)需求預期衝擊仍需觀察。",
-      "source": "Modern Diplomacy"
+      "topic": "政策 / 立法",
+      "title": "Bad energy policies threaten jobs, discourage critical infrastructure investment | Opinion",
+      "summary_zh": "評論指出不良能源政策將威脅就業與關鍵基礎設施投資,暗示當前能源政策框架改革預期升溫。",
+      "source": "PennLive.com"
     }
   ],
   "themes": [],
   "stats": {
-    "n_picks": 4,
+    "n_picks": 3,
     "n_themes": 0,
-    "journal_total": 111
+    "journal_total": 114
   },
   "_note": "命中率/超額待回測樣本成熟;entry/alpha/vol 未提供(歷史不足)。"
 }
