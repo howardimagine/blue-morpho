@@ -28,7 +28,7 @@
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 7.3
+      "score": 7.4
     },
     {
       "key": "news_catalyst",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-06-05",
+      "theme": "Nuclear / SMR",
+      "tier": "watch",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-06-03",
       "theme": "Nuclear / SMR",

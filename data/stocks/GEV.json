@@ -13,12 +13,12 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 2.5
+      "score": 2.1
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 8.4
+      "score": 7.7
     },
     {
       "key": "macro_context",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-06-05",
+      "theme": "Solar / Renewables",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-06-03",
       "theme": "Solar / Renewables",
