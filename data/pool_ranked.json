@@ -7,8 +7,17 @@
       "n": 24,
       "rs_1m": 4.66,
       "rs_3m": 35.42,
-      "news_7d": 162,
+      "news_7d": 159,
       "stocks": [
+        {
+          "symbol": "MRVL",
+          "name": "美滿科技",
+          "composite": 0.021,
+          "score_kind": "engine",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 1
+        },
         {
           "symbol": "KLAC",
           "name": "科磊",
@@ -16,7 +25,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 1
+          "rank": 2
         },
         {
           "symbol": "LRCX",
@@ -25,7 +34,7 @@
           "score_kind": "tech",
           "is_recent": true,
           "is_watch": false,
-          "rank": 2
+          "rank": 3
         },
         {
           "symbol": "ASML",
@@ -34,7 +43,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 3
+          "rank": 4
         },
         {
           "symbol": "TSM",
@@ -43,7 +52,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 4
+          "rank": 5
         },
         {
           "symbol": "WDC",
@@ -52,7 +61,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 5
+          "rank": 6
         },
         {
           "symbol": "MKSI",
@@ -61,7 +70,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 6
+          "rank": 7
         },
         {
           "symbol": "MU",
@@ -70,7 +79,7 @@
           "score_kind": "tech",
           "is_recent": true,
           "is_watch": false,
-          "rank": 7
+          "rank": 8
         },
         {
           "symbol": "AMD",
@@ -79,7 +88,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 8
+          "rank": 9
         },
         {
           "symbol": "GFS",
@@ -87,15 +96,6 @@
           "composite": 0.737,
           "score_kind": "tech",
           "is_recent": false,
-          "is_watch": false,
-          "rank": 9
-        },
-        {
-          "symbol": "MRVL",
-          "name": "美滿科技",
-          "composite": 0.737,
-          "score_kind": "tech",
-          "is_recent": true,
           "is_watch": false,
           "rank": 10
         }
@@ -106,8 +106,17 @@
       "n": 6,
       "rs_1m": 16.9,
       "rs_3m": 118.2,
-      "news_7d": 107,
+      "news_7d": 112,
       "stocks": [
+        {
+          "symbol": "MRVL",
+          "name": "美滿科技",
+          "composite": 0.021,
+          "score_kind": "engine",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 1
+        },
         {
           "symbol": "STX",
           "name": "希捷",
@@ -115,7 +124,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 1
+          "rank": 2
         },
         {
           "symbol": "WDC",
@@ -124,21 +133,12 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 2
+          "rank": 3
         },
         {
           "symbol": "MU",
           "name": "美光",
           "composite": 0.805,
-          "score_kind": "tech",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
-          "symbol": "MRVL",
-          "name": "美滿科技",
-          "composite": 0.737,
           "score_kind": "tech",
           "is_recent": true,
           "is_watch": false,
@@ -174,7 +174,7 @@
         {
           "symbol": "ABB",
           "name": "ABB",
-          "composite": 0.113,
+          "composite": 0.18,
           "score_kind": "engine",
           "is_recent": true,
           "is_watch": false,
@@ -363,7 +363,7 @@
         {
           "symbol": "ABB",
           "name": "ABB",
-          "composite": 0.113,
+          "composite": 0.18,
           "score_kind": "engine",
           "is_recent": true,
           "is_watch": false,
@@ -462,7 +462,7 @@
         {
           "symbol": "ABB",
           "name": "ABB",
-          "composite": 0.113,
+          "composite": 0.18,
           "score_kind": "engine",
           "is_recent": true,
           "is_watch": false,
@@ -633,7 +633,7 @@
         {
           "symbol": "VEEV",
           "name": "Veeva Systems Inc.",
-          "composite": 0.391,
+          "composite": 0.392,
           "score_kind": "engine",
           "is_recent": true,
           "is_watch": false,

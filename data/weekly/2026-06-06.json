@@ -57,27 +57,39 @@
   "policy": [
     {
       "topic": "川普 × 個股機會",
-      "title": "Trump says he’s considering government stake in top AI companies",
+      "title": "Trump Targets Meeting With AI Companies to Discuss Financial Partnerships",
       "summary_zh": "川普表示正考慮政府直接投資頂級 AI 公司,將改變產業資本流向預期,下游檢測與設備商受惠確定性提升。",
-      "source": "The Washington Post"
+      "source": "The Information"
     },
     {
       "topic": "川普 × 個股機會",
-      "title": "Trump to meet AI leaders to discuss US investment in their companies",
+      "title": "ONDS Stock Could Have Made You A Millionaire If You Invested $100,000 A Year Ago, Thanks To Drone Defense Boom",
       "summary_zh": "川普計畫與 AI 領導人會面討論美國在其公司的投資,政府 capex 承諾若落實將拉動整條晶片製造鏈。",
-      "source": "BBC"
+      "source": "Yahoo Finance"
     },
     {
       "topic": "政策 / 立法",
-      "title": "Trump has reduced tariffs on certain steel and aluminum products",
-      "summary_zh": "川普政府調降特定鋼鋁產品關稅,短期利好製造業成本,但保護主義框架仍存,長期不確定。",
-      "source": "GMK Center"
+      "title": "Environmental, Social &amp; Governance Laws and Regulations Report 2026 USA",
+      "summary_zh": "美國政府探索與 AI 企業的夥伴合作模式,政策確定性上升,利好長期訂單能見度。",
+      "source": "ICLG"
     },
     {
-      "topic": "地緣 / 國際 / 能源",
-      "title": "Did the US-China Summit Make TSMC More Vulnerable?",
+      "topic": "政策 / 立法",
+      "title": "REPowerEU",
+      "summary_zh": "三檔川普時期推崇的美國科技股成焦點,政策傾斜將強化國產替代與在地化製造預期。",
+      "source": "European Commission"
+    },
+    {
+      "topic": "聯準會 / 利率",
+      "title": "Equity futures broke lower on strong jobs report.",
+      "summary_zh": "川普政府調降特定鋼鋁產品關稅,短期利好製造業成本,但保護主義框架仍存,長期不確定。",
+      "source": "CME Group"
+    },
+    {
+      "topic": "聯準會 / 利率",
+      "title": "Traders Fully Price in Fed Rate Hike This Year After Jobs Data",
       "summary_zh": "美中高峰會後,TSMC 代工製程產能與供應風險受關注,無法為中國提供先進製程強化國產替代投資必要性。",
-      "source": "AOL.com"
+      "source": "Bloomberg.com"
     }
   ],
   "themes": [],
