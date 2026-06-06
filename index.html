@@ -367,12 +367,12 @@
     .bk-lead { font-family: var(--font-mono); font-size: .58rem; letter-spacing: .26em; color: #02020a;
       background: var(--accent); padding: 2px 8px; text-transform: uppercase; font-weight: 700; box-shadow: 0 0 10px rgba(0,243,255,.7); }
     @media (prefers-reduced-motion: reduce) { .blockade-track { animation: none; } }
-    /* 手機:陡線(60°)上下端不漸隱會在表單露出斷字 → 兩條都改淺角度(左右端漸隱乾淨),
-       交叉點上移到 hero 圖片區、避開輸入框,overflow:hidden 在底邊切齊不穿幫。 */
+    /* 手機:保留一淺一陡,但把 tape 拉長(width 加大)→ 陡線上下端被切到畫面外、
+       只露連續中段,不再露斷字。窄螢幕陡線本來太短才會斷在畫面內。 */
     @media (max-width: 700px) {
-      .blockade { top: 46%; transform-origin: 50% 50%; }
-      .blockade-1 { transform: rotate(-13deg); }
-      .blockade-2 { transform: rotate(13deg); }
+      .blockade { left: -70%; width: 240%; top: 44%; transform-origin: 50% 50%; }
+      .blockade-1 { transform: rotate(-14deg); }
+      .blockade-2 { transform: rotate(58deg); }
       .blockade-track { gap: 22px; }
     }
   </style>
