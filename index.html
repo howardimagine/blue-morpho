@@ -341,7 +341,7 @@
 
     /* ── 賽博龐克電子封鎖線:斜放跑馬燈覆在 hero 上 ── */
     .blockade {
-      position: absolute; left: -25%; width: 150%;
+      position: absolute; left: 44%; width: 72%;   /* 只佔右半 → 交叉點落 hero 右下角,不壓內容 */
       overflow: hidden; white-space: nowrap;
       z-index: 2; pointer-events: none;   /* 在底圖+遮罩上、但在文字/輸入框/按鈕之下 */
       background: linear-gradient(180deg,
@@ -352,9 +352,9 @@
       box-shadow: 0 0 24px rgba(0,243,255,.40), inset 0 0 16px rgba(0,243,255,.14);
       -webkit-backdrop-filter: blur(1.5px); backdrop-filter: blur(1.5px);
     }
-    /* 兩條反向角度 → 交叉 X 封鎖感 */
-    .blockade-1 { top: 30%; transform: rotate(-15deg); }
-    .blockade-2 { top: 50%; transform: rotate(15deg); }
+    /* 同位反向角度 → 交叉點落右下角 */
+    .blockade-1 { top: 62%; transform: rotate(-16deg); }
+    .blockade-2 { top: 62%; transform: rotate(16deg); }
     .blockade-track { display: inline-flex; align-items: center; gap: 34px; padding: 8px 0;
       animation: ticker-scroll 34s linear infinite; will-change: transform; }
     .blockade-2 .blockade-track { animation-direction: reverse; animation-duration: 40s; }
@@ -365,7 +365,7 @@
     .bk-lead { font-family: var(--font-mono); font-size: .58rem; letter-spacing: .26em; color: #02020a;
       background: var(--accent); padding: 2px 8px; text-transform: uppercase; font-weight: 700; box-shadow: 0 0 10px rgba(0,243,255,.7); }
     @media (prefers-reduced-motion: reduce) { .blockade-track { animation: none; } }
-    @media (max-width: 700px) { .blockade-1 { top: 26%; } .blockade-2 { top: 56%; } .blockade-track { gap: 24px; } }
+    @media (max-width: 700px) { .blockade { left: 28%; width: 92%; } .blockade-1, .blockade-2 { top: 74%; } .blockade-track { gap: 24px; } }
   </style>
 </head>
 <body>
@@ -653,23 +653,37 @@ function rsiDisplay(v) {
           </a>`;
       }).join('');
 
-  // ── 賽博龐克電子封鎖線:本期 picks 斜放跑馬燈覆在 hero 上 ──────
-  const tkSyms = picks.map(p => p.symbol).filter(Boolean);
-  if (tkSyms.length) {
-    const lead  = `<span class="bk-lead">BLUE MORPHO · WEEKLY PICKS${d.date ? ' · ' + d.date : ''}</span>`;
-    const items = tkSyms.map(s =>
+  // ── 賽博龐克電子封鎖線:兩條不同 —— 上=本期 picks、下=前一期 picks ──────
+  const _bkSeq = (label, syms) => {
+    if (!syms || !syms.length) return '';
+    const lead = `<span class="bk-lead">${label}</span>`;
+    const items = syms.map(s =>
       `<span class="tk-item"><span class="tk-sym">${s}</span><span class="tk-up">&#9650;</span></span>`
     ).join('<span class="tk-sep">·</span>');
-    const seq = lead + '<span class="tk-sep">·</span>' + items;
-    // 兩份序列無縫循環;兩條封鎖線反向滾動形成交叉封鎖感
-    const html = seq + '<span class="tk-sep">·</span>' + seq + '<span class="tk-sep">·</span>';
-    ['blockade-track-1', 'blockade-track-2'].forEach(id => {
-      const el = document.getElementById(id); if (el) el.innerHTML = html + html;
-    });
-    ['blockade-1', 'blockade-2'].forEach(id => {
-      const el = document.getElementById(id); if (el) el.style.display = '';
-    });
-  }
+    const seq = lead + '<span class="tk-sep">·</span>' + items + '<span class="tk-sep">·</span>';
+    return (seq + seq + seq + seq);   // 重複 → 無縫循環
+  };
+  const _fillBlockade = (trackId, boxId, label, syms) => {
+    const html = _bkSeq(label, syms);
+    const tr = document.getElementById(trackId), bx = document.getElementById(boxId);
+    if (html && tr && bx) { tr.innerHTML = html; bx.style.display = ''; }
+  };
+  // 上線:本期
+  _fillBlockade('blockade-track-1', 'blockade-1',
+    `BLUE MORPHO · 本期 WEEKLY PICKS${d.date ? ' · ' + d.date : ''}`,
+    picks.map(p => p.symbol).filter(Boolean));
+  // 下線:前一期(從 weekly/index.json 取上一筆 → 抓那期 picks)
+  (async () => {
+    try {
+      const idx = await (await fetch('/data/weekly/index.json')).json();
+      const prev = (idx || []).filter(w => w.date && w.date !== d.date)[0];
+      if (!prev) return;
+      const pd = await (await fetch('/data/weekly/' + prev.date + '.json')).json();
+      const prevSyms = (pd.picks || []).map(p => p.symbol).filter(Boolean);
+      _fillBlockade('blockade-track-2', 'blockade-2',
+        `前一期 PREV PICKS · ${prev.date}`, prevSyms);
+    } catch (e) { /* 前一期抓不到就只顯示本期那條 */ }
+  })();
 
   // ── Themes — hide section if empty ────────────────────
   const themes = d.themes || [];
