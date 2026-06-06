@@ -367,7 +367,14 @@
     .bk-lead { font-family: var(--font-mono); font-size: .58rem; letter-spacing: .26em; color: #02020a;
       background: var(--accent); padding: 2px 8px; text-transform: uppercase; font-weight: 700; box-shadow: 0 0 10px rgba(0,243,255,.7); }
     @media (prefers-reduced-motion: reduce) { .blockade-track { animation: none; } }
-    @media (max-width: 700px) { .blockade { top: 68%; transform-origin: 68% 50%; } .blockade-track { gap: 24px; } }
+    /* 手機:陡線(60°)上下端不漸隱會在表單露出斷字 → 兩條都改淺角度(左右端漸隱乾淨),
+       交叉點上移到 hero 圖片區、避開輸入框,overflow:hidden 在底邊切齊不穿幫。 */
+    @media (max-width: 700px) {
+      .blockade { top: 46%; transform-origin: 50% 50%; }
+      .blockade-1 { transform: rotate(-13deg); }
+      .blockade-2 { transform: rotate(13deg); }
+      .blockade-track { gap: 22px; }
+    }
   </style>
 </head>
 <body>
