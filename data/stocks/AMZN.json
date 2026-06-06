@@ -2,7 +2,7 @@
   "symbol": "AMZN",
   "name": "亞馬遜",
   "tier": "watch",
-  "regime": "risk-on",
+  "regime": "neutral",
   "theme": "AI Compute",
   "business": "電商 + AWS 雲服務;Trainium 自研 AI 晶片(透過 MRVL 代工)。",
   "why": "INDUSTRY_EXPANSION",
@@ -13,17 +13,17 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 7.1
+      "score": 2.0
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 3.5
+      "score": 5.0
     },
     {
       "key": "macro_context",
       "label": "總經環境",
-      "score": 7.0
+      "score": null
     },
     {
       "key": "business_quality",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-06-06",
+      "theme": "AI Compute",
+      "tier": "watch",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-05-29",
       "theme": "AI Compute",

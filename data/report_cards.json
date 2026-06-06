@@ -1,21 +1,9 @@
 {
   "date": "2026-06-06",
-  "headline": "記憶體強勢領跑,算力設備蓄勢待發—HBM 周期重啟,三檔測試股浮現進場訊號",
+  "headline": "川普政府入場 AI 產業後,檢測設備商迎轉機,Memory 熱度續擁擠但分化加劇 — AEHR、MRVL、AMZN 分層佈局",
   "theme": "Memory (HBM / DRAM / NAND)",
   "regime": "neutral",
   "picks": [
-    {
-      "symbol": "VEEV",
-      "name": "Veeva Systems Inc.",
-      "tier": "watch",
-      "theme": "Healthcare AI",
-      "rsi": 53.5,
-      "ma_stack": "bearish",
-      "price": null,
-      "business": "Veeva Systems Inc. provides cloud-based software for the life sciences industry in North America, Europe, the Asia Pacific, the Middle East, Africa, and Latin America. The company offers Veeva Commercial Cloud comprising Veeva Vault CRM Su…",
-      "why": "近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
-      "rr": null
-    },
     {
       "symbol": "ABB",
       "name": "ABB",
@@ -25,7 +13,7 @@
       "ma_stack": "bullish",
       "price": null,
       "business": "瑞士工業電氣化/自動化巨頭;電網/機器人/驅動裝置。",
-      "why": "基本面通過半數以上 Screener 條件。",
+      "why": "基本面通過半數以上 Screener 條件。 技術面 MA 結構為 <strong>None</strong>，整體偏多。",
       "rr": null
     },
     {
@@ -41,6 +29,18 @@
       "rr": null
     },
     {
+      "symbol": "AMZN",
+      "name": "亞馬遜",
+      "tier": "watch",
+      "theme": "AI Compute",
+      "rsi": 37.8,
+      "ma_stack": "mixed",
+      "price": null,
+      "business": "電商 + AWS 雲服務;Trainium 自研 AI 晶片(透過 MRVL 代工)。",
+      "why": "本週篩選邏輯下相對其他候選股表現較佳。",
+      "rr": null
+    },
+    {
       "symbol": "AEHR",
       "name": "Aehr Test",
       "tier": "watch",
@@ -51,40 +51,40 @@
       "business": "晶圓級老化測試系統;SiC 功率元件測試的小型受惠者。",
       "why": "本週篩選邏輯下相對其他候選股表現較佳。",
       "rr": null
-    },
-    {
-      "symbol": "ONTO",
-      "name": "Onto Innovation",
-      "tier": "watch",
-      "theme": "AI Compute",
-      "rsi": 43.3,
-      "ma_stack": "mixed",
-      "price": null,
-      "business": "製程控制/檢測 WFE,先進封裝與 HBM 量測小型受惠者。",
-      "why": "本週篩選邏輯下相對其他候選股表現較佳。",
-      "rr": null
     }
   ],
   "sell_signals": {},
   "policy": [
     {
-      "topic": "政策 / 立法",
-      "title": "US reciprocal trade deals built to push America's trade partners away from China",
-      "summary_zh": "川普於上任前購入戴爾股票逾百萬美元,隨後國防部與戴爾簽署近百億美元合約,顯示利益衝突與政策傾斜的鮮明訊號。",
-      "source": "Peterson Institute for International Economics"
+      "topic": "川普 × 個股機會",
+      "title": "Trump says he’s considering government stake in top AI companies",
+      "summary_zh": "川普表示正考慮政府直接投資頂級 AI 公司,將改變產業資本流向預期,下游檢測與設備商受惠確定性提升。",
+      "source": "The Washington Post"
+    },
+    {
+      "topic": "川普 × 個股機會",
+      "title": "Trump to meet AI leaders to discuss US investment in their companies",
+      "summary_zh": "川普計畫與 AI 領導人會面討論美國在其公司的投資,政府 capex 承諾若落實將拉動整條晶片製造鏈。",
+      "source": "BBC"
     },
     {
       "topic": "政策 / 立法",
-      "title": "White House Releases Executive Order on Advanced AI Innovation and Security",
-      "summary_zh": "川普計畫與 AI 領導廠商會面,討論美國投資承諾事宜,預示政府扶植國內 AI 產業發展的決心升高。",
-      "source": "Inside Privacy"
+      "title": "Trump has reduced tariffs on certain steel and aluminum products",
+      "summary_zh": "川普政府調降特定鋼鋁產品關稅,短期利好製造業成本,但保護主義框架仍存,長期不確定。",
+      "source": "GMK Center"
+    },
+    {
+      "topic": "地緣 / 國際 / 能源",
+      "title": "Did the US-China Summit Make TSMC More Vulnerable?",
+      "summary_zh": "美中高峰會後,TSMC 代工製程產能與供應風險受關注,無法為中國提供先進製程強化國產替代投資必要性。",
+      "source": "AOL.com"
     }
   ],
   "themes": [],
   "stats": {
-    "n_picks": 5,
+    "n_picks": 4,
     "n_themes": 0,
-    "journal_total": 120
+    "journal_total": 121
   },
   "_note": "命中率/超額待回測樣本成熟;entry/alpha/vol 未提供(歷史不足)。"
 }
