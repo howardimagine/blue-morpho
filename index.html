@@ -417,19 +417,10 @@
       thematic setups — then tracks every call that follows.
       No ads. No paywall. Just signal, and a record you can audit.
     </p>
-    <div class="hero-stats">
-      <div class="hero-stat-item">
-        <span class="hero-stat-num" id="stat-issues">—</span>
-        <span class="hero-stat-label">本期精選 · PICKS</span>
-      </div>
-      <div class="hero-stat-item">
-        <span class="hero-stat-num" id="stat-themes">—</span>
-        <span class="hero-stat-label">追蹤主題 · THEMES</span>
-      </div>
-      <div class="hero-stat-item">
-        <span class="hero-stat-num" id="stat-total-picks">—</span>
-        <span class="hero-stat-label">累計入選 · TRACKED</span>
-      </div>
+    <div class="hero-cadence" style="margin:22px 0 24px;font-family:var(--font-mono);font-size:.95rem;line-height:1.7;color:var(--text-primary);">
+      <span style="color:var(--accent);font-weight:700;">每週一、三、五</span> 寄信 ·
+      介紹<span style="color:var(--accent);">精選產業與個股</span>
+      <div style="font-size:.78rem;color:#8a9bb0;margin-top:5px;letter-spacing:.04em;">WEEKLY · MON / WED / FRI — curated industries & names</div>
     </div>
     <form class="subscribe-form" id="hero-form" onsubmit="handleSubscribe(event, 'hero-form')">
       <input type="email"  name="email"    class="subscribe-input" placeholder="your@email.com" required>
@@ -619,12 +610,6 @@ function rsiDisplay(v) {
     grid.innerHTML = `<div class="mono-xs text-negative" style="padding:var(--space-4);grid-column:1/-1;">無法載入資料 · ${e.message}</div>`;
     return;
   }
-
-  // ── Stats ──────────────────────────────────────────────
-  const stats = d.stats || {};
-  document.getElementById('stat-issues').textContent      = stats.n_picks      ?? '—';
-  document.getElementById('stat-themes').textContent      = stats.n_themes     ?? '—';
-  document.getElementById('stat-total-picks').textContent = stats.journal_total ?? '—';
 
   // ── Latest report card ─────────────────────────────────
   document.getElementById('lrc-regime-display').innerHTML = regimeBadge(d.regime);
