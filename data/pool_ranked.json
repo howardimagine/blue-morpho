@@ -10,40 +10,13 @@
       "news_7d": 162,
       "stocks": [
         {
-          "symbol": "AEHR",
-          "name": "Aehr Test",
-          "composite": 0,
-          "score_kind": "engine",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
-          "symbol": "AMZN",
-          "name": "亞馬遜",
-          "composite": 0,
-          "score_kind": "engine",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 2
-        },
-        {
-          "symbol": "MRVL",
-          "name": "美滿科技",
-          "composite": 0,
-          "score_kind": "engine",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
           "symbol": "KLAC",
           "name": "科磊",
           "composite": 0.862,
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 4
+          "rank": 1
         },
         {
           "symbol": "LRCX",
@@ -52,7 +25,7 @@
           "score_kind": "tech",
           "is_recent": true,
           "is_watch": false,
-          "rank": 5
+          "rank": 2
         },
         {
           "symbol": "ASML",
@@ -61,7 +34,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 6
+          "rank": 3
         },
         {
           "symbol": "TSM",
@@ -70,7 +43,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 7
+          "rank": 4
         },
         {
           "symbol": "WDC",
@@ -79,7 +52,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 8
+          "rank": 5
         },
         {
           "symbol": "MKSI",
@@ -88,12 +61,39 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 9
+          "rank": 6
         },
         {
           "symbol": "MU",
           "name": "美光",
           "composite": 0.805,
+          "score_kind": "tech",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "AMD",
+          "name": "超微",
+          "composite": 0.775,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        },
+        {
+          "symbol": "GFS",
+          "name": "格羅方德",
+          "composite": 0.737,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
+        },
+        {
+          "symbol": "MRVL",
+          "name": "美滿科技",
+          "composite": 0.737,
           "score_kind": "tech",
           "is_recent": true,
           "is_watch": false,
@@ -109,22 +109,13 @@
       "news_7d": 107,
       "stocks": [
         {
-          "symbol": "MRVL",
-          "name": "美滿科技",
-          "composite": 0,
-          "score_kind": "engine",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
           "symbol": "STX",
           "name": "希捷",
           "composite": 0.842,
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 2
+          "rank": 1
         },
         {
           "symbol": "WDC",
@@ -133,12 +124,21 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 3
+          "rank": 2
         },
         {
           "symbol": "MU",
           "name": "美光",
           "composite": 0.805,
+          "score_kind": "tech",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "MRVL",
+          "name": "美滿科技",
+          "composite": 0.737,
           "score_kind": "tech",
           "is_recent": true,
           "is_watch": false,
@@ -181,27 +181,27 @@
           "rank": 1
         },
         {
-          "symbol": "AMZN",
-          "name": "亞馬遜",
-          "composite": 0,
-          "score_kind": "engine",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 2
-        },
-        {
           "symbol": "TER",
           "name": "泰瑞達",
           "composite": 0.714,
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 3
+          "rank": 2
         },
         {
           "symbol": "ROK",
           "name": "羅克韋爾自動化",
           "composite": 0.685,
+          "score_kind": "tech",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "AMZN",
+          "name": "亞馬遜",
+          "composite": 0.591,
           "score_kind": "tech",
           "is_recent": true,
           "is_watch": false,
@@ -262,22 +262,13 @@
       "news_7d": null,
       "stocks": [
         {
-          "symbol": "AEHR",
-          "name": "Aehr Test",
-          "composite": 0,
-          "score_kind": "engine",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
           "symbol": "KLAC",
           "name": "科磊",
           "composite": 0.862,
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 2
+          "rank": 1
         },
         {
           "symbol": "LRCX",
@@ -286,7 +277,7 @@
           "score_kind": "tech",
           "is_recent": true,
           "is_watch": false,
-          "rank": 3
+          "rank": 2
         },
         {
           "symbol": "ASML",
@@ -295,7 +286,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 4
+          "rank": 3
         },
         {
           "symbol": "KLIC",
@@ -304,7 +295,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 5
+          "rank": 4
         },
         {
           "symbol": "AMAT",
@@ -313,7 +304,7 @@
           "score_kind": "tech",
           "is_recent": true,
           "is_watch": false,
-          "rank": 6
+          "rank": 5
         },
         {
           "symbol": "TER",
@@ -322,7 +313,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 7
+          "rank": 6
         },
         {
           "symbol": "ACLS",
@@ -330,6 +321,15 @@
           "composite": 0.567,
           "score_kind": "tech",
           "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "AEHR",
+          "name": "Aehr Test",
+          "composite": 0.554,
+          "score_kind": "tech",
+          "is_recent": true,
           "is_watch": false,
           "rank": 8
         },
@@ -730,22 +730,13 @@
       "news_7d": null,
       "stocks": [
         {
-          "symbol": "AMZN",
-          "name": "亞馬遜",
-          "composite": 0,
-          "score_kind": "engine",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
           "symbol": "ANET",
           "name": "ANET",
           "composite": 0.79,
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 2
+          "rank": 1
         },
         {
           "symbol": "EQIX",
@@ -754,7 +745,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 3
+          "rank": 2
         },
         {
           "symbol": "NTAP",
@@ -763,7 +754,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 4
+          "rank": 3
         },
         {
           "symbol": "CSCO",
@@ -772,7 +763,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 5
+          "rank": 4
         },
         {
           "symbol": "GOOG",
@@ -781,7 +772,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 6
+          "rank": 5
         },
         {
           "symbol": "MSFT",
@@ -790,7 +781,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 7
+          "rank": 6
         },
         {
           "symbol": "DLR",
@@ -798,6 +789,15 @@
           "composite": 0.6,
           "score_kind": "tech",
           "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "AMZN",
+          "name": "亞馬遜",
+          "composite": 0.591,
+          "score_kind": "tech",
+          "is_recent": true,
           "is_watch": false,
           "rank": 8
         },
@@ -901,22 +901,13 @@
       "news_7d": null,
       "stocks": [
         {
-          "symbol": "AMZN",
-          "name": "亞馬遜",
-          "composite": 0,
-          "score_kind": "engine",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
           "symbol": "ADI",
           "name": "ADI",
           "composite": 0.801,
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 2
+          "rank": 1
         },
         {
           "symbol": "AAPL",
@@ -925,7 +916,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 3
+          "rank": 2
         },
         {
           "symbol": "QCOM",
@@ -934,7 +925,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 4
+          "rank": 3
         },
         {
           "symbol": "NVDA",
@@ -943,7 +934,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 5
+          "rank": 4
         },
         {
           "symbol": "TXN",
@@ -952,7 +943,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 6
+          "rank": 5
         },
         {
           "symbol": "MSFT",
@@ -960,6 +951,15 @@
           "composite": 0.625,
           "score_kind": "tech",
           "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "AMZN",
+          "name": "亞馬遜",
+          "composite": 0.591,
+          "score_kind": "tech",
+          "is_recent": true,
           "is_watch": false,
           "rank": 7
         },
@@ -1144,20 +1144,20 @@
       "news_7d": null,
       "stocks": [
         {
-          "symbol": "AMZN",
-          "name": "亞馬遜",
-          "composite": 0,
-          "score_kind": "engine",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
           "symbol": "EBAY",
           "name": "EBAY",
           "composite": 0.693,
           "score_kind": "tech",
           "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "AMZN",
+          "name": "亞馬遜",
+          "composite": 0.591,
+          "score_kind": "tech",
+          "is_recent": true,
           "is_watch": false,
           "rank": 2
         },
