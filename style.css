@@ -579,8 +579,8 @@ img { max-width: 100%; display: block; }
   z-index: 1;
 }
 
-/* Ensure hero content sits above the overlay */
-.hero .container { position: relative; z-index: 2; }
+/* Ensure hero content (title/sub/input/button) sits ABOVE the blockade tapes */
+.hero .container { position: relative; z-index: 3; }
 
 @media (prefers-reduced-motion: reduce) {
   .hero-bg { transform: none !important; }

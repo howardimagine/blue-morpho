@@ -343,7 +343,7 @@
     .blockade {
       position: absolute; left: -25%; width: 150%;
       overflow: hidden; white-space: nowrap;
-      z-index: 3; pointer-events: none;
+      z-index: 2; pointer-events: none;   /* 在底圖+遮罩上、但在文字/輸入框/按鈕之下 */
       background: linear-gradient(180deg,
         rgba(0,243,255,.10) 0%, rgba(4,7,16,.86) 16%,
         rgba(4,7,16,.86) 84%, rgba(0,243,255,.10) 100%);
@@ -352,9 +352,9 @@
       box-shadow: 0 0 24px rgba(0,243,255,.40), inset 0 0 16px rgba(0,243,255,.14);
       -webkit-backdrop-filter: blur(1.5px); backdrop-filter: blur(1.5px);
     }
-    /* 上下各一條反向滾動,交叉的封鎖感 */
-    .blockade-1 { top: 22%; transform: rotate(-15deg); }
-    .blockade-2 { top: 60%; transform: rotate(-15deg); }
+    /* 兩條反向角度 → 交叉 X 封鎖感 */
+    .blockade-1 { top: 30%; transform: rotate(-15deg); }
+    .blockade-2 { top: 50%; transform: rotate(15deg); }
     .blockade-track { display: inline-flex; align-items: center; gap: 34px; padding: 8px 0;
       animation: ticker-scroll 34s linear infinite; will-change: transform; }
     .blockade-2 .blockade-track { animation-direction: reverse; animation-duration: 40s; }
@@ -365,7 +365,7 @@
     .bk-lead { font-family: var(--font-mono); font-size: .58rem; letter-spacing: .26em; color: #02020a;
       background: var(--accent); padding: 2px 8px; text-transform: uppercase; font-weight: 700; box-shadow: 0 0 10px rgba(0,243,255,.7); }
     @media (prefers-reduced-motion: reduce) { .blockade-track { animation: none; } }
-    @media (max-width: 700px) { .blockade-1 { top: 18%; } .blockade-2 { top: 64%; } .blockade-track { gap: 24px; } }
+    @media (max-width: 700px) { .blockade-1 { top: 26%; } .blockade-2 { top: 56%; } .blockade-track { gap: 24px; } }
   </style>
 </head>
 <body>
