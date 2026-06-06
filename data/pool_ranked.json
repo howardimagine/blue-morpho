@@ -1264,7 +1264,7 @@
     },
     {
       "theme": "Edge Computing / IoT",
-      "n": 8,
+      "n": 9,
       "rs_1m": null,
       "rs_3m": null,
       "news_7d": null,
@@ -1340,12 +1340,21 @@
           "is_recent": false,
           "is_watch": false,
           "rank": 8
+        },
+        {
+          "symbol": "AAPL",
+          "name": "蘋果",
+          "composite": null,
+          "score_kind": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
         }
       ]
     },
     {
       "theme": "Battery / Energy Storage",
-      "n": 7,
+      "n": 6,
       "rs_1m": null,
       "rs_3m": null,
       "news_7d": null,
@@ -1396,22 +1405,13 @@
           "rank": 5
         },
         {
-          "symbol": "LG Chem",
-          "name": "LG Chem",
-          "composite": null,
-          "score_kind": null,
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 6
-        },
-        {
           "symbol": "PCRFY",
           "name": "PCRFY",
           "composite": null,
           "score_kind": null,
           "is_recent": false,
           "is_watch": false,
-          "rank": 7
+          "rank": 6
         }
       ]
     },
