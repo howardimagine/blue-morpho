@@ -1,6 +1,6 @@
 {
   "date": "2026-06-06",
-  "headline": "川普政府入場 AI 產業後,檢測設備商迎轉機,Memory 熱度續擁擠但分化加劇 — AEHR、MRVL、AMZN 分層佈局",
+  "headline": "記憶體強勢反彈、電力鏈蓄勢待發 — 美滿科技、ABB 領銜本週進場名單,地緣能源政策成隱形推手",
   "theme": "Memory (HBM / DRAM / NAND)",
   "regime": "neutral",
   "picks": [
@@ -56,22 +56,16 @@
   "sell_signals": {},
   "policy": [
     {
-      "topic": "聯準會 / 利率",
-      "title": "Former Fed Chair Jerome Powell Did Something That's Only Been Done Once Before in 30 Years, and It May Continue to Send Shockwaves Through the Stock Market.",
-      "summary_zh": "川普表示正考慮政府直接投資頂級 AI 公司,將改變產業資本流向預期,下游檢測與設備商受惠確定性提升。",
-      "source": "Yahoo Finance"
+      "topic": "地緣 / 國際 / 能源",
+      "title": "Saudi energy minister calls for ‘stable energy sector’ during Russia visit",
+      "summary_zh": "沙烏地能源部長訪俄,呼籲能源部門穩定合作,暗示全球油氣供應鏈地緣格局調整深化。",
+      "source": "Al Jazeera"
     },
     {
       "topic": "地緣 / 國際 / 能源",
-      "title": "Russia's Sechin says U.S. companies benefit from the closure of the Strait of Hormuz",
-      "summary_zh": "川普計畫與 AI 領導人會面討論美國在其公司的投資,政府 capex 承諾若落實將拉動整條晶片製造鏈。",
-      "source": "CNBC"
-    },
-    {
-      "topic": "地緣 / 國際 / 能源",
-      "title": "India's energy security at a crossroads: The Hormuz crisis and an opportunity for US-India cooperation",
-      "summary_zh": "美國政府探索與 AI 企業的夥伴合作模式,政策確定性上升,利好長期訂單能見度。",
-      "source": "Atlantic Council"
+      "title": "Taiwan Semiconductor Stock Nearing 52-Week High: Buy, Sell or Hold?",
+      "summary_zh": "台灣半導體股近 52 週高點,分析師評估基本面與技術面都存在回調風險,市場定價已計入部分樂觀預期。",
+      "source": "AOL.com"
     }
   ],
   "themes": [],
