@@ -1,21 +1,9 @@
 {
   "date": "2026-06-06",
-  "headline": "強勢就業報告引燃升息憂慮,科技股承壓之際記憶體異軍突起 — MRVL 技術面轉折,ABB 電力基建穩健",
+  "headline": "川普政府入場 AI 產業後,檢測設備商迎轉機,Memory 熱度續擁擠但分化加劇 — AEHR、MRVL、AMZN 分層佈局",
   "theme": "Memory (HBM / DRAM / NAND)",
   "regime": "neutral",
   "picks": [
-    {
-      "symbol": "ABB",
-      "name": "ABB",
-      "tier": "watch",
-      "theme": "Electrification / Power",
-      "rsi": 60.0,
-      "ma_stack": "bullish",
-      "price": null,
-      "business": "瑞士工業電氣化/自動化巨頭;電網/機器人/驅動裝置。",
-      "why": "基本面通過半數以上 Screener 條件。 技術面 MA 結構為 <strong>None</strong>，整體偏多。",
-      "rr": null
-    },
     {
       "symbol": "MRVL",
       "name": "美滿科技",
@@ -29,15 +17,15 @@
       "rr": null
     },
     {
-      "symbol": "AMZN",
-      "name": "亞馬遜",
+      "symbol": "ABB",
+      "name": "ABB",
       "tier": "watch",
-      "theme": "AI Compute",
-      "rsi": 37.8,
-      "ma_stack": "mixed",
+      "theme": "Electrification / Power",
+      "rsi": 60.0,
+      "ma_stack": "bullish",
       "price": null,
-      "business": "電商 + AWS 雲服務;Trainium 自研 AI 晶片(透過 MRVL 代工)。",
-      "why": "本週篩選邏輯下相對其他候選股表現較佳。",
+      "business": "瑞士工業電氣化/自動化巨頭;電網/機器人/驅動裝置。",
+      "why": "基本面通過半數以上 Screener 條件。 技術面 MA 結構為 <strong>None</strong>，整體偏多。",
       "rr": null
     },
     {
@@ -51,21 +39,39 @@
       "business": "晶圓級老化測試系統;SiC 功率元件測試的小型受惠者。",
       "why": "本週篩選邏輯下相對其他候選股表現較佳。",
       "rr": null
+    },
+    {
+      "symbol": "AMZN",
+      "name": "亞馬遜",
+      "tier": "watch",
+      "theme": "AI Compute",
+      "rsi": 37.8,
+      "ma_stack": "mixed",
+      "price": null,
+      "business": "電商 + AWS 雲服務;Trainium 自研 AI 晶片(透過 MRVL 代工)。",
+      "why": "本週篩選邏輯下相對其他候選股表現較佳。",
+      "rr": null
     }
   ],
   "sell_signals": {},
   "policy": [
     {
       "topic": "聯準會 / 利率",
-      "title": "QUOTE BOX Hot jobs report, rising rates send Wall Street's tech favorites sprawling",
-      "summary_zh": "川普團隊表示將考慮美國政府入股AI公司,暗示政府干預科技產業融資與治理的可能性升高,對大型平台型科技股與國防承包商構成潛在利多",
-      "source": "Reuters"
+      "title": "Former Fed Chair Jerome Powell Did Something That's Only Been Done Once Before in 30 Years, and It May Continue to Send Shockwaves Through the Stock Market.",
+      "summary_zh": "川普表示正考慮政府直接投資頂級 AI 公司,將改變產業資本流向預期,下游檢測與設備商受惠確定性提升。",
+      "source": "Yahoo Finance"
     },
     {
-      "topic": "聯準會 / 利率",
-      "title": "American rite of spring: Strong job gains and falling wages",
-      "summary_zh": "國防股因川普重塑軍事工業複合體而面臨調整,短期內防務支出優先級重排,傳統國防承包商可能重獲青睞",
-      "source": "The Real Economy Blog"
+      "topic": "地緣 / 國際 / 能源",
+      "title": "Russia's Sechin says U.S. companies benefit from the closure of the Strait of Hormuz",
+      "summary_zh": "川普計畫與 AI 領導人會面討論美國在其公司的投資,政府 capex 承諾若落實將拉動整條晶片製造鏈。",
+      "source": "CNBC"
+    },
+    {
+      "topic": "地緣 / 國際 / 能源",
+      "title": "India's energy security at a crossroads: The Hormuz crisis and an opportunity for US-India cooperation",
+      "summary_zh": "美國政府探索與 AI 企業的夥伴合作模式,政策確定性上升,利好長期訂單能見度。",
+      "source": "Atlantic Council"
     }
   ],
   "themes": [],

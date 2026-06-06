@@ -1,8 +1,37 @@
 {
   "as_of": "2026-05-15",
   "n_whales": 19,
-  "generated_at": "2026-06-06T14:45:09+00:00",
+  "generated_at": "2026-06-06T14:56:14+00:00",
   "stocks": [
+    {
+      "symbol": "MRVL",
+      "name": "美滿科技",
+      "theme": "Memory (HBM / DRAM / NAND)",
+      "signal": "split",
+      "holders": 1,
+      "increased": 1,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 1,
+      "total_held_usd": 193043200,
+      "total_held_fmt": "$193M",
+      "whales_fmt": "Philippe Laffont — 清倉 · 達利歐 Dalio $193M 加碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "Philippe Laffont",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 193043200,
+          "action": "add"
+        }
+      ]
+    },
     {
       "symbol": "ABB",
       "name": "ABB",
@@ -33,31 +62,26 @@
       ]
     },
     {
-      "symbol": "MRVL",
-      "name": "美滿科技",
-      "theme": "Memory (HBM / DRAM / NAND)",
-      "signal": "split",
+      "symbol": "AEHR",
+      "name": "Aehr Test",
+      "theme": "AI Compute",
+      "signal": "buy",
       "holders": 1,
-      "increased": 1,
+      "increased": 0,
       "reduced": 0,
-      "new_pos": 0,
-      "closed_pos": 1,
-      "total_held_usd": 193043200,
-      "total_held_fmt": "$193M",
-      "whales_fmt": "Philippe Laffont — 清倉 · 達利歐 Dalio $193M 加碼",
+      "new_pos": 1,
+      "closed_pos": 0,
+      "total_held_usd": 291931,
+      "total_held_fmt": "<$1M",
+      "whales_fmt": "達利歐 Dalio <$1M 新進",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "Philippe Laffont",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
           "name": "達利歐 Dalio",
-          "value_usd": 193043200,
-          "action": "add"
+          "value_usd": 291931,
+          "action": "new"
         }
       ]
     },
@@ -117,30 +141,6 @@
           "name": "Brad Gerstner",
           "value_usd": 435192245,
           "action": "trim"
-        }
-      ]
-    },
-    {
-      "symbol": "AEHR",
-      "name": "Aehr Test",
-      "theme": "AI Compute",
-      "signal": "buy",
-      "holders": 1,
-      "increased": 0,
-      "reduced": 0,
-      "new_pos": 1,
-      "closed_pos": 0,
-      "total_held_usd": 291931,
-      "total_held_fmt": "<$1M",
-      "whales_fmt": "達利歐 Dalio <$1M 新進",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 291931,
-          "action": "new"
         }
       ]
     }
