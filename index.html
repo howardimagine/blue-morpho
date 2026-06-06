@@ -481,7 +481,7 @@
       頂級機構(13F)本季對精選個股的動向 — <b style="color:var(--text-primary);">聰明錢背書或警訊</b>。
       <span id="whale-asof"></span> · 13F 落後約 45 天,僅供論點驗證,非進場訊號。
     </p>
-    <div class="grid-4" id="whale-grid"></div>
+    <div id="whale-grid" style="display:flex;flex-direction:column;gap:10px;"></div>
   </div>
 </section>
 
@@ -719,26 +719,29 @@ function rsiDisplay(v) {
           split: { t: '機構分歧',   c: '#ffd000' },
           sell:  { t: '機構淨賣出', c: '#ff3b6b' }
         };
-        const pct = v => (v == null ? '—' : (v).toFixed(1) + '%');
-        const dlt = v => (v == null ? '' : (v >= 0 ? '↑+' : '↓') + Math.abs(v).toFixed(1) + 'pt');
+        const ACT = { new:'新進', add:'加碼', trim:'減碼', hold:'持有', exit:'清倉' };
+        const ACTC = { new:'#00f3ff', add:'#00ff9d', trim:'#ffd000', hold:'#9fb2c6', exit:'#ff3b6b' };
+        const usd = v => (v >= 1e9 ? '$'+(v/1e9).toFixed(1)+'B' : v >= 1e6 ? '$'+(v/1e6).toFixed(0)+'M' : v > 0 ? '<$1M' : '—');
         document.getElementById('whale-grid').innerHTML = stocks.map(s => {
           const sig = SIG[s.signal] || SIG.split;
-          const whales = (s.whales || []).slice(0, 3).join(' · ');
+          // 每家機構:名稱 + 持有金額 + 動作
+          const whaleRows = (s.whales || []).slice(0, 6).map(w =>
+            `<span style="white-space:nowrap;">${w.name} <b style="color:var(--text-primary);">${usd(w.value_usd)}</b> <span style="color:${ACTC[w.action]||'#9fb2c6'};">${ACT[w.action]||''}</span></span>`
+          ).join('<span style="color:#3a4658;"> · </span>');
           return `
-            <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:8px;padding:16px;">
-              <div style="display:flex;justify-content:space-between;align-items:baseline;">
-                <span style="font-family:var(--font-mono);font-size:1.1rem;font-weight:700;color:var(--accent);">${s.symbol}</span>
-                <span style="font-family:var(--font-mono);font-size:.62rem;letter-spacing:.1em;color:#8a9bb0;">${s.theme || ''}</span>
+            <div style="background:var(--bg-card);border:1px solid var(--border);border-left:3px solid ${sig.c};border-radius:8px;padding:14px 16px;">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px;">
+                <span><span style="font-family:var(--font-mono);font-size:1.05rem;font-weight:700;color:var(--accent);">${s.symbol}</span>
+                  <span style="color:var(--text-primary);font-size:.8rem;margin-left:6px;">${s.name || ''}</span>
+                  <span style="font-family:var(--font-mono);font-size:.6rem;letter-spacing:.08em;color:#8a9bb0;margin-left:6px;">${s.theme || ''}</span></span>
+                <span style="font-family:var(--font-mono);font-size:.64rem;font-weight:700;color:${sig.c};border:1px solid ${sig.c}55;border-radius:4px;padding:2px 8px;">● ${sig.t}</span>
               </div>
-              <div style="color:var(--text-primary);font-size:.8rem;margin:2px 0 10px;">${s.name || ''}</div>
-              <div style="font-size:.78rem;color:#aebccd;line-height:1.9;">
-                機構持股 <b style="color:var(--text-primary);">${pct(s.ownership_pct)}</b> <span style="color:#8a9bb0;">${dlt(s.ownership_delta_pt)}</span><br>
-                持有機構 <b style="color:var(--text-primary);">${s.holders ?? '—'}</b> ${s.holders_delta != null ? `<span style="color:#8a9bb0;">(${s.holders_delta>=0?'+':''}${s.holders_delta})</span>` : ''}<br>
-                <span style="color:#00ff9d;">加碼 ${s.increased ?? '—'}</span> · <span style="color:#ff3b6b;">減碼 ${s.reduced ?? '—'}</span><br>
-                新進 ${s.new_pos ?? '—'} · 清倉 ${s.closed_pos ?? '—'}
+              <div style="font-size:.76rem;color:#aebccd;margin:7px 0 6px;">
+                鯨魚持有 <b style="color:var(--text-primary);">${usd(s.total_held_usd)}</b> · <b style="color:var(--text-primary);">${s.holders ?? 0}</b> 隻機構 ·
+                <span style="color:#00ff9d;">加碼 ${s.increased ?? 0}</span> / <span style="color:#ff3b6b;">減碼 ${s.reduced ?? 0}</span> ·
+                新進 ${s.new_pos ?? 0} / 清倉 ${s.closed_pos ?? 0}
               </div>
-              ${whales ? `<div style="font-size:.72rem;color:#9fb2c6;margin-top:8px;border-top:1px solid var(--border);padding-top:8px;">鯨魚:${whales}</div>` : ''}
-              <div style="margin-top:10px;display:inline-block;font-family:var(--font-mono);font-size:.66rem;font-weight:700;letter-spacing:.06em;color:${sig.c};border:1px solid ${sig.c}55;border-radius:4px;padding:3px 9px;">● ${sig.t}</div>
+              ${whaleRows ? `<div style="font-size:.72rem;color:#9fb2c6;line-height:1.95;border-top:1px solid var(--border);padding-top:7px;">${whaleRows}</div>` : ''}
             </div>`;
         }).join('');
         if (sec) sec.style.display = '';

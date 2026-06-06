@@ -1,80 +1,94 @@
 {
   "as_of": "2026-05-15",
   "n_whales": 19,
-  "generated_at": "2026-06-06T14:28:59+00:00",
+  "generated_at": "2026-06-06T14:42:37+00:00",
   "stocks": [
-    {
-      "symbol": "ABB",
-      "name": "ABB",
-      "theme": "Electrification / Power",
-      "signal": "split",
-      "holders": 2,
-      "increased": 0,
-      "reduced": 1,
-      "new_pos": 1,
-      "closed_pos": 0,
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        "達利歐 Dalio",
-        "索羅斯 Soros"
-      ]
-    },
-    {
-      "symbol": "MRVL",
-      "name": "美滿科技",
-      "theme": "Memory (HBM / DRAM / NAND)",
-      "signal": "split",
-      "holders": 1,
-      "increased": 1,
-      "reduced": 0,
-      "new_pos": 0,
-      "closed_pos": 1,
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        "達利歐 Dalio"
-      ]
-    },
     {
       "symbol": "AMZN",
       "name": "亞馬遜",
-      "theme": "AI Compute",
+      "theme": "AI",
       "signal": "sell",
       "holders": 12,
       "increased": 5,
       "reduced": 6,
       "new_pos": 0,
       "closed_pos": 2,
+      "total_held_usd": 9709730891,
+      "total_held_fmt": "$9.7B",
+      "whales_fmt": "巴菲特 Buffett — 清倉 · Stephen Mandel — 清倉 · 艾克曼 Ackman $2.4B 加碼 · Chase Coleman $2.1B 持有 · Philippe Laffont $1.7B 減碼 · 達利歐 Dalio $914M 加碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
-        "Seth Klarman",
-        "達利歐 Dalio",
-        "德魯肯米勒 Druckenmiller",
-        "索羅斯 Soros",
-        "泰珀 Tepper",
-        "Chase Coleman"
+        {
+          "name": "巴菲特 Buffett",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "Stephen Mandel",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "艾克曼 Ackman",
+          "value_usd": 2385104083,
+          "action": "add"
+        },
+        {
+          "name": "Chase Coleman",
+          "value_usd": 2082700000,
+          "action": "hold"
+        },
+        {
+          "name": "Philippe Laffont",
+          "value_usd": 1651740634,
+          "action": "trim"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 914036840,
+          "action": "add"
+        },
+        {
+          "name": "泰珀 Tepper",
+          "value_usd": 899726400,
+          "action": "add"
+        },
+        {
+          "name": "Brad Gerstner",
+          "value_usd": 435192245,
+          "action": "trim"
+        }
       ]
     },
     {
-      "symbol": "AEHR",
-      "name": "Aehr Test",
-      "theme": "AI Compute",
-      "signal": "buy",
+      "symbol": "MRVL",
+      "name": "美滿",
+      "theme": "Memory",
+      "signal": "split",
       "holders": 1,
-      "increased": 0,
+      "increased": 1,
       "reduced": 0,
-      "new_pos": 1,
-      "closed_pos": 0,
+      "new_pos": 0,
+      "closed_pos": 1,
+      "total_held_usd": 193043200,
+      "total_held_fmt": "$193M",
+      "whales_fmt": "Philippe Laffont — 清倉 · 達利歐 Dalio $193M 加碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
-        "達利歐 Dalio"
+        {
+          "name": "Philippe Laffont",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 193043200,
+          "action": "add"
+        }
       ]
     }
   ]
