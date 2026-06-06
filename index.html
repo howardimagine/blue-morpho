@@ -338,6 +338,34 @@
     .tk-tag  { font-family: var(--font-mono); font-size: .56rem; letter-spacing: .08em; color: #ffd000; }
     .tk-sep  { color: #2a3550; }
     @media (max-width: 560px) { .tk-sym { font-size: .92rem; } .ticker-track { gap: 26px; } }
+
+    /* ── 賽博龐克電子封鎖線:斜放跑馬燈覆在 hero 上 ── */
+    .blockade {
+      position: absolute; left: -25%; width: 150%;
+      overflow: hidden; white-space: nowrap;
+      z-index: 3; pointer-events: none;
+      background: linear-gradient(180deg,
+        rgba(0,243,255,.10) 0%, rgba(4,7,16,.86) 16%,
+        rgba(4,7,16,.86) 84%, rgba(0,243,255,.10) 100%);
+      border-top: 1.5px solid rgba(0,243,255,.85);
+      border-bottom: 1.5px solid rgba(0,243,255,.85);
+      box-shadow: 0 0 24px rgba(0,243,255,.40), inset 0 0 16px rgba(0,243,255,.14);
+      -webkit-backdrop-filter: blur(1.5px); backdrop-filter: blur(1.5px);
+    }
+    /* 上下各一條反向滾動,交叉的封鎖感 */
+    .blockade-1 { top: 22%; transform: rotate(-15deg); }
+    .blockade-2 { top: 60%; transform: rotate(-15deg); }
+    .blockade-track { display: inline-flex; align-items: center; gap: 34px; padding: 8px 0;
+      animation: ticker-scroll 34s linear infinite; will-change: transform; }
+    .blockade-2 .blockade-track { animation-direction: reverse; animation-duration: 40s; }
+    /* 封鎖線端點漸隱 + 危險細紋 */
+    .blockade::before, .blockade::after { content: ""; position: absolute; top: 0; bottom: 0; width: 90px; z-index: 2; pointer-events: none; }
+    .blockade::before { left: 0;  background: linear-gradient(90deg, #02020a, transparent); }
+    .blockade::after  { right: 0; background: linear-gradient(270deg, #02020a, transparent); }
+    .bk-lead { font-family: var(--font-mono); font-size: .58rem; letter-spacing: .26em; color: #02020a;
+      background: var(--accent); padding: 2px 8px; text-transform: uppercase; font-weight: 700; box-shadow: 0 0 10px rgba(0,243,255,.7); }
+    @media (prefers-reduced-motion: reduce) { .blockade-track { animation: none; } }
+    @media (max-width: 700px) { .blockade-1 { top: 18%; } .blockade-2 { top: 64%; } .blockade-track { gap: 24px; } }
   </style>
 </head>
 <body>
@@ -363,14 +391,12 @@
   </div>
 </nav>
 
-<!-- ── 華爾街走馬燈:本期推薦(LED 字體)── 預設隱藏,有 picks 才顯示 -->
-<div class="ticker-tape" id="ticker-tape" style="display:none;">
-  <div class="ticker-track" id="ticker-track"></div>
-</div>
-
 <!-- ── Hero ── -->
 <section class="hero">
   <div class="hero-bg" id="hero-bg" aria-hidden="true"></div>
+  <!-- 賽博龐克電子封鎖線:斜放跑馬燈(本期 picks)覆在 hero image 上 -->
+  <div class="blockade blockade-1" id="blockade-1" aria-hidden="true" style="display:none;"><div class="blockade-track" id="blockade-track-1"></div></div>
+  <div class="blockade blockade-2" id="blockade-2" aria-hidden="true" style="display:none;"><div class="blockade-track" id="blockade-track-2"></div></div>
   <div class="container">
     <div class="hero-eyebrow">BLUE MORPHO · US EQUITY RADAR</div>
     <h1 class="hero-title">
@@ -627,17 +653,22 @@ function rsiDisplay(v) {
           </a>`;
       }).join('');
 
-  // ── 華爾街走馬燈:本期推薦(LED 字體)─────────────────
+  // ── 賽博龐克電子封鎖線:本期 picks 斜放跑馬燈覆在 hero 上 ──────
   const tkSyms = picks.map(p => p.symbol).filter(Boolean);
   if (tkSyms.length) {
-    const lead  = `<span class="tk-lead">▶&nbsp;BLUE MORPHO · WEEKLY PICKS${d.date ? ' · ' + d.date : ''}</span>`;
+    const lead  = `<span class="bk-lead">BLUE MORPHO · WEEKLY PICKS${d.date ? ' · ' + d.date : ''}</span>`;
     const items = tkSyms.map(s =>
       `<span class="tk-item"><span class="tk-sym">${s}</span><span class="tk-up">&#9650;</span></span>`
     ).join('<span class="tk-sep">·</span>');
     const seq = lead + '<span class="tk-sep">·</span>' + items;
-    // 放兩份相同序列 → translateX(-50%) 無縫循環
-    document.getElementById('ticker-track').innerHTML = seq + '<span class="tk-sep">·</span>' + seq;
-    document.getElementById('ticker-tape').style.display = '';
+    // 兩份序列無縫循環;兩條封鎖線反向滾動形成交叉封鎖感
+    const html = seq + '<span class="tk-sep">·</span>' + seq + '<span class="tk-sep">·</span>';
+    ['blockade-track-1', 'blockade-track-2'].forEach(id => {
+      const el = document.getElementById(id); if (el) el.innerHTML = html + html;
+    });
+    ['blockade-1', 'blockade-2'].forEach(id => {
+      const el = document.getElementById(id); if (el) el.style.display = '';
+    });
   }
 
   // ── Themes — hide section if empty ────────────────────
