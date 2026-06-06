@@ -14,8 +14,8 @@
   {
     "symbol": "AEHR",
     "name": "Aehr Test",
-    "tier": "ready",
-    "theme": "Semiconductor Equipment (WFE)"
+    "tier": "watch",
+    "theme": "AI Compute"
   },
   {
     "symbol": "AEIS",
@@ -164,7 +164,7 @@
   {
     "symbol": "MRVL",
     "name": "美滿科技",
-    "tier": "ready",
+    "tier": "watch",
     "theme": "Memory (HBM / DRAM / NAND)"
   },
   {
@@ -178,6 +178,12 @@
     "name": "ServiceNow",
     "tier": "watch",
     "theme": "AI Software"
+  },
+  {
+    "symbol": "ONTO",
+    "name": "Onto Innovation",
+    "tier": "watch",
+    "theme": "AI Compute"
   },
   {
     "symbol": "ROK",

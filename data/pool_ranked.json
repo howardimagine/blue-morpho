@@ -3,6 +3,267 @@
   "method": "完整掃描宇宙(全產業)。分數:引擎本期評分(綜合分,綠)排最前;其餘為技術基本分(RSI×均線×距高×動能,琥珀)。● 近期推薦 = 近三期曾入精選 · 潛力 = 同主題達標未入選。",
   "themes": [
     {
+      "theme": "AI Compute",
+      "n": 24,
+      "rs_1m": 4.66,
+      "rs_3m": 35.42,
+      "news_7d": 160,
+      "stocks": [
+        {
+          "symbol": "AEHR",
+          "name": "Aehr Test",
+          "composite": 0,
+          "score_kind": "engine",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "MRVL",
+          "name": "美滿科技",
+          "composite": 0,
+          "score_kind": "engine",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "ONTO",
+          "name": "Onto Innovation",
+          "composite": 0,
+          "score_kind": "engine",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "ASML",
+          "name": "艾司摩爾",
+          "composite": 1.0,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "KLAC",
+          "name": "科磊",
+          "composite": 1.0,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "MKSI",
+          "name": "MKS Inc.",
+          "composite": 1.0,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "TER",
+          "name": "泰瑞達",
+          "composite": 0.98,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "TSM",
+          "name": "台積電",
+          "composite": 0.978,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        },
+        {
+          "symbol": "GFS",
+          "name": "格羅方德",
+          "composite": 0.956,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
+        },
+        {
+          "symbol": "AMAT",
+          "name": "應用材料",
+          "composite": 0.9,
+          "score_kind": "tech",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 10
+        }
+      ]
+    },
+    {
+      "theme": "Memory (HBM / DRAM / NAND)",
+      "n": 6,
+      "rs_1m": 16.9,
+      "rs_3m": 118.2,
+      "news_7d": 118,
+      "stocks": [
+        {
+          "symbol": "MRVL",
+          "name": "美滿科技",
+          "composite": 0,
+          "score_kind": "engine",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "SIMO",
+          "name": "慧榮科技",
+          "composite": 1.0,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "MU",
+          "name": "美光",
+          "composite": 0.9,
+          "score_kind": "tech",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "SNDK",
+          "name": "SanDisk",
+          "composite": 0.9,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "STX",
+          "name": "希捷",
+          "composite": 0.9,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "WDC",
+          "name": "威騰電子",
+          "composite": 0.9,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        }
+      ]
+    },
+    {
+      "theme": "Semiconductor Equipment (WFE)",
+      "n": 10,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "AEHR",
+          "name": "Aehr Test",
+          "composite": 0,
+          "score_kind": "engine",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "ONTO",
+          "name": "Onto Innovation",
+          "composite": 0,
+          "score_kind": "engine",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "ASML",
+          "name": "艾司摩爾",
+          "composite": 1.0,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "KLAC",
+          "name": "科磊",
+          "composite": 1.0,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "KLIC",
+          "name": "庫力索法",
+          "composite": 0.998,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "TER",
+          "name": "泰瑞達",
+          "composite": 0.98,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "ACLS",
+          "name": "艾克塞利",
+          "composite": 0.931,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "AMAT",
+          "name": "應用材料",
+          "composite": 0.9,
+          "score_kind": "tech",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 8
+        },
+        {
+          "symbol": "LRCX",
+          "name": "科林研發",
+          "composite": 0.9,
+          "score_kind": "tech",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 9
+        },
+        {
+          "symbol": "AEIS",
+          "name": "先進能源",
+          "composite": 0.454,
+          "score_kind": "tech",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 10
+        }
+      ]
+    },
+    {
       "theme": "AI Robotics / Automation",
       "n": 10,
       "rs_1m": null,
@@ -282,105 +543,6 @@
       ]
     },
     {
-      "theme": "Semiconductor Equipment (WFE)",
-      "n": 10,
-      "rs_1m": null,
-      "rs_3m": null,
-      "news_7d": null,
-      "stocks": [
-        {
-          "symbol": "AEHR",
-          "name": "Aehr Test",
-          "composite": 1.0,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
-          "symbol": "ASML",
-          "name": "艾司摩爾",
-          "composite": 1.0,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 2
-        },
-        {
-          "symbol": "KLAC",
-          "name": "科磊",
-          "composite": 1.0,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
-          "symbol": "KLIC",
-          "name": "庫力索法",
-          "composite": 0.998,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 4
-        },
-        {
-          "symbol": "TER",
-          "name": "泰瑞達",
-          "composite": 0.98,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 5
-        },
-        {
-          "symbol": "ACLS",
-          "name": "艾克塞利",
-          "composite": 0.931,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 6
-        },
-        {
-          "symbol": "ONTO",
-          "name": "Onto Innovation",
-          "composite": 0.909,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 7
-        },
-        {
-          "symbol": "AMAT",
-          "name": "應用材料",
-          "composite": 0.9,
-          "score_kind": "tech",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 8
-        },
-        {
-          "symbol": "LRCX",
-          "name": "科林研發",
-          "composite": 0.9,
-          "score_kind": "tech",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 9
-        },
-        {
-          "symbol": "AEIS",
-          "name": "先進能源",
-          "composite": 0.454,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 10
-        }
-      ]
-    },
-    {
       "theme": "Nuclear / SMR",
       "n": 9,
       "rs_1m": null,
@@ -388,22 +550,13 @@
       "news_7d": null,
       "stocks": [
         {
-          "symbol": "VST",
-          "name": "Vistra",
-          "composite": 0,
-          "score_kind": "engine",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
           "symbol": "CCJ",
           "name": "Cameco",
           "composite": 0.704,
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 2
+          "rank": 1
         },
         {
           "symbol": "NNE",
@@ -412,7 +565,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 3
+          "rank": 2
         },
         {
           "symbol": "SMR",
@@ -421,7 +574,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 4
+          "rank": 3
         },
         {
           "symbol": "URA",
@@ -430,7 +583,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 5
+          "rank": 4
         },
         {
           "symbol": "OKLO",
@@ -439,7 +592,7 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 6
+          "rank": 5
         },
         {
           "symbol": "URNM",
@@ -448,11 +601,20 @@
           "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
-          "rank": 7
+          "rank": 6
         },
         {
           "symbol": "CEG",
           "name": "Constellation Energy",
+          "composite": 0.28,
+          "score_kind": "tech",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "VST",
+          "name": "Vistra",
           "composite": 0.28,
           "score_kind": "tech",
           "is_recent": true,
@@ -480,7 +642,7 @@
         {
           "symbol": "VEEV",
           "name": "Veeva Systems Inc.",
-          "composite": 0,
+          "composite": 0.612,
           "score_kind": "engine",
           "is_recent": true,
           "is_watch": false,
@@ -563,105 +725,6 @@
           "name": "EXAS",
           "composite": null,
           "score_kind": null,
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 10
-        }
-      ]
-    },
-    {
-      "theme": "AI Compute",
-      "n": 24,
-      "rs_1m": null,
-      "rs_3m": null,
-      "news_7d": null,
-      "stocks": [
-        {
-          "symbol": "AEHR",
-          "name": "Aehr Test",
-          "composite": 1.0,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
-          "symbol": "ASML",
-          "name": "艾司摩爾",
-          "composite": 1.0,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 2
-        },
-        {
-          "symbol": "KLAC",
-          "name": "科磊",
-          "composite": 1.0,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
-          "symbol": "MKSI",
-          "name": "MKS Inc.",
-          "composite": 1.0,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 4
-        },
-        {
-          "symbol": "TER",
-          "name": "泰瑞達",
-          "composite": 0.98,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 5
-        },
-        {
-          "symbol": "TSM",
-          "name": "台積電",
-          "composite": 0.978,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 6
-        },
-        {
-          "symbol": "GFS",
-          "name": "格羅方德",
-          "composite": 0.956,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 7
-        },
-        {
-          "symbol": "ONTO",
-          "name": "Onto Innovation",
-          "composite": 0.909,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 8
-        },
-        {
-          "symbol": "AMAT",
-          "name": "應用材料",
-          "composite": 0.9,
-          "score_kind": "tech",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 9
-        },
-        {
-          "symbol": "AMD",
-          "name": "超微",
-          "composite": 0.9,
-          "score_kind": "tech",
           "is_recent": false,
           "is_watch": false,
           "rank": 10
@@ -755,69 +818,6 @@
           "is_recent": false,
           "is_watch": false,
           "rank": 9
-        }
-      ]
-    },
-    {
-      "theme": "Memory (HBM / DRAM / NAND)",
-      "n": 6,
-      "rs_1m": null,
-      "rs_3m": null,
-      "news_7d": null,
-      "stocks": [
-        {
-          "symbol": "SIMO",
-          "name": "慧榮科技",
-          "composite": 1.0,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
-          "symbol": "MU",
-          "name": "美光",
-          "composite": 0.9,
-          "score_kind": "tech",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 2
-        },
-        {
-          "symbol": "SNDK",
-          "name": "SanDisk",
-          "composite": 0.9,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
-          "symbol": "STX",
-          "name": "希捷",
-          "composite": 0.9,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 4
-        },
-        {
-          "symbol": "WDC",
-          "name": "威騰電子",
-          "composite": 0.9,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 5
-        },
-        {
-          "symbol": "MRVL",
-          "name": "美滿科技",
-          "composite": 0.81,
-          "score_kind": "tech",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 6
         }
       ]
     },
