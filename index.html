@@ -473,10 +473,10 @@
   </div>
 </section>
 
-<!-- ── 機構驗證 · Smart Money(13F)── 預設隱藏,有 /data/whale_validation.json 才顯示 -->
+<!-- ── 大鯨魚動向 · Smart Money(13F)── 預設隱藏,有 /data/whale_validation.json 才顯示 -->
 <section class="page-section" id="whale-section" style="display:none;">
   <div class="container">
-    <div class="section-header">▎ SMART MONEY · 機構驗證</div>
+    <div class="section-header">▎ SMART MONEY · 大鯨魚動向</div>
     <p class="mono-xs text-dim" style="letter-spacing:.06em;margin:-6px 0 16px;line-height:1.7;">
       頂級機構(13F)本季對精選個股的動向 — <b style="color:var(--text-primary);">聰明錢背書或警訊</b>。
       <span id="whale-asof"></span> · 13F 落後約 45 天,僅供論點驗證,非進場訊號。
@@ -704,7 +704,7 @@ function rsiDisplay(v) {
       themes.map(t => `<span class="theme-tag">${t}</span>`).join('');
   }
 
-  // ── 機構驗證 · Smart Money(13F)— 有資料才顯示 ─────────
+  // ── 大鯨魚動向 · Smart Money(13F)— 有資料才顯示 ─────────
   try {
     const wr = await fetch('/data/whale_validation.json');
     if (wr.ok) {
