@@ -341,7 +341,9 @@
 
     /* ── 賽博龐克電子封鎖線:斜放跑馬燈覆在 hero 上 ── */
     .blockade {
-      position: absolute; left: 44%; width: 72%;   /* 只佔右半 → 交叉點落 hero 右下角,不壓內容 */
+      position: absolute; left: -30%; width: 160%;   /* 滿版(超出兩側,旋轉後仍撐滿螢幕) */
+      top: 60%;
+      transform-origin: 72% 50%;   /* 兩條共用此支點(≈螢幕右下)→ 必在此交叉 */
       overflow: hidden; white-space: nowrap;
       z-index: 2; pointer-events: none;   /* 在底圖+遮罩上、但在文字/輸入框/按鈕之下 */
       background: linear-gradient(180deg,
@@ -352,9 +354,9 @@
       box-shadow: 0 0 24px rgba(0,243,255,.40), inset 0 0 16px rgba(0,243,255,.14);
       -webkit-backdrop-filter: blur(1.5px); backdrop-filter: blur(1.5px);
     }
-    /* 同位反向角度 → 交叉點落右下角 */
-    .blockade-1 { top: 62%; transform: rotate(-16deg); }
-    .blockade-2 { top: 62%; transform: rotate(16deg); }
+    /* 同位置同支點、不同角度 → 滿版且交叉於右下支點 */
+    .blockade-1 { transform: rotate(-15deg); }
+    .blockade-2 { transform: rotate(60deg); }
     .blockade-track { display: inline-flex; align-items: center; gap: 34px; padding: 8px 0;
       animation: ticker-scroll 34s linear infinite; will-change: transform; }
     .blockade-2 .blockade-track { animation-direction: reverse; animation-duration: 40s; }
@@ -365,7 +367,7 @@
     .bk-lead { font-family: var(--font-mono); font-size: .58rem; letter-spacing: .26em; color: #02020a;
       background: var(--accent); padding: 2px 8px; text-transform: uppercase; font-weight: 700; box-shadow: 0 0 10px rgba(0,243,255,.7); }
     @media (prefers-reduced-motion: reduce) { .blockade-track { animation: none; } }
-    @media (max-width: 700px) { .blockade { left: 28%; width: 92%; } .blockade-1, .blockade-2 { top: 74%; } .blockade-track { gap: 24px; } }
+    @media (max-width: 700px) { .blockade { top: 68%; transform-origin: 68% 50%; } .blockade-track { gap: 24px; } }
   </style>
 </head>
 <body>
