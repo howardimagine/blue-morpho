@@ -1,6 +1,6 @@
 {
   "date": "2026-06-06",
-  "method": "完整掃描宇宙(全產業)。分數:引擎本期評分(綜合分,綠)排最前;其餘為技術基本分(RSI×均線×距高×動能,琥珀)。● 近期推薦 = 近三期曾入精選 · 潛力 = 同主題達標未入選。",
+  "method": "完整掃描宇宙(全產業)。分數 = 品質底分(0–1):技術面(均線×RSI×距高×動能)+ 基本面(成長/品質/估值),每產業由高到低排。● 近期推薦 = 引擎近三期曾選入(與分數獨立的標籤,代表輪動選股)· 潛力 = 同主題達標未入選。",
   "themes": [
     {
       "theme": "AI Compute",
@@ -10,92 +10,92 @@
       "news_7d": 159,
       "stocks": [
         {
-          "symbol": "MRVL",
-          "name": "美滿科技",
-          "composite": 0.021,
-          "score_kind": "engine",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
           "symbol": "KLAC",
           "name": "科磊",
           "composite": 0.862,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
-          "rank": 2
+          "rank": 1
         },
         {
           "symbol": "LRCX",
           "name": "科林研發",
           "composite": 0.85,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": true,
           "is_watch": false,
-          "rank": 3
+          "rank": 2
         },
         {
           "symbol": "ASML",
           "name": "艾司摩爾",
           "composite": 0.838,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
-          "rank": 4
+          "rank": 3
         },
         {
           "symbol": "TSM",
           "name": "台積電",
           "composite": 0.837,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
-          "rank": 5
+          "rank": 4
         },
         {
           "symbol": "WDC",
           "name": "威騰電子",
           "composite": 0.821,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
-          "rank": 6
+          "rank": 5
         },
         {
           "symbol": "MKSI",
           "name": "MKS Inc.",
           "composite": 0.806,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
-          "rank": 7
+          "rank": 6
         },
         {
           "symbol": "MU",
           "name": "美光",
           "composite": 0.805,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": true,
           "is_watch": false,
-          "rank": 8
+          "rank": 7
         },
         {
           "symbol": "AMD",
           "name": "超微",
           "composite": 0.775,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
-          "rank": 9
+          "rank": 8
         },
         {
           "symbol": "GFS",
           "name": "格羅方德",
           "composite": 0.737,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
+          "is_watch": false,
+          "rank": 9
+        },
+        {
+          "symbol": "MRVL",
+          "name": "美滿科技",
+          "composite": 0.737,
+          "score_kind": "base",
+          "is_recent": true,
           "is_watch": false,
           "rank": 10
         }
@@ -109,37 +109,37 @@
       "news_7d": 112,
       "stocks": [
         {
-          "symbol": "MRVL",
-          "name": "美滿科技",
-          "composite": 0.021,
-          "score_kind": "engine",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
           "symbol": "STX",
           "name": "希捷",
           "composite": 0.842,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
-          "rank": 2
+          "rank": 1
         },
         {
           "symbol": "WDC",
           "name": "威騰電子",
           "composite": 0.821,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
-          "rank": 3
+          "rank": 2
         },
         {
           "symbol": "MU",
           "name": "美光",
           "composite": 0.805,
-          "score_kind": "tech",
+          "score_kind": "base",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "MRVL",
+          "name": "美滿科技",
+          "composite": 0.737,
+          "score_kind": "base",
           "is_recent": true,
           "is_watch": false,
           "rank": 4
@@ -148,7 +148,7 @@
           "symbol": "SIMO",
           "name": "慧榮科技",
           "composite": 0.734,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -157,7 +157,7 @@
           "symbol": "SNDK",
           "name": "SanDisk",
           "composite": 0.671,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -172,28 +172,28 @@
       "news_7d": null,
       "stocks": [
         {
-          "symbol": "ABB",
-          "name": "ABB",
-          "composite": 0.18,
-          "score_kind": "engine",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
           "symbol": "TER",
           "name": "泰瑞達",
           "composite": 0.714,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
-          "rank": 2
+          "rank": 1
         },
         {
           "symbol": "ROK",
           "name": "羅克韋爾自動化",
           "composite": 0.685,
-          "score_kind": "tech",
+          "score_kind": "base",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "ABB",
+          "name": "ABB",
+          "composite": 0.633,
+          "score_kind": "base",
           "is_recent": true,
           "is_watch": false,
           "rank": 3
@@ -202,7 +202,7 @@
           "symbol": "AMZN",
           "name": "亞馬遜",
           "composite": 0.591,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": true,
           "is_watch": false,
           "rank": 4
@@ -211,7 +211,7 @@
           "symbol": "FANUY",
           "name": "發那科",
           "composite": 0.568,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -220,7 +220,7 @@
           "symbol": "ISRG",
           "name": "Intuitive Surgical",
           "composite": 0.451,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": true,
           "is_watch": false,
           "rank": 6
@@ -229,7 +229,7 @@
           "symbol": "ZBRA",
           "name": "ZBRA",
           "composite": 0.385,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
@@ -238,7 +238,7 @@
           "symbol": "SYM",
           "name": "SYM",
           "composite": 0.202,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 8
@@ -247,7 +247,7 @@
           "symbol": "TSLA",
           "name": "特斯拉",
           "composite": 0.202,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 9
@@ -265,7 +265,7 @@
           "symbol": "KLAC",
           "name": "科磊",
           "composite": 0.862,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -274,7 +274,7 @@
           "symbol": "LRCX",
           "name": "科林研發",
           "composite": 0.85,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": true,
           "is_watch": false,
           "rank": 2
@@ -283,7 +283,7 @@
           "symbol": "ASML",
           "name": "艾司摩爾",
           "composite": 0.838,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -292,7 +292,7 @@
           "symbol": "KLIC",
           "name": "庫力索法",
           "composite": 0.749,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -301,7 +301,7 @@
           "symbol": "AMAT",
           "name": "應用材料",
           "composite": 0.722,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": true,
           "is_watch": false,
           "rank": 5
@@ -310,7 +310,7 @@
           "symbol": "TER",
           "name": "泰瑞達",
           "composite": 0.714,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -319,7 +319,7 @@
           "symbol": "ACLS",
           "name": "艾克塞利",
           "composite": 0.567,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
@@ -328,7 +328,7 @@
           "symbol": "AEHR",
           "name": "Aehr Test",
           "composite": 0.554,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": true,
           "is_watch": false,
           "rank": 8
@@ -337,7 +337,7 @@
           "symbol": "AEIS",
           "name": "先進能源",
           "composite": 0.456,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 9
@@ -346,7 +346,7 @@
           "symbol": "ONTO",
           "name": "Onto Innovation",
           "composite": 0.428,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": true,
           "is_watch": false,
           "rank": 10
@@ -361,38 +361,38 @@
       "news_7d": null,
       "stocks": [
         {
-          "symbol": "ABB",
-          "name": "ABB",
-          "composite": 0.18,
-          "score_kind": "engine",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
           "symbol": "MYRG",
           "name": "MYRG",
           "composite": 0.772,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
-          "rank": 2
+          "rank": 1
         },
         {
           "symbol": "ENB",
           "name": "Enbridge Inc",
           "composite": 0.712,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
-          "rank": 3
+          "rank": 2
         },
         {
           "symbol": "ENS",
           "name": "ENS",
           "composite": 0.684,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "ABB",
+          "name": "ABB",
+          "composite": 0.633,
+          "score_kind": "base",
+          "is_recent": true,
           "is_watch": false,
           "rank": 4
         },
@@ -400,7 +400,7 @@
           "symbol": "ETN",
           "name": "伊頓",
           "composite": 0.631,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -409,7 +409,7 @@
           "symbol": "PWR",
           "name": "Quanta Services",
           "composite": 0.603,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -418,7 +418,7 @@
           "symbol": "VRT",
           "name": "Vertiv",
           "composite": 0.592,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": true,
           "is_watch": false,
           "rank": 7
@@ -427,7 +427,7 @@
           "symbol": "HUBB",
           "name": "HUBB",
           "composite": 0.543,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 8
@@ -436,7 +436,7 @@
           "symbol": "GEV",
           "name": "GE Vernova",
           "composite": 0.523,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": true,
           "is_watch": false,
           "rank": 9
@@ -445,7 +445,7 @@
           "symbol": "WMB",
           "name": "WMB",
           "composite": 0.474,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 10
@@ -460,28 +460,28 @@
       "news_7d": null,
       "stocks": [
         {
-          "symbol": "ABB",
-          "name": "ABB",
-          "composite": 0.18,
-          "score_kind": "engine",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
           "symbol": "CAT",
           "name": "開拓重工",
           "composite": 0.705,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
-          "rank": 2
+          "rank": 1
         },
         {
           "symbol": "ROK",
           "name": "羅克韋爾自動化",
           "composite": 0.685,
-          "score_kind": "tech",
+          "score_kind": "base",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "ABB",
+          "name": "ABB",
+          "composite": 0.633,
+          "score_kind": "base",
           "is_recent": true,
           "is_watch": false,
           "rank": 3
@@ -490,7 +490,7 @@
           "symbol": "EMR",
           "name": "艾默生電氣",
           "composite": 0.605,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -499,7 +499,7 @@
           "symbol": "FANUY",
           "name": "發那科",
           "composite": 0.568,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -508,7 +508,7 @@
           "symbol": "PH",
           "name": "派克漢尼汾",
           "composite": 0.546,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -517,7 +517,7 @@
           "symbol": "DE",
           "name": "強鹿",
           "composite": 0.513,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
@@ -526,7 +526,7 @@
           "symbol": "ISRG",
           "name": "Intuitive Surgical",
           "composite": 0.451,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": true,
           "is_watch": false,
           "rank": 8
@@ -544,7 +544,7 @@
           "symbol": "CCJ",
           "name": "Cameco",
           "composite": 0.495,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -553,7 +553,7 @@
           "symbol": "BWXT",
           "name": "BWXT",
           "composite": 0.365,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -562,7 +562,7 @@
           "symbol": "URA",
           "name": "URA",
           "composite": 0.305,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -571,7 +571,7 @@
           "symbol": "URNM",
           "name": "URNM",
           "composite": 0.305,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -580,7 +580,7 @@
           "symbol": "OKLO",
           "name": "Oklo",
           "composite": 0.271,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -589,7 +589,7 @@
           "symbol": "NNE",
           "name": "Nano Nuclear Energy",
           "composite": 0.231,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -598,7 +598,7 @@
           "symbol": "SMR",
           "name": "NuScale Power",
           "composite": 0.231,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
@@ -607,7 +607,7 @@
           "symbol": "VST",
           "name": "Vistra",
           "composite": 0.231,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": true,
           "is_watch": false,
           "rank": 8
@@ -616,7 +616,7 @@
           "symbol": "CEG",
           "name": "Constellation Energy",
           "composite": 0.216,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": true,
           "is_watch": false,
           "rank": 9
@@ -631,38 +631,38 @@
       "news_7d": null,
       "stocks": [
         {
-          "symbol": "VEEV",
-          "name": "Veeva Systems Inc.",
-          "composite": 0.392,
-          "score_kind": "engine",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
           "symbol": "GH",
           "name": "GH",
           "composite": 0.693,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
-          "rank": 2
+          "rank": 1
         },
         {
           "symbol": "NTRA",
           "name": "NTRA",
           "composite": 0.612,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
-          "rank": 3
+          "rank": 2
         },
         {
           "symbol": "HIMS",
           "name": "HIMS",
           "composite": 0.535,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "VEEV",
+          "name": "Veeva Systems Inc.",
+          "composite": 0.493,
+          "score_kind": "base",
+          "is_recent": true,
           "is_watch": false,
           "rank": 4
         },
@@ -670,7 +670,7 @@
           "symbol": "ISRG",
           "name": "Intuitive Surgical",
           "composite": 0.451,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": true,
           "is_watch": false,
           "rank": 5
@@ -679,7 +679,7 @@
           "symbol": "DOCS",
           "name": "DOCS",
           "composite": 0.433,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -688,7 +688,7 @@
           "symbol": "TEM",
           "name": "TEM",
           "composite": 0.424,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
@@ -697,7 +697,7 @@
           "symbol": "RXRX",
           "name": "RXRX",
           "composite": 0.352,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 8
@@ -706,7 +706,7 @@
           "symbol": "GEHC",
           "name": "GEHC",
           "composite": 0.324,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 9
@@ -733,7 +733,7 @@
           "symbol": "ANET",
           "name": "ANET",
           "composite": 0.79,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -742,7 +742,7 @@
           "symbol": "EQIX",
           "name": "EQIX",
           "composite": 0.776,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -751,7 +751,7 @@
           "symbol": "NTAP",
           "name": "NTAP",
           "composite": 0.767,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -760,7 +760,7 @@
           "symbol": "CSCO",
           "name": "CSCO",
           "composite": 0.749,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -769,7 +769,7 @@
           "symbol": "GOOG",
           "name": "Alphabet",
           "composite": 0.658,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -778,7 +778,7 @@
           "symbol": "MSFT",
           "name": "微軟",
           "composite": 0.625,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -787,7 +787,7 @@
           "symbol": "DLR",
           "name": "DLR",
           "composite": 0.6,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
@@ -796,7 +796,7 @@
           "symbol": "AMZN",
           "name": "亞馬遜",
           "composite": 0.591,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": true,
           "is_watch": false,
           "rank": 8
@@ -805,7 +805,7 @@
           "symbol": "PSTG",
           "name": "PSTG",
           "composite": 0.528,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 9
@@ -823,7 +823,7 @@
           "symbol": "FTNT",
           "name": "Fortinet",
           "composite": 0.792,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -832,7 +832,7 @@
           "symbol": "OKTA",
           "name": "Okta, Inc.",
           "composite": 0.64,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -841,7 +841,7 @@
           "symbol": "PANW",
           "name": "派拓網路",
           "composite": 0.633,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -850,7 +850,7 @@
           "symbol": "CRWD",
           "name": "CrowdStrike",
           "composite": 0.602,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": true,
           "is_watch": false,
           "rank": 4
@@ -859,7 +859,7 @@
           "symbol": "TENB",
           "name": "Tenable Holdings, Inc.",
           "composite": 0.52,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -868,7 +868,7 @@
           "symbol": "S",
           "name": "SentinelOne",
           "composite": 0.389,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -877,7 +877,7 @@
           "symbol": "ZS",
           "name": "Zscaler",
           "composite": 0.356,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
@@ -904,7 +904,7 @@
           "symbol": "ADI",
           "name": "ADI",
           "composite": 0.801,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -913,7 +913,7 @@
           "symbol": "AAPL",
           "name": "蘋果",
           "composite": 0.795,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -922,7 +922,7 @@
           "symbol": "QCOM",
           "name": "Qualcomm",
           "composite": 0.74,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -931,7 +931,7 @@
           "symbol": "NVDA",
           "name": "輝達",
           "composite": 0.728,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -940,7 +940,7 @@
           "symbol": "TXN",
           "name": "TXN",
           "composite": 0.688,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -949,7 +949,7 @@
           "symbol": "MSFT",
           "name": "微軟",
           "composite": 0.625,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -958,7 +958,7 @@
           "symbol": "AMZN",
           "name": "亞馬遜",
           "composite": 0.591,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": true,
           "is_watch": false,
           "rank": 7
@@ -967,7 +967,7 @@
           "symbol": "ZBRA",
           "name": "ZBRA",
           "composite": 0.385,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 8
@@ -976,7 +976,7 @@
           "symbol": "TRMB",
           "name": "TRMB",
           "composite": 0.321,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 9
@@ -994,7 +994,7 @@
           "symbol": "FSLR",
           "name": "First Solar, Inc.",
           "composite": 0.756,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -1003,7 +1003,7 @@
           "symbol": "SEDG",
           "name": "SEDG",
           "composite": 0.708,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -1012,7 +1012,7 @@
           "symbol": "ENPH",
           "name": "Enphase Energy, Inc.",
           "composite": 0.705,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -1021,7 +1021,7 @@
           "symbol": "GE",
           "name": "GE",
           "composite": 0.537,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -1030,7 +1030,7 @@
           "symbol": "GEV",
           "name": "GE Vernova",
           "composite": 0.523,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": true,
           "is_watch": false,
           "rank": 5
@@ -1039,7 +1039,7 @@
           "symbol": "BEPC",
           "name": "Brookfield Renewable Corporatio",
           "composite": 0.408,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -1066,7 +1066,7 @@
           "symbol": "EW",
           "name": "EW",
           "composite": 0.656,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -1075,7 +1075,7 @@
           "symbol": "DXCM",
           "name": "DXCM",
           "composite": 0.633,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -1084,7 +1084,7 @@
           "symbol": "MDT",
           "name": "MDT",
           "composite": 0.486,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -1093,7 +1093,7 @@
           "symbol": "ISRG",
           "name": "Intuitive Surgical",
           "composite": 0.451,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": true,
           "is_watch": false,
           "rank": 4
@@ -1102,7 +1102,7 @@
           "symbol": "BSX",
           "name": "BSX",
           "composite": 0.428,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -1111,7 +1111,7 @@
           "symbol": "PODD",
           "name": "PODD",
           "composite": 0.348,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -1120,7 +1120,7 @@
           "symbol": "TNDM",
           "name": "TNDM",
           "composite": 0.276,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
@@ -1129,7 +1129,7 @@
           "symbol": "ABT",
           "name": "ABT",
           "composite": 0.266,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 8
@@ -1147,7 +1147,7 @@
           "symbol": "EBAY",
           "name": "EBAY",
           "composite": 0.693,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -1156,7 +1156,7 @@
           "symbol": "AMZN",
           "name": "亞馬遜",
           "composite": 0.591,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": true,
           "is_watch": false,
           "rank": 2
@@ -1165,7 +1165,7 @@
           "symbol": "FDX",
           "name": "FDX",
           "composite": 0.584,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -1174,7 +1174,7 @@
           "symbol": "UPS",
           "name": "UPS",
           "composite": 0.546,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -1183,7 +1183,7 @@
           "symbol": "SE",
           "name": "SE",
           "composite": 0.492,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -1192,7 +1192,7 @@
           "symbol": "MELI",
           "name": "MELI",
           "composite": 0.478,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -1201,7 +1201,7 @@
           "symbol": "SHOP",
           "name": "SHOP",
           "composite": 0.276,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
@@ -1219,7 +1219,7 @@
           "symbol": "CDNS",
           "name": "CDNS",
           "composite": 0.758,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -1228,7 +1228,7 @@
           "symbol": "ESTC",
           "name": "ESTC",
           "composite": 0.715,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -1237,7 +1237,7 @@
           "symbol": "MDB",
           "name": "MDB",
           "composite": 0.666,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -1246,7 +1246,7 @@
           "symbol": "GOOG",
           "name": "Alphabet",
           "composite": 0.658,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -1255,7 +1255,7 @@
           "symbol": "MSFT",
           "name": "微軟",
           "composite": 0.625,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -1264,7 +1264,7 @@
           "symbol": "ADBE",
           "name": "ADBE",
           "composite": 0.61,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -1273,7 +1273,7 @@
           "symbol": "NET",
           "name": "NET",
           "composite": 0.598,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
@@ -1282,7 +1282,7 @@
           "symbol": "DDOG",
           "name": "DDOG",
           "composite": 0.572,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 8
@@ -1291,7 +1291,7 @@
           "symbol": "CRM",
           "name": "CRM",
           "composite": 0.547,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 9
@@ -1300,7 +1300,7 @@
           "symbol": "SNOW",
           "name": "SNOW",
           "composite": 0.537,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 10
@@ -1318,7 +1318,7 @@
           "symbol": "GOOG",
           "name": "Alphabet",
           "composite": 0.658,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -1327,7 +1327,7 @@
           "symbol": "IBM",
           "name": "IBM",
           "composite": 0.642,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -1336,7 +1336,7 @@
           "symbol": "MSFT",
           "name": "微軟",
           "composite": 0.625,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -1345,7 +1345,7 @@
           "symbol": "QBTS",
           "name": "D-Wave Quantum Inc.",
           "composite": 0.614,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -1354,7 +1354,7 @@
           "symbol": "IONQ",
           "name": "IonQ, Inc.",
           "composite": 0.596,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -1363,7 +1363,7 @@
           "symbol": "QUBT",
           "name": "Quantum Computing Inc.",
           "composite": 0.582,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -1372,7 +1372,7 @@
           "symbol": "HON",
           "name": "霍尼韋爾",
           "composite": 0.436,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
@@ -1381,7 +1381,7 @@
           "symbol": "RGTI",
           "name": "RGTI",
           "composite": 0.422,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 8
@@ -1399,7 +1399,7 @@
           "symbol": "SQM",
           "name": "SQM",
           "composite": 0.538,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -1408,7 +1408,7 @@
           "symbol": "FLNC",
           "name": "FLNC",
           "composite": 0.42,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -1417,7 +1417,7 @@
           "symbol": "STEM",
           "name": "STEM",
           "composite": 0.351,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -1426,7 +1426,7 @@
           "symbol": "ALB",
           "name": "ALB",
           "composite": 0.343,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -1435,7 +1435,7 @@
           "symbol": "LAC",
           "name": "LAC",
           "composite": 0.176,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -1462,7 +1462,7 @@
           "symbol": "GD",
           "name": "GD",
           "composite": 0.588,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -1471,7 +1471,7 @@
           "symbol": "RTX",
           "name": "RTX",
           "composite": 0.538,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -1480,7 +1480,7 @@
           "symbol": "PLTR",
           "name": "Palantir",
           "composite": 0.519,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -1489,7 +1489,7 @@
           "symbol": "LMT",
           "name": "LMT",
           "composite": 0.432,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -1498,7 +1498,7 @@
           "symbol": "KTOS",
           "name": "KTOS",
           "composite": 0.352,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -1507,7 +1507,7 @@
           "symbol": "HII",
           "name": "HII",
           "composite": 0.343,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -1516,7 +1516,7 @@
           "symbol": "NOC",
           "name": "NOC",
           "composite": 0.33,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
@@ -1525,7 +1525,7 @@
           "symbol": "AVAV",
           "name": "AVAV",
           "composite": 0.299,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 8
@@ -1543,7 +1543,7 @@
           "symbol": "IRDM",
           "name": "IRDM",
           "composite": 0.798,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -1552,7 +1552,7 @@
           "symbol": "VSAT",
           "name": "VSAT",
           "composite": 0.741,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -1561,7 +1561,7 @@
           "symbol": "ASTS",
           "name": "ASTS",
           "composite": 0.569,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -1570,7 +1570,7 @@
           "symbol": "RKLB",
           "name": "Rocket Lab",
           "composite": 0.569,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -1579,7 +1579,7 @@
           "symbol": "BA",
           "name": "BA",
           "composite": 0.518,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -1588,7 +1588,7 @@
           "symbol": "LMT",
           "name": "LMT",
           "composite": 0.432,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -1606,7 +1606,7 @@
           "symbol": "CAT",
           "name": "開拓重工",
           "composite": 0.705,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -1615,7 +1615,7 @@
           "symbol": "URI",
           "name": "URI",
           "composite": 0.648,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -1624,7 +1624,7 @@
           "symbol": "PWR",
           "name": "Quanta Services",
           "composite": 0.603,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -1633,7 +1633,7 @@
           "symbol": "VMC",
           "name": "VMC",
           "composite": 0.471,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -1642,7 +1642,7 @@
           "symbol": "ACM",
           "name": "ACM",
           "composite": 0.429,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -1651,7 +1651,7 @@
           "symbol": "MLM",
           "name": "MLM",
           "composite": 0.325,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -1660,7 +1660,7 @@
           "symbol": "J",
           "name": "J",
           "composite": 0.154,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
@@ -1678,7 +1678,7 @@
           "symbol": "TECK",
           "name": "TECK",
           "composite": 0.742,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -1687,7 +1687,7 @@
           "symbol": "FCX",
           "name": "Freeport-McMoRan",
           "composite": 0.669,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -1696,7 +1696,7 @@
           "symbol": "SCCO",
           "name": "SCCO",
           "composite": 0.602,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -1705,7 +1705,7 @@
           "symbol": "SQM",
           "name": "SQM",
           "composite": 0.538,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -1714,7 +1714,7 @@
           "symbol": "CCJ",
           "name": "Cameco",
           "composite": 0.495,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -1723,7 +1723,7 @@
           "symbol": "MP",
           "name": "MP",
           "composite": 0.352,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -1732,7 +1732,7 @@
           "symbol": "ALB",
           "name": "ALB",
           "composite": 0.343,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
@@ -1741,7 +1741,7 @@
           "symbol": "DNN",
           "name": "DNN",
           "composite": 0.244,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 8
@@ -1759,7 +1759,7 @@
           "symbol": "EXEL",
           "name": "EXEL",
           "composite": 0.978,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -1768,7 +1768,7 @@
           "symbol": "GILD",
           "name": "GILD",
           "composite": 0.696,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -1777,7 +1777,7 @@
           "symbol": "AMGN",
           "name": "AMGN",
           "composite": 0.687,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -1786,7 +1786,7 @@
           "symbol": "VRTX",
           "name": "VRTX",
           "composite": 0.667,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -1795,7 +1795,7 @@
           "symbol": "BMRN",
           "name": "BMRN",
           "composite": 0.478,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -1804,7 +1804,7 @@
           "symbol": "IMCR",
           "name": "IMCR",
           "composite": 0.424,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -1813,7 +1813,7 @@
           "symbol": "REGN",
           "name": "REGN",
           "composite": 0.38,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
@@ -1822,7 +1822,7 @@
           "symbol": "DNLI",
           "name": "DNLI",
           "composite": 0.359,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 8
@@ -1840,7 +1840,7 @@
           "symbol": "LLY",
           "name": "Eli Lilly",
           "composite": 0.821,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -1849,7 +1849,7 @@
           "symbol": "AMGN",
           "name": "AMGN",
           "composite": 0.687,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -1858,7 +1858,7 @@
           "symbol": "NVO",
           "name": "NVO",
           "composite": 0.52,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -1867,7 +1867,7 @@
           "symbol": "ALT",
           "name": "ALT",
           "composite": 0.338,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -1876,7 +1876,7 @@
           "symbol": "VKTX",
           "name": "VKTX",
           "composite": 0.176,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -1894,7 +1894,7 @@
           "symbol": "ELV",
           "name": "ELV",
           "composite": 0.752,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -1903,7 +1903,7 @@
           "symbol": "UNH",
           "name": "UNH",
           "composite": 0.71,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -1912,7 +1912,7 @@
           "symbol": "CI",
           "name": "CI",
           "composite": 0.66,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -1921,7 +1921,7 @@
           "symbol": "HUM",
           "name": "HUM",
           "composite": 0.639,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -1930,7 +1930,7 @@
           "symbol": "HCA",
           "name": "HCA",
           "composite": 0.383,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -1939,7 +1939,7 @@
           "symbol": "UHS",
           "name": "UHS",
           "composite": 0.374,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -1957,7 +1957,7 @@
           "symbol": "MGNI",
           "name": "MGNI",
           "composite": 0.634,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -1966,7 +1966,7 @@
           "symbol": "SPOT",
           "name": "SPOT",
           "composite": 0.587,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -1975,7 +1975,7 @@
           "symbol": "WBD",
           "name": "WBD",
           "composite": 0.466,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -1984,7 +1984,7 @@
           "symbol": "TTD",
           "name": "TTD",
           "composite": 0.45,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -1993,7 +1993,7 @@
           "symbol": "DIS",
           "name": "DIS",
           "composite": 0.442,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -2002,7 +2002,7 @@
           "symbol": "NFLX",
           "name": "Netflix",
           "composite": 0.383,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -2020,7 +2020,7 @@
           "symbol": "MGM",
           "name": "MGM",
           "composite": 0.613,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -2029,7 +2029,7 @@
           "symbol": "U",
           "name": "U",
           "composite": 0.6,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -2038,7 +2038,7 @@
           "symbol": "EA",
           "name": "EA",
           "composite": 0.575,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -2047,7 +2047,7 @@
           "symbol": "LVS",
           "name": "LVS",
           "composite": 0.487,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -2056,7 +2056,7 @@
           "symbol": "WYNN",
           "name": "WYNN",
           "composite": 0.412,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -2065,7 +2065,7 @@
           "symbol": "RBLX",
           "name": "RBLX",
           "composite": 0.411,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -2074,7 +2074,7 @@
           "symbol": "TTWO",
           "name": "TTWO",
           "composite": 0.356,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
@@ -2092,7 +2092,7 @@
           "symbol": "AFRM",
           "name": "AFRM",
           "composite": 0.672,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -2101,7 +2101,7 @@
           "symbol": "V",
           "name": "Visa",
           "composite": 0.644,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -2110,7 +2110,7 @@
           "symbol": "MA",
           "name": "MA",
           "composite": 0.546,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -2119,7 +2119,7 @@
           "symbol": "NU",
           "name": "NU",
           "composite": 0.492,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -2128,7 +2128,7 @@
           "symbol": "SOFI",
           "name": "SOFI",
           "composite": 0.357,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -2137,7 +2137,7 @@
           "symbol": "GPN",
           "name": "GPN",
           "composite": 0.334,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -2146,7 +2146,7 @@
           "symbol": "FIS",
           "name": "FIS",
           "composite": 0.316,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
@@ -2173,7 +2173,7 @@
           "symbol": "KEY",
           "name": "KEY",
           "composite": 0.829,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -2182,7 +2182,7 @@
           "symbol": "GS",
           "name": "GS",
           "composite": 0.726,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -2191,7 +2191,7 @@
           "symbol": "C",
           "name": "C",
           "composite": 0.724,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -2200,7 +2200,7 @@
           "symbol": "MS",
           "name": "MS",
           "composite": 0.718,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -2209,7 +2209,7 @@
           "symbol": "JPM",
           "name": "JPM",
           "composite": 0.707,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -2218,7 +2218,7 @@
           "symbol": "BAC",
           "name": "BAC",
           "composite": 0.695,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -2227,7 +2227,7 @@
           "symbol": "RF",
           "name": "RF",
           "composite": 0.654,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
@@ -2236,7 +2236,7 @@
           "symbol": "WFC",
           "name": "WFC",
           "composite": 0.419,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 8
@@ -2254,7 +2254,7 @@
           "symbol": "ARES",
           "name": "ARES",
           "composite": 0.611,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -2263,7 +2263,7 @@
           "symbol": "HOOD",
           "name": "HOOD",
           "composite": 0.599,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -2272,7 +2272,7 @@
           "symbol": "APO",
           "name": "APO",
           "composite": 0.526,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -2281,7 +2281,7 @@
           "symbol": "BX",
           "name": "BX",
           "composite": 0.508,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -2290,7 +2290,7 @@
           "symbol": "BLK",
           "name": "BLK",
           "composite": 0.354,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -2299,7 +2299,7 @@
           "symbol": "KKR",
           "name": "KKR",
           "composite": 0.349,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -2308,7 +2308,7 @@
           "symbol": "COIN",
           "name": "COIN",
           "composite": 0.221,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
@@ -2326,7 +2326,7 @@
           "symbol": "CLSK",
           "name": "CLSK",
           "composite": 0.651,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -2335,7 +2335,7 @@
           "symbol": "HOOD",
           "name": "HOOD",
           "composite": 0.599,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -2344,7 +2344,7 @@
           "symbol": "RIOT",
           "name": "RIOT",
           "composite": 0.557,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -2353,7 +2353,7 @@
           "symbol": "MARA",
           "name": "MARA",
           "composite": 0.429,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -2362,7 +2362,7 @@
           "symbol": "MSTR",
           "name": "MSTR",
           "composite": 0.239,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -2371,7 +2371,7 @@
           "symbol": "COIN",
           "name": "COIN",
           "composite": 0.221,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -2380,7 +2380,7 @@
           "symbol": "FBTC",
           "name": "FBTC",
           "composite": 0.09,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
@@ -2389,7 +2389,7 @@
           "symbol": "IBIT",
           "name": "IBIT",
           "composite": 0.09,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 8
@@ -2407,7 +2407,7 @@
           "symbol": "GM",
           "name": "GM",
           "composite": 0.626,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -2416,7 +2416,7 @@
           "symbol": "F",
           "name": "F",
           "composite": 0.609,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -2425,7 +2425,7 @@
           "symbol": "CHPT",
           "name": "CHPT",
           "composite": 0.519,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -2434,7 +2434,7 @@
           "symbol": "NIO",
           "name": "NIO",
           "composite": 0.489,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -2443,7 +2443,7 @@
           "symbol": "EVGO",
           "name": "EVGO",
           "composite": 0.461,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -2452,7 +2452,7 @@
           "symbol": "RIVN",
           "name": "RIVN",
           "composite": 0.459,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -2461,7 +2461,7 @@
           "symbol": "XPEV",
           "name": "XPEV",
           "composite": 0.392,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
@@ -2470,7 +2470,7 @@
           "symbol": "ALB",
           "name": "ALB",
           "composite": 0.343,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 8
@@ -2479,7 +2479,7 @@
           "symbol": "TSLA",
           "name": "特斯拉",
           "composite": 0.202,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 9
@@ -2488,7 +2488,7 @@
           "symbol": "LI",
           "name": "LI",
           "composite": 0.126,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 10
@@ -2506,7 +2506,7 @@
           "symbol": "DAL",
           "name": "DAL",
           "composite": 0.758,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -2515,7 +2515,7 @@
           "symbol": "MAR",
           "name": "MAR",
           "composite": 0.704,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -2524,7 +2524,7 @@
           "symbol": "HLT",
           "name": "HLT",
           "composite": 0.672,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -2533,7 +2533,7 @@
           "symbol": "UAL",
           "name": "UAL",
           "composite": 0.622,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -2542,7 +2542,7 @@
           "symbol": "H",
           "name": "H",
           "composite": 0.612,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -2551,7 +2551,7 @@
           "symbol": "CCL",
           "name": "CCL",
           "composite": 0.603,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -2560,7 +2560,7 @@
           "symbol": "ABNB",
           "name": "ABNB",
           "composite": 0.59,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
@@ -2569,7 +2569,7 @@
           "symbol": "RCL",
           "name": "RCL",
           "composite": 0.517,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 8
@@ -2578,7 +2578,7 @@
           "symbol": "LUV",
           "name": "LUV",
           "composite": 0.415,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 9
@@ -2587,7 +2587,7 @@
           "symbol": "BKNG",
           "name": "BKNG",
           "composite": 0.405,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 10
@@ -2605,7 +2605,7 @@
           "symbol": "KO",
           "name": "KO",
           "composite": 0.684,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -2614,7 +2614,7 @@
           "symbol": "PG",
           "name": "PG",
           "composite": 0.53,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -2623,7 +2623,7 @@
           "symbol": "DLTR",
           "name": "DLTR",
           "composite": 0.516,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -2632,7 +2632,7 @@
           "symbol": "DG",
           "name": "DG",
           "composite": 0.451,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -2641,7 +2641,7 @@
           "symbol": "MCD",
           "name": "MCD",
           "composite": 0.442,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -2650,7 +2650,7 @@
           "symbol": "COST",
           "name": "COST",
           "composite": 0.433,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -2659,7 +2659,7 @@
           "symbol": "WMT",
           "name": "沃爾瑪",
           "composite": 0.378,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
@@ -2668,7 +2668,7 @@
           "symbol": "SBUX",
           "name": "SBUX",
           "composite": 0.322,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 8
@@ -2686,7 +2686,7 @@
           "symbol": "RL",
           "name": "RL",
           "composite": 0.75,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -2695,7 +2695,7 @@
           "symbol": "TPR",
           "name": "TPR",
           "composite": 0.523,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -2704,7 +2704,7 @@
           "symbol": "RACE",
           "name": "RACE",
           "composite": 0.504,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -2713,7 +2713,7 @@
           "symbol": "LVMUY",
           "name": "LVMUY",
           "composite": 0.425,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -2731,7 +2731,7 @@
           "symbol": "EQIX",
           "name": "EQIX",
           "composite": 0.776,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -2740,7 +2740,7 @@
           "symbol": "DLR",
           "name": "DLR",
           "composite": 0.6,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -2749,7 +2749,7 @@
           "symbol": "IRM",
           "name": "IRM",
           "composite": 0.598,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -2767,7 +2767,7 @@
           "symbol": "WPC",
           "name": "WPC",
           "composite": 0.77,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -2776,7 +2776,7 @@
           "symbol": "NNN",
           "name": "NNN",
           "composite": 0.715,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -2785,7 +2785,7 @@
           "symbol": "O",
           "name": "Realty Income",
           "composite": 0.663,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -2803,7 +2803,7 @@
           "symbol": "SBAC",
           "name": "SBAC",
           "composite": 0.704,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -2812,7 +2812,7 @@
           "symbol": "CCI",
           "name": "CCI",
           "composite": 0.64,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -2821,7 +2821,7 @@
           "symbol": "AMT",
           "name": "美國電塔",
           "composite": 0.478,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -2839,7 +2839,7 @@
           "symbol": "PLD",
           "name": "PLD",
           "composite": 0.594,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -2848,7 +2848,7 @@
           "symbol": "STAG",
           "name": "STAG",
           "composite": 0.579,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -2857,7 +2857,7 @@
           "symbol": "REXR",
           "name": "REXR",
           "composite": 0.273,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -2875,7 +2875,7 @@
           "symbol": "EOG",
           "name": "EOG",
           "composite": 0.665,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -2884,7 +2884,7 @@
           "symbol": "SLB",
           "name": "SLB",
           "composite": 0.653,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -2893,7 +2893,7 @@
           "symbol": "HAL",
           "name": "HAL",
           "composite": 0.512,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -2902,7 +2902,7 @@
           "symbol": "COP",
           "name": "COP",
           "composite": 0.45,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -2911,7 +2911,7 @@
           "symbol": "FANG",
           "name": "FANG",
           "composite": 0.418,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -2920,7 +2920,7 @@
           "symbol": "CVX",
           "name": "CVX",
           "composite": 0.406,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -2929,7 +2929,7 @@
           "symbol": "XOM",
           "name": "XOM",
           "composite": 0.381,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
@@ -2947,7 +2947,7 @@
           "symbol": "ENB",
           "name": "Enbridge Inc",
           "composite": 0.712,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -2956,7 +2956,7 @@
           "symbol": "OKE",
           "name": "OKE",
           "composite": 0.669,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -2965,7 +2965,7 @@
           "symbol": "TRGP",
           "name": "TRGP",
           "composite": 0.661,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -2974,7 +2974,7 @@
           "symbol": "LNG",
           "name": "LNG",
           "composite": 0.609,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -2983,7 +2983,7 @@
           "symbol": "WMB",
           "name": "WMB",
           "composite": 0.474,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -2992,7 +2992,7 @@
           "symbol": "KMI",
           "name": "KMI",
           "composite": 0.47,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -3010,7 +3010,7 @@
           "symbol": "TRV",
           "name": "TRV",
           "composite": 0.787,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -3019,7 +3019,7 @@
           "symbol": "BRK.B",
           "name": "波克夏",
           "composite": 0.605,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -3028,7 +3028,7 @@
           "symbol": "PGR",
           "name": "PGR",
           "composite": 0.585,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -3037,7 +3037,7 @@
           "symbol": "PG",
           "name": "PG",
           "composite": 0.53,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -3046,7 +3046,7 @@
           "symbol": "COST",
           "name": "COST",
           "composite": 0.433,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -3055,7 +3055,7 @@
           "symbol": "WMT",
           "name": "沃爾瑪",
           "composite": 0.378,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -3073,7 +3073,7 @@
           "symbol": "VNQ",
           "name": "VNQ",
           "composite": 0.846,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
@@ -3082,7 +3082,7 @@
           "symbol": "SPG",
           "name": "SPG",
           "composite": 0.794,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
@@ -3091,7 +3091,7 @@
           "symbol": "EQIX",
           "name": "EQIX",
           "composite": 0.776,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
@@ -3100,7 +3100,7 @@
           "symbol": "SBAC",
           "name": "SBAC",
           "composite": 0.704,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
@@ -3109,7 +3109,7 @@
           "symbol": "O",
           "name": "Realty Income",
           "composite": 0.663,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
@@ -3118,7 +3118,7 @@
           "symbol": "CCI",
           "name": "CCI",
           "composite": 0.64,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
@@ -3127,7 +3127,7 @@
           "symbol": "DLR",
           "name": "DLR",
           "composite": 0.6,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
@@ -3136,7 +3136,7 @@
           "symbol": "IRM",
           "name": "IRM",
           "composite": 0.598,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 8
@@ -3145,7 +3145,7 @@
           "symbol": "PLD",
           "name": "PLD",
           "composite": 0.594,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 9
@@ -3154,7 +3154,7 @@
           "symbol": "AMT",
           "name": "美國電塔",
           "composite": 0.478,
-          "score_kind": "tech",
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 10
