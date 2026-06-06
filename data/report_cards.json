@@ -56,28 +56,16 @@
   "sell_signals": {},
   "policy": [
     {
-      "topic": "川普 × 個股機會",
-      "title": "Trump says his team will 'look into' US taking stake in AI companies",
+      "topic": "聯準會 / 利率",
+      "title": "QUOTE BOX Hot jobs report, rising rates send Wall Street's tech favorites sprawling",
       "summary_zh": "川普團隊表示將考慮美國政府入股AI公司,暗示政府干預科技產業融資與治理的可能性升高,對大型平台型科技股與國防承包商構成潛在利多",
       "source": "Reuters"
     },
     {
-      "topic": "川普 × 個股機會",
-      "title": "Defense Stocks Hit Pause As Trump's Pentagon Remakes Military Industrial Complex",
+      "topic": "聯準會 / 利率",
+      "title": "American rite of spring: Strong job gains and falling wages",
       "summary_zh": "國防股因川普重塑軍事工業複合體而面臨調整,短期內防務支出優先級重排,傳統國防承包商可能重獲青睞",
-      "source": "Investor's Business Daily"
-    },
-    {
-      "topic": "聯準會 / 利率",
-      "title": "Tech stocks lead market bloodbath as fears of Fed rate hikes add to worries about the AI-fueled chip boom petering out",
-      "summary_zh": "聯準會升息預期在強勢就業報告後上升,市場重新定價科技股估值,大型科技股承壓,利率敏感度高的成長型公司面臨風險",
-      "source": "Fortune"
-    },
-    {
-      "topic": "聯準會 / 利率",
-      "title": "U.S. Indexes Are Dropping After a Strong Jobs Report. Is the Labor Market a Problem for the Stock Market?",
-      "summary_zh": "美國勞動力市場強勁,薪資與就業人數均超預期,聯準會維持高利率時間可能延長,對科技業資本支出決策帶來不確定性",
-      "source": "Investopedia"
+      "source": "The Real Economy Blog"
     }
   ],
   "themes": [],
