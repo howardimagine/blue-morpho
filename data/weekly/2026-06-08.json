@@ -1,6 +1,6 @@
 {
   "date": "2026-06-08",
-  "headline": "記憶體暴跌一成四、AI 算力腰斬,半導體生態重新洗牌 — 科林研發、羅克韋爾自動化面臨分歧考驗",
+  "headline": "記憶體暴跌領銜科技股單週重創,AI算力與設備鏈同步下滑 — LRCX、ROK、CRWD 面臨技術性考驗",
   "theme": "Memory (HBM / DRAM / NAND)",
   "regime": "neutral",
   "picks": [
@@ -58,25 +58,25 @@
     {
       "topic": "川普 × 個股機會",
       "title": "Trump urged you to ‘buy a Dell’ while holding the stock — now it’s up 255%. Enrich yourself even outside the White House",
-      "summary_zh": "川普個人持有 Dell 股票,近期曝光並伴隨五角大廈九十七億美元合約簽署,引發市場關注個人政策與商業利益交集。",
+      "summary_zh": "川普在任期間持有 Dell 股票並曾公開推薦購買,該公司隨後獲得國防部大額合約,股價獲得超額漲幅,展現政治人物言論對市場的直接影響力。",
       "source": "Yahoo Finance"
     },
     {
       "topic": "川普 × 個股機會",
       "title": "Trump Bought Over $1M in Dell Stock Before Pentagon Signed $9.7B Contract with Company",
-      "summary_zh": "美國就業數據公佈後引發通膨擔憂,川普隨即表態;市場定價轉向降息預期下修。",
+      "summary_zh": "川普在國防合約簽署前夕增持 Dell 股票超百萬美元,市場解讀為政治內線對政策導向的先行反應,引發政策透明度與公平交易的討論。",
       "source": "People.com"
     },
     {
       "topic": "地緣 / 國際 / 能源",
       "title": "TSMC boss bets big on AI growth, signals interest in higher chip prices",
-      "summary_zh": "沙烏地能源部長訪俄,全球能源市場穩定性成為政經焦點。",
+      "summary_zh": "TSMC 執行長看好 AI 成長前景,並暗示先進晶片價格可能上調,反映下游需求仍有支撐,但與本週設備鏈下挫的市場現實產生背離。",
       "source": "1470 &amp; 100.3 WMBD"
     },
     {
       "topic": "地緣 / 國際 / 能源",
       "title": "TSMC Bets on AI Boom as CEO Signals Potential Chip Price Hikes",
-      "summary_zh": "美國政策面尚未出現對半導體設備業的新一輪刺激或產業保護法案。",
+      "summary_zh": "TSMC 在 AI 榮景預期驅動下的漲價信號,暗示晶片供應鏈仍看好長期景氣,但短期市場定價仍在調整階段,政策與市場心態存在錯位。",
       "source": "Modern Diplomacy"
     }
   ],
