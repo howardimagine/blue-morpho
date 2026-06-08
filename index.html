@@ -358,8 +358,8 @@
     .blockade-1 { transform: rotate(-15deg); }
     .blockade-2 { transform: rotate(60deg); }
     .blockade-track { display: inline-flex; align-items: center; gap: 34px; padding: 8px 0;
-      animation: ticker-scroll 34s linear infinite; will-change: transform; }
-    .blockade-2 .blockade-track { animation-direction: reverse; animation-duration: 40s; }
+      animation: ticker-scroll 96s linear infinite; will-change: transform; }   /* track 變長(16份)→ 拉長秒數維持原本慢速捲動 */
+    .blockade-2 .blockade-track { animation-direction: reverse; animation-duration: 112s; }
     /* 封鎖線端點漸隱 + 危險細紋 */
     .blockade::before, .blockade::after { content: ""; position: absolute; top: 0; bottom: 0; width: 90px; z-index: 2; pointer-events: none; }
     .blockade::before { left: 0;  background: linear-gradient(90deg, #02020a, transparent); }
@@ -655,7 +655,9 @@ function rsiDisplay(v) {
       `<span class="tk-item"><span class="tk-sym">${s}</span><span class="tk-up">&#9650;</span></span>`
     ).join('<span class="tk-sep">·</span>');
     const seq = lead + '<span class="tk-sep">·</span>' + items + '<span class="tk-sep">·</span>';
-    return (seq + seq + seq + seq);   // 重複 → 無縫循環
+    // 重複 16 份 → 半條 track(動畫 -50% 的範圍)夠長,確保 160% 寬的斜放框「任何螢幕寬度都填滿」,
+    // 旋轉後不會露出空白段(原本只 4 份,寬螢幕半條 track 比框窄 → 缺口轉進可視區 = 看不到內容)。
+    return seq.repeat(16);   // 偶數 → 無縫循環
   };
   const _fillBlockade = (trackId, boxId, label, syms) => {
     const html = _bkSeq(label, syms);
