@@ -1,6 +1,6 @@
 {
   "date": "2026-06-08",
-  "headline": "記憶體、AI算力、檢測設備三線同跌,市場恐慌驅動資金重組 — 製程控制與自動化浮現防守機會",
+  "headline": "記憶體暴跌一成四、AI 算力腰斬,半導體生態重新洗牌 — 科林研發、羅克韋爾自動化面臨分歧考驗",
   "theme": "Memory (HBM / DRAM / NAND)",
   "regime": "neutral",
   "picks": [
@@ -57,33 +57,33 @@
   "policy": [
     {
       "topic": "川普 × 個股機會",
-      "title": "Trump Bought Over $1M in Dell Stock Before Pentagon Signed $9.7B Contract with Company",
-      "summary_zh": "川普購入逾百萬美元Dell股票,隨後五角大廈簽署近97億美元Dell合約,引發市場對政治人物政策傾斜與個股精準操作的討論。",
-      "source": "People.com"
+      "title": "Trump urged you to ‘buy a Dell’ while holding the stock — now it’s up 255%. Enrich yourself even outside the White House",
+      "summary_zh": "川普個人持有 Dell 股票,近期曝光並伴隨五角大廈九十七億美元合約簽署,引發市場關注個人政策與商業利益交集。",
+      "source": "Yahoo Finance"
     },
     {
       "topic": "川普 × 個股機會",
-      "title": "Publicly naming a stock leads to an immediate surge—what will Trump, the 'Oracle of Equity,' call next?",
-      "summary_zh": "川普公開推舉個股即時推升股價現象成為市場焦點,投資人關注其後續點名對象與潛在受惠產業鏈。",
-      "source": "富途牛牛"
+      "title": "Jobs report sparks inflation fears; Trump responds",
+      "summary_zh": "美國就業數據公佈後引發通膨擔憂,川普隨即表態;市場定價轉向降息預期下修。",
+      "source": "The Hill"
     },
     {
       "topic": "政策 / 立法",
-      "title": "9 Best-Performing Health Care Stocks for June 2026",
-      "summary_zh": "川普計畫與AI公司高層會談,討論財務合作框架,暗示未來可能對AI產業政策調整與資本流向產生影響。",
-      "source": "NerdWallet"
+      "title": "Live Updates: Trump Administration Tariffs, Trade Policy Changes, and Impacts on Global Supply Chains",
+      "summary_zh": "中方多年尋求 Nvidia 芯片未果報導揭露,凸顯地緣科技管制對芯片產業的長期影響。",
+      "source": "Flexport"
     },
     {
       "topic": "地緣 / 國際 / 能源",
-      "title": "TSMC boss bets big on AI growth, signals interest in higher chip prices",
-      "summary_zh": "台積電CEO看好AI晶片成長,暗示對先進製程定價上調之意願,反映供給端對高端產能掌握力度。",
-      "source": "1470 &amp; 100.3 WMBD"
+      "title": "Saudi energy minister visits Russia, calls for stable energy sector",
+      "summary_zh": "沙烏地能源部長訪俄,全球能源市場穩定性成為政經焦點。",
+      "source": "Reuters"
     },
     {
       "topic": "地緣 / 國際 / 能源",
-      "title": "TSMC Bets on AI Boom as CEO Signals Potential Chip Price Hikes",
-      "summary_zh": "台積電重申AI景氣樂觀預期,對晶片價格調升維持積極態度,與本週市場重挫形成預期差異。",
-      "source": "Modern Diplomacy"
+      "title": "Chinese Military Sought Nvidia Chips for Years, Report Says",
+      "summary_zh": "美國政策面尚未出現對半導體設備業的新一輪刺激或產業保護法案。",
+      "source": "The New York Times"
     }
   ],
   "themes": [],
