@@ -1,6 +1,6 @@
 {
   "date": "2026-06-09",
-  "headline": "記憶體與 AI 算力鏈重挫，VIX 升溫信號轉避險 — 美光、安謀、應用材料、Vertiv 本週分化",
+  "headline": "從記憶體重挫到科技反彈:美光財報前磨底、應材與 Vertiv 成避險標的 — 拆解本週 AI 算力鏈的分化信號",
   "theme": "Memory (HBM / DRAM / NAND)",
   "regime": "neutral",
   "picks": [
@@ -57,27 +57,27 @@
   "policy": [
     {
       "topic": "川普 × 個股機會",
-      "title": "Eli Lilly Shares Rise Premarket on Late-Stage Weight Loss Trial Success",
-      "summary_zh": "禮來製藥晚期減重試驗成功，股價盤前上漲。顯示 GLP[?]-1 賽道仍具成長潛力，但與本週精選科技股無直接關聯。",
-      "source": "WSJ"
+      "title": "After hitting IBM with his 'golden touch', stock market wizard Trump’s next target is coming into view.",
+      "summary_zh": "川普對 IBM[?] 的公開力挺引起股市關注,暗示行政部門對科技龍頭的政策傾斜可能影響個股走勢。",
+      "source": "Binance"
     },
     {
       "topic": "川普 × 個股機會",
-      "title": "Trump Proposes AI Profit-Sharing Public Fund",
-      "summary_zh": "川普政府提議 AI 利潤分享公共基金。此舉可能改變科技巨頭的獲利分配預期，對估值較高的 AI 相關股形成政策風險，惟具體執行細節仍待觀察。",
-      "source": "조선일보"
+      "title": "Trump urged you to ‘buy a Dell’ while holding the stock — now it’s up 255%. Enrich yourself even outside the White House",
+      "summary_zh": "川普持有 Dell 股票並曾公開力薦購買,隨後五角大廈簽署逾十億美元合約,形成政策與股價互動的教科書案例。",
+      "source": "Yahoo Finance"
     },
     {
-      "topic": "政策 / 立法",
-      "title": "L3Harris Technologies stock (US5024311095): defense contractor stays in focus after recent investor",
-      "summary_zh": "L3Harris 等國防承包商因投資者關注而受關注。地緣風險與防禦支出題材持續發酵，但短期對科技硬體股無直接利好。",
-      "source": "AD HOC NEWS"
+      "topic": "地緣 / 國際 / 能源",
+      "title": "Taiwan Semiconductor Manufacturing Co. (TSMC)",
+      "summary_zh": "台積電作為全球晶片製造樞紐,在台灣地緣戰略重要性升溫的背景下,獲得政策關注與媒體曝光。",
+      "source": "Britannica"
     },
     {
-      "topic": "政策 / 立法",
-      "title": "Leonardo S.p.A. stock (IT0003856405): defense contractor in focus after AGM decisions and solid 2024",
-      "summary_zh": "Leonardo 股價因 2024 年業績表現與 AGM[?] 決議而受關注。歐洲防禦工業景氣指標提升，但與半導體製造鏈無直接銜接。",
-      "source": "AD HOC NEWS"
+      "topic": "地緣 / 國際 / 能源",
+      "title": "TSMC Bets on AI Boom as CEO Signals Potential Chip Price Hikes",
+      "summary_zh": "台積電執行長暗示 AI 晶片需求強勁,公司可能在後續財報中上調價格預期,反映AI 生態的定價權轉移。",
+      "source": "Modern Diplomacy"
     }
   ],
   "themes": [],

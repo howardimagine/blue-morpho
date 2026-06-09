@@ -7,7 +7,7 @@
       "n": 24,
       "rs_1m": 5.36,
       "rs_3m": 41.09,
-      "news_7d": 155,
+      "news_7d": 156,
       "stocks": [
         {
           "symbol": "KLAC",
@@ -96,7 +96,7 @@
           "composite": 0.737,
           "score_kind": "base",
           "is_recent": false,
-          "is_watch": true,
+          "is_watch": false,
           "rank": 10
         }
       ]
@@ -106,7 +106,7 @@
       "n": 6,
       "rs_1m": 13.3,
       "rs_3m": 122.4,
-      "news_7d": 88,
+      "news_7d": 89,
       "stocks": [
         {
           "symbol": "STX",
@@ -141,7 +141,7 @@
           "composite": 0.737,
           "score_kind": "base",
           "is_recent": false,
-          "is_watch": true,
+          "is_watch": false,
           "rank": 4
         },
         {
@@ -169,7 +169,7 @@
       "n": 15,
       "rs_1m": 4.72,
       "rs_3m": 2.22,
-      "news_7d": 134,
+      "news_7d": 137,
       "stocks": [
         {
           "symbol": "CDNS",
@@ -303,7 +303,7 @@
           "composite": 0.591,
           "score_kind": "base",
           "is_recent": true,
-          "is_watch": true,
+          "is_watch": false,
           "rank": 4
         },
         {
@@ -429,7 +429,7 @@
           "composite": 0.554,
           "score_kind": "base",
           "is_recent": false,
-          "is_watch": true,
+          "is_watch": false,
           "rank": 8
         },
         {
@@ -609,7 +609,7 @@
           "composite": 0.591,
           "score_kind": "base",
           "is_recent": true,
-          "is_watch": true,
+          "is_watch": false,
           "rank": 8
         },
         {
@@ -771,7 +771,7 @@
           "composite": 0.591,
           "score_kind": "base",
           "is_recent": true,
-          "is_watch": true,
+          "is_watch": false,
           "rank": 7
         },
         {
@@ -1095,7 +1095,7 @@
           "composite": 0.591,
           "score_kind": "base",
           "is_recent": true,
-          "is_watch": true,
+          "is_watch": false,
           "rank": 2
         },
         {
