@@ -1,6 +1,6 @@
 {
   "date": "2026-06-09",
-  "headline": "記憶體崩跌、AI 算力鏈退守 — VIX 飆升信號下,電力與檢測設備成本週防禦線",
+  "headline": "記憶體與 AI 算力鏈重挫，VIX 升溫信號轉避險 — 美光、安謀、應用材料、Vertiv 本週分化",
   "theme": "Memory (HBM / DRAM / NAND)",
   "regime": "neutral",
   "picks": [
@@ -57,27 +57,27 @@
   "policy": [
     {
       "topic": "川普 × 個股機會",
-      "title": "Trump stunned as stocks fall on great jobs report. Barclays explains why ‘we are entering the warning zone",
-      "summary_zh": "川普對股市下跌感到驚訝,市場正進入警戒區間;就業數據強勁反而引發衰退擔憂,顯示市場對經濟的定價出現分歧。",
-      "source": "Fortune"
+      "title": "Eli Lilly Shares Rise Premarket on Late-Stage Weight Loss Trial Success",
+      "summary_zh": "禮來製藥晚期減重試驗成功，股價盤前上漲。顯示 GLP[?]-1 賽道仍具成長潛力，但與本週精選科技股無直接關聯。",
+      "source": "WSJ"
     },
     {
       "topic": "川普 × 個股機會",
-      "title": "Trump issues pardon to former Republican congressman convicted of insider trading",
-      "summary_zh": "川普赦免前共和黨眾議員(內線交易案),彰顯政治考量優先於反腐;市場對政策可預測性的疑慮可能升溫。",
-      "source": "WJCL"
+      "title": "Trump Proposes AI Profit-Sharing Public Fund",
+      "summary_zh": "川普政府提議 AI 利潤分享公共基金。此舉可能改變科技巨頭的獲利分配預期，對估值較高的 AI 相關股形成政策風險，惟具體執行細節仍待觀察。",
+      "source": "조선일보"
     },
     {
       "topic": "政策 / 立法",
-      "title": "How The Duke Energy (DUK) Investment Story Is Shifting With Data Center And Policy Risks",
-      "summary_zh": "杜克能源投資故事在數據中心與政策風險雙重衝擊下轉向;數據中心電力需求雖長期樂觀,但監管成本與建設延遲已成實際風險。",
-      "source": "Yahoo Finance"
+      "title": "L3Harris Technologies stock (US5024311095): defense contractor stays in focus after recent investor",
+      "summary_zh": "L3Harris 等國防承包商因投資者關注而受關注。地緣風險與防禦支出題材持續發酵，但短期對科技硬體股無直接利好。",
+      "source": "AD HOC NEWS"
     },
     {
       "topic": "政策 / 立法",
-      "title": "Mizuho Strategist: Healthcare Is Now a Value Sector as Pharma Stocks Underperform Tech",
-      "summary_zh": "醫療與製藥產業相對於科技的價值地位改善,但此輪醫療股尚未展現強勢;政策面暫無明確催化,短期仍處觀望。",
-      "source": "Yahoo Finance"
+      "title": "Leonardo S.p.A. stock (IT0003856405): defense contractor in focus after AGM decisions and solid 2024",
+      "summary_zh": "Leonardo 股價因 2024 年業績表現與 AGM[?] 決議而受關注。歐洲防禦工業景氣指標提升，但與半導體製造鏈無直接銜接。",
+      "source": "AD HOC NEWS"
     }
   ],
   "themes": [],
