@@ -1,6 +1,6 @@
 {
   "date": "2026-06-09",
-  "headline": "從記憶體重挫到科技反彈:美光財報前磨底、應材與 Vertiv 成避險標的 — 拆解本週 AI 算力鏈的分化信號",
+  "headline": "科技股反彈能否接住 — 記憶體重挫後尋底,AI算力與設備鏈同步整理,川普國安科技政策暗流推波助瀾",
   "theme": "Memory (HBM / DRAM / NAND)",
   "regime": "neutral",
   "picks": [
@@ -57,26 +57,26 @@
   "policy": [
     {
       "topic": "川普 × 個股機會",
-      "title": "After hitting IBM with his 'golden touch', stock market wizard Trump’s next target is coming into view.",
-      "summary_zh": "川普對 IBM[?] 的公開力挺引起股市關注,暗示行政部門對科技龍頭的政策傾斜可能影響個股走勢。",
-      "source": "Binance"
+      "title": "Trump urged you to ‘buy a Dell’ while holding the stock — now it’s up 255%. Enrich yourself even outside the White House",
+      "summary_zh": "川普持股並公開推薦 Dell,股價應聲走高,政治支持對個股漲勢的直接推升效應再度驗證。",
+      "source": "Yahoo Finance"
     },
     {
       "topic": "川普 × 個股機會",
-      "title": "Trump urged you to ‘buy a Dell’ while holding the stock — now it’s up 255%. Enrich yourself even outside the White House",
-      "summary_zh": "川普持有 Dell 股票並曾公開力薦購買,隨後五角大廈簽署逾十億美元合約,形成政策與股價互動的教科書案例。",
-      "source": "Yahoo Finance"
+      "title": "Trump Bought Over $1M in Dell Stock Before Pentagon Signed $9.7B Contract with Company",
+      "summary_zh": "五角大廈簽訂 Dell 合約金額逾九十億美元,政策採購與川普個人立場形成正反饋迴圈。",
+      "source": "People.com"
     },
     {
       "topic": "地緣 / 國際 / 能源",
       "title": "Taiwan Semiconductor Manufacturing Co. (TSMC)",
-      "summary_zh": "台積電作為全球晶片製造樞紐,在台灣地緣戰略重要性升溫的背景下,獲得政策關注與媒體曝光。",
+      "summary_zh": "台灣晶片製造供應鏈再度成為國際戰略焦點,安全議題與產能配置面臨重新評估。",
       "source": "Britannica"
     },
     {
       "topic": "地緣 / 國際 / 能源",
       "title": "TSMC Bets on AI Boom as CEO Signals Potential Chip Price Hikes",
-      "summary_zh": "台積電執行長暗示 AI 晶片需求強勁,公司可能在後續財報中上調價格預期,反映AI 生態的定價權轉移。",
+      "summary_zh": "台積電暗示AI芯片定價權提升,受惠於供應缺口與成本結構重估,短期漲價空間存在。",
       "source": "Modern Diplomacy"
     }
   ],

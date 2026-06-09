@@ -7,7 +7,7 @@
       "n": 24,
       "rs_1m": 5.36,
       "rs_3m": 41.09,
-      "news_7d": 156,
+      "news_7d": 157,
       "stocks": [
         {
           "symbol": "KLAC",
@@ -106,7 +106,7 @@
       "n": 6,
       "rs_1m": 13.3,
       "rs_3m": 122.4,
-      "news_7d": 89,
+      "news_7d": 91,
       "stocks": [
         {
           "symbol": "STX",
@@ -169,7 +169,7 @@
       "n": 15,
       "rs_1m": 4.72,
       "rs_3m": 2.22,
-      "news_7d": 137,
+      "news_7d": 138,
       "stocks": [
         {
           "symbol": "CDNS",
