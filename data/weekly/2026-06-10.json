@@ -44,28 +44,22 @@
   "sell_signals": {},
   "policy": [
     {
-      "topic": "川普 × 個股機會",
-      "title": "Micron Stock Extends Slide Despite ‘Hottest Company’ Nod From Trump",
+      "topic": "政策 / 立法",
+      "title": "From rules to discretion: How Trump reconfigured US tariff policy",
       "summary_zh": "川普稱美光為「最火熱公司」,但其股價卻跌勢不止,市場對美國晶片國內化政策的真實支撑力度存疑。",
-      "source": "Stocktwits"
+      "source": "Brookings"
     },
     {
-      "topic": "川普 × 個股機會",
-      "title": "'We didn’t see this coming': Wall Street eats its forecasts as stocks sell off globally on fear of AI bubble ahead of SpaceX IPO",
+      "topic": "政策 / 立法",
+      "title": "PowerBank’s 8 community solar sites target 3,500 homes, tap U.S. tax credits",
       "summary_zh": "華爾街投資人對 AI 泡沫風險前景調整預期,SpaceX IPO 前夕科技股賣壓湧現,標誌高估值科技類股的輪動壓力升溫。",
-      "source": "Fortune"
+      "source": "Stock Titan"
     },
     {
-      "topic": "政策 / 立法",
-      "title": "U.S. House Passes Bill That Aims to Speed Up Collective Bargaining",
-      "summary_zh": "美國眾議院通過集體談判加速法案,勞動力成本面臨上升壓力,將增加製造與基礎設施企業的營運成本考量。",
-      "source": "Ogletree"
-    },
-    {
-      "topic": "政策 / 立法",
-      "title": "WA’s controversial new drug pricing law upheld amid legal challenge",
-      "summary_zh": "華盛頓州爭議性新藥物定價法在法律挑戰中獲得維持,健康照護成本控制政策持續強化,醫療科技軟體類股面臨政策監管風險。",
-      "source": "News From The States"
+      "topic": "聯準會 / 利率",
+      "title": "Stocks Are Flirting With a Dangerous Valuation Trap",
+      "summary_zh": "防務承包商 BWX[?] Technologies 季度表現扎實,防務與核能相關基礎設施投資動能確認,符合川普政府國安與能源政策優先級。",
+      "source": "Barron's"
     }
   ],
   "themes": [],

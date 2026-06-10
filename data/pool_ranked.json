@@ -7,7 +7,7 @@
       "n": 10,
       "rs_1m": 11.0,
       "rs_3m": 28.5,
-      "news_7d": 45,
+      "news_7d": 43,
       "stocks": [
         {
           "symbol": "KLAC",
@@ -106,7 +106,7 @@
       "n": 6,
       "rs_1m": 6.8,
       "rs_3m": 112.5,
-      "news_7d": 84,
+      "news_7d": 83,
       "stocks": [
         {
           "symbol": "STX",
