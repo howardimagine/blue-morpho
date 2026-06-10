@@ -1,6 +1,6 @@
 {
   "date": "2026-06-10",
-  "headline": "設備鏈強勢反彈領銜本週復甦 — 記憶體止血、AI 算力築底,川普能源國策催化電力與檢測股接棒",
+  "headline": "科技股止跌反彈、設備鏈搶跑,記憶體與 AI 算力同步修復 — 電力轉換基礎設施 ABB、GEV 成本週進場焦點",
   "theme": "Memory (HBM / DRAM / NAND)",
   "regime": "neutral",
   "picks": [
@@ -45,21 +45,27 @@
   "policy": [
     {
       "topic": "川普 × 個股機會",
-      "title": "Lockheed, Palantir, Amazon and the $50 billion question hanging over the White House ballroom",
-      "summary_zh": "國防承包商面臨白宮資源競爭:Lockheed、Palantir、Amazon 等廠商成為川普政策重點,涉及年度數百億美元國防科技投資分配,關鍵為執行進度與預算決議時程。",
-      "source": "Fortune"
+      "title": "Micron Stock Extends Slide Despite ‘Hottest Company’ Nod From Trump",
+      "summary_zh": "川普稱美光為「最火熱公司」,但其股價卻跌勢不止,市場對美國晶片國內化政策的真實支撑力度存疑。",
+      "source": "Stocktwits"
     },
     {
       "topic": "川普 × 個股機會",
-      "title": "U.S. Futures Rise as Trump Signals Progress on Iran and AI Stocks Rebound: Dow Jones, S&amp;P, Nasdaq, Wall Street",
-      "summary_zh": "川普釋出伊朗與AI進展正面訊號,提振近日股市反彈信心;市場因此下調近期衝突風險,重點轉向政策落地執行與企業獲利重估。",
-      "source": "Yahoo Finance"
+      "title": "'We didn’t see this coming': Wall Street eats its forecasts as stocks sell off globally on fear of AI bubble ahead of SpaceX IPO",
+      "summary_zh": "華爾街投資人對 AI 泡沫風險前景調整預期,SpaceX IPO 前夕科技股賣壓湧現,標誌高估值科技類股的輪動壓力升溫。",
+      "source": "Fortune"
     },
     {
       "topic": "政策 / 立法",
-      "title": "Lockheed Martin stock (US5398301094): Defense giant in focus after fresh Pentagon contracts",
-      "summary_zh": "國防部新約推升Lockheed Martin等傳統防務廠商預期,確認川普政府國防預算優先級高企;間接利好AI與晶片供應鏈中的國安相關承包商。",
-      "source": "AD HOC NEWS"
+      "title": "U.S. House Passes Bill That Aims to Speed Up Collective Bargaining",
+      "summary_zh": "美國眾議院通過集體談判加速法案,勞動力成本面臨上升壓力,將增加製造與基礎設施企業的營運成本考量。",
+      "source": "Ogletree"
+    },
+    {
+      "topic": "政策 / 立法",
+      "title": "WA’s controversial new drug pricing law upheld amid legal challenge",
+      "summary_zh": "華盛頓州爭議性新藥物定價法在法律挑戰中獲得維持,健康照護成本控制政策持續強化,醫療科技軟體類股面臨政策監管風險。",
+      "source": "News From The States"
     }
   ],
   "themes": [],
