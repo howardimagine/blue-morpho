@@ -1,6 +1,6 @@
 {
   "date": "2026-06-11",
-  "headline": "市場多空角力白熱化:科技股連日重挫後反彈能否接住,記憶體暴跌、AI 算力同步退守,Vertiv、美滿、Amazon 面臨關鍵技術考驗",
+  "headline": "科技股連日重挫、恐慌升溫後的產業分化:記憶體與 AI 算力同步探底,檢測設備與數據中心電力鏈現相對強勢跡象 — Vertiv、美滿、Aehr、亞馬遜本週進退之勢評估",
   "theme": "Memory (HBM / DRAM / NAND)",
   "regime": "neutral",
   "picks": [
@@ -57,27 +57,33 @@
   "policy": [
     {
       "topic": "川普 × 個股機會",
-      "title": "Trump Media scraps plan to spin off Truth Social platform, shares down",
-      "summary_zh": "川普要求 Truth Social 暫停分拆計畫,DJT[?] 股價應聲下跌,反映『川普政策優先度不穩定』與『政策執行力差異』的市場擔憂。",
-      "source": "Investing.com"
+      "title": "Trump Claims 78% Trade Deficit Drop From Tariffs, But Full-Year Data Tells A Different Story",
+      "summary_zh": "川普聲稱貿易赤字下降,但全年數據呈現不同走勢。政策執行與實際成效的落差可能影響後續關稅政策的持續性與科技產業的成本預期。",
+      "source": "Stocktwits"
     },
     {
       "topic": "川普 × 個股機會",
-      "title": "DJT Stock Quote Price and Forecast",
-      "summary_zh": "川普對股市大幅下跌表達不滿,評論其前報告『很棒』,凸顯行政部門對市場走向的政治關注,可能加劇政策不確定性與市場波動。",
-      "source": "CNN"
+      "title": "Donald Trump, Bernie Sanders and Sam Altman are all talking about public ownership in AI",
+      "summary_zh": "川普、桑德斯與 OpenAI 執行長討論 AI 產業的公共所有制可能性。此舉反映政策圈對 AI 戰略重要性的認知升溫,未來可能有扶持政策出台,但短期政策不確定性較高。",
+      "source": "AP News"
     },
     {
-      "topic": "政策 / 立法",
-      "title": "Corporate Office Properties Stock (US67403J1034): stock in focus after recent trading and portfolio",
-      "summary_zh": "Pfizer CEO[?] 警告德國投資面臨風險,反映全球政策環境對製藥定價與製造地的新型制約,歐洲藥廠成本結構與市場准入面臨重新評估。",
-      "source": "AD HOC NEWS"
-    },
-    {
-      "topic": "政策 / 立法",
-      "title": "Pfizer CEO warns German investment at risk over drug pricing policies",
-      "summary_zh": "企業房產類股因政策與投資組合調整面臨關注,反映遠距與辦公回歸政策對房地產供需的持續影響。",
+      "topic": "聯準會 / 利率",
+      "title": "VIEW CPI rises at fastest rate in three years but meets market expectations",
+      "summary_zh": "CPI 上升至近年最快速度,但仍符合市場預期。聯準會官員陸續表示升息可能重啟,推升實質利率上行預期。",
       "source": "Reuters"
+    },
+    {
+      "topic": "聯準會 / 利率",
+      "title": "Rate hikes are back on the table amid rising prices, Fed officials say—here's what it means for your money",
+      "summary_zh": "聯準會官員重啟升息論述,應對物價上升壓力。高利率環境對科技股估值與企業資本支出造成壓制。",
+      "source": "CNBC"
+    },
+    {
+      "topic": "地緣 / 國際 / 能源",
+      "title": "Taiwan weighs tighter rules for AI chip exports to China",
+      "summary_zh": "台灣考慮對 AI 晶片出口到中國實施更嚴格管制。長期影響全球 HBM 與高階晶片供應格局,短期則增加地緣政治不確定性。",
+      "source": "upi.com"
     }
   ],
   "themes": [],

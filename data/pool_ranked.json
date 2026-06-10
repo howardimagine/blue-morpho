@@ -7,7 +7,7 @@
       "n": 24,
       "rs_1m": 3.45,
       "rs_3m": 37.88,
-      "news_7d": 161,
+      "news_7d": 160,
       "stocks": [
         {
           "symbol": "KLAC",
@@ -106,7 +106,7 @@
       "n": 10,
       "rs_1m": 12.9,
       "rs_3m": 31.3,
-      "news_7d": 61,
+      "news_7d": 60,
       "stocks": [
         {
           "symbol": "KLAC",
@@ -205,7 +205,7 @@
       "n": 6,
       "rs_1m": 9.4,
       "rs_3m": 113.8,
-      "news_7d": 95,
+      "news_7d": 91,
       "stocks": [
         {
           "symbol": "STX",
@@ -268,7 +268,7 @@
       "n": 15,
       "rs_1m": 4.12,
       "rs_3m": -1.46,
-      "news_7d": 161,
+      "news_7d": 163,
       "stocks": [
         {
           "symbol": "CDNS",
