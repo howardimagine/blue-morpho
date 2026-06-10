@@ -1,11 +1,11 @@
 {
   "symbol": "VEEV",
   "name": "Veeva Systems Inc.",
-  "tier": "watch",
+  "tier": "ready",
   "regime": "neutral",
   "theme": "Healthcare AI",
   "business": "Veeva Systems Inc. provides cloud-based software for the life sciences industry in North America, Europe, the Asia Pacific, the Middle East, Africa, and Latin America. The company offers Veeva Commercial Cloud comprising Veeva Vault CRM Su…",
-  "why": "WATCHLIST_CONVICTION",
+  "why": "NEWS_CATALYST",
   "rsi": null,
   "sma50": null,
   "sma200": null,
@@ -13,12 +13,12 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": null
+      "score": 1.1
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 3.5
+      "score": 3.8
     },
     {
       "key": "macro_context",
@@ -28,12 +28,12 @@
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": null
+      "score": 8.6
     },
     {
       "key": "news_catalyst",
       "label": "新聞催化",
-      "score": null
+      "score": 9.2
     },
     {
       "key": "risk_reward",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-06-10",
+      "theme": "Healthcare AI",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-06-06",
       "theme": "Healthcare AI",

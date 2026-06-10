@@ -83,6 +83,11 @@
       "symbol": "ABB",
       "name": "ABB",
       "tier": "watch"
+    },
+    {
+      "symbol": "GEV",
+      "name": "GE Vernova",
+      "tier": "watch"
     }
   ]
 }

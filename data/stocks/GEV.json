@@ -1,9 +1,9 @@
 {
   "symbol": "GEV",
   "name": "GE Vernova",
-  "tier": "ready",
+  "tier": "watch",
   "regime": "neutral",
-  "theme": "Solar / Renewables",
+  "theme": "Electrification / Power",
   "business": "GE 分拆之能源/電氣化公司(天然氣+風電+電網);資料中心電力受惠。",
   "why": "WATCHLIST_CONVICTION",
   "rsi": null,
@@ -13,12 +13,12 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 2.1
+      "score": null
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 7.7
+      "score": 3.6
     },
     {
       "key": "macro_context",
@@ -28,7 +28,7 @@
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 5.7
+      "score": 5.8
     },
     {
       "key": "news_catalyst",
@@ -38,10 +38,18 @@
     {
       "key": "risk_reward",
       "label": "風險回報",
-      "score": 5.0
+      "score": null
     }
   ],
   "tracking": [
+    {
+      "date": "2026-06-10",
+      "theme": "Electrification / Power",
+      "tier": "watch",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-06-05",
       "theme": "Solar / Renewables",
@@ -104,9 +112,14 @@
   ],
   "peers": [
     {
-      "symbol": "BEPC",
-      "name": "Brookfield Renewable Corporatio",
+      "symbol": "ABB",
+      "name": "ABB",
       "tier": "watch"
+    },
+    {
+      "symbol": "ENB",
+      "name": "Enbridge Inc",
+      "tier": "ready"
     }
   ]
 }

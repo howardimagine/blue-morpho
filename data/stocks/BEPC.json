@@ -78,11 +78,5 @@
       "href": "https://www.tipranks.com/stocks/BEPC/forecast"
     }
   ],
-  "peers": [
-    {
-      "symbol": "GEV",
-      "name": "GE Vernova",
-      "tier": "ready"
-    }
-  ]
+  "peers": []
 }

@@ -98,8 +98,8 @@
   {
     "symbol": "GEV",
     "name": "GE Vernova",
-    "tier": "ready",
-    "theme": "Solar / Renewables"
+    "tier": "watch",
+    "theme": "Electrification / Power"
   },
   {
     "symbol": "GFS",
@@ -218,7 +218,7 @@
   {
     "symbol": "VEEV",
     "name": "Veeva Systems Inc.",
-    "tier": "watch",
+    "tier": "ready",
     "theme": "Healthcare AI"
   },
   {
