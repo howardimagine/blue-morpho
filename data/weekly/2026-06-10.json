@@ -1,9 +1,45 @@
 {
   "date": "2026-06-10",
-  "headline": "科技股止跌反彈、設備鏈搶跑,記憶體與 AI 算力同步修復 — 電力轉換基礎設施 ABB、GEV 成本週進場焦點",
+  "headline": "科技股今日強彈、恐慌降溫,但週線仍陷深度調整 — 記憶體尋底、電力與檢測設備分歧,美光、應材、Vertiv 各自為政",
   "theme": "Memory (HBM / DRAM / NAND)",
   "regime": "neutral",
   "picks": [
+    {
+      "symbol": "MU",
+      "name": "美光",
+      "tier": "ready",
+      "theme": "Memory (HBM / DRAM / NAND)",
+      "rsi": 60.8,
+      "ma_stack": "bullish",
+      "price": null,
+      "business": "DRAM/NAND 記憶體大廠;HBM3E 量產供應 NVDA,AI 記憶體實體瓶頸的關鍵受惠者。",
+      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面 MA 結構為 <strong>mixed</strong>，整體偏多。",
+      "rr": null
+    },
+    {
+      "symbol": "AMAT",
+      "name": "應用材料",
+      "tier": "ready",
+      "theme": "AI Compute",
+      "rsi": 64.0,
+      "ma_stack": "bullish",
+      "price": null,
+      "business": "WFE 半導體設備龍頭(沉積/蝕刻/CMP/離子植入);先進製程+先進封裝雙受惠。",
+      "why": "近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面 MA 結構為 <strong>mixed</strong>，整體偏多。",
+      "rr": null
+    },
+    {
+      "symbol": "ARM",
+      "name": "安謀",
+      "tier": "ready",
+      "theme": "AI Compute",
+      "rsi": 61.1,
+      "ma_stack": "bullish",
+      "price": null,
+      "business": "處理器 IP 授權(行動/PC/AI 邊緣);軟銀控股,授權費滲透率上升。",
+      "why": "基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面 MA 結構為 <strong>bullish</strong>，整體偏多。",
+      "rr": null
+    },
     {
       "symbol": "ABB",
       "name": "ABB",
@@ -17,6 +53,18 @@
       "rr": null
     },
     {
+      "symbol": "VRT",
+      "name": "Vertiv",
+      "tier": "watch",
+      "theme": "Data Center",
+      "rsi": 36.2,
+      "ma_stack": "bullish",
+      "price": null,
+      "business": "資料中心關鍵基礎設施(電源/散熱);AI 訓練中心建設核心。",
+      "why": "基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
+      "rr": null
+    },
+    {
       "symbol": "GEV",
       "name": "GE Vernova",
       "tier": "watch",
@@ -27,46 +75,40 @@
       "business": "GE 分拆之能源/電氣化公司(天然氣+風電+電網);資料中心電力受惠。",
       "why": "基本面通過半數以上 Screener 條件。",
       "rr": null
-    },
-    {
-      "symbol": "VEEV",
-      "name": "Veeva Systems Inc.",
-      "tier": "ready",
-      "theme": "Healthcare AI",
-      "rsi": 49.1,
-      "ma_stack": "bearish",
-      "price": null,
-      "business": "Veeva Systems Inc. provides cloud-based software for the life sciences industry in North America, Europe, the Asia Pacific, the Middle East, Africa, and Latin America. The company offers Veeva Commercial Cloud comprising Veeva Vault CRM Su…",
-      "why": "近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
-      "rr": null
     }
   ],
   "sell_signals": {},
   "policy": [
     {
-      "topic": "政策 / 立法",
-      "title": "From rules to discretion: How Trump reconfigured US tariff policy",
-      "summary_zh": "川普稱美光為「最火熱公司」,但其股價卻跌勢不止,市場對美國晶片國內化政策的真實支撑力度存疑。",
-      "source": "Brookings"
-    },
-    {
-      "topic": "政策 / 立法",
-      "title": "PowerBank’s 8 community solar sites target 3,500 homes, tap U.S. tax credits",
-      "summary_zh": "華爾街投資人對 AI 泡沫風險前景調整預期,SpaceX IPO 前夕科技股賣壓湧現,標誌高估值科技類股的輪動壓力升溫。",
-      "source": "Stock Titan"
+      "topic": "川普 × 個股機會",
+      "title": "Trump's Tariffs Were Struck Down by the Supreme Court, but He's Devised a New Strategy to Build a 'Tariff Wall'",
+      "summary_zh": "川普最高法院舊關稅被駁回,改採新型國安科技壁壘策略,直接強化晶片出口管制與製造業本土化要求,對臺灣與東亞代工產業形成更細緻的約束。",
+      "source": "24/7 Wall St."
     },
     {
       "topic": "聯準會 / 利率",
-      "title": "Stocks Are Flirting With a Dangerous Valuation Trap",
-      "summary_zh": "防務承包商 BWX[?] Technologies 季度表現扎實,防務與核能相關基礎設施投資動能確認,符合川普政府國安與能源政策優先級。",
-      "source": "Barron's"
+      "title": "Economists react to May jobs report and labor market trends",
+      "summary_zh": "美國五月就業報告與勞動市場趨勢溫和,聯準會政策空間仍存,為能源基建與核能復興提供了宏觀支撐,削弱了利率上升對長期投資的壓力。",
+      "source": "Yahoo Finance"
+    },
+    {
+      "topic": "地緣 / 國際 / 能源",
+      "title": "Taiwan Mulls Curbs on AI Chip Exports to China to Align With US",
+      "summary_zh": "臺灣政府考慮強化 AI 晶片對中國大陸的出口管制,對標美國國安立場,短期內將限制臺灣晶片廠與代工廠的中國訂單成長,衝擊 DRAM 與代工產能配置。",
+      "source": "Bloomberg"
+    },
+    {
+      "topic": "地緣 / 國際 / 能源",
+      "title": "The EU’s Regulatory Overreach Is Becoming A Real Threat To U.S. Tech",
+      "summary_zh": "歐盟監管過度問題升溫,美國科技公司面臨更嚴苛的合規成本與市場准入門檻,長期拖累全球科技產業的配置效率與邊際利潤。",
+      "source": "Forbes"
     }
   ],
   "themes": [],
   "stats": {
-    "n_picks": 3,
+    "n_picks": 6,
     "n_themes": 0,
-    "journal_total": 133
+    "journal_total": 137
   },
   "_note": "命中率/超額待回測樣本成熟;entry/alpha/vol 未提供(歷史不足)。"
 }

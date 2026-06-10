@@ -3,11 +3,11 @@
   "method": "完整掃描宇宙(全產業)。分數 = 品質底分(0–1):技術面(均線×RSI×距高×動能)+ 基本面(成長/品質/估值),每產業由高到低排。● 近期推薦 = 引擎近三期曾選入(與分數獨立的標籤,代表輪動選股)· 潛力 = 同主題達標未入選。",
   "themes": [
     {
-      "theme": "Semiconductor Equipment (WFE)",
-      "n": 10,
-      "rs_1m": 11.0,
-      "rs_3m": 28.5,
-      "news_7d": 43,
+      "theme": "AI Compute",
+      "n": 24,
+      "rs_1m": 5.36,
+      "rs_3m": 41.09,
+      "news_7d": 154,
       "stocks": [
         {
           "symbol": "KLAC",
@@ -37,66 +37,66 @@
           "rank": 3
         },
         {
-          "symbol": "KLIC",
-          "name": "庫力索法",
-          "composite": 0.749,
+          "symbol": "TSM",
+          "name": "台積電",
+          "composite": 0.837,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
         },
         {
-          "symbol": "AMAT",
-          "name": "應用材料",
-          "composite": 0.722,
+          "symbol": "WDC",
+          "name": "威騰電子",
+          "composite": 0.821,
           "score_kind": "base",
-          "is_recent": true,
+          "is_recent": false,
           "is_watch": false,
           "rank": 5
         },
         {
-          "symbol": "TER",
-          "name": "泰瑞達",
-          "composite": 0.714,
+          "symbol": "MKSI",
+          "name": "MKS Inc.",
+          "composite": 0.806,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
         },
         {
-          "symbol": "ACLS",
-          "name": "艾克塞利",
-          "composite": 0.567,
+          "symbol": "MU",
+          "name": "美光",
+          "composite": 0.805,
           "score_kind": "base",
-          "is_recent": false,
+          "is_recent": true,
           "is_watch": false,
           "rank": 7
         },
         {
-          "symbol": "AEHR",
-          "name": "Aehr Test",
-          "composite": 0.554,
+          "symbol": "AMD",
+          "name": "超微",
+          "composite": 0.775,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 8
         },
         {
-          "symbol": "AEIS",
-          "name": "先進能源",
-          "composite": 0.456,
+          "symbol": "GFS",
+          "name": "格羅方德",
+          "composite": 0.737,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 9
         },
         {
-          "symbol": "ONTO",
-          "name": "Onto Innovation",
-          "composite": 0.428,
+          "symbol": "MRVL",
+          "name": "美滿科技",
+          "composite": 0.737,
           "score_kind": "base",
           "is_recent": false,
-          "is_watch": false,
+          "is_watch": true,
           "rank": 10
         }
       ]
@@ -104,9 +104,9 @@
     {
       "theme": "Memory (HBM / DRAM / NAND)",
       "n": 6,
-      "rs_1m": 6.8,
-      "rs_3m": 112.5,
-      "news_7d": 83,
+      "rs_1m": 13.3,
+      "rs_3m": 122.4,
+      "news_7d": 85,
       "stocks": [
         {
           "symbol": "STX",
@@ -141,7 +141,7 @@
           "composite": 0.737,
           "score_kind": "base",
           "is_recent": false,
-          "is_watch": false,
+          "is_watch": true,
           "rank": 4
         },
         {
@@ -161,6 +161,105 @@
           "is_recent": false,
           "is_watch": false,
           "rank": 6
+        }
+      ]
+    },
+    {
+      "theme": "AI Software",
+      "n": 15,
+      "rs_1m": 4.72,
+      "rs_3m": 2.22,
+      "news_7d": 158,
+      "stocks": [
+        {
+          "symbol": "CDNS",
+          "name": "CDNS",
+          "composite": 0.758,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "ESTC",
+          "name": "ESTC",
+          "composite": 0.715,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "MDB",
+          "name": "MDB",
+          "composite": 0.666,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "GOOG",
+          "name": "Alphabet",
+          "composite": 0.658,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "MSFT",
+          "name": "微軟",
+          "composite": 0.625,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "ADBE",
+          "name": "ADBE",
+          "composite": 0.61,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "NET",
+          "name": "NET",
+          "composite": 0.598,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "DDOG",
+          "name": "DDOG",
+          "composite": 0.572,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        },
+        {
+          "symbol": "CRM",
+          "name": "CRM",
+          "composite": 0.547,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
+        },
+        {
+          "symbol": "SNOW",
+          "name": "SNOW",
+          "composite": 0.537,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 10
         }
       ]
     },
@@ -204,7 +303,7 @@
           "composite": 0.591,
           "score_kind": "base",
           "is_recent": false,
-          "is_watch": false,
+          "is_watch": true,
           "rank": 4
         },
         {
@@ -435,8 +534,8 @@
       ]
     },
     {
-      "theme": "AI Compute",
-      "n": 24,
+      "theme": "Semiconductor Equipment (WFE)",
+      "n": 10,
       "rs_1m": null,
       "rs_3m": null,
       "news_7d": null,
@@ -469,63 +568,63 @@
           "rank": 3
         },
         {
-          "symbol": "TSM",
-          "name": "台積電",
-          "composite": 0.837,
+          "symbol": "KLIC",
+          "name": "庫力索法",
+          "composite": 0.749,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
         },
         {
-          "symbol": "WDC",
-          "name": "威騰電子",
-          "composite": 0.821,
+          "symbol": "AMAT",
+          "name": "應用材料",
+          "composite": 0.722,
           "score_kind": "base",
-          "is_recent": false,
+          "is_recent": true,
           "is_watch": false,
           "rank": 5
         },
         {
-          "symbol": "MKSI",
-          "name": "MKS Inc.",
-          "composite": 0.806,
+          "symbol": "TER",
+          "name": "泰瑞達",
+          "composite": 0.714,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
         },
         {
-          "symbol": "MU",
-          "name": "美光",
-          "composite": 0.805,
+          "symbol": "ACLS",
+          "name": "艾克塞利",
+          "composite": 0.567,
           "score_kind": "base",
-          "is_recent": true,
+          "is_recent": false,
           "is_watch": false,
           "rank": 7
         },
         {
-          "symbol": "AMD",
-          "name": "超微",
-          "composite": 0.775,
+          "symbol": "AEHR",
+          "name": "Aehr Test",
+          "composite": 0.554,
           "score_kind": "base",
           "is_recent": false,
-          "is_watch": false,
+          "is_watch": true,
           "rank": 8
         },
         {
-          "symbol": "GFS",
-          "name": "格羅方德",
-          "composite": 0.737,
+          "symbol": "AEIS",
+          "name": "先進能源",
+          "composite": 0.456,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 9
         },
         {
-          "symbol": "MRVL",
-          "name": "美滿科技",
-          "composite": 0.737,
+          "symbol": "ONTO",
+          "name": "Onto Innovation",
+          "composite": 0.428,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -867,105 +966,6 @@
       ]
     },
     {
-      "theme": "AI Software",
-      "n": 15,
-      "rs_1m": null,
-      "rs_3m": null,
-      "news_7d": null,
-      "stocks": [
-        {
-          "symbol": "CDNS",
-          "name": "CDNS",
-          "composite": 0.758,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
-          "symbol": "ESTC",
-          "name": "ESTC",
-          "composite": 0.715,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 2
-        },
-        {
-          "symbol": "MDB",
-          "name": "MDB",
-          "composite": 0.666,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
-          "symbol": "GOOG",
-          "name": "Alphabet",
-          "composite": 0.658,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 4
-        },
-        {
-          "symbol": "MSFT",
-          "name": "微軟",
-          "composite": 0.625,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 5
-        },
-        {
-          "symbol": "ADBE",
-          "name": "ADBE",
-          "composite": 0.61,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 6
-        },
-        {
-          "symbol": "NET",
-          "name": "NET",
-          "composite": 0.598,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 7
-        },
-        {
-          "symbol": "DDOG",
-          "name": "DDOG",
-          "composite": 0.572,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 8
-        },
-        {
-          "symbol": "CRM",
-          "name": "CRM",
-          "composite": 0.547,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 9
-        },
-        {
-          "symbol": "SNOW",
-          "name": "SNOW",
-          "composite": 0.537,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 10
-        }
-      ]
-    },
-    {
       "theme": "Quantum Computing",
       "n": 8,
       "rs_1m": null,
@@ -1122,7 +1122,7 @@
           "composite": 0.591,
           "score_kind": "base",
           "is_recent": false,
-          "is_watch": false,
+          "is_watch": true,
           "rank": 8
         },
         {
@@ -1203,7 +1203,7 @@
           "composite": 0.591,
           "score_kind": "base",
           "is_recent": false,
-          "is_watch": false,
+          "is_watch": true,
           "rank": 7
         },
         {
@@ -2544,7 +2544,7 @@
           "composite": 0.591,
           "score_kind": "base",
           "is_recent": false,
-          "is_watch": false,
+          "is_watch": true,
           "rank": 2
         },
         {
