@@ -13,12 +13,12 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 3.6
+      "score": 3.5
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 8.4
+      "score": 7.1
     },
     {
       "key": "macro_context",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-06-11",
+      "theme": "AI Compute",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-06-10",
       "theme": "AI Compute",
@@ -130,13 +138,13 @@
       "tier": "ready"
     },
     {
-      "symbol": "AMAT",
-      "name": "應用材料",
-      "tier": "ready"
-    },
-    {
       "symbol": "AMD",
       "name": "超微",
+      "tier": "watch"
+    },
+    {
+      "symbol": "AMZN",
+      "name": "亞馬遜",
       "tier": "watch"
     }
   ]

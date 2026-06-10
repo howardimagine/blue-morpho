@@ -3,7 +3,7 @@
   "name": "應用材料",
   "tier": "ready",
   "regime": "neutral",
-  "theme": "AI Compute",
+  "theme": "Semiconductor Equipment (WFE)",
   "business": "WFE 半導體設備龍頭(沉積/蝕刻/CMP/離子植入);先進製程+先進封裝雙受惠。",
   "why": "NEWS_CATALYST",
   "rsi": null,
@@ -13,7 +13,7 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 3.4
+      "score": 3.8
     },
     {
       "key": "technical_setup",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-06-11",
+      "theme": "Semiconductor Equipment (WFE)",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-06-10",
       "theme": "AI Compute",
@@ -120,24 +128,24 @@
   ],
   "peers": [
     {
-      "symbol": "LRCX",
-      "name": "科林研發",
+      "symbol": "ASML",
+      "name": "艾司摩爾",
+      "tier": "enter"
+    },
+    {
+      "symbol": "KLIC",
+      "name": "庫力索法",
       "tier": "ready"
     },
     {
-      "symbol": "ARM",
-      "name": "安謀",
+      "symbol": "TER",
+      "name": "泰瑞達",
       "tier": "ready"
     },
     {
-      "symbol": "AVGO",
-      "name": "博通",
+      "symbol": "ACLS",
+      "name": "艾克塞利",
       "tier": "ready"
-    },
-    {
-      "symbol": "AMD",
-      "name": "超微",
-      "tier": "watch"
     }
   ]
 }

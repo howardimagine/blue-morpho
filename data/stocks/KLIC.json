@@ -93,6 +93,11 @@
       "tier": "enter"
     },
     {
+      "symbol": "AMAT",
+      "name": "應用材料",
+      "tier": "ready"
+    },
+    {
       "symbol": "TER",
       "name": "泰瑞達",
       "tier": "ready"
@@ -100,11 +105,6 @@
     {
       "symbol": "ACLS",
       "name": "艾克塞利",
-      "tier": "ready"
-    },
-    {
-      "symbol": "KLAC",
-      "name": "科磊",
       "tier": "ready"
     }
   ]

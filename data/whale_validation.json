@@ -1,7 +1,7 @@
 {
   "as_of": "2026-05-15",
   "n_whales": 19,
-  "generated_at": "2026-06-10T08:50:02+00:00",
+  "generated_at": "2026-06-10T23:22:47+00:00",
   "stocks": [
     {
       "symbol": "MU",
@@ -50,7 +50,7 @@
     {
       "symbol": "AMAT",
       "name": "應用材料",
-      "theme": "AI Compute",
+      "theme": "Semiconductor Equipment (WFE)",
       "signal": "buy",
       "holders": 2,
       "increased": 1,
@@ -73,6 +73,35 @@
           "name": "索羅斯 Soros",
           "value_usd": 4477040,
           "action": "new"
+        }
+      ]
+    },
+    {
+      "symbol": "VRT",
+      "name": "Vertiv",
+      "theme": "Data Center",
+      "signal": "buy",
+      "holders": 2,
+      "increased": 1,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 353668361,
+      "total_held_fmt": "$354M",
+      "whales_fmt": "Philippe Laffont $246M 加碼 · 達利歐 Dalio $108M 持有",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "Philippe Laffont",
+          "value_usd": 245977597,
+          "action": "add"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 107690764,
+          "action": "hold"
         }
       ]
     },
@@ -132,103 +161,6 @@
           "name": "達利歐 Dalio",
           "value_usd": 3156735,
           "action": "add"
-        }
-      ]
-    },
-    {
-      "symbol": "ABB",
-      "name": "ABB",
-      "theme": "Electrification / Power",
-      "signal": "split",
-      "holders": 2,
-      "increased": 0,
-      "reduced": 1,
-      "new_pos": 1,
-      "closed_pos": 0,
-      "total_held_usd": 16612109,
-      "total_held_fmt": "$17M",
-      "whales_fmt": "達利歐 Dalio $12M 減碼 · 索羅斯 Soros $5M 新進",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 12017626,
-          "action": "trim"
-        },
-        {
-          "name": "索羅斯 Soros",
-          "value_usd": 4594483,
-          "action": "new"
-        }
-      ]
-    },
-    {
-      "symbol": "VRT",
-      "name": "Vertiv",
-      "theme": "Data Center",
-      "signal": "buy",
-      "holders": 2,
-      "increased": 1,
-      "reduced": 0,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 353668361,
-      "total_held_fmt": "$354M",
-      "whales_fmt": "Philippe Laffont $246M 加碼 · 達利歐 Dalio $108M 持有",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "Philippe Laffont",
-          "value_usd": 245977597,
-          "action": "add"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 107690764,
-          "action": "hold"
-        }
-      ]
-    },
-    {
-      "symbol": "GEV",
-      "name": "GE Vernova",
-      "theme": "Electrification / Power",
-      "signal": "sell",
-      "holders": 4,
-      "increased": 0,
-      "reduced": 3,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 3476566366,
-      "total_held_fmt": "$3.5B",
-      "whales_fmt": "Philippe Laffont $2.2B 減碼 · Chase Coleman $849M 持有 · 達利歐 Dalio $380M 減碼 · 木頭姐 Cathie Wood $2M 減碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "Philippe Laffont",
-          "value_usd": 2245411301,
-          "action": "trim"
-        },
-        {
-          "name": "Chase Coleman",
-          "value_usd": 849326463,
-          "action": "hold"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 379621591,
-          "action": "trim"
-        },
-        {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 2207011,
-          "action": "trim"
         }
       ]
     }
