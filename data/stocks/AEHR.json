@@ -3,7 +3,7 @@
   "name": "Aehr Test",
   "tier": "watch",
   "regime": "neutral",
-  "theme": "AI Compute",
+  "theme": "Semiconductor Equipment (WFE)",
   "business": "晶圓級老化測試系統;SiC 功率元件測試的小型受惠者。",
   "why": "INDUSTRY_EXPANSION",
   "rsi": null,
@@ -13,12 +13,12 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 2.7
+      "score": 3.8
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 3.5
+      "score": 5.0
     },
     {
       "key": "macro_context",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-06-11",
+      "theme": "Semiconductor Equipment (WFE)",
+      "tier": "watch",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-06-06",
       "theme": "AI Compute",
@@ -88,24 +96,24 @@
   ],
   "peers": [
     {
-      "symbol": "LRCX",
-      "name": "科林研發",
+      "symbol": "ASML",
+      "name": "艾司摩爾",
+      "tier": "enter"
+    },
+    {
+      "symbol": "AMAT",
+      "name": "應用材料",
       "tier": "ready"
     },
     {
-      "symbol": "ARM",
-      "name": "安謀",
+      "symbol": "KLIC",
+      "name": "庫力索法",
       "tier": "ready"
     },
     {
-      "symbol": "AVGO",
-      "name": "博通",
+      "symbol": "TER",
+      "name": "泰瑞達",
       "tier": "ready"
-    },
-    {
-      "symbol": "AMD",
-      "name": "超微",
-      "tier": "watch"
     }
   ]
 }

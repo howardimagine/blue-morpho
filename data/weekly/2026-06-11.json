@@ -1,33 +1,9 @@
 {
   "date": "2026-06-11",
-  "headline": "科技股承壓、恐慌升溫下的週間反彈試煉 — 記憶體與 AI 算力同步下挫,檢測設備與電力鏈分歧浮現,美光、應材、Vertiv 各據一方",
+  "headline": "市場多空角力白熱化:科技股連日重挫後反彈能否接住,記憶體暴跌、AI 算力同步退守,Vertiv、美滿、Amazon 面臨關鍵技術考驗",
   "theme": "Memory (HBM / DRAM / NAND)",
   "regime": "neutral",
   "picks": [
-    {
-      "symbol": "MU",
-      "name": "美光",
-      "tier": "ready",
-      "theme": "Memory (HBM / DRAM / NAND)",
-      "rsi": 60.8,
-      "ma_stack": "bullish",
-      "price": null,
-      "business": "DRAM/NAND 記憶體大廠;HBM3E 量產供應 NVDA,AI 記憶體實體瓶頸的關鍵受惠者。",
-      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面 MA 結構為 <strong>mixed</strong>，整體偏多。",
-      "rr": null
-    },
-    {
-      "symbol": "AMAT",
-      "name": "應用材料",
-      "tier": "ready",
-      "theme": "Semiconductor Equipment (WFE)",
-      "rsi": 64.0,
-      "ma_stack": "bullish",
-      "price": null,
-      "business": "WFE 半導體設備龍頭(沉積/蝕刻/CMP/離子植入);先進製程+先進封裝雙受惠。",
-      "why": "近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面 MA 結構為 <strong>mixed</strong>，整體偏多。",
-      "rr": null
-    },
     {
       "symbol": "VRT",
       "name": "Vertiv",
@@ -41,15 +17,39 @@
       "rr": null
     },
     {
-      "symbol": "ARM",
-      "name": "安謀",
-      "tier": "ready",
-      "theme": "AI Compute",
-      "rsi": 61.1,
+      "symbol": "MRVL",
+      "name": "美滿科技",
+      "tier": "watch",
+      "theme": "Memory (HBM / DRAM / NAND)",
+      "rsi": 62.3,
       "ma_stack": "bullish",
       "price": null,
-      "business": "處理器 IP 授權(行動/PC/AI 邊緣);軟銀控股,授權費滲透率上升。",
-      "why": "基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面 MA 結構為 <strong>mixed</strong>，整體偏多。",
+      "business": "客製化 AI 矽智財(AWS Trainium、Microsoft Maia)+ 資料中心連網/儲存晶片。",
+      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。",
+      "rr": null
+    },
+    {
+      "symbol": "AEHR",
+      "name": "Aehr Test",
+      "tier": "watch",
+      "theme": "Semiconductor Equipment (WFE)",
+      "rsi": 49.3,
+      "ma_stack": "bullish",
+      "price": null,
+      "business": "晶圓級老化測試系統;SiC 功率元件測試的小型受惠者。",
+      "why": "本週篩選邏輯下相對其他候選股表現較佳。",
+      "rr": null
+    },
+    {
+      "symbol": "AMZN",
+      "name": "亞馬遜",
+      "tier": "watch",
+      "theme": "AI Compute",
+      "rsi": 32.5,
+      "ma_stack": "mixed",
+      "price": null,
+      "business": "電商 + AWS 雲服務;Trainium 自研 AI 晶片(透過 MRVL 代工)。",
+      "why": "本週篩選邏輯下相對其他候選股表現較佳。",
       "rr": null
     }
   ],
@@ -57,28 +57,34 @@
   "policy": [
     {
       "topic": "川普 × 個股機會",
-      "title": "Oil Rises on Trump’s Iran Threats and New Strikes Across Middle East",
-      "summary_zh": "川普對伊朗威脅與中東軍事行動升高,推動油價與能源成本上漲預期,直接利好數據中心電力與能源基建類公司",
-      "source": "The New York Times"
+      "title": "Trump Media scraps plan to spin off Truth Social platform, shares down",
+      "summary_zh": "川普要求 Truth Social 暫停分拆計畫,DJT[?] 股價應聲下跌,反映『川普政策優先度不穩定』與『政策執行力差異』的市場擔憂。",
+      "source": "Investing.com"
     },
     {
       "topic": "川普 × 個股機會",
-      "title": "Trump says he thinks AI companies will agree to 'giving back' to the public",
-      "summary_zh": "川普表示 AI 企業應同意「給回社會」,政策意圖模糊但暗示潛在監管或投資要求可能醞釀,市場因此重新評估科技巨頭的資本支出方向",
-      "source": "Reuters"
+      "title": "DJT Stock Quote Price and Forecast",
+      "summary_zh": "川普對股市大幅下跌表達不滿,評論其前報告『很棒』,凸顯行政部門對市場走向的政治關注,可能加劇政策不確定性與市場波動。",
+      "source": "CNN"
     },
     {
       "topic": "政策 / 立法",
-      "title": "Energy leaders push permitting reform, grid investment as demand surges",
-      "summary_zh": "能源領導人推動電網投資與許可改革,配合 AI 數據中心電力需求激增,成為川普政策中最具共識的加碼方向",
-      "source": "Daily Energy Insider"
+      "title": "Corporate Office Properties Stock (US67403J1034): stock in focus after recent trading and portfolio",
+      "summary_zh": "Pfizer CEO[?] 警告德國投資面臨風險,反映全球政策環境對製藥定價與製造地的新型制約,歐洲藥廠成本結構與市場准入面臨重新評估。",
+      "source": "AD HOC NEWS"
+    },
+    {
+      "topic": "政策 / 立法",
+      "title": "Pfizer CEO warns German investment at risk over drug pricing policies",
+      "summary_zh": "企業房產類股因政策與投資組合調整面臨關注,反映遠距與辦公回歸政策對房地產供需的持續影響。",
+      "source": "Reuters"
     }
   ],
   "themes": [],
   "stats": {
     "n_picks": 4,
     "n_themes": 0,
-    "journal_total": 141
+    "journal_total": 144
   },
   "_note": "命中率/超額待回測樣本成熟;entry/alpha/vol 未提供(歷史不足)。"
 }
