@@ -1,0 +1,82 @@
+{
+  "symbol": "ANET",
+  "name": "Arista Networks, Inc.",
+  "tier": "ready",
+  "regime": "neutral",
+  "theme": "Cloud Infrastructure",
+  "business": "Arista Networks, Inc. engages in the development, marketing, and sale of data-driven, client to cloud networking solutions for AI, data center, campus, and routing environments in the Americas, Europe, the Middle East, Africa, and the Asia…",
+  "why": "NEWS_CATALYST",
+  "rsi": null,
+  "sma50": null,
+  "sma200": null,
+  "factors": [
+    {
+      "key": "theme_tailwind",
+      "label": "主題順風",
+      "score": 1.2
+    },
+    {
+      "key": "technical_setup",
+      "label": "技術形態",
+      "score": 6.1
+    },
+    {
+      "key": "macro_context",
+      "label": "總經環境",
+      "score": null
+    },
+    {
+      "key": "business_quality",
+      "label": "基本面品質",
+      "score": 7.6
+    },
+    {
+      "key": "news_catalyst",
+      "label": "新聞催化",
+      "score": 7.8
+    },
+    {
+      "key": "risk_reward",
+      "label": "風險回報",
+      "score": null
+    }
+  ],
+  "tracking": [
+    {
+      "date": "2026-06-12",
+      "theme": "Cloud Infrastructure",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    }
+  ],
+  "links": [
+    {
+      "label": "Finviz",
+      "desc": "技術快照 / 圖",
+      "href": "https://finviz.com/quote.ashx?t=ANET"
+    },
+    {
+      "label": "StockAnalysis",
+      "desc": "財報 / 估值",
+      "href": "https://stockanalysis.com/stocks/ANET/"
+    },
+    {
+      "label": "TradingView",
+      "desc": "互動圖",
+      "href": "https://www.tradingview.com/symbols/ANET/"
+    },
+    {
+      "label": "Macrotrends",
+      "desc": "長期財務",
+      "href": "https://www.macrotrends.net/stocks/charts/ANET/x/"
+    },
+    {
+      "label": "TipRanks",
+      "desc": "分析師",
+      "href": "https://www.tipranks.com/stocks/ANET/forecast"
+    }
+  ],
+  "peers": []
+}

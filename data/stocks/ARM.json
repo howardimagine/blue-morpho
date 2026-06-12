@@ -13,7 +13,7 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 3.9
+      "score": 3.5
     },
     {
       "key": "technical_setup",
@@ -42,14 +42,6 @@
     }
   ],
   "tracking": [
-    {
-      "date": "2026-06-12",
-      "theme": "AI Compute",
-      "tier": "ready",
-      "entry": null,
-      "alpha_4w": null,
-      "vol": null
-    },
     {
       "date": "2026-06-11",
       "theme": "AI Compute",

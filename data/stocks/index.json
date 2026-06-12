@@ -42,6 +42,12 @@
     "theme": "AI Compute"
   },
   {
+    "symbol": "ANET",
+    "name": "Arista Networks, Inc.",
+    "tier": "ready",
+    "theme": "Cloud Infrastructure"
+  },
+  {
     "symbol": "ARM",
     "name": "安謀",
     "tier": "ready",
@@ -58,6 +64,12 @@
     "name": "博通",
     "tier": "ready",
     "theme": "AI Compute"
+  },
+  {
+    "symbol": "BAC",
+    "name": "Bank of America Corporation",
+    "tier": "ready",
+    "theme": "Banks"
   },
   {
     "symbol": "BEPC",

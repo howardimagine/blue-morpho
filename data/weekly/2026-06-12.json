@@ -1,55 +1,43 @@
 {
   "date": "2026-06-12",
-  "headline": "SpaceX(SPCX)融資潮推升風險偏好,科技股止跌反彈、記憶體與設備鏈齊聲走高 — 美光、應材、Vertiv 迎配置窗口",
+  "headline": "SpaceX(SPCX)掀起資金重配浪潮,科技股從週線重創中反彈、VIX 快速收斂 — 記憶體尋底、設備鏈獨強,WDC 與 ANET 成本週進場標的",
   "theme": "Memory (HBM / DRAM / NAND)",
   "regime": "neutral",
   "picks": [
     {
-      "symbol": "MU",
-      "name": "美光",
+      "symbol": "WDC",
+      "name": "威騰電子",
       "tier": "ready",
       "theme": "Memory (HBM / DRAM / NAND)",
-      "rsi": 57.6,
+      "rsi": 56.2,
       "ma_stack": "bullish",
       "price": null,
-      "business": "DRAM/NAND 記憶體大廠;HBM3E 量產供應 NVDA,AI 記憶體實體瓶頸的關鍵受惠者。",
-      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面 MA 結構為 <strong>mixed</strong>，整體偏多。",
+      "business": "HDD(分拆 SanDisk 後專注硬碟);企業儲存升級題材。",
+      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面 MA 結構為 <strong>bullish</strong>，整體偏多。",
       "rr": null
     },
     {
-      "symbol": "AMAT",
-      "name": "應用材料",
+      "symbol": "ANET",
+      "name": "Arista Networks, Inc.",
       "tier": "ready",
-      "theme": "Semiconductor Equipment (WFE)",
-      "rsi": 69.3,
+      "theme": "Cloud Infrastructure",
+      "rsi": 50.4,
       "ma_stack": "bullish",
       "price": null,
-      "business": "WFE 半導體設備龍頭(沉積/蝕刻/CMP/離子植入);先進製程+先進封裝雙受惠。",
-      "why": "近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面 MA 結構為 <strong>mixed</strong>，整體偏多。",
+      "business": "Arista Networks, Inc. engages in the development, marketing, and sale of data-driven, client to cloud networking solutions for AI, data center, campus, and routing environments in the Americas, Europe, the Middle East, Africa, and the Asia…",
+      "why": "近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
       "rr": null
     },
     {
-      "symbol": "VRT",
-      "name": "Vertiv",
+      "symbol": "BAC",
+      "name": "Bank of America Corporation",
       "tier": "ready",
-      "theme": "Data Center",
-      "rsi": 38.5,
+      "theme": "Banks",
+      "rsi": 70.2,
       "ma_stack": "bullish",
       "price": null,
-      "business": "資料中心關鍵基礎設施(電源/散熱);AI 訓練中心建設核心。",
-      "why": "基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面呈現「uptrend pullback toward MA50」，MA 結構為 <strong>bullish</strong>，RSI 38.2。",
-      "rr": null
-    },
-    {
-      "symbol": "ARM",
-      "name": "安謀",
-      "tier": "ready",
-      "theme": "AI Compute",
-      "rsi": 55.7,
-      "ma_stack": "bullish",
-      "price": null,
-      "business": "處理器 IP 授權(行動/PC/AI 邊緣);軟銀控股,授權費滲透率上升。",
-      "why": "基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面 MA 結構為 <strong>mixed</strong>，整體偏多。",
+      "business": "Bank of America Corporation, through its subsidiaries, provides various financial products and services for individual consumers, small and middle-market businesses, institutional investors, large corporations, and governments worldwide. I…",
+      "why": "基本面通過半數以上 Screener 條件。",
       "rr": null
     }
   ],
@@ -58,33 +46,45 @@
     {
       "topic": "主編指定 · SPCX",
       "title": "SpaceX IPO demand is approaching four times oversubscribed, source says",
-      "summary_zh": "SpaceX 首次公開募股融資需求超額認購,帶動科技產業融資氛圍升溫,投資人資金流向新股與既有股票間出現再配置。",
+      "summary_zh": "SpaceX(SPCX)上市需求極度熱絡、已逼近極度超額認購,象徵商業太空與衛星產業進入機構投資主流,後續帶動防衛與航太供應鏈輪動。",
       "source": "Reuters"
     },
     {
       "topic": "主編指定 · SPCX",
       "title": "SpaceX blasts off with a record-breaking $75 billion IPO",
-      "summary_zh": "SpaceX 上市融資規模創新高,衍生效應恐觸發科技股價格錯位,投資人須留意短期拋售壓力與長期配置重組機會。",
+      "summary_zh": "SpaceX(SPCX)上市將成為年度最大 IPO,預期引發市場資金重配,科技與防衛板塊成為首選受惠者。",
       "source": "NPR"
     },
     {
       "topic": "川普 × 個股機會",
       "title": "US stocks jump, and oil prices fall after Trump calls off his threat to attack Iran",
-      "summary_zh": "美股指數上漲、油價下跌,市場風險偏好回升,科技股領漲,川普政策轉向信號帶動配置轉向。",
+      "summary_zh": "川普取消對伊朗攻擊威脅,地緣政治風險暫時回溫,油價與避險資產隨之下滑,利多風險資產與高景氣周期股。",
       "source": "WRAL"
     },
     {
       "topic": "川普 × 個股機會",
-      "title": "Wall Street indexes jump, Trump says strikes against Iran canceled",
-      "summary_zh": "川普任命新任國家情報主任(Jay Clayton),科技國安政策推進預期升溫,本土晶片與防衛產業受惠。",
-      "source": "Reuters"
+      "title": "Trump urged you to ‘buy a Dell’ while holding the stock — now it’s up 255%. Enrich yourself even outside the White House",
+      "summary_zh": "川普公開推薦持有戴爾股票並獲利,凸顯其對特定上市公司的直接影響力,後續政策傾斜可能帶動其他科技廠商重估。",
+      "source": "Yahoo Finance"
+    },
+    {
+      "topic": "政策 / 立法",
+      "title": "Lockheed Martin stock (US5398301094): Defense giant in focus after fresh Pentagon contracts",
+      "summary_zh": null,
+      "source": "AD HOC NEWS"
+    },
+    {
+      "topic": "地緣 / 國際 / 能源",
+      "title": "Taiwan Semiconductor Manufacturing Co. (TSMC)",
+      "summary_zh": null,
+      "source": "Britannica"
     }
   ],
   "themes": [],
   "stats": {
-    "n_picks": 4,
+    "n_picks": 3,
     "n_themes": 0,
-    "journal_total": 148
+    "journal_total": 147
   },
   "_note": "命中率/超額待回測樣本成熟;entry/alpha/vol 未提供(歷史不足)。"
 }

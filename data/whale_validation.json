@@ -1,168 +1,73 @@
 {
   "as_of": "2026-05-15",
   "n_whales": 19,
-  "generated_at": "2026-06-12T00:03:12+00:00",
+  "generated_at": "2026-06-12T00:49:55+00:00",
   "stocks": [
     {
-      "symbol": "MU",
-      "name": "美光",
+      "symbol": "WDC",
+      "name": "威騰電子",
       "theme": "Memory (HBM / DRAM / NAND)",
       "signal": "buy",
-      "holders": 5,
-      "increased": 1,
-      "reduced": 1,
-      "new_pos": 3,
-      "closed_pos": 0,
-      "total_held_usd": 1118075533,
-      "total_held_fmt": "$1.1B",
-      "whales_fmt": "泰珀 Tepper $563M 減碼 · 達利歐 Dalio $499M 加碼 · Philippe Laffont $56M 新進 · 索羅斯 Soros <$1M 新進 · 德魯肯米勒 Druckenmiller <$1M 新進",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "泰珀 Tepper",
-          "value_usd": 562503600,
-          "action": "trim"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 498551839,
-          "action": "add"
-        },
-        {
-          "name": "Philippe Laffont",
-          "value_usd": 56058129,
-          "action": "new"
-        },
-        {
-          "name": "索羅斯 Soros",
-          "value_usd": 954060,
-          "action": "new"
-        },
-        {
-          "name": "德魯肯米勒 Druckenmiller",
-          "value_usd": 7905,
-          "action": "new"
-        }
-      ]
-    },
-    {
-      "symbol": "AMAT",
-      "name": "應用材料",
-      "theme": "Semiconductor Equipment (WFE)",
-      "signal": "buy",
-      "holders": 2,
-      "increased": 1,
-      "reduced": 0,
-      "new_pos": 1,
-      "closed_pos": 0,
-      "total_held_usd": 20735762,
-      "total_held_fmt": "$21M",
-      "whales_fmt": "達利歐 Dalio $16M 加碼 · 索羅斯 Soros $4M 新進",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 16258722,
-          "action": "add"
-        },
-        {
-          "name": "索羅斯 Soros",
-          "value_usd": 4477040,
-          "action": "new"
-        }
-      ]
-    },
-    {
-      "symbol": "VRT",
-      "name": "Vertiv",
-      "theme": "Data Center",
-      "signal": "buy",
-      "holders": 2,
+      "holders": 1,
       "increased": 1,
       "reduced": 0,
       "new_pos": 0,
       "closed_pos": 0,
-      "total_held_usd": 353668361,
-      "total_held_fmt": "$354M",
-      "whales_fmt": "Philippe Laffont $246M 加碼 · 達利歐 Dalio $108M 持有",
+      "total_held_usd": 67362559,
+      "total_held_fmt": "$67M",
+      "whales_fmt": "達利歐 Dalio $67M 加碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "Philippe Laffont",
-          "value_usd": 245977597,
+          "name": "達利歐 Dalio",
+          "value_usd": 67362559,
           "action": "add"
-        },
+        }
+      ]
+    },
+    {
+      "symbol": "ANET",
+      "name": "Arista Networks, Inc.",
+      "theme": "Cloud Infrastructure",
+      "signal": "split",
+      "holders": 1,
+      "increased": 0,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 163308573,
+      "total_held_fmt": "$163M",
+      "whales_fmt": "達利歐 Dalio $163M 持有",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
         {
           "name": "達利歐 Dalio",
-          "value_usd": 107690764,
+          "value_usd": 163308573,
           "action": "hold"
         }
       ]
     },
     {
-      "symbol": "ARM",
-      "name": "安謀",
-      "theme": "AI Compute",
-      "signal": "buy",
-      "holders": 8,
-      "increased": 4,
-      "reduced": 2,
-      "new_pos": 2,
-      "closed_pos": 2,
-      "total_held_usd": 736616796,
-      "total_held_fmt": "$737M",
-      "whales_fmt": "Philippe Laffont — 清倉 · 大空頭 Burry — 清倉 · Andreas Halvorsen $399M 加碼 · Brad Gerstner $260M 新進 · 索羅斯 Soros $42M 加碼 · 木頭姐 Cathie Wood $22M 減碼",
+      "symbol": "BAC",
+      "name": "Bank of America Corporation",
+      "theme": "Banks",
+      "signal": "split",
+      "holders": 0,
+      "increased": 0,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 0,
+      "total_held_fmt": "—",
+      "whales_fmt": "",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
-      "whales": [
-        {
-          "name": "Philippe Laffont",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "大空頭 Burry",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "Andreas Halvorsen",
-          "value_usd": 398936730,
-          "action": "add"
-        },
-        {
-          "name": "Brad Gerstner",
-          "value_usd": 259511763,
-          "action": "new"
-        },
-        {
-          "name": "索羅斯 Soros",
-          "value_usd": 42482880,
-          "action": "add"
-        },
-        {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 21679720,
-          "action": "trim"
-        },
-        {
-          "name": "Dan Loeb",
-          "value_usd": 8030000,
-          "action": "add"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 3156735,
-          "action": "add"
-        }
-      ]
+      "whales": []
     }
   ]
 }
