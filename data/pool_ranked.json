@@ -1,13 +1,13 @@
 {
-  "date": "2026-06-11",
+  "date": "2026-06-12",
   "method": "完整掃描宇宙(全產業)。分數 = 品質底分(0–1):技術面(均線×RSI×距高×動能)+ 基本面(成長/品質/估值),每產業由高到低排。● 近期推薦 = 引擎近三期曾選入(與分數獨立的標籤,代表輪動選股)· 潛力 = 同主題達標未入選。",
   "themes": [
     {
       "theme": "AI Compute",
       "n": 24,
-      "rs_1m": 3.45,
-      "rs_3m": 37.88,
-      "news_7d": 160,
+      "rs_1m": 7.07,
+      "rs_3m": 45.65,
+      "news_7d": 137,
       "stocks": [
         {
           "symbol": "KLAC",
@@ -96,7 +96,7 @@
           "composite": 0.737,
           "score_kind": "base",
           "is_recent": true,
-          "is_watch": false,
+          "is_watch": true,
           "rank": 10
         }
       ]
@@ -104,9 +104,9 @@
     {
       "theme": "Semiconductor Equipment (WFE)",
       "n": 10,
-      "rs_1m": 12.9,
-      "rs_3m": 31.3,
-      "news_7d": 60,
+      "rs_1m": 21.6,
+      "rs_3m": 43.8,
+      "news_7d": 58,
       "stocks": [
         {
           "symbol": "KLAC",
@@ -177,7 +177,7 @@
           "composite": 0.554,
           "score_kind": "base",
           "is_recent": true,
-          "is_watch": false,
+          "is_watch": true,
           "rank": 8
         },
         {
@@ -203,9 +203,9 @@
     {
       "theme": "Memory (HBM / DRAM / NAND)",
       "n": 6,
-      "rs_1m": 9.4,
-      "rs_3m": 113.8,
-      "news_7d": 93,
+      "rs_1m": 17.4,
+      "rs_3m": 123.1,
+      "news_7d": 76,
       "stocks": [
         {
           "symbol": "STX",
@@ -240,7 +240,7 @@
           "composite": 0.737,
           "score_kind": "base",
           "is_recent": true,
-          "is_watch": false,
+          "is_watch": true,
           "rank": 4
         },
         {
@@ -260,105 +260,6 @@
           "is_recent": false,
           "is_watch": false,
           "rank": 6
-        }
-      ]
-    },
-    {
-      "theme": "AI Software",
-      "n": 15,
-      "rs_1m": 4.12,
-      "rs_3m": -1.46,
-      "news_7d": 163,
-      "stocks": [
-        {
-          "symbol": "CDNS",
-          "name": "CDNS",
-          "composite": 0.758,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
-          "symbol": "ESTC",
-          "name": "ESTC",
-          "composite": 0.715,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 2
-        },
-        {
-          "symbol": "MDB",
-          "name": "MDB",
-          "composite": 0.666,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
-          "symbol": "GOOG",
-          "name": "Alphabet",
-          "composite": 0.658,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 4
-        },
-        {
-          "symbol": "MSFT",
-          "name": "微軟",
-          "composite": 0.625,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 5
-        },
-        {
-          "symbol": "ADBE",
-          "name": "ADBE",
-          "composite": 0.61,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 6
-        },
-        {
-          "symbol": "NET",
-          "name": "NET",
-          "composite": 0.598,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 7
-        },
-        {
-          "symbol": "DDOG",
-          "name": "DDOG",
-          "composite": 0.572,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 8
-        },
-        {
-          "symbol": "CRM",
-          "name": "CRM",
-          "composite": 0.547,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 9
-        },
-        {
-          "symbol": "SNOW",
-          "name": "SNOW",
-          "composite": 0.537,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 10
         }
       ]
     },
@@ -500,8 +401,8 @@
           "name": "亞馬遜",
           "composite": 0.591,
           "score_kind": "base",
-          "is_recent": true,
-          "is_watch": false,
+          "is_recent": false,
+          "is_watch": true,
           "rank": 4
         },
         {
@@ -544,186 +445,6 @@
           "symbol": "TSLA",
           "name": "特斯拉",
           "composite": 0.202,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 9
-        }
-      ]
-    },
-    {
-      "theme": "Cloud Infrastructure",
-      "n": 9,
-      "rs_1m": null,
-      "rs_3m": null,
-      "news_7d": null,
-      "stocks": [
-        {
-          "symbol": "ANET",
-          "name": "ANET",
-          "composite": 0.79,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
-          "symbol": "EQIX",
-          "name": "EQIX",
-          "composite": 0.776,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 2
-        },
-        {
-          "symbol": "NTAP",
-          "name": "NTAP",
-          "composite": 0.767,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
-          "symbol": "CSCO",
-          "name": "CSCO",
-          "composite": 0.749,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 4
-        },
-        {
-          "symbol": "GOOG",
-          "name": "Alphabet",
-          "composite": 0.658,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 5
-        },
-        {
-          "symbol": "MSFT",
-          "name": "微軟",
-          "composite": 0.625,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 6
-        },
-        {
-          "symbol": "DLR",
-          "name": "DLR",
-          "composite": 0.6,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 7
-        },
-        {
-          "symbol": "AMZN",
-          "name": "亞馬遜",
-          "composite": 0.591,
-          "score_kind": "base",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 8
-        },
-        {
-          "symbol": "PSTG",
-          "name": "PSTG",
-          "composite": 0.528,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 9
-        }
-      ]
-    },
-    {
-      "theme": "Edge Computing / IoT",
-      "n": 9,
-      "rs_1m": null,
-      "rs_3m": null,
-      "news_7d": null,
-      "stocks": [
-        {
-          "symbol": "ADI",
-          "name": "ADI",
-          "composite": 0.801,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
-          "symbol": "AAPL",
-          "name": "蘋果",
-          "composite": 0.795,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 2
-        },
-        {
-          "symbol": "QCOM",
-          "name": "Qualcomm",
-          "composite": 0.74,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
-          "symbol": "NVDA",
-          "name": "輝達",
-          "composite": 0.728,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 4
-        },
-        {
-          "symbol": "TXN",
-          "name": "TXN",
-          "composite": 0.688,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 5
-        },
-        {
-          "symbol": "MSFT",
-          "name": "微軟",
-          "composite": 0.625,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 6
-        },
-        {
-          "symbol": "AMZN",
-          "name": "亞馬遜",
-          "composite": 0.591,
-          "score_kind": "base",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 7
-        },
-        {
-          "symbol": "ZBRA",
-          "name": "ZBRA",
-          "composite": 0.385,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 8
-        },
-        {
-          "symbol": "TRMB",
-          "name": "TRMB",
-          "composite": 0.321,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -984,74 +705,101 @@
       ]
     },
     {
-      "theme": "E-commerce / Marketplaces",
-      "n": 7,
+      "theme": "AI Software",
+      "n": 15,
       "rs_1m": null,
       "rs_3m": null,
       "news_7d": null,
       "stocks": [
         {
-          "symbol": "EBAY",
-          "name": "EBAY",
-          "composite": 0.693,
+          "symbol": "CDNS",
+          "name": "CDNS",
+          "composite": 0.758,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
         },
         {
-          "symbol": "AMZN",
-          "name": "亞馬遜",
-          "composite": 0.591,
+          "symbol": "ESTC",
+          "name": "ESTC",
+          "composite": 0.715,
           "score_kind": "base",
-          "is_recent": true,
+          "is_recent": false,
           "is_watch": false,
           "rank": 2
         },
         {
-          "symbol": "FDX",
-          "name": "FDX",
-          "composite": 0.584,
+          "symbol": "MDB",
+          "name": "MDB",
+          "composite": 0.666,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
         },
         {
-          "symbol": "UPS",
-          "name": "UPS",
-          "composite": 0.546,
+          "symbol": "GOOG",
+          "name": "Alphabet",
+          "composite": 0.658,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
         },
         {
-          "symbol": "SE",
-          "name": "SE",
-          "composite": 0.492,
+          "symbol": "MSFT",
+          "name": "微軟",
+          "composite": 0.625,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
         },
         {
-          "symbol": "MELI",
-          "name": "MELI",
-          "composite": 0.478,
+          "symbol": "ADBE",
+          "name": "ADBE",
+          "composite": 0.61,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
         },
         {
-          "symbol": "SHOP",
-          "name": "SHOP",
-          "composite": 0.276,
+          "symbol": "NET",
+          "name": "NET",
+          "composite": 0.598,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
+        },
+        {
+          "symbol": "DDOG",
+          "name": "DDOG",
+          "composite": 0.572,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        },
+        {
+          "symbol": "CRM",
+          "name": "CRM",
+          "composite": 0.547,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
+        },
+        {
+          "symbol": "SNOW",
+          "name": "SNOW",
+          "composite": 0.537,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 10
         }
       ]
     },
@@ -1137,6 +885,96 @@
       ]
     },
     {
+      "theme": "Cloud Infrastructure",
+      "n": 9,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "ANET",
+          "name": "ANET",
+          "composite": 0.79,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "EQIX",
+          "name": "EQIX",
+          "composite": 0.776,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "NTAP",
+          "name": "NTAP",
+          "composite": 0.767,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "CSCO",
+          "name": "CSCO",
+          "composite": 0.749,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "GOOG",
+          "name": "Alphabet",
+          "composite": 0.658,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "MSFT",
+          "name": "微軟",
+          "composite": 0.625,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "DLR",
+          "name": "DLR",
+          "composite": 0.6,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "AMZN",
+          "name": "亞馬遜",
+          "composite": 0.591,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": true,
+          "rank": 8
+        },
+        {
+          "symbol": "PSTG",
+          "name": "PSTG",
+          "composite": 0.528,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
+        }
+      ]
+    },
+    {
       "theme": "Cybersecurity",
       "n": 8,
       "rs_1m": null,
@@ -1214,6 +1052,96 @@
           "is_recent": false,
           "is_watch": false,
           "rank": 8
+        }
+      ]
+    },
+    {
+      "theme": "Edge Computing / IoT",
+      "n": 9,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "ADI",
+          "name": "ADI",
+          "composite": 0.801,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "AAPL",
+          "name": "蘋果",
+          "composite": 0.795,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "QCOM",
+          "name": "Qualcomm",
+          "composite": 0.74,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "NVDA",
+          "name": "輝達",
+          "composite": 0.728,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "TXN",
+          "name": "TXN",
+          "composite": 0.688,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "MSFT",
+          "name": "微軟",
+          "composite": 0.625,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "AMZN",
+          "name": "亞馬遜",
+          "composite": 0.591,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": true,
+          "rank": 7
+        },
+        {
+          "symbol": "ZBRA",
+          "name": "ZBRA",
+          "composite": 0.385,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        },
+        {
+          "symbol": "TRMB",
+          "name": "TRMB",
+          "composite": 0.321,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
         }
       ]
     },
@@ -2591,6 +2519,78 @@
           "is_recent": false,
           "is_watch": false,
           "rank": 10
+        }
+      ]
+    },
+    {
+      "theme": "E-commerce / Marketplaces",
+      "n": 7,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "EBAY",
+          "name": "EBAY",
+          "composite": 0.693,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "AMZN",
+          "name": "亞馬遜",
+          "composite": 0.591,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": true,
+          "rank": 2
+        },
+        {
+          "symbol": "FDX",
+          "name": "FDX",
+          "composite": 0.584,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "UPS",
+          "name": "UPS",
+          "composite": 0.546,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "SE",
+          "name": "SE",
+          "composite": 0.492,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "MELI",
+          "name": "MELI",
+          "composite": 0.478,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "SHOP",
+          "name": "SHOP",
+          "composite": 0.276,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
         }
       ]
     },
