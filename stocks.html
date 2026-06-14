@@ -42,6 +42,15 @@
     .pool-wrap { max-width: 820px; margin: 0 auto; padding: var(--space-6) var(--space-4) var(--space-12); }
     .pool-loading { font-family: var(--font-mono); font-size: .75rem; color: var(--text-dim); padding: var(--space-10) var(--space-4); text-align: center; letter-spacing: .08em; }
     @media (max-width: 640px) { .sr-bar-wrap { display: none; } .sr-name { font-size: .78rem; } }
+    /* 個股標籤雲 */
+    .stock-cloud { display: flex; flex-wrap: wrap; gap: 8px; }
+    .sc-tag { font-family: var(--font-mono); font-size: .82rem; font-weight: 700; letter-spacing: .03em;
+      padding: 6px 12px; border-radius: 6px; text-decoration: none; border: 1px solid var(--border);
+      background: var(--bg-card); transition: transform .1s, border-color .12s, background .12s; }
+    .sc-tag:hover { transform: translateY(-1px); border-color: var(--accent); background: var(--bg-hover); }
+    .sc-enter { color: var(--positive); border-color: #00ff9d55; }
+    .sc-ready { color: var(--accent); border-color: #00f3ff55; }
+    .sc-watch { color: var(--text-secondary); }
   </style>
 </head>
 <body>
@@ -74,6 +83,10 @@
     </div>
   </div>
   <div class="pool-wrap">
+    <div id="stock-cloud-wrap" style="display:none;margin-bottom:var(--space-8);">
+      <div class="pool-title" style="margin-bottom:var(--space-3);">▎ 個股深度分析 · 點標籤看完整報告</div>
+      <div id="stock-cloud" class="stock-cloud"></div>
+    </div>
     <div id="pool-loading" class="pool-loading">載入選股池…</div>
     <div id="pool-body"></div>
   </div>
@@ -95,7 +108,17 @@
   loading.style.display = 'none';
   // 已寫深度分析的個股(有頁面可點);其餘只顯示排名、不連結(避免 404)
   let written = new Set();
-  try { (await (await fetch('/data/stocks/index.json')).json()).forEach(x => written.add(x.symbol)); } catch {}
+  let writtenList = [];
+  try { writtenList = await (await fetch('/data/stocks/index.json')).json(); writtenList.forEach(x => written.add(x.symbol)); } catch {}
+  // 個股標籤雲(排名上方):點標籤直接到深度分析頁
+  if (writtenList.length) {
+    const tierCls = { enter: 'sc-enter', ready: 'sc-ready', watch: 'sc-watch' };
+    document.getElementById('stock-cloud').innerHTML = writtenList
+      .slice().sort((a, b) => a.symbol.localeCompare(b.symbol))
+      .map(x => `<a class="sc-tag ${tierCls[x.tier] || 'sc-watch'}" href="stock.html?t=${x.symbol}" title="${x.name || ''}${x.theme ? ' · ' + x.theme : ''}">${x.symbol}</a>`)
+      .join('');
+    document.getElementById('stock-cloud-wrap').style.display = '';
+  }
   if (d.method) document.getElementById('pool-method').textContent = d.method;  // 有就用引擎版,否則保留靜態說明
   document.getElementById('pool-date').textContent = d.date ? ('資料日期 · ' + d.date) : '';
 
