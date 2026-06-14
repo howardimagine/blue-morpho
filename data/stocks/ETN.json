@@ -1,253 +1,248 @@
 {
- "symbol": "ETN",
- "name": "Eaton Corporation",
- "tier": "watch",
- "regime": "neutral",
- "theme": "Electrification / Power",
- "business": "Power management; data-center electrification + grid build-out leverage.",
- "why": "",
- "rsi": null,
- "sma50": null,
- "sma200": null,
- "factors": [],
- "tracking": [],
- "links": [
-  {
-   "label": "Finviz",
-   "desc": "技術快照 / 圖",
-   "href": "https://finviz.com/quote.ashx?t=ETN"
-  },
-  {
-   "label": "StockAnalysis",
-   "desc": "財報 / 估值",
-   "href": "https://stockanalysis.com/stocks/ETN/"
-  },
-  {
-   "label": "TradingView",
-   "desc": "互動圖",
-   "href": "https://www.tradingview.com/symbols/ETN/"
-  },
-  {
-   "label": "Macrotrends",
-   "desc": "長期財務",
-   "href": "https://www.macrotrends.net/stocks/charts/ETN/x/"
-  },
-  {
-   "label": "TipRanks",
-   "desc": "分析師共識",
-   "href": "https://www.tipranks.com/stocks/ETN/forecast"
-  },
-  {
-   "label": "Seeking Alpha",
-   "desc": "多空分析",
-   "href": "https://seekingalpha.com/symbol/ETN"
-  }
- ],
- "peers": [
-  {
-   "symbol": "PWR",
-   "name": "PWR",
-   "tier": "watch"
-  },
-  {
-   "symbol": "MYRG",
-   "name": "MYRG",
-   "tier": "watch"
-  },
-  {
-   "symbol": "VRT",
-   "name": "Vertiv Holdings",
-   "tier": "watch"
-  }
- ],
- "price": 391.39,
- "generated_at": "2026-06-14T01:28:55Z",
- "health_grade": "B",
- "health_score": 75,
- "chain_position": {
+  "symbol": "ETN",
+  "name": "伊頓",
+  "tier": "watch",
+  "regime": "neutral",
   "theme": "Electrification / Power",
-  "tier": "midstream",
-  "label": "Power Management"
- },
- "valuation": {
-  "dcf": {
-   "symbol": "ETN",
-   "price": 391.39,
-   "method": "firm_level_fcf",
-   "fcf_firm_b": 4.5,
-   "shares_b": 0.39,
-   "net_debt_b": 10.5,
-   "growth_rate_assumed": 9.8,
-   "wacc": 10.0,
-   "terminal_growth": 4.0,
-   "intrinsic": 195.2,
-   "bull": 249.6,
-   "bear": 131.0,
-   "upside_pct": -50.1,
-   "scenarios": [
+  "business": "電力管理/電氣化 + 資料中心電源;再工業化+AI 算力雙受惠。",
+  "why": null,
+  "rsi": null,
+  "sma50": null,
+  "sma200": null,
+  "factors": [],
+  "tracking": [],
+  "links": [
     {
-     "scenario": "bull",
-     "intrinsic_per_share": 249.6,
-     "ev_b": 107.8,
-     "wacc": 9.5,
-     "terminal_g": 4.4,
-     "growth_yr1": 12.0
+      "label": "Finviz",
+      "desc": "技術快照 / 圖",
+      "href": "https://finviz.com/quote.ashx?t=ETN"
     },
     {
-     "scenario": "base",
-     "intrinsic_per_share": 195.2,
-     "ev_b": 86.6,
-     "wacc": 10.0,
-     "terminal_g": 4.0,
-     "growth_yr1": 9.8
+      "label": "StockAnalysis",
+      "desc": "財報 / 估值",
+      "href": "https://stockanalysis.com/stocks/ETN/"
     },
     {
-     "scenario": "bear",
-     "intrinsic_per_share": 131.0,
-     "ev_b": 61.6,
-     "wacc": 10.8,
-     "terminal_g": 3.2,
-     "growth_yr1": 5.7
+      "label": "TradingView",
+      "desc": "互動圖",
+      "href": "https://www.tradingview.com/symbols/ETN/"
+    },
+    {
+      "label": "Macrotrends",
+      "desc": "長期財務",
+      "href": "https://www.macrotrends.net/stocks/charts/ETN/x/"
+    },
+    {
+      "label": "TipRanks",
+      "desc": "分析師",
+      "href": "https://www.tipranks.com/stocks/ETN/forecast"
     }
-   ],
-   "inputs": {
-    "fcf_cagr_3y": 32.2,
-    "rev_cagr_3y": 9.8,
-    "roic_pct": 13.4,
-    "gross_margin_pct": 37.6,
-    "op_margin_pct": 19.1,
-    "fcf_margin_pct": 16.3
-   }
-  },
-  "reverse_dcf": {
-   "implied_growth_pct": 33.4,
-   "market_cap_b": 152.4,
-   "note": "現價隱含未來十年 FCF 年均成長 ~33.4%(用 WACC 10.0%)"
-  },
-  "comps_valuation": {
-   "pe_target": 778.2,
-   "ev_ebitda_target": 661.8,
-   "blended_comps": 720.0
-  },
-  "comps": {
-   "pe_target": 778.2,
-   "ev_ebitda_target": 661.8,
-   "blended_comps": 720.0
-  },
-  "blended_target": {
-   "target": 457.6,
-   "upside_pct": 16.9,
-   "components": {
-    "dcf": 195.2,
-    "comps": 720.0,
-    "comps_detail": {
-     "pe": 778.2,
-     "ev_ebitda": 661.8
+  ],
+  "peers": [
+    {
+      "symbol": "ABB",
+      "name": "ABB",
+      "tier": "watch"
+    },
+    {
+      "symbol": "GEV",
+      "name": "GE Vernova",
+      "tier": "watch"
+    },
+    {
+      "symbol": "ENB",
+      "name": "Enbridge Inc",
+      "tier": "ready"
     }
-   },
-   "weights": {
-    "DCF": 0.5,
-    "可比": 0.5
-   }
+  ],
+  "price": 391.39,
+  "generated_at": "2026-06-14T01:28:55Z",
+  "health_grade": "B",
+  "health_score": 75,
+  "chain_position": {
+    "theme": "Electrification / Power",
+    "tier": "midstream",
+    "label": "Power Management"
   },
-  "sensitivity": {
-   "waccs": [
-    9.0,
-    9.5,
-    10.0,
-    10.5,
-    11.0
-   ],
-   "term_gs": [
-    3.0,
-    3.5,
-    4.0,
-    4.5,
-    5.0
-   ],
-   "grid": [
-    [
-     207.0,
-     222.0,
-     240.0,
-     262.0,
-     289.0
-    ],
-    [
-     189.0,
-     201.0,
-     215.0,
-     233.0,
-     254.0
-    ],
-    [
-     173.0,
-     183.0,
-     195.0,
-     209.0,
-     226.0
-    ],
-    [
-     160.0,
-     168.0,
-     178.0,
-     190.0,
-     203.0
-    ],
-    [
-     148.0,
-     155.0,
-     163.0,
-     173.0,
-     184.0
-    ]
-   ]
+  "valuation": {
+    "dcf": {
+      "symbol": "ETN",
+      "price": 391.39,
+      "method": "firm_level_fcf",
+      "fcf_firm_b": 4.5,
+      "shares_b": 0.39,
+      "net_debt_b": 10.5,
+      "growth_rate_assumed": 9.8,
+      "wacc": 10.0,
+      "terminal_growth": 4.0,
+      "intrinsic": 195.2,
+      "bull": 249.6,
+      "bear": 131.0,
+      "upside_pct": -50.1,
+      "scenarios": [
+        {
+          "scenario": "bull",
+          "intrinsic_per_share": 249.6,
+          "ev_b": 107.8,
+          "wacc": 9.5,
+          "terminal_g": 4.4,
+          "growth_yr1": 12.0
+        },
+        {
+          "scenario": "base",
+          "intrinsic_per_share": 195.2,
+          "ev_b": 86.6,
+          "wacc": 10.0,
+          "terminal_g": 4.0,
+          "growth_yr1": 9.8
+        },
+        {
+          "scenario": "bear",
+          "intrinsic_per_share": 131.0,
+          "ev_b": 61.6,
+          "wacc": 10.8,
+          "terminal_g": 3.2,
+          "growth_yr1": 5.7
+        }
+      ],
+      "inputs": {
+        "fcf_cagr_3y": 32.2,
+        "rev_cagr_3y": 9.8,
+        "roic_pct": 13.4,
+        "gross_margin_pct": 37.6,
+        "op_margin_pct": 19.1,
+        "fcf_margin_pct": 16.3
+      }
+    },
+    "reverse_dcf": {
+      "implied_growth_pct": 33.4,
+      "market_cap_b": 152.4,
+      "note": "現價隱含未來十年 FCF 年均成長 ~33.4%(用 WACC 10.0%)"
+    },
+    "comps_valuation": {
+      "pe_target": 778.2,
+      "ev_ebitda_target": 661.8,
+      "blended_comps": 720.0
+    },
+    "comps": {
+      "pe_target": 778.2,
+      "ev_ebitda_target": 661.8,
+      "blended_comps": 720.0
+    },
+    "blended_target": {
+      "target": 457.6,
+      "upside_pct": 16.9,
+      "components": {
+        "dcf": 195.2,
+        "comps": 720.0,
+        "comps_detail": {
+          "pe": 778.2,
+          "ev_ebitda": 661.8
+        }
+      },
+      "weights": {
+        "DCF": 0.5,
+        "可比": 0.5
+      }
+    },
+    "sensitivity": {
+      "waccs": [
+        9.0,
+        9.5,
+        10.0,
+        10.5,
+        11.0
+      ],
+      "term_gs": [
+        3.0,
+        3.5,
+        4.0,
+        4.5,
+        5.0
+      ],
+      "grid": [
+        [
+          207.0,
+          222.0,
+          240.0,
+          262.0,
+          289.0
+        ],
+        [
+          189.0,
+          201.0,
+          215.0,
+          233.0,
+          254.0
+        ],
+        [
+          173.0,
+          183.0,
+          195.0,
+          209.0,
+          226.0
+        ],
+        [
+          160.0,
+          168.0,
+          178.0,
+          190.0,
+          203.0
+        ],
+        [
+          148.0,
+          155.0,
+          163.0,
+          173.0,
+          184.0
+        ]
+      ]
+    },
+    "peer_median": {
+      "pe": 74.4,
+      "ev_ebitda": 44.5,
+      "fcf_yield": 2.0,
+      "rev_growth": 19.8
+    },
+    "peer_verdict": "低於同業估值",
+    "own_multiples": {
+      "pe": 38.1,
+      "ev_ebitda": 29.3,
+      "fcf_yield": 3.1
+    }
   },
-  "peer_median": {
-   "pe": 74.4,
-   "ev_ebitda": 44.5,
-   "fcf_yield": 2.0,
-   "rev_growth": 19.8
+  "financials": {
+    "latest": {
+      "revenue_b": 27.45,
+      "net_income_b": 4.09,
+      "fcf_b": 4.47,
+      "gross_margin": 37.6,
+      "op_margin": 19.1,
+      "net_margin": 14.9,
+      "fcf_margin": 16.3,
+      "roe": 21.1,
+      "roa": 9.9,
+      "roic": 13.4,
+      "current_ratio": 1.32,
+      "quick_ratio": 0.81,
+      "debt_equity": 0.57,
+      "net_debt_ebitda": 1.77,
+      "interest_coverage": 19.68,
+      "fcf_to_ni": 1.09,
+      "sbc_to_rev": -0.2,
+      "capex_to_rev": 0.0,
+      "rnd_to_rev": 2.9,
+      "shares_change_pct": -3.6,
+      "net_debt_b": 10.55,
+      "cash_b": 0.8
+    },
+    "growth": {
+      "rev_cagr_3y": 9.8,
+      "rev_cagr_5y": 9.0,
+      "eps_cagr_3y": 19.4,
+      "fcf_cagr_3y": 32.2
+    }
   },
-  "peer_verdict": "低於同業估值",
-  "own_multiples": {
-   "pe": 38.1,
-   "ev_ebitda": 29.3,
-   "fcf_yield": 3.1
-  }
- },
- "financials": {
-  "latest": {
-   "revenue_b": 27.45,
-   "net_income_b": 4.09,
-   "fcf_b": 4.47,
-   "gross_margin": 37.6,
-   "op_margin": 19.1,
-   "net_margin": 14.9,
-   "fcf_margin": 16.3,
-   "roe": 21.1,
-   "roa": 9.9,
-   "roic": 13.4,
-   "current_ratio": 1.32,
-   "quick_ratio": 0.81,
-   "debt_equity": 0.57,
-   "net_debt_ebitda": 1.77,
-   "interest_coverage": 19.68,
-   "fcf_to_ni": 1.09,
-   "sbc_to_rev": -0.2,
-   "capex_to_rev": 0.0,
-   "rnd_to_rev": 2.9,
-   "shares_change_pct": -3.6,
-   "net_debt_b": 10.55,
-   "cash_b": 0.8
-  },
-  "growth": {
-   "rev_cagr_3y": 9.8,
-   "rev_cagr_5y": 9.0,
-   "eps_cagr_3y": 19.4,
-   "fcf_cagr_3y": 32.2
-  }
- },
- "report_html": "<p class=\"lead\">Eaton Corporation(ETN) 是 Power management; data-center electrification + grid build-out leverage.；現在的核心看點，是它在 Electrification / Power 供應鏈中能否把需求成長轉成現金流，而不是只停留在題材熱度。</p>\n<figure><img src=\"https://upload.wikimedia.org/wikipedia/commons/2/2b/Eaton_Corporation_logo.svg\" alt=\"Eaton Corporation 產品或品牌相關圖片\"><figcaption>來源:<a href=\"https://commons.wikimedia.org/wiki/File:Eaton_Corporation_logo.svg\">Wikimedia Commons / Eaton logo</a></figcaption></figure>\n<h3>這家公司在做什麼</h3>\n<p>Eaton Corporation 的產品或服務位在「Power Management」這個環節。白話說，它把技術、設備、軟體或基礎設施包成客戶願意付錢的能力，最後服務的是雲端、半導體、企業資訊科技、電力或通訊基礎設施需求。</p>\n<h3>它怎麼賺錢</h3>\n<p>公司位於 Electrification / Power 的 midstream。它的收入來自把關鍵產品交給下游客戶，或把長期資產出租、營運成穩定服務。真正的護城河通常不是單一產品名稱，而是客戶認證、工程經驗、規模採購、軟體生態或長期合約；這些因素會決定它能不能維持價格與毛利率。</p>\n<h3>這門生意穩不穩</h3>\n<p>穩定度要分兩層看：需求端若來自多年期雲端、電網、企業資安或資料中心投資，能見度會比較好；但供給端若需要大量資本支出、庫存管理或少數大客戶訂單，短期仍會有循環。</p>\n<ul><li>站內模型顯示，最新收入約 27.45 億美元，自由現金流(公司賺到、可自由運用的現金)約 4.47 億美元；營業利益率(每賣 100 元留下多少營業利益)約 19.1%，自由現金流率約 16.3%，投入資本報酬率(投一塊錢賺回幾毛)約 13.4%。</li><li>過去三年營收年均成長約 9.8%，自由現金流年均成長約 32.2%；健康評等為 B、分數 75，代表財務體質是估值判斷的重要底盤。</li></ul>\n<h3>最近發生什麼</h3>\n<ul><li>2026-05-05，Eaton 公布 2026 年第一季銷售額 75 億美元、年增 17%，有機銷售成長 10%；調整後每股盈餘 2.81 美元，並在當季完成 110 億美元策略併購，全年調整後每股盈餘展望為 13.05–13.50 美元。<a href=\"https://www.sec.gov/Archives/edgar/data/1551182/000155118226000010/etn03312026exhibit99.htm\">來源</a></li></ul>\n<h3>未來與估值:值不值得</h3>\n<p>現價約 391.39 美元，站內混合目標價約 457.6 美元，對應上行空間約 16.9%。估算價值不是精準答案，而是一把尺：若市場價格已經要求未來自由現金流長期成長約 33.4%，投資人就必須相信公司能持續拿到訂單、維持利潤率，並把成長變成現金。</p>\n<h3>要盯什麼(風險)</h3>\n<ul><li>利率維持高檔會提高資本密集業務的折現率與融資成本。</li><li>電網、電廠或通訊塔建設涉及監管審批，專案時程可能延後。</li><li>若資料中心與電力需求不如預期，長約與租戶需求會重新定價。</li></ul>\n<h3>總結</h3>\n<blockquote>Eaton Corporation 適合用「產業位置 + 現金流品質 + 估值期待」一起看。若後續新聞中的營收、訂單或展望能延續，偏穩健 的估值較容易被支撐；若成長放慢但市場仍給高期待，安全邊際就會變薄。</blockquote>\n<p class=\"disc\">非投資建議。</p>",
- "val_bar_svg": "<svg viewBox='0 0 720 96' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><line x1='20' y1='52' x2='700' y2='52' stroke='#1a2238' stroke-width='2'/><rect x='31' y='48' width='123' height='8' fill='#00f3ff' opacity='.12'/><circle cx='31' cy='52' r='5' fill='#5c8cff'/><text x='31' y='34' fill='#5c8cff' font-size='11' text-anchor='middle'>悲觀</text><text x='31' y='47' fill='#5c8cff' font-size='11' text-anchor='middle' font-family='monospace'>$131</text><circle cx='97' cy='52' r='5' fill='#00f3ff'/><text x='97' y='78' fill='#00f3ff' font-size='11' text-anchor='middle'>DCF</text><text x='97' y='91' fill='#00f3ff' font-size='11' text-anchor='middle' font-family='monospace'>$195.2</text><circle cx='154' cy='52' r='5' fill='#b48cff'/><text x='154' y='34' fill='#b48cff' font-size='11' text-anchor='middle'>樂觀</text><text x='154' y='47' fill='#b48cff' font-size='11' text-anchor='middle' font-family='monospace'>$249.6</text><circle cx='300' cy='52' r='6' fill='#ffffff'/><text x='300' y='78' fill='#ffffff' font-size='11' text-anchor='middle'>現價</text><text x='300' y='91' fill='#ffffff' font-size='11' text-anchor='middle' font-family='monospace'>$391.39</text><circle cx='369' cy='52' r='5' fill='#00ff9d'/><text x='369' y='34' fill='#00ff9d' font-size='11' text-anchor='middle'>混合目標</text><text x='369' y='47' fill='#00ff9d' font-size='11' text-anchor='middle' font-family='monospace'>$457.6</text><circle cx='640' cy='52' r='5' fill='#39d3ff'/><text x='640' y='78' fill='#39d3ff' font-size='11' text-anchor='middle'>可比</text><text x='640' y='91' fill='#39d3ff' font-size='11' text-anchor='middle' font-family='monospace'>$720</text></svg>"
+  "report_html": "<p class=\"lead\">Eaton Corporation(ETN) 是 Power management; data-center electrification + grid build-out leverage.；現在的核心看點，是它在 Electrification / Power 供應鏈中能否把需求成長轉成現金流，而不是只停留在題材熱度。</p>\n<figure><img src=\"https://upload.wikimedia.org/wikipedia/commons/2/2b/Eaton_Corporation_logo.svg\" alt=\"Eaton Corporation 產品或品牌相關圖片\"><figcaption>來源:<a href=\"https://commons.wikimedia.org/wiki/File:Eaton_Corporation_logo.svg\">Wikimedia Commons / Eaton logo</a></figcaption></figure>\n<h3>這家公司在做什麼</h3>\n<p>Eaton Corporation 的產品或服務位在「Power Management」這個環節。白話說，它把技術、設備、軟體或基礎設施包成客戶願意付錢的能力，最後服務的是雲端、半導體、企業資訊科技、電力或通訊基礎設施需求。</p>\n<h3>它怎麼賺錢</h3>\n<p>公司位於 Electrification / Power 的 midstream。它的收入來自把關鍵產品交給下游客戶，或把長期資產出租、營運成穩定服務。真正的護城河通常不是單一產品名稱，而是客戶認證、工程經驗、規模採購、軟體生態或長期合約；這些因素會決定它能不能維持價格與毛利率。</p>\n<h3>這門生意穩不穩</h3>\n<p>穩定度要分兩層看：需求端若來自多年期雲端、電網、企業資安或資料中心投資，能見度會比較好；但供給端若需要大量資本支出、庫存管理或少數大客戶訂單，短期仍會有循環。</p>\n<ul><li>站內模型顯示，最新收入約 27.45 億美元，自由現金流(公司賺到、可自由運用的現金)約 4.47 億美元；營業利益率(每賣 100 元留下多少營業利益)約 19.1%，自由現金流率約 16.3%，投入資本報酬率(投一塊錢賺回幾毛)約 13.4%。</li><li>過去三年營收年均成長約 9.8%，自由現金流年均成長約 32.2%；健康評等為 B、分數 75，代表財務體質是估值判斷的重要底盤。</li></ul>\n<h3>最近發生什麼</h3>\n<ul><li>2026-05-05，Eaton 公布 2026 年第一季銷售額 75 億美元、年增 17%，有機銷售成長 10%；調整後每股盈餘 2.81 美元，並在當季完成 110 億美元策略併購，全年調整後每股盈餘展望為 13.05–13.50 美元。<a href=\"https://www.sec.gov/Archives/edgar/data/1551182/000155118226000010/etn03312026exhibit99.htm\">來源</a></li></ul>\n<h3>未來與估值:值不值得</h3>\n<p>現價約 391.39 美元，站內混合目標價約 457.6 美元，對應上行空間約 16.9%。估算價值不是精準答案，而是一把尺：若市場價格已經要求未來自由現金流長期成長約 33.4%，投資人就必須相信公司能持續拿到訂單、維持利潤率，並把成長變成現金。</p>\n<h3>要盯什麼(風險)</h3>\n<ul><li>利率維持高檔會提高資本密集業務的折現率與融資成本。</li><li>電網、電廠或通訊塔建設涉及監管審批，專案時程可能延後。</li><li>若資料中心與電力需求不如預期，長約與租戶需求會重新定價。</li></ul>\n<h3>總結</h3>\n<blockquote>Eaton Corporation 適合用「產業位置 + 現金流品質 + 估值期待」一起看。若後續新聞中的營收、訂單或展望能延續，偏穩健 的估值較容易被支撐；若成長放慢但市場仍給高期待，安全邊際就會變薄。</blockquote>\n<p class=\"disc\">非投資建議。</p>",
+  "val_bar_svg": "<svg viewBox='0 0 720 96' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><line x1='20' y1='52' x2='700' y2='52' stroke='#1a2238' stroke-width='2'/><rect x='31' y='48' width='123' height='8' fill='#00f3ff' opacity='.12'/><circle cx='31' cy='52' r='5' fill='#5c8cff'/><text x='31' y='34' fill='#5c8cff' font-size='11' text-anchor='middle'>悲觀</text><text x='31' y='47' fill='#5c8cff' font-size='11' text-anchor='middle' font-family='monospace'>$131</text><circle cx='97' cy='52' r='5' fill='#00f3ff'/><text x='97' y='78' fill='#00f3ff' font-size='11' text-anchor='middle'>DCF</text><text x='97' y='91' fill='#00f3ff' font-size='11' text-anchor='middle' font-family='monospace'>$195.2</text><circle cx='154' cy='52' r='5' fill='#b48cff'/><text x='154' y='34' fill='#b48cff' font-size='11' text-anchor='middle'>樂觀</text><text x='154' y='47' fill='#b48cff' font-size='11' text-anchor='middle' font-family='monospace'>$249.6</text><circle cx='300' cy='52' r='6' fill='#ffffff'/><text x='300' y='78' fill='#ffffff' font-size='11' text-anchor='middle'>現價</text><text x='300' y='91' fill='#ffffff' font-size='11' text-anchor='middle' font-family='monospace'>$391.39</text><circle cx='369' cy='52' r='5' fill='#00ff9d'/><text x='369' y='34' fill='#00ff9d' font-size='11' text-anchor='middle'>混合目標</text><text x='369' y='47' fill='#00ff9d' font-size='11' text-anchor='middle' font-family='monospace'>$457.6</text><circle cx='640' cy='52' r='5' fill='#39d3ff'/><text x='640' y='78' fill='#39d3ff' font-size='11' text-anchor='middle'>可比</text><text x='640' y='91' fill='#39d3ff' font-size='11' text-anchor='middle' font-family='monospace'>$720</text></svg>"
 }

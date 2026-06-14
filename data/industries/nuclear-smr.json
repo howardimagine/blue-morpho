@@ -1,105 +1,105 @@
 {
- "theme": "Nuclear / SMR",
- "slug": "nuclear-smr",
- "generated_at": "2026-06-13T17:43:13Z",
- "tier_data": {
-  "upstream": {
-   "鈾礦/燃料": [
-    "CCJ",
-    "URA",
-    "URNM"
-   ]
-  },
-  "midstream": {
-   "反應爐/SMR 技術": [
-    "BWXT",
-    "NNE",
-    "OKLO",
-    "SMR"
-   ]
-  },
-  "downstream": {
-   "核電營運/用電": [
-    "CEG",
-    "VST"
-   ]
-  }
- },
- "profit_pool": {
   "theme": "Nuclear / SMR",
-  "tiers": [
-   {
-    "tier": "upstream",
-    "label_zh": "上游",
-    "industries": [
-     "鈾礦/燃料"
+  "slug": "nuclear-smr",
+  "generated_at": "2026-06-13T17:43:13Z",
+  "tier_data": {
+    "upstream": {
+      "鈾礦/燃料": [
+        "CCJ",
+        "URA",
+        "URNM"
+      ]
+    },
+    "midstream": {
+      "反應爐/SMR 技術": [
+        "BWXT",
+        "NNE",
+        "OKLO",
+        "SMR"
+      ]
+    },
+    "downstream": {
+      "核電營運/用電": [
+        "CEG",
+        "VST"
+      ]
+    }
+  },
+  "profit_pool": {
+    "theme": "Nuclear / SMR",
+    "tiers": [
+      {
+        "tier": "upstream",
+        "label_zh": "上游",
+        "industries": [
+          "鈾礦/燃料"
+        ],
+        "margin_gross": 26.7,
+        "margin_op": 16.7,
+        "margin_fcf": 29.4,
+        "roic": 8.5,
+        "sample_n": 1,
+        "leaders": [
+          {
+            "symbol": "CCJ",
+            "op_margin": 16.7,
+            "health_grade": "A"
+          }
+        ]
+      },
+      {
+        "tier": "midstream",
+        "label_zh": "中游",
+        "industries": [
+          "反應爐/SMR 技術"
+        ],
+        "margin_gross": 29.6,
+        "margin_op": -1090.2,
+        "margin_fcf": -726.2,
+        "roic": -10.9,
+        "sample_n": 2,
+        "leaders": [
+          {
+            "symbol": "BWXT",
+            "op_margin": 10.1,
+            "health_grade": "C"
+          },
+          {
+            "symbol": "SMR",
+            "op_margin": -2190.6,
+            "health_grade": "B"
+          }
+        ]
+      },
+      {
+        "tier": "downstream",
+        "label_zh": "下游",
+        "industries": [
+          "核電營運/用電"
+        ],
+        "margin_gross": 46.6,
+        "margin_op": 10.0,
+        "margin_fcf": 2.9,
+        "roic": 10.3,
+        "sample_n": 2,
+        "leaders": [
+          {
+            "symbol": "CEG",
+            "op_margin": 12.1,
+            "health_grade": "B"
+          },
+          {
+            "symbol": "VST",
+            "op_margin": 7.9,
+            "health_grade": "D"
+          }
+        ]
+      }
     ],
-    "margin_gross": 26.7,
-    "margin_op": 16.7,
-    "margin_fcf": 29.4,
-    "roic": 8.5,
-    "sample_n": 1,
-    "leaders": [
-     {
-      "symbol": "CCJ",
-      "op_margin": 16.7,
-      "health_grade": "A"
-     }
-    ]
-   },
-   {
-    "tier": "midstream",
-    "label_zh": "中游",
-    "industries": [
-     "反應爐/SMR 技術"
-    ],
-    "margin_gross": 29.6,
-    "margin_op": -1090.2,
-    "margin_fcf": -726.2,
-    "roic": -10.9,
-    "sample_n": 2,
-    "leaders": [
-     {
-      "symbol": "BWXT",
-      "op_margin": 10.1,
-      "health_grade": "C"
-     },
-     {
-      "symbol": "SMR",
-      "op_margin": -2190.6,
-      "health_grade": "B"
-     }
-    ]
-   },
-   {
-    "tier": "downstream",
-    "label_zh": "下游",
-    "industries": [
-     "核電營運/用電"
-    ],
-    "margin_gross": 46.6,
-    "margin_op": 10.0,
-    "margin_fcf": 2.9,
-    "roic": 10.3,
-    "sample_n": 2,
-    "leaders": [
-     {
-      "symbol": "CEG",
-      "op_margin": 12.1,
-      "health_grade": "B"
-     },
-     {
-      "symbol": "VST",
-      "op_margin": 7.9,
-      "health_grade": "D"
-     }
-    ]
-   }
-  ],
-  "deepest_pool": "upstream",
-  "deepest_pool_zh": "上游"
- },
- "report_html": "<p class=\"lead\">Nuclear / SMR 的重點不是單一公司，而是需求、產能、電力與資本支出如何沿著上中下游傳導；看懂錢流到哪一層，才看得懂利潤池。</p>\n<figure><img src=\"https://upload.wikimedia.org/wikipedia/commons/c/c4/Diagram_of_a_nuclear_power_plant_with_a_boiling_water_reactor.jpg\" alt=\"Nuclear / SMR 產業示意\"><figcaption>來源:<a href=\"https://commons.wikimedia.org/wiki/File:Diagram_of_a_nuclear_power_plant_with_a_boiling_water_reactor.jpg\">Wikimedia Commons / Siarhei Besarab, CC BY-SA 4.0</a></figcaption></figure>\n<h3>這個產業在做什麼</h3><p>Nuclear / SMR 把終端需求轉成實體設備、工程建置與長期服務。白話說，客戶先提出效能、容量或供電需求，上游提供關鍵設備與材料，中游負責製造、整合或建置，下游再把能力賣給企業與消費者。</p>\n<h3>錢怎麼流(上中下游)</h3><p>站內供應鏈圖把它拆成三層：upstream 包含 鈾礦/燃料；midstream 包含 反應爐/SMR 技術；downstream 包含 核電營運/用電。錢通常從下游客戶的預算開始，經由採購、長約或資本支出流向中游，再往上游設備與材料擴散；當需求急升時，最稀缺的瓶頸層通常最有議價力。</p>\n<h3>哪一層最賺</h3><p>利潤池顯示：上游營業利益率約 16.7%、投入資本報酬率約 8.5%，代表股包含 CCJ；中游營業利益率約 -1090.2%、投入資本報酬率約 -10.9%，代表股包含 BWXT；下游營業利益率約 10.0%、投入資本報酬率約 10.3%，代表股包含 CEG。因此不能只看營收增速，也要看哪一層承擔最多資本支出、哪一層有技術瓶頸或客戶鎖定。</p>\n<h3>最近發生什麼</h3><ul><li>2025-01-01，美國能源部核能辦公室說明小型模組化反應爐單機容量通常約 300MW 以下，目標是用較小模組、工廠化製造降低首批專案工程風險。<a href=\"https://www.energy.gov/ne/advanced-small-modular-reactors-smrs\">來源</a></li><li>2024-05-02，美國能源資訊署指出美國核電廠 2023 年發電量約 7750 億度、占全美發電約 19%，說明核電仍是大型、穩定的低碳基載來源。<a href=\"https://www.eia.gov/todayinenergy/detail.php?id=63304\">來源</a></li></ul>\n<h3>投資含義</h3><p>較穩健的做法，是把需求成長、產能瓶頸與估值分開看。若政策與資本支出延續，上游瓶頸設備與中游整合商較容易先反映訂單；若利率、電力併網或客戶預算轉弱，下游高資本支出業者的自由現金流壓力會先被放大。投資人應優先追蹤新訂單、交期、價格與管理層對下一季資本支出的說法。</p><p class=\"disc\">非投資建議。</p>",
- "chain_svg": "<svg viewBox='0 0 720 112' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><text x='110' y='32' fill='#7a5cff' font-size='14' font-weight='bold' text-anchor='middle' font-family='monospace'>上游</text><rect x='5' y='54' width='210' height='30' rx='7' fill='#06061a' stroke='#7a5cff' stroke-opacity='.5'/><text x='17' y='73' fill='#cfeaf2' font-size='12'>鈾礦/燃料</text><text x='360' y='32' fill='#00f3ff' font-size='14' font-weight='bold' text-anchor='middle' font-family='monospace'>中游</text><rect x='255' y='54' width='210' height='30' rx='7' fill='#06061a' stroke='#00f3ff' stroke-opacity='.5'/><text x='267' y='73' fill='#cfeaf2' font-size='12'>反應爐/SMR 技術</text><text x='610' y='32' fill='#00ff9d' font-size='14' font-weight='bold' text-anchor='middle' font-family='monospace'>下游</text><rect x='505' y='54' width='210' height='30' rx='7' fill='#06061a' stroke='#00ff9d' stroke-opacity='.5'/><text x='517' y='73' fill='#cfeaf2' font-size='12'>核電營運/用電</text><line x1='219' y1='73' x2='243' y2='73' stroke='#39d3ff' stroke-width='1.5' opacity='.6'/><path d='M243,69 L251,73 L243,77 Z' fill='#39d3ff' opacity='.8'/><line x1='469' y1='73' x2='493' y2='73' stroke='#39d3ff' stroke-width='1.5' opacity='.6'/><path d='M493,69 L501,73 L493,77 Z' fill='#39d3ff' opacity='.8'/></svg>",
- "pool_svg": "<svg viewBox='0 0 720 208' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><text x='8' y='28' fill='#7a5cff' font-size='13' font-weight='bold'>上游</text><rect x='90' y='36' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='36' width='440' height='12' rx='3' fill='#7a5cff' opacity='1'/><text x='538' y='46' fill='#9fb4c4' font-size='11'>營益率 16.7%</text><rect x='90' y='54' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='54' width='224' height='12' rx='3' fill='#7a5cff' opacity='0.45'/><text x='322' y='64' fill='#9fb4c4' font-size='11'>ROIC 8.5%</text><text x='8' y='84' fill='#00f3ff' font-size='13' font-weight='bold'>中游</text><rect x='90' y='92' width='440' height='12' rx='3' fill='#0b0b1a'/><text x='100' y='102' fill='#9fb4c4' font-size='11'>營益率 -1090.2%(尚未獲利)</text><rect x='90' y='110' width='440' height='12' rx='3' fill='#0b0b1a'/><text x='100' y='120' fill='#9fb4c4' font-size='11'>ROIC -10.9%(尚未獲利)</text><text x='8' y='140' fill='#00ff9d' font-size='13' font-weight='bold'>下游</text><rect x='90' y='148' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='148' width='263' height='12' rx='3' fill='#00ff9d' opacity='1'/><text x='361' y='158' fill='#9fb4c4' font-size='11'>營益率 10.0%</text><rect x='90' y='166' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='166' width='271' height='12' rx='3' fill='#00ff9d' opacity='0.45'/><text x='369' y='176' fill='#9fb4c4' font-size='11'>ROIC 10.3%</text></svg>"
+    "deepest_pool": "upstream",
+    "deepest_pool_zh": "上游"
+  },
+  "report_html": "<p class=\"lead\">Nuclear / SMR 的重點不是單一公司，而是需求、產能、電力與資本支出如何沿著上中下游傳導；看懂錢流到哪一層，才看得懂利潤池。</p>\n<figure><img src=\"https://upload.wikimedia.org/wikipedia/commons/c/c4/Diagram_of_a_nuclear_power_plant_with_a_boiling_water_reactor.jpg\" alt=\"Nuclear / SMR 產業示意\"><figcaption>來源:<a href=\"https://commons.wikimedia.org/wiki/File:Diagram_of_a_nuclear_power_plant_with_a_boiling_water_reactor.jpg\">Wikimedia Commons / Siarhei Besarab, CC BY-SA 4.0</a></figcaption></figure>\n<h3>這個產業在做什麼</h3><p>Nuclear / SMR 把終端需求轉成實體設備、工程建置與長期服務。白話說，客戶先提出效能、容量或供電需求，上游提供關鍵設備與材料，中游負責製造、整合或建置，下游再把能力賣給企業與消費者。</p>\n<h3>錢怎麼流(上中下游)</h3><p>站內供應鏈圖把它拆成三層：upstream 包含 鈾礦/燃料；midstream 包含 反應爐/SMR 技術；downstream 包含 核電營運/用電。錢通常從下游客戶的預算開始，經由採購、長約或資本支出流向中游，再往上游設備與材料擴散；當需求急升時，最稀缺的瓶頸層通常最有議價力。</p>\n<h3>哪一層最賺</h3><p>利潤池顯示：上游營業利益率約 16.7%、投入資本報酬率約 8.5%，代表股包含 CCJ；中游營業利益率約 -1090.2%、投入資本報酬率約 -10.9%，代表股包含 BWXT；下游營業利益率約 10.0%、投入資本報酬率約 10.3%，代表股包含 CEG。因此不能只看營收增速，也要看哪一層承擔最多資本支出、哪一層有技術瓶頸或客戶鎖定。</p>\n<h3>最近發生什麼</h3><ul><li>2025-01-01，美國能源部核能辦公室說明小型模組化反應爐單機容量通常約 300MW 以下，目標是用較小模組、工廠化製造降低首批專案工程風險。<a href=\"https://www.energy.gov/ne/advanced-small-modular-reactors-smrs\">來源</a></li><li>2024-05-02，美國能源資訊署指出美國核電廠 2023 年發電量約 7750 億度、占全美發電約 19%，說明核電仍是大型、穩定的低碳基載來源。<a href=\"https://www.eia.gov/todayinenergy/detail.php?id=63304\">來源</a></li></ul>\n<h3>投資含義</h3><p>較穩健的做法，是把需求成長、產能瓶頸與估值分開看。若政策與資本支出延續，上游瓶頸設備與中游整合商較容易先反映訂單；若利率、電力併網或客戶預算轉弱，下游高資本支出業者的自由現金流壓力會先被放大。投資人應優先追蹤新訂單、交期、價格與管理層對下一季資本支出的說法。</p><p class=\"disc\">非投資建議。</p>",
+  "chain_svg": "<svg viewBox='0 0 720 112' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><text x='110' y='32' fill='#7a5cff' font-size='14' font-weight='bold' text-anchor='middle' font-family='monospace'>上游</text><rect x='5' y='54' width='210' height='30' rx='7' fill='#06061a' stroke='#7a5cff' stroke-opacity='.5'/><text x='17' y='73' fill='#cfeaf2' font-size='12'>鈾礦/燃料</text><text x='360' y='32' fill='#00f3ff' font-size='14' font-weight='bold' text-anchor='middle' font-family='monospace'>中游</text><rect x='255' y='54' width='210' height='30' rx='7' fill='#06061a' stroke='#00f3ff' stroke-opacity='.5'/><text x='267' y='73' fill='#cfeaf2' font-size='12'>反應爐/SMR 技術</text><text x='610' y='32' fill='#00ff9d' font-size='14' font-weight='bold' text-anchor='middle' font-family='monospace'>下游</text><rect x='505' y='54' width='210' height='30' rx='7' fill='#06061a' stroke='#00ff9d' stroke-opacity='.5'/><text x='517' y='73' fill='#cfeaf2' font-size='12'>核電營運/用電</text><line x1='219' y1='73' x2='243' y2='73' stroke='#39d3ff' stroke-width='1.5' opacity='.6'/><path d='M243,69 L251,73 L243,77 Z' fill='#39d3ff' opacity='.8'/><line x1='469' y1='73' x2='493' y2='73' stroke='#39d3ff' stroke-width='1.5' opacity='.6'/><path d='M493,69 L501,73 L493,77 Z' fill='#39d3ff' opacity='.8'/></svg>",
+  "pool_svg": "<svg viewBox='0 0 720 208' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><text x='8' y='28' fill='#7a5cff' font-size='13' font-weight='bold'>上游</text><rect x='90' y='36' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='36' width='440' height='12' rx='3' fill='#7a5cff' opacity='1'/><text x='538' y='46' fill='#9fb4c4' font-size='11'>營益率 16.7%</text><rect x='90' y='54' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='54' width='224' height='12' rx='3' fill='#7a5cff' opacity='0.45'/><text x='322' y='64' fill='#9fb4c4' font-size='11'>ROIC 8.5%</text><text x='8' y='84' fill='#00f3ff' font-size='13' font-weight='bold'>中游</text><rect x='90' y='92' width='440' height='12' rx='3' fill='#0b0b1a'/><text x='100' y='102' fill='#9fb4c4' font-size='11'>營益率 -1090.2%(尚未獲利)</text><rect x='90' y='110' width='440' height='12' rx='3' fill='#0b0b1a'/><text x='100' y='120' fill='#9fb4c4' font-size='11'>ROIC -10.9%(尚未獲利)</text><text x='8' y='140' fill='#00ff9d' font-size='13' font-weight='bold'>下游</text><rect x='90' y='148' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='148' width='263' height='12' rx='3' fill='#00ff9d' opacity='1'/><text x='361' y='158' fill='#9fb4c4' font-size='11'>營益率 10.0%</text><rect x='90' y='166' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='166' width='271' height='12' rx='3' fill='#00ff9d' opacity='0.45'/><text x='369' y='176' fill='#9fb4c4' font-size='11'>ROIC 10.3%</text></svg>"
 }

@@ -1,0 +1,168 @@
+{
+  "symbol": "TSLA",
+  "name": "特斯拉",
+  "tier": "watch",
+  "regime": "neutral",
+  "theme": "AI Robotics / Automation",
+  "business": "電動車 + FSD 自駕 + Optimus 機器人;Robotaxi/能源雙線。",
+  "why": null,
+  "rsi": null,
+  "sma50": null,
+  "sma200": null,
+  "factors": [],
+  "tracking": [],
+  "links": [
+    {
+      "label": "Finviz",
+      "desc": "技術快照 / 圖",
+      "href": "https://finviz.com/quote.ashx?t=TSLA"
+    },
+    {
+      "label": "StockAnalysis",
+      "desc": "財報 / 估值",
+      "href": "https://stockanalysis.com/stocks/TSLA/"
+    },
+    {
+      "label": "TradingView",
+      "desc": "互動圖",
+      "href": "https://www.tradingview.com/symbols/TSLA/"
+    },
+    {
+      "label": "Macrotrends",
+      "desc": "長期財務",
+      "href": "https://www.macrotrends.net/stocks/charts/TSLA/x/"
+    },
+    {
+      "label": "TipRanks",
+      "desc": "分析師",
+      "href": "https://www.tipranks.com/stocks/TSLA/forecast"
+    }
+  ],
+  "peers": [],
+  "price": 406.43,
+  "generated_at": "2026-06-14T14:42:46Z",
+  "health_grade": "C",
+  "health_score": 60,
+  "chain_position": {
+    "theme": "AI Robotics / Automation",
+    "tier": "midstream",
+    "label": "Humanoid Emerging"
+  },
+  "valuation": {
+    "dcf": {
+      "symbol": "TSLA",
+      "price": 406.43,
+      "method": "per_share_approx",
+      "fcf_base_per_share": 2.03,
+      "growth_rate_assumed": 40.0,
+      "wacc": 12.5,
+      "terminal_growth": 2.5,
+      "intrinsic": 66.0,
+      "bull": 101.0,
+      "bear": 40.0,
+      "upside_pct": -83.8,
+      "scenarios": [
+        {
+          "scenario": "bull",
+          "intrinsic_per_share": 101.0,
+          "wacc": 11.9,
+          "terminal_g": 2.88
+        },
+        {
+          "scenario": "base",
+          "intrinsic_per_share": 66.0,
+          "wacc": 12.5,
+          "terminal_g": 2.5
+        },
+        {
+          "scenario": "bear",
+          "intrinsic_per_share": 40.0,
+          "wacc": 13.1,
+          "terminal_g": 2.12
+        }
+      ],
+      "inputs": {
+        "fcf_yield_pct": 0.5,
+        "rev_growth_pct": -2.9,
+        "fcf_growth_pct": 73.7,
+        "roic_pct": 3.2,
+        "gross_margin_pct": 19.1,
+        "op_margin_pct": 5.0
+      }
+    },
+    "reverse_dcf": null,
+    "comps_valuation": {
+      "pe_target": 31.9,
+      "ev_ebitda_target": 18.9,
+      "blended_comps": 25.4
+    },
+    "comps": {
+      "pe_target": 31.9,
+      "ev_ebitda_target": 18.9,
+      "blended_comps": 25.4
+    },
+    "blended_target": {
+      "target": 45.7,
+      "upside_pct": -88.8,
+      "components": {
+        "dcf": 66.0,
+        "comps": 25.4,
+        "comps_detail": {
+          "pe": 31.9,
+          "ev_ebitda": 18.9
+        }
+      },
+      "weights": {
+        "DCF": 0.5,
+        "可比": 0.5
+      }
+    },
+    "sensitivity": null,
+    "peer_median": {
+      "pe": 29.5,
+      "ev_ebitda": 11.7,
+      "fcf_yield": 16.4,
+      "rev_growth": 1.2
+    },
+    "peer_verdict": "高於同業估值",
+    "own_multiples": {
+      "pe": 339.1,
+      "ev_ebitda": 145.0,
+      "fcf_yield": 0.5
+    }
+  },
+  "financials": {
+    "latest": {
+      "revenue_b": 94.83,
+      "net_income_b": 3.79,
+      "fcf_b": 6.22,
+      "gross_margin": 18.0,
+      "op_margin": 4.6,
+      "net_margin": 4.0,
+      "fcf_margin": 6.6,
+      "roe": 4.6,
+      "roa": 2.8,
+      "roic": 4.9,
+      "current_ratio": 2.16,
+      "quick_ratio": 1.77,
+      "debt_equity": 0.1,
+      "net_debt_ebitda": -0.69,
+      "interest_coverage": 16.62,
+      "fcf_to_ni": 1.64,
+      "sbc_to_rev": 3.0,
+      "capex_to_rev": 9.0,
+      "rnd_to_rev": 6.8,
+      "shares_change_pct": 8.6,
+      "net_debt_b": -8.14,
+      "cash_b": 44.06
+    },
+    "growth": {
+      "rev_cagr_3y": 5.2,
+      "rev_cagr_5y": 24.6,
+      "eps_cagr_3y": -33.2,
+      "fcf_cagr_3y": -6.3
+    }
+  },
+  "report_html": "<p class=\"lead\">Tesla(TSLA) 是 EV manufacturer + FSD/robotaxi optionality + Optimus + energy storage; high beta to AI/auto narratives.；核心看點是它在 AI Robotics / Automation 供應鏈中的位置，能不能把需求成長轉成可持續的現金流。</p>\n<figure><img src=\"https://upload.wikimedia.org/wikipedia/commons/b/bb/Tesla_T_symbol.svg\" alt=\"Tesla 產品或品牌相關圖片\"><figcaption>來源:<a href=\"https://commons.wikimedia.org/wiki/File:Tesla_Motors.svg\">Wikimedia Commons / Tesla logo</a></figcaption></figure>\n<h3>這家公司在做什麼</h3><p>Tesla 提供的是「Humanoid Emerging」相關產品或服務。白話說，它把技術、製造、軟體或基礎設施能力交給客戶，讓客戶能做出更快的晶片、更安全的系統、更有效率的雲端服務，或更完整的終端產品。</p>\n<h3>它怎麼賺錢</h3><p>公司位在 AI Robotics / Automation 的 midstream。它向客戶收取產品銷售、訂閱、授權、服務或租賃收入；真正的護城河通常來自客戶認證、長期合約、軟體生態、工程經驗與規模效益，而不是單一季度的熱點。</p>\n<h3>這門生意穩不穩</h3><p>穩定度要看兩件事：需求是不是來自多年期趨勢，以及公司能不能把收入變成現金。半導體與硬體會有庫存循環，軟體與資料中心通常較有續約或長約，但同樣會受預算與利率影響。</p><ul><li>站內模型顯示，最新收入約 94.83 億美元，自由現金流(公司賺到、可自由運用的現金)約 6.22 億美元；營業利益率(每賣 100 元留下多少營業利益)約 4.6%，自由現金流率約 6.6%，投入資本報酬率(投一塊錢賺回幾毛)約 4.9%。</li><li>過去三年營收年均成長約 5.2%，自由現金流年均成長約 -6.3%；健康評等 C、分數 60，可用來判斷成長背後的財務品質。</li></ul>\n<h3>最近發生什麼</h3><ul><li>2026-04-23，Tesla 10-Q 顯示 2026 年第一季營收 223.87 億美元，營業利益 9.41 億美元、淨利 4.77 億美元、稀釋每股盈餘 0.13 美元；電動車本業仍有規模，但獲利率與成長敘事正接受機器人與自動駕駛投資檢驗。<a href=\"https://www.sec.gov/Archives/edgar/data/1318605/000162828026026673/tsla-20260331.htm\">來源</a></li></ul>\n<h3>未來與估值:值不值得</h3><p>現價約 406.43 美元，站內混合目標價約 45.7 美元，對應上行空間約 -88.8%。若股價隱含未來自由現金流長期成長約 —%，投資重點就不是只看題材，而是確認訂單、續約、利潤率與現金流是否跟得上這個期待。</p>\n<h3>要盯什麼(風險)</h3><ul><li>景氣循環反轉會讓客戶延後拉貨或資本支出。</li><li>關鍵客戶集中與價格競爭，可能壓縮毛利率。</li><li>若新技術或替代方案成熟，現有產品的議價力會下降。</li></ul>\n<h3>總結</h3><blockquote>Tesla 的投資判斷適合用「產業位置、現金流品質、估值期待」一起看。若後續營收與現金流延續，當前估值需要更高成長來支撐；若成長降速但市場仍給高期待，安全邊際會變薄。</blockquote><p class=\"disc\">非投資建議。</p>",
+  "val_bar_svg": "<svg viewBox='0 0 720 96' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><line x1='20' y1='52' x2='700' y2='52' stroke='#1a2238' stroke-width='2'/><rect x='47' y='48' width='100' height='8' fill='#00f3ff' opacity='.12'/><circle cx='23' cy='52' r='5' fill='#39d3ff'/><text x='23' y='34' fill='#39d3ff' font-size='11' text-anchor='middle'>可比</text><text x='23' y='47' fill='#39d3ff' font-size='11' text-anchor='middle' font-family='monospace'>$25.4</text><circle cx='47' cy='52' r='5' fill='#5c8cff'/><text x='47' y='78' fill='#5c8cff' font-size='11' text-anchor='middle'>悲觀</text><text x='47' y='91' fill='#5c8cff' font-size='11' text-anchor='middle' font-family='monospace'>$40</text><circle cx='57' cy='52' r='5' fill='#00ff9d'/><text x='57' y='34' fill='#00ff9d' font-size='11' text-anchor='middle'>混合目標</text><text x='57' y='47' fill='#00ff9d' font-size='11' text-anchor='middle' font-family='monospace'>$45.7</text><circle cx='90' cy='52' r='5' fill='#00f3ff'/><text x='90' y='78' fill='#00f3ff' font-size='11' text-anchor='middle'>DCF</text><text x='90' y='91' fill='#00f3ff' font-size='11' text-anchor='middle' font-family='monospace'>$66</text><circle cx='147' cy='52' r='5' fill='#b48cff'/><text x='147' y='34' fill='#b48cff' font-size='11' text-anchor='middle'>樂觀</text><text x='147' y='47' fill='#b48cff' font-size='11' text-anchor='middle' font-family='monospace'>$101</text><circle cx='647' cy='52' r='6' fill='#ffffff'/><text x='647' y='78' fill='#ffffff' font-size='11' text-anchor='middle'>現價</text><text x='647' y='91' fill='#ffffff' font-size='11' text-anchor='middle' font-family='monospace'>$406.43</text></svg>"
+}

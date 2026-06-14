@@ -3,7 +3,7 @@
   "name": "應用材料",
   "tier": "ready",
   "regime": "neutral",
-  "theme": "Semiconductor Equipment (WFE)",
+  "theme": "AI Compute",
   "business": "WFE 半導體設備龍頭(沉積/蝕刻/CMP/離子植入);先進製程+先進封裝雙受惠。",
   "why": "NEWS_CATALYST",
   "rsi": null,
@@ -128,24 +128,214 @@
   ],
   "peers": [
     {
-      "symbol": "ASML",
-      "name": "艾司摩爾",
+      "symbol": "LRCX",
+      "name": "科林研發",
+      "tier": "ready"
+    },
+    {
+      "symbol": "ARM",
+      "name": "安謀",
+      "tier": "ready"
+    },
+    {
+      "symbol": "AVGO",
+      "name": "博通",
+      "tier": "ready"
+    },
+    {
+      "symbol": "AMD",
+      "name": "超微",
       "tier": "enter"
-    },
-    {
-      "symbol": "KLIC",
-      "name": "庫力索法",
-      "tier": "ready"
-    },
-    {
-      "symbol": "TER",
-      "name": "泰瑞達",
-      "tier": "ready"
-    },
-    {
-      "symbol": "ACLS",
-      "name": "艾克塞利",
-      "tier": "ready"
     }
-  ]
+  ],
+  "price": 567.25,
+  "generated_at": "2026-06-14T14:42:46Z",
+  "health_grade": "A",
+  "health_score": 82,
+  "chain_position": {
+    "theme": "AI Compute",
+    "tier": "upstream",
+    "label": "Upstream Equipment"
+  },
+  "valuation": {
+    "dcf": {
+      "symbol": "AMAT",
+      "price": 567.25,
+      "method": "firm_level_fcf",
+      "fcf_firm_b": 5.7,
+      "shares_b": 0.81,
+      "net_debt_b": -0.2,
+      "growth_rate_assumed": 3.2,
+      "wacc": 9.5,
+      "terminal_growth": 4.0,
+      "intrinsic": 117.4,
+      "bull": 139.8,
+      "bear": 91.3,
+      "upside_pct": -79.3,
+      "scenarios": [
+        {
+          "scenario": "bull",
+          "intrinsic_per_share": 139.8,
+          "ev_b": 112.7,
+          "wacc": 9.0,
+          "terminal_g": 4.4,
+          "growth_yr1": 3.9
+        },
+        {
+          "scenario": "base",
+          "intrinsic_per_share": 117.4,
+          "ev_b": 94.7,
+          "wacc": 9.5,
+          "terminal_g": 4.0,
+          "growth_yr1": 3.2
+        },
+        {
+          "scenario": "bear",
+          "intrinsic_per_share": 91.3,
+          "ev_b": 73.6,
+          "wacc": 10.3,
+          "terminal_g": 3.2,
+          "growth_yr1": 1.9
+        }
+      ],
+      "inputs": {
+        "fcf_cagr_3y": 7.3,
+        "rev_cagr_3y": 3.2,
+        "roic_pct": 27.4,
+        "gross_margin_pct": 48.7,
+        "op_margin_pct": 29.2,
+        "fcf_margin_pct": 20.1
+      }
+    },
+    "reverse_dcf": {
+      "implied_growth_pct": 56.5,
+      "market_cap_b": 458.3,
+      "note": "現價隱含未來十年 FCF 年均成長 ~56.5%(用 WACC 9.5%)"
+    },
+    "comps_valuation": {
+      "pe_target": 617.5,
+      "ev_ebitda_target": 673.5,
+      "blended_comps": 645.5
+    },
+    "comps": {
+      "pe_target": 617.5,
+      "ev_ebitda_target": 673.5,
+      "blended_comps": 645.5
+    },
+    "blended_target": {
+      "target": 381.4,
+      "upside_pct": -32.8,
+      "components": {
+        "dcf": 117.4,
+        "comps": 645.5,
+        "comps_detail": {
+          "pe": 617.5,
+          "ev_ebitda": 673.5
+        }
+      },
+      "weights": {
+        "DCF": 0.5,
+        "可比": 0.5
+      }
+    },
+    "sensitivity": {
+      "waccs": [
+        8.5,
+        9.0,
+        9.5,
+        10.0,
+        10.5
+      ],
+      "term_gs": [
+        3.0,
+        3.5,
+        4.0,
+        4.5,
+        5.0
+      ],
+      "grid": [
+        [
+          124.0,
+          132.0,
+          143.0,
+          156.0,
+          173.0
+        ],
+        [
+          114.0,
+          120.0,
+          129.0,
+          139.0,
+          152.0
+        ],
+        [
+          105.0,
+          111.0,
+          117.0,
+          126.0,
+          135.0
+        ],
+        [
+          98.0,
+          102.0,
+          108.0,
+          114.0,
+          122.0
+        ],
+        [
+          91.0,
+          95.0,
+          100.0,
+          105.0,
+          112.0
+        ]
+      ]
+    },
+    "peer_median": {
+      "pe": 71.3,
+      "ev_ebitda": 57.1,
+      "fcf_yield": 1.4,
+      "rev_growth": 15.6
+    },
+    "peer_verdict": "低於同業估值",
+    "own_multiples": {
+      "pe": 52.9,
+      "ev_ebitda": 42.2,
+      "fcf_yield": 1.3
+    }
+  },
+  "financials": {
+    "latest": {
+      "revenue_b": 28.37,
+      "net_income_b": 7.0,
+      "fcf_b": 5.7,
+      "gross_margin": 48.7,
+      "op_margin": 29.2,
+      "net_margin": 24.7,
+      "fcf_margin": 20.1,
+      "roe": 34.3,
+      "roa": 19.3,
+      "roic": 27.4,
+      "current_ratio": 2.61,
+      "quick_ratio": 1.87,
+      "debt_equity": 0.35,
+      "net_debt_ebitda": -0.02,
+      "interest_coverage": 35.46,
+      "fcf_to_ni": 0.81,
+      "sbc_to_rev": 2.3,
+      "capex_to_rev": 8.0,
+      "rnd_to_rev": 12.6,
+      "shares_change_pct": -12.5,
+      "net_debt_b": -0.19,
+      "cash_b": 8.57
+    },
+    "growth": {
+      "rev_cagr_3y": 3.2,
+      "rev_cagr_5y": 10.5,
+      "eps_cagr_3y": 5.2,
+      "fcf_cagr_3y": 7.3
+    }
+  },
+  "report_html": "<p class=\"lead\">Applied Materials(AMAT) 是 Largest semiconductor equipment maker by revenue; broad exposure across deposition, etch, CMP, ion implant.；核心看點是它在 AI Compute 供應鏈中的位置，能不能把需求成長轉成可持續的現金流。</p>\n<figure><img src=\"https://www.sec.gov/Archives/edgar/data/6951/000162828026035071/applied-newsxreleasexlockua.jpg\" alt=\"Applied Materials 產品或品牌相關圖片\"><figcaption>來源:<a href=\"https://www.sec.gov/Archives/edgar/data/6951/000162828026035071/exhibit991q22026earningsre.htm\">Applied Materials SEC-filed official image</a></figcaption></figure>\n<h3>這家公司在做什麼</h3><p>Applied Materials 提供的是「Upstream Equipment」相關產品或服務。白話說，它把技術、製造、軟體或基礎設施能力交給客戶，讓客戶能做出更快的晶片、更安全的系統、更有效率的雲端服務，或更完整的終端產品。</p>\n<h3>它怎麼賺錢</h3><p>公司位在 AI Compute 的 upstream。它向客戶收取產品銷售、訂閱、授權、服務或租賃收入；真正的護城河通常來自客戶認證、長期合約、軟體生態、工程經驗與規模效益，而不是單一季度的熱點。</p>\n<h3>這門生意穩不穩</h3><p>穩定度要看兩件事：需求是不是來自多年期趨勢，以及公司能不能把收入變成現金。半導體與硬體會有庫存循環，軟體與資料中心通常較有續約或長約，但同樣會受預算與利率影響。</p><ul><li>站內模型顯示，最新收入約 28.37 億美元，自由現金流(公司賺到、可自由運用的現金)約 5.7 億美元；營業利益率(每賣 100 元留下多少營業利益)約 29.2%，自由現金流率約 20.1%，投入資本報酬率(投一塊錢賺回幾毛)約 27.4%。</li><li>過去三年營收年均成長約 3.2%，自由現金流年均成長約 7.3%；健康評等 A、分數 82，可用來判斷成長背後的財務品質。</li></ul>\n<h3>最近發生什麼</h3><ul><li>2026-05-14，Applied Materials 公布截至 2026-04-26 的季度營收 79.1 億美元、年增 11%；GAAP 毛利率 49.9%、營業利益 25.2 億美元、營業利益率 31.9%，GAAP 每股盈餘 3.51 美元，顯示晶圓廠設備投資仍支撐獲利。<a href=\"https://www.sec.gov/Archives/edgar/data/6951/000162828026035071/exhibit991q22026earningsre.htm\">來源</a></li></ul>\n<h3>未來與估值:值不值得</h3><p>現價約 567.25 美元，站內混合目標價約 381.4 美元，對應上行空間約 -32.8%。若股價隱含未來自由現金流長期成長約 56.5%，投資重點就不是只看題材，而是確認訂單、續約、利潤率與現金流是否跟得上這個期待。</p>\n<h3>要盯什麼(風險)</h3><ul><li>景氣循環反轉會讓客戶延後拉貨或資本支出。</li><li>關鍵客戶集中與價格競爭，可能壓縮毛利率。</li><li>若新技術或替代方案成熟，現有產品的議價力會下降。</li></ul>\n<h3>總結</h3><blockquote>Applied Materials 的投資判斷適合用「產業位置、現金流品質、估值期待」一起看。若後續營收與現金流延續，當前估值需要更高成長來支撐；若成長降速但市場仍給高期待，安全邊際會變薄。</blockquote><p class=\"disc\">非投資建議。</p>",
+  "val_bar_svg": "<svg viewBox='0 0 720 96' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><line x1='20' y1='52' x2='700' y2='52' stroke='#1a2238' stroke-width='2'/><rect x='28' y='48' width='54' height='8' fill='#00f3ff' opacity='.12'/><circle cx='28' cy='52' r='5' fill='#5c8cff'/><text x='28' y='34' fill='#5c8cff' font-size='11' text-anchor='middle'>悲觀</text><text x='28' y='47' fill='#5c8cff' font-size='11' text-anchor='middle' font-family='monospace'>$91.3</text><circle cx='57' cy='52' r='5' fill='#00f3ff'/><text x='57' y='78' fill='#00f3ff' font-size='11' text-anchor='middle'>DCF</text><text x='57' y='91' fill='#00f3ff' font-size='11' text-anchor='middle' font-family='monospace'>$117.4</text><circle cx='82' cy='52' r='5' fill='#b48cff'/><text x='82' y='34' fill='#b48cff' font-size='11' text-anchor='middle'>樂觀</text><text x='82' y='47' fill='#b48cff' font-size='11' text-anchor='middle' font-family='monospace'>$139.8</text><circle cx='350' cy='52' r='5' fill='#00ff9d'/><text x='350' y='78' fill='#00ff9d' font-size='11' text-anchor='middle'>混合目標</text><text x='350' y='91' fill='#00ff9d' font-size='11' text-anchor='middle' font-family='monospace'>$381.4</text><circle cx='556' cy='52' r='6' fill='#ffffff'/><text x='556' y='34' fill='#ffffff' font-size='11' text-anchor='middle'>現價</text><text x='556' y='47' fill='#ffffff' font-size='11' text-anchor='middle' font-family='monospace'>$567.25</text><circle cx='643' cy='52' r='5' fill='#39d3ff'/><text x='643' y='78' fill='#39d3ff' font-size='11' text-anchor='middle'>可比</text><text x='643' y='91' fill='#39d3ff' font-size='11' text-anchor='middle' font-family='monospace'>$645.5</text></svg>"
 }

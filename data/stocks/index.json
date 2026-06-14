@@ -1,33 +1,15 @@
 [
   {
-    "symbol": "ABB",
-    "name": "ABB",
+    "symbol": "AAPL",
+    "name": "蘋果",
     "tier": "watch",
-    "theme": "Electrification / Power"
-  },
-  {
-    "symbol": "ACLS",
-    "name": "艾克塞利",
-    "tier": "ready",
-    "theme": "Semiconductor Equipment (WFE)"
-  },
-  {
-    "symbol": "AEHR",
-    "name": "Aehr Test",
-    "tier": "watch",
-    "theme": "Semiconductor Equipment (WFE)"
-  },
-  {
-    "symbol": "AEIS",
-    "name": "先進能源",
-    "tier": "ready",
-    "theme": "Semiconductor Equipment (WFE)"
+    "theme": "Edge Computing / IoT"
   },
   {
     "symbol": "AMAT",
     "name": "應用材料",
     "tier": "ready",
-    "theme": "Semiconductor Equipment (WFE)"
+    "theme": "AI Compute"
   },
   {
     "symbol": "AMD",
@@ -36,10 +18,10 @@
     "theme": "AI Compute"
   },
   {
-    "symbol": "AMZN",
-    "name": "亞馬遜",
+    "symbol": "AMT",
+    "name": "美國電塔",
     "tier": "watch",
-    "theme": "AI Compute"
+    "theme": "REIT — Telecom Infra"
   },
   {
     "symbol": "ANET",
@@ -57,7 +39,7 @@
     "symbol": "ASML",
     "name": "艾司摩爾",
     "tier": "enter",
-    "theme": "Semiconductor Equipment (WFE)"
+    "theme": "AI Compute"
   },
   {
     "symbol": "AVGO",
@@ -66,28 +48,16 @@
     "theme": "AI Compute"
   },
   {
-    "symbol": "BAC",
-    "name": "Bank of America Corporation",
-    "tier": "ready",
-    "theme": "Banks"
-  },
-  {
-    "symbol": "BEPC",
-    "name": "Brookfield Renewable Corporatio",
-    "tier": "watch",
-    "theme": "Solar / Renewables"
-  },
-  {
-    "symbol": "C",
-    "name": "Citigroup, Inc.",
-    "tier": "ready",
-    "theme": "Banks"
-  },
-  {
     "symbol": "CEG",
     "name": "Constellation Energy",
     "tier": "watch",
     "theme": "Nuclear / SMR"
+  },
+  {
+    "symbol": "CRM",
+    "name": "CRM",
+    "tier": "watch",
+    "theme": "AI Software"
   },
   {
     "symbol": "CRWD",
@@ -96,22 +66,22 @@
     "theme": "Cybersecurity"
   },
   {
-    "symbol": "CSCO",
-    "name": "Cisco Systems, Inc.",
-    "tier": "ready",
-    "theme": "Cloud Infrastructure"
-  },
-  {
     "symbol": "CYBR",
     "name": "CYBR",
     "tier": "ready",
     "theme": "Cybersecurity"
   },
   {
-    "symbol": "ENB",
-    "name": "Enbridge Inc",
-    "tier": "ready",
-    "theme": "Electrification / Power"
+    "symbol": "DDOG",
+    "name": "DDOG",
+    "tier": "watch",
+    "theme": "AI Software"
+  },
+  {
+    "symbol": "DLR",
+    "name": "DLR",
+    "tier": "watch",
+    "theme": "Cloud Infrastructure"
   },
   {
     "symbol": "ENTG",
@@ -126,16 +96,16 @@
     "theme": "Cloud Infrastructure"
   },
   {
+    "symbol": "ETN",
+    "name": "伊頓",
+    "tier": "watch",
+    "theme": "Electrification / Power"
+  },
+  {
     "symbol": "FTNT",
     "name": "Fortinet",
     "tier": "enter",
     "theme": "Cybersecurity"
-  },
-  {
-    "symbol": "GEV",
-    "name": "GE Vernova",
-    "tier": "watch",
-    "theme": "Electrification / Power"
   },
   {
     "symbol": "GFS",
@@ -144,16 +114,10 @@
     "theme": "AI Compute"
   },
   {
-    "symbol": "HON",
-    "name": "霍尼韋爾",
+    "symbol": "GOOG",
+    "name": "Alphabet",
     "tier": "watch",
-    "theme": "Quantum Computing"
-  },
-  {
-    "symbol": "IBM",
-    "name": "IBM",
-    "tier": "watch",
-    "theme": "Quantum Computing"
+    "theme": "AI Compute"
   },
   {
     "symbol": "INTC",
@@ -162,16 +126,10 @@
     "theme": "AI Compute"
   },
   {
-    "symbol": "ISRG",
-    "name": "Intuitive Surgical",
-    "tier": "watch",
-    "theme": "Healthcare AI"
-  },
-  {
     "symbol": "KLAC",
     "name": "科磊",
     "tier": "ready",
-    "theme": "Semiconductor Equipment (WFE)"
+    "theme": "AI Compute"
   },
   {
     "symbol": "KLIC",
@@ -186,28 +144,22 @@
     "theme": "AI Compute"
   },
   {
-    "symbol": "META",
-    "name": "Meta",
-    "tier": "watch",
-    "theme": "AI Compute"
-  },
-  {
-    "symbol": "MKSI",
-    "name": "MKS Inc.",
-    "tier": "enter",
-    "theme": "AI Compute"
-  },
-  {
     "symbol": "MRVL",
     "name": "美滿科技",
     "tier": "watch",
-    "theme": "Memory (HBM / DRAM / NAND)"
+    "theme": "AI Compute"
+  },
+  {
+    "symbol": "MSFT",
+    "name": "微軟",
+    "tier": "watch",
+    "theme": "AI Compute"
   },
   {
     "symbol": "MU",
     "name": "美光",
     "tier": "ready",
-    "theme": "Memory (HBM / DRAM / NAND)"
+    "theme": "AI Compute"
   },
   {
     "symbol": "NOW",
@@ -216,52 +168,58 @@
     "theme": "AI Software"
   },
   {
+    "symbol": "NVDA",
+    "name": "輝達",
+    "tier": "watch",
+    "theme": "AI Compute"
+  },
+  {
     "symbol": "ONTO",
     "name": "Onto Innovation",
     "tier": "watch",
     "theme": "AI Compute"
   },
   {
-    "symbol": "ROK",
-    "name": "羅克韋爾自動化",
-    "tier": "ready",
-    "theme": "Industrial Automation"
+    "symbol": "PANW",
+    "name": "派拓網路",
+    "tier": "watch",
+    "theme": "Cybersecurity"
   },
   {
-    "symbol": "SIMO",
-    "name": "慧榮科技",
-    "tier": "ready",
-    "theme": "Memory (HBM / DRAM / NAND)"
+    "symbol": "PLTR",
+    "name": "Palantir",
+    "tier": "watch",
+    "theme": "AI Software"
   },
   {
-    "symbol": "SNDK",
-    "name": "SanDisk",
-    "tier": "ready",
-    "theme": "Memory (HBM / DRAM / NAND)"
-  },
-  {
-    "symbol": "STX",
-    "name": "希捷",
-    "tier": "ready",
-    "theme": "Memory (HBM / DRAM / NAND)"
+    "symbol": "SNOW",
+    "name": "SNOW",
+    "tier": "watch",
+    "theme": "AI Software"
   },
   {
     "symbol": "TER",
     "name": "泰瑞達",
     "tier": "ready",
-    "theme": "Semiconductor Equipment (WFE)"
+    "theme": "AI Compute"
   },
   {
-    "symbol": "VEEV",
-    "name": "Veeva Systems Inc.",
-    "tier": "ready",
-    "theme": "Healthcare AI"
+    "symbol": "TSLA",
+    "name": "特斯拉",
+    "tier": "watch",
+    "theme": "AI Robotics / Automation"
+  },
+  {
+    "symbol": "TSM",
+    "name": "台積電",
+    "tier": "watch",
+    "theme": "AI Compute"
   },
   {
     "symbol": "VRT",
     "name": "Vertiv",
     "tier": "ready",
-    "theme": "Data Center"
+    "theme": "Electrification / Power"
   },
   {
     "symbol": "VST",
@@ -273,6 +231,12 @@
     "symbol": "WDC",
     "name": "威騰電子",
     "tier": "ready",
-    "theme": "Memory (HBM / DRAM / NAND)"
+    "theme": "AI Compute"
+  },
+  {
+    "symbol": "ZS",
+    "name": "Zscaler",
+    "tier": "watch",
+    "theme": "Cybersecurity"
   }
 ]

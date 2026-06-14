@@ -93,6 +93,9 @@
     return;
   }
   loading.style.display = 'none';
+  // 已寫深度分析的個股(有頁面可點);其餘只顯示排名、不連結(避免 404)
+  let written = new Set();
+  try { (await (await fetch('/data/stocks/index.json')).json()).forEach(x => written.add(x.symbol)); } catch {}
   if (d.method) document.getElementById('pool-method').textContent = d.method;  // 有就用引擎版,否則保留靜態說明
   document.getElementById('pool-date').textContent = d.date ? ('資料日期 · ' + d.date) : '';
 
@@ -147,13 +150,16 @@
     const rows = (t.stocks || []).map(s => {
       const dot = (s.is_recent || s.is_pick) ? '<span class="sr-dot sr-pick" title="近三期曾入精選">近期推薦</span>'
                 : s.is_watch ? '<span class="sr-dot sr-watch" title="潛力觀察">潛力</span>' : '';
-      return `<a class="sr-row" href="stock.html?t=${s.symbol}">
+      const has = written.has(s.symbol);
+      const inner = `
         <span class="sr-rank">#${s.rank}</span>
         <span class="sr-sym">${s.symbol}</span>
         <span class="sr-name">${s.name || ''}</span>
-        ${dot}
-        <span class="sr-score" style="color:${s.score_kind === 'tech' ? '#ffd000' : '#00ff9d'}" title="${s.score_kind === 'tech' ? '技術基本分' : '引擎綜合分'}">${s.composite == null ? '' : (+s.composite).toFixed(2)}</span>
-      </a>`;
+        ${has ? '<span class="sr-dot sr-pick" title="有深度分析">分析</span>' : ''}${dot}
+        <span class="sr-score" style="color:${s.score_kind === 'tech' ? '#ffd000' : '#00ff9d'}" title="${s.score_kind === 'tech' ? '技術基本分' : '引擎綜合分'}">${s.composite == null ? '' : (+s.composite).toFixed(2)}</span>`;
+      return has
+        ? `<a class="sr-row" href="stock.html?t=${s.symbol}">${inner}</a>`
+        : `<div class="sr-row" style="cursor:default;opacity:.72;">${inner}</div>`;
     }).join('');
     return `<div class="theme-card">
       <div class="tc-head">

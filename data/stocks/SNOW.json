@@ -1,0 +1,238 @@
+{
+  "symbol": "SNOW",
+  "name": "SNOW",
+  "tier": "watch",
+  "regime": "neutral",
+  "theme": "AI Software",
+  "business": "",
+  "why": null,
+  "rsi": null,
+  "sma50": null,
+  "sma200": null,
+  "factors": [],
+  "tracking": [],
+  "links": [
+    {
+      "label": "Finviz",
+      "desc": "技術快照 / 圖",
+      "href": "https://finviz.com/quote.ashx?t=SNOW"
+    },
+    {
+      "label": "StockAnalysis",
+      "desc": "財報 / 估值",
+      "href": "https://stockanalysis.com/stocks/SNOW/"
+    },
+    {
+      "label": "TradingView",
+      "desc": "互動圖",
+      "href": "https://www.tradingview.com/symbols/SNOW/"
+    },
+    {
+      "label": "Macrotrends",
+      "desc": "長期財務",
+      "href": "https://www.macrotrends.net/stocks/charts/SNOW/x/"
+    },
+    {
+      "label": "TipRanks",
+      "desc": "分析師",
+      "href": "https://www.tipranks.com/stocks/SNOW/forecast"
+    }
+  ],
+  "peers": [
+    {
+      "symbol": "NOW",
+      "name": "ServiceNow",
+      "tier": "watch"
+    }
+  ],
+  "price": 232.78,
+  "generated_at": "2026-06-14T14:42:46Z",
+  "health_grade": "C",
+  "health_score": 50,
+  "chain_position": {
+    "theme": "AI Software",
+    "tier": "upstream",
+    "label": "Infra"
+  },
+  "valuation": {
+    "dcf": {
+      "symbol": "SNOW",
+      "price": 232.78,
+      "method": "firm_level_fcf",
+      "fcf_firm_b": 1.1,
+      "shares_b": 0.34,
+      "net_debt_b": -0.1,
+      "growth_rate_assumed": 26.0,
+      "wacc": 10.5,
+      "terminal_growth": 4.0,
+      "intrinsic": 103.1,
+      "bull": 143.2,
+      "bear": 59.1,
+      "upside_pct": -55.7,
+      "scenarios": [
+        {
+          "scenario": "bull",
+          "intrinsic_per_share": 143.2,
+          "ev_b": 48.2,
+          "wacc": 10.0,
+          "terminal_g": 4.4,
+          "growth_yr1": 31.7
+        },
+        {
+          "scenario": "base",
+          "intrinsic_per_share": 103.1,
+          "ev_b": 34.7,
+          "wacc": 10.5,
+          "terminal_g": 4.0,
+          "growth_yr1": 26.0
+        },
+        {
+          "scenario": "bear",
+          "intrinsic_per_share": 59.1,
+          "ev_b": 19.9,
+          "wacc": 11.3,
+          "terminal_g": 3.2,
+          "growth_yr1": 15.1
+        }
+      ],
+      "inputs": {
+        "fcf_cagr_3y": 29.1,
+        "rev_cagr_3y": 31.4,
+        "roic_pct": -22.1,
+        "gross_margin_pct": 67.2,
+        "op_margin_pct": -30.6,
+        "fcf_margin_pct": 23.9
+      }
+    },
+    "reverse_dcf": {
+      "implied_growth_pct": 57.1,
+      "market_cap_b": 78.6,
+      "note": "現價隱含未來十年 FCF 年均成長 ~57.1%(用 WACC 10.5%)"
+    },
+    "comps_valuation": {
+      "pe_target": null,
+      "ev_ebitda_target": -1133.8,
+      "blended_comps": -1133.8
+    },
+    "comps": {
+      "pe_target": null,
+      "ev_ebitda_target": -1133.8,
+      "blended_comps": -1133.8
+    },
+    "blended_target": {
+      "target": -515.4,
+      "upside_pct": -321.4,
+      "components": {
+        "dcf": 103.1,
+        "comps": -1133.8,
+        "comps_detail": {
+          "pe": null,
+          "ev_ebitda": -1133.8
+        }
+      },
+      "weights": {
+        "DCF": 0.5,
+        "可比": 0.5
+      }
+    },
+    "sensitivity": {
+      "waccs": [
+        9.5,
+        10.0,
+        10.5,
+        11.0,
+        11.5
+      ],
+      "term_gs": [
+        3.0,
+        3.5,
+        4.0,
+        4.5,
+        5.0
+      ],
+      "grid": [
+        [
+          109.0,
+          115.0,
+          123.0,
+          132.0,
+          144.0
+        ],
+        [
+          100.0,
+          106.0,
+          112.0,
+          120.0,
+          129.0
+        ],
+        [
+          93.0,
+          98.0,
+          103.0,
+          109.0,
+          117.0
+        ],
+        [
+          87.0,
+          91.0,
+          95.0,
+          100.0,
+          106.0
+        ],
+        [
+          81.0,
+          85.0,
+          89.0,
+          93.0,
+          98.0
+        ]
+      ]
+    },
+    "peer_median": {
+      "pe": 307.9,
+      "ev_ebitda": 232.4,
+      "fcf_yield": 1.8,
+      "rev_growth": 25.2
+    },
+    "peer_verdict": "資料不足",
+    "own_multiples": {
+      "pe": null,
+      "ev_ebitda": -86.9,
+      "fcf_yield": 1.4
+    }
+  },
+  "financials": {
+    "latest": {
+      "revenue_b": 4.68,
+      "net_income_b": -1.33,
+      "fcf_b": 1.12,
+      "gross_margin": 67.2,
+      "op_margin": -30.6,
+      "net_margin": -28.4,
+      "fcf_margin": 23.9,
+      "roe": -69.2,
+      "roa": -14.6,
+      "roic": -22.1,
+      "current_ratio": 1.3,
+      "quick_ratio": 1.3,
+      "debt_equity": 1.42,
+      "net_debt_ebitda": 0.08,
+      "interest_coverage": -157.1,
+      "fcf_to_ni": -0.84,
+      "sbc_to_rev": 34.1,
+      "capex_to_rev": 2.2,
+      "rnd_to_rev": 42.0,
+      "shares_change_pct": 17.2,
+      "net_debt_b": -0.09,
+      "cash_b": 4.03
+    },
+    "growth": {
+      "rev_cagr_3y": 31.4,
+      "rev_cagr_5y": 51.2,
+      "eps_cagr_3y": null,
+      "fcf_cagr_3y": 29.1
+    }
+  },
+  "report_html": "<p class=\"lead\">SNOW(SNOW) 是 供應鏈公司；核心看點是它在 AI Software 供應鏈中的位置，能不能把需求成長轉成可持續的現金流。</p>\n<figure><img src=\"https://www.sec.gov/Archives/edgar/data/1640147/000164014726000027/imagea.jpg\" alt=\"SNOW 產品或品牌相關圖片\"><figcaption>來源:<a href=\"https://www.sec.gov/Archives/edgar/data/1640147/000164014726000027/fy2027q1earnings.htm\">Snowflake SEC-filed official image</a></figcaption></figure>\n<h3>這家公司在做什麼</h3><p>SNOW 提供的是「Infra」相關產品或服務。白話說，它把技術、製造、軟體或基礎設施能力交給客戶，讓客戶能做出更快的晶片、更安全的系統、更有效率的雲端服務，或更完整的終端產品。</p>\n<h3>它怎麼賺錢</h3><p>公司位在 AI Software 的 upstream。它向客戶收取產品銷售、訂閱、授權、服務或租賃收入；真正的護城河通常來自客戶認證、長期合約、軟體生態、工程經驗與規模效益，而不是單一季度的熱點。</p>\n<h3>這門生意穩不穩</h3><p>穩定度要看兩件事：需求是不是來自多年期趨勢，以及公司能不能把收入變成現金。半導體與硬體會有庫存循環，軟體與資料中心通常較有續約或長約，但同樣會受預算與利率影響。</p><ul><li>站內模型顯示，最新收入約 4.68 億美元，自由現金流(公司賺到、可自由運用的現金)約 1.12 億美元；營業利益率(每賣 100 元留下多少營業利益)約 -30.6%，自由現金流率約 23.9%，投入資本報酬率(投一塊錢賺回幾毛)約 -22.1%。</li><li>過去三年營收年均成長約 31.4%，自由現金流年均成長約 29.1%；健康評等 C、分數 50，可用來判斷成長背後的財務品質。</li></ul>\n<h3>最近發生什麼</h3><ul><li>2026-05-27，Snowflake 公布 2027 會計年度第一季產品收入 13.3 億美元、年增 34%，總收入 13.9 億美元、年增 33%；淨收入留存率 126%，過去 12 個月產品收入超過 100 萬美元的客戶達 779 家，剩餘履約義務 92.1 億美元，資料雲消費仍在擴大。<a href=\"https://www.sec.gov/Archives/edgar/data/1640147/000164014726000027/fy2027q1earnings.htm\">來源</a></li></ul>\n<h3>未來與估值:值不值得</h3><p>現價約 232.78 美元，站內混合目標價約 -515.4 美元，對應上行空間約 -321.4%。若股價隱含未來自由現金流長期成長約 57.1%，投資重點就不是只看題材，而是確認訂單、續約、利潤率與現金流是否跟得上這個期待。</p>\n<h3>要盯什麼(風險)</h3><ul><li>企業人工智慧專案若延後落地，軟體消費與續約擴張會放慢。</li><li>雲端成本若上升，可能壓縮毛利率或自由現金流。</li><li>大型平台競爭加劇，會讓客戶採購更集中。</li></ul>\n<h3>總結</h3><blockquote>SNOW 的投資判斷適合用「產業位置、現金流品質、估值期待」一起看。若後續營收與現金流延續，當前估值需要更高成長來支撐；若成長降速但市場仍給高期待，安全邊際會變薄。</blockquote><p class=\"disc\">非投資建議。</p>",
+  "val_bar_svg": "<svg viewBox='0 0 720 96' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><line x1='20' y1='52' x2='700' y2='52' stroke='#1a2238' stroke-width='2'/><rect x='36' y='48' width='290' height='8' fill='#00f3ff' opacity='.12'/><circle cx='36' cy='52' r='5' fill='#5c8cff'/><text x='36' y='34' fill='#5c8cff' font-size='11' text-anchor='middle'>悲觀</text><text x='36' y='47' fill='#5c8cff' font-size='11' text-anchor='middle' font-family='monospace'>$59.1</text><circle cx='188' cy='52' r='5' fill='#00f3ff'/><text x='188' y='78' fill='#00f3ff' font-size='11' text-anchor='middle'>DCF</text><text x='188' y='91' fill='#00f3ff' font-size='11' text-anchor='middle' font-family='monospace'>$103.1</text><circle cx='327' cy='52' r='5' fill='#b48cff'/><text x='327' y='34' fill='#b48cff' font-size='11' text-anchor='middle'>樂觀</text><text x='327' y='47' fill='#b48cff' font-size='11' text-anchor='middle' font-family='monospace'>$143.2</text><circle cx='636' cy='52' r='6' fill='#ffffff'/><text x='636' y='78' fill='#ffffff' font-size='11' text-anchor='middle'>現價</text><text x='636' y='91' fill='#ffffff' font-size='11' text-anchor='middle' font-family='monospace'>$232.78</text></svg>"
+}

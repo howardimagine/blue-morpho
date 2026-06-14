@@ -163,5 +163,195 @@
       "name": "亞馬遜",
       "tier": "watch"
     }
-  ]
+  ],
+  "price": 366.81,
+  "generated_at": "2026-06-14T14:42:46Z",
+  "health_grade": "A",
+  "health_score": 97,
+  "chain_position": {
+    "theme": "AI Compute",
+    "tier": "upstream",
+    "label": "Upstream Equipment"
+  },
+  "valuation": {
+    "dcf": {
+      "symbol": "LRCX",
+      "price": 366.81,
+      "method": "firm_level_fcf",
+      "fcf_firm_b": 5.4,
+      "shares_b": 1.29,
+      "net_debt_b": -1.6,
+      "growth_rate_assumed": 3.0,
+      "wacc": 9.5,
+      "terminal_growth": 4.0,
+      "intrinsic": 70.5,
+      "bull": 83.5,
+      "bear": 55.3,
+      "upside_pct": -80.8,
+      "scenarios": [
+        {
+          "scenario": "bull",
+          "intrinsic_per_share": 83.5,
+          "ev_b": 106.1,
+          "wacc": 9.0,
+          "terminal_g": 4.4,
+          "growth_yr1": 3.7
+        },
+        {
+          "scenario": "base",
+          "intrinsic_per_share": 70.5,
+          "ev_b": 89.3,
+          "wacc": 9.5,
+          "terminal_g": 4.0,
+          "growth_yr1": 3.0
+        },
+        {
+          "scenario": "bear",
+          "intrinsic_per_share": 55.3,
+          "ev_b": 69.6,
+          "wacc": 10.3,
+          "terminal_g": 3.2,
+          "growth_yr1": 1.7
+        }
+      ],
+      "inputs": {
+        "fcf_cagr_3y": 28.5,
+        "rev_cagr_3y": 2.3,
+        "roic_pct": 32.2,
+        "gross_margin_pct": 48.7,
+        "op_margin_pct": 32.0,
+        "fcf_margin_pct": 29.4
+      }
+    },
+    "reverse_dcf": {
+      "implied_growth_pct": 59.2,
+      "market_cap_b": 473.2,
+      "note": "現價隱含未來十年 FCF 年均成長 ~59.2%(用 WACC 9.5%)"
+    },
+    "comps_valuation": {
+      "pe_target": 295.9,
+      "ev_ebitda_target": 301.1,
+      "blended_comps": 298.5
+    },
+    "comps": {
+      "pe_target": 295.9,
+      "ev_ebitda_target": 301.1,
+      "blended_comps": 298.5
+    },
+    "blended_target": {
+      "target": 184.5,
+      "upside_pct": -49.7,
+      "components": {
+        "dcf": 70.5,
+        "comps": 298.5,
+        "comps_detail": {
+          "pe": 295.9,
+          "ev_ebitda": 301.1
+        }
+      },
+      "weights": {
+        "DCF": 0.5,
+        "可比": 0.5
+      }
+    },
+    "sensitivity": {
+      "waccs": [
+        8.5,
+        9.0,
+        9.5,
+        10.0,
+        10.5
+      ],
+      "term_gs": [
+        3.0,
+        3.5,
+        4.0,
+        4.5,
+        5.0
+      ],
+      "grid": [
+        [
+          74.0,
+          79.0,
+          85.0,
+          93.0,
+          103.0
+        ],
+        [
+          68.0,
+          72.0,
+          77.0,
+          83.0,
+          91.0
+        ],
+        [
+          63.0,
+          67.0,
+          70.0,
+          75.0,
+          81.0
+        ],
+        [
+          59.0,
+          62.0,
+          65.0,
+          69.0,
+          73.0
+        ],
+        [
+          55.0,
+          57.0,
+          60.0,
+          63.0,
+          67.0
+        ]
+      ]
+    },
+    "peer_median": {
+      "pe": 71.3,
+      "ev_ebitda": 57.0,
+      "fcf_yield": 1.3,
+      "rev_growth": 13.1
+    },
+    "peer_verdict": "接近同業估值中位",
+    "own_multiples": {
+      "pe": 68.3,
+      "ev_ebitda": 57.3,
+      "fcf_yield": 1.4
+    }
+  },
+  "financials": {
+    "latest": {
+      "revenue_b": 18.44,
+      "net_income_b": 5.36,
+      "fcf_b": 5.41,
+      "gross_margin": 48.7,
+      "op_margin": 32.0,
+      "net_margin": 29.1,
+      "fcf_margin": 29.4,
+      "roe": 54.3,
+      "roa": 25.1,
+      "roic": 32.2,
+      "current_ratio": 2.21,
+      "quick_ratio": 1.55,
+      "debt_equity": 0.48,
+      "net_debt_ebitda": -0.26,
+      "interest_coverage": 33.43,
+      "fcf_to_ni": 1.01,
+      "sbc_to_rev": 1.9,
+      "capex_to_rev": 4.1,
+      "rnd_to_rev": 11.4,
+      "shares_change_pct": -13.5,
+      "net_debt_b": -1.63,
+      "cash_b": 6.39
+    },
+    "growth": {
+      "rev_cagr_3y": 2.3,
+      "rev_cagr_5y": 12.9,
+      "eps_cagr_3y": 8.3,
+      "fcf_cagr_3y": 28.5
+    }
+  },
+  "report_html": "<p class=\"lead\">Lam Research(LRCX) 是 Etch + deposition leader; HBM and 3D NAND CapEx torque; second beneficiary of WFE upcycle after KLAC/AMAT.；核心看點是它在 AI Compute 供應鏈中的位置，能不能把需求成長轉成可持續的現金流。</p>\n<figure><img src=\"https://www.sec.gov/Archives/edgar/data/707549/000070754925000075/lrcx_logo.jpg\" alt=\"Lam Research 產品或品牌相關圖片\"><figcaption>來源:<a href=\"https://www.sec.gov/Archives/edgar/data/707549/000070754925000075/\">Lam Research SEC-filed official image</a></figcaption></figure>\n<h3>這家公司在做什麼</h3><p>Lam Research 提供的是「Upstream Equipment」相關產品或服務。白話說，它把技術、製造、軟體或基礎設施能力交給客戶，讓客戶能做出更快的晶片、更安全的系統、更有效率的雲端服務，或更完整的終端產品。</p>\n<h3>它怎麼賺錢</h3><p>公司位在 AI Compute 的 upstream。它向客戶收取產品銷售、訂閱、授權、服務或租賃收入；真正的護城河通常來自客戶認證、長期合約、軟體生態、工程經驗與規模效益，而不是單一季度的熱點。</p>\n<h3>這門生意穩不穩</h3><p>穩定度要看兩件事：需求是不是來自多年期趨勢，以及公司能不能把收入變成現金。半導體與硬體會有庫存循環，軟體與資料中心通常較有續約或長約，但同樣會受預算與利率影響。</p><ul><li>站內模型顯示，最新收入約 18.44 億美元，自由現金流(公司賺到、可自由運用的現金)約 5.41 億美元；營業利益率(每賣 100 元留下多少營業利益)約 32.0%，自由現金流率約 29.4%，投入資本報酬率(投一塊錢賺回幾毛)約 32.2%。</li><li>過去三年營收年均成長約 2.3%，自由現金流年均成長約 28.5%；健康評等 A、分數 97，可用來判斷成長背後的財務品質。</li></ul>\n<h3>最近發生什麼</h3><ul><li>2026-04-22，Lam Research 公布截至 2026-03-29 的季度營收 58.41 億美元、季增 9%；GAAP 毛利率 49.8%、營業利益率 35.0%、稀釋每股盈餘 1.45 美元，非 GAAP 毛利率 49.9%、稀釋每股盈餘 1.47 美元，記憶體與先進製程設備需求仍在高檔。<a href=\"https://www.sec.gov/Archives/edgar/data/707549/000070754926000020/lrcx_exhibitx991xq3x2026.htm\">來源</a></li></ul>\n<h3>未來與估值:值不值得</h3><p>現價約 366.81 美元，站內混合目標價約 184.5 美元，對應上行空間約 -49.7%。若股價隱含未來自由現金流長期成長約 59.2%，投資重點就不是只看題材，而是確認訂單、續約、利潤率與現金流是否跟得上這個期待。</p>\n<h3>要盯什麼(風險)</h3><ul><li>景氣循環反轉會讓客戶延後拉貨或資本支出。</li><li>關鍵客戶集中與價格競爭，可能壓縮毛利率。</li><li>若新技術或替代方案成熟，現有產品的議價力會下降。</li></ul>\n<h3>總結</h3><blockquote>Lam Research 的投資判斷適合用「產業位置、現金流品質、估值期待」一起看。若後續營收與現金流延續，當前估值需要更高成長來支撐；若成長降速但市場仍給高期待，安全邊際會變薄。</blockquote><p class=\"disc\">非投資建議。</p>",
+  "val_bar_svg": "<svg viewBox='0 0 720 96' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><line x1='20' y1='52' x2='700' y2='52' stroke='#1a2238' stroke-width='2'/><rect x='29' y='48' width='56' height='8' fill='#00f3ff' opacity='.12'/><circle cx='29' cy='52' r='5' fill='#5c8cff'/><text x='29' y='34' fill='#5c8cff' font-size='11' text-anchor='middle'>悲觀</text><text x='29' y='47' fill='#5c8cff' font-size='11' text-anchor='middle' font-family='monospace'>$55.3</text><circle cx='59' cy='52' r='5' fill='#00f3ff'/><text x='59' y='78' fill='#00f3ff' font-size='11' text-anchor='middle'>DCF</text><text x='59' y='91' fill='#00f3ff' font-size='11' text-anchor='middle' font-family='monospace'>$70.5</text><circle cx='84' cy='52' r='5' fill='#b48cff'/><text x='84' y='34' fill='#b48cff' font-size='11' text-anchor='middle'>樂觀</text><text x='84' y='47' fill='#b48cff' font-size='11' text-anchor='middle' font-family='monospace'>$83.5</text><circle cx='283' cy='52' r='5' fill='#00ff9d'/><text x='283' y='78' fill='#00ff9d' font-size='11' text-anchor='middle'>混合目標</text><text x='283' y='91' fill='#00ff9d' font-size='11' text-anchor='middle' font-family='monospace'>$184.5</text><circle cx='508' cy='52' r='5' fill='#39d3ff'/><text x='508' y='34' fill='#39d3ff' font-size='11' text-anchor='middle'>可比</text><text x='508' y='47' fill='#39d3ff' font-size='11' text-anchor='middle' font-family='monospace'>$298.5</text><circle cx='642' cy='52' r='6' fill='#ffffff'/><text x='642' y='78' fill='#ffffff' font-size='11' text-anchor='middle'>現價</text><text x='642' y='91' fill='#ffffff' font-size='11' text-anchor='middle' font-family='monospace'>$366.81</text></svg>"
 }

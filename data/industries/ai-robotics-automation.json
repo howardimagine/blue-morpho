@@ -1,0 +1,120 @@
+{
+  "theme": "AI Robotics / Automation",
+  "slug": "ai-robotics-automation",
+  "generated_at": "2026-06-14T14:42:46Z",
+  "tier_data": {
+    "upstream": {
+      "感測/視覺/條碼": [
+        "TER",
+        "ZBRA"
+      ]
+    },
+    "midstream": {
+      "機器人/自動化本體": [
+        "ROK",
+        "ABB",
+        "FANUY",
+        "ISRG"
+      ]
+    },
+    "downstream": {
+      "應用:人形/倉儲": [
+        "TSLA",
+        "AMZN",
+        "SYM"
+      ]
+    }
+  },
+  "profit_pool": {
+    "theme": "AI Robotics / Automation",
+    "tiers": [
+      {
+        "tier": "upstream",
+        "label_zh": "上游",
+        "industries": [
+          "感測/視覺/條碼"
+        ],
+        "margin_gross": 52.2,
+        "margin_op": 18.2,
+        "margin_fcf": 14.8,
+        "roic": 12.2,
+        "sample_n": 2,
+        "leaders": [
+          {
+            "symbol": "TER",
+            "op_margin": 21.7,
+            "health_grade": "B"
+          },
+          {
+            "symbol": "ZBRA",
+            "op_margin": 14.8,
+            "health_grade": "D"
+          }
+        ]
+      },
+      {
+        "tier": "midstream",
+        "label_zh": "中游",
+        "industries": [
+          "機器人/自動化本體"
+        ],
+        "margin_gross": 43.2,
+        "margin_op": 19.2,
+        "margin_fcf": 20.5,
+        "roic": 12.3,
+        "sample_n": 4,
+        "leaders": [
+          {
+            "symbol": "ISRG",
+            "op_margin": 29.3,
+            "health_grade": "B"
+          },
+          {
+            "symbol": "FANUY",
+            "op_margin": 21.4,
+            "health_grade": "B"
+          },
+          {
+            "symbol": "ROK",
+            "op_margin": 17.1,
+            "health_grade": "B"
+          }
+        ]
+      },
+      {
+        "tier": "downstream",
+        "label_zh": "下游",
+        "industries": [
+          "應用:人形/倉儲"
+        ],
+        "margin_gross": 18.8,
+        "margin_op": 4.6,
+        "margin_fcf": 6.6,
+        "roic": 4.9,
+        "sample_n": 3,
+        "leaders": [
+          {
+            "symbol": "AMZN",
+            "op_margin": 11.2,
+            "health_grade": "C"
+          },
+          {
+            "symbol": "TSLA",
+            "op_margin": 4.6,
+            "health_grade": "C"
+          },
+          {
+            "symbol": "SYM",
+            "op_margin": -4.1,
+            "health_grade": "D"
+          }
+        ]
+      }
+    ],
+    "deepest_pool": "midstream",
+    "deepest_pool_zh": "中游"
+  },
+  "report_html": "<p class=\"lead\">AI Robotics / Automation 是把技術需求變成可交付產品、軟體或服務的產業鏈；現在最重要的是資本支出、產能與客戶預算如何沿著上中下游傳導。</p>\n<figure><img src=\"https://upload.wikimedia.org/wikipedia/commons/5/5b/Industrial_robot.jpg\" alt=\"AI Robotics / Automation 產業示意\"><figcaption>來源:<a href=\"https://commons.wikimedia.org/wiki/File:Industrial_robot.jpg\">Wikimedia Commons / industrial robot</a></figcaption></figure>\n<h3>這個產業在做什麼</h3><p>AI Robotics / Automation 的共同點，是客戶不是買一個單點零件，而是在買效率、安全、產能或醫療流程改善。上游提供底層工具與資料，中游把技術做成平台或設備，下游再把能力交付給企業、工廠、醫院或消費者。</p>\n<h3>錢怎麼流(上中下游)</h3><p>站內供應鏈圖把它拆成三層：upstream 包含 感測/視覺/條碼；midstream 包含 機器人/自動化本體；downstream 包含 應用:人形/倉儲。錢通常從下游客戶的預算開始，透過訂閱、設備採購、服務合約或資本支出流向中游，再擴散到上游資料、零組件、工具與基礎設施。</p>\n<h3>哪一層最賺</h3><p>利潤池顯示：上游營業利益率約 18.2%、投入資本報酬率約 12.2%，代表股包含 TER；中游營業利益率約 19.2%、投入資本報酬率約 12.3%，代表股包含 ISRG；下游營業利益率約 4.6%、投入資本報酬率約 4.9%，代表股包含 AMZN。因此判斷這個產業時，不能只看需求成長，也要看哪一層最有議價力、哪一層需要承擔最多資本支出。</p>\n<h3>最近發生什麼</h3><ul><li>2025-09-25，國際機器人聯盟(IFR)指出 2024 年全球工廠安裝 542,000 台工業機器人，為歷史第二高且僅低於高峰 2%；亞洲占 74%，中國安裝 295,000 台、占全球 54%，中國運行存量超過 200 萬台。<a href=\"https://ifr.org/ifr-press-releases/news/global-robot-demand-in-factories-doubles-over-10-years\">來源</a></li></ul>\n<h3>投資含義</h3><p>若需求與資本支出延續，具備瓶頸技術、長約或平台黏性的公司較容易保住利潤率；若客戶預算轉弱或產能過快開出，最先受壓的通常是庫存週期敏感或估值已很高的環節。投資人應追蹤新訂單、續約率、資本支出、產能利用率與監管進度。</p><p class=\"disc\">非投資建議。</p>",
+  "chain_svg": "<svg viewBox='0 0 720 112' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><text x='110' y='32' fill='#7a5cff' font-size='14' font-weight='bold' text-anchor='middle' font-family='monospace'>上游</text><rect x='5' y='54' width='210' height='30' rx='7' fill='#06061a' stroke='#7a5cff' stroke-opacity='.5'/><text x='17' y='73' fill='#cfeaf2' font-size='12'>感測/視覺/條碼</text><text x='360' y='32' fill='#00f3ff' font-size='14' font-weight='bold' text-anchor='middle' font-family='monospace'>中游</text><rect x='255' y='54' width='210' height='30' rx='7' fill='#06061a' stroke='#00f3ff' stroke-opacity='.5'/><text x='267' y='73' fill='#cfeaf2' font-size='12'>機器人/自動化本體</text><text x='610' y='32' fill='#00ff9d' font-size='14' font-weight='bold' text-anchor='middle' font-family='monospace'>下游</text><rect x='505' y='54' width='210' height='30' rx='7' fill='#06061a' stroke='#00ff9d' stroke-opacity='.5'/><text x='517' y='73' fill='#cfeaf2' font-size='12'>應用:人形/倉儲</text><line x1='219' y1='73' x2='243' y2='73' stroke='#39d3ff' stroke-width='1.5' opacity='.6'/><path d='M243,69 L251,73 L243,77 Z' fill='#39d3ff' opacity='.8'/><line x1='469' y1='73' x2='493' y2='73' stroke='#39d3ff' stroke-width='1.5' opacity='.6'/><path d='M493,69 L501,73 L493,77 Z' fill='#39d3ff' opacity='.8'/></svg>",
+  "pool_svg": "<svg viewBox='0 0 720 208' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><text x='8' y='28' fill='#7a5cff' font-size='13' font-weight='bold'>上游</text><rect x='90' y='36' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='36' width='417' height='12' rx='3' fill='#7a5cff' opacity='1'/><text x='515' y='46' fill='#9fb4c4' font-size='11'>營益率 18.2%</text><rect x='90' y='54' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='54' width='280' height='12' rx='3' fill='#7a5cff' opacity='0.45'/><text x='378' y='64' fill='#9fb4c4' font-size='11'>ROIC 12.2%</text><text x='8' y='84' fill='#00f3ff' font-size='13' font-weight='bold'>中游</text><rect x='90' y='92' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='92' width='440' height='12' rx='3' fill='#00f3ff' opacity='1'/><text x='538' y='102' fill='#9fb4c4' font-size='11'>營益率 19.2%</text><rect x='90' y='110' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='110' width='282' height='12' rx='3' fill='#00f3ff' opacity='0.45'/><text x='380' y='120' fill='#9fb4c4' font-size='11'>ROIC 12.3%</text><text x='8' y='140' fill='#00ff9d' font-size='13' font-weight='bold'>下游</text><rect x='90' y='148' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='148' width='105' height='12' rx='3' fill='#00ff9d' opacity='1'/><text x='203' y='158' fill='#9fb4c4' font-size='11'>營益率 4.6%</text><rect x='90' y='166' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='166' width='112' height='12' rx='3' fill='#00ff9d' opacity='0.45'/><text x='210' y='176' fill='#9fb4c4' font-size='11'>ROIC 4.9%</text></svg>"
+}

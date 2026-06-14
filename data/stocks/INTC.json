@@ -99,5 +99,141 @@
       "name": "超微",
       "tier": "enter"
     }
-  ]
+  ],
+  "price": 124.57,
+  "generated_at": "2026-06-14T14:42:46Z",
+  "health_grade": "D",
+  "health_score": 42,
+  "chain_position": {
+    "theme": "AI Compute",
+    "tier": "midstream",
+    "label": "Midstream Foundry"
+  },
+  "valuation": {
+    "dcf": {
+      "symbol": "INTC",
+      "price": 124.57,
+      "method": "firm_level_fcf",
+      "fcf_firm_b": -4.9,
+      "shares_b": 4.86,
+      "net_debt_b": 32.3,
+      "growth_rate_assumed": 3.0,
+      "wacc": 12.5,
+      "terminal_growth": 2.5,
+      "intrinsic": -16.7,
+      "bull": -17.8,
+      "bear": -15.3,
+      "upside_pct": -113.4,
+      "scenarios": [
+        {
+          "scenario": "bull",
+          "intrinsic_per_share": -17.8,
+          "ev_b": -54.2,
+          "wacc": 11.9,
+          "terminal_g": 2.75,
+          "growth_yr1": 3.7
+        },
+        {
+          "scenario": "base",
+          "intrinsic_per_share": -16.7,
+          "ev_b": -49.0,
+          "wacc": 12.5,
+          "terminal_g": 2.5,
+          "growth_yr1": 3.0
+        },
+        {
+          "scenario": "bear",
+          "intrinsic_per_share": -15.3,
+          "ev_b": -41.8,
+          "wacc": 13.5,
+          "terminal_g": 2.0,
+          "growth_yr1": 1.7
+        }
+      ],
+      "inputs": {
+        "fcf_cagr_3y": null,
+        "rev_cagr_3y": -5.7,
+        "roic_pct": 1.3,
+        "gross_margin_pct": 34.8,
+        "op_margin_pct": -0.0,
+        "fcf_margin_pct": -9.4
+      }
+    },
+    "reverse_dcf": {
+      "implied_growth_pct": null
+    },
+    "comps_valuation": {
+      "pe_target": null,
+      "ev_ebitda_target": -6.7,
+      "blended_comps": -6.7
+    },
+    "comps": {
+      "pe_target": null,
+      "ev_ebitda_target": -6.7,
+      "blended_comps": -6.7
+    },
+    "blended_target": {
+      "target": -11.7,
+      "upside_pct": -109.4,
+      "components": {
+        "dcf": -16.7,
+        "comps": -6.7,
+        "comps_detail": {
+          "pe": null,
+          "ev_ebitda": -6.7
+        }
+      },
+      "weights": {
+        "DCF": 0.5,
+        "可比": 0.5
+      }
+    },
+    "sensitivity": {},
+    "peer_median": {
+      "pe": 44.6,
+      "ev_ebitda": 20.0,
+      "fcf_yield": 2.0,
+      "rev_growth": 16.8
+    },
+    "peer_verdict": "資料不足",
+    "own_multiples": {
+      "pe": null,
+      "ev_ebitda": 57.3,
+      "fcf_yield": -0.5
+    }
+  },
+  "financials": {
+    "latest": {
+      "revenue_b": 52.85,
+      "net_income_b": -0.27,
+      "fcf_b": -4.95,
+      "gross_margin": 34.8,
+      "op_margin": -0.0,
+      "net_margin": -0.5,
+      "fcf_margin": -9.4,
+      "roe": -0.2,
+      "roa": -0.1,
+      "roic": 1.3,
+      "current_ratio": 2.02,
+      "quick_ratio": 1.65,
+      "debt_equity": 0.41,
+      "net_debt_ebitda": 2.25,
+      "interest_coverage": 2.43,
+      "fcf_to_ni": 18.54,
+      "sbc_to_rev": 4.6,
+      "capex_to_rev": 27.7,
+      "rnd_to_rev": 26.1,
+      "shares_change_pct": 14.7,
+      "net_debt_b": 32.32,
+      "cash_b": 37.42
+    },
+    "growth": {
+      "rev_cagr_3y": -5.7,
+      "rev_cagr_5y": -7.5,
+      "eps_cagr_3y": null,
+      "fcf_cagr_3y": null
+    }
+  },
+  "report_html": "<p class=\"lead\">Intel Corporation(INTC) 是 Intel Corporation designs, develops, manufactures, markets, sells, and services computing and related end products and services in the United States, Ireland, Israel, and internationally. It operates through three segments: CCG, DCAI, and…；核心看點是它在 AI Compute 供應鏈中的位置，能不能把需求成長轉成可持續的現金流。</p>\n<figure><img src=\"https://www.sec.gov/Archives/edgar/data/50863/000005086326000009/unboxedlogo_20202.jpg\" alt=\"Intel Corporation 產品或品牌相關圖片\"><figcaption>來源:<a href=\"https://www.sec.gov/Archives/edgar/data/50863/000005086326000009/q425earningsrelease.htm\">Intel SEC-filed official image</a></figcaption></figure>\n<h3>這家公司在做什麼</h3><p>Intel Corporation 提供的是「Midstream Foundry」相關產品或服務。白話說，它把技術、製造、軟體或基礎設施能力交給客戶，讓客戶能做出更快的晶片、更安全的系統、更有效率的雲端服務，或更完整的終端產品。</p>\n<h3>它怎麼賺錢</h3><p>公司位在 AI Compute 的 midstream。它向客戶收取產品銷售、訂閱、授權、服務或租賃收入；真正的護城河通常來自客戶認證、長期合約、軟體生態、工程經驗與規模效益，而不是單一季度的熱點。</p>\n<h3>這門生意穩不穩</h3><p>穩定度要看兩件事：需求是不是來自多年期趨勢，以及公司能不能把收入變成現金。半導體與硬體會有庫存循環，軟體與資料中心通常較有續約或長約，但同樣會受預算與利率影響。</p><ul><li>站內模型顯示，最新收入約 52.85 億美元，自由現金流(公司賺到、可自由運用的現金)約 -4.95 億美元；營業利益率(每賣 100 元留下多少營業利益)約 -0.0%，自由現金流率約 -9.4%，投入資本報酬率(投一塊錢賺回幾毛)約 1.3%。</li><li>過去三年營收年均成長約 -5.7%，自由現金流年均成長約 —%；健康評等 D、分數 42，可用來判斷成長背後的財務品質。</li></ul>\n<h3>最近發生什麼</h3><ul><li>2026-01-22，Intel 公布 2025 年第四季營收 137 億美元、年減 4%，全年營收 529 億美元、約持平；第四季歸屬 Intel 的每股虧損 0.12 美元、非 GAAP 每股盈餘 0.15 美元，並預估 2026 年第一季營收 117–127 億美元，轉型仍處在壓力測試期。<a href=\"https://www.sec.gov/Archives/edgar/data/50863/000005086326000009/q425earningsrelease.htm\">來源</a></li></ul>\n<h3>未來與估值:值不值得</h3><p>現價約 124.57 美元，站內混合目標價約 -11.7 美元，對應上行空間約 -109.4%。若股價隱含未來自由現金流長期成長約 —%，投資重點就不是只看題材，而是確認訂單、續約、利潤率與現金流是否跟得上這個期待。</p>\n<h3>要盯什麼(風險)</h3><ul><li>景氣循環反轉會讓客戶延後拉貨或資本支出。</li><li>關鍵客戶集中與價格競爭，可能壓縮毛利率。</li><li>若新技術或替代方案成熟，現有產品的議價力會下降。</li></ul>\n<h3>總結</h3><blockquote>Intel Corporation 的投資判斷適合用「產業位置、現金流品質、估值期待」一起看。若後續營收與現金流延續，當前估值需要更高成長來支撐；若成長降速但市場仍給高期待，安全邊際會變薄。</blockquote><p class=\"disc\">非投資建議。</p>",
+  "val_bar_svg": ""
 }

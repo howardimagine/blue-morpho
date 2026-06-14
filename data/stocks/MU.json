@@ -3,7 +3,7 @@
   "name": "美光",
   "tier": "ready",
   "regime": "neutral",
-  "theme": "Memory (HBM / DRAM / NAND)",
+  "theme": "AI Compute",
   "business": "DRAM/NAND 記憶體大廠;HBM3E 量產供應 NVDA,AI 記憶體實體瓶頸的關鍵受惠者。",
   "why": "QUALITY_COMPOUNDER",
   "rsi": null,
@@ -144,24 +144,150 @@
   ],
   "peers": [
     {
-      "symbol": "MRVL",
-      "name": "美滿科技",
-      "tier": "watch"
-    },
-    {
-      "symbol": "SIMO",
-      "name": "慧榮科技",
+      "symbol": "LRCX",
+      "name": "科林研發",
       "tier": "ready"
     },
     {
-      "symbol": "SNDK",
-      "name": "SanDisk",
+      "symbol": "ARM",
+      "name": "安謀",
       "tier": "ready"
     },
     {
-      "symbol": "STX",
-      "name": "希捷",
+      "symbol": "AVGO",
+      "name": "博通",
       "tier": "ready"
+    },
+    {
+      "symbol": "AMD",
+      "name": "超微",
+      "tier": "enter"
     }
-  ]
+  ],
+  "price": 981.61,
+  "generated_at": "2026-06-14T14:42:46Z",
+  "health_grade": "C",
+  "health_score": 55,
+  "chain_position": {
+    "theme": "AI Compute",
+    "tier": "midstream",
+    "label": "Midstream Memory"
+  },
+  "valuation": {
+    "dcf": {
+      "symbol": "MU",
+      "price": 981.61,
+      "method": "per_share_approx",
+      "fcf_base_per_share": 8.83,
+      "growth_rate_assumed": 40.0,
+      "wacc": 8.5,
+      "terminal_growth": 4.0,
+      "intrinsic": 647.0,
+      "bull": 1172.0,
+      "bear": 347.0,
+      "upside_pct": -34.1,
+      "scenarios": [
+        {
+          "scenario": "bull",
+          "intrinsic_per_share": 1172.0,
+          "wacc": 8.1,
+          "terminal_g": 4.6
+        },
+        {
+          "scenario": "base",
+          "intrinsic_per_share": 647.0,
+          "wacc": 8.5,
+          "terminal_g": 4.0
+        },
+        {
+          "scenario": "bear",
+          "intrinsic_per_share": 347.0,
+          "wacc": 8.9,
+          "terminal_g": 3.4
+        }
+      ],
+      "inputs": {
+        "fcf_yield_pct": 0.9,
+        "rev_growth_pct": 48.9,
+        "fcf_growth_pct": 1278.5,
+        "roic_pct": 27.7,
+        "gross_margin_pct": 58.4,
+        "op_margin_pct": 48.5
+      }
+    },
+    "reverse_dcf": null,
+    "comps_valuation": {
+      "pe_target": 226.9,
+      "ev_ebitda_target": 254.2,
+      "blended_comps": 240.6
+    },
+    "comps": {
+      "pe_target": 226.9,
+      "ev_ebitda_target": 254.2,
+      "blended_comps": 240.6
+    },
+    "blended_target": {
+      "target": 443.8,
+      "upside_pct": -54.8,
+      "components": {
+        "dcf": 647.0,
+        "comps": 240.6,
+        "comps_detail": {
+          "pe": 226.9,
+          "ev_ebitda": 254.2
+        }
+      },
+      "weights": {
+        "DCF": 0.5,
+        "可比": 0.5
+      }
+    },
+    "sensitivity": null,
+    "peer_median": {
+      "pe": 29.9,
+      "ev_ebitda": 25.7,
+      "fcf_yield": 1.5,
+      "rev_growth": 50.7
+    },
+    "peer_verdict": "高於同業估值",
+    "own_multiples": {
+      "pe": 45.8,
+      "ev_ebitda": 29.8,
+      "fcf_yield": 0.9
+    }
+  },
+  "financials": {
+    "latest": {
+      "revenue_b": 37.38,
+      "net_income_b": 8.54,
+      "fcf_b": 1.67,
+      "gross_margin": 39.8,
+      "op_margin": 26.4,
+      "net_margin": 22.8,
+      "fcf_margin": 4.5,
+      "roe": 15.8,
+      "roa": 10.3,
+      "roic": 11.5,
+      "current_ratio": 2.52,
+      "quick_ratio": 1.79,
+      "debt_equity": 0.28,
+      "net_debt_ebitda": 0.3,
+      "interest_coverage": 21.26,
+      "fcf_to_ni": 0.2,
+      "sbc_to_rev": 2.6,
+      "capex_to_rev": 42.4,
+      "rnd_to_rev": 10.2,
+      "shares_change_pct": -0.5,
+      "net_debt_b": 5.64,
+      "cash_b": 10.31
+    },
+    "growth": {
+      "rev_cagr_3y": 6.7,
+      "rev_cagr_5y": 11.8,
+      "eps_cagr_3y": -0.7,
+      "fcf_cagr_3y": -18.8
+    }
+  },
+  "report_html": "<p class=\"lead\">Micron Technology(MU) 是 DRAM + NAND; HBM3E ramp = primary AI memory beneficiary; cyclical but riding multi-year AI tailwind.；核心看點是它在 AI Compute 供應鏈中的位置，能不能把需求成長轉成可持續的現金流。</p>\n<figure><img src=\"https://www.sec.gov/Archives/edgar/data/723125/000072312526000004/mu-20260318_g1.jpg\" alt=\"Micron Technology 產品或品牌相關圖片\"><figcaption>來源:<a href=\"https://www.sec.gov/Archives/edgar/data/723125/000072312526000004/a2026q2ex991-pressrelease.htm\">Micron SEC-filed official image</a></figcaption></figure>\n<h3>這家公司在做什麼</h3><p>Micron Technology 提供的是「Midstream Memory」相關產品或服務。白話說，它把技術、製造、軟體或基礎設施能力交給客戶，讓客戶能做出更快的晶片、更安全的系統、更有效率的雲端服務，或更完整的終端產品。</p>\n<h3>它怎麼賺錢</h3><p>公司位在 AI Compute 的 midstream。它向客戶收取產品銷售、訂閱、授權、服務或租賃收入；真正的護城河通常來自客戶認證、長期合約、軟體生態、工程經驗與規模效益，而不是單一季度的熱點。</p>\n<h3>這門生意穩不穩</h3><p>穩定度要看兩件事：需求是不是來自多年期趨勢，以及公司能不能把收入變成現金。半導體與硬體會有庫存循環，軟體與資料中心通常較有續約或長約，但同樣會受預算與利率影響。</p><ul><li>站內模型顯示，最新收入約 37.38 億美元，自由現金流(公司賺到、可自由運用的現金)約 1.67 億美元；營業利益率(每賣 100 元留下多少營業利益)約 26.4%，自由現金流率約 4.5%，投入資本報酬率(投一塊錢賺回幾毛)約 11.5%。</li><li>過去三年營收年均成長約 6.7%，自由現金流年均成長約 -18.8%；健康評等 C、分數 55，可用來判斷成長背後的財務品質。</li></ul>\n<h3>最近發生什麼</h3><ul><li>2026-03-18，Micron 公布截至 2026-02-26 的季度營收 238.6 億美元，高於前一季 136.4 億美元與去年同期 80.5 億美元；GAAP 淨利 137.9 億美元、稀釋每股盈餘 12.07 美元，營運現金流 119.0 億美元，高頻寬記憶體與資料中心需求帶動週期上行。<a href=\"https://www.sec.gov/Archives/edgar/data/723125/000072312526000004/a2026q2ex991-pressrelease.htm\">來源</a></li></ul>\n<h3>未來與估值:值不值得</h3><p>現價約 981.61 美元，站內混合目標價約 443.8 美元，對應上行空間約 -54.8%。若股價隱含未來自由現金流長期成長約 —%，投資重點就不是只看題材，而是確認訂單、續約、利潤率與現金流是否跟得上這個期待。</p>\n<h3>要盯什麼(風險)</h3><ul><li>景氣循環反轉會讓客戶延後拉貨或資本支出。</li><li>關鍵客戶集中與價格競爭，可能壓縮毛利率。</li><li>若新技術或替代方案成熟，現有產品的議價力會下降。</li></ul>\n<h3>總結</h3><blockquote>Micron Technology 的投資判斷適合用「產業位置、現金流品質、估值期待」一起看。若後續營收與現金流延續，當前估值需要更高成長來支撐；若成長降速但市場仍給高期待，安全邊際會變薄。</blockquote><p class=\"disc\">非投資建議。</p>",
+  "val_bar_svg": "<svg viewBox='0 0 720 96' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><line x1='20' y1='52' x2='700' y2='52' stroke='#1a2238' stroke-width='2'/><rect x='102' y='48' width='537' height='8' fill='#00f3ff' opacity='.12'/><circle cx='33' cy='52' r='5' fill='#39d3ff'/><text x='33' y='34' fill='#39d3ff' font-size='11' text-anchor='middle'>可比</text><text x='33' y='47' fill='#39d3ff' font-size='11' text-anchor='middle' font-family='monospace'>$240.6</text><circle cx='102' cy='52' r='5' fill='#5c8cff'/><text x='102' y='78' fill='#5c8cff' font-size='11' text-anchor='middle'>悲觀</text><text x='102' y='91' fill='#5c8cff' font-size='11' text-anchor='middle' font-family='monospace'>$347</text><circle cx='165' cy='52' r='5' fill='#00ff9d'/><text x='165' y='34' fill='#00ff9d' font-size='11' text-anchor='middle'>混合目標</text><text x='165' y='47' fill='#00ff9d' font-size='11' text-anchor='middle' font-family='monospace'>$443.8</text><circle cx='297' cy='52' r='5' fill='#00f3ff'/><text x='297' y='78' fill='#00f3ff' font-size='11' text-anchor='middle'>DCF</text><text x='297' y='91' fill='#00f3ff' font-size='11' text-anchor='middle' font-family='monospace'>$647</text><circle cx='515' cy='52' r='6' fill='#ffffff'/><text x='515' y='34' fill='#ffffff' font-size='11' text-anchor='middle'>現價</text><text x='515' y='47' fill='#ffffff' font-size='11' text-anchor='middle' font-family='monospace'>$981.61</text><circle cx='639' cy='52' r='5' fill='#b48cff'/><text x='639' y='78' fill='#b48cff' font-size='11' text-anchor='middle'>樂觀</text><text x='639' y='91' fill='#b48cff' font-size='11' text-anchor='middle' font-family='monospace'>$1172</text></svg>"
 }

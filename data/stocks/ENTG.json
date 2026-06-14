@@ -99,5 +99,195 @@
       "name": "超微",
       "tier": "enter"
     }
-  ]
+  ],
+  "price": 150.52,
+  "generated_at": "2026-06-14T01:28:55Z",
+  "health_grade": "D",
+  "health_score": 42,
+  "chain_position": {
+    "theme": "AI Compute",
+    "tier": "upstream",
+    "label": "Upstream Materials"
+  },
+  "valuation": {
+    "dcf": {
+      "symbol": "ENTG",
+      "price": 150.52,
+      "method": "firm_level_fcf",
+      "fcf_firm_b": 0.7,
+      "shares_b": 0.15,
+      "net_debt_b": 3.5,
+      "growth_rate_assumed": 3.0,
+      "wacc": 12.5,
+      "terminal_growth": 2.5,
+      "intrinsic": 22.0,
+      "bull": 26.8,
+      "bear": 15.4,
+      "upside_pct": -85.4,
+      "scenarios": [
+        {
+          "scenario": "bull",
+          "intrinsic_per_share": 26.8,
+          "ev_b": 7.6,
+          "wacc": 11.9,
+          "terminal_g": 2.75,
+          "growth_yr1": 3.7
+        },
+        {
+          "scenario": "base",
+          "intrinsic_per_share": 22.0,
+          "ev_b": 6.9,
+          "wacc": 12.5,
+          "terminal_g": 2.5,
+          "growth_yr1": 3.0
+        },
+        {
+          "scenario": "bear",
+          "intrinsic_per_share": 15.4,
+          "ev_b": 5.9,
+          "wacc": 13.5,
+          "terminal_g": 2.0,
+          "growth_yr1": 1.7
+        }
+      ],
+      "inputs": {
+        "fcf_cagr_3y": null,
+        "rev_cagr_3y": -0.9,
+        "roic_pct": 4.6,
+        "gross_margin_pct": 44.4,
+        "op_margin_pct": 28.9,
+        "fcf_margin_pct": 21.8
+      }
+    },
+    "reverse_dcf": {
+      "implied_growth_pct": 45.4,
+      "market_cap_b": 22.9,
+      "note": "現價隱含未來十年 FCF 年均成長 ~45.4%(用 WACC 12.5%)"
+    },
+    "comps_valuation": {
+      "pe_target": 113.6,
+      "ev_ebitda_target": -814.9,
+      "blended_comps": -350.6
+    },
+    "comps": {
+      "pe_target": 113.6,
+      "ev_ebitda_target": -814.9,
+      "blended_comps": -350.6
+    },
+    "blended_target": {
+      "target": -164.3,
+      "upside_pct": -209.2,
+      "components": {
+        "dcf": 22.0,
+        "comps": -350.6,
+        "comps_detail": {
+          "pe": 113.6,
+          "ev_ebitda": -814.9
+        }
+      },
+      "weights": {
+        "DCF": 0.5,
+        "可比": 0.5
+      }
+    },
+    "sensitivity": {
+      "waccs": [
+        11.5,
+        12.0,
+        12.5,
+        13.0,
+        13.5
+      ],
+      "term_gs": [
+        1.5,
+        2.0,
+        2.5,
+        3.0,
+        3.5
+      ],
+      "grid": [
+        [
+          24.0,
+          25.0,
+          27.0,
+          29.0,
+          30.0
+        ],
+        [
+          22.0,
+          23.0,
+          24.0,
+          26.0,
+          27.0
+        ],
+        [
+          20.0,
+          21.0,
+          22.0,
+          23.0,
+          25.0
+        ],
+        [
+          18.0,
+          19.0,
+          20.0,
+          21.0,
+          22.0
+        ],
+        [
+          16.0,
+          17.0,
+          18.0,
+          19.0,
+          20.0
+        ]
+      ]
+    },
+    "peer_median": {
+      "pe": 73.3,
+      "ev_ebitda": -113.3,
+      "fcf_yield": 0.7,
+      "rev_growth": -0.7
+    },
+    "peer_verdict": "接近同業估值中位",
+    "own_multiples": {
+      "pe": 86.7,
+      "ev_ebitda": 31.0,
+      "fcf_yield": 3.0
+    }
+  },
+  "financials": {
+    "latest": {
+      "revenue_b": 3.2,
+      "net_income_b": 0.24,
+      "fcf_b": 0.7,
+      "gross_margin": 44.4,
+      "op_margin": 28.9,
+      "net_margin": 7.4,
+      "fcf_margin": 21.8,
+      "roe": 6.0,
+      "roa": 2.8,
+      "roic": 4.6,
+      "current_ratio": 3.35,
+      "quick_ratio": 3.35,
+      "debt_equity": 0.98,
+      "net_debt_ebitda": 4.19,
+      "interest_coverage": 2.27,
+      "fcf_to_ni": 2.95,
+      "sbc_to_rev": 2.2,
+      "capex_to_rev": 0.0,
+      "rnd_to_rev": 10.3,
+      "shares_change_pct": 11.7,
+      "net_debt_b": 3.53,
+      "cash_b": 0.36
+    },
+    "growth": {
+      "rev_cagr_3y": -0.9,
+      "rev_cagr_5y": 11.4,
+      "eps_cagr_3y": 2.0,
+      "fcf_cagr_3y": null
+    }
+  },
+  "report_html": "<p class=\"lead\">Entegris, Inc.(ENTG) 是 Entegris, Inc. provides advanced materials and process solutions for the semiconductor and other high-technology industries in North America, Taiwan, South Korea, Japan, China, Europe, and Southeast Asia. It operates in two segments, Mater…；現在的核心看點，是它在 AI Compute 供應鏈中能否把需求成長轉成現金流，而不是只停留在題材熱度。</p>\n<figure><img src=\"https://www.entegris.com/content/dam/web/ux/global/footer/logo.svg\" alt=\"Entegris, Inc. 產品或品牌相關圖片\"><figcaption>來源:<a href=\"https://www.entegris.com/\">Entegris official logo</a></figcaption></figure>\n<h3>這家公司在做什麼</h3>\n<p>Entegris, Inc. 的產品或服務位在「Upstream Materials」這個環節。白話說，它把技術、設備、軟體或基礎設施包成客戶願意付錢的能力，最後服務的是雲端、半導體、企業資訊科技、電力或通訊基礎設施需求。</p>\n<h3>它怎麼賺錢</h3>\n<p>公司位於 AI Compute 的 upstream。它的收入來自把關鍵產品交給下游客戶，或把長期資產出租、營運成穩定服務。真正的護城河通常不是單一產品名稱，而是客戶認證、工程經驗、規模採購、軟體生態或長期合約；這些因素會決定它能不能維持價格與毛利率。</p>\n<h3>這門生意穩不穩</h3>\n<p>穩定度要分兩層看：需求端若來自多年期雲端、電網、企業資安或資料中心投資，能見度會比較好；但供給端若需要大量資本支出、庫存管理或少數大客戶訂單，短期仍會有循環。</p>\n<ul><li>站內模型顯示，最新收入約 3.2 億美元，自由現金流(公司賺到、可自由運用的現金)約 0.7 億美元；營業利益率(每賣 100 元留下多少營業利益)約 28.9%，自由現金流率約 21.8%，投入資本報酬率(投一塊錢賺回幾毛)約 4.6%。</li><li>過去三年營收年均成長約 -0.9%，自由現金流年均成長約 —%；健康評等為 D、分數 42，代表財務體質是估值判斷的重要底盤。</li></ul>\n<h3>最近發生什麼</h3>\n<ul><li>2025-05-07，Entegris 公布 2025 年第一季淨銷售額 7.732 億美元，若排除出售業務影響，調整後銷售額年增 5%；GAAP 毛利率 46.1%、營業利益率 15.8%、淨利 6,290 萬美元，顯示半導體材料需求溫和改善。<a href=\"https://www.sec.gov/Archives/edgar/data/1101302/000110130225000056/entgq12025ex991.htm\">來源</a></li></ul>\n<h3>未來與估值:值不值得</h3>\n<p>現價約 150.52 美元，站內混合目標價約 -164.3 美元，對應上行空間約 -209.2%。估算價值不是精準答案，而是一把尺：若市場價格已經要求未來自由現金流長期成長約 45.4%，投資人就必須相信公司能持續拿到訂單、維持利潤率，並把成長變成現金。</p>\n<h3>要盯什麼(風險)</h3>\n<ul><li>大型雲端客戶資本支出放慢，會讓訂單能見度下降。</li><li>出口管制、先進製程或關鍵零組件短缺，可能改變可服務市場與交期。</li><li>如果競爭者降價或客戶自研替代方案成熟，毛利率可能被壓縮。</li></ul>\n<h3>總結</h3>\n<blockquote>Entegris, Inc. 適合用「產業位置 + 現金流品質 + 估值期待」一起看。若後續新聞中的營收、訂單或展望能延續，偏嚴格 的估值較容易被支撐；若成長放慢但市場仍給高期待，安全邊際就會變薄。</blockquote>\n<p class=\"disc\">非投資建議。</p>",
+  "val_bar_svg": "<svg viewBox='0 0 720 96' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><line x1='20' y1='52' x2='700' y2='52' stroke='#1a2238' stroke-width='2'/><rect x='26' y='48' width='52' height='8' fill='#00f3ff' opacity='.12'/><circle cx='26' cy='52' r='5' fill='#5c8cff'/><text x='26' y='34' fill='#5c8cff' font-size='11' text-anchor='middle'>悲觀</text><text x='26' y='47' fill='#5c8cff' font-size='11' text-anchor='middle' font-family='monospace'>$15.4</text><circle cx='56' cy='52' r='5' fill='#00f3ff'/><text x='56' y='78' fill='#00f3ff' font-size='11' text-anchor='middle'>DCF</text><text x='56' y='91' fill='#00f3ff' font-size='11' text-anchor='middle' font-family='monospace'>$22</text><circle cx='78' cy='52' r='5' fill='#b48cff'/><text x='78' y='34' fill='#b48cff' font-size='11' text-anchor='middle'>樂觀</text><text x='78' y='47' fill='#b48cff' font-size='11' text-anchor='middle' font-family='monospace'>$26.8</text><circle cx='645' cy='52' r='6' fill='#ffffff'/><text x='645' y='78' fill='#ffffff' font-size='11' text-anchor='middle'>現價</text><text x='645' y='91' fill='#ffffff' font-size='11' text-anchor='middle' font-family='monospace'>$150.52</text></svg>"
 }

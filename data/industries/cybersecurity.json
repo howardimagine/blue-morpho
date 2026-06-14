@@ -1,0 +1,115 @@
+{
+  "theme": "Cybersecurity",
+  "slug": "cybersecurity",
+  "generated_at": "2026-06-14T14:42:46Z",
+  "tier_data": {
+    "upstream": {
+      "網路/雲基礎防護": [
+        "ZS",
+        "NET"
+      ]
+    },
+    "midstream": {
+      "平台/端點/偵測": [
+        "PANW",
+        "CRWD",
+        "FTNT",
+        "S",
+        "TENB"
+      ]
+    },
+    "downstream": {
+      "身分/資料安全": [
+        "OKTA",
+        "CYBR"
+      ]
+    }
+  },
+  "profit_pool": {
+    "theme": "Cybersecurity",
+    "tiers": [
+      {
+        "tier": "upstream",
+        "label_zh": "上游",
+        "industries": [
+          "網路/雲基礎防護"
+        ],
+        "margin_gross": 75.7,
+        "margin_op": -7.2,
+        "margin_fcf": 21.1,
+        "roic": -0.8,
+        "sample_n": 2,
+        "leaders": [
+          {
+            "symbol": "ZS",
+            "op_margin": -4.8,
+            "health_grade": "C"
+          },
+          {
+            "symbol": "NET",
+            "op_margin": -9.6,
+            "health_grade": "D"
+          }
+        ]
+      },
+      {
+        "tier": "midstream",
+        "label_zh": "中游",
+        "industries": [
+          "平台/端點/偵測"
+        ],
+        "margin_gross": 74.7,
+        "margin_op": 0.1,
+        "margin_fcf": 27.2,
+        "roic": 0.5,
+        "sample_n": 5,
+        "leaders": [
+          {
+            "symbol": "FTNT",
+            "op_margin": 30.6,
+            "health_grade": "A"
+          },
+          {
+            "symbol": "PANW",
+            "op_margin": 13.5,
+            "health_grade": "B"
+          },
+          {
+            "symbol": "TENB",
+            "op_margin": 0.1,
+            "health_grade": "F"
+          }
+        ]
+      },
+      {
+        "tier": "downstream",
+        "label_zh": "下游",
+        "industries": [
+          "身分/資料安全"
+        ],
+        "margin_gross": 75.8,
+        "margin_op": -1.2,
+        "margin_fcf": 25.2,
+        "roic": 0.6,
+        "sample_n": 2,
+        "leaders": [
+          {
+            "symbol": "OKTA",
+            "op_margin": 5.2,
+            "health_grade": "B"
+          },
+          {
+            "symbol": "CYBR",
+            "op_margin": -7.7,
+            "health_grade": "D"
+          }
+        ]
+      }
+    ],
+    "deepest_pool": "midstream",
+    "deepest_pool_zh": "中游"
+  },
+  "report_html": "<p class=\"lead\">Cybersecurity 是把技術需求變成可交付產品、軟體或服務的產業鏈；現在最重要的是資本支出、產能與客戶預算如何沿著上中下游傳導。</p>\n<figure><img src=\"https://upload.wikimedia.org/wikipedia/commons/4/4d/Monitor_padlock.svg\" alt=\"Cybersecurity 產業示意\"><figcaption>來源:<a href=\"https://commons.wikimedia.org/wiki/File:Monitor_padlock.svg\">Wikimedia Commons / security icon</a></figcaption></figure>\n<h3>這個產業在做什麼</h3><p>Cybersecurity 的共同點，是客戶不是買一個單點零件，而是在買效率、安全、產能或醫療流程改善。上游提供底層工具與資料，中游把技術做成平台或設備，下游再把能力交付給企業、工廠、醫院或消費者。</p>\n<h3>錢怎麼流(上中下游)</h3><p>站內供應鏈圖把它拆成三層：upstream 包含 網路/雲基礎防護；midstream 包含 平台/端點/偵測；downstream 包含 身分/資料安全。錢通常從下游客戶的預算開始，透過訂閱、設備採購、服務合約或資本支出流向中游，再擴散到上游資料、零組件、工具與基礎設施。</p>\n<h3>哪一層最賺</h3><p>利潤池顯示：上游營業利益率約 -7.2%、投入資本報酬率約 -0.8%，代表股包含 ZS；中游營業利益率約 0.1%、投入資本報酬率約 0.5%，代表股包含 FTNT；下游營業利益率約 -1.2%、投入資本報酬率約 0.6%，代表股包含 OKTA。因此判斷這個產業時，不能只看需求成長，也要看哪一層最有議價力、哪一層需要承擔最多資本支出。</p>\n<h3>最近發生什麼</h3><ul><li>2024-09-05，Cybersecurity Dive 引用 Gartner 預估 2025 年全球資訊安全支出接近 2,120 億美元、年增 15%；其中安全軟體接近 1,010 億美元、年增 15%，安全服務超過 860 億美元、年增 15.6%。<a href=\"https://www.cybersecuritydive.com/news/infosec-spending-surge-gartner/726081/\">來源</a></li></ul>\n<h3>投資含義</h3><p>若需求與資本支出延續，具備瓶頸技術、長約或平台黏性的公司較容易保住利潤率；若客戶預算轉弱或產能過快開出，最先受壓的通常是庫存週期敏感或估值已很高的環節。投資人應追蹤新訂單、續約率、資本支出、產能利用率與監管進度。</p><p class=\"disc\">非投資建議。</p>",
+  "chain_svg": "<svg viewBox='0 0 720 112' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><text x='110' y='32' fill='#7a5cff' font-size='14' font-weight='bold' text-anchor='middle' font-family='monospace'>上游</text><rect x='5' y='54' width='210' height='30' rx='7' fill='#06061a' stroke='#7a5cff' stroke-opacity='.5'/><text x='17' y='73' fill='#cfeaf2' font-size='12'>網路/雲基礎防護</text><text x='360' y='32' fill='#00f3ff' font-size='14' font-weight='bold' text-anchor='middle' font-family='monospace'>中游</text><rect x='255' y='54' width='210' height='30' rx='7' fill='#06061a' stroke='#00f3ff' stroke-opacity='.5'/><text x='267' y='73' fill='#cfeaf2' font-size='12'>平台/端點/偵測</text><text x='610' y='32' fill='#00ff9d' font-size='14' font-weight='bold' text-anchor='middle' font-family='monospace'>下游</text><rect x='505' y='54' width='210' height='30' rx='7' fill='#06061a' stroke='#00ff9d' stroke-opacity='.5'/><text x='517' y='73' fill='#cfeaf2' font-size='12'>身分/資料安全</text><line x1='219' y1='73' x2='243' y2='73' stroke='#39d3ff' stroke-width='1.5' opacity='.6'/><path d='M243,69 L251,73 L243,77 Z' fill='#39d3ff' opacity='.8'/><line x1='469' y1='73' x2='493' y2='73' stroke='#39d3ff' stroke-width='1.5' opacity='.6'/><path d='M493,69 L501,73 L493,77 Z' fill='#39d3ff' opacity='.8'/></svg>",
+  "pool_svg": "<svg viewBox='0 0 720 208' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><text x='8' y='28' fill='#7a5cff' font-size='13' font-weight='bold'>上游</text><rect x='90' y='36' width='440' height='12' rx='3' fill='#0b0b1a'/><text x='100' y='46' fill='#9fb4c4' font-size='11'>營益率 -7.2%(尚未獲利)</text><rect x='90' y='54' width='440' height='12' rx='3' fill='#0b0b1a'/><text x='100' y='64' fill='#9fb4c4' font-size='11'>ROIC -0.8%(尚未獲利)</text><text x='8' y='84' fill='#00f3ff' font-size='13' font-weight='bold'>中游</text><rect x='90' y='92' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='92' width='44' height='12' rx='3' fill='#00f3ff' opacity='1'/><text x='142' y='102' fill='#9fb4c4' font-size='11'>營益率 0.1%</text><rect x='90' y='110' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='110' width='220' height='12' rx='3' fill='#00f3ff' opacity='0.45'/><text x='318' y='120' fill='#9fb4c4' font-size='11'>ROIC 0.5%</text><text x='8' y='140' fill='#00ff9d' font-size='13' font-weight='bold'>下游</text><rect x='90' y='148' width='440' height='12' rx='3' fill='#0b0b1a'/><text x='100' y='158' fill='#9fb4c4' font-size='11'>營益率 -1.2%(尚未獲利)</text><rect x='90' y='166' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='166' width='264' height='12' rx='3' fill='#00ff9d' opacity='0.45'/><text x='362' y='176' fill='#9fb4c4' font-size='11'>ROIC 0.6%</text></svg>"
+}

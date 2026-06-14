@@ -99,5 +99,195 @@
       "name": "超微",
       "tier": "enter"
     }
-  ]
+  ],
+  "price": 81.38,
+  "generated_at": "2026-06-14T14:42:46Z",
+  "health_grade": "B",
+  "health_score": 76,
+  "chain_position": {
+    "theme": "AI Compute",
+    "tier": "midstream",
+    "label": "Midstream Foundry"
+  },
+  "valuation": {
+    "dcf": {
+      "symbol": "GFS",
+      "price": 81.38,
+      "method": "firm_level_fcf",
+      "fcf_firm_b": 1.0,
+      "shares_b": 0.56,
+      "net_debt_b": -0.2,
+      "growth_rate_assumed": 3.0,
+      "wacc": 12.5,
+      "terminal_growth": 2.5,
+      "intrinsic": 18.2,
+      "bull": 20.1,
+      "bear": 15.6,
+      "upside_pct": -77.6,
+      "scenarios": [
+        {
+          "scenario": "bull",
+          "intrinsic_per_share": 20.1,
+          "ev_b": 11.0,
+          "wacc": 11.9,
+          "terminal_g": 2.75,
+          "growth_yr1": 3.7
+        },
+        {
+          "scenario": "base",
+          "intrinsic_per_share": 18.2,
+          "ev_b": 10.0,
+          "wacc": 12.5,
+          "terminal_g": 2.5,
+          "growth_yr1": 3.0
+        },
+        {
+          "scenario": "bear",
+          "intrinsic_per_share": 15.6,
+          "ev_b": 8.5,
+          "wacc": 13.5,
+          "terminal_g": 2.0,
+          "growth_yr1": 1.7
+        }
+      ],
+      "inputs": {
+        "fcf_cagr_3y": null,
+        "rev_cagr_3y": -5.7,
+        "roic_pct": 5.3,
+        "gross_margin_pct": 25.2,
+        "op_margin_pct": 11.7,
+        "fcf_margin_pct": 14.9
+      }
+    },
+    "reverse_dcf": {
+      "implied_growth_pct": 51.0,
+      "market_cap_b": 45.4,
+      "note": "現價隱含未來十年 FCF 年均成長 ~51.0%(用 WACC 12.5%)"
+    },
+    "comps_valuation": {
+      "pe_target": 49.4,
+      "ev_ebitda_target": 63.3,
+      "blended_comps": 56.3
+    },
+    "comps": {
+      "pe_target": 49.4,
+      "ev_ebitda_target": 63.3,
+      "blended_comps": 56.3
+    },
+    "blended_target": {
+      "target": 37.2,
+      "upside_pct": -54.3,
+      "components": {
+        "dcf": 18.2,
+        "comps": 56.3,
+        "comps_detail": {
+          "pe": 49.4,
+          "ev_ebitda": 63.3
+        }
+      },
+      "weights": {
+        "DCF": 0.5,
+        "可比": 0.5
+      }
+    },
+    "sensitivity": {
+      "waccs": [
+        11.5,
+        12.0,
+        12.5,
+        13.0,
+        13.5
+      ],
+      "term_gs": [
+        1.5,
+        2.0,
+        2.5,
+        3.0,
+        3.5
+      ],
+      "grid": [
+        [
+          19.0,
+          20.0,
+          20.0,
+          21.0,
+          22.0
+        ],
+        [
+          18.0,
+          19.0,
+          19.0,
+          20.0,
+          20.0
+        ],
+        [
+          17.0,
+          18.0,
+          18.0,
+          19.0,
+          19.0
+        ],
+        [
+          17.0,
+          17.0,
+          17.0,
+          18.0,
+          18.0
+        ],
+        [
+          16.0,
+          16.0,
+          17.0,
+          17.0,
+          17.0
+        ]
+      ]
+    },
+    "peer_median": {
+      "pe": 31.1,
+      "ev_ebitda": 38.5,
+      "fcf_yield": 0.6,
+      "rev_growth": 16.2
+    },
+    "peer_verdict": "高於同業估值",
+    "own_multiples": {
+      "pe": 58.1,
+      "ev_ebitda": 20.3,
+      "fcf_yield": 2.4
+    }
+  },
+  "financials": {
+    "latest": {
+      "revenue_b": 6.79,
+      "net_income_b": 0.89,
+      "fcf_b": 1.01,
+      "gross_margin": 25.2,
+      "op_margin": 11.7,
+      "net_margin": 13.0,
+      "fcf_margin": 14.9,
+      "roe": 7.4,
+      "roa": 5.2,
+      "roic": 5.3,
+      "current_ratio": 2.62,
+      "quick_ratio": 1.95,
+      "debt_equity": 0.14,
+      "net_debt_ebitda": -0.08,
+      "interest_coverage": null,
+      "fcf_to_ni": 1.14,
+      "sbc_to_rev": 3.0,
+      "capex_to_rev": 10.6,
+      "rnd_to_rev": 7.6,
+      "shares_change_pct": 4.9,
+      "net_debt_b": -0.17,
+      "cash_b": 3.05
+    },
+    "growth": {
+      "rev_cagr_3y": -5.7,
+      "rev_cagr_5y": 7.0,
+      "eps_cagr_3y": -15.3,
+      "fcf_cagr_3y": null
+    }
+  },
+  "report_html": "<p class=\"lead\">GlobalFoundries Inc.(GFS) 是 GLOBALFOUNDRIES Inc., a semiconductor foundry, provides range of mainstream wafer fabrication services and technologies in the United States, Europe, the Middle East, Africa, and internationally. It offers semiconductor devices, including…；核心看點是它在 AI Compute 供應鏈中的位置，能不能把需求成長轉成可持續的現金流。</p>\n<figure><img src=\"https://www.sec.gov/Archives/edgar/data/1709048/000170904826000022/gfs-20251231_g1.jpg\" alt=\"GlobalFoundries Inc. 產品或品牌相關圖片\"><figcaption>來源:<a href=\"https://www.sec.gov/Archives/edgar/data/1709048/000170904826000022/\">GlobalFoundries SEC-filed official image</a></figcaption></figure>\n<h3>這家公司在做什麼</h3><p>GlobalFoundries Inc. 提供的是「Midstream Foundry」相關產品或服務。白話說，它把技術、製造、軟體或基礎設施能力交給客戶，讓客戶能做出更快的晶片、更安全的系統、更有效率的雲端服務，或更完整的終端產品。</p>\n<h3>它怎麼賺錢</h3><p>公司位在 AI Compute 的 midstream。它向客戶收取產品銷售、訂閱、授權、服務或租賃收入；真正的護城河通常來自客戶認證、長期合約、軟體生態、工程經驗與規模效益，而不是單一季度的熱點。</p>\n<h3>這門生意穩不穩</h3><p>穩定度要看兩件事：需求是不是來自多年期趨勢，以及公司能不能把收入變成現金。半導體與硬體會有庫存循環，軟體與資料中心通常較有續約或長約，但同樣會受預算與利率影響。</p><ul><li>站內模型顯示，最新收入約 6.79 億美元，自由現金流(公司賺到、可自由運用的現金)約 1.01 億美元；營業利益率(每賣 100 元留下多少營業利益)約 11.7%，自由現金流率約 14.9%，投入資本報酬率(投一塊錢賺回幾毛)約 5.3%。</li><li>過去三年營收年均成長約 -5.7%，自由現金流年均成長約 —%；健康評等 B、分數 76，可用來判斷成長背後的財務品質。</li></ul>\n<h3>最近發生什麼</h3><ul><li>2026-05-05，GlobalFoundries 公布截至 2026-03-31 的季度營收 16.34 億美元，毛利率 27.6%、非 IFRS 毛利率 29.0%，營業利益率 11.0%、非 IFRS 營業利益率 16.6%，淨利 1.04 億美元，成熟製程代工需求呈現穩定修復。<a href=\"https://www.sec.gov/Archives/edgar/data/1709048/000170904826000111/globalfoundries1q2026earni.htm\">來源</a></li></ul>\n<h3>未來與估值:值不值得</h3><p>現價約 81.38 美元，站內混合目標價約 37.2 美元，對應上行空間約 -54.3%。若股價隱含未來自由現金流長期成長約 51.0%，投資重點就不是只看題材，而是確認訂單、續約、利潤率與現金流是否跟得上這個期待。</p>\n<h3>要盯什麼(風險)</h3><ul><li>景氣循環反轉會讓客戶延後拉貨或資本支出。</li><li>關鍵客戶集中與價格競爭，可能壓縮毛利率。</li><li>若新技術或替代方案成熟，現有產品的議價力會下降。</li></ul>\n<h3>總結</h3><blockquote>GlobalFoundries Inc. 的投資判斷適合用「產業位置、現金流品質、估值期待」一起看。若後續營收與現金流延續，當前估值需要更高成長來支撐；若成長降速但市場仍給高期待，安全邊際會變薄。</blockquote><p class=\"disc\">非投資建議。</p>",
+  "val_bar_svg": "<svg viewBox='0 0 720 96' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><line x1='20' y1='52' x2='700' y2='52' stroke='#1a2238' stroke-width='2'/><rect x='32' y='48' width='42' height='8' fill='#00f3ff' opacity='.12'/><circle cx='32' cy='52' r='5' fill='#5c8cff'/><text x='32' y='34' fill='#5c8cff' font-size='11' text-anchor='middle'>悲觀</text><text x='32' y='47' fill='#5c8cff' font-size='11' text-anchor='middle' font-family='monospace'>$15.6</text><circle cx='56' cy='52' r='5' fill='#00f3ff'/><text x='56' y='78' fill='#00f3ff' font-size='11' text-anchor='middle'>DCF</text><text x='56' y='91' fill='#00f3ff' font-size='11' text-anchor='middle' font-family='monospace'>$18.2</text><circle cx='73' cy='52' r='5' fill='#b48cff'/><text x='73' y='34' fill='#b48cff' font-size='11' text-anchor='middle'>樂觀</text><text x='73' y='47' fill='#b48cff' font-size='11' text-anchor='middle' font-family='monospace'>$20.1</text><circle cx='231' cy='52' r='5' fill='#00ff9d'/><text x='231' y='78' fill='#00ff9d' font-size='11' text-anchor='middle'>混合目標</text><text x='231' y='91' fill='#00ff9d' font-size='11' text-anchor='middle' font-family='monospace'>$37.2</text><circle cx='408' cy='52' r='5' fill='#39d3ff'/><text x='408' y='34' fill='#39d3ff' font-size='11' text-anchor='middle'>可比</text><text x='408' y='47' fill='#39d3ff' font-size='11' text-anchor='middle' font-family='monospace'>$56.3</text><circle cx='640' cy='52' r='6' fill='#ffffff'/><text x='640' y='78' fill='#ffffff' font-size='11' text-anchor='middle'>現價</text><text x='640' y='91' fill='#ffffff' font-size='11' text-anchor='middle' font-family='monospace'>$81.38</text></svg>"
 }

@@ -1,0 +1,238 @@
+{
+  "symbol": "DDOG",
+  "name": "DDOG",
+  "tier": "watch",
+  "regime": "neutral",
+  "theme": "AI Software",
+  "business": "",
+  "why": null,
+  "rsi": null,
+  "sma50": null,
+  "sma200": null,
+  "factors": [],
+  "tracking": [],
+  "links": [
+    {
+      "label": "Finviz",
+      "desc": "技術快照 / 圖",
+      "href": "https://finviz.com/quote.ashx?t=DDOG"
+    },
+    {
+      "label": "StockAnalysis",
+      "desc": "財報 / 估值",
+      "href": "https://stockanalysis.com/stocks/DDOG/"
+    },
+    {
+      "label": "TradingView",
+      "desc": "互動圖",
+      "href": "https://www.tradingview.com/symbols/DDOG/"
+    },
+    {
+      "label": "Macrotrends",
+      "desc": "長期財務",
+      "href": "https://www.macrotrends.net/stocks/charts/DDOG/x/"
+    },
+    {
+      "label": "TipRanks",
+      "desc": "分析師",
+      "href": "https://www.tipranks.com/stocks/DDOG/forecast"
+    }
+  ],
+  "peers": [
+    {
+      "symbol": "NOW",
+      "name": "ServiceNow",
+      "tier": "watch"
+    }
+  ],
+  "price": 229.9,
+  "generated_at": "2026-06-14T14:42:46Z",
+  "health_grade": "B",
+  "health_score": 72,
+  "chain_position": {
+    "theme": "AI Software",
+    "tier": "upstream",
+    "label": "Infra"
+  },
+  "valuation": {
+    "dcf": {
+      "symbol": "DDOG",
+      "price": 229.9,
+      "method": "firm_level_fcf",
+      "fcf_firm_b": 0.9,
+      "shares_b": 0.36,
+      "net_debt_b": 1.1,
+      "growth_rate_assumed": 26.0,
+      "wacc": 10.5,
+      "terminal_growth": 4.0,
+      "intrinsic": 74.9,
+      "bull": 105.3,
+      "bear": 41.5,
+      "upside_pct": -67.4,
+      "scenarios": [
+        {
+          "scenario": "bull",
+          "intrinsic_per_share": 105.3,
+          "ev_b": 39.4,
+          "wacc": 10.0,
+          "terminal_g": 4.4,
+          "growth_yr1": 31.7
+        },
+        {
+          "scenario": "base",
+          "intrinsic_per_share": 74.9,
+          "ev_b": 28.3,
+          "wacc": 10.5,
+          "terminal_g": 4.0,
+          "growth_yr1": 26.0
+        },
+        {
+          "scenario": "bear",
+          "intrinsic_per_share": 41.5,
+          "ev_b": 16.2,
+          "wacc": 11.3,
+          "terminal_g": 3.2,
+          "growth_yr1": 15.1
+        }
+      ],
+      "inputs": {
+        "fcf_cagr_3y": 37.3,
+        "rev_cagr_3y": 26.9,
+        "roic_pct": 2.1,
+        "gross_margin_pct": 80.0,
+        "op_margin_pct": -1.3,
+        "fcf_margin_pct": 26.7
+      }
+    },
+    "reverse_dcf": {
+      "implied_growth_pct": ">60",
+      "market_cap_b": 83.6,
+      "note": "現價隱含 >60% 永久成長 —— 極度樂觀,留意預期落差"
+    },
+    "comps_valuation": {
+      "pe_target": 5.1,
+      "ev_ebitda_target": -4.2,
+      "blended_comps": 0.4
+    },
+    "comps": {
+      "pe_target": 5.1,
+      "ev_ebitda_target": -4.2,
+      "blended_comps": 0.4
+    },
+    "blended_target": {
+      "target": 37.7,
+      "upside_pct": -83.6,
+      "components": {
+        "dcf": 74.9,
+        "comps": 0.4,
+        "comps_detail": {
+          "pe": 5.1,
+          "ev_ebitda": -4.2
+        }
+      },
+      "weights": {
+        "DCF": 0.5,
+        "可比": 0.5
+      }
+    },
+    "sensitivity": {
+      "waccs": [
+        9.5,
+        10.0,
+        10.5,
+        11.0,
+        11.5
+      ],
+      "term_gs": [
+        3.0,
+        3.5,
+        4.0,
+        4.5,
+        5.0
+      ],
+      "grid": [
+        [
+          79.0,
+          84.0,
+          90.0,
+          97.0,
+          106.0
+        ],
+        [
+          73.0,
+          77.0,
+          82.0,
+          87.0,
+          94.0
+        ],
+        [
+          67.0,
+          71.0,
+          75.0,
+          80.0,
+          85.0
+        ],
+        [
+          63.0,
+          66.0,
+          69.0,
+          73.0,
+          77.0
+        ],
+        [
+          58.0,
+          61.0,
+          64.0,
+          67.0,
+          71.0
+        ]
+      ]
+    },
+    "peer_median": {
+      "pe": 17.1,
+      "ev_ebitda": 8.0,
+      "fcf_yield": 1.8,
+      "rev_growth": 26.0
+    },
+    "peer_verdict": "高於同業估值",
+    "own_multiples": {
+      "pe": 598.6,
+      "ev_ebitda": 361.8,
+      "fcf_yield": 1.3
+    }
+  },
+  "financials": {
+    "latest": {
+      "revenue_b": 3.43,
+      "net_income_b": 0.11,
+      "fcf_b": 0.91,
+      "gross_margin": 80.0,
+      "op_margin": -1.3,
+      "net_margin": 3.1,
+      "fcf_margin": 26.7,
+      "roe": 2.9,
+      "roa": 1.6,
+      "roic": 2.1,
+      "current_ratio": 3.38,
+      "quick_ratio": 3.38,
+      "debt_equity": 0.41,
+      "net_debt_ebitda": 5.85,
+      "interest_coverage": 12.49,
+      "fcf_to_ni": 8.49,
+      "sbc_to_rev": 0.0,
+      "capex_to_rev": 4.0,
+      "rnd_to_rev": 45.2,
+      "shares_change_pct": 21.0,
+      "net_debt_b": 1.13,
+      "cash_b": 4.47
+    },
+    "growth": {
+      "rev_cagr_3y": 26.9,
+      "rev_cagr_5y": 41.5,
+      "eps_cagr_3y": null,
+      "fcf_cagr_3y": 37.3
+    }
+  },
+  "report_html": "<p class=\"lead\">DDOG(DDOG) 是 供應鏈公司；核心看點是它在 AI Software 供應鏈中的位置，能不能把需求成長轉成可持續的現金流。</p>\n<figure><img src=\"https://cdn.simpleicons.org/datadog\" alt=\"DDOG 產品或品牌相關圖片\"><figcaption>來源:<a href=\"https://simpleicons.org/?q=datadog\">Simple Icons / Datadog icon</a></figcaption></figure>\n<h3>這家公司在做什麼</h3><p>DDOG 提供的是「Infra」相關產品或服務。白話說，它把技術、製造、軟體或基礎設施能力交給客戶，讓客戶能做出更快的晶片、更安全的系統、更有效率的雲端服務，或更完整的終端產品。</p>\n<h3>它怎麼賺錢</h3><p>公司位在 AI Software 的 upstream。它向客戶收取產品銷售、訂閱、授權、服務或租賃收入；真正的護城河通常來自客戶認證、長期合約、軟體生態、工程經驗與規模效益，而不是單一季度的熱點。</p>\n<h3>這門生意穩不穩</h3><p>穩定度要看兩件事：需求是不是來自多年期趨勢，以及公司能不能把收入變成現金。半導體與硬體會有庫存循環，軟體與資料中心通常較有續約或長約，但同樣會受預算與利率影響。</p><ul><li>站內模型顯示，最新收入約 3.43 億美元，自由現金流(公司賺到、可自由運用的現金)約 0.91 億美元；營業利益率(每賣 100 元留下多少營業利益)約 -1.3%，自由現金流率約 26.7%，投入資本報酬率(投一塊錢賺回幾毛)約 2.1%。</li><li>過去三年營收年均成長約 26.9%，自由現金流年均成長約 37.3%；健康評等 B、分數 72，可用來判斷成長背後的財務品質。</li></ul>\n<h3>最近發生什麼</h3><ul><li>2026-05-07，Datadog 10-Q 顯示 2026 年第一季營收 10.064 億美元，營業利益 733 萬美元、淨利 5,257 萬美元、稀釋每股盈餘 0.15 美元；可觀測性與雲端監控需求仍支撐收入，但投資支出也壓低營業槓桿。<a href=\"https://www.sec.gov/Archives/edgar/data/1561550/000162828026032328/ddog-20260331.htm\">來源</a></li></ul>\n<h3>未來與估值:值不值得</h3><p>現價約 229.9 美元，站內混合目標價約 37.7 美元，對應上行空間約 -83.6%。若股價隱含未來自由現金流長期成長約 >60%，投資重點就不是只看題材，而是確認訂單、續約、利潤率與現金流是否跟得上這個期待。</p>\n<h3>要盯什麼(風險)</h3><ul><li>企業人工智慧專案若延後落地，軟體消費與續約擴張會放慢。</li><li>雲端成本若上升，可能壓縮毛利率或自由現金流。</li><li>大型平台競爭加劇，會讓客戶採購更集中。</li></ul>\n<h3>總結</h3><blockquote>DDOG 的投資判斷適合用「產業位置、現金流品質、估值期待」一起看。若後續營收與現金流延續，當前估值需要更高成長來支撐；若成長降速但市場仍給高期待，安全邊際會變薄。</blockquote><p class=\"disc\">非投資建議。</p>",
+  "val_bar_svg": "<svg viewBox='0 0 720 96' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><line x1='20' y1='52' x2='700' y2='52' stroke='#1a2238' stroke-width='2'/><rect x='133' y='48' width='175' height='8' fill='#00f3ff' opacity='.12'/><circle cx='20' cy='52' r='5' fill='#39d3ff'/><text x='20' y='34' fill='#39d3ff' font-size='11' text-anchor='middle'>可比</text><text x='20' y='47' fill='#39d3ff' font-size='11' text-anchor='middle' font-family='monospace'>$0.4</text><circle cx='122' cy='52' r='5' fill='#00ff9d'/><text x='122' y='78' fill='#00ff9d' font-size='11' text-anchor='middle'>混合目標</text><text x='122' y='91' fill='#00ff9d' font-size='11' text-anchor='middle' font-family='monospace'>$37.7</text><circle cx='133' cy='52' r='5' fill='#5c8cff'/><text x='133' y='34' fill='#5c8cff' font-size='11' text-anchor='middle'>悲觀</text><text x='133' y='47' fill='#5c8cff' font-size='11' text-anchor='middle' font-family='monospace'>$41.5</text><circle cx='224' cy='52' r='5' fill='#00f3ff'/><text x='224' y='78' fill='#00f3ff' font-size='11' text-anchor='middle'>DCF</text><text x='224' y='91' fill='#00f3ff' font-size='11' text-anchor='middle' font-family='monospace'>$74.9</text><circle cx='308' cy='52' r='5' fill='#b48cff'/><text x='308' y='34' fill='#b48cff' font-size='11' text-anchor='middle'>樂觀</text><text x='308' y='47' fill='#b48cff' font-size='11' text-anchor='middle' font-family='monospace'>$105.3</text><circle cx='650' cy='52' r='6' fill='#ffffff'/><text x='650' y='78' fill='#ffffff' font-size='11' text-anchor='middle'>現價</text><text x='650' y='91' fill='#ffffff' font-size='11' text-anchor='middle' font-family='monospace'>$229.9</text></svg>"
+}

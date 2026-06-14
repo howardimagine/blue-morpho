@@ -185,5 +185,131 @@
       "name": "Fortinet",
       "tier": "enter"
     }
-  ]
+  ],
+  "price": 682.8,
+  "generated_at": "2026-06-14T14:42:46Z",
+  "health_grade": "C",
+  "health_score": 51,
+  "chain_position": {
+    "theme": "Cybersecurity",
+    "tier": "midstream",
+    "label": "Platform"
+  },
+  "valuation": {
+    "dcf": {
+      "symbol": "CRWD",
+      "price": 682.8,
+      "method": "per_share_approx",
+      "fcf_base_per_share": 5.46,
+      "growth_rate_assumed": 22.7,
+      "wacc": 10.5,
+      "terminal_growth": 4.0,
+      "intrinsic": 160.0,
+      "bull": 236.0,
+      "bear": 107.0,
+      "upside_pct": -76.6,
+      "scenarios": [
+        {
+          "scenario": "bull",
+          "intrinsic_per_share": 236.0,
+          "wacc": 10.0,
+          "terminal_g": 4.6
+        },
+        {
+          "scenario": "base",
+          "intrinsic_per_share": 160.0,
+          "wacc": 10.5,
+          "terminal_g": 4.0
+        },
+        {
+          "scenario": "bear",
+          "intrinsic_per_share": 107.0,
+          "wacc": 11.0,
+          "terminal_g": 3.4
+        }
+      ],
+      "inputs": {
+        "fcf_yield_pct": 0.8,
+        "rev_growth_pct": 21.7,
+        "fcf_growth_pct": 22.7,
+        "roic_pct": 6.0,
+        "gross_margin_pct": 75.0,
+        "op_margin_pct": -3.9
+      }
+    },
+    "reverse_dcf": null,
+    "comps_valuation": {
+      "pe_target": null,
+      "ev_ebitda_target": -123.6,
+      "blended_comps": -123.6
+    },
+    "comps": {
+      "pe_target": null,
+      "ev_ebitda_target": -123.6,
+      "blended_comps": -123.6
+    },
+    "blended_target": {
+      "target": 18.2,
+      "upside_pct": -97.3,
+      "components": {
+        "dcf": 160.0,
+        "comps": -123.6,
+        "comps_detail": {
+          "pe": null,
+          "ev_ebitda": -123.6
+        }
+      },
+      "weights": {
+        "DCF": 0.5,
+        "可比": 0.5
+      }
+    },
+    "sensitivity": null,
+    "peer_median": {
+      "pe": 148.6,
+      "ev_ebitda": 107.6,
+      "fcf_yield": 2.3,
+      "rev_growth": 14.9
+    },
+    "peer_verdict": "資料不足",
+    "own_multiples": {
+      "pe": null,
+      "ev_ebitda": 508.2,
+      "fcf_yield": 0.8
+    }
+  },
+  "financials": {
+    "latest": {
+      "revenue_b": 4.81,
+      "net_income_b": -0.16,
+      "fcf_b": 1.31,
+      "gross_margin": 74.7,
+      "op_margin": -6.1,
+      "net_margin": -3.4,
+      "fcf_margin": 27.2,
+      "roe": -3.7,
+      "roa": -1.5,
+      "roic": -1.5,
+      "current_ratio": 1.77,
+      "quick_ratio": 1.77,
+      "debt_equity": 0.19,
+      "net_debt_ebitda": -24.17,
+      "interest_coverage": -3.53,
+      "fcf_to_ni": -8.06,
+      "sbc_to_rev": 22.8,
+      "capex_to_rev": 6.3,
+      "rnd_to_rev": 28.8,
+      "shares_change_pct": 18.5,
+      "net_debt_b": -4.41,
+      "cash_b": 5.23
+    },
+    "growth": {
+      "rev_cagr_3y": 29.0,
+      "rev_cagr_5y": 40.6,
+      "eps_cagr_3y": null,
+      "fcf_cagr_3y": 24.8
+    }
+  },
+  "report_html": "<p class=\"lead\">CrowdStrike(CRWD) 是 AI-native endpoint security platform; Falcon platform consolidating SIEM + identity + cloud sec.；核心看點是它在 Cybersecurity 供應鏈中的位置，能不能把需求成長轉成可持續的現金流。</p>\n<figure><img src=\"https://www.sec.gov/Archives/edgar/data/1535527/000153552726000022/crwd_logox2020a.jpg\" alt=\"CrowdStrike 產品或品牌相關圖片\"><figcaption>來源:<a href=\"https://www.sec.gov/Archives/edgar/data/1535527/000153552726000022/crwd-20260603xex991.htm\">CrowdStrike SEC-filed official image</a></figcaption></figure>\n<h3>這家公司在做什麼</h3><p>CrowdStrike 提供的是「Platform」相關產品或服務。白話說，它把技術、製造、軟體或基礎設施能力交給客戶，讓客戶能做出更快的晶片、更安全的系統、更有效率的雲端服務，或更完整的終端產品。</p>\n<h3>它怎麼賺錢</h3><p>公司位在 Cybersecurity 的 midstream。它向客戶收取產品銷售、訂閱、授權、服務或租賃收入；真正的護城河通常來自客戶認證、長期合約、軟體生態、工程經驗與規模效益，而不是單一季度的熱點。</p>\n<h3>這門生意穩不穩</h3><p>穩定度要看兩件事：需求是不是來自多年期趨勢，以及公司能不能把收入變成現金。半導體與硬體會有庫存循環，軟體與資料中心通常較有續約或長約，但同樣會受預算與利率影響。</p><ul><li>站內模型顯示，最新收入約 4.81 億美元，自由現金流(公司賺到、可自由運用的現金)約 1.31 億美元；營業利益率(每賣 100 元留下多少營業利益)約 -6.1%，自由現金流率約 27.2%，投入資本報酬率(投一塊錢賺回幾毛)約 -1.5%。</li><li>過去三年營收年均成長約 29.0%，自由現金流年均成長約 24.8%；健康評等 C、分數 51，可用來判斷成長背後的財務品質。</li></ul>\n<h3>最近發生什麼</h3><ul><li>2026-06-03，CrowdStrike 公布 2027 會計年度第一季營收 13.9 億美元、年增 26%，訂閱收入 13.2 億美元；年度經常性收入 55.1 億美元、淨新增 2.558 億美元，營運現金流 5.91 億美元、自由現金流 4.68 億美元，端點與雲端資安平台仍在擴張。<a href=\"https://www.sec.gov/Archives/edgar/data/1535527/000153552726000022/crwd-20260603xex991.htm\">來源</a></li></ul>\n<h3>未來與估值:值不值得</h3><p>現價約 682.8 美元，站內混合目標價約 18.2 美元，對應上行空間約 -97.3%。若股價隱含未來自由現金流長期成長約 —%，投資重點就不是只看題材，而是確認訂單、續約、利潤率與現金流是否跟得上這個期待。</p>\n<h3>要盯什麼(風險)</h3><ul><li>企業資訊安全預算放慢，會拉長成交週期。</li><li>大型平台若捆綁資安功能，可能壓縮單點產品定價。</li><li>若續約率或年度經常性收入成長下滑，高估值會快速重估。</li></ul>\n<h3>總結</h3><blockquote>CrowdStrike 的投資判斷適合用「產業位置、現金流品質、估值期待」一起看。若後續營收與現金流延續，當前估值需要更高成長來支撐；若成長降速但市場仍給高期待，安全邊際會變薄。</blockquote><p class=\"disc\">非投資建議。</p>",
+  "val_bar_svg": "<svg viewBox='0 0 720 96' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><line x1='20' y1='52' x2='700' y2='52' stroke='#1a2238' stroke-width='2'/><rect x='105' y='48' width='122' height='8' fill='#00f3ff' opacity='.12'/><circle cx='21' cy='52' r='5' fill='#00ff9d'/><text x='21' y='34' fill='#00ff9d' font-size='11' text-anchor='middle'>混合目標</text><text x='21' y='47' fill='#00ff9d' font-size='11' text-anchor='middle' font-family='monospace'>$18.2</text><circle cx='105' cy='52' r='5' fill='#5c8cff'/><text x='105' y='78' fill='#5c8cff' font-size='11' text-anchor='middle'>悲觀</text><text x='105' y='91' fill='#5c8cff' font-size='11' text-anchor='middle' font-family='monospace'>$107</text><circle cx='155' cy='52' r='5' fill='#00f3ff'/><text x='155' y='34' fill='#00f3ff' font-size='11' text-anchor='middle'>DCF</text><text x='155' y='47' fill='#00f3ff' font-size='11' text-anchor='middle' font-family='monospace'>$160</text><circle cx='227' cy='52' r='5' fill='#b48cff'/><text x='227' y='78' fill='#b48cff' font-size='11' text-anchor='middle'>樂觀</text><text x='227' y='91' fill='#b48cff' font-size='11' text-anchor='middle' font-family='monospace'>$236</text><circle cx='648' cy='52' r='6' fill='#ffffff'/><text x='648' y='34' fill='#ffffff' font-size='11' text-anchor='middle'>現價</text><text x='648' y='47' fill='#ffffff' font-size='11' text-anchor='middle' font-family='monospace'>$682.8</text></svg>"
 }

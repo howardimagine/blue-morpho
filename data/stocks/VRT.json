@@ -3,7 +3,7 @@
   "name": "Vertiv",
   "tier": "ready",
   "regime": "neutral",
-  "theme": "Data Center",
+  "theme": "Electrification / Power",
   "business": "資料中心關鍵基礎設施(電源/散熱);AI 訓練中心建設核心。",
   "why": "WATCHLIST_CONVICTION",
   "rsi": null,
@@ -110,5 +110,211 @@
       "href": "https://www.tipranks.com/stocks/VRT/forecast"
     }
   ],
-  "peers": []
+  "peers": [
+    {
+      "symbol": "ABB",
+      "name": "ABB",
+      "tier": "watch"
+    },
+    {
+      "symbol": "GEV",
+      "name": "GE Vernova",
+      "tier": "watch"
+    },
+    {
+      "symbol": "ENB",
+      "name": "Enbridge Inc",
+      "tier": "ready"
+    }
+  ],
+  "price": 302.87,
+  "generated_at": "2026-06-14T14:42:46Z",
+  "health_grade": "A",
+  "health_score": 94,
+  "chain_position": {
+    "theme": "Electrification / Power",
+    "tier": "midstream",
+    "label": "Power Management"
+  },
+  "valuation": {
+    "dcf": {
+      "symbol": "VRT",
+      "price": 302.87,
+      "method": "firm_level_fcf",
+      "fcf_firm_b": 1.9,
+      "shares_b": 0.39,
+      "net_debt_b": 1.7,
+      "growth_rate_assumed": 21.6,
+      "wacc": 9.0,
+      "terminal_growth": 4.0,
+      "intrinsic": 166.4,
+      "bull": 234.1,
+      "bear": 94.7,
+      "upside_pct": -45.1,
+      "scenarios": [
+        {
+          "scenario": "bull",
+          "intrinsic_per_share": 234.1,
+          "ev_b": 93.1,
+          "wacc": 8.5,
+          "terminal_g": 4.4,
+          "growth_yr1": 26.4
+        },
+        {
+          "scenario": "base",
+          "intrinsic_per_share": 166.4,
+          "ev_b": 66.7,
+          "wacc": 9.0,
+          "terminal_g": 4.0,
+          "growth_yr1": 21.6
+        },
+        {
+          "scenario": "bear",
+          "intrinsic_per_share": 94.7,
+          "ev_b": 38.7,
+          "wacc": 9.7,
+          "terminal_g": 3.2,
+          "growth_yr1": 12.5
+        }
+      ],
+      "inputs": {
+        "fcf_cagr_3y": null,
+        "rev_cagr_3y": 21.6,
+        "roic_pct": 19.7,
+        "gross_margin_pct": 34.4,
+        "op_margin_pct": 18.5,
+        "fcf_margin_pct": 18.5
+      }
+    },
+    "reverse_dcf": {
+      "implied_growth_pct": 45.8,
+      "market_cap_b": 118.3,
+      "note": "現價隱含未來十年 FCF 年均成長 ~45.8%(用 WACC 9.0%)"
+    },
+    "comps_valuation": {
+      "pe_target": 166.4,
+      "ev_ebitda_target": 159.0,
+      "blended_comps": 162.7
+    },
+    "comps": {
+      "pe_target": 166.4,
+      "ev_ebitda_target": 159.0,
+      "blended_comps": 162.7
+    },
+    "blended_target": {
+      "target": 164.6,
+      "upside_pct": -45.7,
+      "components": {
+        "dcf": 166.4,
+        "comps": 162.7,
+        "comps_detail": {
+          "pe": 166.4,
+          "ev_ebitda": 159.0
+        }
+      },
+      "weights": {
+        "DCF": 0.5,
+        "可比": 0.5
+      }
+    },
+    "sensitivity": {
+      "waccs": [
+        8.0,
+        8.5,
+        9.0,
+        9.5,
+        10.0
+      ],
+      "term_gs": [
+        3.0,
+        3.5,
+        4.0,
+        4.5,
+        5.0
+      ],
+      "grid": [
+        [
+          176.0,
+          191.0,
+          211.0,
+          236.0,
+          269.0
+        ],
+        [
+          159.0,
+          171.0,
+          186.0,
+          205.0,
+          229.0
+        ],
+        [
+          145.0,
+          154.0,
+          166.0,
+          181.0,
+          199.0
+        ],
+        [
+          133.0,
+          141.0,
+          150.0,
+          162.0,
+          176.0
+        ],
+        [
+          122.0,
+          129.0,
+          137.0,
+          146.0,
+          157.0
+        ]
+      ]
+    },
+    "peer_median": {
+      "pe": 48.8,
+      "ev_ebitda": 29.3,
+      "fcf_yield": 3.1,
+      "rev_growth": 10.3
+    },
+    "peer_verdict": "高於同業估值",
+    "own_multiples": {
+      "pe": 74.4,
+      "ev_ebitda": 50.0,
+      "fcf_yield": 2.0
+    }
+  },
+  "financials": {
+    "latest": {
+      "revenue_b": 10.23,
+      "net_income_b": 1.33,
+      "fcf_b": 1.89,
+      "gross_margin": 34.4,
+      "op_margin": 18.5,
+      "net_margin": 13.0,
+      "fcf_margin": 18.5,
+      "roe": 33.8,
+      "roa": 10.9,
+      "roic": 19.7,
+      "current_ratio": 1.55,
+      "quick_ratio": 1.22,
+      "debt_equity": 0.86,
+      "net_debt_ebitda": 0.78,
+      "interest_coverage": 21.23,
+      "fcf_to_ni": 1.42,
+      "sbc_to_rev": 0.4,
+      "capex_to_rev": 2.2,
+      "rnd_to_rev": 0.0,
+      "shares_change_pct": 27.2,
+      "net_debt_b": 1.68,
+      "cash_b": 1.83
+    },
+    "growth": {
+      "rev_cagr_3y": 21.6,
+      "rev_cagr_5y": 18.5,
+      "eps_cagr_3y": null,
+      "fcf_cagr_3y": null
+    }
+  },
+  "report_html": "<p class=\"lead\">Vertiv Holdings(VRT) 是 Data-center cooling + power infrastructure; biggest AI buildout pure-play after Eaton.；核心看點是它在 Electrification / Power 供應鏈中的位置，能不能把需求成長轉成可持續的現金流。</p>\n<figure><img src=\"https://upload.wikimedia.org/wikipedia/commons/d/d9/Vertiv_logo.svg\" alt=\"Vertiv Holdings 產品或品牌相關圖片\"><figcaption>來源:<a href=\"https://commons.wikimedia.org/wiki/File:Vertiv_logo.svg\">Wikimedia Commons / Vertiv logo</a></figcaption></figure>\n<h3>這家公司在做什麼</h3><p>Vertiv Holdings 提供的是「Power Management」相關產品或服務。白話說，它把技術、製造、軟體或基礎設施能力交給客戶，讓客戶能做出更快的晶片、更安全的系統、更有效率的雲端服務，或更完整的終端產品。</p>\n<h3>它怎麼賺錢</h3><p>公司位在 Electrification / Power 的 midstream。它向客戶收取產品銷售、訂閱、授權、服務或租賃收入；真正的護城河通常來自客戶認證、長期合約、軟體生態、工程經驗與規模效益，而不是單一季度的熱點。</p>\n<h3>這門生意穩不穩</h3><p>穩定度要看兩件事：需求是不是來自多年期趨勢，以及公司能不能把收入變成現金。半導體與硬體會有庫存循環，軟體與資料中心通常較有續約或長約，但同樣會受預算與利率影響。</p><ul><li>站內模型顯示，最新收入約 10.23 億美元，自由現金流(公司賺到、可自由運用的現金)約 1.89 億美元；營業利益率(每賣 100 元留下多少營業利益)約 18.5%，自由現金流率約 18.5%，投入資本報酬率(投一塊錢賺回幾毛)約 19.7%。</li><li>過去三年營收年均成長約 21.6%，自由現金流年均成長約 —%；健康評等 A、分數 94，可用來判斷成長背後的財務品質。</li></ul>\n<h3>最近發生什麼</h3><ul><li>2026-04-22，Vertiv 10-Q 顯示 2026 年第一季營收 26.495 億美元，營業利益 4.401 億美元、淨利 3.901 億美元、稀釋每股盈餘 0.99 美元；資料中心電力與散熱需求持續轉化為收入與獲利。<a href=\"https://www.sec.gov/Archives/edgar/data/1674101/000162828026026556/vrt-20260331.htm\">來源</a></li></ul>\n<h3>未來與估值:值不值得</h3><p>現價約 302.87 美元，站內混合目標價約 164.6 美元，對應上行空間約 -45.7%。若股價隱含未來自由現金流長期成長約 45.8%，投資重點就不是只看題材，而是確認訂單、續約、利潤率與現金流是否跟得上這個期待。</p>\n<h3>要盯什麼(風險)</h3><ul><li>景氣循環反轉會讓客戶延後拉貨或資本支出。</li><li>關鍵客戶集中與價格競爭，可能壓縮毛利率。</li><li>若新技術或替代方案成熟，現有產品的議價力會下降。</li></ul>\n<h3>總結</h3><blockquote>Vertiv Holdings 的投資判斷適合用「產業位置、現金流品質、估值期待」一起看。若後續營收與現金流延續，當前估值需要更高成長來支撐；若成長降速但市場仍給高期待，安全邊際會變薄。</blockquote><p class=\"disc\">非投資建議。</p>",
+  "val_bar_svg": "<svg viewBox='0 0 720 96' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><line x1='20' y1='52' x2='700' y2='52' stroke='#1a2238' stroke-width='2'/><rect x='41' y='48' width='395' height='8' fill='#00f3ff' opacity='.12'/><circle cx='41' cy='52' r='5' fill='#5c8cff'/><text x='41' y='34' fill='#5c8cff' font-size='11' text-anchor='middle'>悲觀</text><text x='41' y='47' fill='#5c8cff' font-size='11' text-anchor='middle' font-family='monospace'>$94.7</text><circle cx='234' cy='52' r='5' fill='#39d3ff'/><text x='234' y='78' fill='#39d3ff' font-size='11' text-anchor='middle'>可比</text><text x='234' y='91' fill='#39d3ff' font-size='11' text-anchor='middle' font-family='monospace'>$162.7</text><circle cx='240' cy='52' r='5' fill='#00ff9d'/><text x='240' y='34' fill='#00ff9d' font-size='11' text-anchor='middle'>混合目標</text><text x='240' y='47' fill='#00ff9d' font-size='11' text-anchor='middle' font-family='monospace'>$164.6</text><circle cx='245' cy='52' r='5' fill='#00f3ff'/><text x='245' y='78' fill='#00f3ff' font-size='11' text-anchor='middle'>DCF</text><text x='245' y='91' fill='#00f3ff' font-size='11' text-anchor='middle' font-family='monospace'>$166.4</text><circle cx='436' cy='52' r='5' fill='#b48cff'/><text x='436' y='34' fill='#b48cff' font-size='11' text-anchor='middle'>樂觀</text><text x='436' y='47' fill='#b48cff' font-size='11' text-anchor='middle' font-family='monospace'>$234.1</text><circle cx='631' cy='52' r='6' fill='#ffffff'/><text x='631' y='78' fill='#ffffff' font-size='11' text-anchor='middle'>現價</text><text x='631' y='91' fill='#ffffff' font-size='11' text-anchor='middle' font-family='monospace'>$302.87</text></svg>"
 }

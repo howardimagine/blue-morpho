@@ -1,268 +1,253 @@
 {
- "symbol": "GOOG",
- "name": "Alphabet (Google)",
- "tier": "watch",
- "regime": "neutral",
- "theme": "AI Compute",
- "business": "Search + YouTube + Cloud + Waymo; Gemini AI integrated; TPU is custom AI silicon.",
- "why": "",
- "rsi": null,
- "sma50": null,
- "sma200": null,
- "factors": [],
- "tracking": [],
- "links": [
-  {
-   "label": "Finviz",
-   "desc": "技術快照 / 圖",
-   "href": "https://finviz.com/quote.ashx?t=GOOG"
-  },
-  {
-   "label": "StockAnalysis",
-   "desc": "財報 / 估值",
-   "href": "https://stockanalysis.com/stocks/GOOG/"
-  },
-  {
-   "label": "TradingView",
-   "desc": "互動圖",
-   "href": "https://www.tradingview.com/symbols/GOOG/"
-  },
-  {
-   "label": "Macrotrends",
-   "desc": "長期財務",
-   "href": "https://www.macrotrends.net/stocks/charts/GOOG/x/"
-  },
-  {
-   "label": "TipRanks",
-   "desc": "分析師共識",
-   "href": "https://www.tipranks.com/stocks/GOOG/forecast"
-  },
-  {
-   "label": "Seeking Alpha",
-   "desc": "多空分析",
-   "href": "https://seekingalpha.com/symbol/GOOG"
-  }
- ],
- "peers": [
-  {
-   "symbol": "CRM",
-   "name": "CRM",
-   "tier": "watch"
-  },
-  {
-   "symbol": "HON",
-   "name": "Honeywell International Inc.",
-   "tier": "watch"
-  },
-  {
-   "symbol": "PLTR",
-   "name": "Palantir Technologies",
-   "tier": "watch"
-  },
-  {
-   "symbol": "META",
-   "name": "Meta Platforms",
-   "tier": "watch"
-  },
-  {
-   "symbol": "ORCL",
-   "name": "Oracle",
-   "tier": "watch"
-  },
-  {
-   "symbol": "IBM",
-   "name": "International Business Machines",
-   "tier": "watch"
-  }
- ],
- "price": 358.16,
- "generated_at": "2026-06-14T01:28:55Z",
- "health_grade": "A",
- "health_score": 81,
- "chain_position": {
+  "symbol": "GOOG",
+  "name": "Alphabet",
+  "tier": "watch",
+  "regime": "neutral",
   "theme": "AI Compute",
-  "tier": "downstream",
-  "label": "Downstream Hyperscalers"
- },
- "valuation": {
-  "dcf": {
-   "symbol": "GOOG",
-   "price": 358.16,
-   "method": "firm_level_fcf",
-   "fcf_firm_b": 73.3,
-   "shares_b": 12.23,
-   "net_debt_b": 28.6,
-   "growth_rate_assumed": 6.9,
-   "wacc": 8.5,
-   "terminal_growth": 4.0,
-   "intrinsic": 136.7,
-   "bull": 173.7,
-   "bear": 96.1,
-   "upside_pct": -61.8,
-   "scenarios": [
+  "business": "Google 廣告/雲/搜尋;Gemini AI 模型 + TPU 自研晶片。",
+  "why": null,
+  "rsi": null,
+  "sma50": null,
+  "sma200": null,
+  "factors": [],
+  "tracking": [],
+  "links": [
     {
-     "scenario": "bull",
-     "intrinsic_per_share": 173.7,
-     "ev_b": 2152.8,
-     "wacc": 8.1,
-     "terminal_g": 4.4,
-     "growth_yr1": 8.4
+      "label": "Finviz",
+      "desc": "技術快照 / 圖",
+      "href": "https://finviz.com/quote.ashx?t=GOOG"
     },
     {
-     "scenario": "base",
-     "intrinsic_per_share": 136.7,
-     "ev_b": 1700.7,
-     "wacc": 8.5,
-     "terminal_g": 4.0,
-     "growth_yr1": 6.9
+      "label": "StockAnalysis",
+      "desc": "財報 / 估值",
+      "href": "https://stockanalysis.com/stocks/GOOG/"
     },
     {
-     "scenario": "bear",
-     "intrinsic_per_share": 96.1,
-     "ev_b": 1203.7,
-     "wacc": 9.2,
-     "terminal_g": 3.2,
-     "growth_yr1": 4.0
+      "label": "TradingView",
+      "desc": "互動圖",
+      "href": "https://www.tradingview.com/symbols/GOOG/"
+    },
+    {
+      "label": "Macrotrends",
+      "desc": "長期財務",
+      "href": "https://www.macrotrends.net/stocks/charts/GOOG/x/"
+    },
+    {
+      "label": "TipRanks",
+      "desc": "分析師",
+      "href": "https://www.tipranks.com/stocks/GOOG/forecast"
     }
-   ],
-   "inputs": {
-    "fcf_cagr_3y": 6.9,
-    "rev_cagr_3y": 12.5,
-    "roic_pct": 26.4,
-    "gross_margin_pct": 59.7,
-    "op_margin_pct": 32.1,
-    "fcf_margin_pct": 18.2
-   }
-  },
-  "reverse_dcf": {
-   "implied_growth_pct": 41.3,
-   "market_cap_b": 4380.3,
-   "note": "現價隱含未來十年 FCF 年均成長 ~41.3%(用 WACC 8.5%)"
-  },
-  "comps_valuation": {
-   "pe_target": 296.2,
-   "ev_ebitda_target": 239.7,
-   "blended_comps": 267.9
-  },
-  "comps": {
-   "pe_target": 296.2,
-   "ev_ebitda_target": 239.7,
-   "blended_comps": 267.9
-  },
-  "blended_target": {
-   "target": 202.3,
-   "upside_pct": -43.5,
-   "components": {
-    "dcf": 136.7,
-    "comps": 267.9,
-    "comps_detail": {
-     "pe": 296.2,
-     "ev_ebitda": 239.7
+  ],
+  "peers": [
+    {
+      "symbol": "LRCX",
+      "name": "科林研發",
+      "tier": "ready"
+    },
+    {
+      "symbol": "ARM",
+      "name": "安謀",
+      "tier": "ready"
+    },
+    {
+      "symbol": "AVGO",
+      "name": "博通",
+      "tier": "ready"
+    },
+    {
+      "symbol": "AMD",
+      "name": "超微",
+      "tier": "enter"
     }
-   },
-   "weights": {
-    "DCF": 0.5,
-    "可比": 0.5
-   }
+  ],
+  "price": 358.16,
+  "generated_at": "2026-06-14T01:28:55Z",
+  "health_grade": "A",
+  "health_score": 81,
+  "chain_position": {
+    "theme": "AI Compute",
+    "tier": "downstream",
+    "label": "Downstream Hyperscalers"
   },
-  "sensitivity": {
-   "waccs": [
-    7.5,
-    8.0,
-    8.5,
-    9.0,
-    9.5
-   ],
-   "term_gs": [
-    3.0,
-    3.5,
-    4.0,
-    4.5,
-    5.0
-   ],
-   "grid": [
-    [
-     144.0,
-     158.0,
-     176.0,
-     200.0,
-     233.0
-    ],
-    [
-     130.0,
-     141.0,
-     154.0,
-     171.0,
-     194.0
-    ],
-    [
-     118.0,
-     126.0,
-     137.0,
-     150.0,
-     167.0
-    ],
-    [
-     108.0,
-     115.0,
-     123.0,
-     133.0,
-     146.0
-    ],
-    [
-     99.0,
-     105.0,
-     112.0,
-     120.0,
-     130.0
-    ]
-   ]
+  "valuation": {
+    "dcf": {
+      "symbol": "GOOG",
+      "price": 358.16,
+      "method": "firm_level_fcf",
+      "fcf_firm_b": 73.3,
+      "shares_b": 12.23,
+      "net_debt_b": 28.6,
+      "growth_rate_assumed": 6.9,
+      "wacc": 8.5,
+      "terminal_growth": 4.0,
+      "intrinsic": 136.7,
+      "bull": 173.7,
+      "bear": 96.1,
+      "upside_pct": -61.8,
+      "scenarios": [
+        {
+          "scenario": "bull",
+          "intrinsic_per_share": 173.7,
+          "ev_b": 2152.8,
+          "wacc": 8.1,
+          "terminal_g": 4.4,
+          "growth_yr1": 8.4
+        },
+        {
+          "scenario": "base",
+          "intrinsic_per_share": 136.7,
+          "ev_b": 1700.7,
+          "wacc": 8.5,
+          "terminal_g": 4.0,
+          "growth_yr1": 6.9
+        },
+        {
+          "scenario": "bear",
+          "intrinsic_per_share": 96.1,
+          "ev_b": 1203.7,
+          "wacc": 9.2,
+          "terminal_g": 3.2,
+          "growth_yr1": 4.0
+        }
+      ],
+      "inputs": {
+        "fcf_cagr_3y": 6.9,
+        "rev_cagr_3y": 12.5,
+        "roic_pct": 26.4,
+        "gross_margin_pct": 59.7,
+        "op_margin_pct": 32.1,
+        "fcf_margin_pct": 18.2
+      }
+    },
+    "reverse_dcf": {
+      "implied_growth_pct": 41.3,
+      "market_cap_b": 4380.3,
+      "note": "現價隱含未來十年 FCF 年均成長 ~41.3%(用 WACC 8.5%)"
+    },
+    "comps_valuation": {
+      "pe_target": 296.2,
+      "ev_ebitda_target": 239.7,
+      "blended_comps": 267.9
+    },
+    "comps": {
+      "pe_target": 296.2,
+      "ev_ebitda_target": 239.7,
+      "blended_comps": 267.9
+    },
+    "blended_target": {
+      "target": 202.3,
+      "upside_pct": -43.5,
+      "components": {
+        "dcf": 136.7,
+        "comps": 267.9,
+        "comps_detail": {
+          "pe": 296.2,
+          "ev_ebitda": 239.7
+        }
+      },
+      "weights": {
+        "DCF": 0.5,
+        "可比": 0.5
+      }
+    },
+    "sensitivity": {
+      "waccs": [
+        7.5,
+        8.0,
+        8.5,
+        9.0,
+        9.5
+      ],
+      "term_gs": [
+        3.0,
+        3.5,
+        4.0,
+        4.5,
+        5.0
+      ],
+      "grid": [
+        [
+          144.0,
+          158.0,
+          176.0,
+          200.0,
+          233.0
+        ],
+        [
+          130.0,
+          141.0,
+          154.0,
+          171.0,
+          194.0
+        ],
+        [
+          118.0,
+          126.0,
+          137.0,
+          150.0,
+          167.0
+        ],
+        [
+          108.0,
+          115.0,
+          123.0,
+          133.0,
+          146.0
+        ],
+        [
+          99.0,
+          105.0,
+          112.0,
+          120.0,
+          130.0
+        ]
+      ]
+    },
+    "peer_median": {
+      "pe": 27.4,
+      "ev_ebitda": 19.9,
+      "fcf_yield": 3.7,
+      "rev_growth": 12.7
+    },
+    "peer_verdict": "接近同業估值中位",
+    "own_multiples": {
+      "pe": 27.2,
+      "ev_ebitda": 20.1,
+      "fcf_yield": 1.5
+    }
   },
-  "peer_median": {
-   "pe": 27.4,
-   "ev_ebitda": 19.9,
-   "fcf_yield": 3.7,
-   "rev_growth": 12.7
+  "financials": {
+    "latest": {
+      "revenue_b": 402.96,
+      "net_income_b": 132.17,
+      "fcf_b": 73.27,
+      "gross_margin": 59.7,
+      "op_margin": 32.1,
+      "net_margin": 32.8,
+      "fcf_margin": 18.2,
+      "roe": 31.8,
+      "roa": 22.2,
+      "roic": 26.4,
+      "current_ratio": 2.01,
+      "quick_ratio": 2.01,
+      "debt_equity": 0.14,
+      "net_debt_ebitda": 0.16,
+      "interest_coverage": 1110.67,
+      "fcf_to_ni": 0.55,
+      "sbc_to_rev": 6.2,
+      "capex_to_rev": 22.7,
+      "rnd_to_rev": 15.2,
+      "shares_change_pct": -11.0,
+      "net_debt_b": 28.58,
+      "cash_b": 126.84
+    },
+    "growth": {
+      "rev_cagr_3y": 12.5,
+      "rev_cagr_5y": 17.2,
+      "eps_cagr_3y": 33.3,
+      "fcf_cagr_3y": 6.9
+    }
   },
-  "peer_verdict": "接近同業估值中位",
-  "own_multiples": {
-   "pe": 27.2,
-   "ev_ebitda": 20.1,
-   "fcf_yield": 1.5
-  }
- },
- "financials": {
-  "latest": {
-   "revenue_b": 402.96,
-   "net_income_b": 132.17,
-   "fcf_b": 73.27,
-   "gross_margin": 59.7,
-   "op_margin": 32.1,
-   "net_margin": 32.8,
-   "fcf_margin": 18.2,
-   "roe": 31.8,
-   "roa": 22.2,
-   "roic": 26.4,
-   "current_ratio": 2.01,
-   "quick_ratio": 2.01,
-   "debt_equity": 0.14,
-   "net_debt_ebitda": 0.16,
-   "interest_coverage": 1110.67,
-   "fcf_to_ni": 0.55,
-   "sbc_to_rev": 6.2,
-   "capex_to_rev": 22.7,
-   "rnd_to_rev": 15.2,
-   "shares_change_pct": -11.0,
-   "net_debt_b": 28.58,
-   "cash_b": 126.84
-  },
-  "growth": {
-   "rev_cagr_3y": 12.5,
-   "rev_cagr_5y": 17.2,
-   "eps_cagr_3y": 33.3,
-   "fcf_cagr_3y": 6.9
-  }
- },
- "report_html": "<p class=\"lead\">Alphabet (Google)(GOOG) 是 Search + YouTube + Cloud + Waymo; Gemini AI integrated; TPU is custom AI silicon.；現在的核心看點，是它在 AI Compute 供應鏈中能否把需求成長轉成現金流，而不是只停留在題材熱度。</p>\n<figure><img src=\"https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg\" alt=\"Alphabet (Google) 產品或品牌相關圖片\"><figcaption>來源:<a href=\"https://commons.wikimedia.org/wiki/File:Google_2015_logo.svg\">Wikimedia Commons / Google logo</a></figcaption></figure>\n<h3>這家公司在做什麼</h3>\n<p>Alphabet (Google) 的產品或服務位在「Downstream Hyperscalers」這個環節。白話說，它把技術、設備、軟體或基礎設施包成客戶願意付錢的能力，最後服務的是雲端、半導體、企業資訊科技、電力或通訊基礎設施需求。</p>\n<h3>它怎麼賺錢</h3>\n<p>公司位於 AI Compute 的 downstream。它的收入來自把關鍵產品交給下游客戶，或把長期資產出租、營運成穩定服務。真正的護城河通常不是單一產品名稱，而是客戶認證、工程經驗、規模採購、軟體生態或長期合約；這些因素會決定它能不能維持價格與毛利率。</p>\n<h3>這門生意穩不穩</h3>\n<p>穩定度要分兩層看：需求端若來自多年期雲端、電網、企業資安或資料中心投資，能見度會比較好；但供給端若需要大量資本支出、庫存管理或少數大客戶訂單，短期仍會有循環。</p>\n<ul><li>站內模型顯示，最新收入約 402.96 億美元，自由現金流(公司賺到、可自由運用的現金)約 73.27 億美元；營業利益率(每賣 100 元留下多少營業利益)約 32.1%，自由現金流率約 18.2%，投入資本報酬率(投一塊錢賺回幾毛)約 26.4%。</li><li>過去三年營收年均成長約 12.5%，自由現金流年均成長約 6.9%；健康評等為 A、分數 81，代表財務體質是估值判斷的重要底盤。</li></ul>\n<h3>最近發生什麼</h3>\n<ul><li>2025-04-24，Alphabet 公布 2025 年第一季營收 902.34 億美元、年增 12%；Google Cloud 營收 123 億美元、年增 28%，整體營業利益率 34%，每股盈餘 2.81 美元、年增 49%，人工智慧功能與雲端需求同步推升成長。<a href=\"https://www.sec.gov/Archives/edgar/data/1652044/000165204425000040/googexhibit991q12025.htm\">來源</a></li></ul>\n<h3>未來與估值:值不值得</h3>\n<p>現價約 358.16 美元，站內混合目標價約 202.3 美元，對應上行空間約 -43.5%。估算價值不是精準答案，而是一把尺：若市場價格已經要求未來自由現金流長期成長約 41.3%，投資人就必須相信公司能持續拿到訂單、維持利潤率，並把成長變成現金。</p>\n<h3>要盯什麼(風險)</h3>\n<ul><li>大型雲端客戶資本支出放慢，會讓訂單能見度下降。</li><li>出口管制、先進製程或關鍵零組件短缺，可能改變可服務市場與交期。</li><li>如果競爭者降價或客戶自研替代方案成熟，毛利率可能被壓縮。</li></ul>\n<h3>總結</h3>\n<blockquote>Alphabet (Google) 適合用「產業位置 + 現金流品質 + 估值期待」一起看。若後續新聞中的營收、訂單或展望能延續，偏嚴格 的估值較容易被支撐；若成長放慢但市場仍給高期待，安全邊際就會變薄。</blockquote>\n<p class=\"disc\">非投資建議。</p>",
- "val_bar_svg": "<svg viewBox='0 0 720 96' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><line x1='20' y1='52' x2='700' y2='52' stroke='#1a2238' stroke-width='2'/><rect x='38' y='48' width='177' height='8' fill='#00f3ff' opacity='.12'/><circle cx='38' cy='52' r='5' fill='#5c8cff'/><text x='38' y='34' fill='#5c8cff' font-size='11' text-anchor='middle'>悲觀</text><text x='38' y='47' fill='#5c8cff' font-size='11' text-anchor='middle' font-family='monospace'>$96.1</text><circle cx='130' cy='52' r='5' fill='#00f3ff'/><text x='130' y='78' fill='#00f3ff' font-size='11' text-anchor='middle'>DCF</text><text x='130' y='91' fill='#00f3ff' font-size='11' text-anchor='middle' font-family='monospace'>$136.7</text><circle cx='214' cy='52' r='5' fill='#b48cff'/><text x='214' y='34' fill='#b48cff' font-size='11' text-anchor='middle'>樂觀</text><text x='214' y='47' fill='#b48cff' font-size='11' text-anchor='middle' font-family='monospace'>$173.7</text><circle cx='280' cy='52' r='5' fill='#00ff9d'/><text x='280' y='78' fill='#00ff9d' font-size='11' text-anchor='middle'>混合目標</text><text x='280' y='91' fill='#00ff9d' font-size='11' text-anchor='middle' font-family='monospace'>$202.3</text><circle cx='429' cy='52' r='5' fill='#39d3ff'/><text x='429' y='34' fill='#39d3ff' font-size='11' text-anchor='middle'>可比</text><text x='429' y='47' fill='#39d3ff' font-size='11' text-anchor='middle' font-family='monospace'>$267.9</text><circle cx='635' cy='52' r='6' fill='#ffffff'/><text x='635' y='78' fill='#ffffff' font-size='11' text-anchor='middle'>現價</text><text x='635' y='91' fill='#ffffff' font-size='11' text-anchor='middle' font-family='monospace'>$358.16</text></svg>"
+  "report_html": "<p class=\"lead\">Alphabet (Google)(GOOG) 是 Search + YouTube + Cloud + Waymo; Gemini AI integrated; TPU is custom AI silicon.；現在的核心看點，是它在 AI Compute 供應鏈中能否把需求成長轉成現金流，而不是只停留在題材熱度。</p>\n<figure><img src=\"https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg\" alt=\"Alphabet (Google) 產品或品牌相關圖片\"><figcaption>來源:<a href=\"https://commons.wikimedia.org/wiki/File:Google_2015_logo.svg\">Wikimedia Commons / Google logo</a></figcaption></figure>\n<h3>這家公司在做什麼</h3>\n<p>Alphabet (Google) 的產品或服務位在「Downstream Hyperscalers」這個環節。白話說，它把技術、設備、軟體或基礎設施包成客戶願意付錢的能力，最後服務的是雲端、半導體、企業資訊科技、電力或通訊基礎設施需求。</p>\n<h3>它怎麼賺錢</h3>\n<p>公司位於 AI Compute 的 downstream。它的收入來自把關鍵產品交給下游客戶，或把長期資產出租、營運成穩定服務。真正的護城河通常不是單一產品名稱，而是客戶認證、工程經驗、規模採購、軟體生態或長期合約；這些因素會決定它能不能維持價格與毛利率。</p>\n<h3>這門生意穩不穩</h3>\n<p>穩定度要分兩層看：需求端若來自多年期雲端、電網、企業資安或資料中心投資，能見度會比較好；但供給端若需要大量資本支出、庫存管理或少數大客戶訂單，短期仍會有循環。</p>\n<ul><li>站內模型顯示，最新收入約 402.96 億美元，自由現金流(公司賺到、可自由運用的現金)約 73.27 億美元；營業利益率(每賣 100 元留下多少營業利益)約 32.1%，自由現金流率約 18.2%，投入資本報酬率(投一塊錢賺回幾毛)約 26.4%。</li><li>過去三年營收年均成長約 12.5%，自由現金流年均成長約 6.9%；健康評等為 A、分數 81，代表財務體質是估值判斷的重要底盤。</li></ul>\n<h3>最近發生什麼</h3>\n<ul><li>2025-04-24，Alphabet 公布 2025 年第一季營收 902.34 億美元、年增 12%；Google Cloud 營收 123 億美元、年增 28%，整體營業利益率 34%，每股盈餘 2.81 美元、年增 49%，人工智慧功能與雲端需求同步推升成長。<a href=\"https://www.sec.gov/Archives/edgar/data/1652044/000165204425000040/googexhibit991q12025.htm\">來源</a></li></ul>\n<h3>未來與估值:值不值得</h3>\n<p>現價約 358.16 美元，站內混合目標價約 202.3 美元，對應上行空間約 -43.5%。估算價值不是精準答案，而是一把尺：若市場價格已經要求未來自由現金流長期成長約 41.3%，投資人就必須相信公司能持續拿到訂單、維持利潤率，並把成長變成現金。</p>\n<h3>要盯什麼(風險)</h3>\n<ul><li>大型雲端客戶資本支出放慢，會讓訂單能見度下降。</li><li>出口管制、先進製程或關鍵零組件短缺，可能改變可服務市場與交期。</li><li>如果競爭者降價或客戶自研替代方案成熟，毛利率可能被壓縮。</li></ul>\n<h3>總結</h3>\n<blockquote>Alphabet (Google) 適合用「產業位置 + 現金流品質 + 估值期待」一起看。若後續新聞中的營收、訂單或展望能延續，偏嚴格 的估值較容易被支撐；若成長放慢但市場仍給高期待，安全邊際就會變薄。</blockquote>\n<p class=\"disc\">非投資建議。</p>",
+  "val_bar_svg": "<svg viewBox='0 0 720 96' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><line x1='20' y1='52' x2='700' y2='52' stroke='#1a2238' stroke-width='2'/><rect x='38' y='48' width='177' height='8' fill='#00f3ff' opacity='.12'/><circle cx='38' cy='52' r='5' fill='#5c8cff'/><text x='38' y='34' fill='#5c8cff' font-size='11' text-anchor='middle'>悲觀</text><text x='38' y='47' fill='#5c8cff' font-size='11' text-anchor='middle' font-family='monospace'>$96.1</text><circle cx='130' cy='52' r='5' fill='#00f3ff'/><text x='130' y='78' fill='#00f3ff' font-size='11' text-anchor='middle'>DCF</text><text x='130' y='91' fill='#00f3ff' font-size='11' text-anchor='middle' font-family='monospace'>$136.7</text><circle cx='214' cy='52' r='5' fill='#b48cff'/><text x='214' y='34' fill='#b48cff' font-size='11' text-anchor='middle'>樂觀</text><text x='214' y='47' fill='#b48cff' font-size='11' text-anchor='middle' font-family='monospace'>$173.7</text><circle cx='280' cy='52' r='5' fill='#00ff9d'/><text x='280' y='78' fill='#00ff9d' font-size='11' text-anchor='middle'>混合目標</text><text x='280' y='91' fill='#00ff9d' font-size='11' text-anchor='middle' font-family='monospace'>$202.3</text><circle cx='429' cy='52' r='5' fill='#39d3ff'/><text x='429' y='34' fill='#39d3ff' font-size='11' text-anchor='middle'>可比</text><text x='429' y='47' fill='#39d3ff' font-size='11' text-anchor='middle' font-family='monospace'>$267.9</text><circle cx='635' cy='52' r='6' fill='#ffffff'/><text x='635' y='78' fill='#ffffff' font-size='11' text-anchor='middle'>現價</text><text x='635' y='91' fill='#ffffff' font-size='11' text-anchor='middle' font-family='monospace'>$358.16</text></svg>"
 }

@@ -89,5 +89,195 @@
       "name": "Fortinet",
       "tier": "enter"
     }
-  ]
+  ],
+  "price": 408.85001,
+  "generated_at": "2026-06-14T14:42:46Z",
+  "health_grade": "D",
+  "health_score": 46,
+  "chain_position": {
+    "theme": "Cybersecurity",
+    "tier": "midstream",
+    "label": "Identity"
+  },
+  "valuation": {
+    "dcf": {
+      "symbol": "CYBR",
+      "price": 408.85001,
+      "method": "firm_level_fcf",
+      "fcf_firm_b": 0.3,
+      "shares_b": 0.05,
+      "net_debt_b": 0.6,
+      "growth_rate_assumed": 26.0,
+      "wacc": 10.5,
+      "terminal_growth": 4.0,
+      "intrinsic": 154.7,
+      "bull": 219.6,
+      "bear": 83.4,
+      "upside_pct": -62.2,
+      "scenarios": [
+        {
+          "scenario": "bull",
+          "intrinsic_per_share": 219.6,
+          "ev_b": 11.6,
+          "wacc": 10.0,
+          "terminal_g": 4.4,
+          "growth_yr1": 31.7
+        },
+        {
+          "scenario": "base",
+          "intrinsic_per_share": 154.7,
+          "ev_b": 8.4,
+          "wacc": 10.5,
+          "terminal_g": 4.0,
+          "growth_yr1": 26.0
+        },
+        {
+          "scenario": "bear",
+          "intrinsic_per_share": 83.4,
+          "ev_b": 4.8,
+          "wacc": 11.3,
+          "terminal_g": 3.2,
+          "growth_yr1": 15.1
+        }
+      ],
+      "inputs": {
+        "fcf_cagr_3y": 93.6,
+        "rev_cagr_3y": 32.0,
+        "roic_pct": -1.5,
+        "gross_margin_pct": 74.3,
+        "op_margin_pct": -7.7,
+        "fcf_margin_pct": 19.8
+      }
+    },
+    "reverse_dcf": {
+      "implied_growth_pct": ">60",
+      "market_cap_b": 20.5,
+      "note": "現價隱含 >60% 永久成長 —— 極度樂觀,留意預期落差"
+    },
+    "comps_valuation": {
+      "pe_target": null,
+      "ev_ebitda_target": -138.4,
+      "blended_comps": -138.4
+    },
+    "comps": {
+      "pe_target": null,
+      "ev_ebitda_target": -138.4,
+      "blended_comps": -138.4
+    },
+    "blended_target": {
+      "target": 8.1,
+      "upside_pct": -98.0,
+      "components": {
+        "dcf": 154.7,
+        "comps": -138.4,
+        "comps_detail": {
+          "pe": null,
+          "ev_ebitda": -138.4
+        }
+      },
+      "weights": {
+        "DCF": 0.5,
+        "可比": 0.5
+      }
+    },
+    "sensitivity": {
+      "waccs": [
+        9.5,
+        10.0,
+        10.5,
+        11.0,
+        11.5
+      ],
+      "term_gs": [
+        3.0,
+        3.5,
+        4.0,
+        4.5,
+        5.0
+      ],
+      "grid": [
+        [
+          164.0,
+          174.0,
+          187.0,
+          202.0,
+          220.0
+        ],
+        [
+          150.0,
+          159.0,
+          169.0,
+          182.0,
+          196.0
+        ],
+        [
+          139.0,
+          146.0,
+          155.0,
+          165.0,
+          177.0
+        ],
+        [
+          129.0,
+          135.0,
+          142.0,
+          150.0,
+          160.0
+        ],
+        [
+          120.0,
+          125.0,
+          131.0,
+          138.0,
+          146.0
+        ]
+      ]
+    },
+    "peer_median": {
+      "pe": 82.9,
+      "ev_ebitda": 52.7,
+      "fcf_yield": 4.8,
+      "rev_growth": 11.8
+    },
+    "peer_verdict": "資料不足",
+    "own_multiples": {
+      "pe": null,
+      "ev_ebitda": 359.1,
+      "fcf_yield": 1.3
+    }
+  },
+  "financials": {
+    "latest": {
+      "revenue_b": 1.36,
+      "net_income_b": -0.15,
+      "fcf_b": 0.27,
+      "gross_margin": 74.3,
+      "op_margin": -7.7,
+      "net_margin": -10.8,
+      "fcf_margin": 19.8,
+      "roe": -6.1,
+      "roa": -3.0,
+      "roic": -1.5,
+      "current_ratio": 2.0,
+      "quick_ratio": 2.0,
+      "debt_equity": 0.51,
+      "net_debt_ebitda": 10.13,
+      "interest_coverage": null,
+      "fcf_to_ni": -1.84,
+      "sbc_to_rev": 0.0,
+      "capex_to_rev": 1.2,
+      "rnd_to_rev": 25.3,
+      "shares_change_pct": 29.9,
+      "net_debt_b": 0.6,
+      "cash_b": 1.54
+    },
+    "growth": {
+      "rev_cagr_3y": 32.0,
+      "rev_cagr_5y": 24.0,
+      "eps_cagr_3y": null,
+      "fcf_cagr_3y": 93.6
+    }
+  },
+  "report_html": "<p class=\"lead\">CYBR(CYBR) 是 供應鏈公司；核心看點是它在 Cybersecurity 供應鏈中的位置，能不能把需求成長轉成可持續的現金流。</p>\n<figure><img src=\"https://www.sec.gov/Archives/edgar/data/1598110/000110465926010015/tm264972d1_ex99-1img001.jpg\" alt=\"CYBR 產品或品牌相關圖片\"><figcaption>來源:<a href=\"https://www.sec.gov/Archives/edgar/data/1598110/000110465926010015/tm264972d1_ex99-1.htm\">CyberArk SEC-filed official image</a></figcaption></figure>\n<h3>這家公司在做什麼</h3><p>CYBR 提供的是「Identity」相關產品或服務。白話說，它把技術、製造、軟體或基礎設施能力交給客戶，讓客戶能做出更快的晶片、更安全的系統、更有效率的雲端服務，或更完整的終端產品。</p>\n<h3>它怎麼賺錢</h3><p>公司位在 Cybersecurity 的 midstream。它向客戶收取產品銷售、訂閱、授權、服務或租賃收入；真正的護城河通常來自客戶認證、長期合約、軟體生態、工程經驗與規模效益，而不是單一季度的熱點。</p>\n<h3>這門生意穩不穩</h3><p>穩定度要看兩件事：需求是不是來自多年期趨勢，以及公司能不能把收入變成現金。半導體與硬體會有庫存循環，軟體與資料中心通常較有續約或長約，但同樣會受預算與利率影響。</p><ul><li>站內模型顯示，最新收入約 1.36 億美元，自由現金流(公司賺到、可自由運用的現金)約 0.27 億美元；營業利益率(每賣 100 元留下多少營業利益)約 -7.7%，自由現金流率約 19.8%，投入資本報酬率(投一塊錢賺回幾毛)約 -1.5%。</li><li>過去三年營收年均成長約 32.0%，自由現金流年均成長約 93.6%；健康評等 D、分數 46，可用來判斷成長背後的財務品質。</li></ul>\n<h3>最近發生什麼</h3><ul><li>2026-02-04，CyberArk 公布 2025 年第四季營收 3.727 億美元、年增 19%，訂閱收入 3.105 億美元；年度經常性收入 14.40 億美元，訂閱年度經常性收入 12.67 億美元，淨新增年度經常性收入 9,900 萬美元，身分安全需求仍在推升成長。<a href=\"https://www.sec.gov/Archives/edgar/data/1598110/000110465926010015/tm264972d1_ex99-1.htm\">來源</a></li></ul>\n<h3>未來與估值:值不值得</h3><p>現價約 408.85001 美元，站內混合目標價約 8.1 美元，對應上行空間約 -98.0%。若股價隱含未來自由現金流長期成長約 >60%，投資重點就不是只看題材，而是確認訂單、續約、利潤率與現金流是否跟得上這個期待。</p>\n<h3>要盯什麼(風險)</h3><ul><li>企業資訊安全預算放慢，會拉長成交週期。</li><li>大型平台若捆綁資安功能，可能壓縮單點產品定價。</li><li>若續約率或年度經常性收入成長下滑，高估值會快速重估。</li></ul>\n<h3>總結</h3><blockquote>CYBR 的投資判斷適合用「產業位置、現金流品質、估值期待」一起看。若後續營收與現金流延續，當前估值需要更高成長來支撐；若成長降速但市場仍給高期待，安全邊際會變薄。</blockquote><p class=\"disc\">非投資建議。</p>",
+  "val_bar_svg": "<svg viewBox='0 0 720 96' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><line x1='20' y1='52' x2='700' y2='52' stroke='#1a2238' stroke-width='2'/><rect x='139' y='48' width='213' height='8' fill='#00f3ff' opacity='.12'/><circle cx='21' cy='52' r='5' fill='#00ff9d'/><text x='21' y='34' fill='#00ff9d' font-size='11' text-anchor='middle'>混合目標</text><text x='21' y='47' fill='#00ff9d' font-size='11' text-anchor='middle' font-family='monospace'>$8.1</text><circle cx='139' cy='52' r='5' fill='#5c8cff'/><text x='139' y='78' fill='#5c8cff' font-size='11' text-anchor='middle'>悲觀</text><text x='139' y='91' fill='#5c8cff' font-size='11' text-anchor='middle' font-family='monospace'>$83.4</text><circle cx='251' cy='52' r='5' fill='#00f3ff'/><text x='251' y='34' fill='#00f3ff' font-size='11' text-anchor='middle'>DCF</text><text x='251' y='47' fill='#00f3ff' font-size='11' text-anchor='middle' font-family='monospace'>$154.7</text><circle cx='352' cy='52' r='5' fill='#b48cff'/><text x='352' y='78' fill='#b48cff' font-size='11' text-anchor='middle'>樂觀</text><text x='352' y='91' fill='#b48cff' font-size='11' text-anchor='middle' font-family='monospace'>$219.6</text><circle cx='649' cy='52' r='6' fill='#ffffff'/><text x='649' y='34' fill='#ffffff' font-size='11' text-anchor='middle'>現價</text><text x='649' y='47' fill='#ffffff' font-size='11' text-anchor='middle' font-family='monospace'>$408.85</text></svg>"
 }

@@ -187,5 +187,116 @@
       "name": "亞馬遜",
       "tier": "watch"
     }
-  ]
+  ],
+  "price": 382.07,
+  "generated_at": "2026-06-14T01:28:55Z",
+  "health_grade": "B",
+  "health_score": 78,
+  "chain_position": {
+    "theme": "AI Compute",
+    "tier": "midstream",
+    "label": "Midstream Chips Design"
+  },
+  "valuation": {
+    "dcf": {
+      "symbol": "AVGO",
+      "price": 382.07,
+      "method": "firm_level_fcf",
+      "fcf_firm_b": 26.9,
+      "shares_b": 4.85,
+      "net_debt_b": 49.0,
+      "growth_rate_assumed": 18.2,
+      "wacc": 9.0,
+      "terminal_growth": 4.0,
+      "intrinsic": 163.5,
+      "bull": 226.4,
+      "bear": 95.6,
+      "upside_pct": -57.2,
+      "scenarios": [
+        {
+          "scenario": "bull",
+          "intrinsic_per_share": 226.4,
+          "ev_b": 1147.9,
+          "wacc": 8.5,
+          "terminal_g": 4.4,
+          "growth_yr1": 22.2
+        },
+        {
+          "scenario": "base",
+          "intrinsic_per_share": 163.5,
+          "ev_b": 842.6,
+          "wacc": 9.0,
+          "terminal_g": 4.0,
+          "growth_yr1": 18.2
+        },
+        {
+          "scenario": "bear",
+          "intrinsic_per_share": 95.6,
+          "ev_b": 512.9,
+          "wacc": 9.7,
+          "terminal_g": 3.2,
+          "growth_yr1": 10.6
+        }
+      ],
+      "inputs": {
+        "fcf_cagr_3y": 18.2,
+        "rev_cagr_3y": 24.4,
+        "roic_pct": 14.0,
+        "gross_margin_pct": 67.8,
+        "op_margin_pct": 39.9,
+        "fcf_margin_pct": 42.1
+      }
+    },
+    "reverse_dcf": null,
+    "comps_valuation": null,
+    "comps": null,
+    "blended_target": null,
+    "sensitivity": null,
+    "peer_median": {
+      "pe": 132.1,
+      "ev_ebitda": 78.2,
+      "fcf_yield": 0.8,
+      "rev_growth": 38.2
+    },
+    "peer_verdict": "低於同業估值",
+    "own_multiples": {
+      "pe": 61.9,
+      "ev_ebitda": 44.3,
+      "fcf_yield": 1.8
+    }
+  },
+  "financials": {
+    "latest": {
+      "revenue_b": 63.89,
+      "net_income_b": 23.13,
+      "fcf_b": 26.91,
+      "gross_margin": 67.8,
+      "op_margin": 39.9,
+      "net_margin": 36.2,
+      "fcf_margin": 42.1,
+      "roe": 28.4,
+      "roa": 13.5,
+      "roic": 14.0,
+      "current_ratio": 1.71,
+      "quick_ratio": 1.58,
+      "debt_equity": 0.8,
+      "net_debt_ebitda": 1.41,
+      "interest_coverage": 8.08,
+      "fcf_to_ni": 1.16,
+      "sbc_to_rev": 11.8,
+      "capex_to_rev": 1.0,
+      "rnd_to_rev": 17.2,
+      "shares_change_pct": 15.3,
+      "net_debt_b": 48.96,
+      "cash_b": 16.18
+    },
+    "growth": {
+      "rev_cagr_3y": 24.4,
+      "rev_cagr_5y": 21.7,
+      "eps_cagr_3y": 21.6,
+      "fcf_cagr_3y": 18.2
+    }
+  },
+  "report_html": "<p class=\"lead\">Broadcom(AVGO) 是 Custom AI ASICs (Google TPU, Meta MTIA) + networking chips; second-largest AI silicon pure-play after NVDA.；現在的核心看點，是它在 AI Compute 供應鏈中能否把需求成長轉成現金流，而不是只停留在題材熱度。</p>\n<figure><img src=\"https://www.broadcom.com/media/blt4ac44e0e6c6d8341/bltc5b68e1455ec0786/6954499867fae30d2f04a43e/brcm_preview_image@72ppi.jpg\" alt=\"Broadcom 產品或品牌相關圖片\"><figcaption>來源:<a href=\"https://www.broadcom.com/\">Broadcom official image</a></figcaption></figure>\n<h3>這家公司在做什麼</h3>\n<p>Broadcom 的產品或服務位在「Midstream Chips Design」這個環節。白話說，它把技術、設備、軟體或基礎設施包成客戶願意付錢的能力，最後服務的是雲端、半導體、企業資訊科技、電力或通訊基礎設施需求。</p>\n<h3>它怎麼賺錢</h3>\n<p>公司位於 AI Compute 的 midstream。它的收入來自把關鍵產品交給下游客戶，或把長期資產出租、營運成穩定服務。真正的護城河通常不是單一產品名稱，而是客戶認證、工程經驗、規模採購、軟體生態或長期合約；這些因素會決定它能不能維持價格與毛利率。</p>\n<h3>這門生意穩不穩</h3>\n<p>穩定度要分兩層看：需求端若來自多年期雲端、電網、企業資安或資料中心投資，能見度會比較好；但供給端若需要大量資本支出、庫存管理或少數大客戶訂單，短期仍會有循環。</p>\n<ul><li>站內模型顯示，最新收入約 63.89 億美元，自由現金流(公司賺到、可自由運用的現金)約 26.91 億美元；營業利益率(每賣 100 元留下多少營業利益)約 39.9%，自由現金流率約 42.1%，投入資本報酬率(投一塊錢賺回幾毛)約 14.0%。</li><li>過去三年營收年均成長約 24.4%，自由現金流年均成長約 18.2%；健康評等為 B、分數 78，代表財務體質是估值判斷的重要底盤。</li></ul>\n<h3>最近發生什麼</h3>\n<ul><li>2026-06-03，Broadcom 公布 2026 會計年度第二季營收 221.87 億美元、年增 48%，GAAP 淨利 93.10 億美元；調整後稅息折舊攤銷前獲利 152.44 億美元、占營收 69%，並預估第三季營收約 294 億美元、年增 84%，人工智慧與 VMware 整合仍是主軸。<a href=\"https://www.sec.gov/Archives/edgar/data/1730168/000173016826000051/avgo-05032026x8kxex99.htm\">來源</a></li></ul>\n<h3>未來與估值:值不值得</h3>\n<p>現價約 382.07 美元，站內混合目標價約 — 美元，對應上行空間約 —%。估算價值不是精準答案，而是一把尺：若市場價格已經要求未來自由現金流長期成長約 —%，投資人就必須相信公司能持續拿到訂單、維持利潤率，並把成長變成現金。</p>\n<h3>要盯什麼(風險)</h3>\n<ul><li>大型雲端客戶資本支出放慢，會讓訂單能見度下降。</li><li>出口管制、先進製程或關鍵零組件短缺，可能改變可服務市場與交期。</li><li>如果競爭者降價或客戶自研替代方案成熟，毛利率可能被壓縮。</li></ul>\n<h3>總結</h3>\n<blockquote>Broadcom 適合用「產業位置 + 現金流品質 + 估值期待」一起看。若後續新聞中的營收、訂單或展望能延續，偏嚴格 的估值較容易被支撐；若成長放慢但市場仍給高期待，安全邊際就會變薄。</blockquote>\n<p class=\"disc\">非投資建議。</p>",
+  "val_bar_svg": "<svg viewBox='0 0 720 96' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><line x1='20' y1='52' x2='700' y2='52' stroke='#1a2238' stroke-width='2'/><rect x='36' y='48' width='274' height='8' fill='#00f3ff' opacity='.12'/><circle cx='36' cy='52' r='5' fill='#5c8cff'/><text x='36' y='34' fill='#5c8cff' font-size='11' text-anchor='middle'>悲觀</text><text x='36' y='47' fill='#5c8cff' font-size='11' text-anchor='middle' font-family='monospace'>$95.6</text><circle cx='178' cy='52' r='5' fill='#00f3ff'/><text x='178' y='78' fill='#00f3ff' font-size='11' text-anchor='middle'>DCF</text><text x='178' y='91' fill='#00f3ff' font-size='11' text-anchor='middle' font-family='monospace'>$163.5</text><circle cx='310' cy='52' r='5' fill='#b48cff'/><text x='310' y='34' fill='#b48cff' font-size='11' text-anchor='middle'>樂觀</text><text x='310' y='47' fill='#b48cff' font-size='11' text-anchor='middle' font-family='monospace'>$226.4</text><circle cx='636' cy='52' r='6' fill='#ffffff'/><text x='636' y='78' fill='#ffffff' font-size='11' text-anchor='middle'>現價</text><text x='636' y='91' fill='#ffffff' font-size='11' text-anchor='middle' font-family='monospace'>$382.07</text></svg>"
 }

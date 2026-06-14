@@ -1,0 +1,231 @@
+{
+  "symbol": "AAPL",
+  "name": "蘋果",
+  "tier": "watch",
+  "regime": "neutral",
+  "theme": "Edge Computing / IoT",
+  "business": "iPhone/Mac/服務生態;Apple Intelligence 推動裝置端 AI。",
+  "why": null,
+  "rsi": null,
+  "sma50": null,
+  "sma200": null,
+  "factors": [],
+  "tracking": [],
+  "links": [
+    {
+      "label": "Finviz",
+      "desc": "技術快照 / 圖",
+      "href": "https://finviz.com/quote.ashx?t=AAPL"
+    },
+    {
+      "label": "StockAnalysis",
+      "desc": "財報 / 估值",
+      "href": "https://stockanalysis.com/stocks/AAPL/"
+    },
+    {
+      "label": "TradingView",
+      "desc": "互動圖",
+      "href": "https://www.tradingview.com/symbols/AAPL/"
+    },
+    {
+      "label": "Macrotrends",
+      "desc": "長期財務",
+      "href": "https://www.macrotrends.net/stocks/charts/AAPL/x/"
+    },
+    {
+      "label": "TipRanks",
+      "desc": "分析師",
+      "href": "https://www.tipranks.com/stocks/AAPL/forecast"
+    }
+  ],
+  "peers": [],
+  "price": 291.13,
+  "generated_at": "2026-06-14T14:42:46Z",
+  "health_grade": "B",
+  "health_score": 75,
+  "chain_position": {
+    "theme": "Edge Computing / IoT",
+    "tier": "midstream",
+    "label": "Devices"
+  },
+  "valuation": {
+    "dcf": {
+      "symbol": "AAPL",
+      "price": 291.13,
+      "method": "firm_level_fcf",
+      "fcf_firm_b": 98.8,
+      "shares_b": 15.0,
+      "net_debt_b": 76.4,
+      "growth_rate_assumed": 3.0,
+      "wacc": 9.5,
+      "terminal_growth": 4.0,
+      "intrinsic": 103.5,
+      "bull": 124.0,
+      "bear": 79.6,
+      "upside_pct": -64.4,
+      "scenarios": [
+        {
+          "scenario": "bull",
+          "intrinsic_per_share": 124.0,
+          "ev_b": 1936.4,
+          "wacc": 9.0,
+          "terminal_g": 4.4,
+          "growth_yr1": 3.7
+        },
+        {
+          "scenario": "base",
+          "intrinsic_per_share": 103.5,
+          "ev_b": 1629.4,
+          "wacc": 9.5,
+          "terminal_g": 4.0,
+          "growth_yr1": 3.0
+        },
+        {
+          "scenario": "bear",
+          "intrinsic_per_share": 79.6,
+          "ev_b": 1270.6,
+          "wacc": 10.3,
+          "terminal_g": 3.2,
+          "growth_yr1": 1.7
+        }
+      ],
+      "inputs": {
+        "fcf_cagr_3y": -3.9,
+        "rev_cagr_3y": 1.8,
+        "roic_pct": 56.3,
+        "gross_margin_pct": 46.9,
+        "op_margin_pct": 32.0,
+        "fcf_margin_pct": 23.7
+      }
+    },
+    "reverse_dcf": {
+      "implied_growth_pct": 37.6,
+      "market_cap_b": 4368.3,
+      "note": "現價隱含未來十年 FCF 年均成長 ~37.6%(用 WACC 9.5%)"
+    },
+    "comps_valuation": {
+      "pe_target": null,
+      "ev_ebitda_target": null,
+      "blended_comps": null
+    },
+    "comps": {
+      "pe_target": null,
+      "ev_ebitda_target": null,
+      "blended_comps": null
+    },
+    "blended_target": {
+      "target": 103.5,
+      "upside_pct": -64.4,
+      "components": {
+        "dcf": 103.5,
+        "comps": null,
+        "comps_detail": {
+          "pe": null,
+          "ev_ebitda": null
+        }
+      },
+      "weights": {
+        "DCF": 1.0
+      }
+    },
+    "sensitivity": {
+      "waccs": [
+        8.5,
+        9.0,
+        9.5,
+        10.0,
+        10.5
+      ],
+      "term_gs": [
+        3.0,
+        3.5,
+        4.0,
+        4.5,
+        5.0
+      ],
+      "grid": [
+        [
+          109.0,
+          117.0,
+          127.0,
+          139.0,
+          155.0
+        ],
+        [
+          100.0,
+          106.0,
+          114.0,
+          124.0,
+          135.0
+        ],
+        [
+          92.0,
+          97.0,
+          103.0,
+          111.0,
+          120.0
+        ],
+        [
+          85.0,
+          90.0,
+          95.0,
+          101.0,
+          108.0
+        ],
+        [
+          79.0,
+          83.0,
+          87.0,
+          92.0,
+          98.0
+        ]
+      ]
+    },
+    "peer_median": {
+      "pe": null,
+      "ev_ebitda": null,
+      "fcf_yield": null,
+      "rev_growth": null
+    },
+    "peer_verdict": "資料不足",
+    "own_multiples": {
+      "pe": 34.9,
+      "ev_ebitda": 27.0,
+      "fcf_yield": 3.0
+    }
+  },
+  "financials": {
+    "latest": {
+      "revenue_b": 416.16,
+      "net_income_b": 112.01,
+      "fcf_b": 98.77,
+      "gross_margin": 46.9,
+      "op_margin": 32.0,
+      "net_margin": 26.9,
+      "fcf_margin": 23.7,
+      "roe": 151.9,
+      "roa": 31.2,
+      "roic": 56.3,
+      "current_ratio": 0.89,
+      "quick_ratio": 0.86,
+      "debt_equity": 1.52,
+      "net_debt_ebitda": 0.53,
+      "interest_coverage": null,
+      "fcf_to_ni": 0.88,
+      "sbc_to_rev": 3.1,
+      "capex_to_rev": 3.1,
+      "rnd_to_rev": 8.3,
+      "shares_change_pct": -14.4,
+      "net_debt_b": 76.44,
+      "cash_b": 54.7
+    },
+    "growth": {
+      "rev_cagr_3y": 1.8,
+      "rev_cagr_5y": 8.7,
+      "eps_cagr_3y": 6.9,
+      "fcf_cagr_3y": -3.9
+    }
+  },
+  "report_html": "<p class=\"lead\">Apple Inc.(AAPL) 是 iPhone-led consumer hardware + Services flywheel; AI integrated via on-device Apple Intelligence.；核心看點是它在 Edge Computing / IoT 供應鏈中的位置，能不能把需求成長轉成可持續的現金流。</p>\n<figure><img src=\"https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg\" alt=\"Apple Inc. 產品或品牌相關圖片\"><figcaption>來源:<a href=\"https://commons.wikimedia.org/wiki/File:Apple_logo_black.svg\">Wikimedia Commons / Apple logo</a></figcaption></figure>\n<h3>這家公司在做什麼</h3><p>Apple Inc. 提供的是「Devices」相關產品或服務。白話說，它把技術、製造、軟體或基礎設施能力交給客戶，讓客戶能做出更快的晶片、更安全的系統、更有效率的雲端服務，或更完整的終端產品。</p>\n<h3>它怎麼賺錢</h3><p>公司位在 Edge Computing / IoT 的 midstream。它向客戶收取產品銷售、訂閱、授權、服務或租賃收入；真正的護城河通常來自客戶認證、長期合約、軟體生態、工程經驗與規模效益，而不是單一季度的熱點。</p>\n<h3>這門生意穩不穩</h3><p>穩定度要看兩件事：需求是不是來自多年期趨勢，以及公司能不能把收入變成現金。半導體與硬體會有庫存循環，軟體與資料中心通常較有續約或長約，但同樣會受預算與利率影響。</p><ul><li>站內模型顯示，最新收入約 416.16 億美元，自由現金流(公司賺到、可自由運用的現金)約 98.77 億美元；營業利益率(每賣 100 元留下多少營業利益)約 32.0%，自由現金流率約 23.7%，投入資本報酬率(投一塊錢賺回幾毛)約 56.3%。</li><li>過去三年營收年均成長約 1.8%，自由現金流年均成長約 -3.9%；健康評等 B、分數 75，可用來判斷成長背後的財務品質。</li></ul>\n<h3>最近發生什麼</h3><ul><li>2026-05-01，Apple 10-Q 顯示 2026 會計年度第二季營收 1,111.84 億美元，營業利益 358.85 億美元、淨利 295.78 億美元、稀釋每股盈餘 2.01 美元；硬體裝置與服務生態仍創造大量現金流。<a href=\"https://www.sec.gov/Archives/edgar/data/320193/000032019326000013/aapl-20260328.htm\">來源</a></li></ul>\n<h3>未來與估值:值不值得</h3><p>現價約 291.13 美元，站內混合目標價約 103.5 美元，對應上行空間約 -64.4%。若股價隱含未來自由現金流長期成長約 37.6%，投資重點就不是只看題材，而是確認訂單、續約、利潤率與現金流是否跟得上這個期待。</p>\n<h3>要盯什麼(風險)</h3><ul><li>景氣循環反轉會讓客戶延後拉貨或資本支出。</li><li>關鍵客戶集中與價格競爭，可能壓縮毛利率。</li><li>若新技術或替代方案成熟，現有產品的議價力會下降。</li></ul>\n<h3>總結</h3><blockquote>Apple Inc. 的投資判斷適合用「產業位置、現金流品質、估值期待」一起看。若後續營收與現金流延續，當前估值需要更高成長來支撐；若成長降速但市場仍給高期待，安全邊際會變薄。</blockquote><p class=\"disc\">非投資建議。</p>",
+  "val_bar_svg": "<svg viewBox='0 0 720 96' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><line x1='20' y1='52' x2='700' y2='52' stroke='#1a2238' stroke-width='2'/><rect x='38' y='48' width='125' height='8' fill='#00f3ff' opacity='.12'/><circle cx='38' cy='52' r='5' fill='#5c8cff'/><text x='38' y='34' fill='#5c8cff' font-size='11' text-anchor='middle'>悲觀</text><text x='38' y='47' fill='#5c8cff' font-size='11' text-anchor='middle' font-family='monospace'>$79.6</text><circle cx='105' cy='52' r='5' fill='#00f3ff'/><text x='105' y='78' fill='#00f3ff' font-size='11' text-anchor='middle'>DCF</text><text x='105' y='91' fill='#00f3ff' font-size='11' text-anchor='middle' font-family='monospace'>$103.5</text><circle cx='105' cy='52' r='5' fill='#00ff9d'/><text x='105' y='34' fill='#00ff9d' font-size='11' text-anchor='middle'>混合目標</text><text x='105' y='47' fill='#00ff9d' font-size='11' text-anchor='middle' font-family='monospace'>$103.5</text><circle cx='163' cy='52' r='5' fill='#b48cff'/><text x='163' y='78' fill='#b48cff' font-size='11' text-anchor='middle'>樂觀</text><text x='163' y='91' fill='#b48cff' font-size='11' text-anchor='middle' font-family='monospace'>$124</text><circle cx='634' cy='52' r='6' fill='#ffffff'/><text x='634' y='34' fill='#ffffff' font-size='11' text-anchor='middle'>現價</text><text x='634' y='47' fill='#ffffff' font-size='11' text-anchor='middle' font-family='monospace'>$291.13</text></svg>"
+}

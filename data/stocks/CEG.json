@@ -116,5 +116,195 @@
       "name": "Vistra",
       "tier": "watch"
     }
-  ]
+  ],
+  "price": 253.76,
+  "generated_at": "2026-06-14T01:28:55Z",
+  "health_grade": "B",
+  "health_score": 71,
+  "chain_position": {
+    "theme": "Nuclear / SMR",
+    "tier": "midstream",
+    "label": "Operators"
+  },
+  "valuation": {
+    "dcf": {
+      "symbol": "CEG",
+      "price": 253.76,
+      "method": "firm_level_fcf",
+      "fcf_firm_b": 1.3,
+      "shares_b": 0.31,
+      "net_debt_b": 5.2,
+      "growth_rate_assumed": 3.0,
+      "wacc": 11.0,
+      "terminal_growth": 4.0,
+      "intrinsic": 36.8,
+      "bull": 45.2,
+      "bear": 26.5,
+      "upside_pct": -85.5,
+      "scenarios": [
+        {
+          "scenario": "bull",
+          "intrinsic_per_share": 45.2,
+          "ev_b": 19.4,
+          "wacc": 10.4,
+          "terminal_g": 4.4,
+          "growth_yr1": 3.7
+        },
+        {
+          "scenario": "base",
+          "intrinsic_per_share": 36.8,
+          "ev_b": 16.8,
+          "wacc": 11.0,
+          "terminal_g": 4.0,
+          "growth_yr1": 3.0
+        },
+        {
+          "scenario": "bear",
+          "intrinsic_per_share": 26.5,
+          "ev_b": 13.6,
+          "wacc": 11.9,
+          "terminal_g": 3.2,
+          "growth_yr1": 1.7
+        }
+      ],
+      "inputs": {
+        "fcf_cagr_3y": null,
+        "rev_cagr_3y": 1.5,
+        "roic_pct": 13.5,
+        "gross_margin_pct": 75.8,
+        "op_margin_pct": 12.1,
+        "fcf_margin_pct": 5.0
+      }
+    },
+    "reverse_dcf": {
+      "implied_growth_pct": 57.5,
+      "market_cap_b": 79.7,
+      "note": "現價隱含未來十年 FCF 年均成長 ~57.5%(用 WACC 11.0%)"
+    },
+    "comps_valuation": {
+      "pe_target": 380.4,
+      "ev_ebitda_target": 365.7,
+      "blended_comps": 373.0
+    },
+    "comps": {
+      "pe_target": 380.4,
+      "ev_ebitda_target": 365.7,
+      "blended_comps": 373.0
+    },
+    "blended_target": {
+      "target": 204.9,
+      "upside_pct": -19.3,
+      "components": {
+        "dcf": 36.8,
+        "comps": 373.0,
+        "comps_detail": {
+          "pe": 380.4,
+          "ev_ebitda": 365.7
+        }
+      },
+      "weights": {
+        "DCF": 0.5,
+        "可比": 0.5
+      }
+    },
+    "sensitivity": {
+      "waccs": [
+        10.0,
+        10.5,
+        11.0,
+        11.5,
+        12.0
+      ],
+      "term_gs": [
+        3.0,
+        3.5,
+        4.0,
+        4.5,
+        5.0
+      ],
+      "grid": [
+        [
+          40.0,
+          42.0,
+          45.0,
+          49.0,
+          54.0
+        ],
+        [
+          36.0,
+          38.0,
+          41.0,
+          44.0,
+          48.0
+        ],
+        [
+          33.0,
+          35.0,
+          37.0,
+          39.0,
+          42.0
+        ],
+        [
+          30.0,
+          31.0,
+          33.0,
+          36.0,
+          38.0
+        ],
+        [
+          27.0,
+          29.0,
+          30.0,
+          32.0,
+          34.0
+        ]
+      ]
+    },
+    "peer_median": {
+      "pe": 51.4,
+      "ev_ebitda": 33.8,
+      "fcf_yield": 1.9,
+      "rev_growth": 10.9
+    },
+    "peer_verdict": "低於同業估值",
+    "own_multiples": {
+      "pe": 23.6,
+      "ev_ebitda": 16.0,
+      "fcf_yield": 1.2
+    }
+  },
+  "financials": {
+    "latest": {
+      "revenue_b": 25.53,
+      "net_income_b": 2.32,
+      "fcf_b": 1.29,
+      "gross_margin": 75.8,
+      "op_margin": 12.1,
+      "net_margin": 9.1,
+      "fcf_margin": 5.0,
+      "roe": 16.0,
+      "roa": 4.1,
+      "roic": 13.5,
+      "current_ratio": 1.53,
+      "quick_ratio": 1.31,
+      "debt_equity": 0.62,
+      "net_debt_ebitda": 1.05,
+      "interest_coverage": 7.87,
+      "fcf_to_ni": 0.56,
+      "sbc_to_rev": 0.0,
+      "capex_to_rev": 11.5,
+      "rnd_to_rev": 0.0,
+      "shares_change_pct": -3.9,
+      "net_debt_b": 5.24,
+      "cash_b": 3.75
+    },
+    "growth": {
+      "rev_cagr_3y": 1.5,
+      "rev_cagr_5y": 7.7,
+      "eps_cagr_3y": null,
+      "fcf_cagr_3y": null
+    }
+  },
+  "report_html": "<p class=\"lead\">Constellation Energy(CEG) 是 Largest US nuclear operator; data-center PPA deals (e.g., Microsoft Three Mile Island restart) drive narrative.；現在的核心看點，是它在 Nuclear / SMR 供應鏈中能否把需求成長轉成現金流，而不是只停留在題材熱度。</p>\n<figure><img src=\"https://upload.wikimedia.org/wikipedia/commons/8/88/Constellation_Logo_2012.svg\" alt=\"Constellation Energy 產品或品牌相關圖片\"><figcaption>來源:<a href=\"https://commons.wikimedia.org/wiki/File:Constellation_Logo_2012.svg\">Wikimedia Commons / Constellation logo</a></figcaption></figure>\n<h3>這家公司在做什麼</h3>\n<p>Constellation Energy 的產品或服務位在「Operators」這個環節。白話說，它把技術、設備、軟體或基礎設施包成客戶願意付錢的能力，最後服務的是雲端、半導體、企業資訊科技、電力或通訊基礎設施需求。</p>\n<h3>它怎麼賺錢</h3>\n<p>公司位於 Nuclear / SMR 的 midstream。它的收入來自把關鍵產品交給下游客戶，或把長期資產出租、營運成穩定服務。真正的護城河通常不是單一產品名稱，而是客戶認證、工程經驗、規模採購、軟體生態或長期合約；這些因素會決定它能不能維持價格與毛利率。</p>\n<h3>這門生意穩不穩</h3>\n<p>穩定度要分兩層看：需求端若來自多年期雲端、電網、企業資安或資料中心投資，能見度會比較好；但供給端若需要大量資本支出、庫存管理或少數大客戶訂單，短期仍會有循環。</p>\n<ul><li>站內模型顯示，最新收入約 25.53 億美元，自由現金流(公司賺到、可自由運用的現金)約 1.29 億美元；營業利益率(每賣 100 元留下多少營業利益)約 12.1%，自由現金流率約 5.0%，投入資本報酬率(投一塊錢賺回幾毛)約 13.5%。</li><li>過去三年營收年均成長約 1.5%，自由現金流年均成長約 —%；健康評等為 B、分數 71，代表財務體質是估值判斷的重要底盤。</li></ul>\n<h3>最近發生什麼</h3>\n<ul><li>2026-05-11，Constellation 公布 2026 年第一季營收 111.22 億美元，普通股股東淨利 15.90 億美元，GAAP 每股盈餘 4.49 美元、調整後營運每股盈餘 2.74 美元；公司維持 2026 年調整後營運每股盈餘 11.00–12.00 美元展望，並投運 105MW Pastoria Solar 與 460MW Pin Oak Creek。<a href=\"https://www.sec.gov/Archives/edgar/data/1868275/000186827526000063/ceg-20260511991.htm\">來源</a></li></ul>\n<h3>未來與估值:值不值得</h3>\n<p>現價約 253.76 美元，站內混合目標價約 204.9 美元，對應上行空間約 -19.3%。估算價值不是精準答案，而是一把尺：若市場價格已經要求未來自由現金流長期成長約 57.5%，投資人就必須相信公司能持續拿到訂單、維持利潤率，並把成長變成現金。</p>\n<h3>要盯什麼(風險)</h3>\n<ul><li>利率維持高檔會提高資本密集業務的折現率與融資成本。</li><li>電網、電廠或通訊塔建設涉及監管審批，專案時程可能延後。</li><li>若資料中心與電力需求不如預期，長約與租戶需求會重新定價。</li></ul>\n<h3>總結</h3>\n<blockquote>Constellation Energy 適合用「產業位置 + 現金流品質 + 估值期待」一起看。若後續新聞中的營收、訂單或展望能延續，偏嚴格 的估值較容易被支撐；若成長放慢但市場仍給高期待，安全邊際就會變薄。</blockquote>\n<p class=\"disc\">非投資建議。</p>",
+  "val_bar_svg": "<svg viewBox='0 0 720 96' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><line x1='20' y1='52' x2='700' y2='52' stroke='#1a2238' stroke-width='2'/><rect x='24' y='48' width='34' height='8' fill='#00f3ff' opacity='.12'/><circle cx='24' cy='52' r='5' fill='#5c8cff'/><text x='24' y='34' fill='#5c8cff' font-size='11' text-anchor='middle'>悲觀</text><text x='24' y='47' fill='#5c8cff' font-size='11' text-anchor='middle' font-family='monospace'>$26.5</text><circle cx='42' cy='52' r='5' fill='#00f3ff'/><text x='42' y='78' fill='#00f3ff' font-size='11' text-anchor='middle'>DCF</text><text x='42' y='91' fill='#00f3ff' font-size='11' text-anchor='middle' font-family='monospace'>$36.8</text><circle cx='57' cy='52' r='5' fill='#b48cff'/><text x='57' y='34' fill='#b48cff' font-size='11' text-anchor='middle'>樂觀</text><text x='57' y='47' fill='#b48cff' font-size='11' text-anchor='middle' font-family='monospace'>$45.2</text><circle cx='344' cy='52' r='5' fill='#00ff9d'/><text x='344' y='78' fill='#00ff9d' font-size='11' text-anchor='middle'>混合目標</text><text x='344' y='91' fill='#00ff9d' font-size='11' text-anchor='middle' font-family='monospace'>$204.9</text><circle cx='432' cy='52' r='6' fill='#ffffff'/><text x='432' y='34' fill='#ffffff' font-size='11' text-anchor='middle'>現價</text><text x='432' y='47' fill='#ffffff' font-size='11' text-anchor='middle' font-family='monospace'>$253.76</text><circle cx='646' cy='52' r='5' fill='#39d3ff'/><text x='646' y='78' fill='#39d3ff' font-size='11' text-anchor='middle'>可比</text><text x='646' y='91' fill='#39d3ff' font-size='11' text-anchor='middle' font-family='monospace'>$373</text></svg>"
 }
