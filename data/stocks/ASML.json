@@ -3,7 +3,7 @@
   "name": "艾司摩爾",
   "tier": "enter",
   "regime": "neutral",
-  "theme": "Semiconductor Equipment (WFE)",
+  "theme": "AI Compute",
   "business": "EUV 微影設備獨家供應商;3nm 以下節點必經;荷蘭出口管制為主要變數。",
   "why": "NEWS_CATALYST",
   "rsi": null,
@@ -96,24 +96,150 @@
   ],
   "peers": [
     {
-      "symbol": "AMAT",
-      "name": "應用材料",
+      "symbol": "LRCX",
+      "name": "科林研發",
       "tier": "ready"
     },
     {
-      "symbol": "KLIC",
-      "name": "庫力索法",
+      "symbol": "ARM",
+      "name": "安謀",
       "tier": "ready"
     },
     {
-      "symbol": "TER",
-      "name": "泰瑞達",
+      "symbol": "AVGO",
+      "name": "博通",
       "tier": "ready"
     },
     {
-      "symbol": "ACLS",
-      "name": "艾克塞利",
-      "tier": "ready"
+      "symbol": "AMD",
+      "name": "超微",
+      "tier": "enter"
     }
-  ]
+  ],
+  "price": 1863.55,
+  "generated_at": "2026-06-14T01:28:55Z",
+  "health_grade": "A",
+  "health_score": 89,
+  "chain_position": {
+    "theme": "AI Compute",
+    "tier": "upstream",
+    "label": "Upstream Equipment"
+  },
+  "valuation": {
+    "dcf": {
+      "symbol": "ASML",
+      "price": 1863.55,
+      "method": "per_share_approx",
+      "fcf_base_per_share": 26.09,
+      "growth_rate_assumed": 12.0,
+      "wacc": 8.5,
+      "terminal_growth": 4.0,
+      "intrinsic": 779.0,
+      "bull": 1124.0,
+      "bear": 558.0,
+      "upside_pct": -58.2,
+      "scenarios": [
+        {
+          "scenario": "bull",
+          "intrinsic_per_share": 1124.0,
+          "wacc": 8.1,
+          "terminal_g": 4.6
+        },
+        {
+          "scenario": "base",
+          "intrinsic_per_share": 779.0,
+          "wacc": 8.5,
+          "terminal_g": 4.0
+        },
+        {
+          "scenario": "bear",
+          "intrinsic_per_share": 558.0,
+          "wacc": 8.9,
+          "terminal_g": 3.4
+        }
+      ],
+      "inputs": {
+        "fcf_yield_pct": 1.4,
+        "rev_growth_pct": 15.6,
+        "fcf_growth_pct": 12.0,
+        "roic_pct": 34.9,
+        "gross_margin_pct": 52.6,
+        "op_margin_pct": 34.8
+      }
+    },
+    "reverse_dcf": null,
+    "comps_valuation": {
+      "pe_target": 1761.8,
+      "ev_ebitda_target": 1934.9,
+      "blended_comps": 1848.3
+    },
+    "comps": {
+      "pe_target": 1761.8,
+      "ev_ebitda_target": 1934.9,
+      "blended_comps": 1848.3
+    },
+    "blended_target": {
+      "target": 1313.7,
+      "upside_pct": -29.5,
+      "components": {
+        "dcf": 779.0,
+        "comps": 1848.3,
+        "comps_detail": {
+          "pe": 1761.8,
+          "ev_ebitda": 1934.9
+        }
+      },
+      "weights": {
+        "DCF": 0.5,
+        "可比": 0.5
+      }
+    },
+    "sensitivity": null,
+    "peer_median": {
+      "pe": 71.3,
+      "ev_ebitda": 57.1,
+      "fcf_yield": 1.3,
+      "rev_growth": 13.1
+    },
+    "peer_verdict": "接近同業估值中位",
+    "own_multiples": {
+      "pe": 62.7,
+      "ev_ebitda": 48.7,
+      "fcf_yield": 1.4
+    }
+  },
+  "financials": {
+    "latest": {
+      "revenue_b": 32.67,
+      "net_income_b": 9.61,
+      "fcf_b": 10.59,
+      "gross_margin": 52.8,
+      "op_margin": 34.6,
+      "net_margin": 29.4,
+      "fcf_margin": 32.4,
+      "roe": 49.0,
+      "roa": 19.0,
+      "roic": 40.8,
+      "current_ratio": 1.26,
+      "quick_ratio": 0.79,
+      "debt_equity": 0.14,
+      "net_debt_ebitda": -0.81,
+      "interest_coverage": null,
+      "fcf_to_ni": 1.1,
+      "sbc_to_rev": 0.0,
+      "capex_to_rev": 4.8,
+      "rnd_to_rev": 14.4,
+      "shares_change_pct": -7.2,
+      "net_debt_b": -10.2,
+      "cash_b": 13.32
+    },
+    "growth": {
+      "rev_cagr_3y": 15.6,
+      "rev_cagr_5y": 18.5,
+      "eps_cagr_3y": 21.4,
+      "fcf_cagr_3y": 14.8
+    }
+  },
+  "report_html": "<p class=\"lead\">ASML Holding(ASML) 是 Sole supplier of EUV lithography; required for every leading-node chip (TSMC N3/N2, Samsung, Intel).；現在的核心看點，是它在 AI Compute 供應鏈中能否把需求成長轉成現金流，而不是只停留在題材熱度。</p>\n<figure><img src=\"https://www.asml.com/images/icons/asml-logo.svg\" alt=\"ASML Holding 產品或品牌相關圖片\"><figcaption>來源:<a href=\"https://www.asml.com/\">ASML official logo</a></figcaption></figure>\n<h3>這家公司在做什麼</h3>\n<p>ASML Holding 的產品或服務位在「Upstream Equipment」這個環節。白話說，它把技術、設備、軟體或基礎設施包成客戶願意付錢的能力，最後服務的是雲端、半導體、企業資訊科技、電力或通訊基礎設施需求。</p>\n<h3>它怎麼賺錢</h3>\n<p>公司位於 AI Compute 的 upstream。它的收入來自把關鍵產品交給下游客戶，或把長期資產出租、營運成穩定服務。真正的護城河通常不是單一產品名稱，而是客戶認證、工程經驗、規模採購、軟體生態或長期合約；這些因素會決定它能不能維持價格與毛利率。</p>\n<h3>這門生意穩不穩</h3>\n<p>穩定度要分兩層看：需求端若來自多年期雲端、電網、企業資安或資料中心投資，能見度會比較好；但供給端若需要大量資本支出、庫存管理或少數大客戶訂單，短期仍會有循環。</p>\n<ul><li>站內模型顯示，最新收入約 32.67 億美元，自由現金流(公司賺到、可自由運用的現金)約 10.59 億美元；營業利益率(每賣 100 元留下多少營業利益)約 34.6%，自由現金流率約 32.4%，投入資本報酬率(投一塊錢賺回幾毛)約 40.8%。</li><li>過去三年營收年均成長約 15.6%，自由現金流年均成長約 14.8%；健康評等為 A、分數 89，代表財務體質是估值判斷的重要底盤。</li></ul>\n<h3>最近發生什麼</h3>\n<ul><li>2026-04-15，ASML 公布 2026 年第一季淨銷售額 87.67 億歐元、淨利 28 億歐元、毛利率 53.0%；公司預估第二季淨銷售額 84–90 億歐元、毛利率 51%–52%，全年淨銷售額 360–400 億歐元，說明先進曝光設備需求仍維持高檔。<a href=\"https://www.asml.com/en/news/press-releases/2026/q1-2026-financial-results\">來源</a></li></ul>\n<h3>未來與估值:值不值得</h3>\n<p>現價約 1863.55 美元，站內混合目標價約 1313.7 美元，對應上行空間約 -29.5%。估算價值不是精準答案，而是一把尺：若市場價格已經要求未來自由現金流長期成長約 —%，投資人就必須相信公司能持續拿到訂單、維持利潤率，並把成長變成現金。</p>\n<h3>要盯什麼(風險)</h3>\n<ul><li>大型雲端客戶資本支出放慢，會讓訂單能見度下降。</li><li>出口管制、先進製程或關鍵零組件短缺，可能改變可服務市場與交期。</li><li>如果競爭者降價或客戶自研替代方案成熟，毛利率可能被壓縮。</li></ul>\n<h3>總結</h3>\n<blockquote>ASML Holding 適合用「產業位置 + 現金流品質 + 估值期待」一起看。若後續新聞中的營收、訂單或展望能延續，偏嚴格 的估值較容易被支撐；若成長放慢但市場仍給高期待，安全邊際就會變薄。</blockquote>\n<p class=\"disc\">非投資建議。</p>",
+  "val_bar_svg": "<svg viewBox='0 0 720 96' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><line x1='20' y1='52' x2='700' y2='52' stroke='#1a2238' stroke-width='2'/><rect x='40' y='48' width='257' height='8' fill='#00f3ff' opacity='.12'/><circle cx='40' cy='52' r='5' fill='#5c8cff'/><text x='40' y='34' fill='#5c8cff' font-size='11' text-anchor='middle'>悲觀</text><text x='40' y='47' fill='#5c8cff' font-size='11' text-anchor='middle' font-family='monospace'>$558</text><circle cx='140' cy='52' r='5' fill='#00f3ff'/><text x='140' y='78' fill='#00f3ff' font-size='11' text-anchor='middle'>DCF</text><text x='140' y='91' fill='#00f3ff' font-size='11' text-anchor='middle' font-family='monospace'>$779</text><circle cx='297' cy='52' r='5' fill='#b48cff'/><text x='297' y='34' fill='#b48cff' font-size='11' text-anchor='middle'>樂觀</text><text x='297' y='47' fill='#b48cff' font-size='11' text-anchor='middle' font-family='monospace'>$1124</text><circle cx='383' cy='52' r='5' fill='#00ff9d'/><text x='383' y='78' fill='#00ff9d' font-size='11' text-anchor='middle'>混合目標</text><text x='383' y='91' fill='#00ff9d' font-size='11' text-anchor='middle' font-family='monospace'>$1313.7</text><circle cx='625' cy='52' r='5' fill='#39d3ff'/><text x='625' y='34' fill='#39d3ff' font-size='11' text-anchor='middle'>可比</text><text x='625' y='47' fill='#39d3ff' font-size='11' text-anchor='middle' font-family='monospace'>$1848.3</text><circle cx='632' cy='52' r='6' fill='#ffffff'/><text x='632' y='78' fill='#ffffff' font-size='11' text-anchor='middle'>現價</text><text x='632' y='91' fill='#ffffff' font-size='11' text-anchor='middle' font-family='monospace'>$1863.55</text></svg>"
 }

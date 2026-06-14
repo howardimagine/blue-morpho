@@ -1,27 +1,27 @@
 [
- {
-  "slug": "ai-compute",
-  "theme": "AI Compute",
-  "deepest": "下游"
- },
- {
-  "slug": "cloud-infrastructure",
-  "theme": "Cloud Infrastructure",
-  "deepest": "下游"
- },
- {
-  "slug": "electrification-power",
-  "theme": "Electrification / Power",
-  "deepest": "中游"
- },
- {
-  "slug": "memory-hbm-dram-nand",
-  "theme": "Memory (HBM / DRAM / NAND)",
-  "deepest": "下游"
- },
- {
-  "slug": "nuclear-smr",
-  "theme": "Nuclear / SMR",
-  "deepest": "上游"
- }
+  {
+    "slug": "ai-compute",
+    "theme": "AI Compute",
+    "deepest": "下游"
+  },
+  {
+    "slug": "cloud-infrastructure",
+    "theme": "Cloud Infrastructure",
+    "deepest": "下游"
+  },
+  {
+    "slug": "electrification-power",
+    "theme": "Electrification / Power",
+    "deepest": "中游"
+  },
+  {
+    "slug": "memory-hbm-dram-nand",
+    "theme": "Memory (HBM / DRAM / NAND)",
+    "deepest": "下游"
+  },
+  {
+    "slug": "nuclear-smr",
+    "theme": "Nuclear / SMR",
+    "deepest": "上游"
+  }
 ]

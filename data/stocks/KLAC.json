@@ -3,7 +3,7 @@
   "name": "科磊",
   "tier": "ready",
   "regime": "neutral",
-  "theme": "Semiconductor Equipment (WFE)",
+  "theme": "AI Compute",
   "business": "製程控制與檢測 WFE 龍頭,先進節點市佔逾五成,毛利持續擴張。",
   "why": "THEME_TAILWIND",
   "rsi": null,
@@ -80,24 +80,135 @@
   ],
   "peers": [
     {
-      "symbol": "ASML",
-      "name": "艾司摩爾",
+      "symbol": "LRCX",
+      "name": "科林研發",
+      "tier": "ready"
+    },
+    {
+      "symbol": "ARM",
+      "name": "安謀",
+      "tier": "ready"
+    },
+    {
+      "symbol": "AVGO",
+      "name": "博通",
+      "tier": "ready"
+    },
+    {
+      "symbol": "AMD",
+      "name": "超微",
       "tier": "enter"
-    },
-    {
-      "symbol": "AMAT",
-      "name": "應用材料",
-      "tier": "ready"
-    },
-    {
-      "symbol": "KLIC",
-      "name": "庫力索法",
-      "tier": "ready"
-    },
-    {
-      "symbol": "TER",
-      "name": "泰瑞達",
-      "tier": "ready"
     }
-  ]
+  ],
+  "price": 254.54,
+  "generated_at": "2026-06-14T01:28:55Z",
+  "health_grade": "A",
+  "health_score": 87,
+  "chain_position": {
+    "theme": "AI Compute",
+    "tier": "upstream",
+    "label": "Upstream Equipment"
+  },
+  "valuation": {
+    "dcf": {
+      "symbol": "KLAC",
+      "price": 254.54,
+      "method": "firm_level_fcf",
+      "fcf_firm_b": 3.7,
+      "shares_b": 1.34,
+      "net_debt_b": 4.0,
+      "growth_rate_assumed": 7.6,
+      "wacc": 8.5,
+      "terminal_growth": 4.0,
+      "intrinsic": 63.6,
+      "bull": 81.9,
+      "bear": 43.6,
+      "upside_pct": -75.0,
+      "scenarios": [
+        {
+          "scenario": "bull",
+          "intrinsic_per_share": 81.9,
+          "ev_b": 113.5,
+          "wacc": 8.1,
+          "terminal_g": 4.4,
+          "growth_yr1": 9.3
+        },
+        {
+          "scenario": "base",
+          "intrinsic_per_share": 63.6,
+          "ev_b": 89.1,
+          "wacc": 8.5,
+          "terminal_g": 4.0,
+          "growth_yr1": 7.6
+        },
+        {
+          "scenario": "bear",
+          "intrinsic_per_share": 43.6,
+          "ev_b": 62.4,
+          "wacc": 9.2,
+          "terminal_g": 3.2,
+          "growth_yr1": 4.4
+        }
+      ],
+      "inputs": {
+        "fcf_cagr_3y": 7.6,
+        "rev_cagr_3y": 9.7,
+        "roic_pct": 36.2,
+        "gross_margin_pct": 62.3,
+        "op_margin_pct": 43.1,
+        "fcf_margin_pct": 30.8
+      }
+    },
+    "reverse_dcf": null,
+    "comps_valuation": null,
+    "comps": null,
+    "blended_target": null,
+    "sensitivity": null,
+    "peer_median": {
+      "pe": 68.3,
+      "ev_ebitda": 57.0,
+      "fcf_yield": 1.4,
+      "rev_growth": 13.1
+    },
+    "peer_verdict": "接近同業估值中位",
+    "own_multiples": {
+      "pe": 71.3,
+      "ev_ebitda": 57.1,
+      "fcf_yield": 1.2
+    }
+  },
+  "financials": {
+    "latest": {
+      "revenue_b": 12.16,
+      "net_income_b": 4.06,
+      "fcf_b": 3.74,
+      "gross_margin": 62.3,
+      "op_margin": 43.1,
+      "net_margin": 33.4,
+      "fcf_margin": 30.8,
+      "roe": 86.6,
+      "roa": 25.3,
+      "roic": 36.2,
+      "current_ratio": 2.62,
+      "quick_ratio": 1.83,
+      "debt_equity": 1.3,
+      "net_debt_ebitda": 0.75,
+      "interest_coverage": 16.37,
+      "fcf_to_ni": 0.92,
+      "sbc_to_rev": 2.2,
+      "capex_to_rev": 2.8,
+      "rnd_to_rev": 11.1,
+      "shares_change_pct": -15.4,
+      "net_debt_b": 4.01,
+      "cash_b": 4.49
+    },
+    "growth": {
+      "rev_cagr_3y": 9.7,
+      "rev_cagr_5y": 15.9,
+      "eps_cagr_3y": 11.5,
+      "fcf_cagr_3y": 7.6
+    }
+  },
+  "report_html": "<p class=\"lead\">KLA Corporation(KLAC) 是 Process control / inspection monopoly at leading nodes; >50% market share, expanding margins.；現在的核心看點，是它在 AI Compute 供應鏈中能否把需求成長轉成現金流，而不是只停留在題材熱度。</p>\n<figure><img src=\"https://www.kla.com/images/menu/menu-ir.png\" alt=\"KLA Corporation 產品或品牌相關圖片\"><figcaption>來源:<a href=\"https://www.kla.com/\">KLA official website image</a></figcaption></figure>\n<h3>這家公司在做什麼</h3>\n<p>KLA Corporation 的產品或服務位在「Upstream Equipment」這個環節。白話說，它把技術、設備、軟體或基礎設施包成客戶願意付錢的能力，最後服務的是雲端、半導體、企業資訊科技、電力或通訊基礎設施需求。</p>\n<h3>它怎麼賺錢</h3>\n<p>公司位於 AI Compute 的 upstream。它的收入來自把關鍵產品交給下游客戶，或把長期資產出租、營運成穩定服務。真正的護城河通常不是單一產品名稱，而是客戶認證、工程經驗、規模採購、軟體生態或長期合約；這些因素會決定它能不能維持價格與毛利率。</p>\n<h3>這門生意穩不穩</h3>\n<p>穩定度要分兩層看：需求端若來自多年期雲端、電網、企業資安或資料中心投資，能見度會比較好；但供給端若需要大量資本支出、庫存管理或少數大客戶訂單，短期仍會有循環。</p>\n<ul><li>站內模型顯示，最新收入約 12.16 億美元，自由現金流(公司賺到、可自由運用的現金)約 3.74 億美元；營業利益率(每賣 100 元留下多少營業利益)約 43.1%，自由現金流率約 30.8%，投入資本報酬率(投一塊錢賺回幾毛)約 36.2%。</li><li>過去三年營收年均成長約 9.7%，自由現金流年均成長約 7.6%；健康評等為 A、分數 87，代表財務體質是估值判斷的重要底盤。</li></ul>\n<h3>最近發生什麼</h3>\n<ul><li>2026-04-29，KLA 公布 2026 會計年度第三季營收 34.15 億美元，高於公司先前 33.5 億美元正負 1.5 億美元的中點；GAAP 淨利 12.0 億美元、稀釋每股盈餘 9.12 美元，自由現金流 6.223 億美元，顯示晶圓檢測與量測需求仍有韌性。<a href=\"https://ir.kla.com/news-events/press-releases/detail/514/kla-corporation-reports-fiscal-2026-third-quarter-results\">來源</a></li></ul>\n<h3>未來與估值:值不值得</h3>\n<p>現價約 254.54 美元，站內混合目標價約 — 美元，對應上行空間約 —%。估算價值不是精準答案，而是一把尺：若市場價格已經要求未來自由現金流長期成長約 —%，投資人就必須相信公司能持續拿到訂單、維持利潤率，並把成長變成現金。</p>\n<h3>要盯什麼(風險)</h3>\n<ul><li>大型雲端客戶資本支出放慢，會讓訂單能見度下降。</li><li>出口管制、先進製程或關鍵零組件短缺，可能改變可服務市場與交期。</li><li>如果競爭者降價或客戶自研替代方案成熟，毛利率可能被壓縮。</li></ul>\n<h3>總結</h3>\n<blockquote>KLA Corporation 適合用「產業位置 + 現金流品質 + 估值期待」一起看。若後續新聞中的營收、訂單或展望能延續，偏嚴格 的估值較容易被支撐；若成長放慢但市場仍給高期待，安全邊際就會變薄。</blockquote>\n<p class=\"disc\">非投資建議。</p>",
+  "val_bar_svg": "<svg viewBox='0 0 720 96' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><line x1='20' y1='52' x2='700' y2='52' stroke='#1a2238' stroke-width='2'/><rect x='30' y='48' width='111' height='8' fill='#00f3ff' opacity='.12'/><circle cx='30' cy='52' r='5' fill='#5c8cff'/><text x='30' y='34' fill='#5c8cff' font-size='11' text-anchor='middle'>悲觀</text><text x='30' y='47' fill='#5c8cff' font-size='11' text-anchor='middle' font-family='monospace'>$43.6</text><circle cx='88' cy='52' r='5' fill='#00f3ff'/><text x='88' y='78' fill='#00f3ff' font-size='11' text-anchor='middle'>DCF</text><text x='88' y='91' fill='#00f3ff' font-size='11' text-anchor='middle' font-family='monospace'>$63.6</text><circle cx='141' cy='52' r='5' fill='#b48cff'/><text x='141' y='34' fill='#b48cff' font-size='11' text-anchor='middle'>樂觀</text><text x='141' y='47' fill='#b48cff' font-size='11' text-anchor='middle' font-family='monospace'>$81.9</text><circle cx='641' cy='52' r='6' fill='#ffffff'/><text x='641' y='78' fill='#ffffff' font-size='11' text-anchor='middle'>現價</text><text x='641' y='91' fill='#ffffff' font-size='11' text-anchor='middle' font-family='monospace'>$254.54</text></svg>"
 }
