@@ -957,3 +957,23 @@ img { max-width: 100%; display: block; }
   .nav-links { display: none; }
   .hero-title { font-size: 2rem; }
 }
+
+/* ── 深度研究(個股 dossier / 產業 primer)報告與圖表 ── */
+.deep-report{font-size:0.92rem;line-height:1.9;color:var(--text-primary)}
+.deep-report .lead{font-size:1rem;color:var(--text-primary);border-left:2px solid var(--positive);padding-left:14px;margin:4px 0 18px}
+.deep-report h3{font-size:0.95rem;color:var(--accent);letter-spacing:.04em;margin:22px 0 8px;font-weight:700}
+.deep-report h4{font-size:0.88rem;color:var(--positive);margin:16px 0 4px}
+.deep-report p{margin:10px 0}
+.deep-report ul{margin:8px 0 8px 2px;padding-left:20px}.deep-report li{margin:5px 0}
+.deep-report a{color:var(--accent);text-decoration:none}.deep-report a:hover{text-decoration:underline}
+.deep-report strong{color:var(--text-primary)}
+.deep-report blockquote{border-left:2px solid var(--accent);margin:12px 0;padding:4px 0 4px 14px;color:var(--text-secondary)}
+.deep-report figure{margin:16px 0;text-align:center}
+.deep-report figure img{max-width:100%;border-radius:8px;border:1px solid var(--border)}
+.deep-report figcaption{color:var(--text-dim);font-size:0.72rem;margin-top:6px}
+.deep-report .disc{color:var(--text-dim);font-size:0.72rem;margin-top:16px}
+.val-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:4px 0 6px}
+.val-grid .vc{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:10px 12px}
+.val-grid .vc b{display:block;color:var(--accent);font-family:var(--font-mono);font-size:1.05rem}
+.val-grid .vc s{display:block;color:var(--text-secondary);font-size:0.7rem;text-decoration:none;margin-top:2px}
+.deep-chart{margin:14px 0 4px;overflow-x:auto}

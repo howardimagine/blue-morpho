@@ -83,6 +83,11 @@
       "symbol": "CRWD",
       "name": "CrowdStrike",
       "tier": "ready"
+    },
+    {
+      "symbol": "FTNT",
+      "name": "Fortinet",
+      "tier": "enter"
     }
   ]
 }

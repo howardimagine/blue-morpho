@@ -1,0 +1,130 @@
+{
+ "theme": "Electrification / Power",
+ "slug": "electrification-power",
+ "generated_at": "2026-06-13T17:43:13Z",
+ "tier_data": {
+  "upstream": {
+   "輸配電/變壓器設備": [
+    "GEV",
+    "ABB",
+    "HUBB",
+    "ENS"
+   ]
+  },
+  "midstream": {
+   "電力管理/資料中心電力": [
+    "ETN",
+    "VRT"
+   ],
+   "電力工程建置(EPC)": [
+    "PWR",
+    "MYRG"
+   ]
+  },
+  "downstream": {
+   "電力供應/用電大戶": [
+    "VST",
+    "CEG",
+    "NEE"
+   ]
+  }
+ },
+ "profit_pool": {
+  "theme": "Electrification / Power",
+  "tiers": [
+   {
+    "tier": "upstream",
+    "label_zh": "上游",
+    "industries": [
+     "輸配電/變壓器設備"
+    ],
+    "margin_gross": 31.1,
+    "margin_op": 12.0,
+    "margin_fcf": 11.1,
+    "roic": 13.9,
+    "sample_n": 4,
+    "leaders": [
+     {
+      "symbol": "HUBB",
+      "op_margin": 20.8,
+      "health_grade": "B"
+     },
+     {
+      "symbol": "ENS",
+      "op_margin": 12.7,
+      "health_grade": "A"
+     },
+     {
+      "symbol": "ABB",
+      "op_margin": 11.3,
+      "health_grade": "B"
+     }
+    ]
+   },
+   {
+    "tier": "midstream",
+    "label_zh": "中游",
+    "industries": [
+     "電力管理/資料中心電力",
+     "電力工程建置(EPC)"
+    ],
+    "margin_gross": 23.7,
+    "margin_op": 12.2,
+    "margin_fcf": 11.3,
+    "roic": 15.4,
+    "sample_n": 4,
+    "leaders": [
+     {
+      "symbol": "ETN",
+      "op_margin": 19.1,
+      "health_grade": "B"
+     },
+     {
+      "symbol": "VRT",
+      "op_margin": 18.5,
+      "health_grade": "A"
+     },
+     {
+      "symbol": "PWR",
+      "op_margin": 5.8,
+      "health_grade": "B"
+     }
+    ]
+   },
+   {
+    "tier": "downstream",
+    "label_zh": "下游",
+    "industries": [
+     "電力供應/用電大戶"
+    ],
+    "margin_gross": 62.8,
+    "margin_op": 12.1,
+    "margin_fcf": 0.8,
+    "roic": 7.1,
+    "sample_n": 3,
+    "leaders": [
+     {
+      "symbol": "NEE",
+      "op_margin": 30.1,
+      "health_grade": "F"
+     },
+     {
+      "symbol": "CEG",
+      "op_margin": 12.1,
+      "health_grade": "B"
+     },
+     {
+      "symbol": "VST",
+      "op_margin": 7.9,
+      "health_grade": "D"
+     }
+    ]
+   }
+  ],
+  "deepest_pool": "midstream",
+  "deepest_pool_zh": "中游"
+ },
+ "report_html": "<p class=\"lead\">Electrification / Power 的重點不是單一公司，而是需求、產能、電力與資本支出如何沿著上中下游傳導；看懂錢流到哪一層，才看得懂利潤池。</p>\n<figure><img src=\"https://upload.wikimedia.org/wikipedia/commons/4/4f/A_transformer_house_1937_%28JOKAKAL3B-3918%29.tif\" alt=\"Electrification / Power 產業示意\"><figcaption>來源:<a href=\"https://commons.wikimedia.org/wiki/File:A_transformer_house_1937_(JOKAKAL3B-3918).tif\">Wikimedia Commons / Wikimedia Commons, CC BY 4.0</a></figcaption></figure>\n<h3>這個產業在做什麼</h3><p>Electrification / Power 把終端需求轉成實體設備、工程建置與長期服務。白話說，客戶先提出效能、容量或供電需求，上游提供關鍵設備與材料，中游負責製造、整合或建置，下游再把能力賣給企業與消費者。</p>\n<h3>錢怎麼流(上中下游)</h3><p>站內供應鏈圖把它拆成三層：upstream 包含 輸配電/變壓器設備；midstream 包含 電力管理/資料中心電力、電力工程建置(EPC)；downstream 包含 電力供應/用電大戶。錢通常從下游客戶的預算開始，經由採購、長約或資本支出流向中游，再往上游設備與材料擴散；當需求急升時，最稀缺的瓶頸層通常最有議價力。</p>\n<h3>哪一層最賺</h3><p>利潤池顯示：上游營業利益率約 12.0%、投入資本報酬率約 13.9%，代表股包含 HUBB；中游營業利益率約 12.2%、投入資本報酬率約 15.4%，代表股包含 ETN；下游營業利益率約 12.1%、投入資本報酬率約 7.1%，代表股包含 NEE。因此不能只看營收增速，也要看哪一層承擔最多資本支出、哪一層有技術瓶頸或客戶鎖定。</p>\n<h3>最近發生什麼</h3><ul><li>2024-12-12，美國能源資訊署指出美國電力需求在 2024、2025 年重回成長，商業部門用電受資料中心帶動；電網設備與變壓器交期因此成為擴建瓶頸。<a href=\"https://www.eia.gov/todayinenergy/detail.php?id=63464\">來源</a></li><li>2025-01-01，美國能源資訊署統計 2025 年規劃新增公用事業級發電容量 63GW，顯示電力供給與併網仍是資料中心擴張的硬限制。<a href=\"https://www.eia.gov/todayinenergy/detail.php?id=64586\">來源</a></li></ul>\n<h3>投資含義</h3><p>較穩健的做法，是把需求成長、產能瓶頸與估值分開看。若政策與資本支出延續，上游瓶頸設備與中游整合商較容易先反映訂單；若利率、電力併網或客戶預算轉弱，下游高資本支出業者的自由現金流壓力會先被放大。投資人應優先追蹤新訂單、交期、價格與管理層對下一季資本支出的說法。</p><p class=\"disc\">非投資建議。</p>",
+ "chain_svg": "<svg viewBox='0 0 720 150' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><text x='110' y='32' fill='#7a5cff' font-size='14' font-weight='bold' text-anchor='middle' font-family='monospace'>上游</text><rect x='5' y='54' width='210' height='30' rx='7' fill='#06061a' stroke='#7a5cff' stroke-opacity='.5'/><text x='17' y='73' fill='#cfeaf2' font-size='12'>輸配電/變壓器設備</text><text x='360' y='32' fill='#00f3ff' font-size='14' font-weight='bold' text-anchor='middle' font-family='monospace'>中游</text><rect x='255' y='54' width='210' height='30' rx='7' fill='#06061a' stroke='#00f3ff' stroke-opacity='.5'/><text x='267' y='73' fill='#cfeaf2' font-size='12'>電力管理/資料中心電力</text><rect x='255' y='92' width='210' height='30' rx='7' fill='#06061a' stroke='#00f3ff' stroke-opacity='.5'/><text x='267' y='111' fill='#cfeaf2' font-size='12'>電力工程建置(EPC)</text><text x='610' y='32' fill='#00ff9d' font-size='14' font-weight='bold' text-anchor='middle' font-family='monospace'>下游</text><rect x='505' y='54' width='210' height='30' rx='7' fill='#06061a' stroke='#00ff9d' stroke-opacity='.5'/><text x='517' y='73' fill='#cfeaf2' font-size='12'>電力供應/用電大戶</text><line x1='219' y1='92' x2='243' y2='92' stroke='#39d3ff' stroke-width='1.5' opacity='.6'/><path d='M243,88 L251,92 L243,96 Z' fill='#39d3ff' opacity='.8'/><line x1='469' y1='92' x2='493' y2='92' stroke='#39d3ff' stroke-width='1.5' opacity='.6'/><path d='M493,88 L501,92 L493,96 Z' fill='#39d3ff' opacity='.8'/></svg>",
+ "pool_svg": "<svg viewBox='0 0 720 208' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><text x='8' y='28' fill='#7a5cff' font-size='13' font-weight='bold'>上游</text><rect x='90' y='36' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='36' width='343' height='12' rx='3' fill='#7a5cff' opacity='1'/><text x='441' y='46' fill='#9fb4c4' font-size='11'>營益率 12.0%</text><rect x='90' y='54' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='54' width='397' height='12' rx='3' fill='#7a5cff' opacity='0.45'/><text x='495' y='64' fill='#9fb4c4' font-size='11'>ROIC 13.9%</text><text x='8' y='84' fill='#00f3ff' font-size='13' font-weight='bold'>中游</text><rect x='90' y='92' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='92' width='349' height='12' rx='3' fill='#00f3ff' opacity='1'/><text x='447' y='102' fill='#9fb4c4' font-size='11'>營益率 12.2%</text><rect x='90' y='110' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='110' width='440' height='12' rx='3' fill='#00f3ff' opacity='0.45'/><text x='538' y='120' fill='#9fb4c4' font-size='11'>ROIC 15.4%</text><text x='8' y='140' fill='#00ff9d' font-size='13' font-weight='bold'>下游</text><rect x='90' y='148' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='148' width='346' height='12' rx='3' fill='#00ff9d' opacity='1'/><text x='444' y='158' fill='#9fb4c4' font-size='11'>營益率 12.1%</text><rect x='90' y='166' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='166' width='203' height='12' rx='3' fill='#00ff9d' opacity='0.45'/><text x='301' y='176' fill='#9fb4c4' font-size='11'>ROIC 7.1%</text></svg>"
+}

@@ -1,0 +1,268 @@
+{
+ "symbol": "NVDA",
+ "name": "NVIDIA",
+ "tier": "watch",
+ "regime": "neutral",
+ "theme": "AI Compute",
+ "business": "Dominant AI GPU + CUDA software stack; H200/B100/B200 product cycle; data-center revenue is now the company.",
+ "why": "",
+ "rsi": null,
+ "sma50": null,
+ "sma200": null,
+ "factors": [],
+ "tracking": [],
+ "links": [
+  {
+   "label": "Finviz",
+   "desc": "技術快照 / 圖",
+   "href": "https://finviz.com/quote.ashx?t=NVDA"
+  },
+  {
+   "label": "StockAnalysis",
+   "desc": "財報 / 估值",
+   "href": "https://stockanalysis.com/stocks/NVDA/"
+  },
+  {
+   "label": "TradingView",
+   "desc": "互動圖",
+   "href": "https://www.tradingview.com/symbols/NVDA/"
+  },
+  {
+   "label": "Macrotrends",
+   "desc": "長期財務",
+   "href": "https://www.macrotrends.net/stocks/charts/NVDA/x/"
+  },
+  {
+   "label": "TipRanks",
+   "desc": "分析師共識",
+   "href": "https://www.tipranks.com/stocks/NVDA/forecast"
+  },
+  {
+   "label": "Seeking Alpha",
+   "desc": "多空分析",
+   "href": "https://seekingalpha.com/symbol/NVDA"
+  }
+ ],
+ "peers": [
+  {
+   "symbol": "ARM",
+   "name": "Arm Holdings",
+   "tier": "watch"
+  },
+  {
+   "symbol": "AMD",
+   "name": "Advanced Micro Devices",
+   "tier": "watch"
+  },
+  {
+   "symbol": "QCOM",
+   "name": "Qualcomm",
+   "tier": "watch"
+  },
+  {
+   "symbol": "MRVL",
+   "name": "Marvell Technology",
+   "tier": "watch"
+  },
+  {
+   "symbol": "ADI",
+   "name": "ADI",
+   "tier": "watch"
+  },
+  {
+   "symbol": "AVGO",
+   "name": "Broadcom",
+   "tier": "watch"
+  }
+ ],
+ "price": 205.19,
+ "generated_at": "2026-06-13T17:14:04Z",
+ "health_grade": "A",
+ "health_score": 95,
+ "chain_position": {
+  "theme": "AI Compute",
+  "tier": "midstream",
+  "label": "Midstream Chips Design"
+ },
+ "valuation": {
+  "dcf": {
+   "symbol": "NVDA",
+   "price": 205.19,
+   "method": "firm_level_fcf",
+   "fcf_firm_b": 96.7,
+   "shares_b": 24.51,
+   "net_debt_b": 0.8,
+   "growth_rate_assumed": 26.0,
+   "wacc": 8.5,
+   "terminal_growth": 4.0,
+   "intrinsic": 180.0,
+   "bull": 263.9,
+   "bear": 96.1,
+   "upside_pct": -12.3,
+   "scenarios": [
+    {
+     "scenario": "bull",
+     "intrinsic_per_share": 263.9,
+     "ev_b": 6469.0,
+     "wacc": 8.1,
+     "terminal_g": 4.4,
+     "growth_yr1": 31.7
+    },
+    {
+     "scenario": "base",
+     "intrinsic_per_share": 180.0,
+     "ev_b": 4414.0,
+     "wacc": 8.5,
+     "terminal_g": 4.0,
+     "growth_yr1": 26.0
+    },
+    {
+     "scenario": "bear",
+     "intrinsic_per_share": 96.1,
+     "ev_b": 2357.0,
+     "wacc": 9.2,
+     "terminal_g": 3.2,
+     "growth_yr1": 15.1
+    }
+   ],
+   "inputs": {
+    "fcf_cagr_3y": 193.9,
+    "rev_cagr_3y": 100.0,
+    "roic_pct": 66.4,
+    "gross_margin_pct": 71.1,
+    "op_margin_pct": 60.4,
+    "fcf_margin_pct": 44.8
+   }
+  },
+  "reverse_dcf": {
+   "implied_growth_pct": 36.8,
+   "market_cap_b": 5030.0,
+   "note": "現價隱含未來十年 FCF 年均成長 ~36.8%(用 WACC 8.5%)"
+  },
+  "comps_valuation": {
+   "pe_target": 303.3,
+   "ev_ebitda_target": 271.0,
+   "blended_comps": 287.1
+  },
+  "comps": {
+   "pe_target": 303.3,
+   "ev_ebitda_target": 271.0,
+   "blended_comps": 287.1
+  },
+  "blended_target": {
+   "target": 233.6,
+   "upside_pct": 13.8,
+   "components": {
+    "dcf": 180.0,
+    "comps": 287.1,
+    "comps_detail": {
+     "pe": 303.3,
+     "ev_ebitda": 271.0
+    }
+   },
+   "weights": {
+    "DCF": 0.5,
+    "可比": 0.5
+   }
+  },
+  "sensitivity": {
+   "waccs": [
+    7.5,
+    8.0,
+    8.5,
+    9.0,
+    9.5
+   ],
+   "term_gs": [
+    3.0,
+    3.5,
+    4.0,
+    4.5,
+    5.0
+   ],
+   "grid": [
+    [
+     190.0,
+     209.0,
+     234.0,
+     267.0,
+     312.0
+    ],
+    [
+     170.0,
+     185.0,
+     204.0,
+     227.0,
+     259.0
+    ],
+    [
+     154.0,
+     166.0,
+     180.0,
+     198.0,
+     221.0
+    ],
+    [
+     140.0,
+     150.0,
+     161.0,
+     175.0,
+     193.0
+    ],
+    [
+     129.0,
+     137.0,
+     146.0,
+     157.0,
+     170.0
+    ]
+   ]
+  },
+  "peer_median": {
+   "pe": 61.9,
+   "ev_ebitda": 44.3,
+   "fcf_yield": 1.4,
+   "rev_growth": 22.8
+  },
+  "peer_verdict": "低於同業估值",
+  "own_multiples": {
+   "pe": 31.2,
+   "ev_ebitda": 25.8,
+   "fcf_yield": 2.4
+  }
+ },
+ "financials": {
+  "latest": {
+   "revenue_b": 215.94,
+   "net_income_b": 120.07,
+   "fcf_b": 96.68,
+   "gross_margin": 71.1,
+   "op_margin": 60.4,
+   "net_margin": 55.6,
+   "fcf_margin": 44.8,
+   "roe": 76.3,
+   "roa": 58.1,
+   "roic": 66.4,
+   "current_ratio": 3.91,
+   "quick_ratio": 3.24,
+   "debt_equity": 0.07,
+   "net_debt_ebitda": 0.01,
+   "interest_coverage": 547.14,
+   "fcf_to_ni": 0.81,
+   "sbc_to_rev": 3.0,
+   "capex_to_rev": 2.8,
+   "rnd_to_rev": 8.6,
+   "shares_change_pct": -2.4,
+   "net_debt_b": 0.81,
+   "cash_b": 62.56
+  },
+  "growth": {
+   "rev_cagr_3y": 100.0,
+   "rev_cagr_5y": 66.9,
+   "eps_cagr_3y": 206.6,
+   "fcf_cagr_3y": 193.9
+  }
+ },
+ "report_html": "<p class=\"lead\">NVIDIA 是人工智慧算力時代的核心供應商：它不只賣晶片，也把晶片、網路、伺服器系統與軟體平台包成一整套「AI 工廠」方案；現在的核心問題不是公司強不強，而是股價已經反映了多快的未來成長。</p>\n<figure>\n  <img src=\"https://upload.wikimedia.org/wikipedia/commons/4/42/Jensen_Huang_-_RTX_Blackwell_-_Nvidia_Keynote_-_CES_2025_Las_Vegas_%282%29.jpg\" alt=\"NVIDIA Blackwell 人工智慧運算平台發表\">\n  <figcaption>來源:<a href=\"https://commons.wikimedia.org/wiki/File:Jensen_Huang_-_RTX_Blackwell_-_Nvidia_Keynote_-_CES_2025_Las_Vegas_(2).jpg\">Wikimedia Commons / NVIDIA CES 2025 keynote photo</a></figcaption>\n</figure>\n<h3>這家公司在做什麼</h3>\n<p>NVIDIA 最早以遊戲顯示卡出名，現在主戰場已經變成資料中心人工智慧運算。可以把它想成「人工智慧工廠的機器商」：雲端公司、研究機構與企業要訓練大型模型、讓聊天機器人或代理人即時回應，就需要大量圖形處理器(GPU，擅長平行運算的晶片)、高速網路、伺服器機櫃與軟體工具。NVIDIA 賣的正是這套算力底座。</p>\n<h3>它怎麼賺錢</h3>\n<p>NVIDIA 位在 AI Compute 供應鏈的中游晶片設計層。上游是台積電、記憶體、封裝、半導體設備與材料；下游是 Microsoft、Amazon、Alphabet、Meta、Oracle 等雲端與大型網路公司。NVIDIA 自己不蓋晶圓廠，而是設計晶片與系統，交給製造夥伴生產，再把 GPU、網路晶片、伺服器設計、CUDA 軟體生態與企業軟體一起賣給客戶。它的護城河不只是單顆晶片速度，而是客戶已經圍繞 NVIDIA 軟硬體寫好模型、工具與部署流程，換平台的時間成本很高。</p>\n<h3>這門生意穩不穩</h3>\n<p>這門生意的穩定性比傳統半導體好，因為需求來自多年期資料中心建設；但它仍不是公用事業。客戶集中在少數大型雲端平台，任何資本支出放慢、替代晶片成功、出口管制變嚴，都會讓成長率快速變化。好處是 NVIDIA 目前同時掌握效能、軟體生態與供應鏈優先權，所以議價力仍很強。</p>\n<ul>\n  <li>最新站內財務資料顯示，NVIDIA 近 3 年營收年均成長 100.0%，自由現金流(公司賺到、可自由運用的現金)年均成長 193.9%，代表這不是只靠估值膨脹的故事，而是真有大量現金流跟上。</li>\n  <li>毛利率 71.1%、營業利益率 60.4%、自由現金流率 44.8%，意思是每賣 100 元，約 45 元能變成自由運用現金；投入資本報酬率(投一塊錢賺回幾毛)66.4%，顯示它用相對輕資產模式賺到非常厚的利潤。</li>\n  <li>資產負債表也偏安全：現金 625.6 億美元、淨負債 8.1 億美元、淨負債/稅息折舊攤提前獲利 0.01 倍，健康分數 95、評等 A，財務彈性足以支撐研發、供應鏈預付款與回購。</li>\n</ul>\n<h3>最近發生什麼</h3>\n<ul>\n  <li>2026 年 5 月 20 日，NVIDIA 公布 2027 會計年度第一季營收 816.15 億美元、年增 85%、季增 20%；資料中心營收 752 億美元、年增 92%、季增 21%，其中資料中心運算收入 604 億美元、年增 77%，資料中心網路收入 148 億美元、年增 199%，說明 Blackwell 週期仍在加速。<a href=\"https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-First-Quarter-Fiscal-2027/default.aspx\">來源</a></li>\n  <li>同一份 2026 年 5 月 20 日財報指出，本季 H20 相關費用為 0，去年同期則是 45 億美元；這代表前一輪中國出口管制帶來的一次性成本壓力已經縮小，是利多改善。不過公司第二季展望營收 910 億美元、上下 2%，且未假設任何來自中國的資料中心運算收入，表示政策仍可能切掉可服務市場。<a href=\"https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-First-Quarter-Fiscal-2027/default.aspx\">來源</a></li>\n  <li>2026 年 5 月 18 日，董事會新增 800 億美元股票回購授權；第一季已用回購與現金股利合計返還股東約 200 億美元，期末原授權仍剩 385 億美元。這不是成長引擎本身，但顯示管理層對現金流可持續性有信心。<a href=\"https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-First-Quarter-Fiscal-2027/default.aspx\">來源</a></li>\n  <li>2026 年 6 月 12 日，NVIDIA Blackwell 在 Artificial Analysis 的 AgentPerf 代理型人工智慧基準測試中，GB300 NVL72 每百萬瓦可運行的代理數最高達 Hopper 平台的 20 倍。這個數字重要，因為未來資料中心瓶頸越來越像「每一度電能產生多少有效推論」，而不只是單顆晶片速度。<a href=\"https://blogs.nvidia.com/blog/nvidia-blackwell-agentperf-artificial-analysis/\">來源</a></li>\n  <li>2026 年 6 月 7 日，NAVER 宣布用 NVIDIA DSX 平台擴建主權人工智慧基礎設施，從 GAK Sejong 的 55 百萬瓦起步，目標走向十億瓦級 AI 工廠。這類主權雲需求把 NVIDIA 的市場從美國大型雲端平台延伸到國家級與區域級算力建設。<a href=\"https://nvidianews.nvidia.com/news/naver-ai-infrastructure\">來源</a></li>\n</ul>\n<h3>未來與估值:值不值得</h3>\n<p>估值上，站內模型給出的混合目標價是 233.6 美元，相對現價 205.19 美元約有 13.8% 空間；但現金流折現基準值只有 180.0 美元，表示如果只用較保守的長期現金流假設，現價並不便宜。反推現金流折現模型顯示，市場價格隱含未來十年自由現金流年均成長約 36.8%。這個門檻很高，但不是完全不可能；要合理化它，投資人必須相信 Blackwell、Rubin、網路與軟體平台能讓資料中心收入在高基期後仍長時間複利成長。</p>\n<p>換句話說，NVIDIA 不是傳統意義的低估值股票，而是「高品質、高成長、但也高期待」的公司。若人工智慧推論需求、主權雲、企業代理人與機器人應用持續擴張，現在估值仍有支撐；若大型雲端客戶開始控制資本支出，或自研晶片吃掉增量訂單，估值壓縮會比財報惡化更早發生。</p>\n<h3>要盯什麼(風險)</h3>\n<ul>\n  <li>資料中心營收增速：若 752 億美元的季度資料中心收入開始季減，或年增率從 92% 快速降到低雙位數，成長股敘事會被重估。</li>\n  <li>中國與出口管制：H20 費用歸零是利多改善，但第二季展望已排除中國資料中心運算收入；若新規再擴大，會直接縮小可銷售市場。</li>\n  <li>電力與資料中心瓶頸：Blackwell 每百萬瓦代理數提升 20 倍是優勢，但也說明客戶最後買的是每瓦算力；若電力、土地、散熱或融資卡住，晶片需求會延後。</li>\n  <li>客戶自研晶片：大型雲端平台會同時買 NVIDIA 與自研加速器。只要自研晶片在特定推論工作負載變得足夠好，NVIDIA 的超高毛利率就會面臨壓力。</li>\n  <li>毛利率與回購節奏：若毛利率從 71.1% 明顯下滑，或公司在高價時大幅回購卻看不到自由現金流同步成長，資本配置品質要重新評估。</li>\n</ul>\n<h3>總結</h3>\n<blockquote>NVIDIA 是人工智慧算力鏈中最稀缺、最賺錢的公司之一，適合相信 AI 工廠建設仍會多年擴張、且能承受高估值波動的投資人。現價不是明顯便宜，而是合理偏樂觀：若資料中心收入、每瓦推論效率與主權雲訂單繼續兌現，股價仍有上行空間；若資本支出週期放慢或政策切斷市場，安全邊際會迅速變薄。</blockquote>\n<p class=\"disc\">非投資建議。</p>",
+ "val_bar_svg": "<svg viewBox='0 0 720 96' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><line x1='20' y1='52' x2='700' y2='52' stroke='#1a2238' stroke-width='2'/><rect x='44' y='48' width='515' height='8' fill='#00f3ff' opacity='.12'/><circle cx='44' cy='52' r='5' fill='#5c8cff'/><text x='44' y='34' fill='#5c8cff' font-size='11' text-anchor='middle'>悲觀</text><text x='44' y='47' fill='#5c8cff' font-size='11' text-anchor='middle' font-family='monospace'>$96.1</text><circle cx='301' cy='52' r='5' fill='#00f3ff'/><text x='301' y='78' fill='#00f3ff' font-size='11' text-anchor='middle'>DCF</text><text x='301' y='91' fill='#00f3ff' font-size='11' text-anchor='middle' font-family='monospace'>$180</text><circle cx='378' cy='52' r='6' fill='#ffffff'/><text x='378' y='34' fill='#ffffff' font-size='11' text-anchor='middle'>現價</text><text x='378' y='47' fill='#ffffff' font-size='11' text-anchor='middle' font-family='monospace'>$205.19</text><circle cx='465' cy='52' r='5' fill='#00ff9d'/><text x='465' y='78' fill='#00ff9d' font-size='11' text-anchor='middle'>混合目標</text><text x='465' y='91' fill='#00ff9d' font-size='11' text-anchor='middle' font-family='monospace'>$233.6</text><circle cx='558' cy='52' r='5' fill='#b48cff'/><text x='558' y='34' fill='#b48cff' font-size='11' text-anchor='middle'>樂觀</text><text x='558' y='47' fill='#b48cff' font-size='11' text-anchor='middle' font-family='monospace'>$263.9</text><circle cx='630' cy='52' r='5' fill='#39d3ff'/><text x='630' y='78' fill='#39d3ff' font-size='11' text-anchor='middle'>可比</text><text x='630' y='91' fill='#39d3ff' font-size='11' text-anchor='middle' font-family='monospace'>$287.1</text></svg>"
+}

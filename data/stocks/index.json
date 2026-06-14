@@ -32,7 +32,7 @@
   {
     "symbol": "AMD",
     "name": "超微",
-    "tier": "watch",
+    "tier": "enter",
     "theme": "AI Compute"
   },
   {
@@ -78,6 +78,12 @@
     "theme": "Solar / Renewables"
   },
   {
+    "symbol": "C",
+    "name": "Citigroup, Inc.",
+    "tier": "ready",
+    "theme": "Banks"
+  },
+  {
     "symbol": "CEG",
     "name": "Constellation Energy",
     "tier": "watch",
@@ -88,6 +94,12 @@
     "name": "CrowdStrike",
     "tier": "ready",
     "theme": "Cybersecurity"
+  },
+  {
+    "symbol": "CSCO",
+    "name": "Cisco Systems, Inc.",
+    "tier": "ready",
+    "theme": "Cloud Infrastructure"
   },
   {
     "symbol": "CYBR",
@@ -106,6 +118,18 @@
     "name": "英特格",
     "tier": "watch",
     "theme": "AI Compute"
+  },
+  {
+    "symbol": "EQIX",
+    "name": "Equinix, Inc.",
+    "tier": "ready",
+    "theme": "Cloud Infrastructure"
+  },
+  {
+    "symbol": "FTNT",
+    "name": "Fortinet",
+    "tier": "enter",
+    "theme": "Cybersecurity"
   },
   {
     "symbol": "GEV",

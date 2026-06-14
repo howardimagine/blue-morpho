@@ -78,5 +78,16 @@
       "href": "https://www.tipranks.com/stocks/ANET/forecast"
     }
   ],
-  "peers": []
+  "peers": [
+    {
+      "symbol": "CSCO",
+      "name": "Cisco Systems, Inc.",
+      "tier": "ready"
+    },
+    {
+      "symbol": "EQIX",
+      "name": "Equinix, Inc.",
+      "tier": "ready"
+    }
+  ]
 }

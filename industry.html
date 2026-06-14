@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>產業專欄 — Blue Morpho</title>
+  <meta name="description" content="Blue Morpho 產業專欄:供應鏈上中下游、利潤池、深度研究。">
+  <meta name="theme-color" content="#02020A">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img class="nav-logo-icon" src="assets/icon.svg" alt="Blue Morpho">
+        <div><div class="nav-logo-text">BLUE MORPHO</div><div class="nav-logo-sub">美股前沿觀察</div></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="weekly.html">WEEKLY</a></li>
+        <li><a href="stocks.html">STOCKS</a></li>
+        <li><a href="industries.html" class="active">INDUSTRIES</a></li>
+      </ul>
+      <a href="https://lin.ee/xt0mgJH" target="_blank" rel="noopener" class="nav-cta">追蹤 LINE</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="max-width:860px;padding:var(--space-6) var(--space-4) var(--space-12);">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:var(--space-4);">
+      <div class="mono-xs text-dim"><a href="industries.html" style="color:var(--text-dim)">產業</a> · <span id="bc-theme">—</span></div>
+      <select id="ind-switcher" onchange="if(this.value)location.href='industry.html?s='+this.value" style="background:var(--bg-card);color:var(--text-primary);border:1px solid var(--border);border-radius:6px;padding:6px 10px;font-size:.78rem;font-family:var(--font-mono);"></select>
+    </div>
+    <h1 id="hdr-theme" style="font-size:clamp(1.4rem,4vw,2rem);font-weight:700;color:var(--text-primary);margin:0 0 var(--space-6);">—</h1>
+
+    <section class="mb-8">
+      <div class="section-header">▎ SUPPLY CHAIN · 供應鏈流向</div>
+      <div class="card card--flat"><div class="deep-chart" id="chain-svg"></div></div>
+    </section>
+
+    <section class="mb-8">
+      <div class="section-header">▎ PROFIT POOL · 利潤池(哪一層最賺)</div>
+      <div class="card card--flat"><div class="deep-chart" id="pool-svg"></div><div class="mono-xs text-dim" id="pool-deep" style="margin-top:8px"></div></div>
+    </section>
+
+    <section class="mb-8">
+      <div class="section-header">▎ DEEP DIVE · 產業研究</div>
+      <div class="card card--flat"><div class="deep-report" id="ind-report"></div></div>
+    </section>
+
+    <p><a href="industries.html" class="mono-xs" style="color:var(--accent)">← 回產業列表</a></p>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container"><div class="footer-inner">
+    <div class="footer-copy">© 2026 BLUE MORPHO · 本站僅供資訊參考,非投資建議</div>
+    <div class="footer-links"><a href="index.html">首頁</a><a href="stocks.html">個股</a><a href="industries.html">產業</a><a href="weekly.html">本週週報</a></div>
+  </div></div>
+</footer>
+
+<nav class="mobile-tabbar">
+  <a href="index.html">HOME</a><a href="weekly.html">WEEKLY</a>
+  <a href="stocks.html">STOCKS</a><a href="industries.html" class="active">產業</a>
+</nav>
+
+<script>
+const $ = id => document.getElementById(id);
+(async () => {
+  const params = new URLSearchParams(location.search);
+  let slug = params.get('s');
+  let index = [];
+  try { index = await (await fetch('/data/industries/index.json')).json(); } catch {}
+  if (!slug && index.length) slug = index[0].slug;
+  if (index.length) $('ind-switcher').innerHTML = index.map(it =>
+    `<option value="${it.slug}"${it.slug===slug?' selected':''}>${it.theme}</option>`).join('');
+  let d;
+  try { d = await (await fetch(`/data/industries/${slug}.json`)).json(); }
+  catch (e) { $('hdr-theme').textContent = '找不到此產業'; return; }
+  document.title = `${d.theme} · 產業專欄 — Blue Morpho`;
+  $('bc-theme').textContent = d.theme;
+  $('hdr-theme').textContent = d.theme;
+  $('chain-svg').innerHTML = d.chain_svg || '<div class="mono-xs text-dim">無供應鏈圖</div>';
+  $('pool-svg').innerHTML = d.pool_svg || '';
+  const deep = (d.profit_pool || {}).deepest_pool_zh;
+  $('pool-deep').textContent = deep ? `利潤池最深:${deep}` : '';
+  $('ind-report').innerHTML = d.report_html || '';
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+{
+ "theme": "Memory (HBM / DRAM / NAND)",
+ "slug": "memory-hbm-dram-nand",
+ "generated_at": "2026-06-13T17:43:13Z",
+ "tier_data": {
+  "upstream": {
+   "記憶體設備/材料": [
+    "LRCX",
+    "AMAT",
+    "KLAC",
+    "ENTG"
+   ]
+  },
+  "midstream": {
+   "HBM/DRAM 製造": [
+    "MU",
+    "005930.KS",
+    "000660.KS"
+   ],
+   "NAND/儲存": [
+    "WDC",
+    "STX",
+    "SNDK"
+   ],
+   "記憶體控制晶片": [
+    "MRVL",
+    "SIMO"
+   ]
+  },
+  "downstream": {
+   "記憶體買方(算力)": [
+    "NVDA",
+    "MSFT",
+    "GOOG",
+    "AMZN"
+   ]
+  }
+ },
+ "profit_pool": {
+  "theme": "Memory (HBM / DRAM / NAND)",
+  "tiers": [
+   {
+    "tier": "upstream",
+    "label_zh": "上游",
+    "industries": [
+     "記憶體設備/材料"
+    ],
+    "margin_gross": 48.7,
+    "margin_op": 30.6,
+    "margin_fcf": 25.6,
+    "roic": 29.8,
+    "sample_n": 4,
+    "leaders": [
+     {
+      "symbol": "KLAC",
+      "op_margin": 43.1,
+      "health_grade": "A"
+     },
+     {
+      "symbol": "LRCX",
+      "op_margin": 32.0,
+      "health_grade": "A"
+     },
+     {
+      "symbol": "AMAT",
+      "op_margin": 29.2,
+      "health_grade": "A"
+     }
+    ]
+   },
+   {
+    "tier": "midstream",
+    "label_zh": "中游",
+    "industries": [
+     "HBM/DRAM 製造",
+     "NAND/儲存",
+     "記憶體控制晶片"
+    ],
+    "margin_gross": 38.8,
+    "margin_op": 20.8,
+    "margin_fcf": 9.0,
+    "roic": 11.5,
+    "sample_n": 5,
+    "leaders": [
+     {
+      "symbol": "MU",
+      "op_margin": 26.4,
+      "health_grade": "C"
+     },
+     {
+      "symbol": "WDC",
+      "op_margin": 24.5,
+      "health_grade": "D"
+     },
+     {
+      "symbol": "STX",
+      "op_margin": 20.8,
+      "health_grade": "C"
+     }
+    ]
+   },
+   {
+    "tier": "downstream",
+    "label_zh": "下游",
+    "industries": [
+     "記憶體買方(算力)"
+    ],
+    "margin_gross": 64.2,
+    "margin_op": 38.9,
+    "margin_fcf": 21.8,
+    "roic": 24.1,
+    "sample_n": 4,
+    "leaders": [
+     {
+      "symbol": "NVDA",
+      "op_margin": 60.4,
+      "health_grade": "A"
+     },
+     {
+      "symbol": "MSFT",
+      "op_margin": 45.6,
+      "health_grade": "B"
+     },
+     {
+      "symbol": "GOOG",
+      "op_margin": 32.1,
+      "health_grade": "A"
+     }
+    ]
+   }
+  ],
+  "deepest_pool": "downstream",
+  "deepest_pool_zh": "下游"
+ },
+ "report_html": "<p class=\"lead\">Memory (HBM / DRAM / NAND) 的重點不是單一公司，而是需求、產能、電力與資本支出如何沿著上中下游傳導；看懂錢流到哪一層，才看得懂利潤池。</p>\n<figure><img src=\"https://upload.wikimedia.org/wikipedia/commons/b/b9/CHIP_WAR_%E2%80%94_Book_Review_%26_Summary.jpg\" alt=\"Memory (HBM / DRAM / NAND) 產業示意\"><figcaption>來源:<a href=\"https://commons.wikimedia.org/wiki/File:CHIP_WAR_%E2%80%94_Book_Review_%26_Summary.jpg\">Wikimedia Commons / Steve Jurvetson, CC BY 2.0</a></figcaption></figure>\n<h3>這個產業在做什麼</h3><p>Memory (HBM / DRAM / NAND) 把終端需求轉成實體設備、工程建置與長期服務。白話說，客戶先提出效能、容量或供電需求，上游提供關鍵設備與材料，中游負責製造、整合或建置，下游再把能力賣給企業與消費者。</p>\n<h3>錢怎麼流(上中下游)</h3><p>站內供應鏈圖把它拆成三層：upstream 包含 記憶體設備/材料；midstream 包含 HBM/DRAM 製造、NAND/儲存、記憶體控制晶片；downstream 包含 記憶體買方(算力)。錢通常從下游客戶的預算開始，經由採購、長約或資本支出流向中游，再往上游設備與材料擴散；當需求急升時，最稀缺的瓶頸層通常最有議價力。</p>\n<h3>哪一層最賺</h3><p>利潤池顯示：上游營業利益率約 30.6%、投入資本報酬率約 29.8%，代表股包含 KLAC；中游營業利益率約 20.8%、投入資本報酬率約 11.5%，代表股包含 MU；下游營業利益率約 38.9%、投入資本報酬率約 24.1%，代表股包含 NVDA。因此不能只看營收增速，也要看哪一層承擔最多資本支出、哪一層有技術瓶頸或客戶鎖定。</p>\n<h3>最近發生什麼</h3><ul><li>2025-03-20，Micron 2025 會計年度第二季收入 81 億美元、年增 38%，資料中心收入年增超過 3 倍，說明高頻寬記憶體與伺服器記憶體仍是需求核心。<a href=\"https://investors.micron.com/news-releases/news-release-details/micron-technology-inc-reports-results-second-quarter-fiscal-2025\">來源</a></li><li>2025-04-30，Samsung Electronics 第一季合併營收 79.14 兆韓元、營業利益 6.69 兆韓元，記憶體需求仍受高階伺服器與人工智慧帶動。<a href=\"https://news.samsung.com/global/samsung-electronics-announces-first-quarter-2025-results\">來源</a></li></ul>\n<h3>投資含義</h3><p>較穩健的做法，是把需求成長、產能瓶頸與估值分開看。若政策與資本支出延續，上游瓶頸設備與中游整合商較容易先反映訂單；若利率、電力併網或客戶預算轉弱，下游高資本支出業者的自由現金流壓力會先被放大。投資人應優先追蹤新訂單、交期、價格與管理層對下一季資本支出的說法。</p><p class=\"disc\">非投資建議。</p>",
+ "chain_svg": "<svg viewBox='0 0 720 188' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><text x='110' y='32' fill='#7a5cff' font-size='14' font-weight='bold' text-anchor='middle' font-family='monospace'>上游</text><rect x='5' y='54' width='210' height='30' rx='7' fill='#06061a' stroke='#7a5cff' stroke-opacity='.5'/><text x='17' y='73' fill='#cfeaf2' font-size='12'>記憶體設備/材料</text><text x='360' y='32' fill='#00f3ff' font-size='14' font-weight='bold' text-anchor='middle' font-family='monospace'>中游</text><rect x='255' y='54' width='210' height='30' rx='7' fill='#06061a' stroke='#00f3ff' stroke-opacity='.5'/><text x='267' y='73' fill='#cfeaf2' font-size='12'>HBM/DRAM 製造</text><rect x='255' y='92' width='210' height='30' rx='7' fill='#06061a' stroke='#00f3ff' stroke-opacity='.5'/><text x='267' y='111' fill='#cfeaf2' font-size='12'>NAND/儲存</text><rect x='255' y='130' width='210' height='30' rx='7' fill='#06061a' stroke='#00f3ff' stroke-opacity='.5'/><text x='267' y='149' fill='#cfeaf2' font-size='12'>記憶體控制晶片</text><text x='610' y='32' fill='#00ff9d' font-size='14' font-weight='bold' text-anchor='middle' font-family='monospace'>下游</text><rect x='505' y='54' width='210' height='30' rx='7' fill='#06061a' stroke='#00ff9d' stroke-opacity='.5'/><text x='517' y='73' fill='#cfeaf2' font-size='12'>記憶體買方(算力)</text><line x1='219' y1='111' x2='243' y2='111' stroke='#39d3ff' stroke-width='1.5' opacity='.6'/><path d='M243,107 L251,111 L243,115 Z' fill='#39d3ff' opacity='.8'/><line x1='469' y1='111' x2='493' y2='111' stroke='#39d3ff' stroke-width='1.5' opacity='.6'/><path d='M493,107 L501,111 L493,115 Z' fill='#39d3ff' opacity='.8'/></svg>",
+ "pool_svg": "<svg viewBox='0 0 720 208' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><text x='8' y='28' fill='#7a5cff' font-size='13' font-weight='bold'>上游</text><rect x='90' y='36' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='36' width='346' height='12' rx='3' fill='#7a5cff' opacity='1'/><text x='444' y='46' fill='#9fb4c4' font-size='11'>營益率 30.6%</text><rect x='90' y='54' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='54' width='337' height='12' rx='3' fill='#7a5cff' opacity='0.45'/><text x='435' y='64' fill='#9fb4c4' font-size='11'>ROIC 29.8%</text><text x='8' y='84' fill='#00f3ff' font-size='13' font-weight='bold'>中游</text><rect x='90' y='92' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='92' width='235' height='12' rx='3' fill='#00f3ff' opacity='1'/><text x='333' y='102' fill='#9fb4c4' font-size='11'>營益率 20.8%</text><rect x='90' y='110' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='110' width='130' height='12' rx='3' fill='#00f3ff' opacity='0.45'/><text x='228' y='120' fill='#9fb4c4' font-size='11'>ROIC 11.5%</text><text x='8' y='140' fill='#00ff9d' font-size='13' font-weight='bold'>下游</text><rect x='90' y='148' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='148' width='440' height='12' rx='3' fill='#00ff9d' opacity='1'/><text x='538' y='158' fill='#9fb4c4' font-size='11'>營益率 38.9%</text><rect x='90' y='166' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='166' width='273' height='12' rx='3' fill='#00ff9d' opacity='0.45'/><text x='371' y='176' fill='#9fb4c4' font-size='11'>ROIC 24.1%</text></svg>"
+}

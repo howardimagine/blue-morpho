@@ -225,7 +225,7 @@
       <ul class="nav-links">
         <li><a href="index.html">HOME</a></li>
         <li><a href="weekly.html">WEEKLY</a></li>
-        <li><a href="stocks.html" class="active">STOCKS</a></li>
+        <li><a href="stocks.html" class="active">STOCKS</a></li><li><a href="industries.html">INDUSTRIES</a></li>
       </ul>
       <a href="index.html#subscribe" class="nav-cta">訂閱週報</a>
     </div>
@@ -269,6 +269,15 @@
 
       <!-- ── Main ── -->
       <div>
+
+        <!-- Deep Analysis(研究庫 dossier;有才顯示)── -->
+        <section class="mb-8" id="deep-analysis" style="display:none">
+          <div class="section-header">▎ DEEP ANALYSIS · 深度分析</div>
+          <div class="card card--flat">
+            <div class="deep-report" id="deep-report"></div>
+            <div id="deep-valuation"></div>
+          </div>
+        </section>
 
         <!-- Engine View ── -->
         <section class="mb-8">
@@ -390,30 +399,7 @@
           <!-- Quick Metrics ── -->
           <div class="card card--flat">
             <div class="section-header" style="margin-bottom: var(--space-4); padding-bottom: var(--space-3);">▎ KEY METRICS</div>
-            <div class="metric-row">
-              <span class="metric-label">市值</span>
-              <span class="metric-value mono-sm">$2.67T</span>
-            </div>
-            <div class="metric-row">
-              <span class="metric-label">P/E (FWD)</span>
-              <span class="metric-value mono-sm">38.4x</span>
-            </div>
-            <div class="metric-row">
-              <span class="metric-label">P/S</span>
-              <span class="metric-value mono-sm">24.1x</span>
-            </div>
-            <div class="metric-row">
-              <span class="metric-label">EPS YoY</span>
-              <span class="metric-value text-positive mono-sm">+89%</span>
-            </div>
-            <div class="metric-row">
-              <span class="metric-label">Rev YoY</span>
-              <span class="metric-value text-positive mono-sm">+78%</span>
-            </div>
-            <div class="metric-row">
-              <span class="metric-label">毛利率</span>
-              <span class="metric-value mono-sm">74.6%</span>
-            </div>
+            <div id="key-metrics"><div class="mono-xs text-dim">指標待深度分析資料</div></div>
           </div>
 
           <!-- External Links ── -->
@@ -578,6 +564,50 @@ const fmt = (n,d=2) => (n==null||isNaN(n)) ? '—' : Number(n).toLocaleString('e
   $('related-stocks').innerHTML = peers.length
     ? peers.map(r => { const c = tierConfig[r.tier]||tierConfig.watch; return `<a href="stock.html?t=${r.symbol}" class="related-card"><div><div class="related-ticker">${r.symbol}</div><div class="related-name">${r.name}</div></div><span class="tier-badge ${c.cls}" style="font-size:.58rem;">${c.label}</span></a>`; }).join('')
     : `<div class="mono-xs text-dim">同主題暫無其他標的</div>`;
+
+  // ── 深度分析(研究庫 dossier)──
+  if (s.report_html) {
+    $('deep-report').innerHTML = s.report_html;
+    document.getElementById('deep-analysis').style.display = '';
+    const v = s.valuation || {}, bl = v.blended_target || {}, dcf = v.dcf || {}, rev = v.reverse_dcf || {};
+    const gen = (s.generated_at || '').slice(0, 10);
+    const kv = [];
+    if (bl.target != null) kv.push(`<div class="vc"><b>$${bl.target}</b><s>合理目標價${bl.upside_pct!=null?` · ${bl.upside_pct>=0?'+':''}${bl.upside_pct}% 空間`:''}</s></div>`);
+    if (dcf.intrinsic != null) kv.push(`<div class="vc"><b>$${dcf.intrinsic}</b><s>估算價值(保守 $${dcf.bear??'—'} / 樂觀 $${dcf.bull??'—'})</s></div>`);
+    if (rev.implied_growth_pct != null) kv.push(`<div class="vc"><b>${rev.implied_growth_pct}%/年</b><s>股價已反映的成長</s></div>`);
+    if (s.health_grade) kv.push(`<div class="vc"><b>${s.health_grade}</b><s>財報體質(${s.health_score??'—'}/100)</s></div>`);
+    let vb = '';
+    if (kv.length || s.val_bar_svg) {
+      const priceLine = s.price != null
+        ? `<div class="deep-report disc">現價 <b id="bm-price">$${s.price}</b><span id="bm-pricetag">(截至 ${gen})</span>;股價即時變動。估值截至 ${gen}。</div>` : '';
+      vb = `<div class="section-header" style="margin:var(--space-5) 0 var(--space-3);font-size:0.62rem;">▎ 估值一覽</div>`
+         + (kv.length?`<div class="val-grid">${kv.join('')}</div>`:'')
+         + (s.val_bar_svg?`<div class="deep-chart">${s.val_bar_svg}</div>`:'')
+         + priceLine;
+    }
+    $('deep-valuation').innerHTML = vb;
+    // 即時報價(同源 /api/quote;失敗維持靜態)
+    if (s.price != null) {
+      fetch('/api/quote?symbol='+encodeURIComponent(s.symbol)).then(r=>r.json()).then(d=>{
+        if(!d||d.price==null)return;
+        const p=document.getElementById('bm-price'); if(p)p.textContent='$'+(+d.price).toFixed(2);
+        const t=document.getElementById('bm-pricetag'); if(t)t.textContent='(即時·延遲報價)';
+      }).catch(()=>{});
+    }
+  }
+
+  // ── KEY METRICS(資料驅動,取代假數字)──
+  const L = (s.financials||{}).latest || {}, G = (s.financials||{}).growth || {};
+  const km = [];
+  const row = (lab, val, cls) => val==null?'':`<div class="metric-row"><span class="metric-label">${lab}</span><span class="metric-value mono-sm ${cls||''}">${val}</span></div>`;
+  km.push(row('營收(十億)', L.revenue_b!=null?('$'+L.revenue_b+'B'):null));
+  km.push(row('毛利率', L.gross_margin!=null?(L.gross_margin+'%'):null));
+  km.push(row('營業利益率', L.op_margin!=null?(L.op_margin+'%'):null));
+  km.push(row('投入資本報酬率', L.roic!=null?(L.roic+'%'):null));
+  km.push(row('營收成長(3年)', G.rev_cagr_3y!=null?((G.rev_cagr_3y>=0?'+':'')+G.rev_cagr_3y+'%'):null, G.rev_cagr_3y>=0?'text-positive':'text-negative'));
+  km.push(row('自由現金流(十億)', L.fcf_b!=null?('$'+L.fcf_b+'B'):null));
+  const kmHtml = km.filter(Boolean).join('');
+  if (kmHtml) $('key-metrics').innerHTML = kmHtml;
 })();
 
 async function handleSubAside(e){
@@ -595,7 +625,7 @@ async function handleSubAside(e){
 <nav class="mobile-tabbar">
   <a href="index.html">HOME</a>
   <a href="weekly.html">WEEKLY</a>
-  <a href="stocks.html" class="active">STOCKS</a>
+  <a href="stocks.html" class="active">STOCKS</a><a href="industries.html">產業</a>
 </nav>
 </body>
 </html>

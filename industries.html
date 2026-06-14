@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>產業專欄 — Blue Morpho</title>
+  <meta name="description" content="Blue Morpho 產業專欄:每個產業含供應鏈上中下游、利潤池(哪一層最賺)與深度研究。">
+  <meta name="theme-color" content="#02020A">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img class="nav-logo-icon" src="assets/icon.svg" alt="Blue Morpho">
+        <div><div class="nav-logo-text">BLUE MORPHO</div><div class="nav-logo-sub">美股前沿觀察</div></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="weekly.html">WEEKLY</a></li>
+        <li><a href="stocks.html">STOCKS</a></li>
+        <li><a href="industries.html" class="active">INDUSTRIES</a></li>
+      </ul>
+      <a href="https://lin.ee/xt0mgJH" target="_blank" rel="noopener" class="nav-cta">追蹤 LINE</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container" style="max-width:820px;padding:var(--space-6) var(--space-4) var(--space-12);">
+    <span class="mono-xs text-accent" style="letter-spacing:.18em;text-transform:uppercase;">▎ BLUE MORPHO · 產業專欄</span>
+    <h1 style="font-size:clamp(1.4rem,4vw,2rem);font-weight:700;color:var(--text-primary);margin:var(--space-2) 0;">產業供應鏈與利潤池</h1>
+    <p style="font-size:.85rem;color:#9fb2c6;line-height:1.75;max-width:680px;">每個產業:白話介紹 → 錢怎麼沿上中下游流動 → 哪一層最賺(利潤池)→ 最近發生什麼 → 投資含義。</p>
+    <div id="ind-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-top:var(--space-6);">
+      <div class="mono-xs text-dim">載入中…</div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container"><div class="footer-inner">
+    <div class="footer-copy">© 2026 BLUE MORPHO · 本站僅供資訊參考,非投資建議</div>
+    <div class="footer-links"><a href="index.html">首頁</a><a href="stocks.html">個股</a><a href="industries.html">產業</a><a href="weekly.html">本週週報</a></div>
+  </div></div>
+</footer>
+
+<nav class="mobile-tabbar">
+  <a href="index.html">HOME</a><a href="weekly.html">WEEKLY</a>
+  <a href="stocks.html">STOCKS</a><a href="industries.html" class="active">產業</a>
+</nav>
+
+<script>
+(async () => {
+  let inds = [];
+  try { inds = await (await fetch('/data/industries/index.json')).json(); } catch {}
+  const grid = document.getElementById('ind-grid');
+  grid.innerHTML = inds.length ? inds.map(it =>
+    `<a href="industry.html?s=${it.slug}" class="card card--flat" style="text-decoration:none;display:block;">
+       <div style="font-family:var(--font-mono);font-size:.95rem;font-weight:700;color:var(--accent);">${it.theme}</div>
+       <div class="text-secondary" style="font-size:.74rem;margin-top:4px;">${it.deepest?('利潤池最深:'+it.deepest):'供應鏈 + 利潤池 + 研究'}</div>
+     </a>`).join('')
+    : '<div class="mono-xs text-dim">尚無產業專欄</div>';
+})();
+</script>
+</body>
+</html>

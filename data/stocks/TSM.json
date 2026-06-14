@@ -1,0 +1,161 @@
+{
+ "symbol": "TSM",
+ "name": "Taiwan Semiconductor",
+ "tier": "watch",
+ "regime": "neutral",
+ "theme": "AI Compute",
+ "business": "Foundry monopoly at leading nodes (3nm/2nm); fabricates for AAPL, NVDA, AMD, AVGO; geopolitical risk discount.",
+ "why": "",
+ "rsi": null,
+ "sma50": null,
+ "sma200": null,
+ "factors": [],
+ "tracking": [],
+ "links": [
+  {
+   "label": "Finviz",
+   "desc": "技術快照 / 圖",
+   "href": "https://finviz.com/quote.ashx?t=TSM"
+  },
+  {
+   "label": "StockAnalysis",
+   "desc": "財報 / 估值",
+   "href": "https://stockanalysis.com/stocks/TSM/"
+  },
+  {
+   "label": "TradingView",
+   "desc": "互動圖",
+   "href": "https://www.tradingview.com/symbols/TSM/"
+  },
+  {
+   "label": "Macrotrends",
+   "desc": "長期財務",
+   "href": "https://www.macrotrends.net/stocks/charts/TSM/x/"
+  },
+  {
+   "label": "TipRanks",
+   "desc": "分析師共識",
+   "href": "https://www.tipranks.com/stocks/TSM/forecast"
+  },
+  {
+   "label": "Seeking Alpha",
+   "desc": "多空分析",
+   "href": "https://seekingalpha.com/symbol/TSM"
+  }
+ ],
+ "peers": [
+  {
+   "symbol": "INTC",
+   "name": "Intel Corporation",
+   "tier": "watch"
+  },
+  {
+   "symbol": "GFS",
+   "name": "GlobalFoundries Inc.",
+   "tier": "watch"
+  }
+ ],
+ "price": 423.93,
+ "generated_at": "2026-06-14T01:28:55Z",
+ "health_grade": "A",
+ "health_score": 84,
+ "chain_position": {
+  "theme": "AI Compute",
+  "tier": "midstream",
+  "label": "Midstream Foundry"
+ },
+ "valuation": {
+  "dcf": {
+   "symbol": "TSM",
+   "price": 423.93,
+   "method": "per_share_approx",
+   "fcf_base_per_share": 7.21,
+   "growth_rate_assumed": 26.1,
+   "wacc": 8.5,
+   "terminal_growth": 4.0,
+   "intrinsic": 345.0,
+   "bull": 564.0,
+   "bear": 211.0,
+   "upside_pct": -18.6,
+   "scenarios": [
+    {
+     "scenario": "bull",
+     "intrinsic_per_share": 564.0,
+     "wacc": 8.1,
+     "terminal_g": 4.6
+    },
+    {
+     "scenario": "base",
+     "intrinsic_per_share": 345.0,
+     "wacc": 8.5,
+     "terminal_g": 4.0
+    },
+    {
+     "scenario": "bear",
+     "intrinsic_per_share": 211.0,
+     "wacc": 8.9,
+     "terminal_g": 3.4
+    }
+   ],
+   "inputs": {
+    "fcf_yield_pct": 1.7,
+    "rev_growth_pct": 33.0,
+    "fcf_growth_pct": 26.1,
+    "roic_pct": 25.8,
+    "gross_margin_pct": 61.9,
+    "op_margin_pct": 53.2
+   }
+  },
+  "reverse_dcf": null,
+  "comps_valuation": null,
+  "comps": null,
+  "blended_target": null,
+  "sensitivity": null,
+  "peer_median": {
+   "pe": 58.1,
+   "ev_ebitda": 39.0,
+   "fcf_yield": 0.9,
+   "rev_growth": 0.0
+  },
+  "peer_verdict": "低於同業估值",
+  "own_multiples": {
+   "pe": 31.1,
+   "ev_ebitda": 19.6,
+   "fcf_yield": 1.7
+  }
+ },
+ "financials": {
+  "latest": {
+   "revenue_b": 3848.51,
+   "net_income_b": 1735.68,
+   "fcf_b": 1097.58,
+   "gross_margin": 59.9,
+   "op_margin": 50.8,
+   "net_margin": 45.1,
+   "fcf_margin": 28.5,
+   "roe": 32.4,
+   "roa": 21.9,
+   "roic": 25.3,
+   "current_ratio": 2.51,
+   "quick_ratio": 2.32,
+   "debt_equity": 0.2,
+   "net_debt_ebitda": -0.62,
+   "interest_coverage": null,
+   "fcf_to_ni": 0.63,
+   "sbc_to_rev": 0.0,
+   "capex_to_rev": 33.4,
+   "rnd_to_rev": 6.5,
+   "shares_change_pct": 0.0,
+   "net_debt_b": -1703.27,
+   "cash_b": 3128.3
+  },
+  "growth": {
+   "rev_cagr_3y": 19.3,
+   "rev_cagr_5y": 23.5,
+   "eps_cagr_3y": 18.8,
+   "fcf_cagr_3y": 28.2
+  }
+ },
+ "report_html": "<p class=\"lead\">Taiwan Semiconductor(TSM) 是 Foundry monopoly at leading nodes (3nm/2nm); fabricates for AAPL, NVDA, AMD, AVGO; geopolitical risk discount.；現在的核心看點，是它在 AI Compute 供應鏈中能否把需求成長轉成現金流，而不是只停留在題材熱度。</p>\n<figure><img src=\"https://upload.wikimedia.org/wikipedia/commons/d/d6/TSMC_logo_on_Taichung_factory_building.jpg\" alt=\"Taiwan Semiconductor 產品或品牌相關圖片\"><figcaption>來源:<a href=\"https://commons.wikimedia.org/wiki/File:TSMC_logo_on_Taichung_factory_building.jpg\">Wikimedia Commons / TSMC factory building logo</a></figcaption></figure>\n<h3>這家公司在做什麼</h3>\n<p>Taiwan Semiconductor 的產品或服務位在「Midstream Foundry」這個環節。白話說，它把技術、設備、軟體或基礎設施包成客戶願意付錢的能力，最後服務的是雲端、半導體、企業資訊科技、電力或通訊基礎設施需求。</p>\n<h3>它怎麼賺錢</h3>\n<p>公司位於 AI Compute 的 midstream。它的收入來自把關鍵產品交給下游客戶，或把長期資產出租、營運成穩定服務。真正的護城河通常不是單一產品名稱，而是客戶認證、工程經驗、規模採購、軟體生態或長期合約；這些因素會決定它能不能維持價格與毛利率。</p>\n<h3>這門生意穩不穩</h3>\n<p>穩定度要分兩層看：需求端若來自多年期雲端、電網、企業資安或資料中心投資，能見度會比較好；但供給端若需要大量資本支出、庫存管理或少數大客戶訂單，短期仍會有循環。</p>\n<ul><li>站內模型顯示，最新收入約 3848.51 億美元，自由現金流(公司賺到、可自由運用的現金)約 1097.58 億美元；營業利益率(每賣 100 元留下多少營業利益)約 50.8%，自由現金流率約 28.5%，投入資本報酬率(投一塊錢賺回幾毛)約 25.3%。</li><li>過去三年營收年均成長約 19.3%，自由現金流年均成長約 28.2%；健康評等為 A、分數 84，代表財務體質是估值判斷的重要底盤。</li></ul>\n<h3>最近發生什麼</h3>\n<ul><li>2026-04-16，TSMC 公布 2026 年第一季合併營收新台幣 1.134 兆元、淨利新台幣 5,724.8 億元，每股盈餘新台幣 22.08 元；以美元計營收 359.0 億美元、年增 40.6%，並給出 2026 年第二季營收 390.0–402.0 億美元、毛利率 65.5%–67.5% 的展望，顯示先進製程需求仍強。<a href=\"https://www.sec.gov/Archives/edgar/data/1046179/000104617926000199/a1q26e_withguidancexfinal.htm\">來源</a></li></ul>\n<h3>未來與估值:值不值得</h3>\n<p>現價約 423.93 美元，站內混合目標價約 — 美元，對應上行空間約 —%。估算價值不是精準答案，而是一把尺：若市場價格已經要求未來自由現金流長期成長約 —%，投資人就必須相信公司能持續拿到訂單、維持利潤率，並把成長變成現金。</p>\n<h3>要盯什麼(風險)</h3>\n<ul><li>大型雲端客戶資本支出放慢，會讓訂單能見度下降。</li><li>出口管制、先進製程或關鍵零組件短缺，可能改變可服務市場與交期。</li><li>如果競爭者降價或客戶自研替代方案成熟，毛利率可能被壓縮。</li></ul>\n<h3>總結</h3>\n<blockquote>Taiwan Semiconductor 適合用「產業位置 + 現金流品質 + 估值期待」一起看。若後續新聞中的營收、訂單或展望能延續，偏嚴格 的估值較容易被支撐；若成長放慢但市場仍給高期待，安全邊際就會變薄。</blockquote>\n<p class=\"disc\">非投資建議。</p>",
+ "val_bar_svg": "<svg viewBox='0 0 720 96' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><line x1='20' y1='52' x2='700' y2='52' stroke='#1a2238' stroke-width='2'/><rect x='48' y='48' width='578' height='8' fill='#00f3ff' opacity='.12'/><circle cx='48' cy='52' r='5' fill='#5c8cff'/><text x='48' y='34' fill='#5c8cff' font-size='11' text-anchor='middle'>悲觀</text><text x='48' y='47' fill='#5c8cff' font-size='11' text-anchor='middle' font-family='monospace'>$211</text><circle cx='267' cy='52' r='5' fill='#00f3ff'/><text x='267' y='78' fill='#00f3ff' font-size='11' text-anchor='middle'>DCF</text><text x='267' y='91' fill='#00f3ff' font-size='11' text-anchor='middle' font-family='monospace'>$345</text><circle cx='397' cy='52' r='6' fill='#ffffff'/><text x='397' y='34' fill='#ffffff' font-size='11' text-anchor='middle'>現價</text><text x='397' y='47' fill='#ffffff' font-size='11' text-anchor='middle' font-family='monospace'>$423.93</text><circle cx='626' cy='52' r='5' fill='#b48cff'/><text x='626' y='78' fill='#b48cff' font-size='11' text-anchor='middle'>樂觀</text><text x='626' y='91' fill='#b48cff' font-size='11' text-anchor='middle' font-family='monospace'>$564</text></svg>"
+}

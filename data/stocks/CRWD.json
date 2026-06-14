@@ -179,6 +179,11 @@
       "symbol": "CYBR",
       "name": "CYBR",
       "tier": "ready"
+    },
+    {
+      "symbol": "FTNT",
+      "name": "Fortinet",
+      "tier": "enter"
     }
   ]
 }
