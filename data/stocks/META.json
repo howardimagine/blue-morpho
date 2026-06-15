@@ -1,0 +1,293 @@
+{
+  "symbol": "META",
+  "name": "Meta",
+  "tier": "watch",
+  "regime": "neutral",
+  "theme": "AI Compute",
+  "business": "廣告平台 + Reality Labs;Llama 開源模型,AI 算力(GPU 群集)大買家。",
+  "why": "INDUSTRY_EXPANSION",
+  "rsi": null,
+  "sma50": null,
+  "sma200": null,
+  "factors": [
+    {
+      "key": "theme_tailwind",
+      "label": "主題順風",
+      "score": 7.1
+    },
+    {
+      "key": "technical_setup",
+      "label": "技術形態",
+      "score": 3.5
+    },
+    {
+      "key": "macro_context",
+      "label": "總經環境",
+      "score": 5.8
+    },
+    {
+      "key": "business_quality",
+      "label": "基本面品質",
+      "score": null
+    },
+    {
+      "key": "news_catalyst",
+      "label": "新聞催化",
+      "score": null
+    },
+    {
+      "key": "risk_reward",
+      "label": "風險回報",
+      "score": null
+    }
+  ],
+  "tracking": [
+    {
+      "date": "2026-05-28",
+      "theme": "AI Compute",
+      "tier": "watch",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    }
+  ],
+  "links": [
+    {
+      "label": "Finviz",
+      "desc": "技術快照 / 圖",
+      "href": "https://finviz.com/quote.ashx?t=META"
+    },
+    {
+      "label": "StockAnalysis",
+      "desc": "財報 / 估值",
+      "href": "https://stockanalysis.com/stocks/META/"
+    },
+    {
+      "label": "TradingView",
+      "desc": "互動圖",
+      "href": "https://www.tradingview.com/symbols/META/"
+    },
+    {
+      "label": "Macrotrends",
+      "desc": "長期財務",
+      "href": "https://www.macrotrends.net/stocks/charts/META/x/"
+    },
+    {
+      "label": "TipRanks",
+      "desc": "分析師",
+      "href": "https://www.tipranks.com/stocks/META/forecast"
+    }
+  ],
+  "peers": [
+    {
+      "symbol": "LRCX",
+      "name": "科林研發",
+      "tier": "ready"
+    },
+    {
+      "symbol": "ARM",
+      "name": "安謀",
+      "tier": "enter"
+    },
+    {
+      "symbol": "AVGO",
+      "name": "博通",
+      "tier": "ready"
+    },
+    {
+      "symbol": "AMD",
+      "name": "超微",
+      "tier": "enter"
+    }
+  ],
+  "price": 566.98,
+  "generated_at": "2026-06-14T15:14:40Z",
+  "health_grade": "A",
+  "health_score": 84,
+  "chain_position": {
+    "theme": "AI Compute",
+    "tier": "downstream",
+    "label": "Downstream Hyperscalers"
+  },
+  "valuation": {
+    "dcf": {
+      "symbol": "META",
+      "price": 566.98,
+      "method": "firm_level_fcf",
+      "fcf_firm_b": 46.1,
+      "shares_b": 2.57,
+      "net_debt_b": 48.0,
+      "growth_rate_assumed": 19.9,
+      "wacc": 8.5,
+      "terminal_growth": 4.0,
+      "intrinsic": 644.6,
+      "bull": 912.0,
+      "bear": 367.1,
+      "upside_pct": 13.7,
+      "scenarios": [
+        {
+          "scenario": "bull",
+          "intrinsic_per_share": 912.0,
+          "ev_b": 2395.6,
+          "wacc": 8.1,
+          "terminal_g": 4.4,
+          "growth_yr1": 24.3
+        },
+        {
+          "scenario": "base",
+          "intrinsic_per_share": 644.6,
+          "ev_b": 1707.1,
+          "wacc": 8.5,
+          "terminal_g": 4.0,
+          "growth_yr1": 19.9
+        },
+        {
+          "scenario": "bear",
+          "intrinsic_per_share": 367.1,
+          "ev_b": 993.0,
+          "wacc": 9.2,
+          "terminal_g": 3.2,
+          "growth_yr1": 11.5
+        }
+      ],
+      "inputs": {
+        "fcf_cagr_3y": 34.3,
+        "rev_cagr_3y": 19.9,
+        "roic_pct": 22.5,
+        "gross_margin_pct": 82.0,
+        "op_margin_pct": 41.4,
+        "fcf_margin_pct": 22.9
+      }
+    },
+    "reverse_dcf": {
+      "implied_growth_pct": 22.7,
+      "market_cap_b": 1459.4,
+      "note": "現價隱含未來十年 FCF 年均成長 ~22.7%(用 WACC 8.5%)"
+    },
+    "comps_valuation": {
+      "pe_target": 650.7,
+      "ev_ebitda_target": 646.7,
+      "blended_comps": 648.7
+    },
+    "comps": {
+      "pe_target": 650.7,
+      "ev_ebitda_target": 646.7,
+      "blended_comps": 648.7
+    },
+    "blended_target": {
+      "target": 646.7,
+      "upside_pct": 14.1,
+      "components": {
+        "dcf": 644.6,
+        "comps": 648.7,
+        "comps_detail": {
+          "pe": 650.7,
+          "ev_ebitda": 646.7
+        }
+      },
+      "weights": {
+        "DCF": 0.5,
+        "可比": 0.5
+      }
+    },
+    "sensitivity": {
+      "waccs": [
+        7.5,
+        8.0,
+        8.5,
+        9.0,
+        9.5
+      ],
+      "term_gs": [
+        3.0,
+        3.5,
+        4.0,
+        4.5,
+        5.0
+      ],
+      "grid": [
+        [
+          682.0,
+          751.0,
+          840.0,
+          958.0,
+          1124.0
+        ],
+        [
+          609.0,
+          663.0,
+          730.0,
+          816.0,
+          931.0
+        ],
+        [
+          550.0,
+          593.0,
+          645.0,
+          710.0,
+          793.0
+        ],
+        [
+          501.0,
+          535.0,
+          576.0,
+          627.0,
+          690.0
+        ],
+        [
+          459.0,
+          487.0,
+          520.0,
+          560.0,
+          609.0
+        ]
+      ]
+    },
+    "peer_median": {
+      "pe": 27.7,
+      "ev_ebitda": 17.9,
+      "fcf_yield": 0.7,
+      "rev_growth": 15.0
+    },
+    "peer_verdict": "低於同業估值",
+    "own_multiples": {
+      "pe": 20.4,
+      "ev_ebitda": 13.2,
+      "fcf_yield": 3.4
+    }
+  },
+  "financials": {
+    "latest": {
+      "revenue_b": 200.97,
+      "net_income_b": 60.46,
+      "fcf_b": 46.11,
+      "gross_margin": 82.0,
+      "op_margin": 41.4,
+      "net_margin": 30.1,
+      "fcf_margin": 22.9,
+      "roe": 27.8,
+      "roa": 16.5,
+      "roic": 22.5,
+      "current_ratio": 2.6,
+      "quick_ratio": 2.6,
+      "debt_equity": 0.39,
+      "net_debt_ebitda": 0.46,
+      "interest_coverage": 73.76,
+      "fcf_to_ni": 0.76,
+      "sbc_to_rev": 10.2,
+      "capex_to_rev": 34.7,
+      "rnd_to_rev": 28.5,
+      "shares_change_pct": -10.9,
+      "net_debt_b": 48.02,
+      "cash_b": 81.59
+    },
+    "growth": {
+      "rev_cagr_3y": 19.9,
+      "rev_cagr_5y": 18.5,
+      "eps_cagr_3y": 39.8,
+      "fcf_cagr_3y": 34.3
+    }
+  },
+  "report_html": "<p class=\"lead\">Meta Platforms 是Facebook、Instagram、WhatsApp 與 Reality Labs的公司；核心看點是成長還能不能支撐目前估值。</p>\n<figure><img src=\"https://upload.wikimedia.org/wikipedia/commons/a/ab/Meta-Logo.png\" alt=\"Meta 標誌\"><figcaption>來源:<a href=\"https://upload.wikimedia.org/wikipedia/commons/a/ab/Meta-Logo.png\">Wikimedia Commons / 官方商標圖檔</a></figcaption></figure>\n<h3>這家公司在做什麼</h3><p>Meta Platforms 把Facebook、Instagram、WhatsApp 與 Reality Labs賣給企業、消費者或政府客戶。若用白話說，它不是只賣單一產品，而是在客戶日常營運、資料流、支付流或供應鏈中卡住一個高頻節點。</p>\n<h3>它怎麼賺錢</h3><p>主要收入來自廣告投放、商務工具與虛擬實境硬體。在供應鏈位置上，網站工具把它放在「AI Compute」的「Downstream Hyperscalers」，意思是它的議價力取決於客戶黏著度、產品替換成本與同業競爭速度。</p>\n<h3>這門生意穩不穩</h3><p>穩定度要同時看成長、現金流與資本報酬。高毛利或高自由現金流代表商業模式輕、留在公司手上的錢多；但若景氣循環強，單季數字仍可能大幅波動。</p><ul>\n<li>近三年營收年均成長 19.9%、自由現金流年均成長 34.3%；最新年度營業利益率 41.4%、自由現金流率 22.9%、投入資本報酬率 22.5%。</li>\n<li>財報體質分數為 A / 84 分，代表這家公司目前的獲利品質、槓桿與現金流仍需搭配估值一起看。</li></ul>\n<h3>最近發生什麼</h3><ul>\n<li>2026-04-30 申報的最新 10-Q 顯示，截至 2026-03-31 的期間營收 56.3 十億美元、淨利 26.8 十億美元；這是判斷「最新一季」是否真的跟上股價期待的基準。<a href=\"https://www.sec.gov/Archives/edgar/data/1326801/000162828026028526/meta-20260331.htm\">SEC filing</a></li>\n<li>Fri, 15 May 2026 的市場新聞提到「Meta Platforms: Evaluating Revenue Expansion」；放回數字看，現價 $566.98 對應模型合理目標 $646.70、上行/下行空間 14.1%，代表新聞利多必須轉成更高現金流才足以改變估值。<a href=\"http://www.bing.com/news/apiclick.aspx?ref=FexRss&amp;aid=&amp;tid=6a2ec56432a54e4ba01dd9761ee40aef&amp;url=https%3a%2f%2fwww.fool.com%2fcoverage%2fcharts%2f2026%2f05%2f15%2fmeta-vs-snap-what-do-their-quarterly-revenue-trends-tell-investors%2f&amp;c=8001083572303375994&amp;mkt=en-us\">來源</a></li>\n</ul>\n<h3>未來與估值:值不值得</h3><p>模型的混合目標價約 $646.70，相對現價 $566.98 的空間為 14.1%；反推現金流模型顯示，市場價格約在期待未來十年自由現金流年均成長 22.7%。因此，若公司能維持高成長並守住利潤率，估值壓力可被時間消化；若成長放慢，股價對失望會很敏感。</p>\n<h3>要盯什麼(風險)</h3><ul><li>最新季度營收增速是否低於市場期待、毛利率是否被價格競爭壓縮、自由現金流是否跟不上淨利，以及利率或景氣變化是否讓估值倍數收縮。</li><li>若未來兩季的申報數字無法證明成長與現金流同步改善，$566.98 附近的估值安全邊際會變薄。</li></ul>\n<h3>總結</h3><blockquote>Meta Platforms 的關鍵不是單季題材，而是能否把最新季度的營收 56.3 十億美元 轉成可持續自由現金流。適合能接受估值波動、並願意追蹤季度數字是否兌現的投資人。</blockquote><p class=\"disc\">非投資建議。</p>",
+  "val_bar_svg": "<svg viewBox='0 0 720 96' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><line x1='20' y1='52' x2='700' y2='52' stroke='#1a2238' stroke-width='2'/><rect x='51' y='48' width='572' height='8' fill='#00f3ff' opacity='.12'/><circle cx='51' cy='52' r='5' fill='#5c8cff'/><text x='51' y='34' fill='#5c8cff' font-size='11' text-anchor='middle'>悲觀</text><text x='51' y='47' fill='#5c8cff' font-size='11' text-anchor='middle' font-family='monospace'>$367.1</text><circle cx='261' cy='52' r='6' fill='#ffffff'/><text x='261' y='78' fill='#ffffff' font-size='11' text-anchor='middle'>現價</text><text x='261' y='91' fill='#ffffff' font-size='11' text-anchor='middle' font-family='monospace'>$566.98</text><circle cx='342' cy='52' r='5' fill='#00f3ff'/><text x='342' y='34' fill='#00f3ff' font-size='11' text-anchor='middle'>DCF</text><text x='342' y='47' fill='#00f3ff' font-size='11' text-anchor='middle' font-family='monospace'>$644.6</text><circle cx='345' cy='52' r='5' fill='#00ff9d'/><text x='345' y='78' fill='#00ff9d' font-size='11' text-anchor='middle'>混合目標</text><text x='345' y='91' fill='#00ff9d' font-size='11' text-anchor='middle' font-family='monospace'>$646.7</text><circle cx='347' cy='52' r='5' fill='#39d3ff'/><text x='347' y='34' fill='#39d3ff' font-size='11' text-anchor='middle'>可比</text><text x='347' y='47' fill='#39d3ff' font-size='11' text-anchor='middle' font-family='monospace'>$648.7</text><circle cx='623' cy='52' r='5' fill='#b48cff'/><text x='623' y='78' fill='#b48cff' font-size='11' text-anchor='middle'>樂觀</text><text x='623' y='91' fill='#b48cff' font-size='11' text-anchor='middle' font-family='monospace'>$912</text></svg>"
+}

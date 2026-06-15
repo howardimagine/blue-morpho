@@ -1,0 +1,108 @@
+{
+  "theme": "E-commerce / Marketplaces",
+  "slug": "e-commerce-marketplaces",
+  "generated_at": "2026-06-14T15:14:40Z",
+  "tier_data": {
+    "upstream": {
+      "電商賦能軟體": [
+        "SHOP"
+      ]
+    },
+    "midstream": {
+      "市集平台": [
+        "AMZN",
+        "MELI",
+        "SE",
+        "EBAY"
+      ]
+    },
+    "downstream": {
+      "物流配送": [
+        "FDX",
+        "UPS"
+      ]
+    }
+  },
+  "profit_pool": {
+    "theme": "E-commerce / Marketplaces",
+    "tiers": [
+      {
+        "tier": "upstream",
+        "label_zh": "上游",
+        "industries": [
+          "電商賦能軟體"
+        ],
+        "margin_gross": 48.1,
+        "margin_op": 12.7,
+        "margin_fcf": 17.4,
+        "roic": 8.7,
+        "sample_n": 1,
+        "leaders": [
+          {
+            "symbol": "SHOP",
+            "op_margin": 12.7,
+            "health_grade": "B"
+          }
+        ]
+      },
+      {
+        "tier": "midstream",
+        "label_zh": "中游",
+        "industries": [
+          "市集平台"
+        ],
+        "margin_gross": 47.5,
+        "margin_op": 11.1,
+        "margin_fcf": 17.3,
+        "roic": 13.4,
+        "sample_n": 4,
+        "leaders": [
+          {
+            "symbol": "EBAY",
+            "op_margin": 20.5,
+            "health_grade": "C"
+          },
+          {
+            "symbol": "AMZN",
+            "op_margin": 11.2,
+            "health_grade": "C"
+          },
+          {
+            "symbol": "MELI",
+            "op_margin": 11.1,
+            "health_grade": "B"
+          }
+        ]
+      },
+      {
+        "tier": "downstream",
+        "label_zh": "下游",
+        "industries": [
+          "物流配送"
+        ],
+        "margin_gross": 19.9,
+        "margin_op": 7.9,
+        "margin_fcf": 4.4,
+        "roic": 10.4,
+        "sample_n": 2,
+        "leaders": [
+          {
+            "symbol": "UPS",
+            "op_margin": 8.9,
+            "health_grade": "D"
+          },
+          {
+            "symbol": "FDX",
+            "op_margin": 6.9,
+            "health_grade": "D"
+          }
+        ]
+      }
+    ],
+    "deepest_pool": "upstream",
+    "deepest_pool_zh": "上游"
+  },
+  "report_html": "<p class=\"lead\">E-commerce / Marketplaces 是把技術、資本與客戶需求串成商業化產品的產業鏈；現在最值得看的是預算與利潤往哪一層集中。</p>\n<figure><img src=\"https://upload.wikimedia.org/wikipedia/commons/7/70/Robot_in_an_Amazon_warehouse.jpg\" alt=\"Amazon 倉儲機器人代表電商履約基礎設施\"><figcaption>來源:<a href=\"https://upload.wikimedia.org/wikipedia/commons/7/70/Robot_in_an_Amazon_warehouse.jpg\">Wikimedia Commons / 合法授權圖檔</a></figcaption></figure>\n<h3>這個產業在做什麼</h3><p>E-commerce / Marketplaces 的共同邏輯，是上游提供零組件、資料、設備或基礎設施，中游把它整合成平台、產品或系統，下游再交付給企業、政府、醫療體系或消費者。讀者可以把它想成一條把研發與資本支出變成可收費服務的管線。</p>\n<h3>錢怎麼流(上中下游)</h3><p>錢先從終端需求進來，再往中游系統商、平台商與上游關鍵供應商回流。上游通常賺技術或稀缺產能，中游賺整合與認證，下游賺客戶關係、通路與服務。供應鏈圖中的上游有 1 類、中游 1 類、下游 1 類，代表這不是單點題材，而是多層資金流。</p>\n<h3>哪一層最賺</h3><p>利潤池資料顯示，目前「上游」營業利益率約 12.7%、自由現金流率約 17.4%，代表議價力較集中在能掌握客戶、標準或關鍵技術的環節；被擠壓的層級通常是重資本、同質化或價格透明的部分。</p>\n<h3>最近發生什麼</h3><ul>\n<li>2026/5/15：美國 Census Bureau 季度電商資料追蹤零售電商銷售與占比；即使線上成長放慢，數千億美元等級的季度交易仍支撐廣告、物流與第三方賣家服務。 <a href=\"https://www.census.gov/retail/ecommerce.html\">來源</a></li>\n<li>2026/4/30：Amazon 最新 10-Q 顯示電商、市集、廣告與 Amazon Web Services 同時貢獻營收，說明市集最有價值的不是商品毛利，而是流量、物流與雲端能力的疊加。 <a href=\"https://www.sec.gov/edgar/browse/?CIK=1018724\">來源</a></li>\n</ul>\n<h3>投資含義</h3><p>E-commerce / Marketplaces 的投資重點不是只挑最大公司，而是找「需求上行時能漲價、需求下行時仍有續約或維修收入」的層級。若利率下降且預算延續，最受惠的是能把訂單轉成高毛利收入的中游平台；若景氣轉弱，現金流穩、客戶分散、資產負債表保守的龍頭較抗震。</p><p class=\"disc\">非投資建議。</p>",
+  "chain_svg": "<svg viewBox='0 0 720 112' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><text x='110' y='32' fill='#7a5cff' font-size='14' font-weight='bold' text-anchor='middle' font-family='monospace'>上游</text><rect x='5' y='54' width='210' height='30' rx='7' fill='#06061a' stroke='#7a5cff' stroke-opacity='.5'/><text x='17' y='73' fill='#cfeaf2' font-size='12'>電商賦能軟體</text><text x='360' y='32' fill='#00f3ff' font-size='14' font-weight='bold' text-anchor='middle' font-family='monospace'>中游</text><rect x='255' y='54' width='210' height='30' rx='7' fill='#06061a' stroke='#00f3ff' stroke-opacity='.5'/><text x='267' y='73' fill='#cfeaf2' font-size='12'>市集平台</text><text x='610' y='32' fill='#00ff9d' font-size='14' font-weight='bold' text-anchor='middle' font-family='monospace'>下游</text><rect x='505' y='54' width='210' height='30' rx='7' fill='#06061a' stroke='#00ff9d' stroke-opacity='.5'/><text x='517' y='73' fill='#cfeaf2' font-size='12'>物流配送</text><line x1='219' y1='73' x2='243' y2='73' stroke='#39d3ff' stroke-width='1.5' opacity='.6'/><path d='M243,69 L251,73 L243,77 Z' fill='#39d3ff' opacity='.8'/><line x1='469' y1='73' x2='493' y2='73' stroke='#39d3ff' stroke-width='1.5' opacity='.6'/><path d='M493,69 L501,73 L493,77 Z' fill='#39d3ff' opacity='.8'/></svg>",
+  "pool_svg": "<svg viewBox='0 0 720 208' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><text x='8' y='28' fill='#7a5cff' font-size='13' font-weight='bold'>上游</text><rect x='90' y='36' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='36' width='417' height='12' rx='3' fill='#7a5cff' opacity='1'/><text x='515' y='46' fill='#9fb4c4' font-size='11'>營益率 12.7%</text><rect x='90' y='54' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='54' width='286' height='12' rx='3' fill='#7a5cff' opacity='0.45'/><text x='384' y='64' fill='#9fb4c4' font-size='11'>ROIC 8.7%</text><text x='8' y='84' fill='#00f3ff' font-size='13' font-weight='bold'>中游</text><rect x='90' y='92' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='92' width='364' height='12' rx='3' fill='#00f3ff' opacity='1'/><text x='462' y='102' fill='#9fb4c4' font-size='11'>營益率 11.1%</text><rect x='90' y='110' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='110' width='440' height='12' rx='3' fill='#00f3ff' opacity='0.45'/><text x='538' y='120' fill='#9fb4c4' font-size='11'>ROIC 13.4%</text><text x='8' y='140' fill='#00ff9d' font-size='13' font-weight='bold'>下游</text><rect x='90' y='148' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='148' width='259' height='12' rx='3' fill='#00ff9d' opacity='1'/><text x='357' y='158' fill='#9fb4c4' font-size='11'>營益率 7.9%</text><rect x='90' y='166' width='440' height='12' rx='3' fill='#0b0b1a'/><rect x='90' y='166' width='341' height='12' rx='3' fill='#00ff9d' opacity='0.45'/><text x='439' y='176' fill='#9fb4c4' font-size='11'>ROIC 10.4%</text></svg>"
+}

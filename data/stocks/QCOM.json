@@ -1,0 +1,232 @@
+{
+  "symbol": "QCOM",
+  "name": "Qualcomm",
+  "tier": "watch",
+  "regime": "neutral",
+  "theme": "Edge Computing / IoT",
+  "business": "Mobile RF + Snapdragon SoCs; PC/Auto/IoT diversification beyond Apple modem loss.",
+  "why": null,
+  "rsi": null,
+  "sma50": null,
+  "sma200": null,
+  "factors": [],
+  "tracking": [],
+  "links": [
+    {
+      "label": "Finviz",
+      "desc": "技術快照 / 圖",
+      "href": "https://finviz.com/quote.ashx?t=QCOM"
+    },
+    {
+      "label": "StockAnalysis",
+      "desc": "財報 / 估值",
+      "href": "https://stockanalysis.com/stocks/QCOM/"
+    },
+    {
+      "label": "TradingView",
+      "desc": "互動圖",
+      "href": "https://www.tradingview.com/symbols/QCOM/"
+    },
+    {
+      "label": "Macrotrends",
+      "desc": "長期財務",
+      "href": "https://www.macrotrends.net/stocks/charts/QCOM/x/"
+    },
+    {
+      "label": "TipRanks",
+      "desc": "分析師",
+      "href": "https://www.tipranks.com/stocks/QCOM/forecast"
+    }
+  ],
+  "peers": [],
+  "price": 211.72,
+  "generated_at": "2026-06-14T15:14:40Z",
+  "health_grade": "A",
+  "health_score": 87,
+  "chain_position": {
+    "theme": "Edge Computing / IoT",
+    "tier": "midstream",
+    "label": "Chips"
+  },
+  "valuation": {
+    "dcf": {
+      "symbol": "QCOM",
+      "price": 211.72,
+      "method": "firm_level_fcf",
+      "fcf_firm_b": 12.8,
+      "shares_b": 1.1,
+      "net_debt_b": 8.5,
+      "growth_rate_assumed": 3.0,
+      "wacc": 9.5,
+      "terminal_growth": 2.5,
+      "intrinsic": 155.3,
+      "bull": 176.0,
+      "bear": 128.0,
+      "upside_pct": -26.6,
+      "scenarios": [
+        {
+          "scenario": "bull",
+          "intrinsic_per_share": 176.0,
+          "ev_b": 203.0,
+          "wacc": 9.0,
+          "terminal_g": 2.75,
+          "growth_yr1": 3.7
+        },
+        {
+          "scenario": "base",
+          "intrinsic_per_share": 155.3,
+          "ev_b": 180.2,
+          "wacc": 9.5,
+          "terminal_g": 2.5,
+          "growth_yr1": 3.0
+        },
+        {
+          "scenario": "bear",
+          "intrinsic_per_share": 128.0,
+          "ev_b": 149.9,
+          "wacc": 10.3,
+          "terminal_g": 2.0,
+          "growth_yr1": 1.7
+        }
+      ],
+      "inputs": {
+        "fcf_cagr_3y": 23.3,
+        "rev_cagr_3y": 0.1,
+        "roic_pct": 28.0,
+        "gross_margin_pct": 55.4,
+        "op_margin_pct": 27.9,
+        "fcf_margin_pct": 28.9
+      }
+    },
+    "reverse_dcf": {
+      "implied_growth_pct": 11.4,
+      "market_cap_b": 234.0,
+      "note": "現價隱含未來十年 FCF 年均成長 ~11.4%(用 WACC 9.5%)"
+    },
+    "comps_valuation": {
+      "pe_target": 255.5,
+      "ev_ebitda_target": 425.6,
+      "blended_comps": 340.6
+    },
+    "comps": {
+      "pe_target": 255.5,
+      "ev_ebitda_target": 425.6,
+      "blended_comps": 340.6
+    },
+    "blended_target": {
+      "target": 248.0,
+      "upside_pct": 17.1,
+      "components": {
+        "dcf": 155.3,
+        "comps": 340.6,
+        "comps_detail": {
+          "pe": 255.5,
+          "ev_ebitda": 425.6
+        }
+      },
+      "weights": {
+        "DCF": 0.5,
+        "可比": 0.5
+      }
+    },
+    "sensitivity": {
+      "waccs": [
+        8.5,
+        9.0,
+        9.5,
+        10.0,
+        10.5
+      ],
+      "term_gs": [
+        1.5,
+        2.0,
+        2.5,
+        3.0,
+        3.5
+      ],
+      "grid": [
+        [
+          164.0,
+          172.0,
+          182.0,
+          194.0,
+          208.0
+        ],
+        [
+          152.0,
+          159.0,
+          168.0,
+          177.0,
+          189.0
+        ],
+        [
+          142.0,
+          148.0,
+          155.0,
+          163.0,
+          173.0
+        ],
+        [
+          134.0,
+          139.0,
+          145.0,
+          151.0,
+          159.0
+        ],
+        [
+          126.0,
+          130.0,
+          135.0,
+          141.0,
+          147.0
+        ]
+      ]
+    },
+    "peer_median": {
+      "pe": 51.0,
+      "ev_ebitda": 33.7,
+      "fcf_yield": 2.2,
+      "rev_growth": 16.9
+    },
+    "peer_verdict": "低於同業估值",
+    "own_multiples": {
+      "pe": 22.7,
+      "ev_ebitda": 16.9,
+      "fcf_yield": 5.6
+    }
+  },
+  "financials": {
+    "latest": {
+      "revenue_b": 44.28,
+      "net_income_b": 5.54,
+      "fcf_b": 12.82,
+      "gross_margin": 55.4,
+      "op_margin": 27.9,
+      "net_margin": 12.5,
+      "fcf_margin": 28.9,
+      "roe": 26.1,
+      "roa": 11.1,
+      "roic": 28.0,
+      "current_ratio": 2.82,
+      "quick_ratio": 1.94,
+      "debt_equity": 0.77,
+      "net_debt_ebitda": 0.57,
+      "interest_coverage": 20.07,
+      "fcf_to_ni": 2.31,
+      "sbc_to_rev": 6.3,
+      "capex_to_rev": 2.7,
+      "rnd_to_rev": 20.4,
+      "shares_change_pct": -3.8,
+      "net_debt_b": 8.53,
+      "cash_b": 12.48
+    },
+    "growth": {
+      "rev_cagr_3y": 0.1,
+      "rev_cagr_5y": 13.5,
+      "eps_cagr_3y": -23.9,
+      "fcf_cagr_3y": 23.3
+    }
+  },
+  "report_html": "<p class=\"lead\">Qualcomm 是手機與邊緣裝置晶片、通訊專利授權的公司；核心看點是成長還能不能支撐目前估值。</p>\n<figure><img src=\"https://upload.wikimedia.org/wikipedia/commons/f/fc/Qualcomm-Logo.svg\" alt=\"Qualcomm 標誌\"><figcaption>來源:<a href=\"https://upload.wikimedia.org/wikipedia/commons/f/fc/Qualcomm-Logo.svg\">Wikimedia Commons / 官方商標圖檔</a></figcaption></figure>\n<h3>這家公司在做什麼</h3><p>Qualcomm 把手機與邊緣裝置晶片、通訊專利授權賣給企業、消費者或政府客戶。若用白話說，它不是只賣單一產品，而是在客戶日常營運、資料流、支付流或供應鏈中卡住一個高頻節點。</p>\n<h3>它怎麼賺錢</h3><p>主要收入來自晶片銷售與專利授權費。在供應鏈位置上，網站工具把它放在「Edge Computing / IoT」的「Chips」，意思是它的議價力取決於客戶黏著度、產品替換成本與同業競爭速度。</p>\n<h3>這門生意穩不穩</h3><p>穩定度要同時看成長、現金流與資本報酬。高毛利或高自由現金流代表商業模式輕、留在公司手上的錢多；但若景氣循環強，單季數字仍可能大幅波動。</p><ul>\n<li>近三年營收年均成長 0.1%、自由現金流年均成長 23.3%；最新年度營業利益率 27.9%、自由現金流率 28.9%、投入資本報酬率 28.0%。</li>\n<li>財報體質分數為 A / 87 分，代表這家公司目前的獲利品質、槓桿與現金流仍需搭配估值一起看。</li></ul>\n<h3>最近發生什麼</h3><ul>\n<li>2026-04-29 申報的最新 10-Q 顯示，截至 2026-03-29 的期間營收 10.6 十億美元、淨利 7.4 十億美元；這是判斷「最新一季」是否真的跟上股價期待的基準。<a href=\"https://www.sec.gov/Archives/edgar/data/804328/000080432826000061/qcom-20260329.htm\">SEC filing</a></li>\n<li>近期 的市場新聞提到「Qualcomm 近期營運更新」；放回數字看，現價 $211.72 對應模型合理目標 $248.00、上行/下行空間 17.1%，代表新聞利多必須轉成更高現金流才足以改變估值。<a href=\"https://www.sec.gov/Archives/edgar/data/804328/000080432826000061/qcom-20260329.htm\">來源</a></li>\n</ul>\n<h3>未來與估值:值不值得</h3><p>模型的混合目標價約 $248.00，相對現價 $211.72 的空間為 17.1%；反推現金流模型顯示，市場價格約在期待未來十年自由現金流年均成長 11.4%。因此，若公司能維持高成長並守住利潤率，估值壓力可被時間消化；若成長放慢，股價對失望會很敏感。</p>\n<h3>要盯什麼(風險)</h3><ul><li>最新季度營收增速是否低於市場期待、毛利率是否被價格競爭壓縮、自由現金流是否跟不上淨利，以及利率或景氣變化是否讓估值倍數收縮。</li><li>若未來兩季的申報數字無法證明成長與現金流同步改善，$211.72 附近的估值安全邊際會變薄。</li></ul>\n<h3>總結</h3><blockquote>Qualcomm 的關鍵不是單季題材，而是能否把最新季度的營收 10.6 十億美元 轉成可持續自由現金流。適合能接受估值波動、並願意追蹤季度數字是否兌現的投資人。</blockquote><p class=\"disc\">非投資建議。</p>",
+  "val_bar_svg": "<svg viewBox='0 0 720 96' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><line x1='20' y1='52' x2='700' y2='52' stroke='#1a2238' stroke-width='2'/><rect x='48' y='48' width='131' height='8' fill='#00f3ff' opacity='.12'/><circle cx='48' cy='52' r='5' fill='#5c8cff'/><text x='48' y='34' fill='#5c8cff' font-size='11' text-anchor='middle'>悲觀</text><text x='48' y='47' fill='#5c8cff' font-size='11' text-anchor='middle' font-family='monospace'>$128</text><circle cx='122' cy='52' r='5' fill='#00f3ff'/><text x='122' y='78' fill='#00f3ff' font-size='11' text-anchor='middle'>DCF</text><text x='122' y='91' fill='#00f3ff' font-size='11' text-anchor='middle' font-family='monospace'>$155.3</text><circle cx='178' cy='52' r='5' fill='#b48cff'/><text x='178' y='34' fill='#b48cff' font-size='11' text-anchor='middle'>樂觀</text><text x='178' y='47' fill='#b48cff' font-size='11' text-anchor='middle' font-family='monospace'>$176</text><circle cx='275' cy='52' r='6' fill='#ffffff'/><text x='275' y='78' fill='#ffffff' font-size='11' text-anchor='middle'>現價</text><text x='275' y='91' fill='#ffffff' font-size='11' text-anchor='middle' font-family='monospace'>$211.72</text><circle cx='374' cy='52' r='5' fill='#00ff9d'/><text x='374' y='34' fill='#00ff9d' font-size='11' text-anchor='middle'>混合目標</text><text x='374' y='47' fill='#00ff9d' font-size='11' text-anchor='middle' font-family='monospace'>$248</text><circle cx='626' cy='52' r='5' fill='#39d3ff'/><text x='626' y='78' fill='#39d3ff' font-size='11' text-anchor='middle'>可比</text><text x='626' y='91' fill='#39d3ff' font-size='11' text-anchor='middle' font-family='monospace'>$340.6</text></svg>"
+}

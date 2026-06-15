@@ -15,6 +15,11 @@
     "deepest": "上游"
   },
   {
+    "slug": "biotech-obesity-glp-1",
+    "theme": "Biotech — Obesity / GLP-1",
+    "deepest": "中游"
+  },
+  {
     "slug": "cloud-infrastructure",
     "theme": "Cloud Infrastructure",
     "deepest": "下游"
@@ -23,6 +28,16 @@
     "slug": "cybersecurity",
     "theme": "Cybersecurity",
     "deepest": "中游"
+  },
+  {
+    "slug": "defense",
+    "theme": "Defense",
+    "deepest": "下游"
+  },
+  {
+    "slug": "e-commerce-marketplaces",
+    "theme": "E-commerce / Marketplaces",
+    "deepest": "上游"
   },
   {
     "slug": "electrification-power",
@@ -35,6 +50,11 @@
     "deepest": "下游"
   },
   {
+    "slug": "industrial-automation",
+    "theme": "Industrial Automation",
+    "deepest": "中游"
+  },
+  {
     "slug": "memory-hbm-dram-nand",
     "theme": "Memory (HBM / DRAM / NAND)",
     "deepest": "下游"
@@ -43,6 +63,11 @@
     "slug": "nuclear-smr",
     "theme": "Nuclear / SMR",
     "deepest": "上游"
+  },
+  {
+    "slug": "payments-fintech",
+    "theme": "Payments / FinTech",
+    "deepest": "中游"
   },
   {
     "slug": "semiconductor-equipment-wfe",

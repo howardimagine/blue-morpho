@@ -88,6 +88,11 @@
       "symbol": "CSCO",
       "name": "Cisco Systems, Inc.",
       "tier": "ready"
+    },
+    {
+      "symbol": "DLR",
+      "name": "Digital Realty Trust, Inc.",
+      "tier": "ready"
     }
   ],
   "price": 1055.85,

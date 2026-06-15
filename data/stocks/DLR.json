@@ -1,16 +1,56 @@
 {
   "symbol": "DLR",
-  "name": "DLR",
-  "tier": "watch",
+  "name": "Digital Realty Trust, Inc.",
+  "tier": "ready",
   "regime": "neutral",
   "theme": "Cloud Infrastructure",
-  "business": "",
-  "why": null,
+  "business": "Digital Realty Trust, Inc. owns, acquires, develops, and operates data centers through its operating partnership subsidiary, Digital Realty Trust, L.P. The company is focused on providing data center, colocation, and interconnection soluti…",
+  "why": "NEWS_CATALYST",
   "rsi": null,
   "sma50": null,
   "sma200": null,
-  "factors": [],
-  "tracking": [],
+  "factors": [
+    {
+      "key": "theme_tailwind",
+      "label": "主題順風",
+      "score": 1.0
+    },
+    {
+      "key": "technical_setup",
+      "label": "技術形態",
+      "score": 5.2
+    },
+    {
+      "key": "macro_context",
+      "label": "總經環境",
+      "score": 5.5
+    },
+    {
+      "key": "business_quality",
+      "label": "基本面品質",
+      "score": 6.8
+    },
+    {
+      "key": "news_catalyst",
+      "label": "新聞催化",
+      "score": 8.2
+    },
+    {
+      "key": "risk_reward",
+      "label": "風險回報",
+      "score": null
+    }
+  ],
+  "tracking": [
+    {
+      "date": "2026-06-15",
+      "theme": "Cloud Infrastructure",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    }
+  ],
   "links": [
     {
       "label": "Finviz",

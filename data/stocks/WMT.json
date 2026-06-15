@@ -1,0 +1,232 @@
+{
+  "symbol": "WMT",
+  "name": "沃爾瑪",
+  "tier": "watch",
+  "regime": "neutral",
+  "theme": "Consumer Defensive",
+  "business": "全球最大實體零售商,電商/廣告/會員快速成長。",
+  "why": null,
+  "rsi": null,
+  "sma50": null,
+  "sma200": null,
+  "factors": [],
+  "tracking": [],
+  "links": [
+    {
+      "label": "Finviz",
+      "desc": "技術快照 / 圖",
+      "href": "https://finviz.com/quote.ashx?t=WMT"
+    },
+    {
+      "label": "StockAnalysis",
+      "desc": "財報 / 估值",
+      "href": "https://stockanalysis.com/stocks/WMT/"
+    },
+    {
+      "label": "TradingView",
+      "desc": "互動圖",
+      "href": "https://www.tradingview.com/symbols/WMT/"
+    },
+    {
+      "label": "Macrotrends",
+      "desc": "長期財務",
+      "href": "https://www.macrotrends.net/stocks/charts/WMT/x/"
+    },
+    {
+      "label": "TipRanks",
+      "desc": "分析師",
+      "href": "https://www.tipranks.com/stocks/WMT/forecast"
+    }
+  ],
+  "peers": [],
+  "price": 121.04,
+  "generated_at": "2026-06-14T15:14:40Z",
+  "health_grade": "C",
+  "health_score": 59,
+  "chain_position": {
+    "theme": "Consumer Defensive",
+    "tier": "midstream",
+    "label": "Staples"
+  },
+  "valuation": {
+    "dcf": {
+      "symbol": "WMT",
+      "price": 121.04,
+      "method": "firm_level_fcf",
+      "fcf_firm_b": 14.9,
+      "shares_b": 8.02,
+      "net_debt_b": 56.4,
+      "growth_rate_assumed": 5.3,
+      "wacc": 10.0,
+      "terminal_growth": 4.0,
+      "intrinsic": 23.6,
+      "bull": 29.7,
+      "bear": 16.3,
+      "upside_pct": -80.5,
+      "scenarios": [
+        {
+          "scenario": "bull",
+          "intrinsic_per_share": 29.7,
+          "ev_b": 294.9,
+          "wacc": 9.5,
+          "terminal_g": 4.4,
+          "growth_yr1": 6.5
+        },
+        {
+          "scenario": "base",
+          "intrinsic_per_share": 23.6,
+          "ev_b": 245.9,
+          "wacc": 10.0,
+          "terminal_g": 4.0,
+          "growth_yr1": 5.3
+        },
+        {
+          "scenario": "bear",
+          "intrinsic_per_share": 16.3,
+          "ev_b": 187.4,
+          "wacc": 10.8,
+          "terminal_g": 3.2,
+          "growth_yr1": 3.1
+        }
+      ],
+      "inputs": {
+        "fcf_cagr_3y": 7.6,
+        "rev_cagr_3y": 5.3,
+        "roic_pct": 15.3,
+        "gross_margin_pct": 24.9,
+        "op_margin_pct": 4.2,
+        "fcf_margin_pct": 2.1
+      }
+    },
+    "reverse_dcf": {
+      "implied_growth_pct": 54.0,
+      "market_cap_b": 971.0,
+      "note": "現價隱含未來十年 FCF 年均成長 ~54.0%(用 WACC 10.0%)"
+    },
+    "comps_valuation": {
+      "pe_target": 70.7,
+      "ev_ebitda_target": 79.7,
+      "blended_comps": 75.2
+    },
+    "comps": {
+      "pe_target": 70.7,
+      "ev_ebitda_target": 79.7,
+      "blended_comps": 75.2
+    },
+    "blended_target": {
+      "target": 49.4,
+      "upside_pct": -59.2,
+      "components": {
+        "dcf": 23.6,
+        "comps": 75.2,
+        "comps_detail": {
+          "pe": 70.7,
+          "ev_ebitda": 79.7
+        }
+      },
+      "weights": {
+        "DCF": 0.5,
+        "可比": 0.5
+      }
+    },
+    "sensitivity": {
+      "waccs": [
+        9.0,
+        9.5,
+        10.0,
+        10.5,
+        11.0
+      ],
+      "term_gs": [
+        3.0,
+        3.5,
+        4.0,
+        4.5,
+        5.0
+      ],
+      "grid": [
+        [
+          25.0,
+          27.0,
+          30.0,
+          33.0,
+          36.0
+        ],
+        [
+          23.0,
+          24.0,
+          26.0,
+          29.0,
+          32.0
+        ],
+        [
+          21.0,
+          22.0,
+          24.0,
+          26.0,
+          28.0
+        ],
+        [
+          19.0,
+          20.0,
+          21.0,
+          23.0,
+          25.0
+        ],
+        [
+          17.0,
+          18.0,
+          19.0,
+          21.0,
+          22.0
+        ]
+      ]
+    },
+    "peer_median": {
+      "pe": 25.9,
+      "ev_ebitda": 20.2,
+      "fcf_yield": 3.5,
+      "rev_growth": 1.9
+    },
+    "peer_verdict": "高於同業估值",
+    "own_multiples": {
+      "pe": 41.8,
+      "ev_ebitda": 23.2,
+      "fcf_yield": 1.3
+    }
+  },
+  "financials": {
+    "latest": {
+      "revenue_b": 713.16,
+      "net_income_b": 21.89,
+      "fcf_b": 14.92,
+      "gross_margin": 24.9,
+      "op_margin": 4.2,
+      "net_margin": 3.1,
+      "fcf_margin": 2.1,
+      "roe": 22.0,
+      "roa": 7.7,
+      "roic": 15.3,
+      "current_ratio": 0.79,
+      "quick_ratio": 0.24,
+      "debt_equity": 0.67,
+      "net_debt_ebitda": 1.21,
+      "interest_coverage": 11.53,
+      "fcf_to_ni": 0.68,
+      "sbc_to_rev": 0.0,
+      "capex_to_rev": 3.7,
+      "rnd_to_rev": 0.0,
+      "shares_change_pct": -6.1,
+      "net_debt_b": 56.37,
+      "cash_b": 10.73
+    },
+    "growth": {
+      "rev_cagr_3y": 5.3,
+      "rev_cagr_5y": 5.0,
+      "eps_cagr_3y": 24.3,
+      "fcf_cagr_3y": 7.6
+    }
+  },
+  "report_html": "<p class=\"lead\">Walmart 是全球大型零售、電商與會員服務的公司；核心看點是成長還能不能支撐目前估值。</p>\n<figure><img src=\"https://upload.wikimedia.org/wikipedia/commons/c/ca/Walmart_logo.svg\" alt=\"Walmart 標誌\"><figcaption>來源:<a href=\"https://upload.wikimedia.org/wikipedia/commons/c/ca/Walmart_logo.svg\">Wikimedia Commons / 官方商標圖檔</a></figcaption></figure>\n<h3>這家公司在做什麼</h3><p>Walmart 把全球大型零售、電商與會員服務賣給企業、消費者或政府客戶。若用白話說，它不是只賣單一產品，而是在客戶日常營運、資料流、支付流或供應鏈中卡住一個高頻節點。</p>\n<h3>它怎麼賺錢</h3><p>主要收入來自商品銷售、會員、廣告、金融與市集服務。在供應鏈位置上，網站工具把它放在「Consumer Defensive」的「Staples」，意思是它的議價力取決於客戶黏著度、產品替換成本與同業競爭速度。</p>\n<h3>這門生意穩不穩</h3><p>穩定度要同時看成長、現金流與資本報酬。高毛利或高自由現金流代表商業模式輕、留在公司手上的錢多；但若景氣循環強，單季數字仍可能大幅波動。</p><ul>\n<li>近三年營收年均成長 5.3%、自由現金流年均成長 7.6%；最新年度營業利益率 4.2%、自由現金流率 2.1%、投入資本報酬率 15.3%。</li>\n<li>財報體質分數為 C / 59 分，代表這家公司目前的獲利品質、槓桿與現金流仍需搭配估值一起看。</li></ul>\n<h3>最近發生什麼</h3><ul>\n<li>2026-05-29 申報的最新 10-Q 顯示，截至 2026-04-30 的期間營收 175.7 十億美元、淨利 5.3 十億美元；這是判斷「最新一季」是否真的跟上股價期待的基準。<a href=\"https://www.sec.gov/Archives/edgar/data/104169/000010416926000102/wmt-20260430.htm\">SEC filing</a></li>\n<li>Tue, 19 May 2026 的市場新聞提到「WMT stock hits record highs ahead of Q1 results - here is what analysts expect」；放回數字看，現價 $121.04 對應模型合理目標 $49.40、上行/下行空間 -59.2%，代表新聞利多必須轉成更高現金流才足以改變估值。<a href=\"http://www.bing.com/news/apiclick.aspx?ref=FexRss&amp;aid=&amp;tid=6a2ec57567044e1795ce82c1f1aebed8&amp;url=https%3a%2f%2fwww.msn.com%2fen-us%2fmoney%2ftop-stocks%2fwmt-stock-hits-record-highs-ahead-of-q1-results-here-is-what-analysts-expect%2far-AA23zOdM&amp;c=1184491663062435399&amp;mkt=en-us\">來源</a></li>\n</ul>\n<h3>未來與估值:值不值得</h3><p>模型的混合目標價約 $49.40，相對現價 $121.04 的空間為 -59.2%；反推現金流模型顯示，市場價格約在期待未來十年自由現金流年均成長 54.0%。因此，若公司能維持高成長並守住利潤率，估值壓力可被時間消化；若成長放慢，股價對失望會很敏感。</p>\n<h3>要盯什麼(風險)</h3><ul><li>最新季度營收增速是否低於市場期待、毛利率是否被價格競爭壓縮、自由現金流是否跟不上淨利，以及利率或景氣變化是否讓估值倍數收縮。</li><li>若未來兩季的申報數字無法證明成長與現金流同步改善，$121.04 附近的估值安全邊際會變薄。</li></ul>\n<h3>總結</h3><blockquote>Walmart 的關鍵不是單季題材，而是能否把最新季度的營收 175.7 十億美元 轉成可持續自由現金流。適合能接受估值波動、並願意追蹤季度數字是否兌現的投資人。</blockquote><p class=\"disc\">非投資建議。</p>",
+  "val_bar_svg": "<svg viewBox='0 0 720 96' xmlns='http://www.w3.org/2000/svg' style='width:100%;height:auto;font-family:-apple-system,\"Noto Sans TC\",sans-serif'><line x1='20' y1='52' x2='700' y2='52' stroke='#1a2238' stroke-width='2'/><rect x='28' y='48' width='79' height='8' fill='#00f3ff' opacity='.12'/><circle cx='28' cy='52' r='5' fill='#5c8cff'/><text x='28' y='34' fill='#5c8cff' font-size='11' text-anchor='middle'>悲觀</text><text x='28' y='47' fill='#5c8cff' font-size='11' text-anchor='middle' font-family='monospace'>$16.3</text><circle cx='71' cy='52' r='5' fill='#00f3ff'/><text x='71' y='78' fill='#00f3ff' font-size='11' text-anchor='middle'>DCF</text><text x='71' y='91' fill='#00f3ff' font-size='11' text-anchor='middle' font-family='monospace'>$23.6</text><circle cx='106' cy='52' r='5' fill='#b48cff'/><text x='106' y='34' fill='#b48cff' font-size='11' text-anchor='middle'>樂觀</text><text x='106' y='47' fill='#b48cff' font-size='11' text-anchor='middle' font-family='monospace'>$29.7</text><circle cx='222' cy='52' r='5' fill='#00ff9d'/><text x='222' y='78' fill='#00ff9d' font-size='11' text-anchor='middle'>混合目標</text><text x='222' y='91' fill='#00ff9d' font-size='11' text-anchor='middle' font-family='monospace'>$49.4</text><circle cx='374' cy='52' r='5' fill='#39d3ff'/><text x='374' y='34' fill='#39d3ff' font-size='11' text-anchor='middle'>可比</text><text x='374' y='47' fill='#39d3ff' font-size='11' text-anchor='middle' font-family='monospace'>$75.2</text><circle cx='643' cy='52' r='6' fill='#ffffff'/><text x='643' y='78' fill='#ffffff' font-size='11' text-anchor='middle'>現價</text><text x='643' y='91' fill='#ffffff' font-size='11' text-anchor='middle' font-family='monospace'>$121.04</text></svg>"
+}

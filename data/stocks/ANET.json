@@ -88,6 +88,11 @@
       "symbol": "EQIX",
       "name": "Equinix, Inc.",
       "tier": "ready"
+    },
+    {
+      "symbol": "DLR",
+      "name": "Digital Realty Trust, Inc.",
+      "tier": "ready"
     }
   ],
   "price": 163.24,

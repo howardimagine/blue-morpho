@@ -6,6 +6,12 @@
     "theme": "Edge Computing / IoT"
   },
   {
+    "symbol": "ABB",
+    "name": "ABB",
+    "tier": "watch",
+    "theme": "AI Robotics / Automation"
+  },
+  {
     "symbol": "AMAT",
     "name": "應用材料",
     "tier": "ready",
@@ -24,6 +30,12 @@
     "theme": "REIT — Telecom Infra"
   },
   {
+    "symbol": "AMZN",
+    "name": "亞馬遜",
+    "tier": "watch",
+    "theme": "AI Compute"
+  },
+  {
     "symbol": "ANET",
     "name": "Arista Networks, Inc.",
     "tier": "ready",
@@ -32,7 +44,7 @@
   {
     "symbol": "ARM",
     "name": "安謀",
-    "tier": "ready",
+    "tier": "enter",
     "theme": "AI Compute"
   },
   {
@@ -46,6 +58,18 @@
     "name": "博通",
     "tier": "ready",
     "theme": "AI Compute"
+  },
+  {
+    "symbol": "BAC",
+    "name": "Bank of America Corporation",
+    "tier": "ready",
+    "theme": "Banks"
+  },
+  {
+    "symbol": "CDNS",
+    "name": "CDNS",
+    "tier": "watch",
+    "theme": "AI Software"
   },
   {
     "symbol": "CEG",
@@ -66,6 +90,12 @@
     "theme": "Cybersecurity"
   },
   {
+    "symbol": "CSCO",
+    "name": "Cisco Systems, Inc.",
+    "tier": "ready",
+    "theme": "Cloud Infrastructure"
+  },
+  {
     "symbol": "CYBR",
     "name": "CYBR",
     "tier": "ready",
@@ -79,8 +109,8 @@
   },
   {
     "symbol": "DLR",
-    "name": "DLR",
-    "tier": "watch",
+    "name": "Digital Realty Trust, Inc.",
+    "tier": "ready",
     "theme": "Cloud Infrastructure"
   },
   {
@@ -144,6 +174,18 @@
     "theme": "AI Compute"
   },
   {
+    "symbol": "MA",
+    "name": "MA",
+    "tier": "watch",
+    "theme": "Payments / FinTech"
+  },
+  {
+    "symbol": "META",
+    "name": "Meta",
+    "tier": "watch",
+    "theme": "AI Compute"
+  },
+  {
     "symbol": "MRVL",
     "name": "美滿科技",
     "tier": "watch",
@@ -158,8 +200,14 @@
   {
     "symbol": "MU",
     "name": "美光",
-    "tier": "ready",
+    "tier": "enter",
     "theme": "AI Compute"
+  },
+  {
+    "symbol": "NFLX",
+    "name": "Netflix",
+    "tier": "watch",
+    "theme": "Streaming / Media"
   },
   {
     "symbol": "NOW",
@@ -174,8 +222,20 @@
     "theme": "AI Compute"
   },
   {
+    "symbol": "O",
+    "name": "Realty Income",
+    "tier": "watch",
+    "theme": "REIT — Net Lease"
+  },
+  {
     "symbol": "ONTO",
     "name": "Onto Innovation",
+    "tier": "watch",
+    "theme": "AI Compute"
+  },
+  {
+    "symbol": "ORCL",
+    "name": "Oracle",
     "tier": "watch",
     "theme": "AI Compute"
   },
@@ -192,8 +252,20 @@
     "theme": "AI Software"
   },
   {
+    "symbol": "QCOM",
+    "name": "Qualcomm",
+    "tier": "watch",
+    "theme": "Edge Computing / IoT"
+  },
+  {
     "symbol": "SNOW",
     "name": "SNOW",
+    "tier": "watch",
+    "theme": "AI Software"
+  },
+  {
+    "symbol": "SNPS",
+    "name": "SNPS",
     "tier": "watch",
     "theme": "AI Software"
   },
@@ -216,6 +288,12 @@
     "theme": "AI Compute"
   },
   {
+    "symbol": "V",
+    "name": "Visa",
+    "tier": "watch",
+    "theme": "Payments / FinTech"
+  },
+  {
     "symbol": "VRT",
     "name": "Vertiv",
     "tier": "ready",
@@ -232,6 +310,12 @@
     "name": "威騰電子",
     "tier": "ready",
     "theme": "AI Compute"
+  },
+  {
+    "symbol": "WMT",
+    "name": "沃爾瑪",
+    "tier": "watch",
+    "theme": "Consumer Defensive"
   },
   {
     "symbol": "ZS",

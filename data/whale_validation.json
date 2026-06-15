@@ -1,157 +1,152 @@
 {
   "as_of": "2026-05-15",
   "n_whales": 19,
-  "generated_at": "2026-06-14T14:14:03+00:00",
+  "generated_at": "2026-06-15T00:03:47+00:00",
   "stocks": [
     {
-      "symbol": "AMD",
-      "name": "超微",
+      "symbol": "MU",
+      "name": "美光",
+      "theme": "Memory (HBM / DRAM / NAND)",
+      "signal": "buy",
+      "holders": 5,
+      "increased": 1,
+      "reduced": 1,
+      "new_pos": 3,
+      "closed_pos": 0,
+      "total_held_usd": 1118075533,
+      "total_held_fmt": "$1.1B",
+      "whales_fmt": "泰珀 Tepper $563M 減碼 · 達利歐 Dalio $499M 加碼 · Philippe Laffont $56M 新進 · 索羅斯 Soros <$1M 新進 · 德魯肯米勒 Druckenmiller <$1M 新進",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "泰珀 Tepper",
+          "value_usd": 562503600,
+          "action": "trim"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 498551839,
+          "action": "add"
+        },
+        {
+          "name": "Philippe Laffont",
+          "value_usd": 56058129,
+          "action": "new"
+        },
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 954060,
+          "action": "new"
+        },
+        {
+          "name": "德魯肯米勒 Druckenmiller",
+          "value_usd": 7905,
+          "action": "new"
+        }
+      ]
+    },
+    {
+      "symbol": "ARM",
+      "name": "安謀",
       "theme": "AI Compute",
-      "signal": "sell",
-      "holders": 4,
-      "increased": 2,
+      "signal": "buy",
+      "holders": 8,
+      "increased": 4,
       "reduced": 2,
-      "new_pos": 0,
+      "new_pos": 2,
       "closed_pos": 2,
-      "total_held_usd": 866950714,
-      "total_held_fmt": "$867M",
-      "whales_fmt": "Philippe Laffont — 清倉 · Andreas Halvorsen — 清倉 · 木頭姐 Cathie Wood $552M 加碼 · 達利歐 Dalio $263M 減碼 · 泰珀 Tepper $45M 減碼 · 索羅斯 Soros $7M 加碼",
+      "total_held_usd": 736616796,
+      "total_held_fmt": "$737M",
+      "whales_fmt": "Philippe Laffont — 清倉 · 大空頭 Burry — 清倉 · Andreas Halvorsen $399M 加碼 · Brad Gerstner $260M 新進 · 索羅斯 Soros $42M 加碼 · 木頭姐 Cathie Wood $22M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
           "name": "Philippe Laffont",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "大空頭 Burry",
           "value_usd": 0,
           "action": "exit"
         },
         {
           "name": "Andreas Halvorsen",
-          "value_usd": 0,
-          "action": "exit"
+          "value_usd": 398936730,
+          "action": "add"
+        },
+        {
+          "name": "Brad Gerstner",
+          "value_usd": 259511763,
+          "action": "new"
+        },
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 42482880,
+          "action": "add"
         },
         {
           "name": "木頭姐 Cathie Wood",
-          "value_usd": 551875889,
+          "value_usd": 21679720,
+          "action": "trim"
+        },
+        {
+          "name": "Dan Loeb",
+          "value_usd": 8030000,
           "action": "add"
         },
         {
           "name": "達利歐 Dalio",
-          "value_usd": 262987591,
-          "action": "trim"
-        },
-        {
-          "name": "泰珀 Tepper",
-          "value_usd": 45039402,
-          "action": "trim"
-        },
-        {
-          "name": "索羅斯 Soros",
-          "value_usd": 7047832,
+          "value_usd": 3156735,
           "action": "add"
         }
       ]
     },
     {
-      "symbol": "FTNT",
-      "name": "Fortinet",
-      "theme": "Cybersecurity",
-      "signal": "sell",
+      "symbol": "ACLS",
+      "name": "艾克塞利",
+      "theme": "Semiconductor Equipment (WFE)",
+      "signal": "buy",
+      "holders": 1,
+      "increased": 0,
+      "reduced": 0,
+      "new_pos": 1,
+      "closed_pos": 0,
+      "total_held_usd": 772657,
+      "total_held_fmt": "<$1M",
+      "whales_fmt": "達利歐 Dalio <$1M 新進",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 772657,
+          "action": "new"
+        }
+      ]
+    },
+    {
+      "symbol": "DLR",
+      "name": "Digital Realty Trust, Inc.",
+      "theme": "Cloud Infrastructure",
+      "signal": "split",
       "holders": 0,
       "increased": 0,
       "reduced": 0,
       "new_pos": 0,
-      "closed_pos": 1,
+      "closed_pos": 0,
       "total_held_usd": 0,
       "total_held_fmt": "—",
-      "whales_fmt": "達利歐 Dalio — 清倉",
+      "whales_fmt": "",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
-      "whales": [
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 0,
-          "action": "exit"
-        }
-      ]
-    },
-    {
-      "symbol": "CSCO",
-      "name": "Cisco Systems, Inc.",
-      "theme": "Cloud Infrastructure",
-      "signal": "buy",
-      "holders": 1,
-      "increased": 1,
-      "reduced": 0,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 63848190,
-      "total_held_fmt": "$64M",
-      "whales_fmt": "達利歐 Dalio $64M 加碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 63848190,
-          "action": "add"
-        }
-      ]
-    },
-    {
-      "symbol": "C",
-      "name": "Citigroup, Inc.",
-      "theme": "Banks",
-      "signal": "buy",
-      "holders": 1,
-      "increased": 1,
-      "reduced": 0,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 89981082,
-      "total_held_fmt": "$90M",
-      "whales_fmt": "達利歐 Dalio $90M 加碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 89981082,
-          "action": "add"
-        }
-      ]
-    },
-    {
-      "symbol": "EQIX",
-      "name": "Equinix, Inc.",
-      "theme": "Cloud Infrastructure",
-      "signal": "split",
-      "holders": 2,
-      "increased": 0,
-      "reduced": 1,
-      "new_pos": 1,
-      "closed_pos": 0,
-      "total_held_usd": 1093622401,
-      "total_held_fmt": "$1.1B",
-      "whales_fmt": "Philippe Laffont $1.1B 新進 · 達利歐 Dalio $24M 減碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "Philippe Laffont",
-          "value_usd": 1069330093,
-          "action": "new"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 24292308,
-          "action": "trim"
-        }
-      ]
+      "whales": []
     }
   ]
 }
