@@ -1,8 +1,71 @@
 {
   "as_of": "2026-05-15",
   "n_whales": 19,
-  "generated_at": "2026-06-16T00:04:44+00:00",
+  "generated_at": "2026-06-16T05:52:05+00:00",
   "stocks": [
+    {
+      "symbol": "MRVL",
+      "name": "美滿科技",
+      "theme": "Memory (HBM / DRAM / NAND)",
+      "signal": "split",
+      "holders": 1,
+      "increased": 1,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 1,
+      "total_held_usd": 193043200,
+      "total_held_fmt": "$193M",
+      "whales_fmt": "Philippe Laffont — 清倉 · 達利歐 Dalio $193M 加碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "Philippe Laffont",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 193043200,
+          "action": "add"
+        }
+      ]
+    },
+    {
+      "symbol": "TER",
+      "name": "泰瑞達",
+      "theme": "Semiconductor Equipment (WFE)",
+      "signal": "buy",
+      "holders": 3,
+      "increased": 1,
+      "reduced": 1,
+      "new_pos": 1,
+      "closed_pos": 0,
+      "total_held_usd": 1024845728,
+      "total_held_fmt": "$1.0B",
+      "whales_fmt": "Stephen Mandel $555M 新進 · 木頭姐 Cathie Wood $369M 減碼 · 達利歐 Dalio $100M 加碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "Stephen Mandel",
+          "value_usd": 555232819,
+          "action": "new"
+        },
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 369128978,
+          "action": "trim"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 100483931,
+          "action": "add"
+        }
+      ]
+    },
     {
       "symbol": "ROK",
       "name": "羅克韋爾自動化",
@@ -43,55 +106,60 @@
       ]
     },
     {
-      "symbol": "AEIS",
-      "name": "先進能源",
-      "theme": "Semiconductor Equipment (WFE)",
-      "signal": "buy",
+      "symbol": "CLSK",
+      "name": "CleanSpark, Inc.",
+      "theme": "Crypto Infrastructure",
+      "signal": "sell",
       "holders": 1,
       "increased": 0,
-      "reduced": 0,
-      "new_pos": 1,
+      "reduced": 1,
+      "new_pos": 0,
       "closed_pos": 0,
-      "total_held_usd": 10559052,
-      "total_held_fmt": "$11M",
-      "whales_fmt": "達利歐 Dalio $11M 新進",
+      "total_held_usd": 165528,
+      "total_held_fmt": "<$1M",
+      "whales_fmt": "達利歐 Dalio <$1M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
           "name": "達利歐 Dalio",
-          "value_usd": 10559052,
-          "action": "new"
+          "value_usd": 165528,
+          "action": "trim"
         }
       ]
     },
     {
-      "symbol": "VRT",
-      "name": "Vertiv",
-      "theme": "Data Center",
-      "signal": "buy",
+      "symbol": "NOW",
+      "name": "ServiceNow",
+      "theme": "AI Software",
+      "signal": "sell",
       "holders": 2,
-      "increased": 1,
-      "reduced": 0,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 353668361,
-      "total_held_fmt": "$354M",
-      "whales_fmt": "Philippe Laffont $246M 加碼 · 達利歐 Dalio $108M 持有",
+      "increased": 0,
+      "reduced": 1,
+      "new_pos": 1,
+      "closed_pos": 1,
+      "total_held_usd": 172962188,
+      "total_held_fmt": "$173M",
+      "whales_fmt": "達利歐 Dalio — 清倉 · Chase Coleman $157M 減碼 · 索羅斯 Soros $16M 新進",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "Philippe Laffont",
-          "value_usd": 245977597,
-          "action": "add"
+          "name": "達利歐 Dalio",
+          "value_usd": 0,
+          "action": "exit"
         },
         {
-          "name": "達利歐 Dalio",
-          "value_usd": 107690764,
-          "action": "hold"
+          "name": "Chase Coleman",
+          "value_usd": 156825000,
+          "action": "trim"
+        },
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 16137188,
+          "action": "new"
         }
       ]
     },

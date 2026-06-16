@@ -1,9 +1,33 @@
 {
   "date": "2026-06-16",
-  "headline": "記憶體與半導體設備鏈延續強攻,大盤反彈態勢清晰 — 川普能源政策推升 Vertiv,檢測設備獨強;AEIS、ROK 成本期進場焦點",
+  "headline": "恐慌消散、資金重配延續 — 科技股強勁反彈後面臨技術確認,檢測設備與工業自動化成本週觀察焦點,TER、ROK 接棒領漲",
   "theme": "Memory (HBM / DRAM / NAND)",
   "regime": "neutral",
   "picks": [
+    {
+      "symbol": "MRVL",
+      "name": "美滿科技",
+      "tier": "enter",
+      "theme": "Memory (HBM / DRAM / NAND)",
+      "rsi": 67.7,
+      "ma_stack": "bullish",
+      "price": null,
+      "business": "客製化 AI 矽智財(AWS Trainium、Microsoft Maia)+ 資料中心連網/儲存晶片。",
+      "why": "主題面，Memory (HBM / DRAM / NAND) 本週相對 SPY 的 1 個月強度排名靠前，市場資金持續流入。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面呈現「uptrend, near highs」，MA 結構為 <strong>bullish</strong>，RSI 66.8。",
+      "rr": null
+    },
+    {
+      "symbol": "TER",
+      "name": "泰瑞達",
+      "tier": "ready",
+      "theme": "Semiconductor Equipment (WFE)",
+      "rsi": 62.5,
+      "ma_stack": "bullish",
+      "price": null,
+      "business": "半導體測試設備 + 協作工業機器人(UR);AI 晶片測試需求上升。",
+      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面 MA 結構為 <strong>bullish</strong>，整體偏多。",
+      "rr": null
+    },
     {
       "symbol": "ROK",
       "name": "羅克韋爾自動化",
@@ -17,26 +41,26 @@
       "rr": null
     },
     {
-      "symbol": "AEIS",
-      "name": "先進能源",
+      "symbol": "CLSK",
+      "name": "CleanSpark, Inc.",
       "tier": "ready",
-      "theme": "Semiconductor Equipment (WFE)",
-      "rsi": 62.5,
+      "theme": "Crypto Infrastructure",
+      "rsi": 58.6,
       "ma_stack": "bullish",
       "price": null,
-      "business": "半導體製程電源供應(PVD/CVD/蝕刻設備用 RF/DC 電源)+ 工業/醫療電源;製程節點微縮直接受惠。",
-      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
+      "business": "CleanSpark, Inc. operates as a bitcoin mining company in the Americas. The company owns, leases, and operates data centers and power assets. Its infrastructure supports Bitcoin, a digital commodity. The company was formerly known as Strate…",
+      "why": "基本面通過半數以上 Screener 條件。",
       "rr": null
     },
     {
-      "symbol": "VRT",
-      "name": "Vertiv",
-      "tier": "watch",
-      "theme": "Data Center",
-      "rsi": 48.7,
+      "symbol": "NOW",
+      "name": "ServiceNow",
+      "tier": "ready",
+      "theme": "AI Software",
+      "rsi": 48.1,
       "ma_stack": "mixed",
       "price": null,
-      "business": "資料中心關鍵基礎設施(電源/散熱);AI 訓練中心建設核心。",
+      "business": "企業工作流(IT/HR)SaaS;agentic AI(Now Assist)變現加速中。",
       "why": "基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
       "rr": null
     },
@@ -56,23 +80,23 @@
   "sell_signals": {},
   "policy": [
     {
-      "topic": "川普 × 個股機會",
-      "title": "Meta keeps distance from Trump's AI ownership idea",
-      "summary_zh": "Meta 對川普 AI 所有權政策採取保留態度,反映科技巨頭與政府在人工智慧治理上的潛在分歧。此舉可能暗示政府介入 AI 產業的力度與方式仍待觀察。",
-      "source": "Politico"
+      "topic": "政策 / 立法",
+      "title": "Northrop Grumman Stock (US6668071029): Analyst Price Targets Under Review Amid Defense Spending Deba",
+      "summary_zh": "美國國防支出與防衛產業現代化政策正遭受黨派內部辯論,可能影響相關廠商的長期訂單能見度與政府合約穩定性。",
+      "source": "AD HOC NEWS"
     },
     {
-      "topic": "川普 × 個股機會",
-      "title": "How Trump’s Stock Trading Collides With Presidential Power",
-      "summary_zh": "川普股票交易與總統職權的潛在衝突,凸顯政策執行的透明度與利益迴避問題。市場需留意相關政策決定是否存在利益輸送的疑慮。",
-      "source": "Forbes"
+      "topic": "政策 / 立法",
+      "title": "Germany rethinking drug price reforms after Lilly, Boehringer withdraw investments: Reuters",
+      "summary_zh": "德國藥物價格改革後,生技大廠 Lilly 與 Boehringer 縮減在當地投資,反映歐洲醫療政策緊縮對藥廠獲利的壓力。",
+      "source": "BioSpace"
     }
   ],
   "themes": [],
   "stats": {
-    "n_picks": 4,
+    "n_picks": 6,
     "n_themes": 0,
-    "journal_total": 160
+    "journal_total": 164
   },
   "_note": "命中率/超額待回測樣本成熟;entry/alpha/vol 未提供(歷史不足)。"
 }

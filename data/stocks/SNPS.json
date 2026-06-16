@@ -42,7 +42,7 @@
     {
       "symbol": "NOW",
       "name": "ServiceNow",
-      "tier": "watch"
+      "tier": "ready"
     }
   ],
   "price": 453.89,

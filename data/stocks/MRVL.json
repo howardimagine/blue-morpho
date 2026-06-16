@@ -1,11 +1,11 @@
 {
   "symbol": "MRVL",
   "name": "美滿科技",
-  "tier": "watch",
+  "tier": "enter",
   "regime": "neutral",
   "theme": "AI Compute",
   "business": "客製化 AI 矽智財(AWS Trainium、Microsoft Maia)+ 資料中心連網/儲存晶片。",
-  "why": "INDUSTRY_EXPANSION",
+  "why": "THEME_TAILWIND",
   "rsi": null,
   "sma50": null,
   "sma200": null,
@@ -13,22 +13,22 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 6.8
+      "score": 7.5
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 5.0
+      "score": 9.6
     },
     {
       "key": "macro_context",
       "label": "總經環境",
-      "score": null
+      "score": 5.5
     },
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": null
+      "score": 7.3
     },
     {
       "key": "news_catalyst",
@@ -38,10 +38,18 @@
     {
       "key": "risk_reward",
       "label": "風險回報",
-      "score": null
+      "score": 5.0
     }
   ],
   "tracking": [
+    {
+      "date": "2026-06-16",
+      "theme": "Memory (HBM / DRAM / NAND)",
+      "tier": "enter",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-06-11",
       "theme": "Memory (HBM / DRAM / NAND)",

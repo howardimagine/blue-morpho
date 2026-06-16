@@ -188,7 +188,7 @@
   {
     "symbol": "MRVL",
     "name": "美滿科技",
-    "tier": "watch",
+    "tier": "enter",
     "theme": "AI Compute"
   },
   {
@@ -212,7 +212,7 @@
   {
     "symbol": "NOW",
     "name": "ServiceNow",
-    "tier": "watch",
+    "tier": "ready",
     "theme": "AI Software"
   },
   {
