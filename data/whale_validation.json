@@ -1,114 +1,50 @@
 {
   "as_of": "2026-05-15",
   "n_whales": 19,
-  "generated_at": "2026-06-15T00:03:47+00:00",
+  "generated_at": "2026-06-16T00:04:44+00:00",
   "stocks": [
     {
-      "symbol": "MU",
-      "name": "美光",
-      "theme": "Memory (HBM / DRAM / NAND)",
+      "symbol": "ROK",
+      "name": "羅克韋爾自動化",
+      "theme": "Industrial Automation",
       "signal": "buy",
-      "holders": 5,
+      "holders": 4,
       "increased": 1,
       "reduced": 1,
-      "new_pos": 3,
+      "new_pos": 2,
       "closed_pos": 0,
-      "total_held_usd": 1118075533,
-      "total_held_fmt": "$1.1B",
-      "whales_fmt": "泰珀 Tepper $563M 減碼 · 達利歐 Dalio $499M 加碼 · Philippe Laffont $56M 新進 · 索羅斯 Soros <$1M 新進 · 德魯肯米勒 Druckenmiller <$1M 新進",
+      "total_held_usd": 495771900,
+      "total_held_fmt": "$496M",
+      "whales_fmt": "Andreas Halvorsen $485M 新進 · 索羅斯 Soros $8M 新進 · 達利歐 Dalio $3M 加碼 · 木頭姐 Cathie Wood <$1M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "泰珀 Tepper",
-          "value_usd": 562503600,
-          "action": "trim"
+          "name": "Andreas Halvorsen",
+          "value_usd": 484795343,
+          "action": "new"
+        },
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 7684943,
+          "action": "new"
         },
         {
           "name": "達利歐 Dalio",
-          "value_usd": 498551839,
-          "action": "add"
-        },
-        {
-          "name": "Philippe Laffont",
-          "value_usd": 56058129,
-          "action": "new"
-        },
-        {
-          "name": "索羅斯 Soros",
-          "value_usd": 954060,
-          "action": "new"
-        },
-        {
-          "name": "德魯肯米勒 Druckenmiller",
-          "value_usd": 7905,
-          "action": "new"
-        }
-      ]
-    },
-    {
-      "symbol": "ARM",
-      "name": "安謀",
-      "theme": "AI Compute",
-      "signal": "buy",
-      "holders": 8,
-      "increased": 4,
-      "reduced": 2,
-      "new_pos": 2,
-      "closed_pos": 2,
-      "total_held_usd": 736616796,
-      "total_held_fmt": "$737M",
-      "whales_fmt": "Philippe Laffont — 清倉 · 大空頭 Burry — 清倉 · Andreas Halvorsen $399M 加碼 · Brad Gerstner $260M 新進 · 索羅斯 Soros $42M 加碼 · 木頭姐 Cathie Wood $22M 減碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "Philippe Laffont",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "大空頭 Burry",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "Andreas Halvorsen",
-          "value_usd": 398936730,
-          "action": "add"
-        },
-        {
-          "name": "Brad Gerstner",
-          "value_usd": 259511763,
-          "action": "new"
-        },
-        {
-          "name": "索羅斯 Soros",
-          "value_usd": 42482880,
+          "value_usd": 3192847,
           "action": "add"
         },
         {
           "name": "木頭姐 Cathie Wood",
-          "value_usd": 21679720,
+          "value_usd": 98767,
           "action": "trim"
-        },
-        {
-          "name": "Dan Loeb",
-          "value_usd": 8030000,
-          "action": "add"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 3156735,
-          "action": "add"
         }
       ]
     },
     {
-      "symbol": "ACLS",
-      "name": "艾克塞利",
+      "symbol": "AEIS",
+      "name": "先進能源",
       "theme": "Semiconductor Equipment (WFE)",
       "signal": "buy",
       "holders": 1,
@@ -116,37 +52,87 @@
       "reduced": 0,
       "new_pos": 1,
       "closed_pos": 0,
-      "total_held_usd": 772657,
-      "total_held_fmt": "<$1M",
-      "whales_fmt": "達利歐 Dalio <$1M 新進",
+      "total_held_usd": 10559052,
+      "total_held_fmt": "$11M",
+      "whales_fmt": "達利歐 Dalio $11M 新進",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
           "name": "達利歐 Dalio",
-          "value_usd": 772657,
+          "value_usd": 10559052,
           "action": "new"
         }
       ]
     },
     {
-      "symbol": "DLR",
-      "name": "Digital Realty Trust, Inc.",
-      "theme": "Cloud Infrastructure",
-      "signal": "split",
-      "holders": 0,
-      "increased": 0,
+      "symbol": "VRT",
+      "name": "Vertiv",
+      "theme": "Data Center",
+      "signal": "buy",
+      "holders": 2,
+      "increased": 1,
       "reduced": 0,
       "new_pos": 0,
       "closed_pos": 0,
-      "total_held_usd": 0,
-      "total_held_fmt": "—",
-      "whales_fmt": "",
+      "total_held_usd": 353668361,
+      "total_held_fmt": "$354M",
+      "whales_fmt": "Philippe Laffont $246M 加碼 · 達利歐 Dalio $108M 持有",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
-      "whales": []
+      "whales": [
+        {
+          "name": "Philippe Laffont",
+          "value_usd": 245977597,
+          "action": "add"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 107690764,
+          "action": "hold"
+        }
+      ]
+    },
+    {
+      "symbol": "ISRG",
+      "name": "Intuitive Surgical",
+      "theme": "Healthcare AI",
+      "signal": "split",
+      "holders": 3,
+      "increased": 2,
+      "reduced": 1,
+      "new_pos": 0,
+      "closed_pos": 1,
+      "total_held_usd": 434026694,
+      "total_held_fmt": "$434M",
+      "whales_fmt": "Terry Smith — 清倉 · Philippe Laffont $394M 加碼 · 木頭姐 Cathie Wood $32M 加碼 · 達利歐 Dalio $8M 減碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "Terry Smith",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "Philippe Laffont",
+          "value_usd": 394250172,
+          "action": "add"
+        },
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 31804161,
+          "action": "add"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 7972361,
+          "action": "trim"
+        }
+      ]
     }
   ]
 }
