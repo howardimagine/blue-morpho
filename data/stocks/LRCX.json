@@ -1,11 +1,11 @@
 {
   "symbol": "LRCX",
   "name": "科林研發",
-  "tier": "ready",
+  "tier": "enter",
   "regime": "neutral",
   "theme": "AI Compute",
   "business": "WFE 蝕刻/沉積龍頭,3D NAND 主力,HBM 擴產直接受惠。",
-  "why": "QUALITY_COMPOUNDER",
+  "why": "NEWS_CATALYST",
   "rsi": null,
   "sma50": null,
   "sma200": null,
@@ -13,35 +13,43 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 2.7
+      "score": 3.7
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 7.1
+      "score": 9.6
     },
     {
       "key": "macro_context",
       "label": "總經環境",
-      "score": null
+      "score": 5.5
     },
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 8.2
+      "score": 8.1
     },
     {
       "key": "news_catalyst",
       "label": "新聞催化",
-      "score": 7.5
+      "score": 9.0
     },
     {
       "key": "risk_reward",
       "label": "風險回報",
-      "score": null
+      "score": 5.0
     }
   ],
   "tracking": [
+    {
+      "date": "2026-06-17",
+      "theme": "Semiconductor Equipment (WFE)",
+      "tier": "enter",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-06-08",
       "theme": "AI Compute",

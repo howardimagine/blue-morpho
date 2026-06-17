@@ -112,11 +112,6 @@
   ],
   "peers": [
     {
-      "symbol": "LRCX",
-      "name": "科林研發",
-      "tier": "ready"
-    },
-    {
       "symbol": "ARM",
       "name": "安謀",
       "tier": "enter"
@@ -130,6 +125,11 @@
       "symbol": "AMD",
       "name": "超微",
       "tier": "enter"
+    },
+    {
+      "symbol": "AMZN",
+      "name": "亞馬遜",
+      "tier": "watch"
     }
   ],
   "price": 279.7,

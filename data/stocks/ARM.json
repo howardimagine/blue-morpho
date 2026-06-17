@@ -136,11 +136,6 @@
   ],
   "peers": [
     {
-      "symbol": "LRCX",
-      "name": "科林研發",
-      "tier": "ready"
-    },
-    {
       "symbol": "AVGO",
       "name": "博通",
       "tier": "ready"
@@ -153,6 +148,11 @@
     {
       "symbol": "AMZN",
       "name": "亞馬遜",
+      "tier": "watch"
+    },
+    {
+      "symbol": "ENTG",
+      "name": "英特格",
       "tier": "watch"
     }
   ],

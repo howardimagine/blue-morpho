@@ -96,11 +96,6 @@
   ],
   "peers": [
     {
-      "symbol": "LRCX",
-      "name": "科林研發",
-      "tier": "ready"
-    },
-    {
       "symbol": "ARM",
       "name": "安謀",
       "tier": "enter"
@@ -113,6 +108,11 @@
     {
       "symbol": "AMZN",
       "name": "亞馬遜",
+      "tier": "watch"
+    },
+    {
+      "symbol": "ENTG",
+      "name": "英特格",
       "tier": "watch"
     }
   ],
