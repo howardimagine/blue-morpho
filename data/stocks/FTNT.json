@@ -1,7 +1,7 @@
 {
   "symbol": "FTNT",
   "name": "Fortinet",
-  "tier": "enter",
+  "tier": "ready",
   "regime": "neutral",
   "theme": "Cybersecurity",
   "business": "整合資安方案(FortiGate 防火牆 + SD-WAN);中小企業滲透深。",
@@ -13,7 +13,7 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 2.3
+      "score": 1.2
     },
     {
       "key": "technical_setup",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-06-18",
+      "theme": "Cybersecurity",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-06-14",
       "theme": "Cybersecurity",

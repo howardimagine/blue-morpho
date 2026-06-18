@@ -1,111 +1,180 @@
 {
   "as_of": "2026-05-15",
   "n_whales": 19,
-  "generated_at": "2026-06-17T00:04:51+00:00",
+  "generated_at": "2026-06-18T00:04:52+00:00",
   "stocks": [
     {
-      "symbol": "LRCX",
-      "name": "科林研發",
+      "symbol": "AMAT",
+      "name": "應用材料",
       "theme": "Semiconductor Equipment (WFE)",
       "signal": "buy",
-      "holders": 8,
-      "increased": 4,
-      "reduced": 2,
+      "holders": 2,
+      "increased": 1,
+      "reduced": 0,
       "new_pos": 1,
       "closed_pos": 0,
-      "total_held_usd": 3819431162,
-      "total_held_fmt": "$3.8B",
-      "whales_fmt": "Philippe Laffont $2.1B 加碼 · Chase Coleman $833M 持有 · Andreas Halvorsen $392M 加碼 · 達利歐 Dalio $336M 減碼 · 泰珀 Tepper $82M 減碼 · Dan Loeb $16M 新進",
+      "total_held_usd": 20735762,
+      "total_held_fmt": "$21M",
+      "whales_fmt": "達利歐 Dalio $16M 加碼 · 索羅斯 Soros $4M 新進",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 16258722,
+          "action": "add"
+        },
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 4477040,
+          "action": "new"
+        }
+      ]
+    },
+    {
+      "symbol": "AMD",
+      "name": "超微",
+      "theme": "AI Compute",
+      "signal": "sell",
+      "holders": 4,
+      "increased": 2,
+      "reduced": 2,
+      "new_pos": 0,
+      "closed_pos": 2,
+      "total_held_usd": 866950714,
+      "total_held_fmt": "$867M",
+      "whales_fmt": "Philippe Laffont — 清倉 · Andreas Halvorsen — 清倉 · 木頭姐 Cathie Wood $552M 加碼 · 達利歐 Dalio $263M 減碼 · 泰珀 Tepper $45M 減碼 · 索羅斯 Soros $7M 加碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
           "name": "Philippe Laffont",
-          "value_usd": 2145895279,
-          "action": "add"
-        },
-        {
-          "name": "Chase Coleman",
-          "value_usd": 833367797,
-          "action": "hold"
+          "value_usd": 0,
+          "action": "exit"
         },
         {
           "name": "Andreas Halvorsen",
-          "value_usd": 392287201,
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 551875889,
           "action": "add"
         },
         {
           "name": "達利歐 Dalio",
-          "value_usd": 335708788,
+          "value_usd": 262987591,
           "action": "trim"
         },
         {
           "name": "泰珀 Tepper",
-          "value_usd": 81724950,
+          "value_usd": 45039402,
           "action": "trim"
         },
         {
-          "name": "Dan Loeb",
-          "value_usd": 16024500,
-          "action": "new"
-        },
-        {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 14331564,
-          "action": "add"
-        },
-        {
-          "name": "德魯肯米勒 Druckenmiller",
-          "value_usd": 91083,
+          "name": "索羅斯 Soros",
+          "value_usd": 7047832,
           "action": "add"
         }
       ]
     },
     {
-      "symbol": "GM",
-      "name": "General Motors Company",
-      "theme": "EV / Auto",
-      "signal": "split",
+      "symbol": "FTNT",
+      "name": "Fortinet",
+      "theme": "Cybersecurity",
+      "signal": "sell",
       "holders": 0,
       "increased": 0,
       "reduced": 0,
       "new_pos": 0,
-      "closed_pos": 0,
+      "closed_pos": 1,
       "total_held_usd": 0,
       "total_held_fmt": "—",
-      "whales_fmt": "",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": []
-    },
-    {
-      "symbol": "CRWD",
-      "name": "CrowdStrike",
-      "theme": "Cybersecurity",
-      "signal": "split",
-      "holders": 2,
-      "increased": 0,
-      "reduced": 1,
-      "new_pos": 1,
-      "closed_pos": 0,
-      "total_held_usd": 42894737,
-      "total_held_fmt": "$43M",
-      "whales_fmt": "木頭姐 Cathie Wood $41M 減碼 · 達利歐 Dalio $2M 新進",
+      "whales_fmt": "達利歐 Dalio — 清倉",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 41331145,
+          "name": "達利歐 Dalio",
+          "value_usd": 0,
+          "action": "exit"
+        }
+      ]
+    },
+    {
+      "symbol": "GEV",
+      "name": "GE Vernova",
+      "theme": "Electrification / Power",
+      "signal": "sell",
+      "holders": 4,
+      "increased": 0,
+      "reduced": 3,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 3476566366,
+      "total_held_fmt": "$3.5B",
+      "whales_fmt": "Philippe Laffont $2.2B 減碼 · Chase Coleman $849M 持有 · 達利歐 Dalio $380M 減碼 · 木頭姐 Cathie Wood $2M 減碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "Philippe Laffont",
+          "value_usd": 2245411301,
           "action": "trim"
         },
         {
+          "name": "Chase Coleman",
+          "value_usd": 849326463,
+          "action": "hold"
+        },
+        {
           "name": "達利歐 Dalio",
-          "value_usd": 1563592,
-          "action": "new"
+          "value_usd": 379621591,
+          "action": "trim"
+        },
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 2207011,
+          "action": "trim"
+        }
+      ]
+    },
+    {
+      "symbol": "VEEV",
+      "name": "Veeva Systems Inc.",
+      "theme": "Healthcare AI",
+      "signal": "sell",
+      "holders": 0,
+      "increased": 0,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 3,
+      "total_held_usd": 0,
+      "total_held_fmt": "—",
+      "whales_fmt": "達利歐 Dalio — 清倉 · Chase Coleman — 清倉 · 木頭姐 Cathie Wood — 清倉",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "Chase Coleman",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 0,
+          "action": "exit"
         }
       ]
     }
