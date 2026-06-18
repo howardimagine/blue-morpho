@@ -1,3 +1,10 @@
 .DS_Store
 *.log
 _給設計師*.md
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
