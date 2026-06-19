@@ -53,6 +53,11 @@
       "symbol": "ENB",
       "name": "Enbridge Inc",
       "tier": "ready"
+    },
+    {
+      "symbol": "VRT",
+      "name": "Vertiv",
+      "tier": "ready"
     }
   ],
   "price": 391.39,
