@@ -13,7 +13,7 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 5.2
+      "score": 3.8
     },
     {
       "key": "technical_setup",
@@ -33,7 +33,7 @@
     {
       "key": "news_catalyst",
       "label": "新聞催化",
-      "score": null
+      "score": 7.2
     },
     {
       "key": "risk_reward",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-06-22",
+      "theme": "Semiconductor Equipment (WFE)",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-06-16",
       "theme": "Semiconductor Equipment (WFE)",

@@ -1,87 +1,131 @@
 {
   "as_of": "2026-05-15",
   "n_whales": 19,
-  "generated_at": "2026-06-19T00:05:05+00:00",
+  "generated_at": "2026-06-22T00:05:42+00:00",
   "stocks": [
     {
-      "symbol": "AEHR",
-      "name": "Aehr Test",
-      "theme": "Semiconductor Equipment (WFE)",
-      "signal": "buy",
-      "holders": 1,
-      "increased": 0,
-      "reduced": 0,
-      "new_pos": 1,
-      "closed_pos": 0,
-      "total_held_usd": 291931,
-      "total_held_fmt": "<$1M",
-      "whales_fmt": "達利歐 Dalio <$1M 新進",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 291931,
-          "action": "new"
-        }
-      ]
-    },
-    {
-      "symbol": "ENS",
-      "name": "EnerSys",
-      "theme": "Electrification / Power",
+      "symbol": "MRVL",
+      "name": "美滿科技",
+      "theme": "Memory (HBM / DRAM / NAND)",
       "signal": "split",
-      "holders": 2,
-      "increased": 0,
-      "reduced": 1,
-      "new_pos": 1,
-      "closed_pos": 0,
-      "total_held_usd": 7500187,
-      "total_held_fmt": "$8M",
-      "whales_fmt": "索羅斯 Soros $4M 新進 · 達利歐 Dalio $3M 減碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "索羅斯 Soros",
-          "value_usd": 4149302,
-          "action": "new"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 3350885,
-          "action": "trim"
-        }
-      ]
-    },
-    {
-      "symbol": "VRT",
-      "name": "Vertiv",
-      "theme": "Electrification / Power",
-      "signal": "buy",
-      "holders": 2,
+      "holders": 1,
       "increased": 1,
       "reduced": 0,
       "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 353668361,
-      "total_held_fmt": "$354M",
-      "whales_fmt": "Philippe Laffont $246M 加碼 · 達利歐 Dalio $108M 持有",
+      "closed_pos": 1,
+      "total_held_usd": 193043200,
+      "total_held_fmt": "$193M",
+      "whales_fmt": "Philippe Laffont — 清倉 · 達利歐 Dalio $193M 加碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
           "name": "Philippe Laffont",
-          "value_usd": 245977597,
-          "action": "add"
+          "value_usd": 0,
+          "action": "exit"
         },
         {
           "name": "達利歐 Dalio",
-          "value_usd": 107690764,
-          "action": "hold"
+          "value_usd": 193043200,
+          "action": "add"
+        }
+      ]
+    },
+    {
+      "symbol": "WDC",
+      "name": "威騰電子",
+      "theme": "Memory (HBM / DRAM / NAND)",
+      "signal": "buy",
+      "holders": 1,
+      "increased": 1,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 67362559,
+      "total_held_fmt": "$67M",
+      "whales_fmt": "達利歐 Dalio $67M 加碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 67362559,
+          "action": "add"
+        }
+      ]
+    },
+    {
+      "symbol": "ROK",
+      "name": "羅克韋爾自動化",
+      "theme": "Industrial Automation",
+      "signal": "buy",
+      "holders": 4,
+      "increased": 1,
+      "reduced": 1,
+      "new_pos": 2,
+      "closed_pos": 0,
+      "total_held_usd": 495771900,
+      "total_held_fmt": "$496M",
+      "whales_fmt": "Andreas Halvorsen $485M 新進 · 索羅斯 Soros $8M 新進 · 達利歐 Dalio $3M 加碼 · 木頭姐 Cathie Wood <$1M 減碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "Andreas Halvorsen",
+          "value_usd": 484795343,
+          "action": "new"
+        },
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 7684943,
+          "action": "new"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 3192847,
+          "action": "add"
+        },
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 98767,
+          "action": "trim"
+        }
+      ]
+    },
+    {
+      "symbol": "TER",
+      "name": "泰瑞達",
+      "theme": "Semiconductor Equipment (WFE)",
+      "signal": "buy",
+      "holders": 3,
+      "increased": 1,
+      "reduced": 1,
+      "new_pos": 1,
+      "closed_pos": 0,
+      "total_held_usd": 1024845728,
+      "total_held_fmt": "$1.0B",
+      "whales_fmt": "Stephen Mandel $555M 新進 · 木頭姐 Cathie Wood $369M 減碼 · 達利歐 Dalio $100M 加碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "Stephen Mandel",
+          "value_usd": 555232819,
+          "action": "new"
+        },
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 369128978,
+          "action": "trim"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 100483931,
+          "action": "add"
         }
       ]
     }
