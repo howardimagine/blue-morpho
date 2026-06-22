@@ -1,6 +1,6 @@
 {
   "date": "2026-06-22",
-  "headline": "科技股止穩信號轉強,記憶體與晶片設備聯袂走高背後——政策推力下的供應鏈重估,MRVL、WDC、TER 成本週觀察重點",
+  "headline": "聯準會加息信號升溫衝擊科技估值,但川普協議效應穩住晶片設備信心 — MRVL、WDC 與 TER 成本週技術確認標的",
   "theme": "Memory (HBM / DRAM / NAND)",
   "regime": "neutral",
   "picks": [
@@ -57,21 +57,21 @@
   "policy": [
     {
       "topic": "川普 × 個股機會",
-      "title": "Trump says Apple to partner with Intel on US chip design, production",
-      "summary_zh": "川普親口宣布 Apple 與 Intel 將合作美國本土晶片設計與生產,標誌地緣政治下供應鏈重構從口號進入具體項目階段。",
-      "source": "capacityglobal.com"
+      "title": "One Year After Trump’s ‘Liberation Day’ Tariffs, GE And Deere Emerge As Only Big Manufacturing Winners",
+      "summary_zh": "川普『解放日』關稅政策滿周年檢視:通用電氣與約翰迪爾成為少數製造業大贏家,反映政策支持製造業回歸的實際效應開始顯現。",
+      "source": "Stocktwits"
     },
     {
-      "topic": "川普 × 個股機會",
-      "title": "Intel shares surge after Trump details Apple chip deal (INTC:NASDAQ)",
-      "summary_zh": "Intel 股價隨川普聲明大幅上升,市場評估該公司作為『美國半導體國家隊』的地位確立,長期政府支持預期升溫。",
-      "source": "Seeking Alpha"
+      "topic": "聯準會 / 利率",
+      "title": "Canada’s headline inflation to edge higher as core remains near target",
+      "summary_zh": "加拿大央行示警通膨邊際上升,核心通膨仍接近目標,但上升趨勢反映全球寬鬆週期已盡,各央行普遍傾向維持高利率政策。",
+      "source": "rbc.com"
     },
     {
-      "topic": "地緣 / 國際 / 能源",
-      "title": "Apple to Partner With Intel on US Chip Production, Trump Says",
-      "summary_zh": "Apple 與 Intel 合作案進一步鞏固美國本土晶片製造的政治優先地位,預期將加速上游製造設備、檢測工具與材料供應商的景氣復甦。",
-      "source": "Modern Diplomacy"
+      "topic": "聯準會 / 利率",
+      "title": "2-year Treasury yield keeps going higher after spiking on hawkish start to Warsh's Fed",
+      "summary_zh": "2 年期美債殖利率在聯準會鷹派信號驅動下持續走高,標誌市場對短期利率前景的預期大幅調整,衝擊成長股估值。",
+      "source": "CNBC"
     }
   ],
   "themes": [],

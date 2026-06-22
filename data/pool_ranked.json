@@ -106,7 +106,7 @@
       "n": 10,
       "rs_1m": 33.3,
       "rs_3m": 47.4,
-      "news_7d": 49,
+      "news_7d": 57,
       "stocks": [
         {
           "symbol": "LRCX",
@@ -205,7 +205,7 @@
       "n": 10,
       "rs_1m": 6.47,
       "rs_3m": 4.03,
-      "news_7d": 101,
+      "news_7d": 106,
       "stocks": [
         {
           "symbol": "MYRG",
@@ -304,7 +304,7 @@
       "n": 6,
       "rs_1m": 53.2,
       "rs_3m": 157.4,
-      "news_7d": 101,
+      "news_7d": 102,
       "stocks": [
         {
           "symbol": "STX",
@@ -367,7 +367,7 @@
       "n": 8,
       "rs_1m": 2.53,
       "rs_3m": 16.83,
-      "news_7d": 94,
+      "news_7d": 92,
       "stocks": [
         {
           "symbol": "FTNT",
@@ -448,7 +448,7 @@
       "n": 8,
       "rs_1m": 6.21,
       "rs_3m": 14.36,
-      "news_7d": 53,
+      "news_7d": 51,
       "stocks": [
         {
           "symbol": "CLSK",
