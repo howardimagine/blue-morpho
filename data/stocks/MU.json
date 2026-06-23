@@ -1,7 +1,7 @@
 {
   "symbol": "MU",
   "name": "美光",
-  "tier": "enter",
+  "tier": "ready",
   "regime": "neutral",
   "theme": "AI Compute",
   "business": "DRAM/NAND 記憶體大廠;HBM3E 量產供應 NVDA,AI 記憶體實體瓶頸的關鍵受惠者。",
@@ -13,12 +13,12 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 6.9
+      "score": 6.7
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 9.6
+      "score": 8.4
     },
     {
       "key": "macro_context",
@@ -28,7 +28,7 @@
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 9.1
+      "score": 9.5
     },
     {
       "key": "news_catalyst",
@@ -38,10 +38,18 @@
     {
       "key": "risk_reward",
       "label": "風險回報",
-      "score": 5.0
+      "score": null
     }
   ],
   "tracking": [
+    {
+      "date": "2026-06-23",
+      "theme": "Memory (HBM / DRAM / NAND)",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-06-15",
       "theme": "Memory (HBM / DRAM / NAND)",
