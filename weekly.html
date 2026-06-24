@@ -129,6 +129,13 @@ function regimeBadge(r) {
     loading.style.display = 'none';
     try {
       const doc = frame.contentWindow.document;
+      // 手機禁止左右滑:報告是 ~600px 表格版面,在窄螢幕會撐出橫向捲動 → 限制到視窗寬。
+      const fix = doc.createElement('style');
+      fix.textContent = 'html,body{overflow-x:hidden!important;max-width:100%!important}'
+        + 'table{max-width:100%!important}'
+        + 'img,svg{max-width:100%!important;height:auto}'
+        + 'body{word-break:break-word}';
+      doc.head.appendChild(fix);
       const resize = () => { frame.style.height = doc.body.scrollHeight + 'px'; };
       resize(); setTimeout(resize, 300); setTimeout(resize, 1200);
       doc.querySelectorAll('img').forEach(img => { if (!img.complete) img.addEventListener('load', resize); });

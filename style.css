@@ -61,6 +61,7 @@ html {
   font-size: 15px;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;           /* 手機禁止左右滑出空白(全站) */
 }
 
 body {
@@ -69,6 +70,8 @@ body {
   font-family: var(--font-text);
   line-height: 1.65;
   min-height: 100vh;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 a {
