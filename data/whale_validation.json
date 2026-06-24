@@ -1,55 +1,152 @@
 {
   "as_of": "2026-05-15",
   "n_whales": 19,
-  "generated_at": "2026-06-23T00:04:46+00:00",
+  "generated_at": "2026-06-24T00:05:03+00:00",
   "stocks": [
     {
-      "symbol": "MU",
-      "name": "美光",
-      "theme": "Memory (HBM / DRAM / NAND)",
+      "symbol": "AMAT",
+      "name": "應用材料",
+      "theme": "Semiconductor Equipment (WFE)",
       "signal": "buy",
-      "holders": 5,
+      "holders": 2,
       "increased": 1,
-      "reduced": 1,
-      "new_pos": 3,
+      "reduced": 0,
+      "new_pos": 1,
       "closed_pos": 0,
-      "total_held_usd": 1118075533,
-      "total_held_fmt": "$1.1B",
-      "whales_fmt": "泰珀 Tepper $563M 減碼 · 達利歐 Dalio $499M 加碼 · Philippe Laffont $56M 新進 · 索羅斯 Soros <$1M 新進 · 德魯肯米勒 Druckenmiller <$1M 新進",
+      "total_held_usd": 20735762,
+      "total_held_fmt": "$21M",
+      "whales_fmt": "達利歐 Dalio $16M 加碼 · 索羅斯 Soros $4M 新進",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "泰珀 Tepper",
-          "value_usd": 562503600,
-          "action": "trim"
-        },
-        {
           "name": "達利歐 Dalio",
-          "value_usd": 498551839,
+          "value_usd": 16258722,
           "action": "add"
         },
         {
-          "name": "Philippe Laffont",
-          "value_usd": 56058129,
-          "action": "new"
-        },
-        {
           "name": "索羅斯 Soros",
-          "value_usd": 954060,
-          "action": "new"
-        },
-        {
-          "name": "德魯肯米勒 Druckenmiller",
-          "value_usd": 7905,
+          "value_usd": 4477040,
           "action": "new"
         }
       ]
     },
     {
-      "symbol": "EXEL",
-      "name": "Exelixis, Inc.",
+      "symbol": "AMD",
+      "name": "超微",
+      "theme": "AI Compute",
+      "signal": "sell",
+      "holders": 4,
+      "increased": 2,
+      "reduced": 2,
+      "new_pos": 0,
+      "closed_pos": 2,
+      "total_held_usd": 866950714,
+      "total_held_fmt": "$867M",
+      "whales_fmt": "Philippe Laffont — 清倉 · Andreas Halvorsen — 清倉 · 木頭姐 Cathie Wood $552M 加碼 · 達利歐 Dalio $263M 減碼 · 泰珀 Tepper $45M 減碼 · 索羅斯 Soros $7M 加碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "Philippe Laffont",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "Andreas Halvorsen",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 551875889,
+          "action": "add"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 262987591,
+          "action": "trim"
+        },
+        {
+          "name": "泰珀 Tepper",
+          "value_usd": 45039402,
+          "action": "trim"
+        },
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 7047832,
+          "action": "add"
+        }
+      ]
+    },
+    {
+      "symbol": "FTNT",
+      "name": "Fortinet",
+      "theme": "Cybersecurity",
+      "signal": "sell",
+      "holders": 0,
+      "increased": 0,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 1,
+      "total_held_usd": 0,
+      "total_held_fmt": "—",
+      "whales_fmt": "達利歐 Dalio — 清倉",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 0,
+          "action": "exit"
+        }
+      ]
+    },
+    {
+      "symbol": "GEV",
+      "name": "GE Vernova",
+      "theme": "Electrification / Power",
+      "signal": "sell",
+      "holders": 4,
+      "increased": 0,
+      "reduced": 3,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 3476566366,
+      "total_held_fmt": "$3.5B",
+      "whales_fmt": "Philippe Laffont $2.2B 減碼 · Chase Coleman $849M 持有 · 達利歐 Dalio $380M 減碼 · 木頭姐 Cathie Wood $2M 減碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "Philippe Laffont",
+          "value_usd": 2245411301,
+          "action": "trim"
+        },
+        {
+          "name": "Chase Coleman",
+          "value_usd": 849326463,
+          "action": "hold"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 379621591,
+          "action": "trim"
+        },
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 2207011,
+          "action": "trim"
+        }
+      ]
+    },
+    {
+      "symbol": "GILD",
+      "name": "Gilead Sciences, Inc.",
       "theme": "Biotech — Oncology",
       "signal": "sell",
       "holders": 1,
@@ -57,56 +154,46 @@
       "reduced": 1,
       "new_pos": 0,
       "closed_pos": 0,
-      "total_held_usd": 20629918,
-      "total_held_fmt": "$21M",
-      "whales_fmt": "達利歐 Dalio $21M 減碼",
+      "total_held_usd": 25189316,
+      "total_held_fmt": "$25M",
+      "whales_fmt": "達利歐 Dalio $25M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
           "name": "達利歐 Dalio",
-          "value_usd": 20629918,
+          "value_usd": 25189316,
           "action": "trim"
         }
       ]
     },
     {
-      "symbol": "ISRG",
-      "name": "Intuitive Surgical",
-      "theme": "Healthcare AI",
+      "symbol": "AMGN",
+      "name": "Amgen Inc.",
+      "theme": "Biotech — Obesity / GLP-1",
       "signal": "split",
-      "holders": 3,
-      "increased": 2,
-      "reduced": 1,
+      "holders": 1,
+      "increased": 1,
+      "reduced": 0,
       "new_pos": 0,
       "closed_pos": 1,
-      "total_held_usd": 434026694,
-      "total_held_fmt": "$434M",
-      "whales_fmt": "Terry Smith — 清倉 · Philippe Laffont $394M 加碼 · 木頭姐 Cathie Wood $32M 加碼 · 達利歐 Dalio $8M 減碼",
+      "total_held_usd": 5198232,
+      "total_held_fmt": "$5M",
+      "whales_fmt": "木頭姐 Cathie Wood — 清倉 · 達利歐 Dalio $5M 加碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "Terry Smith",
+          "name": "木頭姐 Cathie Wood",
           "value_usd": 0,
           "action": "exit"
         },
         {
-          "name": "Philippe Laffont",
-          "value_usd": 394250172,
-          "action": "add"
-        },
-        {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 31804161,
-          "action": "add"
-        },
-        {
           "name": "達利歐 Dalio",
-          "value_usd": 7972361,
-          "action": "trim"
+          "value_usd": 5198232,
+          "action": "add"
         }
       ]
     }

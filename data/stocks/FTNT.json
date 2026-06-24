@@ -18,7 +18,7 @@
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 10.0
+      "score": 9.4
     },
     {
       "key": "macro_context",
@@ -33,7 +33,7 @@
     {
       "key": "news_catalyst",
       "label": "新聞催化",
-      "score": null
+      "score": 7.8
     },
     {
       "key": "risk_reward",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-06-24",
+      "theme": "Cybersecurity",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-06-18",
       "theme": "Cybersecurity",
