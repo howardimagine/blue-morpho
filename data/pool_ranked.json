@@ -146,7 +146,7 @@
         },
         {
           "symbol": "BMRN",
-          "name": "BMRN",
+          "name": "BioMarin Pharmaceutical Inc.",
           "composite": 0.478,
           "score_kind": "base",
           "is_recent": false,
@@ -1155,6 +1155,105 @@
         {
           "symbol": "EXAS",
           "name": "EXAS",
+          "composite": null,
+          "score_kind": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 10
+        }
+      ]
+    },
+    {
+      "theme": "Optical / AI Interconnect",
+      "n": 12,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "ANET",
+          "name": "Arista Networks, Inc.",
+          "composite": 0.79,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "MRVL",
+          "name": "美滿科技",
+          "composite": 0.737,
+          "score_kind": "base",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "NVDA",
+          "name": "輝達",
+          "composite": 0.728,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "AAOI",
+          "name": "AAOI",
+          "composite": null,
+          "score_kind": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "ALAB",
+          "name": "ALAB",
+          "composite": null,
+          "score_kind": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "CIEN",
+          "name": "CIEN",
+          "composite": null,
+          "score_kind": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "COHR",
+          "name": "COHR",
+          "composite": null,
+          "score_kind": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "CRDO",
+          "name": "CRDO",
+          "composite": null,
+          "score_kind": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        },
+        {
+          "symbol": "FN",
+          "name": "FN",
+          "composite": null,
+          "score_kind": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
+        },
+        {
+          "symbol": "LITE",
+          "name": "LITE",
           "composite": null,
           "score_kind": null,
           "is_recent": false,
@@ -2189,7 +2288,7 @@
         },
         {
           "symbol": "GS",
-          "name": "GS",
+          "name": "Goldman Sachs Group, Inc. (The)",
           "composite": 0.726,
           "score_kind": "base",
           "is_recent": false,
