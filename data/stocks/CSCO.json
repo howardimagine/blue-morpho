@@ -80,11 +80,6 @@
   ],
   "peers": [
     {
-      "symbol": "ANET",
-      "name": "Arista Networks, Inc.",
-      "tier": "ready"
-    },
-    {
       "symbol": "EQIX",
       "name": "Equinix, Inc.",
       "tier": "ready"

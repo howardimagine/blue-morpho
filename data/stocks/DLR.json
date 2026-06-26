@@ -80,11 +80,6 @@
   ],
   "peers": [
     {
-      "symbol": "ANET",
-      "name": "Arista Networks, Inc.",
-      "tier": "ready"
-    },
-    {
       "symbol": "CSCO",
       "name": "Cisco Systems, Inc.",
       "tier": "ready"
