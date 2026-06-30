@@ -5,7 +5,7 @@
   "regime": "neutral",
   "theme": "AI Compute",
   "business": "HDD(分拆 SanDisk 後專注硬碟);企業儲存升級題材。",
-  "why": "NEWS_CATALYST",
+  "why": "QUALITY_COMPOUNDER",
   "rsi": null,
   "sma50": null,
   "sma200": null,
@@ -13,7 +13,7 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 6.7
+      "score": 6.6
     },
     {
       "key": "technical_setup",
@@ -23,17 +23,17 @@
     {
       "key": "macro_context",
       "label": "總經環境",
-      "score": 5.5
+      "score": 5.0
     },
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 7.6
+      "score": 7.8
     },
     {
       "key": "news_catalyst",
       "label": "新聞催化",
-      "score": 7.8
+      "score": null
     },
     {
       "key": "risk_reward",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-06-30",
+      "theme": "Memory (HBM / DRAM / NAND)",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-06-22",
       "theme": "Memory (HBM / DRAM / NAND)",
