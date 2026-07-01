@@ -94,6 +94,10 @@
       <span style="color:var(--cy)">● 中游 模組/系統</span>
       <span style="color:var(--gr)">● 下游 買方</span>
     </div>
+    <div class="mut" style="font-size:.72rem;margin-top:8px;line-height:1.65;text-align:center">
+      線粗 = 各賣方 TTM 營收（$B，引擎資料）× 估計出貨佔比；買方端為流入加總（供應商營收流向，非採購額）。
+      多角化的 <b>MRVL/ANET 以估計光學相關營收計</b>（非整體 $8-9B）；中國模組＝Innolight+Eoptolink≈$7B。分配佔比為估計。
+    </div>
   </div>
 
   <h2>三個被忽略的獨立變數</h2>
@@ -223,7 +227,7 @@ function mk(id){const el=document.getElementById(id);const c=echarts.init(el,nul
 // ── Sankey 供應鏈 ──
 mk('sankey').setOption({
   backgroundColor:'transparent',animationDuration:800,
-  tooltip:Object.assign({trigger:'item',formatter:p=>p.dataType==='node'?`<b>${p.data.name}</b>`:`${p.data.source} → ${p.data.target}`},TIP),
+  tooltip:Object.assign({trigger:'item',formatter:p=>p.dataType==='node'?`<b>${p.data.name}</b>`:`${p.data.source} → ${p.data.target}：$${p.data.value}B`},TIP),
   series:[{type:'sankey',orient:'horizontal',nodeAlign:'justify',nodeWidth:16,nodeGap:11,layoutIterations:40,
     left:12,right:78,top:14,bottom:14,curveness:0.5,
     label:{position:'right',color:'#cfeaf2',fontFamily:MONO,fontSize:11},
@@ -240,16 +244,16 @@ mk('sankey').setOption({
       {name:'CIEN 系統',depth:1},{name:'ANET 系統',depth:1},
       {name:'NVDA',depth:2},{name:'雲端買方',depth:2}],
     links:[
-      {source:'COHR 雷射',target:'中國模組',value:3},{source:'COHR 雷射',target:'FN 組裝',value:2},{source:'COHR 雷射',target:'CIEN 系統',value:2},
-      {source:'LITE 雷射',target:'中國模組',value:2},{source:'LITE 雷射',target:'FN 組裝',value:1},
-      {source:'MRVL DSP',target:'FN 組裝',value:2},{source:'MRVL DSP',target:'ANET 系統',value:2},
-      {source:'CRDO DSP',target:'FN 組裝',value:2},{source:'CRDO DSP',target:'ANET 系統',value:2},
-      {source:'MTSI 矽光',target:'AAOI 模組',value:1},{source:'MTSI 矽光',target:'FN 組裝',value:1},
-      {source:'中國模組',target:'NVDA',value:4},{source:'中國模組',target:'雲端買方',value:3},
-      {source:'FN 組裝',target:'NVDA',value:3},{source:'FN 組裝',target:'雲端買方',value:2},
-      {source:'AAOI 模組',target:'NVDA',value:1},
-      {source:'CIEN 系統',target:'雲端買方',value:3},
-      {source:'ANET 系統',target:'NVDA',value:2},{source:'ANET 系統',target:'雲端買方',value:2}]
+      {source:'COHR 雷射',target:'中國模組',value:2.32},{source:'COHR 雷射',target:'FN 組裝',value:1.74},{source:'COHR 雷射',target:'CIEN 系統',value:1.74},
+      {source:'LITE 雷射',target:'中國模組',value:0.99},{source:'LITE 雷射',target:'FN 組裝',value:0.66},
+      {source:'MRVL DSP',target:'FN 組裝',value:1.0},{source:'MRVL DSP',target:'ANET 系統',value:1.0},
+      {source:'CRDO DSP',target:'FN 組裝',value:0.67},{source:'CRDO DSP',target:'ANET 系統',value:0.67},
+      {source:'MTSI 矽光',target:'AAOI 模組',value:0.49},{source:'MTSI 矽光',target:'FN 組裝',value:0.48},
+      {source:'中國模組',target:'NVDA',value:3.85},{source:'中國模組',target:'雲端買方',value:3.15},
+      {source:'FN 組裝',target:'NVDA',value:2.05},{source:'FN 組裝',target:'雲端買方',value:1.37},
+      {source:'AAOI 模組',target:'NVDA',value:0.46},
+      {source:'CIEN 系統',target:'雲端買方',value:4.77},
+      {source:'ANET 系統',target:'NVDA',value:1.25},{source:'ANET 系統',target:'雲端買方',value:1.25}]
   }]
 });
 
