@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>減肥藥 / GLP-1 — Blue Morpho 深度研究</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<style>
+  :root{ --bg:#02020a; --panel:#0b0b1a; --line:#1a2238;
+    --cy:#00f3ff; --gr:#00ff9d; --rd:#ff5d5d; --am:#ffd000; --pp:#7a5cff;
+    --tx:#e0f7fa; --tx2:#cfe3ee; --mut:#8895a8;
+    --mono:"JetBrains Mono","SF Mono","Menlo","Consolas",monospace;
+    --sans:-apple-system,"PingFang TC","Noto Sans TC",sans-serif; }
+  *{box-sizing:border-box}
+  html,body{margin:0;overflow-x:hidden;max-width:100%}
+  body{background:var(--bg);color:var(--tx2);font-family:var(--sans);line-height:1.8;
+    background-image:radial-gradient(1200px 600px at 70% -10%,rgba(0,243,255,.06),transparent 60%);}
+  .wrap{max-width:860px;margin:0 auto;padding:32px 20px 80px}
+  .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;
+    font-family:var(--mono);font-size:12px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+  .topbar a{text-decoration:none}
+  .topbar .brand{color:var(--cy);letter-spacing:.2em;font-weight:700}
+  .topbar .nav a{color:var(--mut);margin-left:16px} .topbar .nav a:hover{color:var(--cy)}
+  .kick{font-family:var(--mono);font-size:12px;letter-spacing:.22em;color:var(--cy);text-transform:uppercase}
+  h1{font-family:var(--mono);font-size:clamp(1.5rem,4.5vw,2.2rem);line-height:1.25;color:var(--tx);font-weight:700;margin:6px 0 14px}
+  h2{font-family:var(--mono);font-size:1.05rem;color:var(--cy);margin:36px 0 10px;letter-spacing:.04em}
+  h2::before{content:"▎ ";color:var(--cy)}
+  h3{font-size:1rem;color:var(--tx);margin:20px 0 6px}
+  p{margin:10px 0} b,strong{color:var(--tx)}
+  a{color:var(--cy);text-decoration:none;border-bottom:1px solid rgba(0,243,255,.3)}
+  .tldr{background:linear-gradient(180deg,rgba(0,243,255,.06),transparent);border:1px solid var(--line);
+    border-left:3px solid var(--cy);border-radius:8px;padding:16px 18px;margin:14px 0;font-size:.95rem}
+  .warn{background:rgba(255,208,0,.05);border:1px solid rgba(255,208,0,.3);border-left:3px solid var(--am);
+    border-radius:8px;padding:14px 16px;margin:14px 0;font-size:.9rem;color:#ffe9a8}
+  .steel{background:rgba(122,92,255,.06);border:1px solid rgba(122,92,255,.4);border-left:3px solid var(--pp);
+    border-radius:8px;padding:16px 18px;margin:16px 0}
+  .steel h3{color:var(--pp);margin-top:0}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;margin:14px 0}
+  .cardhd{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--cy);margin-bottom:6px;text-transform:uppercase}
+  .chart{width:100%;height:400px} .chart.sm{height:330px}
+  .leg{display:flex;gap:16px;justify-content:center;margin-top:8px;font-size:11px;font-family:var(--mono);flex-wrap:wrap}
+  .cap{color:var(--mut);font-size:.72rem;margin-top:8px;line-height:1.65;text-align:center}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.85rem}
+  th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:right}
+  th:first-child,td:first-child{text-align:left}
+  thead th{color:var(--cy);font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid var(--cy)}
+  tbody tr:hover{background:rgba(0,243,255,.03)}
+  .pos{color:var(--gr)} .neg{color:var(--rd)} .mut{color:var(--mut)}
+  hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+  .foot{color:var(--mut);font-size:.78rem;margin-top:30px;line-height:1.7}
+  ul{padding-left:20px} li{margin:6px 0}
+  code{font-family:var(--mono);color:var(--am);font-size:.85em}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a href="/" class="brand">◆ BLUE MORPHO</a>
+    <div class="nav"><a href="/industries.html">產業</a><a href="/stocks.html">個股</a><a href="/weekly.html">週報</a></div>
+  </div>
+
+  <div class="kick">Blue Morpho · 產業深度研究 · 資料截至 2026-07</div>
+  <h1>減肥藥 / GLP-1：效力戰打完了，第二幕是「可及性戰」</h1>
+
+  <div class="tldr">
+    第一幕（效力）已被定價完畢——LLY 封神（首家 $1T 藥廠）、NVO 被當結構性輸家（-75%）。
+    真正的錢在<b>第二幕的變數</b>：口服 + 政府定價把「可觸及人口」放大、把「單價」砍到 1/3。
+    獎勵函數從「效力最高」換成 <b class="pos">單位成本最低 × 可口服大規模鋪貨 × 讓人留得住（續用率）</b>。
+    <br><br>
+    傾向：<b class="pos">LLY 貴得有理</b>（orforglipron 是這論點最純表達）、<b class="neg">NVO 便宜有原因</b>（等止血、別抄底）、
+    而<b class="pos">最被忽略的變數是續用率</b>——約半數人一年內停藥，這是整個 TAM 敘事的分母。
+  </div>
+
+  <div class="warn">
+    <b>資料誠信</b>：NVO 營收 309B 是 <b>DKK</b>（≈$44B USD，別當成比 LLY 大）；VKTX/TERN/ALT 零營收臨床期、本益比無意義、不套估值；
+    個股成長為 TTM，NVO 的「衰退」是它自己的 2026 前瞻財測（口徑不同、分開講）；價格數字為 2026 政策協議、隨政治會動。
+  </div>
+
+  <h2>第一幕：效力戰，LLY 已經贏了（基準）</h2>
+  <p><b>NVO 崩了</b>：自 2024/6 高點 -75%、市值 $640B→<$160B；2026 財測是現代史上首次營收衰退（-5%~-13%）。次世代 CagriSema 頭對頭 20% 減重輸 Zepbound 的 24%。
+    （<a href="https://www.cnbc.com/2026/02/25/novo-nordisk-stock-nvo-lly-eli-lilly-ozempic-weight-loss-obesity.html">CNBC</a>、<a href="https://www.biopharmadive.com/news/novo-nordisk-cagrisema-zepbound-head-to-head-results/812810/">BioPharma Dive</a>）</p>
+  <p><b>LLY 封神</b>：GLP-1 銷售超車 NVO、成史上首家 $1T 藥廠；賣方估 2030 LLY 藥品營收 $113B（含 Mounjaro/Zepbound $62B）。
+    （<a href="https://www.fiercepharma.com/pharma/2030-eli-lilly-will-generate-113b-drug-sales-including-62b-mounjaro-zepbound-evaluate">FiercePharma</a>）這一幕已在價格裡；沒被定價的是第二幕。</p>
+
+  <h2>第二幕：可及性戰（口服 + 定價）</h2>
+  <p><b>① 口服上桌</b>：LLY <code>orforglipron</code>（Foundayo）ATTAIN-1 減重 ~27 lbs（~10.5%）、頭對頭優於口服 sema、正全球申請減重。效力不及注射（tirzepatide ~20%+），但口服＝無冷鏈、易量產、觸及基層。
+    （<a href="https://investor.lilly.com/news-releases/news-release-details/lillys-oral-glp-1-orforglipron-successful-third-phase-3-trial">Lilly</a>）</p>
+  <p><b>② 定價砍 2/3、TAM 放大</b>：TrumpRx/MFN 把 Zepbound 從 >$1,080/月→約 $346；減重口服起始劑量 $149/月；Medicare/Medicaid $245、<b>首次為肥胖納保</b>、自付 $50。
+    （<a href="https://www.ajmc.com/view/trump-announces-deals-with-eli-lilly-novo-nordisk-for-lower-weight-loss-drug-prices">AJMC</a>、<a href="https://www.nbcnews.com/health/health-news/weight-loss-drug-prices-2026-glp-1-pills-trumprx-what-expect-rcna249520">NBC</a>）</p>
+
+  <h3>量化「以價換量」：產業金額變大還變小？（皆為估計、示意）</h3>
+  <table>
+    <thead><tr><th>槓桿</th><th>舊模式</th><th>新模式</th><th>方向</th></tr></thead>
+    <tbody>
+      <tr><td>年單價（淨）</td><td>~$6,000–13,000</td><td>~$1,800–4,200</td><td class="neg">÷ 約 3</td></tr>
+      <tr><td>可負擔/納保人口</td><td>自費為主</td><td>+Medicare 肥胖納保（受益人 ~6,500 萬大比例過重）</td><td class="pos">× 數倍</td></tr>
+      <tr><td>滲透率</td><td>個位數 %</td><td>隨可負擔上升</td><td class="pos">↑</td></tr>
+      <tr><td>續用率（乘數）</td><td>—</td><td>約半數一年內停</td><td class="neg">× ~0.5</td></tr>
+    </tbody>
+  </table>
+  <p><b>淨評估</b>：單價 ÷3、但「可負擔×納保×滲透」大概率 ×更多 → 產業總金額 base case 仍成長（賣方估 2030 站上 $100B+），
+    但<b>每張處方毛利被壓縮</b>，利潤往「單位成本最低、能規模化」的一端集中——這是為什麼贏家偏向小分子口服（業界共識、質化判斷，非精算）。</p>
+
+  <h2>供應鏈與利潤池（含口服重排）</h2>
+  <div class="card">
+    <div class="cardhd">GLP-1 價值鏈 · 注射版 vs 口服版</div>
+    <div id="sankey" class="chart"></div>
+    <div class="leg"><span style="color:var(--pp)">● 上游 原料/CDMO</span><span style="color:var(--cy)">● 中游 device/製造</span><span style="color:var(--gr)">● 下游 分銷/病人</span></div>
+    <div class="cap">結構示意（非金額比例）。<b>口服小分子跳過胜肽 API、冷鏈與注射 device 層</b>——所以注射 device 鏟子（STVN/WST）本質是「押注射版維持主流」，有口服天花板。</div>
+  </div>
+  <p><b>數字說話</b>：STVN $1.14B/+3%/fwdPE 21.6；<b class="neg">WST $3.07B/+6%/fwdPE 37.6（貴）</b>——GLP-1 熱潮下成長卻只個位數，device 紅利多半已被定價 + 口服懸頂。Novo 併 Catalent（充填）垂直整合，擠壓第三方 CDMO。<b>想賺賣鏟子的錢要挑，別追 WST 的 37x。</b></p>
+
+  <h2>續用率（adherence）——TAM 的分母，最被忽略</h2>
+  <div class="card">
+    <div class="cardhd">1 年後仍在用藥比例（%）· 越低＝TAM 越像一次性而非訂閱</div>
+    <div id="adh" class="chart sm"></div>
+    <div class="cap">純肥胖族一年後僅 ~35% 仍在用（停藥 64.8%）、糖尿病族 ~54%；但整體 1 年持續率由 2021 的 33% 改善到 2024 的 61%。
+      來源 <a href="https://www.ajmc.com/view/glp-1-ra-adherence-shows-drop-off-after-1-year">AJMC</a> / <a href="https://www.jmcp.org/doi/10.18553/jmcp.2026.32.3.281">JMCP</a>。</div>
+  </div>
+  <p>多頭把 GLP-1 當「終身訂閱收入」定價；若半數一年內停，recurring TAM 分母被砍。口服（更好服用）+ 納保可能拉高續用率、停藥反彈也真實——<b>這是決定 TAM 是訂閱還是一次性的樞紐</b>，所以它是第一要盯訊號。</p>
+
+  <h2>估值定位：誰被定價成什麼</h2>
+  <div class="card">
+    <div class="cardhd">fwd P/E（貴↔便宜） × 營收成長（高↔低）· 泡泡＝營收規模</div>
+    <div id="scatter" class="chart"></div>
+    <div class="cap">右上＝貴且高成長（LLY/HIMS）；左下＝便宜但衰退（NVO）；右下＝貴又慢（WST，最差）；左中＝便宜溫和（AMGN，最對稱）。NVO 成長取財測 -5/-13% 之中值。</div>
+  </div>
+  <table>
+    <thead><tr><th>標的</th><th>定位</th><th>營收</th><th>成長</th><th>營益率</th><th>fwd P/E</th><th>一句話</th></tr></thead>
+    <tbody>
+      <tr><td><b>LLY</b></td><td class="mut">雙龍頭</td><td>$65B</td><td class="pos">+45%</td><td>46%</td><td>27x</td><td>貴得有理；orforglipron 最純表達</td></tr>
+      <tr><td><b>NVO</b></td><td class="mut">失速龍頭</td><td>~$44B</td><td class="neg">前瞻負</td><td>41%</td><td>14.8x</td><td>定價的是「停滯」非死亡；賭復甦要證據</td></tr>
+      <tr><td><b>AMGN</b></td><td class="mut">選擇權+防禦</td><td>$37B</td><td>+10%</td><td>29%</td><td>15.4x</td><td>下檔有現金流、上檔 MariTide，最對稱</td></tr>
+      <tr><td><b>HIMS</b></td><td class="mut">分銷</td><td>$2.35B</td><td class="pos">+59%</td><td class="neg">4.5%</td><td>39x</td><td>薄毛利仲介，被 $149 直售+藥廠 DTC 夾殺</td></tr>
+      <tr><td><b>WST</b></td><td class="mut">device 鏟子</td><td>$3.07B</td><td>+6%</td><td>20%</td><td class="neg">37.6x</td><td>貴又慢，口服懸頂</td></tr>
+    </tbody>
+  </table>
+  <p><b>NVO 反推</b>：14.8x＝盈餘殖利率 ~6.8%，對 41% 營益率、指引衰退的龍頭——這已定價「永久停滯、無成長」，不是「死亡」。所以抄底＝<b>賭復甦</b>（份額止穩+口服放量），要硬數據；沒數據前更便宜也不奇怪。</p>
+
+  <div class="steel">
+    <h3>Steelman · 把對面最強版本擺上來</h3>
+    <ul>
+      <li><b>NVO 真被殺過頭</b>：81% 毛利、口服 Wegovy 剛加速、14.8x——若衰退是一次性重設、2027 恢復個位數成長，是十年一遇折價。<b>回應</b>：可能，但要份額止穩+口服放量硬數據，在那之前更便宜也不奇怪。</li>
+      <li><b>LLY 已定價完美</b>：$1T、27x，口服延遲或再砍價都可能大回檔。<b>回應</b>：同意上檔有限、下檔在；品質但不便宜，分批不追高。</li>
+      <li><b>續用率會大幅改善</b>：口服+納保+終身適應症（糖尿病/心血管）把停藥壓下去，訂閱敘事成立。<b>回應</b>：正是勝負手——所以列為第一要盯訊號，不是假設。</li>
+    </ul>
+  </div>
+
+  <h2>反向風險</h2>
+  <ul>
+    <li><b>定價再砍/MFN 擴大</b>：以價換量若「價」砍過頭，總金額與毛利雙縮。</li>
+    <li><b>口服競賽反轉</b>：NVO/VKTX 口服追上超車，LLY 結構優勢被抹平。</li>
+    <li><b>續用率不改善</b>：停在 ~50%，長期 TAM 是一次性而非訂閱，龍頭估值下修。</li>
+    <li><b>Compounding/專利懸崖</b>：仿製削價 + 專利到期壓縮定價權。</li>
+  </ul>
+
+  <h2>結論：讓部位表達論點（不只是買龍頭）</h2>
+  <table>
+    <thead><tr><th>定位</th><th>標的</th><th>這如何表達論點</th></tr></thead>
+    <tbody>
+      <tr><td class="pos">核心（純表達）</td><td><b>LLY</b></td><td>不是因為它是龍頭，是因為 orforglipron 口服＋低成本規模＋適應症擴張＝可及性戰贏家長相；分批不追高</td></tr>
+      <tr><td class="pos">便宜選擇權</td><td><b>AMGN</b></td><td>下檔現金流、上檔 MariTide，最對稱</td></tr>
+      <tr><td class="mut">觀望（別抄底）</td><td><b>NVO</b></td><td>14.8x 定價「停滯」；等份額止穩訊號再談復甦賭注</td></tr>
+      <tr><td class="mut">鏟子（低信心）</td><td>注射 device（STVN>WST）<b>或</b>口服小分子 CDMO/原料</td><td>賭注射續強 vs 認清口服換一批鏟子——挑，別追 WST 37x</td></tr>
+      <tr><td class="neg">存疑</td><td><b>HIMS</b></td><td>放量受益但被直售價差夾殺，護城河待證</td></tr>
+    </tbody>
+  </table>
+  <p><b>要盯的三個訊號</b>：① <b>續用率/持續率</b>是否續升（TAM 是訂閱還一次性——最重要）；② orforglipron 上市節奏 + 口服處方放量；③ NVO 份額是否止穩（連兩季不流失＝抄底才有論點）。</p>
+
+  <hr>
+  <div class="foot">
+    資料來源：orforglipron <a href="https://investor.lilly.com/news-releases/news-release-details/lillys-oral-glp-1-orforglipron-successful-third-phase-3-trial">Lilly</a> ·
+    NVO/CagriSema <a href="https://www.cnbc.com/2026/02/25/novo-nordisk-stock-nvo-lly-eli-lilly-ozempic-weight-loss-obesity.html">CNBC</a>/<a href="https://www.biopharmadive.com/news/novo-nordisk-cagrisema-zepbound-head-to-head-results/812810/">BioPharma Dive</a> ·
+    定價 <a href="https://www.ajmc.com/view/trump-announces-deals-with-eli-lilly-novo-nordisk-for-lower-weight-loss-drug-prices">AJMC</a>/<a href="https://www.nbcnews.com/health/health-news/weight-loss-drug-prices-2026-glp-1-pills-trumprx-what-expect-rcna249520">NBC</a> ·
+    2030 市場 <a href="https://www.fiercepharma.com/pharma/2030-eli-lilly-will-generate-113b-drug-sales-including-62b-mounjaro-zepbound-evaluate">FiercePharma</a> ·
+    續用率 <a href="https://www.ajmc.com/view/glp-1-ra-adherence-shows-drop-off-after-1-year">AJMC</a>/<a href="https://www.jmcp.org/doi/10.18553/jmcp.2026.32.3.281">JMCP</a> ·
+    供應鏈 <a href="https://www.stevanatogroup.com/en/markets/glp-1-peptides/">Stevanato</a> ·
+    個股財務：Blue Morpho 引擎（FMP + yfinance）TTM 快照，2026-07（NVO 為 DKK 換算）。<br>
+    本站僅供資訊與教育參考，非投資建議。© 2026 Blue Morpho。
+  </div>
+</div>
+
+<script>
+const MONO='"JetBrains Mono","SF Mono",monospace';
+const TIP={backgroundColor:'#0b0b1a',borderColor:'#1a2238',textStyle:{color:'#cfe3ee',fontFamily:MONO,fontSize:11}};
+const mk=id=>{const el=document.getElementById(id);const c=echarts.init(el,null,{renderer:'canvas'});window.addEventListener('resize',()=>c.resize());return c;};
+
+// ── 價值鏈 sankey(結構示意) ──
+mk('sankey').setOption({
+  backgroundColor:'transparent',animationDuration:800,
+  tooltip:Object.assign({trigger:'item',formatter:p=>p.dataType==='node'?`<b>${p.data.name}</b>`:`${p.data.source} → ${p.data.target}`},TIP),
+  series:[{type:'sankey',orient:'horizontal',nodeAlign:'justify',nodeWidth:16,nodeGap:12,layoutIterations:40,
+    left:12,right:96,top:14,bottom:14,
+    label:{position:'right',color:'#cfeaf2',fontFamily:MONO,fontSize:11},
+    lineStyle:{color:'gradient',opacity:0.4,curveness:0.5},emphasis:{focus:'adjacency',lineStyle:{opacity:0.85}},
+    levels:[{depth:0,itemStyle:{color:'#7a5cff'},lineStyle:{color:'source',opacity:.35}},
+            {depth:1,itemStyle:{color:'#00f3ff'},lineStyle:{color:'source',opacity:.35}},
+            {depth:2,itemStyle:{color:'#00ff9d'},lineStyle:{color:'source',opacity:.35}}],
+    data:[
+      {name:'胜肽 API',depth:0},{name:'CDMO 充填',depth:0},{name:'小分子 API(口服)',depth:0},
+      {name:'注射筆/PFS',depth:1},{name:'藥廠自建產能',depth:1},{name:'口服錠劑(跳過device)',depth:1},
+      {name:'分銷/藥局',depth:2},{name:'病人/支付方',depth:2}],
+    links:[
+      {source:'胜肽 API',target:'注射筆/PFS',value:3},{source:'胜肽 API',target:'藥廠自建產能',value:2},
+      {source:'CDMO 充填',target:'注射筆/PFS',value:2},{source:'CDMO 充填',target:'藥廠自建產能',value:2},
+      {source:'小分子 API(口服)',target:'口服錠劑(跳過device)',value:4},
+      {source:'注射筆/PFS',target:'分銷/藥局',value:3},{source:'藥廠自建產能',target:'分銷/藥局',value:3},
+      {source:'口服錠劑(跳過device)',target:'分銷/藥局',value:4},
+      {source:'分銷/藥局',target:'病人/支付方',value:10}]
+  }]
+});
+
+// ── 續用率 ──
+mk('adh').setOption({
+  backgroundColor:'transparent',grid:{left:40,right:14,top:16,bottom:44},
+  tooltip:Object.assign({trigger:'axis',valueFormatter:v=>v+'%'},TIP),
+  xAxis:{type:'category',data:['純肥胖\n12mo','糖尿病\n12mo','整體\n2021','整體\n2024'],axisLine:{lineStyle:{color:'#1a2238'}},axisLabel:{color:'#cfe3ee',fontFamily:MONO,fontSize:10,lineHeight:13}},
+  yAxis:{type:'value',max:100,axisLabel:{color:'#8895a8',fontFamily:MONO,fontSize:9,formatter:'{value}%'},splitLine:{lineStyle:{color:'#11161f'}}},
+  series:[{type:'bar',data:[
+      {value:35,itemStyle:{color:'#ffd000'}},{value:54,itemStyle:{color:'#ffd000'}},
+      {value:33,itemStyle:{color:'#ff5d5d'}},{value:61,itemStyle:{color:'#00ff9d'}}],
+    barWidth:34,itemStyle:{borderRadius:[3,3,0,0]},
+    label:{show:true,position:'top',color:'#cfe3ee',fontFamily:MONO,fontSize:11,formatter:'{c}%'}}]
+});
+
+// ── 估值定位散點 ──
+const S=(r)=>Math.max(10,Math.sqrt(r)*5.5);
+mk('scatter').setOption({
+  backgroundColor:'transparent',grid:{left:52,right:24,top:20,bottom:40},
+  tooltip:Object.assign({trigger:'item',formatter:p=>`<b>${p.data.name}</b><br>fwdP/E ${p.data.value[0]} · 成長 ${p.data.value[1]}% · 營收 $${p.data.value[2]}B`},TIP),
+  xAxis:{name:'fwd P/E →貴',nameTextStyle:{color:'#8895a8',fontFamily:MONO,fontSize:10},min:0,max:45,axisLine:{lineStyle:{color:'#1a2238'}},axisLabel:{color:'#8895a8',fontFamily:MONO,fontSize:9},splitLine:{lineStyle:{color:'#11161f'}}},
+  yAxis:{name:'營收成長% →高',nameTextStyle:{color:'#8895a8',fontFamily:MONO,fontSize:10},min:-20,max:65,axisLine:{lineStyle:{color:'#1a2238'}},axisLabel:{color:'#8895a8',fontFamily:MONO,fontSize:9,formatter:'{value}%'},splitLine:{lineStyle:{color:'#11161f'}}},
+  series:[{type:'scatter',symbolSize:d=>S(d[2]),
+    label:{show:true,formatter:p=>p.data.name,position:'right',color:'#cfe3ee',fontFamily:MONO,fontSize:11},
+    data:[
+      {name:'LLY',value:[27,45,65],itemStyle:{color:'#00ff9d'}},
+      {name:'NVO',value:[14.8,-9,44],itemStyle:{color:'#ffd000'}},
+      {name:'AMGN',value:[15.4,10,37],itemStyle:{color:'#00f3ff'}},
+      {name:'HIMS',value:[39,59,2.35],itemStyle:{color:'#ff5d5d'}},
+      {name:'WST',value:[37.6,6,3.07],itemStyle:{color:'#ff5d5d'}},
+      {name:'STVN',value:[21.6,3,1.14],itemStyle:{color:'#8895a8'}}]}]
+});
+</script>
+</body>
+</html>
