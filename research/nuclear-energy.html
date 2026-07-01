@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 電力的時間套利 — Blue Morpho 深度研究</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<style>
+  :root{ --bg:#02020a; --panel:#0b0b1a; --line:#1a2238;
+    --cy:#00f3ff; --gr:#00ff9d; --rd:#ff5d5d; --am:#ffd000; --pp:#7a5cff;
+    --tx:#e0f7fa; --tx2:#cfe3ee; --mut:#8895a8;
+    --mono:"JetBrains Mono","SF Mono","Menlo","Consolas",monospace;
+    --sans:-apple-system,"PingFang TC","Noto Sans TC",sans-serif; }
+  *{box-sizing:border-box}
+  html,body{margin:0;overflow-x:hidden;max-width:100%}
+  body{background:var(--bg);color:var(--tx2);font-family:var(--sans);line-height:1.8;
+    background-image:radial-gradient(1200px 600px at 70% -10%,rgba(0,243,255,.06),transparent 60%);}
+  .wrap{max-width:860px;margin:0 auto;padding:32px 20px 80px}
+  .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;font-family:var(--mono);font-size:12px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+  .topbar a{text-decoration:none}
+  .topbar .brand{color:var(--cy);letter-spacing:.2em;font-weight:700}
+  .topbar .nav a{color:var(--mut);margin-left:16px} .topbar .nav a:hover{color:var(--cy)}
+  .kick{font-family:var(--mono);font-size:12px;letter-spacing:.22em;color:var(--cy);text-transform:uppercase}
+  h1{font-family:var(--mono);font-size:clamp(1.35rem,4vw,2rem);line-height:1.25;color:var(--tx);font-weight:700;margin:6px 0 14px}
+  h2{font-family:var(--mono);font-size:1.05rem;color:var(--cy);margin:36px 0 10px;letter-spacing:.04em}
+  h2::before{content:"▎ ";color:var(--cy)}
+  p{margin:10px 0} b,strong{color:var(--tx)}
+  a{color:var(--cy);text-decoration:none;border-bottom:1px solid rgba(0,243,255,.3)}
+  .hook{font-size:1.02rem;color:var(--tx2);border-left:3px solid var(--pp);padding:4px 0 4px 16px;margin:16px 0}
+  .tldr{background:linear-gradient(180deg,rgba(0,243,255,.06),transparent);border:1px solid var(--line);border-left:3px solid var(--cy);border-radius:8px;padding:16px 18px;margin:14px 0;font-size:.95rem}
+  .warn{background:rgba(255,208,0,.05);border:1px solid rgba(255,208,0,.3);border-left:3px solid var(--am);border-radius:8px;padding:14px 16px;margin:14px 0;font-size:.88rem;color:#ffe9a8}
+  .steel{background:rgba(122,92,255,.06);border:1px solid rgba(122,92,255,.4);border-left:3px solid var(--pp);border-radius:8px;padding:16px 18px;margin:16px 0}
+  .steel h3{color:var(--pp);margin-top:0}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;margin:14px 0}
+  .cardhd{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--cy);margin-bottom:6px;text-transform:uppercase}
+  .chart{width:100%;height:360px}
+  .leg{display:flex;gap:16px;justify-content:center;margin-top:8px;font-size:11px;font-family:var(--mono);flex-wrap:wrap}
+  .cap{color:var(--mut);font-size:.72rem;margin-top:8px;line-height:1.65;text-align:center}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.85rem}
+  th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:right}
+  th:first-child,td:first-child{text-align:left}
+  thead th{color:var(--cy);font-family:var(--mono);font-size:11px;letter-spacing:.05em;text-transform:uppercase;border-bottom:1px solid var(--cy)}
+  tbody tr:hover{background:rgba(0,243,255,.03)}
+  .pos{color:var(--gr)} .neg{color:var(--rd)} .mut{color:var(--mut)} .pp{color:var(--pp)}
+  hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+  .foot{color:var(--mut);font-size:.78rem;margin-top:30px;line-height:1.7}
+  ul{padding-left:20px} li{margin:6px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a href="/" class="brand">◆ BLUE MORPHO</a>
+    <div class="nav"><a href="/industries.html">產業</a><a href="/stocks.html">個股</a><a href="/weekly.html">週報</a></div>
+  </div>
+
+  <div class="kick">Blue Morpho · 產業深度研究 · 資料截至 2026-07</div>
+  <h1>AI 電力的時間套利：市場為「十年後發電」付天價，卻賤賣「2027 就收支票」的核電</h1>
+
+  <div class="hook">
+    市場願意為 OKLO、NuScale（SMR）這些<b>零營收、2030 年代才可能發電</b>的公司付上百億市值；
+    同一時間，用 <b>18 倍本益比</b>賤賣手上握著微軟 <b class="pos">$16B、20 年 PPA</b>、<b>2027 就開始供電收錢</b>的既有核電龍頭（CEG）。
+    這是一場<b>時間套利</b>——市場為「最遠、最不確定」的付最多，為「最近、最確定」的付最少。
+  </div>
+
+  <div class="tldr">
+    AI 電力缺口是真的，但<b>時間軸決定誰何時收到錢</b>：近 3 年靠天然氣、2027+ 靠既有核電、2030 年代才輪到 SMR。
+    錢在最近的一端，敘事溢價卻堆在最遠的一端。用毛利率與品質調整倍數看，
+    <b class="pos">既有核電龍頭 CEG（76% 毛利、品質調整最便宜 24）是最被低估的現金端</b>；
+    而被熱炒的賣鏟子（CCJ 鈾、GEV 燃氣輪機）與 SMR 夢，反而最貴。
+  </div>
+
+  <div class="warn"><b>資料誠信</b>：引擎本輪未回傳絕對股價，故<b>不設價格目標、不算報酬</b>；SMR（OKLO/NNE/NuScale）零營收→負本益比無意義、當選擇權；TLN 當期虧損（Amazon PPA 是未來）→重估故事非盈餘。</div>
+
+  <h2>一、先 size：AI 電力缺口有多大？</h2>
+  <p>沒有數字就沒有論點。美國資料中心用電占比正在翻倍——但更關鍵的是<b>供給根本補不上</b>：</p>
+  <div class="card">
+    <div class="cardhd">美國資料中心佔全國電力（%）· 5 年翻倍</div>
+    <div id="demand" class="chart"></div>
+    <div class="cap">從 2023 的 4% → 2030 約 9–12%；用電量 224→606 TWh（+130%）。
+      但 DOE 說 2030 前光資料中心就需 <b>50+ GW 新產能</b>，而科技業已簽的核電只有 <b>~9.8 GW</b>——
+      缺口只能靠天然氣先填，且<b>電力稀缺＝既有電力擁有者有定價權</b>。
+      來源 <a href="https://www.eenews.net/articles/data-centers-may-use-9-percent-of-us-electricity-by-2030-report-finds/">E&E/DOE</a>、<a href="https://www.iea.org/reports/energy-and-ai/energy-supply-for-ai">IEA</a>。</div>
+  </div>
+
+  <h2>二、時間軸：誰何時供電、誰何時收錢</h2>
+  <p>AI 已簽 <b>9.8 GW 核電</b>（13 案）。但供電時程分三段，這是全篇骨架——而市場的溢價順序剛好相反：</p>
+  <table>
+    <thead><tr><th>時段</th><th>靠什麼發電</th><th>誰收到錢</th><th>市場怎麼定價</th></tr></thead>
+    <tbody>
+      <tr><td>近 3 年(2025–27)</td><td>天然氣（可即時併網）</td><td>GEV 燃氣輪機</td><td class="neg">GEV 48x，已定價</td></tr>
+      <tr><td>2027+</td><td>既有核電重啟/擴約</td><td><b>CEG</b>（三哩島 2027）、TLN、Meta-Clinton</td><td class="pos">CEG 18x，被低估</td></tr>
+      <tr><td>2030 年代</td><td>SMR（Oklo/X-energy/Kairos）</td><td>OKLO/NNE/NuScale</td><td class="neg">零營收，天價敘事溢價</td></tr>
+    </tbody>
+  </table>
+  <p class="mut" style="font-size:.85rem">一句話：「gas 填近 3 年、核電填 2027+、SMR 是 2030s」——但溢價順序倒置，最遠的付最多。</p>
+
+  <h2>三、毛利率＝誰有護城河</h2>
+  <div class="card">
+    <div class="cardhd">毛利率（%）· 既有核電 vs 賣鏟子 vs 夢</div>
+    <div id="gm" class="chart"></div>
+    <div class="leg"><span style="color:var(--gr)">● 既有核電/發電</span><span style="color:var(--am)">● 賣鏟子(鈾/設備)</span></div>
+    <div class="cap"><b>CEG 76% 毛利</b>：電廠折舊完、核燃料極低成本→每度賣 hyperscaler 的電幾乎純利，這是最深的護城河。
+      ⚠ 毛利率跨業務有雜訊：<b>VST/NRG 含零售（買電轉售→高 COGS→結構性低毛利），不是純發電</b>；CEG 的 76% 最能代表「純核電」的護城河。</div>
+  </div>
+
+  <h2>四、現金端：既有核電正在簽大支票（把溢價量化）</h2>
+  <p><b>CEG</b>：微軟 <b>$16B、20 年 PPA</b> 重啟三哩島（835MW，2027）；Meta 買 Clinton（2027）。
+    <b>關鍵數學</b>：三哩島 PPA 報導價約 <b>$110/MWh</b>（vs 賓州 merchant ~$40–50）＝<b>2 倍以上溢價</b>；
+    而既有核電的<b>邊際成本近零</b>（機組已折舊、鈾燃料便宜）——所以那多出來的每一度電，<b class="pos">幾乎是純利落袋</b>。這就是 CEG 牛市的引擎，且<b>不需要蓋任何新電廠</b>。</p>
+  <div class="card">
+    <div class="cardhd">利潤池 · 營業利益 $B（TTM）· 誰真的在賺錢</div>
+    <div id="pool" class="chart"></div>
+    <div class="cap">真正在賺錢的是既有電廠與設備商（CEG $3.1B）；SMR（OKLO/NNE/NuScale）≈ $0。TLN 當期虧損、賭 Amazon PPA 兌現。</div>
+  </div>
+
+  <h2>五、估值倒置：毛利率×估值一起看</h2>
+  <p>用「毛利品質調整倍數＝fwd P/E ÷ 毛利率」（示意啟發式）——結果是完美的時間軸倒置：</p>
+  <div class="card">
+    <div class="cardhd">毛利率（→高）× fwd P/E（→貴）· 泡泡＝營業利益$</div>
+    <div id="val" class="chart"></div>
+    <div class="cap">右下＝高毛利又便宜（<b>CEG</b>，甜蜜點）；上方＝貴（GEV/CCJ/BWXT）。SMR 無盈餘→不在圖上。
+      ⚠ P/E÷GM 對<b>薄毛利設備商（GEV）過度懲罰</b>（它 GM 低是業務性質）；GEV 真正該擔心的是 <b>48x 循環頂</b>，不是 239。</div>
+  </div>
+  <table>
+    <thead><tr><th>公司</th><th>角色</th><th>fwd P/E</th><th>毛利率</th><th>P/E÷GM</th></tr></thead>
+    <tbody>
+      <tr><td><b>CEG</b></td><td>既有核電(現金)</td><td>18.4x</td><td class="pos">76%</td><td class="pos">24</td></tr>
+      <tr><td>TLN</td><td>核電重估</td><td>12.8x</td><td>38%</td><td>34</td></tr>
+      <tr><td>VST</td><td>核+氣</td><td>14.7x</td><td>18%</td><td>84</td></tr>
+      <tr><td>VRT</td><td>資料中心電力</td><td>37.8x</td><td>34%</td><td>111</td></tr>
+      <tr><td>BWXT</td><td>海軍+SMR 元件</td><td>37.5x</td><td>23%</td><td>163</td></tr>
+      <tr><td><b>CCJ</b></td><td>鈾(賣鏟子)</td><td>54.4x</td><td>27%</td><td class="neg">201</td></tr>
+      <tr><td><b>GEV</b></td><td>燃氣輪機(賣鏟子)</td><td>47.9x</td><td>20%</td><td class="neg">239*</td></tr>
+      <tr><td>OKLO/NNE/SMR</td><td>SMR 夢</td><td>負</td><td>—</td><td>n/a</td></tr>
+    </tbody>
+  </table>
+  <p><b>這張表就是論點</b>：市場把最高溢價付給<b>最遠的夢（SMR）與最熱的鏟子（GEV/CCJ）</b>，卻用<b>品質調整 24 倍</b>賤賣<b>最近、最確定、毛利最高</b>的 CEG。
+    <b class="pos">你不用賭 SMR 十年後成不成，也不用追 48 倍的 GEV——可以用最低的品質調整倍數，買到握著微軟 20 年支票的 76% 毛利核電。</b></p>
+
+  <h2>六、財務模型（情境 EPS，不設價格目標）</h2>
+  <div class="card">
+    <div class="cardhd">CEG 情境 EPS · 3 年後（Bear / Base / Bull）</div>
+    <div id="ceg" class="chart"></div>
+    <div class="cap">牛市靠「AI 對既有核電付溢價 × 近零邊際成本＝超高增量利潤」，且不需賭新建——全表最硬的下檔 + 真實上檔。</div>
+  </div>
+  <table>
+    <thead><tr><th>公司</th><th>3yr 假設(營收CAGR·營益率)</th><th>EPS 熊/基/牛</th><th>已 priced in 什麼</th></tr></thead>
+    <tbody>
+      <tr><td><b>CEG</b></td><td>+5/9/13% · 12/15/18%</td><td>$8.3/$11.1/$14.3</td><td>18x／調整 24——最不對稱向上</td></tr>
+      <tr><td><b>VST</b></td><td>−3/+8/+15% · 8/11/14%</td><td>$2.5/$4.0/$5.5</td><td>14.7x price 了 merchant 波動；電價走高→上修</td></tr>
+      <tr><td><b>GEV</b></td><td>+8/12/16% · 4/7/10%</td><td>$18/$28/$38</td><td>48x price 了 base-to-bull；燃氣循環滾動→殺</td></tr>
+      <tr><td><b>VRT</b></td><td>+15/25/32% · 18/20/22%</td><td>$3.5/$6.5/$8.5</td><td>38x price 了高成長；capex 放緩→回檔</td></tr>
+      <tr><td>SMR/OKLO/NNE</td><td>不套 EPS（2030s 選擇權）</td><td>—</td><td>零營收；小注當樂透</td></tr>
+    </tbody>
+  </table>
+
+  <div class="steel">
+    <h3>Steelman · 對面最強</h3>
+    <ul>
+      <li><b>SMR 是下一個十年的 NVDA</b>：AI 電力無限、SMR 是唯一可規模化的乾淨基載，早買早贏。<b>回應</b>：可能，但零營收 + 2030s 落地 + 執行風險（NuScale 曾取消專案）＝這是選擇權不是持股，小注即可。</li>
+      <li><b>GEV 值 48x</b>：燃氣輪機超級循環、backlog 排到 2028、近 3 年唯一能供電的答案。<b>回應</b>：近端贏家沒錯，但循環股在頂點給 48x 是把好幾年好事付光。</li>
+      <li><b>CEG 受管制、上檔有頂</b>：電價/監管限制它從 AI 賺超額。<b>回應</b>：部分成立——但 20 年 PPA 正是「繞過現貨、鎖定溢價」，且既有核電稀缺、重置成本極高。</li>
+    </ul>
+  </div>
+
+  <h2>七、反向風險</h2>
+  <ul>
+    <li><b>AI capex / 電力需求放緩</b>：整條（gas→核→SMR）一起回檔。</li>
+    <li><b>PPA 政治/監管風險</b>：三哩島重啟、跨州電力、資料中心加價的監管變數。</li>
+    <li><b>天然氣便宜太久</b>：氣價低、供給足→核電/SMR 急迫性下降。</li>
+    <li><b>SMR 執行</b>：技術/成本/工期延，選擇權歸零（NuScale 有前科）。</li>
+  </ul>
+
+  <h2>八、結論與訊號</h2>
+  <table>
+    <thead><tr><th>定位</th><th>標的</th><th>理由（毛利率＋時間軸＋估值）</th></tr></thead>
+    <tbody>
+      <tr><td class="pos">核心（最對稱）</td><td><b>CEG</b></td><td>76% 毛利、$16B 微軟 PPA、2027 供電、品質調整最便宜(24)；最確定的 AI 現金端</td></tr>
+      <tr><td class="pos">電價槓桿</td><td><b>VST</b></td><td>核+氣、14.7x；AI 讓電價走高的槓桿，毛利薄要挑時機</td></tr>
+      <tr><td class="mut">重估選擇權</td><td><b>TLN</b></td><td>Amazon PPA 兌現＝重估；當期虧損，中注</td></tr>
+      <tr><td class="mut">賣鏟子（貴）</td><td><b>GEV/CCJ/VRT</b></td><td>吃整波紅利，但品質調整最貴；別追高、等回檔</td></tr>
+      <tr><td class="neg">樂透（小注）</td><td><b>OKLO/NNE/SMR</b></td><td>2030s 選擇權，零營收，控制部位</td></tr>
+    </tbody>
+  </table>
+  <p><b>要盯的訊號</b>：① 既有核電 PPA 電價（AI 願付多少溢價＝CEG 上檔）；② 三哩島/Clinton 重啟進度（2027 兌現）；③ 天然氣價 vs 核電急迫性；④ SMR 首度商業供電時程（每延一次，夢端該打折）；⑤ AI capex 水位。</p>
+
+  <hr>
+  <div class="foot">
+    資料來源：核電資料中心交易 <a href="https://smrintel.com/nuclear-data-center-deals/">smrintel</a>/<a href="https://carnegieendowment.org/research/2026/06/beyond-the-hype-assessing-hyperscaler-nuclear-commitments-against-u.s.-energy-realities">Carnegie</a> ·
+    電力缺口 <a href="https://www.eenews.net/articles/data-centers-may-use-9-percent-of-us-electricity-by-2030-report-finds/">E&E/DOE</a>/<a href="https://www.iea.org/reports/energy-and-ai/energy-supply-for-ai">IEA</a> ·
+    微軟-CEG / Amazon-TLN <a href="https://enkiai.com/nuclear/microsoft-constellation-ai-data-centers/">enkiai</a> ·
+    核 vs 氣 <a href="https://www.lambdafin.com/articles/nuclear-vs-natural-gas-ai-datacenters">Lambda Finance</a> ·
+    個股財務：Blue Morpho 引擎（FMP + yfinance）TTM 快照，2026-07（⚠ 未回傳絕對報價，故不設價格目標）。<br>
+    本站僅供資訊與教育參考，非投資建議。© 2026 Blue Morpho。
+  </div>
+</div>
+
+<script>
+const MONO='"JetBrains Mono","SF Mono",monospace';
+const TIP={backgroundColor:'#0b0b1a',borderColor:'#1a2238',textStyle:{color:'#cfe3ee',fontFamily:MONO,fontSize:11}};
+const mk=id=>{const c=echarts.init(document.getElementById(id),null,{renderer:'canvas'});window.addEventListener('resize',()=>c.resize());return c;};
+
+// ── 電力需求 % ──
+mk('demand').setOption({
+  backgroundColor:'transparent',grid:{left:44,right:14,top:16,bottom:28},
+  tooltip:Object.assign({trigger:'axis',valueFormatter:v=>v+'%'},TIP),
+  xAxis:{type:'category',data:['2023','2025','2030e'],axisLine:{lineStyle:{color:'#1a2238'}},axisLabel:{color:'#cfe3ee',fontFamily:MONO,fontSize:11}},
+  yAxis:{type:'value',max:14,axisLabel:{color:'#8895a8',fontFamily:MONO,fontSize:9,formatter:'{value}%'},splitLine:{lineStyle:{color:'#11161f'}}},
+  series:[{type:'bar',barWidth:44,itemStyle:{color:'#00f3ff',borderRadius:[3,3,0,0]},
+    label:{show:true,position:'top',color:'#00f3ff',fontFamily:MONO,fontSize:11,formatter:'{c}%'},
+    data:[4,6,11]}]
+});
+
+// ── 毛利率 ──
+mk('gm').setOption({
+  backgroundColor:'transparent',grid:{left:44,right:14,top:16,bottom:28},
+  tooltip:Object.assign({trigger:'axis',valueFormatter:v=>v+'%'},TIP),
+  xAxis:{type:'category',data:['CEG','TLN','VRT','CCJ','BWXT','NRG','GEV','VST'],axisLine:{lineStyle:{color:'#1a2238'}},axisLabel:{color:'#cfe3ee',fontFamily:MONO,fontSize:10}},
+  yAxis:{type:'value',max:85,axisLabel:{color:'#8895a8',fontFamily:MONO,fontSize:9,formatter:'{value}%'},splitLine:{lineStyle:{color:'#11161f'}}},
+  series:[{type:'bar',barWidth:24,itemStyle:{borderRadius:[3,3,0,0]},
+    label:{show:true,position:'top',color:'#cfe3ee',fontFamily:MONO,fontSize:9,formatter:'{c}%'},
+    data:[{value:76,itemStyle:{color:'#00ff9d'}},{value:38,itemStyle:{color:'#00ff9d'}},
+          {value:34,itemStyle:{color:'#ffd000'}},{value:27,itemStyle:{color:'#ffd000'}},
+          {value:23,itemStyle:{color:'#ffd000'}},{value:22,itemStyle:{color:'#00ff9d'}},
+          {value:20,itemStyle:{color:'#ffd000'}},{value:17.5,itemStyle:{color:'#00ff9d'}}]}]
+});
+
+// ── 利潤池 ──
+mk('pool').setOption({
+  backgroundColor:'transparent',grid:{left:44,right:14,top:16,bottom:28},
+  tooltip:Object.assign({trigger:'axis',valueFormatter:v=>'$'+v+'B'},TIP),
+  xAxis:{type:'category',data:['CEG','VRT','GEV','VST','CCJ','BWXT','TLN'],axisLine:{lineStyle:{color:'#1a2238'}},axisLabel:{color:'#cfe3ee',fontFamily:MONO,fontSize:10}},
+  yAxis:{type:'value',axisLabel:{color:'#8895a8',fontFamily:MONO,fontSize:9,formatter:'${value}B'},splitLine:{lineStyle:{color:'#11161f'}}},
+  series:[{type:'bar',barWidth:28,itemStyle:{color:'#00ff9d',borderRadius:[3,3,0,0]},
+    label:{show:true,position:'top',color:'#00ff9d',fontFamily:MONO,fontSize:9,formatter:p=>'$'+p.value+'B'},
+    data:[3.1,1.9,1.4,1.34,0.58,0.32,0.02]}]
+});
+
+// ── 估值 × 毛利率 散點 ──
+const S=v=>Math.max(9,Math.sqrt(v+0.3)*7);
+mk('val').setOption({
+  backgroundColor:'transparent',grid:{left:44,right:24,top:20,bottom:40},
+  tooltip:Object.assign({trigger:'item',formatter:p=>`<b>${p.data.name}</b><br>毛利 ${p.data.value[0]}% · fwdP/E ${p.data.value[1]}x · 營業利益 $${p.data.value[2]}B`},TIP),
+  xAxis:{name:'毛利率 →高',nameTextStyle:{color:'#8895a8',fontFamily:MONO,fontSize:10},min:10,max:85,axisLine:{lineStyle:{color:'#1a2238'}},axisLabel:{color:'#8895a8',fontFamily:MONO,fontSize:9,formatter:'{value}%'},splitLine:{lineStyle:{color:'#11161f'}}},
+  yAxis:{name:'fwd P/E →貴',nameTextStyle:{color:'#8895a8',fontFamily:MONO,fontSize:10},min:0,max:60,axisLine:{lineStyle:{color:'#1a2238'}},axisLabel:{color:'#8895a8',fontFamily:MONO,fontSize:9},splitLine:{lineStyle:{color:'#11161f'}}},
+  series:[{type:'scatter',symbolSize:d=>S(d[2]),
+    label:{show:true,formatter:p=>p.data.name,position:'right',color:'#cfe3ee',fontFamily:MONO,fontSize:11},
+    data:[
+      {name:'CEG',value:[76,18.4,3.1],itemStyle:{color:'#00ff9d'}},
+      {name:'VST',value:[18,14.7,1.34],itemStyle:{color:'#00f3ff'}},
+      {name:'TLN',value:[38,12.8,0.02],itemStyle:{color:'#00f3ff'}},
+      {name:'VRT',value:[34,37.8,1.9],itemStyle:{color:'#ffd000'}},
+      {name:'BWXT',value:[23,37.5,0.32],itemStyle:{color:'#ffd000'}},
+      {name:'CCJ',value:[27,54.4,0.58],itemStyle:{color:'#ff5d5d'}},
+      {name:'GEV',value:[20,47.9,1.4],itemStyle:{color:'#ff5d5d'}}]}]
+});
+
+// ── CEG 情境 EPS ──
+mk('ceg').setOption({
+  backgroundColor:'transparent',grid:{left:40,right:14,top:16,bottom:28},
+  tooltip:Object.assign({trigger:'axis',valueFormatter:v=>'$'+v},TIP),
+  xAxis:{type:'category',data:['Bear','Base','Bull'],axisLine:{lineStyle:{color:'#1a2238'}},axisLabel:{color:'#cfe3ee',fontFamily:MONO,fontSize:11}},
+  yAxis:{type:'value',axisLabel:{color:'#8895a8',fontFamily:MONO,fontSize:9,formatter:'${value}'},splitLine:{lineStyle:{color:'#11161f'}}},
+  series:[{type:'bar',barWidth:48,itemStyle:{borderRadius:[3,3,0,0]},
+    label:{show:true,position:'top',color:'#cfe3ee',fontFamily:MONO,fontSize:11,formatter:'${c}'},
+    data:[{value:8.3,itemStyle:{color:'#ff5d5d'}},{value:11.1,itemStyle:{color:'#00f3ff'}},{value:14.3,itemStyle:{color:'#00ff9d'}}]}]
+});
+</script>
+</body>
+</html>
