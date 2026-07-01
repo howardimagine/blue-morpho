@@ -1,116 +1,112 @@
 {
   "as_of": "2026-05-15",
   "n_whales": 19,
-  "generated_at": "2026-06-30T00:05:57+00:00",
+  "generated_at": "2026-07-01T00:04:39+00:00",
   "stocks": [
     {
-      "symbol": "EXEL",
-      "name": "Exelixis, Inc.",
-      "theme": "Biotech — Oncology",
-      "signal": "sell",
-      "holders": 1,
-      "increased": 0,
-      "reduced": 1,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 20629918,
-      "total_held_fmt": "$21M",
-      "whales_fmt": "達利歐 Dalio $21M 減碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 20629918,
-          "action": "trim"
-        }
-      ]
-    },
-    {
-      "symbol": "WDC",
-      "name": "威騰電子",
-      "theme": "Memory (HBM / DRAM / NAND)",
+      "symbol": "TER",
+      "name": "泰瑞達",
+      "theme": "Semiconductor Equipment (WFE)",
       "signal": "buy",
-      "holders": 1,
+      "holders": 3,
       "increased": 1,
-      "reduced": 0,
-      "new_pos": 0,
+      "reduced": 1,
+      "new_pos": 1,
       "closed_pos": 0,
-      "total_held_usd": 67362559,
-      "total_held_fmt": "$67M",
-      "whales_fmt": "達利歐 Dalio $67M 加碼",
+      "total_held_usd": 1024845728,
+      "total_held_fmt": "$1.0B",
+      "whales_fmt": "Stephen Mandel $555M 新進 · 木頭姐 Cathie Wood $369M 減碼 · 達利歐 Dalio $100M 加碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
+          "name": "Stephen Mandel",
+          "value_usd": 555232819,
+          "action": "new"
+        },
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 369128978,
+          "action": "trim"
+        },
+        {
           "name": "達利歐 Dalio",
-          "value_usd": 67362559,
+          "value_usd": 100483931,
           "action": "add"
         }
       ]
     },
     {
-      "symbol": "ROK",
-      "name": "羅克韋爾自動化",
-      "theme": "Industrial Automation",
+      "symbol": "CIEN",
+      "name": "Ciena Corporation",
+      "theme": "Optical / AI Interconnect",
       "signal": "buy",
-      "holders": 4,
-      "increased": 1,
+      "holders": 3,
+      "increased": 0,
       "reduced": 1,
       "new_pos": 2,
       "closed_pos": 0,
-      "total_held_usd": 495771900,
-      "total_held_fmt": "$496M",
-      "whales_fmt": "Andreas Halvorsen $485M 新進 · 索羅斯 Soros $8M 新進 · 達利歐 Dalio $3M 加碼 · 木頭姐 Cathie Wood <$1M 減碼",
+      "total_held_usd": 370126059,
+      "total_held_fmt": "$370M",
+      "whales_fmt": "Stephen Mandel $314M 新進 · 達利歐 Dalio $56M 減碼 · Terry Smith — 新進",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "Andreas Halvorsen",
-          "value_usd": 484795343,
-          "action": "new"
-        },
-        {
-          "name": "索羅斯 Soros",
-          "value_usd": 7684943,
+          "name": "Stephen Mandel",
+          "value_usd": 314280726,
           "action": "new"
         },
         {
           "name": "達利歐 Dalio",
-          "value_usd": 3192847,
+          "value_usd": 55845333,
+          "action": "trim"
+        },
+        {
+          "name": "Terry Smith",
+          "value_usd": 0,
+          "action": "new"
+        }
+      ]
+    },
+    {
+      "symbol": "ISRG",
+      "name": "Intuitive Surgical",
+      "theme": "Healthcare AI",
+      "signal": "split",
+      "holders": 3,
+      "increased": 2,
+      "reduced": 1,
+      "new_pos": 0,
+      "closed_pos": 1,
+      "total_held_usd": 434026694,
+      "total_held_fmt": "$434M",
+      "whales_fmt": "Terry Smith — 清倉 · Philippe Laffont $394M 加碼 · 木頭姐 Cathie Wood $32M 加碼 · 達利歐 Dalio $8M 減碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "Terry Smith",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "Philippe Laffont",
+          "value_usd": 394250172,
           "action": "add"
         },
         {
           "name": "木頭姐 Cathie Wood",
-          "value_usd": 98767,
-          "action": "trim"
-        }
-      ]
-    },
-    {
-      "symbol": "AEHR",
-      "name": "Aehr Test",
-      "theme": "Semiconductor Equipment (WFE)",
-      "signal": "buy",
-      "holders": 1,
-      "increased": 0,
-      "reduced": 0,
-      "new_pos": 1,
-      "closed_pos": 0,
-      "total_held_usd": 291931,
-      "total_held_fmt": "<$1M",
-      "whales_fmt": "達利歐 Dalio <$1M 新進",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
+          "value_usd": 31804161,
+          "action": "add"
+        },
         {
           "name": "達利歐 Dalio",
-          "value_usd": 291931,
-          "action": "new"
+          "value_usd": 7972361,
+          "action": "trim"
         }
       ]
     }
