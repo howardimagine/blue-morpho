@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>光通訊 / AI 互連 — Blue Morpho 深度研究</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<style>
+  :root{ --bg:#02020a; --panel:#0b0b1a; --panel2:#0a0e17; --line:#1a2238;
+    --cy:#00f3ff; --gr:#00ff9d; --rd:#ff5d5d; --am:#ffd000; --pp:#7a5cff;
+    --tx:#e0f7fa; --tx2:#cfe3ee; --mut:#8895a8;
+    --mono:"JetBrains Mono","SF Mono","Menlo","Consolas",monospace;
+    --sans:-apple-system,"PingFang TC","Noto Sans TC",sans-serif; }
+  *{box-sizing:border-box}
+  html,body{margin:0;overflow-x:hidden;max-width:100%}
+  body{background:var(--bg);color:var(--tx2);font-family:var(--sans);line-height:1.8;
+    background-image:radial-gradient(1200px 600px at 70% -10%,rgba(0,243,255,.06),transparent 60%);}
+  .wrap{max-width:860px;margin:0 auto;padding:32px 20px 80px}
+  .kick{font-family:var(--mono);font-size:12px;letter-spacing:.22em;color:var(--cy);text-transform:uppercase}
+  h1{font-family:var(--mono);font-size:clamp(1.5rem,4.5vw,2.2rem);line-height:1.25;color:var(--tx);
+    font-weight:700;margin:6px 0 14px;letter-spacing:.01em}
+  h2{font-family:var(--mono);font-size:1.05rem;color:var(--cy);margin:36px 0 10px;letter-spacing:.04em}
+  h2::before{content:"▎ ";color:var(--cy)}
+  h3{font-size:1rem;color:var(--tx);margin:20px 0 6px}
+  p{margin:10px 0}
+  b,strong{color:var(--tx)}
+  a{color:var(--cy);text-decoration:none;border-bottom:1px solid rgba(0,243,255,.3)}
+  .tldr{background:linear-gradient(180deg,rgba(0,243,255,.06),transparent);border:1px solid var(--line);
+    border-left:3px solid var(--cy);border-radius:8px;padding:16px 18px;margin:14px 0;font-size:.95rem}
+  .warn{background:rgba(255,208,0,.05);border:1px solid rgba(255,208,0,.3);border-left:3px solid var(--am);
+    border-radius:8px;padding:14px 16px;margin:14px 0;font-size:.9rem;color:#ffe9a8}
+  .steel{background:rgba(122,92,255,.06);border:1px solid rgba(122,92,255,.4);border-left:3px solid var(--pp);
+    border-radius:8px;padding:16px 18px;margin:16px 0}
+  .steel h3{color:var(--pp);margin-top:0}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;margin:14px 0}
+  .cardhd{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--cy);margin-bottom:6px;text-transform:uppercase}
+  .chart{width:100%;height:420px}
+  .chart.sm{height:340px}
+  .leg{display:flex;gap:16px;justify-content:center;margin-top:8px;font-size:11px;font-family:var(--mono)}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.86rem}
+  th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:right}
+  th:first-child,td:first-child{text-align:left}
+  thead th{color:var(--cy);font-family:var(--mono);font-size:11px;letter-spacing:.06em;
+    text-transform:uppercase;border-bottom:1px solid var(--cy)}
+  tbody tr:hover{background:rgba(0,243,255,.03)}
+  .pos{color:var(--gr)} .neg{color:var(--rd)} .mut{color:var(--mut)}
+  .pill{display:inline-block;font-family:var(--mono);font-size:10px;padding:2px 8px;border-radius:4px;
+    border:1px solid var(--line);color:var(--mut)}
+  hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+  .foot{color:var(--mut);font-size:.78rem;margin-top:30px;line-height:1.7}
+  ul{padding-left:20px} li{margin:6px 0}
+  .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;
+    font-family:var(--mono);font-size:12px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+  .topbar a{border:0}
+  .topbar .brand{color:var(--cy);letter-spacing:.2em;font-weight:700}
+  .topbar .nav a{color:var(--mut);margin-left:16px}
+  .topbar .nav a:hover{color:var(--cy)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a href="/" class="brand">◆ BLUE MORPHO</a>
+    <div class="nav"><a href="/industries.html">產業</a><a href="/stocks.html">個股</a><a href="/weekly.html">週報</a></div>
+  </div>
+
+  <div class="kick">Blue Morpho · 產業深度研究</div>
+  <h1>光通訊 / AI 互連：被當成 NVDA 影子定價的一條鏈</h1>
+
+  <div class="tldr">
+    <b>一句話論點</b>：市場用同一個 AI-beta 定價整條光通訊鏈——GPU 好就全買、GPU 有雜音就全殺。
+    但層與層之間的<b>品質與獲利差距</b>被忽略了：真正決定贏家的是三個跟 GPU 出貨脫鉤的變數——
+    ① 電信/系統端的獨立循環（CIEN）、② 中國掌握七成模組供應的地緣兩面刃、③ 利潤池不在模組組裝、在美系元件與 DSP。
+    <br><br>
+    <span class="pill" style="border-color:var(--gr);color:var(--gr)">這是相對錯價 · 配對邏輯</span>
+    不是喊便宜（全鏈絕對估值都貴）。結論：<b class="pos">擁品質層（CIEN / COHR / CRDO）</b>、
+    <b class="neg">避組裝層（FN / AAOI）</b>。
+  </div>
+
+  <div class="warn">
+    <b>資料誠信</b>：個股 TTM 財務（營收/毛利/股數）取自引擎、可信；但部分<b>絕對股價與本益比在源頭內部不一致</b>
+    （某檔報價推回去的隱含淨利率遠高於實際），因此本文<b>不設價格目標</b>，估值一律用「獲利能力 + 相對」表達。
+  </div>
+
+  <h2>供應鏈與利潤流向</h2>
+  <p>先看錢怎麼流：上游光元件/DSP（有壁壘）→ 中游模組組裝（薄、七成在中國）→ 下游系統與買方。
+     資金流過中間那層，但幾乎不在那層留下利潤。</p>
+  <div class="card">
+    <div class="cardhd">Optical / AI Interconnect · 供應鏈 Sankey</div>
+    <div id="sankey" class="chart"></div>
+    <div class="leg">
+      <span style="color:var(--pp)">● 上游 元件/DSP</span>
+      <span style="color:var(--cy)">● 中游 模組/系統</span>
+      <span style="color:var(--gr)">● 下游 買方</span>
+    </div>
+  </div>
+
+  <h2>三個被忽略的獨立變數</h2>
+
+  <h3>變數一 · 電信 + 系統端的獨立循環（CIEN）</h3>
+  <p>CIEN 賣的是光傳輸系統與路由交換，不是模組。最新一季（FY26 Q2）營收 <b>$1.57B、+40% YoY</b>，
+     FY26 全年指引上修到 <b>$6.3B（+32%）</b>，在手訂單創紀錄 <b>$7.7B、能見度到 2027</b>。
+     （<a href="https://www.fierce-network.com/broadband/ciena-reports-q2-2026-revenue-157b-40-yoy">Fierce Network</a>）</p>
+  <p><b>但要誠實：CIEN 是混血，不是純獨立。</b> 雲端那條腿（占 46%、+70%）<b>本身就是</b> NVDA 影子那條，
+     占比過半、成長更快。真正跟 GPU 脫鉤的是<b>電信服務商 +28%（約占 54% 營收、對應約 $3.4B、年增約 $0.75B 的獨立營收）</b>
+     加上 $7.7B 訂單。所以正確說法是「一半 AI-beta + 一半獨立引擎 + 一年以上訂單」——這個組合讓它在 AI 降溫時的下檔明顯優於純模組股。</p>
+  <p><b>框架外訊號</b>：這季 CIEN 財報超預期、股價卻當天重挫 ~14%，還拖累整個板塊。
+     （<a href="https://www.tradingkey.com/analysis/stocks/us-stocks/261947939-ciena-cien-networking-ai-datacenter-earnings-beat-valuation-concerns-sector-selloff-order-supply-constraints-tradingkey">TradingKey</a>）
+     我不解讀成「錯殺」——51x 的股票跌 14% 也可能只是合理 de-rating；而是「一檔下檔較硬的標的被殺到基本面與情緒出現落差」，值得分批觀察，不是喊進場。</p>
+
+  <h3>變數二 · 中國掌握七成模組供應（兩面刃）</h3>
+  <p>中國廠合計約占全球光模組供應 <b>70%</b>，前十有七家；龍頭旭創（Innolight）市占 ~23.4%、800G 約 35%，
+     FY25 營收人民幣 382 億（+60%）、淨利 108 億（+109%），海外占 86.8%。
+     （<a href="https://photoncap.net/p/chinese-optical-modules-own-7-of">photoncap</a>）</p>
+  <ul>
+    <li><b class="pos">利多面</b>：美中若升級供應鏈管制，「模組供應安全」變主題，美系可替代產能被重估——一個跟 GPU 無關的地緣選擇權。</li>
+    <li><b class="neg">利空面（可能更大）</b>：七成供應意味成本與價格由中國定；旭創毛利做得起來又規模大，對美系模組/元件是<b>每天都在的價格與市佔壓力</b>。地緣重估是「可能不發生的選擇權」，中國價格壓力是「現實」。</li>
+    <li><b>淨評估</b>：對純組裝（FN/AAOI）偏空；對有技術壁壘的元件（COHR 雷射、CRDO DSP）影響較小、且較可能是那個地緣選擇權的受益者。強化的還是同一結論：往有壁壘的層靠。</li>
+  </ul>
+
+  <h3>變數三 · 利潤池不在組裝，在元件與 DSP</h3>
+  <p>一句話戳中：中國拿下前十的七席，為什麼賺錢的還是晶片/元件公司？因為模組組裝是可替代、薄毛利的一層。用美元量化（TTM，非嘴砲毛利率）：</p>
+  <div class="card">
+    <div class="cardhd">利潤池 · 誰把 AI 營收轉成利潤（$B）</div>
+    <div id="pool" class="chart sm"></div>
+    <div class="leg"><span style="color:var(--cy)">● 毛利 $</span><span style="color:var(--gr)">● 營業利益 $</span></div>
+  </div>
+  <p><b>punchline</b>：FN 手上流過 <b>$3.42B</b> AI 營收、只留下 <b>$0.41B</b> 毛利（12%）；
+     CRDO 用不到 COHR 一半的營收，賺到差不多的營業利益（$0.45B vs $0.55B）。錢在有壁壘的層。</p>
+
+  <h2>重點公司 · 獲利能力與情境建模</h2>
+  <p>用可信的 TTM 財務自己 build 情境 EPS（tax 21%、股數固定、調整後口徑），不靠髒報價、不設價格目標；
+     結論用「要多少成長才撐得住」的相對語言。</p>
+
+  <table>
+    <thead><tr><th>公司</th><th>層</th><th>營收</th><th>成長(TTM)</th><th>毛利</th><th>營益率</th><th>股數</th></tr></thead>
+    <tbody>
+      <tr><td><b>CIEN</b></td><td class="mut">系統</td><td>$4.77B</td><td>+19%</td><td>42%</td><td>6.5%*</td><td>145M</td></tr>
+      <tr><td><b>COHR</b></td><td class="mut">元件</td><td>$5.81B</td><td>+23%</td><td>35%</td><td>9.4%</td><td>155M</td></tr>
+      <tr><td><b>CRDO</b></td><td class="mut">DSP</td><td>$1.34B</td><td class="pos">+206%</td><td class="pos">68%</td><td class="pos">33%</td><td>188M</td></tr>
+      <tr><td><b>FN</b></td><td class="mut">組裝</td><td>$3.42B</td><td>+19%</td><td class="neg">12%</td><td>9.5%</td><td>36M</td></tr>
+    </tbody>
+  </table>
+  <p class="mut" style="font-size:.8rem">*CIEN 為 GAAP，受併購攤銷壓低；下方情境改用調整後營益率。</p>
+
+  <div class="card">
+    <div class="cardhd">情境 EPS · 2 年後（Bear / Base / Bull）</div>
+    <div id="scen" class="chart sm"></div>
+    <div class="leg"><span style="color:var(--rd)">● Bear</span><span style="color:var(--cy)">● Base</span><span style="color:var(--gr)">● Bull</span></div>
+  </div>
+
+  <p><b>CIEN｜base $6.0</b>：靠營益率從 GAAP 6.5% 修復到調整後 ~14%（管理層已朝此指引）+ 系統組合，
+     <b>不需靠 AI 續強就能達成</b>——下檔最硬。給 25-30x AI-系統倍數約 $150-180；請拿乾淨報價比再判空間。</p>
+  <p><b>COHR｜base $5.0</b>：整個故事是營益率從 9% 爬到 13-16%（II-VI 併購整合）。CPO 是結構利多
+     （NVDA 光學機會估 ~$23B，<a href="https://futurumgroup.com/insights/coherents-23-billion-growth-opportunity-lifted-by-nvidias-optical-ambitions/">Futurum</a>），
+     但當前 ROE 僅 0.6%、FCF 很薄——你買的是修復曲線，不是現金流。錯在整合不順、margin 不爬。</p>
+  <p><b>CRDO｜連 bull 也只有 $6.7</b>：而且 bull 假設兩年還維持 +80%/年。它品質全組最高（毛利 68%、營益 33%），
+     但<b>價格幾乎不含安全邊際</b>：成長從三位數掉到 +40%，倍數與 EPS 雙殺。好公司、等回檔。</p>
+  <p><b>FN（該減碼，但論證要對）</b>：它前瞻倍數其實是全組最低，「站上自身高點所以貴」站不住。
+     正確的空點是<b>結構</b>——毛利僅 12%、純組裝無定價權，最暴露於 CPO（跳過模組）+ 中國價格戰。
+     EPS 帳面漂亮（股數僅 36M），但那層獲利品質最脆。避開的理由是位置，不是「太貴」。</p>
+
+  <div class="steel">
+    <h3>Steelman · 為什麼「NVDA 影子」框架可能是對的</h3>
+    <p>誠實把對面最強的論點擺上來——打不倒它，這篇就不成立：</p>
+    <ul>
+      <li><b>邊際需求真的是 AI</b>：光通訊這兩年的營收爆發幾乎全來自 AI 資料中心；電信循環規模小、又慢，
+        「獨立變數」對整體成長的貢獻其實是配角。市場把它們當 AI-beta，可能只是<b>如實反映了增量來源</b>。</li>
+      <li><b>中國成本優勢是結構性的</b>：七成供應 + 成本領先不會因為一兩個政策事件反轉；
+        美系「在地化重估」的地緣選擇權，可能長期是價外。</li>
+      <li><b>CPO 反而收斂贏家</b>：若 NVDA 把光學往共封裝收，價值會集中到少數能供光引擎的玩家（COHR），
+        其餘（包含系統與模組）的差異化被壓縮——那「配對」的分散就沒意義。</li>
+      <li><b>估值全貴、且同漲同跌是有原因的</b>：當一籃子股票的基本面驅動高度重疊（都靠 hyperscaler capex），
+        高相關不是市場愚蠢，是<b>共同因子真的主導</b>。此時「挑層」的超額報酬可能比想像小。</li>
+    </ul>
+    <p><b>本文如何回應</b>：不否認 AI 是主引擎；主張的是「在同一個主引擎下，<b>下檔保護與獲利品質的差異</b>會在下一次
+      AI 雜音時被定價」——所以這是偏防禦性的相對配置，不是押注電信獨立循環會變主角。若你相信 AI capex 只會加速、
+      永不打嗝，這篇的 edge 對你就小。</p>
+  </div>
+
+  <h2>反向風險（什麼會殺死論點）</h2>
+  <ul>
+    <li><b>CPO 比預期快</b>：NVDA Quantum-X（InfiniBand）2026 上半、Spectrum-X 下半，但可插拔預計主導到 2027。
+      （<a href="https://www.tomshardware.com/networking/nvidia-outlines-plans-for-using-light-for-communication-between-ai-gpus-by-2026-silicon-photonics-and-co-packaged-optics-may-become-mandatory-for-next-gen-ai-data-centers">Tom's Hardware</a>）
+      若提前放量，傷模組（FN/AAOI）、反而利 COHR——這風險其實強化本論點方向。</li>
+    <li><b>中國價格戰下殺</b>：產能過剩打價格，全鏈毛利受壓，元件也難完全免疫。</li>
+    <li><b>超大規模自研</b>：hyperscaler 自研互連可能繞過供應商；CIEN 的路由交換仍靠 DCOM/Meta 帶動，客戶集中是軟肋。</li>
+    <li><b>全板塊估值太滿</b>：CIEN beat 仍跌 14%——對「利多不漲」很敏感，系統性重估風險在，進場分批、留現金。</li>
+  </ul>
+
+  <h2>結論 · 該擁誰、避誰、看什麼</h2>
+  <table>
+    <thead><tr><th>定位</th><th>標的</th><th>理由</th></tr></thead>
+    <tbody>
+      <tr><td class="pos">核心持有</td><td><b>CIEN</b></td><td>半 AI-beta + 半電信獨立引擎 + $7.7B 訂單；base EPS 靠營益率修復即達成、最不需 AI 續強，下檔最硬。分批不追高。</td></tr>
+      <tr><td class="pos">主題持有</td><td><b>COHR</b></td><td>CPO 結構受益者、元件護城河；盯 ROE/FCF 修復曲線，分批。</td></tr>
+      <tr><td class="mut">等回檔</td><td><b>CRDO</b></td><td>全組品質最高，但連 bull 都無安全邊際；回檔到成長常態化再議。</td></tr>
+      <tr><td class="neg">避開/減碼</td><td><b>FN、AAOI</b></td><td>純組裝、薄毛利、最暴露 CPO + 中國；避的是位置與品質，不是「太貴」。</td></tr>
+    </tbody>
+  </table>
+  <p><b>要盯的三個訊號（都跟 GPU 出貨無關，這才是重點）</b>：① 美中光模組供應管制任何升級 → 美系在地產能非對稱重估；
+     ② CIEN 電信服務商營收增速能否延續（不是雲端那條）；③ CPO 導入速度 → 快則利 COHR、傷 FN。</p>
+
+  <hr>
+  <div class="foot">
+    資料來源：CPO 時程 <a href="https://www.tomshardware.com/networking/nvidia-outlines-plans-for-using-light-for-communication-between-ai-gpus-by-2026-silicon-photonics-and-co-packaged-optics-may-become-mandatory-for-next-gen-ai-data-centers">Tom's Hardware</a> ·
+    Coherent $23B <a href="https://futurumgroup.com/insights/coherents-23-billion-growth-opportunity-lifted-by-nvidias-optical-ambitions/">Futurum</a> ·
+    CIEN FY26Q2 <a href="https://www.fierce-network.com/broadband/ciena-reports-q2-2026-revenue-157b-40-yoy">Fierce</a> /
+    <a href="https://www.tradingkey.com/analysis/stocks/us-stocks/261947939-ciena-cien-networking-ai-datacenter-earnings-beat-valuation-concerns-sector-selloff-order-supply-constraints-tradingkey">TradingKey</a> ·
+    中國供應 <a href="https://photoncap.net/p/chinese-optical-modules-own-7-of">photoncap</a> ·
+    個股財務：Blue Morpho 引擎（FMP + yfinance）TTM 快照，2026-07。<br>
+    本站僅供資訊與教育參考，非投資建議。© 2026 Blue Morpho。
+  </div>
+</div>
+
+<script>
+const MONO='"JetBrains Mono","SF Mono",monospace';
+const TIP={backgroundColor:'#0b0b1a',borderColor:'#1a2238',textStyle:{color:'#cfe3ee',fontFamily:MONO,fontSize:11}};
+function mk(id){const el=document.getElementById(id);const c=echarts.init(el,null,{renderer:'canvas'});
+  window.addEventListener('resize',()=>c.resize());return c;}
+
+// ── Sankey 供應鏈 ──
+mk('sankey').setOption({
+  backgroundColor:'transparent',animationDuration:800,
+  tooltip:Object.assign({trigger:'item',formatter:p=>p.dataType==='node'?`<b>${p.data.name}</b>`:`${p.data.source} → ${p.data.target}`},TIP),
+  series:[{type:'sankey',orient:'horizontal',nodeAlign:'justify',nodeWidth:16,nodeGap:11,layoutIterations:40,
+    left:12,right:78,top:14,bottom:14,curveness:0.5,
+    label:{position:'right',color:'#cfeaf2',fontFamily:MONO,fontSize:11},
+    lineStyle:{color:'gradient',opacity:0.4,curveness:0.5},
+    emphasis:{focus:'adjacency',lineStyle:{opacity:0.85}},
+    levels:[
+      {depth:0,itemStyle:{color:'#7a5cff'},lineStyle:{color:'source',opacity:.35}},
+      {depth:1,itemStyle:{color:'#00f3ff'},lineStyle:{color:'source',opacity:.35}},
+      {depth:2,itemStyle:{color:'#00ff9d'},lineStyle:{color:'source',opacity:.35}}],
+    data:[
+      {name:'COHR 雷射',depth:0},{name:'LITE 雷射',depth:0},{name:'MRVL DSP',depth:0},
+      {name:'CRDO DSP',depth:0},{name:'MTSI 矽光',depth:0},
+      {name:'中國模組',depth:1},{name:'FN 組裝',depth:1},{name:'AAOI 模組',depth:1},
+      {name:'CIEN 系統',depth:1},{name:'ANET 系統',depth:1},
+      {name:'NVDA',depth:2},{name:'雲端買方',depth:2}],
+    links:[
+      {source:'COHR 雷射',target:'中國模組',value:3},{source:'COHR 雷射',target:'FN 組裝',value:2},{source:'COHR 雷射',target:'CIEN 系統',value:2},
+      {source:'LITE 雷射',target:'中國模組',value:2},{source:'LITE 雷射',target:'FN 組裝',value:1},
+      {source:'MRVL DSP',target:'FN 組裝',value:2},{source:'MRVL DSP',target:'ANET 系統',value:2},
+      {source:'CRDO DSP',target:'FN 組裝',value:2},{source:'CRDO DSP',target:'ANET 系統',value:2},
+      {source:'MTSI 矽光',target:'AAOI 模組',value:1},{source:'MTSI 矽光',target:'FN 組裝',value:1},
+      {source:'中國模組',target:'NVDA',value:4},{source:'中國模組',target:'雲端買方',value:3},
+      {source:'FN 組裝',target:'NVDA',value:3},{source:'FN 組裝',target:'雲端買方',value:2},
+      {source:'AAOI 模組',target:'NVDA',value:1},
+      {source:'CIEN 系統',target:'雲端買方',value:3},
+      {source:'ANET 系統',target:'NVDA',value:2},{source:'ANET 系統',target:'雲端買方',value:2}]
+  }]
+});
+
+// ── 利潤池 ──
+mk('pool').setOption({
+  backgroundColor:'transparent',
+  grid:{left:44,right:14,top:16,bottom:28},
+  tooltip:Object.assign({trigger:'axis',valueFormatter:v=>'$'+v+'B'},TIP),
+  xAxis:{type:'category',data:['COHR','CIEN','CRDO','FN'],axisLine:{lineStyle:{color:'#1a2238'}},axisLabel:{color:'#cfe3ee',fontFamily:MONO,fontSize:11}},
+  yAxis:{type:'value',axisLabel:{color:'#8895a8',fontFamily:MONO,fontSize:9,formatter:'${value}B'},splitLine:{lineStyle:{color:'#11161f'}}},
+  series:[
+    {name:'毛利$',type:'bar',data:[2.06,2.00,0.91,0.41],itemStyle:{color:'#00f3ff',borderRadius:[3,3,0,0]},barWidth:16},
+    {name:'營業利益$',type:'bar',data:[0.55,0.31,0.45,0.32],itemStyle:{color:'#00ff9d',borderRadius:[3,3,0,0]},barWidth:16,
+      label:{show:true,position:'top',color:'#00ff9d',fontFamily:MONO,fontSize:10,formatter:p=>'$'+p.value+'B'}}]
+});
+
+// ── 情境 EPS ──
+mk('scen').setOption({
+  backgroundColor:'transparent',
+  grid:{left:40,right:14,top:16,bottom:28},
+  tooltip:Object.assign({trigger:'axis',valueFormatter:v=>'$'+v},TIP),
+  xAxis:{type:'category',data:['CIEN','COHR','CRDO'],axisLine:{lineStyle:{color:'#1a2238'}},axisLabel:{color:'#cfe3ee',fontFamily:MONO,fontSize:11}},
+  yAxis:{type:'value',axisLabel:{color:'#8895a8',fontFamily:MONO,fontSize:9,formatter:'${value}'},splitLine:{lineStyle:{color:'#11161f'}}},
+  series:[
+    {name:'Bear',type:'bar',data:[4.3,3.5,3.7],itemStyle:{color:'#ff5d5d',borderRadius:[3,3,0,0]},barWidth:14},
+    {name:'Base',type:'bar',data:[6.0,5.0,5.0],itemStyle:{color:'#00f3ff',borderRadius:[3,3,0,0]},barWidth:14,
+      label:{show:true,position:'top',color:'#00f3ff',fontFamily:MONO,fontSize:10,formatter:p=>'$'+p.value}},
+    {name:'Bull',type:'bar',data:[7.7,6.9,6.7],itemStyle:{color:'#00ff9d',borderRadius:[3,3,0,0]},barWidth:14}]
+});
+</script>
+</body>
+</html>
