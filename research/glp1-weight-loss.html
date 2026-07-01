@@ -138,6 +138,31 @@
   </table>
   <p><b>NVO 反推</b>：14.8x＝盈餘殖利率 ~6.8%，對 41% 營益率、指引衰退的龍頭——這已定價「永久停滯、無成長」，不是「死亡」。所以抄底＝<b>賭復甦</b>（份額止穩+口服放量），要硬數據；沒數據前更便宜也不奇怪。</p>
 
+  <h2>財務模型：情境 EPS 與隱含報酬</h2>
+  <p>把「貴/便宜」講成數字。以下用可信 TTM 財務 build <b>3 年後情境 EPS（調整後口徑）</b>、給防守到樂觀的出場倍數，反推隱含報酬。
+    <b>全為情境估計、非預測</b>，假設列在表內。臨床股（VKTX）與薄毛利仲介（HIMS）不套 EPS 模型、另述。</p>
+  <div class="card">
+    <div class="cardhd">3 年隱含報酬（vs 現價）· Bear / Base / Bull</div>
+    <div id="model" class="chart sm"></div>
+    <div class="leg"><span style="color:var(--rd)">● Bear</span><span style="color:var(--cy)">● Base</span><span style="color:var(--gr)">● Bull</span></div>
+  </div>
+  <table>
+    <thead><tr><th>標的</th><th>現價</th><th>假設(3yr 營收CAGR·淨利率)</th><th>EPS 熊/基/牛</th><th>出場 P/E</th><th>隱含報酬 熊/基/牛</th></tr></thead>
+    <tbody>
+      <tr><td><b>LLY</b></td><td>$1,199</td><td>+13/19/24% · 30/33/35%</td><td>$32 / $40 / $49</td><td>24/27/28x</td><td><span class="neg">−36%</span> / <span class="neg">−10%</span> / <span class="pos">+14%</span></td></tr>
+      <tr><td><b>NVO</b></td><td>$48</td><td>觸底→持平/+10% · 32-34%</td><td>$2.9 / $3.4 / $4.1</td><td>12/15/18x</td><td><span class="neg">−27%</span> / <span class="pos">+7%</span> / <span class="pos">+55%</span></td></tr>
+      <tr><td><b>AMGN</b></td><td>$362</td><td>+5/8/12% · 28-30%</td><td>$21 / $23 / $25.5</td><td>14/16/18x</td><td><span class="neg">−19%</span> / +2% / <span class="pos">+27%</span></td></tr>
+    </tbody>
+  </table>
+  <p>三個讀點（模型講出來、不是喊的）：</p>
+  <ul>
+    <li><b>LLY $1,199 已定價牛市</b>：base 情境就 −10%，要 orforglipron 口服放量 + 適應症擴張（bull）才撐得住——這是<b>「品質但下檔不對稱」</b>。分批、別追高。</li>
+    <li><b>NVO 賠率最大在 bull（+55%）</b>：但那要份額止穩 + 口服放量的硬數據；base 只 +7%、bear −27%。14.8x 定價「停滯」，抄底＝<b>賭復甦</b>，賠率不錯但要證據，不是看到便宜就進。</li>
+    <li><b>AMGN 最對稱</b>：bear 只 −19%（多元現金流墊下檔）、bull +27%（MariTide）——名副其實的<b>「便宜的選擇權」</b>。</li>
+  </ul>
+  <p><b>不套 EPS 模型的兩檔（誠實）</b>：<b>VKTX</b> 純二元——市值約等於把 VK2735 尖峰銷售 × 成功機率貼現；成功→潛在被併溢價、失敗→接近現金值，小注當樂透。
+    <b>HIMS</b> 39x/4.5% 營益，模型敏感度全在「take rate 會不會被 $149 直售 + 藥廠自營 DTC 壓縮」；take rate 一掉，再高成長也撐不住估值。</p>
+
   <div class="steel">
     <h3>Steelman · 把對面最強版本擺上來</h3>
     <ul>
@@ -240,6 +265,19 @@ mk('scatter').setOption({
       {name:'HIMS',value:[39,59,2.35],itemStyle:{color:'#ff5d5d'}},
       {name:'WST',value:[37.6,6,3.07],itemStyle:{color:'#ff5d5d'}},
       {name:'STVN',value:[21.6,3,1.14],itemStyle:{color:'#8895a8'}}]}]
+});
+
+// ── 財務模型:3 年隱含報酬 ──
+mk('model').setOption({
+  backgroundColor:'transparent',grid:{left:44,right:14,top:16,bottom:28},
+  tooltip:Object.assign({trigger:'axis',valueFormatter:v=>(v>0?'+':'')+v+'%'},TIP),
+  xAxis:{type:'category',data:['LLY','NVO','AMGN'],axisLine:{lineStyle:{color:'#1a2238'}},axisLabel:{color:'#cfe3ee',fontFamily:MONO,fontSize:11}},
+  yAxis:{type:'value',axisLabel:{color:'#8895a8',fontFamily:MONO,fontSize:9,formatter:'{value}%'},splitLine:{lineStyle:{color:'#11161f'}}},
+  series:[
+    {name:'Bear',type:'bar',data:[-36,-27,-19],itemStyle:{color:'#ff5d5d',borderRadius:[0,0,3,3]},barWidth:14},
+    {name:'Base',type:'bar',data:[-10,7,2],itemStyle:{color:'#00f3ff',borderRadius:3},barWidth:14,
+      label:{show:true,position:'top',color:'#00f3ff',fontFamily:MONO,fontSize:10,formatter:p=>(p.value>0?'+':'')+p.value+'%'}},
+    {name:'Bull',type:'bar',data:[14,55,27],itemStyle:{color:'#00ff9d',borderRadius:[3,3,0,0]},barWidth:14}]
 });
 </script>
 </body>
