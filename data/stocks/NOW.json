@@ -23,7 +23,7 @@
     {
       "key": "macro_context",
       "label": "總經環境",
-      "score": 5.5
+      "score": 5.0
     },
     {
       "key": "business_quality",
@@ -33,7 +33,7 @@
     {
       "key": "news_catalyst",
       "label": "新聞催化",
-      "score": null
+      "score": 7.8
     },
     {
       "key": "risk_reward",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-07-02",
+      "theme": "AI Software",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-06-16",
       "theme": "AI Software",

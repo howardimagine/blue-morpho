@@ -83,6 +83,11 @@
       "symbol": "C",
       "name": "Citigroup, Inc.",
       "tier": "ready"
+    },
+    {
+      "symbol": "GS",
+      "name": "Goldman Sachs Group, Inc. (The)",
+      "tier": "ready"
     }
   ],
   "price": 56.02,

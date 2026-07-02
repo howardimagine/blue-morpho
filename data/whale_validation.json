@@ -1,112 +1,204 @@
 {
   "as_of": "2026-05-15",
   "n_whales": 19,
-  "generated_at": "2026-07-01T00:04:39+00:00",
+  "generated_at": "2026-07-02T00:05:02+00:00",
   "stocks": [
     {
-      "symbol": "TER",
-      "name": "泰瑞達",
+      "symbol": "AMAT",
+      "name": "應用材料",
       "theme": "Semiconductor Equipment (WFE)",
       "signal": "buy",
-      "holders": 3,
+      "holders": 2,
       "increased": 1,
-      "reduced": 1,
+      "reduced": 0,
       "new_pos": 1,
       "closed_pos": 0,
-      "total_held_usd": 1024845728,
-      "total_held_fmt": "$1.0B",
-      "whales_fmt": "Stephen Mandel $555M 新進 · 木頭姐 Cathie Wood $369M 減碼 · 達利歐 Dalio $100M 加碼",
+      "total_held_usd": 20735762,
+      "total_held_fmt": "$21M",
+      "whales_fmt": "達利歐 Dalio $16M 加碼 · 索羅斯 Soros $4M 新進",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "Stephen Mandel",
-          "value_usd": 555232819,
-          "action": "new"
+          "name": "達利歐 Dalio",
+          "value_usd": 16258722,
+          "action": "add"
         },
         {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 369128978,
-          "action": "trim"
-        },
+          "name": "索羅斯 Soros",
+          "value_usd": 4477040,
+          "action": "new"
+        }
+      ]
+    },
+    {
+      "symbol": "C",
+      "name": "Citigroup, Inc.",
+      "theme": "Banks",
+      "signal": "buy",
+      "holders": 1,
+      "increased": 1,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 89981082,
+      "total_held_fmt": "$90M",
+      "whales_fmt": "達利歐 Dalio $90M 加碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
         {
           "name": "達利歐 Dalio",
-          "value_usd": 100483931,
+          "value_usd": 89981082,
           "action": "add"
         }
       ]
     },
     {
-      "symbol": "CIEN",
-      "name": "Ciena Corporation",
-      "theme": "Optical / AI Interconnect",
-      "signal": "buy",
-      "holders": 3,
+      "symbol": "GEV",
+      "name": "GE Vernova",
+      "theme": "Electrification / Power",
+      "signal": "sell",
+      "holders": 4,
       "increased": 0,
-      "reduced": 1,
-      "new_pos": 2,
+      "reduced": 3,
+      "new_pos": 0,
       "closed_pos": 0,
-      "total_held_usd": 370126059,
-      "total_held_fmt": "$370M",
-      "whales_fmt": "Stephen Mandel $314M 新進 · 達利歐 Dalio $56M 減碼 · Terry Smith — 新進",
+      "total_held_usd": 3476566366,
+      "total_held_fmt": "$3.5B",
+      "whales_fmt": "Philippe Laffont $2.2B 減碼 · Chase Coleman $849M 持有 · 達利歐 Dalio $380M 減碼 · 木頭姐 Cathie Wood $2M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "Stephen Mandel",
-          "value_usd": 314280726,
-          "action": "new"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 55845333,
+          "name": "Philippe Laffont",
+          "value_usd": 2245411301,
           "action": "trim"
         },
         {
-          "name": "Terry Smith",
-          "value_usd": 0,
-          "action": "new"
+          "name": "Chase Coleman",
+          "value_usd": 849326463,
+          "action": "hold"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 379621591,
+          "action": "trim"
+        },
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 2207011,
+          "action": "trim"
         }
       ]
     },
     {
-      "symbol": "ISRG",
-      "name": "Intuitive Surgical",
-      "theme": "Healthcare AI",
+      "symbol": "GS",
+      "name": "Goldman Sachs Group, Inc. (The)",
+      "theme": "Banks",
       "signal": "split",
-      "holders": 3,
-      "increased": 2,
-      "reduced": 1,
+      "holders": 1,
+      "increased": 1,
+      "reduced": 0,
       "new_pos": 0,
       "closed_pos": 1,
-      "total_held_usd": 434026694,
-      "total_held_fmt": "$434M",
-      "whales_fmt": "Terry Smith — 清倉 · Philippe Laffont $394M 加碼 · 木頭姐 Cathie Wood $32M 加碼 · 達利歐 Dalio $8M 減碼",
+      "total_held_usd": 3514242,
+      "total_held_fmt": "$4M",
+      "whales_fmt": "德魯肯米勒 Druckenmiller — 清倉 · 達利歐 Dalio $4M 加碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "Terry Smith",
+          "name": "德魯肯米勒 Druckenmiller",
           "value_usd": 0,
           "action": "exit"
         },
         {
-          "name": "Philippe Laffont",
-          "value_usd": 394250172,
+          "name": "達利歐 Dalio",
+          "value_usd": 3514242,
           "action": "add"
+        }
+      ]
+    },
+    {
+      "symbol": "IBM",
+      "name": "IBM",
+      "theme": "Quantum Computing",
+      "signal": "buy",
+      "holders": 5,
+      "increased": 0,
+      "reduced": 1,
+      "new_pos": 4,
+      "closed_pos": 0,
+      "total_held_usd": 495771900,
+      "total_held_fmt": "$496M",
+      "whales_fmt": "Andreas Halvorsen $485M 新進 · 索羅斯 Soros $8M 新進 · 達利歐 Dalio $3M 新進 · 木頭姐 Cathie Wood <$1M 減碼 · Terry Smith — 新進",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "Andreas Halvorsen",
+          "value_usd": 484795343,
+          "action": "new"
         },
         {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 31804161,
-          "action": "add"
+          "name": "索羅斯 Soros",
+          "value_usd": 7684943,
+          "action": "new"
         },
         {
           "name": "達利歐 Dalio",
-          "value_usd": 7972361,
+          "value_usd": 3192847,
+          "action": "new"
+        },
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 98767,
           "action": "trim"
+        },
+        {
+          "name": "Terry Smith",
+          "value_usd": 0,
+          "action": "new"
+        }
+      ]
+    },
+    {
+      "symbol": "NOW",
+      "name": "ServiceNow",
+      "theme": "AI Software",
+      "signal": "sell",
+      "holders": 2,
+      "increased": 0,
+      "reduced": 1,
+      "new_pos": 1,
+      "closed_pos": 1,
+      "total_held_usd": 172962188,
+      "total_held_fmt": "$173M",
+      "whales_fmt": "達利歐 Dalio — 清倉 · Chase Coleman $157M 減碼 · 索羅斯 Soros $16M 新進",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "Chase Coleman",
+          "value_usd": 156825000,
+          "action": "trim"
+        },
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 16137188,
+          "action": "new"
         }
       ]
     }
