@@ -20,7 +20,7 @@
   {
     "symbol": "AMD",
     "name": "超微",
-    "tier": "enter",
+    "tier": "ready",
     "theme": "AI Compute"
   },
   {
@@ -134,7 +134,7 @@
   {
     "symbol": "FTNT",
     "name": "Fortinet",
-    "tier": "ready",
+    "tier": "enter",
     "theme": "Cybersecurity"
   },
   {

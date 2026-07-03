@@ -5,7 +5,7 @@
   "regime": "neutral",
   "theme": "Banks",
   "business": "Bank of America Corporation, through its subsidiaries, provides various financial products and services for individual consumers, small and middle-market businesses, institutional investors, large corporations, and governments worldwide. I…",
-  "why": "MIXED",
+  "why": "NEWS_CATALYST",
   "rsi": null,
   "sma50": null,
   "sma200": null,
@@ -13,27 +13,27 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 1.1
+      "score": 2.3
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 6.6
+      "score": 7.9
     },
     {
       "key": "macro_context",
       "label": "總經環境",
-      "score": null
+      "score": 5.0
     },
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 6.3
+      "score": 6.9
     },
     {
       "key": "news_catalyst",
       "label": "新聞催化",
-      "score": 1.5
+      "score": 8.8
     },
     {
       "key": "risk_reward",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-07-03",
+      "theme": "Banks",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-06-12",
       "theme": "Banks",

@@ -38,7 +38,13 @@
       "href": "https://www.tipranks.com/stocks/V/forecast"
     }
   ],
-  "peers": [],
+  "peers": [
+    {
+      "symbol": "AFRM",
+      "name": "Affirm Holdings, Inc.",
+      "tier": "ready"
+    }
+  ],
   "price": 322.39,
   "generated_at": "2026-06-14T15:14:40Z",
   "health_grade": "B",
