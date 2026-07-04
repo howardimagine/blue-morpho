@@ -100,7 +100,13 @@
   <p><b>① CPU 沒死</b>：AI 推論把 CPU 需求拉回來——缺貨、漲價，Intel 甚至把消費產線轉回做 Xeon。（<a href="https://www.tomshardware.com/pc-components/cpus/shifting-need-for-cpus-in-ai-workloads-drives-intensifying-shortages-price-hikes">Tom's Hardware</a>、<a href="https://newsletter.semianalysis.com/p/cpus-are-back-the-datacenter-cpu">SemiAnalysis</a>）</p>
   <p><b>② 贏家換人</b>：Arm 跨過 hyperscaler CPU 算力 <b>50%</b>、非 x86 資料中心營收 <b>+107% YoY</b>（<a href="https://www.techtimes.com/articles/317622/20260602/x86-data-center-dominance-ends-arm-crosses-50-hyperscaler-cpu-share-computex.htm">TechTimes</a>）；AMD 在 x86 server 追到 <b>46.2%</b>（vs Intel 53.8%，Mercury Q1'26）；Google TPU 用 Arm Axion 取代 x86 host、AWS 客製矽破 <b>$20B</b> run-rate。</p>
 
-  <h2>四、利潤池：錢實際落在誰口袋</h2>
+  <h2>四、供應鏈與利潤池：錢怎麼流、落在誰口袋</h2>
+  <div class="card">
+    <div class="cardhd">CPU 供應鏈 SANKEY · 架構 → 設計 → 製造 → 買方</div>
+    <div id="chain" class="chart" style="height:420px"></div>
+    <div class="leg"><span style="color:var(--pp)">● 架構/IP</span><span style="color:#5c8cff">● 設計</span><span style="color:var(--cy)">● 製造</span><span style="color:var(--gr)">● 買方</span></div>
+    <div class="cap">線粗≈各家 TTM 營收規模（$B，引擎資料；分配佔比為估計）。看點：<b>x86 的錢大半流經 Intel 自家廠（重資產、毛利崩），Arm 陣營與自研全走台積電（輕資產）</b>——改朝換代＝流量從 Intel 廠搬到 TSMC，而 ARM 在最左端對每條流都抽租。</div>
+  </div>
   <div class="card">
     <div class="cardhd">營業利益 $B（營收 × 營益率，TTM）· 帝國的錢去哪了</div>
     <div id="pool" class="chart"></div>
@@ -227,6 +233,40 @@ mk('val').setOption({
       {name:'AMD',value:[50,44,3.7],itemStyle:{color:'#ffd000'}},
       {name:'QCOM',value:[55,16.9,12.4],itemStyle:{color:'#00f3ff'}},
       {name:'AVGO',value:[68,19.5,25.5],itemStyle:{color:'#00ff9d'}}]}]
+});
+
+// ── 供應鏈 sankey(線粗≈TTM 營收 $B,分配為估計) ──
+mk('chain').setOption({
+  backgroundColor:'transparent',animationDuration:800,
+  tooltip:Object.assign({trigger:'item',formatter:p=>p.dataType==='node'?`<b>${p.data.name}</b>`:`${p.data.source} → ${p.data.target}：$${p.data.value}B`},TIP),
+  series:[{type:'sankey',orient:'horizontal',nodeAlign:'justify',nodeWidth:16,nodeGap:12,layoutIterations:40,
+    left:12,right:92,top:14,bottom:14,
+    label:{position:'right',color:'#cfeaf2',fontFamily:MONO,fontSize:11},
+    lineStyle:{color:'gradient',opacity:0.4,curveness:0.5},emphasis:{focus:'adjacency',lineStyle:{opacity:0.85}},
+    levels:[{depth:0,itemStyle:{color:'#7a5cff'},lineStyle:{color:'source',opacity:.35}},
+            {depth:1,itemStyle:{color:'#5c8cff'},lineStyle:{color:'source',opacity:.35}},
+            {depth:2,itemStyle:{color:'#00f3ff'},lineStyle:{color:'source',opacity:.35}},
+            {depth:3,itemStyle:{color:'#00ff9d'},lineStyle:{color:'source',opacity:.35}}],
+    data:[
+      {name:'ARM 架構授權',depth:0},{name:'x86 架構',depth:0},
+      {name:'AMD 設計',depth:1},{name:'QCOM/AVGO 設計',depth:1},{name:'自研(AWS/Google/NVDA)',depth:1},{name:'INTC 設計+自製',depth:1},
+      {name:'TSMC 代工',depth:2},{name:'Intel 晶圓廠',depth:2},
+      {name:'雲端/AI 買方',depth:3},{name:'PC/企業',depth:3}],
+    links:[
+      {source:'ARM 架構授權',target:'QCOM/AVGO 設計',value:30},
+      {source:'ARM 架構授權',target:'自研(AWS/Google/NVDA)',value:15},
+      {source:'x86 架構',target:'AMD 設計',value:34.6},
+      {source:'x86 架構',target:'INTC 設計+自製',value:52.9},
+      {source:'AMD 設計',target:'TSMC 代工',value:34.6},
+      {source:'QCOM/AVGO 設計',target:'TSMC 代工',value:30},
+      {source:'自研(AWS/Google/NVDA)',target:'TSMC 代工',value:15},
+      {source:'INTC 設計+自製',target:'Intel 晶圓廠',value:47},
+      {source:'INTC 設計+自製',target:'TSMC 代工',value:6},
+      {source:'TSMC 代工',target:'雲端/AI 買方',value:48},
+      {source:'TSMC 代工',target:'PC/企業',value:37.6},
+      {source:'Intel 晶圓廠',target:'雲端/AI 買方',value:16},
+      {source:'Intel 晶圓廠',target:'PC/企業',value:31}]
+  }]
 });
 </script>
 </body>

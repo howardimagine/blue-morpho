@@ -148,6 +148,27 @@
   </table>
   <p class="mut" style="font-size:.8rem">*CIEN 為 GAAP，受併購攤銷壓低；下方情境改用調整後營益率。</p>
 
+  <h2>估值定位：毛利率 × 倍數一起看</h2>
+  <p>⚠ 本鏈的絕對報價/本益比源頭存疑（見上方資料誠信），以下倍數<b>只當「相對定位」看，不當精確值</b>。
+    用「毛利品質調整倍數＝fwd P/E ÷ 毛利率」（示意啟發式）衡量「為每分毛利品質付多少」：</p>
+  <div class="card">
+    <div class="cardhd">毛利率（→高）× fwd P/E（→貴）· 泡泡＝營業利益$</div>
+    <div id="val" class="chart sm"></div>
+    <div class="cap">右下＝高毛利相對便宜（CRDO）；左上＝低毛利卻貴（FN，最差象限）。倍數為引擎近似值，僅供相對比較。</div>
+  </div>
+  <table>
+    <thead><tr><th>公司</th><th>fwd P/E*</th><th>毛利率</th><th>P/E ÷ 毛利率</th><th>讀法</th></tr></thead>
+    <tbody>
+      <tr><td><b>CRDO</b></td><td>~31x</td><td class="pos">68%</td><td class="pos">45</td><td>品質調整最便宜——但它的倍數建立在 +206% 成長延續上（成長風險不在此指標裡），兩視角互補不矛盾</td></tr>
+      <tr><td><b>CIEN</b></td><td>~51x</td><td>43%</td><td>118</td><td>系統品質、訂單能見度給的溢價</td></tr>
+      <tr><td><b>LITE</b></td><td>~47x</td><td>38%</td><td>124</td><td>估值伸展</td></tr>
+      <tr><td><b>COHR</b></td><td>~48x</td><td>37%</td><td>130</td><td>付的是營益率修復的期待</td></tr>
+      <tr><td><b>FN</b></td><td>~33x</td><td class="neg">12%</td><td class="neg">272</td><td><b>為最薄的毛利付最貴的品質倍數</b>——「避組裝」的量化版</td></tr>
+    </tbody>
+  </table>
+  <p><b>讀點</b>：把毛利品質算進去後，「NVDA 影子」框架的荒謬更清楚——FN（組裝、12% 毛利）的品質調整倍數是 CRDO（DSP、68% 毛利）的 <b>6 倍</b>。
+    市場按「都是 AI 光通訊」一視同仁地付錢，完全沒分層。<b>擁壁壘、避組裝</b>，估值面再次成立。</p>
+
   <div class="card">
     <div class="cardhd">情境 EPS · 2 年後（Bear / Base / Bull）</div>
     <div id="scen" class="chart sm"></div>
@@ -283,6 +304,27 @@ mk('scen').setOption({
       label:{show:true,position:'top',color:'#00f3ff',fontFamily:MONO,fontSize:10,formatter:p=>'$'+p.value}},
     {name:'Bull',type:'bar',data:[7.7,6.9,6.7],itemStyle:{color:'#00ff9d',borderRadius:[3,3,0,0]},barWidth:14}]
 });
+
+// ── 估值定位:毛利率 × fwd P/E(倍數為近似值,僅相對比較) ──
+(function(){
+  const el=document.getElementById('val'); if(!el) return;
+  const c=echarts.init(el,null,{renderer:'canvas'}); window.addEventListener('resize',()=>c.resize());
+  const S=v=>Math.max(9,Math.sqrt(v+0.3)*14);
+  c.setOption({
+    backgroundColor:'transparent',grid:{left:44,right:24,top:20,bottom:40},
+    tooltip:Object.assign({trigger:'item',formatter:p=>`<b>${p.data.name}</b><br>毛利 ${p.data.value[0]}% · fwdP/E ~${p.data.value[1]}x · 營業利益 $${p.data.value[2]}B`},TIP),
+    xAxis:{name:'毛利率 →高',nameTextStyle:{color:'#8895a8',fontFamily:MONO,fontSize:10},min:5,max:80,axisLine:{lineStyle:{color:'#1a2238'}},axisLabel:{color:'#8895a8',fontFamily:MONO,fontSize:9,formatter:'{value}%'},splitLine:{lineStyle:{color:'#11161f'}}},
+    yAxis:{name:'fwd P/E →貴',nameTextStyle:{color:'#8895a8',fontFamily:MONO,fontSize:10},min:20,max:60,axisLine:{lineStyle:{color:'#1a2238'}},axisLabel:{color:'#8895a8',fontFamily:MONO,fontSize:9},splitLine:{lineStyle:{color:'#11161f'}}},
+    series:[{type:'scatter',symbolSize:d=>S(d[2]),
+      label:{show:true,formatter:p=>p.data.name,position:'right',color:'#cfe3ee',fontFamily:MONO,fontSize:11},
+      data:[
+        {name:'CRDO',value:[68,31,0.45],itemStyle:{color:'#00ff9d'}},
+        {name:'CIEN',value:[43,51,0.31],itemStyle:{color:'#00f3ff'}},
+        {name:'LITE',value:[38,47,0.05],itemStyle:{color:'#8895a8'}},
+        {name:'COHR',value:[37,48,0.55],itemStyle:{color:'#ffd000'}},
+        {name:'FN',value:[12,33,0.32],itemStyle:{color:'#ff5d5d'}}]}]
+  });
+})();
 </script>
 </body>
 </html>

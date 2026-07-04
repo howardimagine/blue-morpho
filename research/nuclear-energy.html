@@ -110,6 +110,14 @@
     <b>關鍵數學</b>：三哩島 PPA 報導價約 <b>$110/MWh</b>（vs 賓州 merchant ~$40–50）＝<b>2 倍以上溢價</b>；
     而既有核電的<b>邊際成本近零</b>（機組已折舊、鈾燃料便宜）——所以那多出來的每一度電，<b class="pos">幾乎是純利落袋</b>。這就是 CEG 牛市的引擎，且<b>不需要蓋任何新電廠</b>。</p>
   <div class="card">
+    <div class="cardhd">核能/電力供應鏈 SANKEY · 燃料/設備 → 發電 → 用電</div>
+    <div id="chain" class="chart" style="height:420px"></div>
+    <div class="leg"><span style="color:var(--pp)">● 上游 燃料/設備</span><span style="color:var(--cy)">● 中游 發電</span><span style="color:var(--gr)">● 下游 用電</span></div>
+    <div class="cap">線粗≈營收/合約規模（$B 級，估計分配）。看點：<b>AI 資料中心那條綠流的核電部分全來自「既有」電廠</b>
+      （CEG→微軟/Meta、TLN→Amazon 1.92GW）；SMR 夢那條線今天細到幾乎看不見——這就是時間套利的圖形版。
+      VRT 直供資料中心電力設備、GEV 供天然氣新機組（填近 3 年缺口）。</div>
+  </div>
+  <div class="card">
     <div class="cardhd">利潤池 · 營業利益 $B（TTM）· 誰真的在賺錢</div>
     <div id="pool" class="chart"></div>
     <div class="cap">真正在賺錢的是既有電廠與設備商（CEG $3.1B）；SMR（OKLO/NNE/NuScale）≈ $0。TLN 當期虧損、賭 Amazon PPA 兌現。</div>
@@ -266,6 +274,44 @@ mk('ceg').setOption({
   series:[{type:'bar',barWidth:48,itemStyle:{borderRadius:[3,3,0,0]},
     label:{show:true,position:'top',color:'#cfe3ee',fontFamily:MONO,fontSize:11,formatter:'${c}'},
     data:[{value:8.3,itemStyle:{color:'#ff5d5d'}},{value:11.1,itemStyle:{color:'#00f3ff'}},{value:14.3,itemStyle:{color:'#00ff9d'}}]}]
+});
+
+// ── 供應鏈 sankey(線粗≈營收/合約規模,估計分配) ──
+mk('chain').setOption({
+  backgroundColor:'transparent',animationDuration:800,
+  tooltip:Object.assign({trigger:'item',formatter:p=>p.dataType==='node'?`<b>${p.data.name}</b>`:`${p.data.source} → ${p.data.target}：$${p.data.value}B 級`},TIP),
+  series:[{type:'sankey',orient:'horizontal',nodeAlign:'justify',nodeWidth:16,nodeGap:11,layoutIterations:40,
+    left:12,right:104,top:14,bottom:14,
+    label:{position:'right',color:'#cfeaf2',fontFamily:MONO,fontSize:11},
+    lineStyle:{color:'gradient',opacity:0.4,curveness:0.5},emphasis:{focus:'adjacency',lineStyle:{opacity:0.85}},
+    levels:[{depth:0,itemStyle:{color:'#7a5cff'},lineStyle:{color:'source',opacity:.35}},
+            {depth:1,itemStyle:{color:'#00f3ff'},lineStyle:{color:'source',opacity:.35}},
+            {depth:2,itemStyle:{color:'#00ff9d'},lineStyle:{color:'source',opacity:.35}}],
+    data:[
+      {name:'CCJ 鈾礦',depth:0},{name:'LEU 濃縮',depth:0},{name:'BWXT 核元件',depth:0},
+      {name:'GEV 燃氣輪機',depth:0},{name:'VRT 電力設備',depth:0},
+      {name:'CEG 既有核電',depth:1},{name:'TLN 核電',depth:1},{name:'VST 核+氣',depth:1},
+      {name:'天然氣新機組',depth:1},{name:'SMR 夢(OKLO/NNE)',depth:1},
+      {name:'AI 資料中心',depth:2},{name:'電網/一般用電',depth:2}],
+    links:[
+      {source:'CCJ 鈾礦',target:'CEG 既有核電',value:1.5},
+      {source:'CCJ 鈾礦',target:'VST 核+氣',value:0.8},
+      {source:'CCJ 鈾礦',target:'TLN 核電',value:0.5},
+      {source:'LEU 濃縮',target:'CEG 既有核電',value:0.5},
+      {source:'BWXT 核元件',target:'CEG 既有核電',value:0.6},
+      {source:'BWXT 核元件',target:'SMR 夢(OKLO/NNE)',value:0.4},
+      {source:'GEV 燃氣輪機',target:'天然氣新機組',value:8},
+      {source:'VRT 電力設備',target:'AI 資料中心',value:10},
+      {source:'CEG 既有核電',target:'AI 資料中心',value:4},
+      {source:'CEG 既有核電',target:'電網/一般用電',value:21},
+      {source:'TLN 核電',target:'AI 資料中心',value:1.9},
+      {source:'TLN 核電',target:'電網/一般用電',value:0.7},
+      {source:'VST 核+氣',target:'AI 資料中心',value:2},
+      {source:'VST 核+氣',target:'電網/一般用電',value:15},
+      {source:'天然氣新機組',target:'AI 資料中心',value:6},
+      {source:'天然氣新機組',target:'電網/一般用電',value:2},
+      {source:'SMR 夢(OKLO/NNE)',target:'AI 資料中心',value:0.4}]
+  }]
 });
 </script>
 </body>
