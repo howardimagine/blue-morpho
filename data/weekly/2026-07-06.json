@@ -1,6 +1,6 @@
 {
   "date": "2026-07-06",
-  "headline": "生技肥胖症乘勢走高、科技重挫後彈起但後勁待考,本週資金流向確認『AI 算力』正讓位給『週期精選』的新配置邏輯 — AMGN、EXEL、CYBR 成分化焦點",
+  "headline": "川普捧紅晶片產業、科技股卻分化走軟;恐慌降溫但上游設備與檢測尚未確認底部 — ROK、EXEL 面臨技術面關鍵期",
   "theme": "Memory (HBM / DRAM / NAND)",
   "regime": "neutral",
   "picks": [
@@ -69,27 +69,15 @@
   "policy": [
     {
       "topic": "川普 × 個股機會",
-      "title": "Most US stocks rise, but drops for tech pull Wall Street lower",
-      "summary_zh": "美股整體上升但科技股拖累華爾街走弱,反映產業輪動與估值調整持續進行中,領漲領跌產業差異擴大",
-      "source": "AP News"
+      "title": "Trump bought up to $5 million in Axon stock weeks before ICE pursued a $220M Taser deal",
+      "summary_zh": "川普揭露數百萬美元軸承公司股份與 Axon 防衛科技部位,暗示政府採購合約的籌碼操作風向",
+      "source": "qz.com"
     },
     {
       "topic": "川普 × 個股機會",
-      "title": "Palantir shares jump on Nvidia AI deal and Trump stake",
-      "summary_zh": "Palantir 獲 Nvidia AI 合作與川普本人持股力挺,凸顯政治人物對國防數據分析與 AI 軍事應用的重視,可能推升國防科技與資料平台估值",
-      "source": "MSN"
-    },
-    {
-      "topic": "地緣 / 國際 / 能源",
-      "title": "1 Unstoppable Stock to Buy Before It Joins Google, Apple, Microsoft, and Nvidia in the $3 Trillion Club",
-      "summary_zh": "某龍頭科技股即將加入三兆美元俱樂部,凸顯美國科技龍頭市值持續集中,但同時引發對估值頂部與分散投資必要性的反思",
-      "source": "The Motley Fool"
-    },
-    {
-      "topic": "地緣 / 國際 / 能源",
-      "title": "TSMC: Even In Capex Normalization, The Messiah Of Manufacturing Rules (NYSE:TSM)",
-      "summary_zh": "台積電在 capex 常態化後獲正面評價,暗示市場預期 AI 算力投資周期進入穩定期,成長邊際趨緩,設備與檢測類廠商面臨需求確認期",
-      "source": "Seeking Alpha"
+      "title": "Why Is ZETA Stock Spiking In Overnight Trading?",
+      "summary_zh": "ZETA[?] 股票盤後飆升,推測與川普政策方向或併購傳聞相關",
+      "source": "Stocktwits"
     }
   ],
   "themes": [],
