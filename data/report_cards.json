@@ -1,6 +1,6 @@
 {
   "date": "2026-07-07",
-  "headline": "記憶體產業重挫後市場急速降溫,大盤單日反彈確認風險偏好未徹底破滅 — WDC、MRVL 面臨籌碼反向吸納窗口,網路與電力基建接應",
+  "headline": "網安止穩、生技失溫,大盤單日反彈後恐慌指數快速收斂 — 下游製造與電力基建浮現籌碼流向,AMZN 與 CRWD 成風險偏好指標",
   "theme": "Memory (HBM / DRAM / NAND)",
   "regime": "neutral",
   "picks": [
@@ -49,7 +49,7 @@
       "ma_stack": "mixed",
       "price": null,
       "business": "電商 + AWS 雲服務;Trainium 自研 AI 晶片(透過 MRVL 代工)。",
-      "why": "近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
+      "why": "基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
       "rr": null
     },
     {
@@ -81,27 +81,21 @@
   "policy": [
     {
       "topic": "川普 × 個股機會",
-      "title": "'Go out and buy a Dell': President Trump's backing of the PC-maker has shares surging",
-      "summary_zh": "川普公開表態支持 Dell 等 PC[?] 廠商,股價短期上揚,但晶片與設備上游卻未跟漲,反映政治背書對硬體市場的實際拉動力有限。",
-      "source": "Business Insider"
-    },
-    {
-      "topic": "川普 × 個股機會",
-      "title": "IBRX Stock Rallies Into Trump’s Big SOTU Night — Here’s What Traders Think Could Fuel The Next Move",
-      "summary_zh": "川普在 SOTU[?] 演說中暗示美股將突破天花板,並釋放關稅可能帶動企業投資訊號,但科技產業隨即回檔,表示市場對『政策承諾』與『實際落地』間存在期望差。",
+      "title": "Truth Social Spin-Off Plans Scrapped – DJT Stock Gains After Trump Media Says TAE Merger Completion Remains On Track",
+      "summary_zh": "川普媒體公司 Truth Social 分家計畫喊停,但與特殊收購公司合併續行,DJT[?] 股獲利支撑小幅上漲,顯示市場已對川普概念股價值充分反映。",
       "source": "Stocktwits"
     },
     {
-      "topic": "政策 / 立法",
-      "title": "Lockheed Martin focuses on defense programs as investors assess long-term growth",
-      "summary_zh": "歐盟對 Google 罰款與損賠訴訟升級,對美科技巨頭的監管壓力加劇,短期利空但可能推動歐洲本地安全與合規軟體廠商的需求。",
-      "source": "AD HOC NEWS"
+      "topic": "川普 × 個股機會",
+      "title": "‘I’m Now Broke’: Meet The Investors Who Lost Billions Buying Trump Stocks And Crypto",
+      "summary_zh": "川普上任以來已有數十億美元資金流向其相關產業與投資組合,但投資人虧損幅度仍大,凸顯政治背書與股價表現的脫鉤。",
+      "source": "Forbes"
     },
     {
       "topic": "地緣 / 國際 / 能源",
-      "title": "The EU's Regulatory Crackdown on Google Escalates From Fines to Damages, With Other U.S. Big Tech Firms Also Facing Mounting Pressure",
-      "summary_zh": "川普關稅政策暗示可能帶動企業資本支出,但近期記憶體與設備崩跌顯示市場對『關稅推動投資』的邏輯信心不足。",
-      "source": "economy.ac"
+      "title": "Google must pay record €4.1 billion fine, top EU court rules",
+      "summary_zh": "歐盟法院判決 Google 需繳納逾四十億歐元罰款,為近年科技業監管最嚴厲判決,凸顯全球科技巨頭面臨的長期監管風險。",
+      "source": "DW.com"
     }
   ],
   "themes": [],

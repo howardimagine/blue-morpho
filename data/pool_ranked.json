@@ -7,7 +7,7 @@
       "n": 24,
       "rs_1m": -3.19,
       "rs_3m": 38.3,
-      "news_7d": 110,
+      "news_7d": 108,
       "stocks": [
         {
           "symbol": "LRCX",
@@ -106,7 +106,7 @@
       "n": 8,
       "rs_1m": 3.04,
       "rs_3m": 30.63,
-      "news_7d": 89,
+      "news_7d": 84,
       "stocks": [
         {
           "symbol": "FTNT",
@@ -187,7 +187,7 @@
       "n": 6,
       "rs_1m": -1.4,
       "rs_3m": 106.5,
-      "news_7d": 164,
+      "news_7d": 163,
       "stocks": [
         {
           "symbol": "STX",
@@ -250,7 +250,7 @@
       "n": 5,
       "rs_1m": 21.16,
       "rs_3m": 10.67,
-      "news_7d": 43,
+      "news_7d": 46,
       "stocks": [
         {
           "symbol": "LLY",
@@ -304,7 +304,7 @@
       "n": 8,
       "rs_1m": -5.07,
       "rs_3m": 27.82,
-      "news_7d": 82,
+      "news_7d": 80,
       "stocks": [
         {
           "symbol": "GOOG",
@@ -385,7 +385,7 @@
       "n": 10,
       "rs_1m": 6.3,
       "rs_3m": 33.6,
-      "news_7d": 71,
+      "news_7d": 72,
       "stocks": [
         {
           "symbol": "LRCX",
