@@ -13,7 +13,7 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 1.0
+      "score": 6.3
     },
     {
       "key": "technical_setup",
@@ -23,12 +23,12 @@
     {
       "key": "macro_context",
       "label": "總經環境",
-      "score": 5.5
+      "score": 5.0
     },
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 7.1
+      "score": 7.0
     },
     {
       "key": "news_catalyst",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-07-08",
+      "theme": "Cloud Infrastructure",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-06-14",
       "theme": "Cloud Infrastructure",
@@ -79,6 +87,11 @@
     }
   ],
   "peers": [
+    {
+      "symbol": "ANET",
+      "name": "Arista Networks, Inc.",
+      "tier": "enter"
+    },
     {
       "symbol": "CSCO",
       "name": "Cisco Systems, Inc.",

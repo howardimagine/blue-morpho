@@ -38,7 +38,7 @@
   {
     "symbol": "ANET",
     "name": "Arista Networks, Inc.",
-    "tier": "ready",
+    "tier": "enter",
     "theme": "Cloud Infrastructure"
   },
   {
@@ -170,7 +170,7 @@
   {
     "symbol": "LRCX",
     "name": "科林研發",
-    "tier": "enter",
+    "tier": "ready",
     "theme": "AI Compute"
   },
   {

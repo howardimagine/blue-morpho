@@ -1,99 +1,243 @@
 {
-  "date": "2026-07-07",
+  "date": "2026-07-08",
   "method": "完整掃描宇宙(全產業)。分數 = 品質底分(0–1):技術面(均線×RSI×距高×動能)+ 基本面(成長/品質/估值),每產業由高到低排。● 近期推薦 = 引擎近三期曾選入(與分數獨立的標籤,代表輪動選股)· 潛力 = 同主題達標未入選。",
   "themes": [
     {
-      "theme": "AI Compute",
-      "n": 24,
-      "rs_1m": -3.19,
-      "rs_3m": 38.3,
-      "news_7d": 108,
+      "theme": "Cloud Infrastructure",
+      "n": 9,
+      "rs_1m": 5.32,
+      "rs_3m": 11.35,
+      "news_7d": 80,
       "stocks": [
         {
-          "symbol": "LRCX",
-          "name": "科林研發",
-          "composite": 0.85,
+          "symbol": "NTAP",
+          "name": "NTAP",
+          "composite": 0.819,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
         },
         {
-          "symbol": "ASML",
-          "name": "艾司摩爾",
-          "composite": 0.838,
+          "symbol": "ANET",
+          "name": "Arista Networks, Inc.",
+          "composite": 0.811,
           "score_kind": "base",
-          "is_recent": false,
+          "is_recent": true,
           "is_watch": false,
           "rank": 2
         },
         {
-          "symbol": "TSM",
-          "name": "台積電",
-          "composite": 0.837,
+          "symbol": "GOOG",
+          "name": "Alphabet",
+          "composite": 0.69,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
         },
         {
-          "symbol": "WDC",
-          "name": "威騰電子",
-          "composite": 0.821,
+          "symbol": "CSCO",
+          "name": "Cisco Systems, Inc.",
+          "composite": 0.615,
           "score_kind": "base",
           "is_recent": true,
           "is_watch": false,
           "rank": 4
         },
         {
-          "symbol": "MKSI",
-          "name": "MKS Inc.",
-          "composite": 0.806,
+          "symbol": "AMZN",
+          "name": "亞馬遜",
+          "composite": 0.591,
+          "score_kind": "base",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "EQIX",
+          "name": "Equinix, Inc.",
+          "composite": 0.539,
+          "score_kind": "base",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "MSFT",
+          "name": "微軟",
+          "composite": 0.516,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "DLR",
+          "name": "Digital Realty Trust, Inc.",
+          "composite": 0.439,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": true,
+          "rank": 8
+        },
+        {
+          "symbol": "PSTG",
+          "name": "PSTG",
+          "composite": null,
+          "score_kind": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
+        }
+      ]
+    },
+    {
+      "theme": "Biotech — Obesity / GLP-1",
+      "n": 5,
+      "rs_1m": 25.84,
+      "rs_3m": 13.59,
+      "news_7d": 76,
+      "stocks": [
+        {
+          "symbol": "LLY",
+          "name": "Eli Lilly",
+          "composite": 0.932,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "AMGN",
+          "name": "Amgen Inc.",
+          "composite": 0.851,
+          "score_kind": "base",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "NVO",
+          "name": "NVO",
+          "composite": 0.614,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "VKTX",
+          "name": "VKTX",
+          "composite": 0.558,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "ALT",
+          "name": "Altimmune, Inc.",
+          "composite": 0.461,
+          "score_kind": "base",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 5
+        }
+      ]
+    },
+    {
+      "theme": "AI Compute",
+      "n": 24,
+      "rs_1m": 0.43,
+      "rs_3m": 31.68,
+      "news_7d": 125,
+      "stocks": [
+        {
+          "symbol": "TSM",
+          "name": "台積電",
+          "composite": 0.862,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "MU",
+          "name": "美光",
+          "composite": 0.782,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "AMD",
+          "name": "超微",
+          "composite": 0.735,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "ASML",
+          "name": "艾司摩爾",
+          "composite": 0.709,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "KLAC",
+          "name": "科磊",
+          "composite": 0.702,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
         },
         {
-          "symbol": "MU",
-          "name": "美光",
-          "composite": 0.805,
+          "symbol": "GOOG",
+          "name": "Alphabet",
+          "composite": 0.69,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
         },
         {
-          "symbol": "AMD",
-          "name": "超微",
-          "composite": 0.775,
+          "symbol": "LRCX",
+          "name": "科林研發",
+          "composite": 0.685,
           "score_kind": "base",
           "is_recent": true,
           "is_watch": false,
           "rank": 7
         },
         {
-          "symbol": "GFS",
-          "name": "格羅方德",
-          "composite": 0.737,
+          "symbol": "NVDA",
+          "name": "輝達",
+          "composite": 0.675,
           "score_kind": "base",
-          "is_recent": true,
+          "is_recent": false,
           "is_watch": false,
           "rank": 8
         },
         {
-          "symbol": "MRVL",
-          "name": "美滿科技",
-          "composite": 0.737,
+          "symbol": "MKSI",
+          "name": "MKS Inc.",
+          "composite": 0.661,
           "score_kind": "base",
-          "is_recent": true,
+          "is_recent": false,
           "is_watch": false,
           "rank": 9
         },
         {
-          "symbol": "NVDA",
-          "name": "輝達",
-          "composite": 0.728,
+          "symbol": "AVGO",
+          "name": "博通",
+          "composite": 0.646,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -104,32 +248,32 @@
     {
       "theme": "Cybersecurity",
       "n": 8,
-      "rs_1m": 3.04,
-      "rs_3m": 30.63,
-      "news_7d": 84,
+      "rs_1m": 4.81,
+      "rs_3m": 27.72,
+      "news_7d": 92,
       "stocks": [
         {
           "symbol": "FTNT",
           "name": "Fortinet",
-          "composite": 0.792,
+          "composite": 0.852,
           "score_kind": "base",
-          "is_recent": true,
+          "is_recent": false,
           "is_watch": false,
           "rank": 1
         },
         {
           "symbol": "OKTA",
           "name": "Okta, Inc.",
-          "composite": 0.64,
+          "composite": 0.846,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
         },
         {
-          "symbol": "PANW",
-          "name": "派拓網路",
-          "composite": 0.633,
+          "symbol": "TENB",
+          "name": "Tenable Holdings, Inc.",
+          "composite": 0.753,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -138,25 +282,25 @@
         {
           "symbol": "CRWD",
           "name": "CrowdStrike",
-          "composite": 0.602,
+          "composite": 0.667,
           "score_kind": "base",
           "is_recent": true,
           "is_watch": false,
           "rank": 4
         },
         {
-          "symbol": "TENB",
-          "name": "Tenable Holdings, Inc.",
-          "composite": 0.52,
+          "symbol": "S",
+          "name": "SentinelOne",
+          "composite": 0.613,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
         },
         {
-          "symbol": "S",
-          "name": "SentinelOne",
-          "composite": 0.389,
+          "symbol": "PANW",
+          "name": "派拓網路",
+          "composite": 0.609,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -165,7 +309,7 @@
         {
           "symbol": "ZS",
           "name": "Zscaler",
-          "composite": 0.356,
+          "composite": 0.518,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -177,204 +321,6 @@
           "composite": null,
           "score_kind": null,
           "is_recent": false,
-          "is_watch": true,
-          "rank": 8
-        }
-      ]
-    },
-    {
-      "theme": "Memory (HBM / DRAM / NAND)",
-      "n": 6,
-      "rs_1m": -1.4,
-      "rs_3m": 106.5,
-      "news_7d": 163,
-      "stocks": [
-        {
-          "symbol": "STX",
-          "name": "希捷",
-          "composite": 0.842,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
-          "symbol": "WDC",
-          "name": "威騰電子",
-          "composite": 0.821,
-          "score_kind": "base",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 2
-        },
-        {
-          "symbol": "MU",
-          "name": "美光",
-          "composite": 0.805,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
-          "symbol": "MRVL",
-          "name": "美滿科技",
-          "composite": 0.737,
-          "score_kind": "base",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 4
-        },
-        {
-          "symbol": "SIMO",
-          "name": "慧榮科技",
-          "composite": 0.734,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 5
-        },
-        {
-          "symbol": "SNDK",
-          "name": "SanDisk",
-          "composite": 0.671,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 6
-        }
-      ]
-    },
-    {
-      "theme": "Biotech — Obesity / GLP-1",
-      "n": 5,
-      "rs_1m": 21.16,
-      "rs_3m": 10.67,
-      "news_7d": 46,
-      "stocks": [
-        {
-          "symbol": "LLY",
-          "name": "Eli Lilly",
-          "composite": 0.821,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
-          "symbol": "AMGN",
-          "name": "Amgen Inc.",
-          "composite": 0.687,
-          "score_kind": "base",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 2
-        },
-        {
-          "symbol": "NVO",
-          "name": "NVO",
-          "composite": 0.52,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
-          "symbol": "ALT",
-          "name": "Altimmune, Inc.",
-          "composite": 0.338,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 4
-        },
-        {
-          "symbol": "VKTX",
-          "name": "VKTX",
-          "composite": 0.176,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 5
-        }
-      ]
-    },
-    {
-      "theme": "Quantum Computing",
-      "n": 8,
-      "rs_1m": -5.07,
-      "rs_3m": 27.82,
-      "news_7d": 80,
-      "stocks": [
-        {
-          "symbol": "GOOG",
-          "name": "Alphabet",
-          "composite": 0.658,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
-          "symbol": "IBM",
-          "name": "IBM",
-          "composite": 0.642,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 2
-        },
-        {
-          "symbol": "MSFT",
-          "name": "微軟",
-          "composite": 0.625,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
-          "symbol": "QBTS",
-          "name": "D-Wave Quantum Inc.",
-          "composite": 0.614,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 4
-        },
-        {
-          "symbol": "IONQ",
-          "name": "IonQ, Inc.",
-          "composite": 0.596,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 5
-        },
-        {
-          "symbol": "QUBT",
-          "name": "Quantum Computing Inc.",
-          "composite": 0.582,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 6
-        },
-        {
-          "symbol": "HON",
-          "name": "霍尼韋爾",
-          "composite": 0.436,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 7
-        },
-        {
-          "symbol": "RGTI",
-          "name": "RGTI",
-          "composite": 0.422,
-          "score_kind": "base",
-          "is_recent": false,
           "is_watch": false,
           "rank": 8
         }
@@ -383,99 +329,180 @@
     {
       "theme": "Semiconductor Equipment (WFE)",
       "n": 10,
-      "rs_1m": 6.3,
-      "rs_3m": 33.6,
+      "rs_1m": 7.3,
+      "rs_3m": 22.9,
       "news_7d": 72,
       "stocks": [
         {
-          "symbol": "LRCX",
-          "name": "科林研發",
-          "composite": 0.85,
+          "symbol": "ASML",
+          "name": "艾司摩爾",
+          "composite": 0.709,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
         },
         {
-          "symbol": "ASML",
-          "name": "艾司摩爾",
-          "composite": 0.838,
+          "symbol": "KLAC",
+          "name": "科磊",
+          "composite": 0.702,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
         },
         {
-          "symbol": "KLIC",
-          "name": "庫力索法",
-          "composite": 0.749,
+          "symbol": "LRCX",
+          "name": "科林研發",
+          "composite": 0.685,
           "score_kind": "base",
-          "is_recent": false,
+          "is_recent": true,
           "is_watch": false,
           "rank": 3
         },
         {
           "symbol": "AMAT",
           "name": "應用材料",
-          "composite": 0.722,
+          "composite": 0.592,
           "score_kind": "base",
           "is_recent": false,
-          "is_watch": false,
+          "is_watch": true,
           "rank": 4
         },
         {
-          "symbol": "TER",
-          "name": "泰瑞達",
-          "composite": 0.714,
+          "symbol": "KLIC",
+          "name": "庫力索法",
+          "composite": 0.543,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
         },
         {
-          "symbol": "ACLS",
-          "name": "艾克塞利",
-          "composite": 0.567,
+          "symbol": "TER",
+          "name": "泰瑞達",
+          "composite": 0.411,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
         },
         {
+          "symbol": "AEIS",
+          "name": "先進能源",
+          "composite": 0.38,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": true,
+          "rank": 7
+        },
+        {
+          "symbol": "ACLS",
+          "name": "艾克塞利",
+          "composite": 0.366,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": true,
+          "rank": 8
+        },
+        {
+          "symbol": "ONTO",
+          "name": "Onto Innovation",
+          "composite": 0.349,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": true,
+          "rank": 9
+        },
+        {
           "symbol": "AEHR",
           "name": "Aehr Test",
-          "composite": 0.554,
+          "composite": 0.307,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": true,
+          "rank": 10
+        }
+      ]
+    },
+    {
+      "theme": "Quantum Computing",
+      "n": 8,
+      "rs_1m": -2.35,
+      "rs_3m": 23.6,
+      "news_7d": 92,
+      "stocks": [
+        {
+          "symbol": "IBM",
+          "name": "IBM",
+          "composite": 0.771,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "GOOG",
+          "name": "Alphabet",
+          "composite": 0.69,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "MSFT",
+          "name": "微軟",
+          "composite": 0.516,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "IONQ",
+          "name": "IonQ, Inc.",
+          "composite": 0.469,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "QBTS",
+          "name": "D-Wave Quantum Inc.",
+          "composite": 0.419,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "QUBT",
+          "name": "Quantum Computing Inc.",
+          "composite": 0.387,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "HON",
+          "name": "霍尼韋爾",
+          "composite": 0.38,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
         },
         {
-          "symbol": "AEIS",
-          "name": "先進能源",
-          "composite": 0.456,
+          "symbol": "RGTI",
+          "name": "RGTI",
+          "composite": 0.227,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 8
-        },
-        {
-          "symbol": "ONTO",
-          "name": "Onto Innovation",
-          "composite": 0.428,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 9
-        },
-        {
-          "symbol": "KLAC",
-          "name": "科磊",
-          "composite": null,
-          "score_kind": null,
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 10
         }
       ]
     },
@@ -496,36 +523,36 @@
           "rank": 1
         },
         {
-          "symbol": "GILD",
-          "name": "Gilead Sciences, Inc.",
-          "composite": 0.696,
+          "symbol": "VRTX",
+          "name": "VRTX",
+          "composite": 0.907,
           "score_kind": "base",
-          "is_recent": true,
+          "is_recent": false,
           "is_watch": false,
           "rank": 2
         },
         {
           "symbol": "AMGN",
           "name": "Amgen Inc.",
-          "composite": 0.687,
+          "composite": 0.851,
           "score_kind": "base",
           "is_recent": true,
           "is_watch": false,
           "rank": 3
         },
         {
-          "symbol": "VRTX",
-          "name": "VRTX",
-          "composite": 0.667,
+          "symbol": "GILD",
+          "name": "Gilead Sciences, Inc.",
+          "composite": 0.794,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
         },
         {
-          "symbol": "BMRN",
-          "name": "BioMarin Pharmaceutical Inc.",
-          "composite": 0.478,
+          "symbol": "DNLI",
+          "name": "Denali Therapeutics Inc.",
+          "composite": 0.627,
           "score_kind": "base",
           "is_recent": true,
           "is_watch": false,
@@ -534,27 +561,27 @@
         {
           "symbol": "IMCR",
           "name": "IMCR",
-          "composite": 0.424,
+          "composite": 0.576,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
         },
         {
-          "symbol": "REGN",
-          "name": "REGN",
-          "composite": 0.38,
+          "symbol": "BMRN",
+          "name": "BioMarin Pharmaceutical Inc.",
+          "composite": 0.547,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
         },
         {
-          "symbol": "DNLI",
-          "name": "Denali Therapeutics Inc.",
-          "composite": 0.359,
+          "symbol": "REGN",
+          "name": "REGN",
+          "composite": 0.512,
           "score_kind": "base",
-          "is_recent": true,
+          "is_recent": false,
           "is_watch": false,
           "rank": 8
         }
@@ -568,20 +595,20 @@
       "news_7d": null,
       "stocks": [
         {
-          "symbol": "TER",
-          "name": "泰瑞達",
-          "composite": 0.714,
+          "symbol": "ROK",
+          "name": "羅克韋爾自動化",
+          "composite": 0.659,
           "score_kind": "base",
-          "is_recent": false,
+          "is_recent": true,
           "is_watch": false,
           "rank": 1
         },
         {
-          "symbol": "ROK",
-          "name": "羅克韋爾自動化",
-          "composite": 0.685,
+          "symbol": "ABBNY",
+          "name": "ABB",
+          "composite": 0.622,
           "score_kind": "base",
-          "is_recent": true,
+          "is_recent": false,
           "is_watch": false,
           "rank": 2
         },
@@ -595,13 +622,22 @@
           "rank": 3
         },
         {
-          "symbol": "FANUY",
-          "name": "發那科",
-          "composite": 0.568,
+          "symbol": "ZBRA",
+          "name": "ZBRA",
+          "composite": 0.542,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
+        },
+        {
+          "symbol": "FANUY",
+          "name": "發那科",
+          "composite": 0.523,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
         },
         {
           "symbol": "ISRG",
@@ -610,21 +646,12 @@
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
-          "rank": 5
-        },
-        {
-          "symbol": "ZBRA",
-          "name": "ZBRA",
-          "composite": 0.385,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
           "rank": 6
         },
         {
-          "symbol": "SYM",
-          "name": "SYM",
-          "composite": 0.202,
+          "symbol": "TER",
+          "name": "泰瑞達",
+          "composite": 0.411,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -633,17 +660,17 @@
         {
           "symbol": "TSLA",
           "name": "特斯拉",
-          "composite": 0.202,
+          "composite": 0.28,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 8
         },
         {
-          "symbol": "ABBNY",
-          "name": "ABB",
-          "composite": null,
-          "score_kind": null,
+          "symbol": "SYM",
+          "name": "SYM",
+          "composite": 0.202,
+          "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 9
@@ -651,8 +678,170 @@
       ]
     },
     {
-      "theme": "Cloud Infrastructure",
-      "n": 9,
+      "theme": "Memory (HBM / DRAM / NAND)",
+      "n": 6,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "MU",
+          "name": "美光",
+          "composite": 0.782,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "SIMO",
+          "name": "慧榮科技",
+          "composite": 0.696,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "STX",
+          "name": "希捷",
+          "composite": 0.601,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "WDC",
+          "name": "威騰電子",
+          "composite": 0.597,
+          "score_kind": "base",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "MRVL",
+          "name": "美滿科技",
+          "composite": 0.565,
+          "score_kind": "base",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "SNDK",
+          "name": "SanDisk",
+          "composite": 0.453,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        }
+      ]
+    },
+    {
+      "theme": "Electrification / Power",
+      "n": 10,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "GEV",
+          "name": "GE Vernova",
+          "composite": 0.754,
+          "score_kind": "base",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "WMB",
+          "name": "WMB",
+          "composite": 0.712,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "VRT",
+          "name": "Vertiv",
+          "composite": 0.649,
+          "score_kind": "base",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "ABBNY",
+          "name": "ABB",
+          "composite": 0.622,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "MYRG",
+          "name": "MYRG",
+          "composite": 0.613,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "ENB",
+          "name": "Enbridge Inc",
+          "composite": 0.576,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "ETN",
+          "name": "伊頓",
+          "composite": 0.496,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "HUBB",
+          "name": "HUBB",
+          "composite": 0.49,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        },
+        {
+          "symbol": "PWR",
+          "name": "Quanta Services",
+          "composite": 0.48,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
+        },
+        {
+          "symbol": "ENS",
+          "name": "EnerSys",
+          "composite": 0.381,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 10
+        }
+      ]
+    },
+    {
+      "theme": "Optical / AI Interconnect",
+      "n": 12,
       "rs_1m": null,
       "rs_3m": null,
       "news_7d": null,
@@ -660,83 +849,92 @@
         {
           "symbol": "ANET",
           "name": "Arista Networks, Inc.",
-          "composite": 0.79,
+          "composite": 0.811,
           "score_kind": "base",
-          "is_recent": false,
+          "is_recent": true,
           "is_watch": false,
           "rank": 1
         },
         {
-          "symbol": "EQIX",
-          "name": "Equinix, Inc.",
-          "composite": 0.776,
+          "symbol": "CRDO",
+          "name": "Credo Technology Group Holding ",
+          "composite": 0.757,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
         },
         {
-          "symbol": "NTAP",
-          "name": "NTAP",
-          "composite": 0.767,
+          "symbol": "ALAB",
+          "name": "Astera Labs, Inc.",
+          "composite": 0.71,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
         },
         {
-          "symbol": "CSCO",
-          "name": "Cisco Systems, Inc.",
-          "composite": 0.749,
+          "symbol": "NVDA",
+          "name": "輝達",
+          "composite": 0.675,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
         },
         {
-          "symbol": "GOOG",
-          "name": "Alphabet",
-          "composite": 0.658,
+          "symbol": "MRVL",
+          "name": "美滿科技",
+          "composite": 0.565,
           "score_kind": "base",
-          "is_recent": false,
+          "is_recent": true,
           "is_watch": false,
           "rank": 5
         },
         {
-          "symbol": "MSFT",
-          "name": "微軟",
-          "composite": 0.625,
+          "symbol": "COHR",
+          "name": "Coherent Corp.",
+          "composite": 0.478,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
         },
         {
-          "symbol": "DLR",
-          "name": "Digital Realty Trust, Inc.",
-          "composite": 0.6,
+          "symbol": "POET",
+          "name": "POET",
+          "composite": 0.456,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
         },
         {
-          "symbol": "AMZN",
-          "name": "亞馬遜",
-          "composite": 0.591,
+          "symbol": "CIEN",
+          "name": "Ciena Corporation",
+          "composite": 0.413,
           "score_kind": "base",
-          "is_recent": true,
+          "is_recent": false,
           "is_watch": false,
           "rank": 8
         },
         {
-          "symbol": "PSTG",
-          "name": "PSTG",
-          "composite": 0.528,
+          "symbol": "LITE",
+          "name": "LITE",
+          "composite": 0.357,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 9
+        },
+        {
+          "symbol": "MTSI",
+          "name": "MTSI",
+          "composite": 0.357,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 10
         }
       ]
     },
@@ -748,58 +946,22 @@
       "news_7d": null,
       "stocks": [
         {
-          "symbol": "ADI",
-          "name": "ADI",
-          "composite": 0.801,
+          "symbol": "AAPL",
+          "name": "蘋果",
+          "composite": 0.83,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
         },
         {
-          "symbol": "AAPL",
-          "name": "蘋果",
-          "composite": 0.795,
+          "symbol": "NVDA",
+          "name": "輝達",
+          "composite": 0.675,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
-        },
-        {
-          "symbol": "QCOM",
-          "name": "Qualcomm",
-          "composite": 0.74,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
-          "symbol": "NVDA",
-          "name": "輝達",
-          "composite": 0.728,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 4
-        },
-        {
-          "symbol": "TXN",
-          "name": "TXN",
-          "composite": 0.688,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 5
-        },
-        {
-          "symbol": "MSFT",
-          "name": "微軟",
-          "composite": 0.625,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 6
         },
         {
           "symbol": "AMZN",
@@ -808,12 +970,48 @@
           "score_kind": "base",
           "is_recent": true,
           "is_watch": false,
-          "rank": 7
+          "rank": 3
+        },
+        {
+          "symbol": "TXN",
+          "name": "TXN",
+          "composite": 0.584,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "ADI",
+          "name": "ADI",
+          "composite": 0.564,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
         },
         {
           "symbol": "ZBRA",
           "name": "ZBRA",
-          "composite": 0.385,
+          "composite": 0.542,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "MSFT",
+          "name": "微軟",
+          "composite": 0.516,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "QCOM",
+          "name": "Qualcomm",
+          "composite": 0.505,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -831,807 +1029,6 @@
       ]
     },
     {
-      "theme": "Electrification / Power",
-      "n": 10,
-      "rs_1m": null,
-      "rs_3m": null,
-      "news_7d": null,
-      "stocks": [
-        {
-          "symbol": "MYRG",
-          "name": "MYRG",
-          "composite": 0.772,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
-          "symbol": "ENB",
-          "name": "Enbridge Inc",
-          "composite": 0.712,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 2
-        },
-        {
-          "symbol": "ENS",
-          "name": "EnerSys",
-          "composite": 0.684,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
-          "symbol": "ETN",
-          "name": "伊頓",
-          "composite": 0.631,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 4
-        },
-        {
-          "symbol": "PWR",
-          "name": "Quanta Services",
-          "composite": 0.603,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 5
-        },
-        {
-          "symbol": "VRT",
-          "name": "Vertiv",
-          "composite": 0.592,
-          "score_kind": "base",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 6
-        },
-        {
-          "symbol": "HUBB",
-          "name": "HUBB",
-          "composite": 0.543,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 7
-        },
-        {
-          "symbol": "GEV",
-          "name": "GE Vernova",
-          "composite": 0.523,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 8
-        },
-        {
-          "symbol": "WMB",
-          "name": "WMB",
-          "composite": 0.474,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 9
-        },
-        {
-          "symbol": "ABBNY",
-          "name": "ABB",
-          "composite": null,
-          "score_kind": null,
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 10
-        }
-      ]
-    },
-    {
-      "theme": "Industrial Automation",
-      "n": 8,
-      "rs_1m": null,
-      "rs_3m": null,
-      "news_7d": null,
-      "stocks": [
-        {
-          "symbol": "CAT",
-          "name": "開拓重工",
-          "composite": 0.705,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
-          "symbol": "ROK",
-          "name": "羅克韋爾自動化",
-          "composite": 0.685,
-          "score_kind": "base",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 2
-        },
-        {
-          "symbol": "EMR",
-          "name": "艾默生電氣",
-          "composite": 0.605,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
-          "symbol": "FANUY",
-          "name": "發那科",
-          "composite": 0.568,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 4
-        },
-        {
-          "symbol": "PH",
-          "name": "派克漢尼汾",
-          "composite": 0.546,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 5
-        },
-        {
-          "symbol": "DE",
-          "name": "強鹿",
-          "composite": 0.513,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 6
-        },
-        {
-          "symbol": "ISRG",
-          "name": "Intuitive Surgical",
-          "composite": 0.451,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 7
-        },
-        {
-          "symbol": "ABBNY",
-          "name": "ABB",
-          "composite": null,
-          "score_kind": null,
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 8
-        }
-      ]
-    },
-    {
-      "theme": "Healthcare AI / Digital Health",
-      "n": 10,
-      "rs_1m": null,
-      "rs_3m": null,
-      "news_7d": null,
-      "stocks": [
-        {
-          "symbol": "GH",
-          "name": "GH",
-          "composite": 0.693,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
-          "symbol": "NTRA",
-          "name": "NTRA",
-          "composite": 0.612,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 2
-        },
-        {
-          "symbol": "HIMS",
-          "name": "HIMS",
-          "composite": 0.535,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
-          "symbol": "VEEV",
-          "name": "Veeva Systems Inc.",
-          "composite": 0.493,
-          "score_kind": "base",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 4
-        },
-        {
-          "symbol": "ISRG",
-          "name": "Intuitive Surgical",
-          "composite": 0.451,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 5
-        },
-        {
-          "symbol": "DOCS",
-          "name": "DOCS",
-          "composite": 0.433,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 6
-        },
-        {
-          "symbol": "TEM",
-          "name": "TEM",
-          "composite": 0.424,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 7
-        },
-        {
-          "symbol": "RXRX",
-          "name": "RXRX",
-          "composite": 0.352,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 8
-        },
-        {
-          "symbol": "GEHC",
-          "name": "GEHC",
-          "composite": 0.324,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 9
-        },
-        {
-          "symbol": "EXAS",
-          "name": "EXAS",
-          "composite": null,
-          "score_kind": null,
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 10
-        }
-      ]
-    },
-    {
-      "theme": "Payments / FinTech",
-      "n": 8,
-      "rs_1m": null,
-      "rs_3m": null,
-      "news_7d": null,
-      "stocks": [
-        {
-          "symbol": "AFRM",
-          "name": "Affirm Holdings, Inc.",
-          "composite": 0.672,
-          "score_kind": "base",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
-          "symbol": "V",
-          "name": "Visa",
-          "composite": 0.644,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 2
-        },
-        {
-          "symbol": "MA",
-          "name": "MA",
-          "composite": 0.546,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
-          "symbol": "NU",
-          "name": "NU",
-          "composite": 0.492,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 4
-        },
-        {
-          "symbol": "SOFI",
-          "name": "SOFI",
-          "composite": 0.357,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 5
-        },
-        {
-          "symbol": "GPN",
-          "name": "GPN",
-          "composite": 0.334,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 6
-        },
-        {
-          "symbol": "FIS",
-          "name": "Fidelity National Information S",
-          "composite": 0.316,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 7
-        },
-        {
-          "symbol": "FI",
-          "name": "FI",
-          "composite": null,
-          "score_kind": null,
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 8
-        }
-      ]
-    },
-    {
-      "theme": "Banks",
-      "n": 8,
-      "rs_1m": null,
-      "rs_3m": null,
-      "news_7d": null,
-      "stocks": [
-        {
-          "symbol": "KEY",
-          "name": "KEY",
-          "composite": 0.829,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
-          "symbol": "GS",
-          "name": "Goldman Sachs Group, Inc. (The)",
-          "composite": 0.726,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 2
-        },
-        {
-          "symbol": "C",
-          "name": "Citigroup, Inc.",
-          "composite": 0.724,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
-          "symbol": "MS",
-          "name": "MS",
-          "composite": 0.718,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 4
-        },
-        {
-          "symbol": "JPM",
-          "name": "JPM",
-          "composite": 0.707,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 5
-        },
-        {
-          "symbol": "BAC",
-          "name": "Bank of America Corporation",
-          "composite": 0.695,
-          "score_kind": "base",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 6
-        },
-        {
-          "symbol": "RF",
-          "name": "RF",
-          "composite": 0.654,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 7
-        },
-        {
-          "symbol": "WFC",
-          "name": "WFC",
-          "composite": 0.419,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 8
-        }
-      ]
-    },
-    {
-      "theme": "E-commerce / Marketplaces",
-      "n": 7,
-      "rs_1m": null,
-      "rs_3m": null,
-      "news_7d": null,
-      "stocks": [
-        {
-          "symbol": "EBAY",
-          "name": "EBAY",
-          "composite": 0.693,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
-          "symbol": "AMZN",
-          "name": "亞馬遜",
-          "composite": 0.591,
-          "score_kind": "base",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 2
-        },
-        {
-          "symbol": "FDX",
-          "name": "FDX",
-          "composite": 0.584,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
-          "symbol": "UPS",
-          "name": "UPS",
-          "composite": 0.546,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 4
-        },
-        {
-          "symbol": "SE",
-          "name": "SE",
-          "composite": 0.492,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 5
-        },
-        {
-          "symbol": "MELI",
-          "name": "MELI",
-          "composite": 0.478,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 6
-        },
-        {
-          "symbol": "SHOP",
-          "name": "SHOP",
-          "composite": 0.276,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 7
-        }
-      ]
-    },
-    {
-      "theme": "Optical / AI Interconnect",
-      "n": 12,
-      "rs_1m": null,
-      "rs_3m": null,
-      "news_7d": null,
-      "stocks": [
-        {
-          "symbol": "ANET",
-          "name": "Arista Networks, Inc.",
-          "composite": 0.79,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
-          "symbol": "MRVL",
-          "name": "美滿科技",
-          "composite": 0.737,
-          "score_kind": "base",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 2
-        },
-        {
-          "symbol": "NVDA",
-          "name": "輝達",
-          "composite": 0.728,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
-          "symbol": "AAOI",
-          "name": "AAOI",
-          "composite": null,
-          "score_kind": null,
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 4
-        },
-        {
-          "symbol": "ALAB",
-          "name": "Astera Labs, Inc.",
-          "composite": null,
-          "score_kind": null,
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 5
-        },
-        {
-          "symbol": "CIEN",
-          "name": "Ciena Corporation",
-          "composite": null,
-          "score_kind": null,
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 6
-        },
-        {
-          "symbol": "COHR",
-          "name": "Coherent Corp.",
-          "composite": null,
-          "score_kind": null,
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 7
-        },
-        {
-          "symbol": "CRDO",
-          "name": "Credo Technology Group Holding ",
-          "composite": null,
-          "score_kind": null,
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 8
-        },
-        {
-          "symbol": "FN",
-          "name": "Fabrinet",
-          "composite": null,
-          "score_kind": null,
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 9
-        },
-        {
-          "symbol": "LITE",
-          "name": "LITE",
-          "composite": null,
-          "score_kind": null,
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 10
-        }
-      ]
-    },
-    {
-      "theme": "AI Software",
-      "n": 15,
-      "rs_1m": null,
-      "rs_3m": null,
-      "news_7d": null,
-      "stocks": [
-        {
-          "symbol": "CDNS",
-          "name": "CDNS",
-          "composite": 0.758,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
-          "symbol": "ESTC",
-          "name": "ESTC",
-          "composite": 0.715,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 2
-        },
-        {
-          "symbol": "MDB",
-          "name": "MDB",
-          "composite": 0.666,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
-          "symbol": "GOOG",
-          "name": "Alphabet",
-          "composite": 0.658,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 4
-        },
-        {
-          "symbol": "MSFT",
-          "name": "微軟",
-          "composite": 0.625,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 5
-        },
-        {
-          "symbol": "ADBE",
-          "name": "ADBE",
-          "composite": 0.61,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 6
-        },
-        {
-          "symbol": "NET",
-          "name": "NET",
-          "composite": 0.598,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 7
-        },
-        {
-          "symbol": "DDOG",
-          "name": "DDOG",
-          "composite": 0.572,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 8
-        },
-        {
-          "symbol": "CRM",
-          "name": "CRM",
-          "composite": 0.547,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 9
-        },
-        {
-          "symbol": "SNOW",
-          "name": "SNOW",
-          "composite": 0.537,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 10
-        }
-      ]
-    },
-    {
-      "theme": "Nuclear / SMR",
-      "n": 9,
-      "rs_1m": null,
-      "rs_3m": null,
-      "news_7d": null,
-      "stocks": [
-        {
-          "symbol": "CCJ",
-          "name": "Cameco",
-          "composite": 0.495,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
-          "symbol": "BWXT",
-          "name": "BWXT",
-          "composite": 0.365,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 2
-        },
-        {
-          "symbol": "URA",
-          "name": "URA",
-          "composite": 0.305,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
-          "symbol": "URNM",
-          "name": "URNM",
-          "composite": 0.305,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 4
-        },
-        {
-          "symbol": "OKLO",
-          "name": "Oklo",
-          "composite": 0.271,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 5
-        },
-        {
-          "symbol": "NNE",
-          "name": "Nano Nuclear Energy",
-          "composite": 0.231,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 6
-        },
-        {
-          "symbol": "SMR",
-          "name": "NuScale Power",
-          "composite": 0.231,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 7
-        },
-        {
-          "symbol": "VST",
-          "name": "Vistra",
-          "composite": 0.231,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 8
-        },
-        {
-          "symbol": "CEG",
-          "name": "Constellation Energy",
-          "composite": 0.216,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 9
-        }
-      ]
-    },
-    {
       "theme": "Solar / Renewables",
       "n": 7,
       "rs_1m": null,
@@ -1639,45 +1036,45 @@
       "news_7d": null,
       "stocks": [
         {
-          "symbol": "FSLR",
-          "name": "First Solar, Inc.",
-          "composite": 0.756,
+          "symbol": "GE",
+          "name": "GE",
+          "composite": 0.776,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
         },
         {
-          "symbol": "SEDG",
-          "name": "SEDG",
-          "composite": 0.708,
+          "symbol": "GEV",
+          "name": "GE Vernova",
+          "composite": 0.754,
           "score_kind": "base",
-          "is_recent": false,
+          "is_recent": true,
           "is_watch": false,
           "rank": 2
         },
         {
-          "symbol": "ENPH",
-          "name": "Enphase Energy, Inc.",
-          "composite": 0.705,
+          "symbol": "FSLR",
+          "name": "First Solar, Inc.",
+          "composite": 0.521,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
         },
         {
-          "symbol": "GE",
-          "name": "GE",
-          "composite": 0.537,
+          "symbol": "SEDG",
+          "name": "SEDG",
+          "composite": 0.516,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
         },
         {
-          "symbol": "GEV",
-          "name": "GE Vernova",
-          "composite": 0.523,
+          "symbol": "ENPH",
+          "name": "Enphase Energy, Inc.",
+          "composite": 0.496,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -1686,7 +1083,7 @@
         {
           "symbol": "BEPC",
           "name": "Brookfield Renewable Corporatio",
-          "composite": 0.408,
+          "composite": 0.204,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -1704,6 +1101,582 @@
       ]
     },
     {
+      "theme": "Industrial Automation",
+      "n": 8,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "PH",
+          "name": "派克漢尼汾",
+          "composite": 0.694,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "ROK",
+          "name": "羅克韋爾自動化",
+          "composite": 0.659,
+          "score_kind": "base",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "ABBNY",
+          "name": "ABB",
+          "composite": 0.622,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "CAT",
+          "name": "開拓重工",
+          "composite": 0.606,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "DE",
+          "name": "強鹿",
+          "composite": 0.57,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "FANUY",
+          "name": "發那科",
+          "composite": 0.523,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "EMR",
+          "name": "艾默生電氣",
+          "composite": 0.48,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "ISRG",
+          "name": "Intuitive Surgical",
+          "composite": 0.451,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        }
+      ]
+    },
+    {
+      "theme": "Healthcare AI / Digital Health",
+      "n": 10,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "NTRA",
+          "name": "NTRA",
+          "composite": 0.775,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "GH",
+          "name": "GH",
+          "composite": 0.754,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "VEEV",
+          "name": "Veeva Systems Inc.",
+          "composite": 0.638,
+          "score_kind": "base",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "TEM",
+          "name": "TEM",
+          "composite": 0.614,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "HIMS",
+          "name": "HIMS",
+          "composite": 0.573,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "RXRX",
+          "name": "RXRX",
+          "composite": 0.542,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "DOCS",
+          "name": "DOCS",
+          "composite": 0.54,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "ISRG",
+          "name": "Intuitive Surgical",
+          "composite": 0.451,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        },
+        {
+          "symbol": "GEHC",
+          "name": "GEHC",
+          "composite": 0.393,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
+        },
+        {
+          "symbol": "EXAS",
+          "name": "EXAS",
+          "composite": null,
+          "score_kind": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 10
+        }
+      ]
+    },
+    {
+      "theme": "E-commerce / Marketplaces",
+      "n": 7,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "EBAY",
+          "name": "EBAY",
+          "composite": 0.772,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "SE",
+          "name": "SE",
+          "composite": 0.681,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "UPS",
+          "name": "UPS",
+          "composite": 0.653,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "AMZN",
+          "name": "亞馬遜",
+          "composite": 0.591,
+          "score_kind": "base",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "MELI",
+          "name": "MELI",
+          "composite": 0.585,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "FDX",
+          "name": "FDX",
+          "composite": 0.501,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "SHOP",
+          "name": "SHOP",
+          "composite": 0.383,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        }
+      ]
+    },
+    {
+      "theme": "REIT — Data Center",
+      "n": 3,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "EQIX",
+          "name": "Equinix, Inc.",
+          "composite": 0.539,
+          "score_kind": "base",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "DLR",
+          "name": "Digital Realty Trust, Inc.",
+          "composite": 0.439,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": true,
+          "rank": 2
+        },
+        {
+          "symbol": "IRM",
+          "name": "IRM",
+          "composite": 0.362,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        }
+      ]
+    },
+    {
+      "theme": "REIT / Real Estate",
+      "n": 11,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "VNQ",
+          "name": "VNQ",
+          "composite": 0.927,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "SPG",
+          "name": "SPG",
+          "composite": 0.886,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "O",
+          "name": "Realty Income",
+          "composite": 0.718,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "EQIX",
+          "name": "Equinix, Inc.",
+          "composite": 0.539,
+          "score_kind": "base",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "PLD",
+          "name": "PLD",
+          "composite": 0.538,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "SBAC",
+          "name": "SBAC",
+          "composite": 0.481,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "CCI",
+          "name": "CCI",
+          "composite": 0.47,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "DLR",
+          "name": "Digital Realty Trust, Inc.",
+          "composite": 0.439,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": true,
+          "rank": 8
+        },
+        {
+          "symbol": "IRM",
+          "name": "IRM",
+          "composite": 0.362,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
+        },
+        {
+          "symbol": "VICI",
+          "name": "VICI",
+          "composite": 0.362,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 10
+        }
+      ]
+    },
+    {
+      "theme": "AI Software",
+      "n": 15,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "NET",
+          "name": "NET",
+          "composite": 0.691,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "GOOG",
+          "name": "Alphabet",
+          "composite": 0.69,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "SNOW",
+          "name": "SNOW",
+          "composite": 0.641,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "CDNS",
+          "name": "CDNS",
+          "composite": 0.625,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "MDB",
+          "name": "MDB",
+          "composite": 0.624,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "ESTC",
+          "name": "ESTC",
+          "composite": 0.621,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "DDOG",
+          "name": "DDOG",
+          "composite": 0.617,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "NOW",
+          "name": "ServiceNow",
+          "composite": 0.593,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        },
+        {
+          "symbol": "ADBE",
+          "name": "ADBE",
+          "composite": 0.541,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
+        },
+        {
+          "symbol": "PLTR",
+          "name": "Palantir",
+          "composite": 0.532,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 10
+        }
+      ]
+    },
+    {
+      "theme": "Nuclear / SMR",
+      "n": 9,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "BWXT",
+          "name": "BWXT",
+          "composite": 0.376,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "VST",
+          "name": "Vistra",
+          "composite": 0.368,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "CCJ",
+          "name": "Cameco",
+          "composite": 0.357,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "URA",
+          "name": "URA",
+          "composite": 0.175,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "OKLO",
+          "name": "Oklo",
+          "composite": 0.142,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "CEG",
+          "name": "Constellation Energy",
+          "composite": 0.14,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "SMR",
+          "name": "NuScale Power",
+          "composite": 0.137,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "NNE",
+          "name": "Nano Nuclear Energy",
+          "composite": 0.104,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        },
+        {
+          "symbol": "URNM",
+          "name": "URNM",
+          "composite": 0.05,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
+        }
+      ]
+    },
+    {
       "theme": "Battery / Energy Storage",
       "n": 6,
       "rs_1m": null,
@@ -1713,16 +1686,16 @@
         {
           "symbol": "SQM",
           "name": "SQM",
-          "composite": 0.538,
+          "composite": 0.466,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
         },
         {
-          "symbol": "FLNC",
-          "name": "FLNC",
-          "composite": 0.42,
+          "symbol": "ALB",
+          "name": "Albemarle Corporation",
+          "composite": 0.321,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -1731,16 +1704,16 @@
         {
           "symbol": "STEM",
           "name": "STEM",
-          "composite": 0.351,
+          "composite": 0.312,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
         },
         {
-          "symbol": "ALB",
-          "name": "Albemarle Corporation",
-          "composite": 0.343,
+          "symbol": "FLNC",
+          "name": "FLNC",
+          "composite": 0.294,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -1749,7 +1722,7 @@
         {
           "symbol": "LAC",
           "name": "LAC",
-          "composite": 0.176,
+          "composite": 0.104,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -1776,7 +1749,7 @@
         {
           "symbol": "GD",
           "name": "GD",
-          "composite": 0.588,
+          "composite": 0.765,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -1785,7 +1758,7 @@
         {
           "symbol": "RTX",
           "name": "RTX",
-          "composite": 0.538,
+          "composite": 0.628,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -1794,7 +1767,7 @@
         {
           "symbol": "PLTR",
           "name": "Palantir",
-          "composite": 0.519,
+          "composite": 0.532,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -1803,16 +1776,16 @@
         {
           "symbol": "LMT",
           "name": "LMT",
-          "composite": 0.432,
+          "composite": 0.384,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
         },
         {
-          "symbol": "KTOS",
-          "name": "KTOS",
-          "composite": 0.352,
+          "symbol": "NOC",
+          "name": "NOC",
+          "composite": 0.343,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -1821,16 +1794,16 @@
         {
           "symbol": "HII",
           "name": "HII",
-          "composite": 0.343,
+          "composite": 0.286,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
         },
         {
-          "symbol": "NOC",
-          "name": "NOC",
-          "composite": 0.33,
+          "symbol": "KTOS",
+          "name": "KTOS",
+          "composite": 0.259,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -1839,7 +1812,7 @@
         {
           "symbol": "AVAV",
           "name": "AVAV",
-          "composite": 0.299,
+          "composite": 0.176,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -1857,7 +1830,7 @@
         {
           "symbol": "IRDM",
           "name": "IRDM",
-          "composite": 0.798,
+          "composite": 0.801,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -1866,16 +1839,16 @@
         {
           "symbol": "VSAT",
           "name": "VSAT",
-          "composite": 0.741,
+          "composite": 0.785,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
         },
         {
-          "symbol": "ASTS",
-          "name": "ASTS",
-          "composite": 0.569,
+          "symbol": "BA",
+          "name": "BA",
+          "composite": 0.65,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -1884,25 +1857,25 @@
         {
           "symbol": "RKLB",
           "name": "Rocket Lab",
-          "composite": 0.569,
+          "composite": 0.429,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
         },
         {
-          "symbol": "BA",
-          "name": "BA",
-          "composite": 0.518,
+          "symbol": "LMT",
+          "name": "LMT",
+          "composite": 0.384,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
         },
         {
-          "symbol": "LMT",
-          "name": "LMT",
-          "composite": 0.432,
+          "symbol": "ASTS",
+          "name": "ASTS",
+          "composite": 0.368,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -1918,63 +1891,63 @@
       "news_7d": null,
       "stocks": [
         {
-          "symbol": "CAT",
-          "name": "開拓重工",
-          "composite": 0.705,
+          "symbol": "URI",
+          "name": "URI",
+          "composite": 0.617,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
         },
         {
-          "symbol": "URI",
-          "name": "URI",
-          "composite": 0.648,
+          "symbol": "CAT",
+          "name": "開拓重工",
+          "composite": 0.606,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
         },
         {
-          "symbol": "PWR",
-          "name": "Quanta Services",
-          "composite": 0.603,
+          "symbol": "VMC",
+          "name": "VMC",
+          "composite": 0.559,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
         },
         {
-          "symbol": "VMC",
-          "name": "VMC",
-          "composite": 0.471,
+          "symbol": "PWR",
+          "name": "Quanta Services",
+          "composite": 0.48,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
         },
         {
-          "symbol": "ACM",
-          "name": "ACM",
-          "composite": 0.429,
+          "symbol": "J",
+          "name": "J",
+          "composite": 0.392,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
         },
         {
-          "symbol": "MLM",
-          "name": "MLM",
-          "composite": 0.325,
+          "symbol": "ACM",
+          "name": "ACM",
+          "composite": 0.374,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
         },
         {
-          "symbol": "J",
-          "name": "J",
-          "composite": 0.154,
+          "symbol": "MLM",
+          "name": "MLM",
+          "composite": 0.352,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -1992,34 +1965,34 @@
         {
           "symbol": "TECK",
           "name": "TECK",
-          "composite": 0.742,
+          "composite": 0.483,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
         },
         {
-          "symbol": "FCX",
-          "name": "Freeport-McMoRan",
-          "composite": 0.669,
+          "symbol": "SCCO",
+          "name": "SCCO",
+          "composite": 0.468,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
         },
         {
-          "symbol": "SCCO",
-          "name": "SCCO",
-          "composite": 0.602,
+          "symbol": "SQM",
+          "name": "SQM",
+          "composite": 0.466,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
         },
         {
-          "symbol": "SQM",
-          "name": "SQM",
-          "composite": 0.538,
+          "symbol": "FCX",
+          "name": "Freeport-McMoRan",
+          "composite": 0.404,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2028,25 +2001,25 @@
         {
           "symbol": "CCJ",
           "name": "Cameco",
-          "composite": 0.495,
+          "composite": 0.357,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
         },
         {
-          "symbol": "MP",
-          "name": "MP",
-          "composite": 0.352,
+          "symbol": "ALB",
+          "name": "Albemarle Corporation",
+          "composite": 0.321,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
         },
         {
-          "symbol": "ALB",
-          "name": "Albemarle Corporation",
-          "composite": 0.343,
+          "symbol": "MP",
+          "name": "MP",
+          "composite": 0.264,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2055,7 +2028,7 @@
         {
           "symbol": "DNN",
           "name": "DNN",
-          "composite": 0.244,
+          "composite": 0.206,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2071,18 +2044,18 @@
       "news_7d": null,
       "stocks": [
         {
-          "symbol": "EW",
-          "name": "EW",
-          "composite": 0.656,
+          "symbol": "DXCM",
+          "name": "DXCM",
+          "composite": 0.75,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
         },
         {
-          "symbol": "DXCM",
-          "name": "DXCM",
-          "composite": 0.633,
+          "symbol": "EW",
+          "name": "EW",
+          "composite": 0.712,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2091,7 +2064,7 @@
         {
           "symbol": "MDT",
           "name": "MDT",
-          "composite": 0.486,
+          "composite": 0.502,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2109,7 +2082,7 @@
         {
           "symbol": "BSX",
           "name": "BSX",
-          "composite": 0.428,
+          "composite": 0.425,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2118,25 +2091,25 @@
         {
           "symbol": "PODD",
           "name": "PODD",
-          "composite": 0.348,
+          "composite": 0.416,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
         },
         {
-          "symbol": "TNDM",
-          "name": "TNDM",
-          "composite": 0.276,
+          "symbol": "ABT",
+          "name": "ABT",
+          "composite": 0.389,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
         },
         {
-          "symbol": "ABT",
-          "name": "ABT",
-          "composite": 0.266,
+          "symbol": "TNDM",
+          "name": "TNDM",
+          "composite": 0.169,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2154,7 +2127,7 @@
         {
           "symbol": "ELV",
           "name": "ELV",
-          "composite": 0.752,
+          "composite": 0.748,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2163,25 +2136,25 @@
         {
           "symbol": "UNH",
           "name": "UNH",
-          "composite": 0.71,
+          "composite": 0.712,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
         },
         {
-          "symbol": "CI",
-          "name": "CI",
-          "composite": 0.66,
+          "symbol": "HUM",
+          "name": "HUM",
+          "composite": 0.674,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
         },
         {
-          "symbol": "HUM",
-          "name": "HUM",
-          "composite": 0.639,
+          "symbol": "CI",
+          "name": "CI",
+          "composite": 0.661,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2190,7 +2163,7 @@
         {
           "symbol": "HCA",
           "name": "HCA",
-          "composite": 0.383,
+          "composite": 0.572,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2199,7 +2172,7 @@
         {
           "symbol": "UHS",
           "name": "UHS",
-          "composite": 0.374,
+          "composite": 0.547,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2217,7 +2190,7 @@
         {
           "symbol": "MGNI",
           "name": "MGNI",
-          "composite": 0.634,
+          "composite": 0.727,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2226,7 +2199,7 @@
         {
           "symbol": "SPOT",
           "name": "SPOT",
-          "composite": 0.587,
+          "composite": 0.626,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2235,7 +2208,7 @@
         {
           "symbol": "WBD",
           "name": "WBD",
-          "composite": 0.466,
+          "composite": 0.475,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2253,7 +2226,7 @@
         {
           "symbol": "DIS",
           "name": "DIS",
-          "composite": 0.442,
+          "composite": 0.439,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2262,7 +2235,7 @@
         {
           "symbol": "NFLX",
           "name": "Netflix",
-          "composite": 0.383,
+          "composite": 0.42,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2278,13 +2251,22 @@
       "news_7d": null,
       "stocks": [
         {
-          "symbol": "MGM",
-          "name": "MGM",
-          "composite": 0.613,
+          "symbol": "TTWO",
+          "name": "TTWO",
+          "composite": 0.742,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
+        },
+        {
+          "symbol": "EA",
+          "name": "EA",
+          "composite": 0.634,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
         },
         {
           "symbol": "U",
@@ -2293,52 +2275,205 @@
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
-          "rank": 2
-        },
-        {
-          "symbol": "EA",
-          "name": "EA",
-          "composite": 0.575,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
           "rank": 3
         },
         {
-          "symbol": "LVS",
-          "name": "LVS",
-          "composite": 0.487,
+          "symbol": "MGM",
+          "name": "MGM",
+          "composite": 0.565,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
         },
         {
-          "symbol": "WYNN",
-          "name": "WYNN",
-          "composite": 0.412,
+          "symbol": "RBLX",
+          "name": "RBLX",
+          "composite": 0.443,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
         },
         {
-          "symbol": "RBLX",
-          "name": "RBLX",
-          "composite": 0.411,
+          "symbol": "LVS",
+          "name": "LVS",
+          "composite": 0.361,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
         },
         {
-          "symbol": "TTWO",
-          "name": "TTWO",
-          "composite": 0.356,
+          "symbol": "WYNN",
+          "name": "WYNN",
+          "composite": 0.212,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
+        }
+      ]
+    },
+    {
+      "theme": "Payments / FinTech",
+      "n": 8,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "AFRM",
+          "name": "Affirm Holdings, Inc.",
+          "composite": 0.827,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "V",
+          "name": "Visa",
+          "composite": 0.734,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "MA",
+          "name": "MA",
+          "composite": 0.69,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "GPN",
+          "name": "GPN",
+          "composite": 0.591,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "NU",
+          "name": "NU",
+          "composite": 0.533,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "SOFI",
+          "name": "SOFI",
+          "composite": 0.508,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "FIS",
+          "name": "Fidelity National Information S",
+          "composite": 0.385,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "FI",
+          "name": "FI",
+          "composite": null,
+          "score_kind": null,
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        }
+      ]
+    },
+    {
+      "theme": "Banks",
+      "n": 8,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "KEY",
+          "name": "KEY",
+          "composite": 0.852,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "RF",
+          "name": "RF",
+          "composite": 0.782,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "BAC",
+          "name": "Bank of America Corporation",
+          "composite": 0.776,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "JPM",
+          "name": "JPM",
+          "composite": 0.741,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "MS",
+          "name": "MS",
+          "composite": 0.721,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "C",
+          "name": "Citigroup, Inc.",
+          "composite": 0.661,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "GS",
+          "name": "Goldman Sachs Group, Inc. (The)",
+          "composite": 0.628,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "WFC",
+          "name": "WFC",
+          "composite": 0.554,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
         }
       ]
     },
@@ -2350,36 +2485,36 @@
       "news_7d": null,
       "stocks": [
         {
-          "symbol": "ARES",
-          "name": "ARES",
-          "composite": 0.611,
+          "symbol": "HOOD",
+          "name": "HOOD",
+          "composite": 0.681,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
         },
         {
-          "symbol": "HOOD",
-          "name": "HOOD",
-          "composite": 0.599,
+          "symbol": "BX",
+          "name": "BX",
+          "composite": 0.527,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
         },
         {
-          "symbol": "APO",
-          "name": "APO",
-          "composite": 0.526,
+          "symbol": "ARES",
+          "name": "ARES",
+          "composite": 0.449,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
         },
         {
-          "symbol": "BX",
-          "name": "BX",
-          "composite": 0.508,
+          "symbol": "APO",
+          "name": "APO",
+          "composite": 0.423,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2397,7 +2532,7 @@
         {
           "symbol": "KKR",
           "name": "KKR",
-          "composite": 0.349,
+          "composite": 0.311,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2406,7 +2541,7 @@
         {
           "symbol": "COIN",
           "name": "Coinbase Global, Inc.",
-          "composite": 0.221,
+          "composite": 0.27,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2422,54 +2557,54 @@
       "news_7d": null,
       "stocks": [
         {
-          "symbol": "CLSK",
-          "name": "CleanSpark, Inc.",
-          "composite": 0.651,
+          "symbol": "HOOD",
+          "name": "HOOD",
+          "composite": 0.681,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
         },
         {
-          "symbol": "HOOD",
-          "name": "HOOD",
-          "composite": 0.599,
+          "symbol": "CLSK",
+          "name": "CleanSpark, Inc.",
+          "composite": 0.456,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
         },
         {
-          "symbol": "RIOT",
-          "name": "RIOT",
-          "composite": 0.557,
+          "symbol": "MARA",
+          "name": "MARA",
+          "composite": 0.303,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
         },
         {
-          "symbol": "MARA",
-          "name": "MARA",
-          "composite": 0.429,
+          "symbol": "RIOT",
+          "name": "RIOT",
+          "composite": 0.294,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
         },
         {
-          "symbol": "MSTR",
-          "name": "MSTR",
-          "composite": 0.239,
+          "symbol": "COIN",
+          "name": "Coinbase Global, Inc.",
+          "composite": 0.27,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
         },
         {
-          "symbol": "COIN",
-          "name": "Coinbase Global, Inc.",
-          "composite": 0.221,
+          "symbol": "MSTR",
+          "name": "MSTR",
+          "composite": 0.217,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2478,7 +2613,7 @@
         {
           "symbol": "FBTC",
           "name": "FBTC",
-          "composite": 0.09,
+          "composite": 0.178,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2487,7 +2622,7 @@
         {
           "symbol": "IBIT",
           "name": "IBIT",
-          "composite": 0.09,
+          "composite": 0.11,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2503,72 +2638,72 @@
       "news_7d": null,
       "stocks": [
         {
-          "symbol": "GM",
-          "name": "General Motors Company",
-          "composite": 0.626,
+          "symbol": "RIVN",
+          "name": "RIVN",
+          "composite": 0.448,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
         },
         {
-          "symbol": "F",
-          "name": "Ford Motor Company",
-          "composite": 0.609,
+          "symbol": "GM",
+          "name": "General Motors Company",
+          "composite": 0.348,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
         },
         {
-          "symbol": "CHPT",
-          "name": "ChargePoint Holdings, Inc.",
-          "composite": 0.519,
+          "symbol": "NIO",
+          "name": "NIO",
+          "composite": 0.344,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
         },
         {
-          "symbol": "NIO",
-          "name": "NIO",
-          "composite": 0.489,
+          "symbol": "EVGO",
+          "name": "EVgo Inc.",
+          "composite": 0.338,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
         },
         {
-          "symbol": "EVGO",
-          "name": "EVgo Inc.",
-          "composite": 0.461,
+          "symbol": "F",
+          "name": "Ford Motor Company",
+          "composite": 0.334,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
         },
         {
-          "symbol": "RIVN",
-          "name": "RIVN",
-          "composite": 0.459,
+          "symbol": "ALB",
+          "name": "Albemarle Corporation",
+          "composite": 0.321,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
         },
         {
-          "symbol": "XPEV",
-          "name": "XPEV",
-          "composite": 0.392,
+          "symbol": "CHPT",
+          "name": "ChargePoint Holdings, Inc.",
+          "composite": 0.319,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
         },
         {
-          "symbol": "ALB",
-          "name": "Albemarle Corporation",
-          "composite": 0.343,
+          "symbol": "XPEV",
+          "name": "XPEV",
+          "composite": 0.299,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2577,7 +2712,7 @@
         {
           "symbol": "TSLA",
           "name": "特斯拉",
-          "composite": 0.202,
+          "composite": 0.28,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2586,7 +2721,7 @@
         {
           "symbol": "LI",
           "name": "LI",
-          "composite": 0.126,
+          "composite": 0.104,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2604,51 +2739,51 @@
         {
           "symbol": "DAL",
           "name": "DAL",
-          "composite": 0.758,
+          "composite": 0.804,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
         },
         {
-          "symbol": "MAR",
-          "name": "MAR",
-          "composite": 0.704,
+          "symbol": "ABNB",
+          "name": "ABNB",
+          "composite": 0.781,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
         },
         {
-          "symbol": "HLT",
-          "name": "HLT",
-          "composite": 0.672,
+          "symbol": "UAL",
+          "name": "UAL",
+          "composite": 0.753,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
         },
         {
-          "symbol": "UAL",
-          "name": "UAL",
-          "composite": 0.622,
+          "symbol": "HLT",
+          "name": "HLT",
+          "composite": 0.62,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
         },
         {
-          "symbol": "H",
-          "name": "H",
-          "composite": 0.612,
+          "symbol": "LUV",
+          "name": "LUV",
+          "composite": 0.618,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
         },
         {
-          "symbol": "CCL",
-          "name": "CCL",
+          "symbol": "MAR",
+          "name": "MAR",
           "composite": 0.603,
           "score_kind": "base",
           "is_recent": false,
@@ -2656,36 +2791,36 @@
           "rank": 6
         },
         {
-          "symbol": "ABNB",
-          "name": "ABNB",
-          "composite": 0.59,
+          "symbol": "BKNG",
+          "name": "BKNG",
+          "composite": 0.591,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
         },
         {
-          "symbol": "RCL",
-          "name": "RCL",
-          "composite": 0.517,
+          "symbol": "H",
+          "name": "H",
+          "composite": 0.549,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 8
         },
         {
-          "symbol": "LUV",
-          "name": "LUV",
-          "composite": 0.415,
+          "symbol": "RCL",
+          "name": "RCL",
+          "composite": 0.431,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 9
         },
         {
-          "symbol": "BKNG",
-          "name": "BKNG",
-          "composite": 0.405,
+          "symbol": "CCL",
+          "name": "CCL",
+          "composite": 0.396,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2703,70 +2838,70 @@
         {
           "symbol": "KO",
           "name": "KO",
-          "composite": 0.684,
+          "composite": 0.799,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
         },
         {
-          "symbol": "PG",
-          "name": "PG",
-          "composite": 0.53,
+          "symbol": "DLTR",
+          "name": "DLTR",
+          "composite": 0.708,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
         },
         {
-          "symbol": "DLTR",
-          "name": "DLTR",
-          "composite": 0.516,
+          "symbol": "SBUX",
+          "name": "SBUX",
+          "composite": 0.621,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
         },
         {
-          "symbol": "DG",
-          "name": "DG",
-          "composite": 0.451,
+          "symbol": "PG",
+          "name": "PG",
+          "composite": 0.578,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
         },
         {
-          "symbol": "MCD",
-          "name": "MCD",
-          "composite": 0.442,
+          "symbol": "DG",
+          "name": "DG",
+          "composite": 0.465,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
         },
         {
-          "symbol": "COST",
-          "name": "COST",
-          "composite": 0.433,
+          "symbol": "MCD",
+          "name": "MCD",
+          "composite": 0.456,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
         },
         {
-          "symbol": "WMT",
-          "name": "沃爾瑪",
-          "composite": 0.378,
+          "symbol": "COST",
+          "name": "COST",
+          "composite": 0.432,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 7
         },
         {
-          "symbol": "SBUX",
-          "name": "SBUX",
-          "composite": 0.322,
+          "symbol": "WMT",
+          "name": "沃爾瑪",
+          "composite": 0.307,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2784,7 +2919,7 @@
         {
           "symbol": "RL",
           "name": "RL",
-          "composite": 0.75,
+          "composite": 0.709,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2793,7 +2928,7 @@
         {
           "symbol": "TPR",
           "name": "TPR",
-          "composite": 0.523,
+          "composite": 0.558,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2802,7 +2937,7 @@
         {
           "symbol": "RACE",
           "name": "RACE",
-          "composite": 0.504,
+          "composite": 0.552,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2811,47 +2946,11 @@
         {
           "symbol": "LVMUY",
           "name": "LVMUY",
-          "composite": 0.425,
+          "composite": 0.372,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
-        }
-      ]
-    },
-    {
-      "theme": "REIT — Data Center",
-      "n": 3,
-      "rs_1m": null,
-      "rs_3m": null,
-      "news_7d": null,
-      "stocks": [
-        {
-          "symbol": "EQIX",
-          "name": "Equinix, Inc.",
-          "composite": 0.776,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
-          "symbol": "DLR",
-          "name": "Digital Realty Trust, Inc.",
-          "composite": 0.6,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 2
-        },
-        {
-          "symbol": "IRM",
-          "name": "IRM",
-          "composite": 0.598,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 3
         }
       ]
     },
@@ -2863,27 +2962,27 @@
       "news_7d": null,
       "stocks": [
         {
-          "symbol": "WPC",
-          "name": "WPC",
-          "composite": 0.77,
+          "symbol": "NNN",
+          "name": "NNN",
+          "composite": 0.762,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
         },
         {
-          "symbol": "NNN",
-          "name": "NNN",
-          "composite": 0.715,
+          "symbol": "O",
+          "name": "Realty Income",
+          "composite": 0.718,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
         },
         {
-          "symbol": "O",
-          "name": "Realty Income",
-          "composite": 0.663,
+          "symbol": "WPC",
+          "name": "WPC",
+          "composite": 0.579,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2901,7 +3000,7 @@
         {
           "symbol": "SBAC",
           "name": "SBAC",
-          "composite": 0.704,
+          "composite": 0.481,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2910,7 +3009,7 @@
         {
           "symbol": "CCI",
           "name": "CCI",
-          "composite": 0.64,
+          "composite": 0.47,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2919,7 +3018,7 @@
         {
           "symbol": "AMT",
           "name": "美國電塔",
-          "composite": 0.478,
+          "composite": 0.348,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2935,18 +3034,18 @@
       "news_7d": null,
       "stocks": [
         {
-          "symbol": "PLD",
-          "name": "PLD",
-          "composite": 0.594,
+          "symbol": "STAG",
+          "name": "STAG",
+          "composite": 0.773,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
         },
         {
-          "symbol": "STAG",
-          "name": "STAG",
-          "composite": 0.579,
+          "symbol": "PLD",
+          "name": "PLD",
+          "composite": 0.538,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2955,7 +3054,7 @@
         {
           "symbol": "REXR",
           "name": "REXR",
-          "composite": 0.273,
+          "composite": 0.321,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2973,61 +3072,61 @@
         {
           "symbol": "EOG",
           "name": "EOG",
-          "composite": 0.665,
+          "composite": 0.547,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
         },
         {
-          "symbol": "SLB",
-          "name": "SLB",
-          "composite": 0.653,
+          "symbol": "COP",
+          "name": "COP",
+          "composite": 0.337,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
         },
         {
-          "symbol": "HAL",
-          "name": "HAL",
-          "composite": 0.512,
+          "symbol": "XOM",
+          "name": "XOM",
+          "composite": 0.316,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 3
         },
         {
-          "symbol": "COP",
-          "name": "COP",
-          "composite": 0.45,
+          "symbol": "FANG",
+          "name": "FANG",
+          "composite": 0.31,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
         },
         {
-          "symbol": "FANG",
-          "name": "FANG",
-          "composite": 0.418,
+          "symbol": "SLB",
+          "name": "SLB",
+          "composite": 0.295,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
         },
         {
-          "symbol": "CVX",
-          "name": "CVX",
-          "composite": 0.406,
+          "symbol": "HAL",
+          "name": "HAL",
+          "composite": 0.287,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
         },
         {
-          "symbol": "XOM",
-          "name": "XOM",
-          "composite": 0.381,
+          "symbol": "CVX",
+          "name": "CVX",
+          "composite": 0.278,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -3043,27 +3142,27 @@
       "news_7d": null,
       "stocks": [
         {
-          "symbol": "ENB",
-          "name": "Enbridge Inc",
-          "composite": 0.712,
+          "symbol": "OKE",
+          "name": "OKE",
+          "composite": 0.738,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
         },
         {
-          "symbol": "OKE",
-          "name": "OKE",
-          "composite": 0.669,
+          "symbol": "TRGP",
+          "name": "TRGP",
+          "composite": 0.735,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
         },
         {
-          "symbol": "TRGP",
-          "name": "TRGP",
-          "composite": 0.661,
+          "symbol": "WMB",
+          "name": "WMB",
+          "composite": 0.712,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -3072,25 +3171,25 @@
         {
           "symbol": "LNG",
           "name": "LNG",
-          "composite": 0.609,
+          "composite": 0.708,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 4
         },
         {
-          "symbol": "WMB",
-          "name": "WMB",
-          "composite": 0.474,
+          "symbol": "KMI",
+          "name": "KMI",
+          "composite": 0.656,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 5
         },
         {
-          "symbol": "KMI",
-          "name": "KMI",
-          "composite": 0.47,
+          "symbol": "ENB",
+          "name": "Enbridge Inc",
+          "composite": 0.576,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -3108,25 +3207,25 @@
         {
           "symbol": "TRV",
           "name": "TRV",
-          "composite": 0.787,
+          "composite": 0.845,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 1
         },
         {
-          "symbol": "BRK.B",
-          "name": "波克夏",
-          "composite": 0.605,
+          "symbol": "PGR",
+          "name": "PGR",
+          "composite": 0.756,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 2
         },
         {
-          "symbol": "PGR",
-          "name": "PGR",
-          "composite": 0.585,
+          "symbol": "BRK.B",
+          "name": "波克夏",
+          "composite": 0.706,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -3135,7 +3234,7 @@
         {
           "symbol": "PG",
           "name": "PG",
-          "composite": 0.53,
+          "composite": 0.578,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -3144,7 +3243,7 @@
         {
           "symbol": "COST",
           "name": "COST",
-          "composite": 0.433,
+          "composite": 0.432,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -3153,110 +3252,11 @@
         {
           "symbol": "WMT",
           "name": "沃爾瑪",
-          "composite": 0.378,
+          "composite": 0.307,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
-        }
-      ]
-    },
-    {
-      "theme": "REIT / Real Estate",
-      "n": 11,
-      "rs_1m": null,
-      "rs_3m": null,
-      "news_7d": null,
-      "stocks": [
-        {
-          "symbol": "VNQ",
-          "name": "VNQ",
-          "composite": 0.846,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
-          "symbol": "SPG",
-          "name": "SPG",
-          "composite": 0.794,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 2
-        },
-        {
-          "symbol": "EQIX",
-          "name": "Equinix, Inc.",
-          "composite": 0.776,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
-          "symbol": "SBAC",
-          "name": "SBAC",
-          "composite": 0.704,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 4
-        },
-        {
-          "symbol": "O",
-          "name": "Realty Income",
-          "composite": 0.663,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 5
-        },
-        {
-          "symbol": "CCI",
-          "name": "CCI",
-          "composite": 0.64,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 6
-        },
-        {
-          "symbol": "DLR",
-          "name": "Digital Realty Trust, Inc.",
-          "composite": 0.6,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 7
-        },
-        {
-          "symbol": "IRM",
-          "name": "IRM",
-          "composite": 0.598,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 8
-        },
-        {
-          "symbol": "PLD",
-          "name": "PLD",
-          "composite": 0.594,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 9
-        },
-        {
-          "symbol": "AMT",
-          "name": "美國電塔",
-          "composite": 0.478,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 10
         }
       ]
     }

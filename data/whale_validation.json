@@ -1,206 +1,200 @@
 {
   "as_of": "2026-05-15",
   "n_whales": 19,
-  "generated_at": "2026-07-07T08:48:48+00:00",
+  "generated_at": "2026-07-08T00:05:03+00:00",
   "stocks": [
     {
-      "symbol": "WDC",
-      "name": "威騰電子",
-      "theme": "Memory (HBM / DRAM / NAND)",
-      "signal": "buy",
-      "holders": 1,
-      "increased": 1,
-      "reduced": 0,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 67362559,
-      "total_held_fmt": "$67M",
-      "whales_fmt": "達利歐 Dalio $67M 加碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 67362559,
-          "action": "add"
-        }
-      ]
-    },
-    {
-      "symbol": "MRVL",
-      "name": "美滿科技",
-      "theme": "Memory (HBM / DRAM / NAND)",
+      "symbol": "ANET",
+      "name": "Arista Networks, Inc.",
+      "theme": "Cloud Infrastructure",
       "signal": "split",
       "holders": 1,
-      "increased": 1,
-      "reduced": 0,
-      "new_pos": 0,
-      "closed_pos": 1,
-      "total_held_usd": 193043200,
-      "total_held_fmt": "$193M",
-      "whales_fmt": "Philippe Laffont — 清倉 · 達利歐 Dalio $193M 加碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "Philippe Laffont",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 193043200,
-          "action": "add"
-        }
-      ]
-    },
-    {
-      "symbol": "VRT",
-      "name": "Vertiv",
-      "theme": "Data Center",
-      "signal": "buy",
-      "holders": 2,
-      "increased": 1,
+      "increased": 0,
       "reduced": 0,
       "new_pos": 0,
       "closed_pos": 0,
-      "total_held_usd": 353668361,
-      "total_held_fmt": "$354M",
-      "whales_fmt": "Philippe Laffont $246M 加碼 · 達利歐 Dalio $108M 持有",
+      "total_held_usd": 163308573,
+      "total_held_fmt": "$163M",
+      "whales_fmt": "達利歐 Dalio $163M 持有",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "Philippe Laffont",
-          "value_usd": 245977597,
-          "action": "add"
-        },
-        {
           "name": "達利歐 Dalio",
-          "value_usd": 107690764,
+          "value_usd": 163308573,
           "action": "hold"
         }
       ]
     },
     {
-      "symbol": "AMZN",
-      "name": "亞馬遜",
-      "theme": "AI Compute",
-      "signal": "sell",
-      "holders": 12,
-      "increased": 5,
-      "reduced": 6,
-      "new_pos": 0,
-      "closed_pos": 2,
-      "total_held_usd": 9709730891,
-      "total_held_fmt": "$9.7B",
-      "whales_fmt": "巴菲特 Buffett — 清倉 · Stephen Mandel — 清倉 · 艾克曼 Ackman $2.4B 加碼 · Chase Coleman $2.1B 持有 · Philippe Laffont $1.7B 減碼 · 達利歐 Dalio $914M 加碼",
+      "symbol": "LRCX",
+      "name": "科林研發",
+      "theme": "Semiconductor Equipment (WFE)",
+      "signal": "buy",
+      "holders": 8,
+      "increased": 4,
+      "reduced": 2,
+      "new_pos": 1,
+      "closed_pos": 0,
+      "total_held_usd": 3819431162,
+      "total_held_fmt": "$3.8B",
+      "whales_fmt": "Philippe Laffont $2.1B 加碼 · Chase Coleman $833M 持有 · Andreas Halvorsen $392M 加碼 · 達利歐 Dalio $336M 減碼 · 泰珀 Tepper $82M 減碼 · Dan Loeb $16M 新進",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "巴菲特 Buffett",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "Stephen Mandel",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "艾克曼 Ackman",
-          "value_usd": 2385104083,
+          "name": "Philippe Laffont",
+          "value_usd": 2145895279,
           "action": "add"
         },
         {
           "name": "Chase Coleman",
-          "value_usd": 2082700000,
+          "value_usd": 833367797,
           "action": "hold"
         },
         {
-          "name": "Philippe Laffont",
-          "value_usd": 1651740634,
-          "action": "trim"
+          "name": "Andreas Halvorsen",
+          "value_usd": 392287201,
+          "action": "add"
         },
         {
           "name": "達利歐 Dalio",
-          "value_usd": 914036840,
-          "action": "add"
+          "value_usd": 335708788,
+          "action": "trim"
         },
         {
           "name": "泰珀 Tepper",
-          "value_usd": 899726400,
+          "value_usd": 81724950,
+          "action": "trim"
+        },
+        {
+          "name": "Dan Loeb",
+          "value_usd": 16024500,
+          "action": "new"
+        },
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 14331564,
           "action": "add"
         },
         {
-          "name": "Brad Gerstner",
-          "value_usd": 435192245,
+          "name": "德魯肯米勒 Druckenmiller",
+          "value_usd": 91083,
+          "action": "add"
+        }
+      ]
+    },
+    {
+      "symbol": "CSCO",
+      "name": "Cisco Systems, Inc.",
+      "theme": "Cloud Infrastructure",
+      "signal": "buy",
+      "holders": 1,
+      "increased": 1,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 63848190,
+      "total_held_fmt": "$64M",
+      "whales_fmt": "達利歐 Dalio $64M 加碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 63848190,
+          "action": "add"
+        }
+      ]
+    },
+    {
+      "symbol": "GEV",
+      "name": "GE Vernova",
+      "theme": "Electrification / Power",
+      "signal": "sell",
+      "holders": 4,
+      "increased": 0,
+      "reduced": 3,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 3476566366,
+      "total_held_fmt": "$3.5B",
+      "whales_fmt": "Philippe Laffont $2.2B 減碼 · Chase Coleman $849M 持有 · 達利歐 Dalio $380M 減碼 · 木頭姐 Cathie Wood $2M 減碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "Philippe Laffont",
+          "value_usd": 2245411301,
+          "action": "trim"
+        },
+        {
+          "name": "Chase Coleman",
+          "value_usd": 849326463,
+          "action": "hold"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 379621591,
+          "action": "trim"
+        },
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 2207011,
           "action": "trim"
         }
       ]
     },
     {
-      "symbol": "CRWD",
-      "name": "CrowdStrike",
-      "theme": "Cybersecurity",
+      "symbol": "EQIX",
+      "name": "Equinix, Inc.",
+      "theme": "Cloud Infrastructure",
       "signal": "split",
       "holders": 2,
       "increased": 0,
       "reduced": 1,
       "new_pos": 1,
       "closed_pos": 0,
-      "total_held_usd": 42894737,
-      "total_held_fmt": "$43M",
-      "whales_fmt": "木頭姐 Cathie Wood $41M 減碼 · 達利歐 Dalio $2M 新進",
+      "total_held_usd": 1093622401,
+      "total_held_fmt": "$1.1B",
+      "whales_fmt": "Philippe Laffont $1.1B 新進 · 達利歐 Dalio $24M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 41331145,
-          "action": "trim"
+          "name": "Philippe Laffont",
+          "value_usd": 1069330093,
+          "action": "new"
         },
         {
           "name": "達利歐 Dalio",
-          "value_usd": 1563592,
-          "action": "new"
+          "value_usd": 24292308,
+          "action": "trim"
         }
       ]
     },
     {
-      "symbol": "GFS",
-      "name": "格羅方德",
-      "theme": "AI Compute",
-      "signal": "buy",
-      "holders": 2,
+      "symbol": "ALT",
+      "name": "Altimmune, Inc.",
+      "theme": "Biotech — Obesity / GLP-1",
+      "signal": "split",
+      "holders": 0,
       "increased": 0,
       "reduced": 0,
-      "new_pos": 2,
+      "new_pos": 0,
       "closed_pos": 0,
-      "total_held_usd": 23130579,
-      "total_held_fmt": "$23M",
-      "whales_fmt": "索羅斯 Soros $20M 新進 · 達利歐 Dalio $3M 新進",
+      "total_held_usd": 0,
+      "total_held_fmt": "—",
+      "whales_fmt": "",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
-      "whales": [
-        {
-          "name": "索羅斯 Soros",
-          "value_usd": 19765222,
-          "action": "new"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 3365357,
-          "action": "new"
-        }
-      ]
+      "whales": []
     }
   ]
 }
