@@ -130,14 +130,14 @@
       "tier": "ready"
     },
     {
-      "symbol": "AMZN",
-      "name": "亞馬遜",
+      "symbol": "AMAT",
+      "name": "應用材料",
       "tier": "ready"
     },
     {
-      "symbol": "ENTG",
-      "name": "英特格",
-      "tier": "watch"
+      "symbol": "AMZN",
+      "name": "亞馬遜",
+      "tier": "ready"
     }
   ],
   "price": 511.57,

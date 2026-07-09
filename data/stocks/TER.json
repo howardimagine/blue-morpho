@@ -5,7 +5,7 @@
   "regime": "neutral",
   "theme": "AI Compute",
   "business": "半導體測試設備 + 協作工業機器人(UR);AI 晶片測試需求上升。",
-  "why": "QUALITY_COMPOUNDER",
+  "why": "INDUSTRY_EXPANSION",
   "rsi": null,
   "sma50": null,
   "sma200": null,
@@ -18,7 +18,7 @@
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 8.4
+      "score": 4.8
     },
     {
       "key": "macro_context",
@@ -28,12 +28,12 @@
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 8.4
+      "score": 7.3
     },
     {
       "key": "news_catalyst",
       "label": "新聞催化",
-      "score": null
+      "score": 5.0
     },
     {
       "key": "risk_reward",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-07-09",
+      "theme": "AI Compute",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-07-01",
       "theme": "Semiconductor Equipment (WFE)",
@@ -114,13 +122,13 @@
       "tier": "ready"
     },
     {
-      "symbol": "AMD",
-      "name": "超微",
+      "symbol": "AMAT",
+      "name": "應用材料",
       "tier": "ready"
     },
     {
-      "symbol": "AMZN",
-      "name": "亞馬遜",
+      "symbol": "AMD",
+      "name": "超微",
       "tier": "ready"
     }
   ],

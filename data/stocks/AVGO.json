@@ -173,6 +173,11 @@
       "tier": "enter"
     },
     {
+      "symbol": "AMAT",
+      "name": "應用材料",
+      "tier": "ready"
+    },
+    {
       "symbol": "AMD",
       "name": "超微",
       "tier": "ready"
@@ -181,11 +186,6 @@
       "symbol": "AMZN",
       "name": "亞馬遜",
       "tier": "ready"
-    },
-    {
-      "symbol": "ENTG",
-      "name": "英特格",
-      "tier": "watch"
     }
   ],
   "price": 382.07,

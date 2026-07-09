@@ -170,13 +170,13 @@
       "tier": "ready"
     },
     {
-      "symbol": "AMD",
-      "name": "超微",
+      "symbol": "AMAT",
+      "name": "應用材料",
       "tier": "ready"
     },
     {
-      "symbol": "AMZN",
-      "name": "亞馬遜",
+      "symbol": "AMD",
+      "name": "超微",
       "tier": "ready"
     }
   ],
