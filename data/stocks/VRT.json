@@ -1,7 +1,7 @@
 {
   "symbol": "VRT",
   "name": "Vertiv",
-  "tier": "watch",
+  "tier": "ready",
   "regime": "neutral",
   "theme": "Electrification / Power",
   "business": "資料中心關鍵基礎設施(電源/散熱);AI 訓練中心建設核心。",
@@ -13,7 +13,7 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": null
+      "score": 5.7
     },
     {
       "key": "technical_setup",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-07-13",
+      "theme": "Data Center",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-07-07",
       "theme": "Data Center",

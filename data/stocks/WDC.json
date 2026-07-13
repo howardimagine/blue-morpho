@@ -13,12 +13,12 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 6.6
+      "score": 6.5
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 6.4
+      "score": 4.5
     },
     {
       "key": "macro_context",
@@ -28,7 +28,7 @@
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 7.1
+      "score": 6.7
     },
     {
       "key": "news_catalyst",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-07-13",
+      "theme": "Memory (HBM / DRAM / NAND)",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-07-07",
       "theme": "Memory (HBM / DRAM / NAND)",
@@ -129,7 +137,7 @@
     {
       "symbol": "AMD",
       "name": "超微",
-      "tier": "ready"
+      "tier": "enter"
     }
   ],
   "price": 562.925,

@@ -20,7 +20,7 @@
   {
     "symbol": "AMD",
     "name": "超微",
-    "tier": "ready",
+    "tier": "enter",
     "theme": "AI Compute"
   },
   {
@@ -296,7 +296,7 @@
   {
     "symbol": "VRT",
     "name": "Vertiv",
-    "tier": "watch",
+    "tier": "ready",
     "theme": "Electrification / Power"
   },
   {

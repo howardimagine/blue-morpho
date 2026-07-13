@@ -1,7 +1,7 @@
 {
   "symbol": "AMD",
   "name": "超微",
-  "tier": "ready",
+  "tier": "enter",
   "regime": "neutral",
   "theme": "AI Compute",
   "business": "x86 CPU(Zen)+ GPU(MI 系列);AI 加速器市佔追趕 NVDA。",
@@ -13,12 +13,12 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 2.9
+      "score": 5.7
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 7.7
+      "score": 8.9
     },
     {
       "key": "macro_context",
@@ -28,7 +28,7 @@
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 8.2
+      "score": 8.4
     },
     {
       "key": "news_catalyst",
@@ -38,10 +38,18 @@
     {
       "key": "risk_reward",
       "label": "風險回報",
-      "score": null
+      "score": 5.0
     }
   ],
   "tracking": [
+    {
+      "date": "2026-07-13",
+      "theme": "AI Compute",
+      "tier": "enter",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-07-03",
       "theme": "AI Compute",
