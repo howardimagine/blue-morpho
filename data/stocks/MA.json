@@ -43,6 +43,11 @@
       "symbol": "AFRM",
       "name": "Affirm Holdings, Inc.",
       "tier": "ready"
+    },
+    {
+      "symbol": "GPN",
+      "name": "Global Payments Inc.",
+      "tier": "ready"
     }
   ],
   "price": 489.98,

@@ -96,6 +96,11 @@
   ],
   "peers": [
     {
+      "symbol": "AMZN",
+      "name": "亞馬遜",
+      "tier": "ready"
+    },
+    {
       "symbol": "CSCO",
       "name": "Cisco Systems, Inc.",
       "tier": "ready"

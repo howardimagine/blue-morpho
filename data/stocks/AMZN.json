@@ -13,12 +13,12 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 3.3
+      "score": 5.6
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 5.5
+      "score": 6.1
     },
     {
       "key": "macro_context",
@@ -33,7 +33,7 @@
     {
       "key": "news_catalyst",
       "label": "新聞催化",
-      "score": 7.2
+      "score": null
     },
     {
       "key": "risk_reward",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-07-14",
+      "theme": "Cloud Infrastructure",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-07-07",
       "theme": "AI Compute",
