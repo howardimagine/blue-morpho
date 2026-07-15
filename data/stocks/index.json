@@ -67,8 +67,8 @@
   },
   {
     "symbol": "CDNS",
-    "name": "CDNS",
-    "tier": "watch",
+    "name": "Cadence Design Systems, Inc.",
+    "tier": "ready",
     "theme": "AI Software"
   },
   {
@@ -79,8 +79,8 @@
   },
   {
     "symbol": "CRM",
-    "name": "CRM",
-    "tier": "watch",
+    "name": "Salesforce, Inc.",
+    "tier": "ready",
     "theme": "AI Software"
   },
   {
@@ -103,7 +103,7 @@
   },
   {
     "symbol": "DDOG",
-    "name": "DDOG",
+    "name": "Datadog, Inc.",
     "tier": "watch",
     "theme": "AI Software"
   },

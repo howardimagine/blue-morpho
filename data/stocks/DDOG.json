@@ -1,10 +1,10 @@
 {
   "symbol": "DDOG",
-  "name": "DDOG",
+  "name": "Datadog, Inc.",
   "tier": "watch",
   "regime": "neutral",
   "theme": "AI Software",
-  "business": "",
+  "business": "Datadog, Inc. operates an observability and security platform for cloud applications in the United States and internationally. The company's products comprise infrastructure and application performance monitoring, log management, observabi…",
   "why": null,
   "rsi": null,
   "sma50": null,
@@ -42,6 +42,21 @@
     {
       "symbol": "NOW",
       "name": "ServiceNow",
+      "tier": "ready"
+    },
+    {
+      "symbol": "ESTC",
+      "name": "Elastic N.V.",
+      "tier": "ready"
+    },
+    {
+      "symbol": "ADBE",
+      "name": "Adobe Inc.",
+      "tier": "ready"
+    },
+    {
+      "symbol": "CDNS",
+      "name": "Cadence Design Systems, Inc.",
       "tier": "ready"
     }
   ],

@@ -1,16 +1,56 @@
 {
   "symbol": "CDNS",
-  "name": "CDNS",
-  "tier": "watch",
+  "name": "Cadence Design Systems, Inc.",
+  "tier": "ready",
   "regime": "neutral",
   "theme": "AI Software",
-  "business": "",
-  "why": null,
+  "business": "Cadence Design Systems, Inc. develops computational, AI-driven software, hardware, and silicon intellectual property products and solutions. The company offers functional verification services, such as Jasper, a formal verification platfor…",
+  "why": "QUALITY_COMPOUNDER",
   "rsi": null,
   "sma50": null,
   "sma200": null,
-  "factors": [],
-  "tracking": [],
+  "factors": [
+    {
+      "key": "theme_tailwind",
+      "label": "主題順風",
+      "score": 5.4
+    },
+    {
+      "key": "technical_setup",
+      "label": "技術形態",
+      "score": 6.4
+    },
+    {
+      "key": "macro_context",
+      "label": "總經環境",
+      "score": 5.0
+    },
+    {
+      "key": "business_quality",
+      "label": "基本面品質",
+      "score": 7.9
+    },
+    {
+      "key": "news_catalyst",
+      "label": "新聞催化",
+      "score": null
+    },
+    {
+      "key": "risk_reward",
+      "label": "風險回報",
+      "score": null
+    }
+  ],
+  "tracking": [
+    {
+      "date": "2026-07-15",
+      "theme": "AI Software",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    }
+  ],
   "links": [
     {
       "label": "Finviz",
@@ -42,6 +82,21 @@
     {
       "symbol": "NOW",
       "name": "ServiceNow",
+      "tier": "ready"
+    },
+    {
+      "symbol": "ESTC",
+      "name": "Elastic N.V.",
+      "tier": "ready"
+    },
+    {
+      "symbol": "ADBE",
+      "name": "Adobe Inc.",
+      "tier": "ready"
+    },
+    {
+      "symbol": "CRM",
+      "name": "Salesforce, Inc.",
       "tier": "ready"
     }
   ],

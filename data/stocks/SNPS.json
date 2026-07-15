@@ -43,6 +43,21 @@
       "symbol": "NOW",
       "name": "ServiceNow",
       "tier": "ready"
+    },
+    {
+      "symbol": "ESTC",
+      "name": "Elastic N.V.",
+      "tier": "ready"
+    },
+    {
+      "symbol": "ADBE",
+      "name": "Adobe Inc.",
+      "tier": "ready"
+    },
+    {
+      "symbol": "CDNS",
+      "name": "Cadence Design Systems, Inc.",
+      "tier": "ready"
     }
   ],
   "price": 453.89,

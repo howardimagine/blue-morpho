@@ -110,7 +110,28 @@
       "href": "https://www.tipranks.com/stocks/NOW/forecast"
     }
   ],
-  "peers": [],
+  "peers": [
+    {
+      "symbol": "ESTC",
+      "name": "Elastic N.V.",
+      "tier": "ready"
+    },
+    {
+      "symbol": "ADBE",
+      "name": "Adobe Inc.",
+      "tier": "ready"
+    },
+    {
+      "symbol": "CDNS",
+      "name": "Cadence Design Systems, Inc.",
+      "tier": "ready"
+    },
+    {
+      "symbol": "CRM",
+      "name": "Salesforce, Inc.",
+      "tier": "ready"
+    }
+  ],
   "price": 102.15,
   "generated_at": "2026-06-14T14:42:46Z",
   "health_grade": "B",

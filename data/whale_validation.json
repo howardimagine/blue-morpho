@@ -1,188 +1,189 @@
 {
   "as_of": "2026-05-15",
   "n_whales": 19,
-  "generated_at": "2026-07-14T00:06:41+00:00",
+  "generated_at": "2026-07-15T00:07:10+00:00",
   "stocks": [
     {
-      "symbol": "EXEL",
-      "name": "Exelixis, Inc.",
-      "theme": "Biotech — Oncology",
+      "symbol": "ESTC",
+      "name": "Elastic N.V.",
+      "theme": "AI Software",
       "signal": "sell",
-      "holders": 1,
-      "increased": 0,
-      "reduced": 1,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 20629918,
-      "total_held_fmt": "$21M",
-      "whales_fmt": "達利歐 Dalio $21M 減碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 20629918,
-          "action": "trim"
-        }
-      ]
-    },
-    {
-      "symbol": "AMGN",
-      "name": "Amgen Inc.",
-      "theme": "Biotech — Obesity / GLP-1",
-      "signal": "split",
-      "holders": 1,
-      "increased": 1,
-      "reduced": 0,
-      "new_pos": 0,
-      "closed_pos": 1,
-      "total_held_usd": 5198232,
-      "total_held_fmt": "$5M",
-      "whales_fmt": "木頭姐 Cathie Wood — 清倉 · 達利歐 Dalio $5M 加碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 5198232,
-          "action": "add"
-        }
-      ]
-    },
-    {
-      "symbol": "AFRM",
-      "name": "Affirm Holdings, Inc.",
-      "theme": "Payments / FinTech",
-      "signal": "sell",
-      "holders": 0,
-      "increased": 0,
-      "reduced": 0,
-      "new_pos": 0,
-      "closed_pos": 1,
-      "total_held_usd": 0,
-      "total_held_fmt": "—",
-      "whales_fmt": "Stephen Mandel — 清倉",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "Stephen Mandel",
-          "value_usd": 0,
-          "action": "exit"
-        }
-      ]
-    },
-    {
-      "symbol": "GPN",
-      "name": "Global Payments Inc.",
-      "theme": "Payments / FinTech",
-      "signal": "split",
-      "holders": 0,
-      "increased": 0,
-      "reduced": 0,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 0,
-      "total_held_fmt": "—",
-      "whales_fmt": "",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": []
-    },
-    {
-      "symbol": "AMZN",
-      "name": "亞馬遜",
-      "theme": "Cloud Infrastructure",
-      "signal": "sell",
-      "holders": 12,
-      "increased": 5,
-      "reduced": 6,
-      "new_pos": 0,
-      "closed_pos": 2,
-      "total_held_usd": 9709730891,
-      "total_held_fmt": "$9.7B",
-      "whales_fmt": "巴菲特 Buffett — 清倉 · Stephen Mandel — 清倉 · 艾克曼 Ackman $2.4B 加碼 · Chase Coleman $2.1B 持有 · Philippe Laffont $1.7B 減碼 · 達利歐 Dalio $914M 加碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "巴菲特 Buffett",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "Stephen Mandel",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "艾克曼 Ackman",
-          "value_usd": 2385104083,
-          "action": "add"
-        },
-        {
-          "name": "Chase Coleman",
-          "value_usd": 2082700000,
-          "action": "hold"
-        },
-        {
-          "name": "Philippe Laffont",
-          "value_usd": 1651740634,
-          "action": "trim"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 914036840,
-          "action": "add"
-        },
-        {
-          "name": "泰珀 Tepper",
-          "value_usd": 899726400,
-          "action": "add"
-        },
-        {
-          "name": "Brad Gerstner",
-          "value_usd": 435192245,
-          "action": "trim"
-        }
-      ]
-    },
-    {
-      "symbol": "CRWD",
-      "name": "CrowdStrike",
-      "theme": "Cybersecurity",
-      "signal": "split",
       "holders": 2,
       "increased": 0,
       "reduced": 1,
       "new_pos": 1,
-      "closed_pos": 0,
-      "total_held_usd": 42894737,
-      "total_held_fmt": "$43M",
-      "whales_fmt": "木頭姐 Cathie Wood $41M 減碼 · 達利歐 Dalio $2M 新進",
+      "closed_pos": 1,
+      "total_held_usd": 38470604,
+      "total_held_fmt": "$38M",
+      "whales_fmt": "Chase Coleman — 清倉 · 索羅斯 Soros $38M 新進 · 達利歐 Dalio <$1M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 41331145,
-          "action": "trim"
+          "name": "Chase Coleman",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 38042390,
+          "action": "new"
         },
         {
           "name": "達利歐 Dalio",
-          "value_usd": 1563592,
+          "value_usd": 428214,
+          "action": "trim"
+        }
+      ]
+    },
+    {
+      "symbol": "VEEV",
+      "name": "Veeva Systems Inc.",
+      "theme": "Healthcare AI",
+      "signal": "sell",
+      "holders": 0,
+      "increased": 0,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 3,
+      "total_held_usd": 0,
+      "total_held_fmt": "—",
+      "whales_fmt": "達利歐 Dalio — 清倉 · Chase Coleman — 清倉 · 木頭姐 Cathie Wood — 清倉",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "Chase Coleman",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 0,
+          "action": "exit"
+        }
+      ]
+    },
+    {
+      "symbol": "ADBE",
+      "name": "Adobe Inc.",
+      "theme": "AI Software",
+      "signal": "sell",
+      "holders": 1,
+      "increased": 0,
+      "reduced": 1,
+      "new_pos": 0,
+      "closed_pos": 1,
+      "total_held_usd": 318921,
+      "total_held_fmt": "<$1M",
+      "whales_fmt": "Philippe Laffont — 清倉 · 達利歐 Dalio <$1M 減碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "Philippe Laffont",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 318921,
+          "action": "trim"
+        }
+      ]
+    },
+    {
+      "symbol": "CDNS",
+      "name": "Cadence Design Systems, Inc.",
+      "theme": "AI Software",
+      "signal": "sell",
+      "holders": 1,
+      "increased": 0,
+      "reduced": 1,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 7067901,
+      "total_held_fmt": "$7M",
+      "whales_fmt": "達利歐 Dalio $7M 減碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 7067901,
+          "action": "trim"
+        }
+      ]
+    },
+    {
+      "symbol": "AMAT",
+      "name": "應用材料",
+      "theme": "AI Compute",
+      "signal": "buy",
+      "holders": 2,
+      "increased": 1,
+      "reduced": 0,
+      "new_pos": 1,
+      "closed_pos": 0,
+      "total_held_usd": 20735762,
+      "total_held_fmt": "$21M",
+      "whales_fmt": "達利歐 Dalio $16M 加碼 · 索羅斯 Soros $4M 新進",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 16258722,
+          "action": "add"
+        },
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 4477040,
           "action": "new"
+        }
+      ]
+    },
+    {
+      "symbol": "CRM",
+      "name": "Salesforce, Inc.",
+      "theme": "AI Software",
+      "signal": "sell",
+      "holders": 2,
+      "increased": 0,
+      "reduced": 2,
+      "new_pos": 0,
+      "closed_pos": 1,
+      "total_held_usd": 68573785,
+      "total_held_fmt": "$69M",
+      "whales_fmt": "達利歐 Dalio — 清倉 · 索羅斯 Soros $67M 減碼 · 木頭姐 Cathie Wood $1M 減碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 67442191,
+          "action": "trim"
+        },
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 1131594,
+          "action": "trim"
         }
       ]
     }
