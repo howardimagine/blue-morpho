@@ -88,11 +88,6 @@
   ],
   "peers": [
     {
-      "symbol": "LRCX",
-      "name": "科林研發",
-      "tier": "ready"
-    },
-    {
       "symbol": "ASML",
       "name": "艾司摩爾",
       "tier": "enter"
@@ -105,6 +100,11 @@
     {
       "symbol": "AEHR",
       "name": "Aehr Test",
+      "tier": "ready"
+    },
+    {
+      "symbol": "KLAC",
+      "name": "科磊",
       "tier": "ready"
     }
   ],

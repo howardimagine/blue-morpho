@@ -48,6 +48,11 @@
       "symbol": "GPN",
       "name": "Global Payments Inc.",
       "tier": "ready"
+    },
+    {
+      "symbol": "FIS",
+      "name": "Fidelity National Information S",
+      "tier": "ready"
     }
   ],
   "price": 489.98,

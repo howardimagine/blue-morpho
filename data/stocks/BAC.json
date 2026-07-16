@@ -96,6 +96,11 @@
       "symbol": "GS",
       "name": "Goldman Sachs Group, Inc. (The)",
       "tier": "ready"
+    },
+    {
+      "symbol": "JPM",
+      "name": "JP Morgan Chase & Co.",
+      "tier": "ready"
     }
   ],
   "price": 56.02,
