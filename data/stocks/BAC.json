@@ -1,11 +1,11 @@
 {
   "symbol": "BAC",
   "name": "Bank of America Corporation",
-  "tier": "ready",
+  "tier": "enter",
   "regime": "neutral",
   "theme": "Banks",
   "business": "Bank of America Corporation, through its subsidiaries, provides various financial products and services for individual consumers, small and middle-market businesses, institutional investors, large corporations, and governments worldwide. I…",
-  "why": "NEWS_CATALYST",
+  "why": "QUALITY_COMPOUNDER",
   "rsi": null,
   "sma50": null,
   "sma200": null,
@@ -13,12 +13,12 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 2.3
+      "score": 6.8
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 7.9
+      "score": 8.1
     },
     {
       "key": "macro_context",
@@ -28,20 +28,28 @@
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 6.9
+      "score": 8.0
     },
     {
       "key": "news_catalyst",
       "label": "新聞催化",
-      "score": 8.8
+      "score": null
     },
     {
       "key": "risk_reward",
       "label": "風險回報",
-      "score": null
+      "score": 5.0
     }
   ],
   "tracking": [
+    {
+      "date": "2026-07-17",
+      "theme": "Banks",
+      "tier": "enter",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-07-03",
       "theme": "Banks",

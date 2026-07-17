@@ -53,6 +53,11 @@
       "symbol": "FIS",
       "name": "Fidelity National Information S",
       "tier": "ready"
+    },
+    {
+      "symbol": "FI",
+      "name": "FI",
+      "tier": "ready"
     }
   ],
   "price": 489.98,
