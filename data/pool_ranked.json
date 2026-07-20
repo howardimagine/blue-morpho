@@ -7,7 +7,7 @@
       "n": 9,
       "rs_1m": 16.88,
       "rs_3m": 23.3,
-      "news_7d": 88,
+      "news_7d": 91,
       "stocks": [
         {
           "symbol": "NTAP",
@@ -97,7 +97,7 @@
       "n": 8,
       "rs_1m": 10.65,
       "rs_3m": -3.72,
-      "news_7d": 35,
+      "news_7d": 44,
       "stocks": [
         {
           "symbol": "AFRM",
@@ -178,7 +178,7 @@
       "n": 8,
       "rs_1m": 7.47,
       "rs_3m": 4.44,
-      "news_7d": 170,
+      "news_7d": 169,
       "stocks": [
         {
           "symbol": "KEY",
@@ -259,7 +259,7 @@
       "n": 15,
       "rs_1m": 3.51,
       "rs_3m": 4.16,
-      "news_7d": 151,
+      "news_7d": 150,
       "stocks": [
         {
           "symbol": "NET",
@@ -358,7 +358,7 @@
       "n": 8,
       "rs_1m": 10.2,
       "rs_3m": 6.41,
-      "news_7d": 63,
+      "news_7d": 62,
       "stocks": [
         {
           "symbol": "EXEL",
@@ -384,7 +384,7 @@
           "composite": 0.851,
           "score_kind": "base",
           "is_recent": false,
-          "is_watch": true,
+          "is_watch": false,
           "rank": 3
         },
         {
@@ -439,7 +439,7 @@
       "n": 8,
       "rs_1m": 9.17,
       "rs_3m": 34.11,
-      "news_7d": 91,
+      "news_7d": 98,
       "stocks": [
         {
           "symbol": "FTNT",
@@ -516,11 +516,65 @@
       ]
     },
     {
+      "theme": "Biotech — Obesity / GLP-1",
+      "n": 5,
+      "rs_1m": 10.2,
+      "rs_3m": 6.41,
+      "news_7d": 63,
+      "stocks": [
+        {
+          "symbol": "LLY",
+          "name": "Eli Lilly",
+          "composite": 0.932,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "AMGN",
+          "name": "Amgen Inc.",
+          "composite": 0.851,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "NVO",
+          "name": "NVO",
+          "composite": 0.614,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "VKTX",
+          "name": "VKTX",
+          "composite": 0.558,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "ALT",
+          "name": "Altimmune, Inc.",
+          "composite": 0.461,
+          "score_kind": "base",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 5
+        }
+      ]
+    },
+    {
       "theme": "Energy / Oil & Gas",
       "n": 7,
       "rs_1m": 5.69,
       "rs_3m": 0.65,
-      "news_7d": 96,
+      "news_7d": 95,
       "stocks": [
         {
           "symbol": "EOG",
@@ -1043,60 +1097,6 @@
           "is_recent": true,
           "is_watch": false,
           "rank": 8
-        }
-      ]
-    },
-    {
-      "theme": "Biotech — Obesity / GLP-1",
-      "n": 5,
-      "rs_1m": null,
-      "rs_3m": null,
-      "news_7d": null,
-      "stocks": [
-        {
-          "symbol": "LLY",
-          "name": "Eli Lilly",
-          "composite": 0.932,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
-          "symbol": "AMGN",
-          "name": "Amgen Inc.",
-          "composite": 0.851,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": true,
-          "rank": 2
-        },
-        {
-          "symbol": "NVO",
-          "name": "NVO",
-          "composite": 0.614,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
-          "symbol": "VKTX",
-          "name": "VKTX",
-          "composite": 0.558,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 4
-        },
-        {
-          "symbol": "ALT",
-          "name": "Altimmune, Inc.",
-          "composite": 0.461,
-          "score_kind": "base",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 5
         }
       ]
     },

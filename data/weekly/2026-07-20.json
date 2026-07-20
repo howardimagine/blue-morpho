@@ -1,6 +1,6 @@
 {
   "date": "2026-07-20",
-  "headline": "川普進口利多重炒、能源與雲端同步止穩;大盤恐慌升溫後資金精準配置,工業自動化與軟體防禦雙軸接力,ROK、DDOG、CRWD 浮現技術面轉機",
+  "headline": "高波動下的籌碼分化 — 雲端與能源接棒防禦,市場在痛點與新機間尋找著力點;AMZN、EOG 成本週觀察重點",
   "theme": "Cloud Infrastructure",
   "regime": "neutral",
   "picks": [
@@ -81,27 +81,15 @@
   "policy": [
     {
       "topic": "川普 × 個股機會",
-      "title": "Imports ride to the White House’s rescue, again",
-      "summary_zh": "川普進口政策重啟,容器船運費上升,暗示供應鏈重組預期升溫,利好美國本土能源與製造業。",
-      "source": "Taipei Times"
+      "title": "Senate NDAA Would Impose Sweeping New Restrictions on Stock Buybacks and Dividends by Defense Contractors",
+      "summary_zh": "參議院 NDAA[?] 草案擬限制國防承包商的股票回購與分紅,迫使防禦商將資本更多投入研發與產能擴張。",
+      "source": "Mayer Brown"
     },
     {
       "topic": "川普 × 個股機會",
-      "title": "IBRX Stock Rallies Into Trump’s Big SOTU Night — Here’s What Traders Think Could Fuel The Next Move",
-      "summary_zh": "歐盟強制 Google 與蘋果開放 AI 助手與搜尋數據,科技巨頭面臨歐洲合規成本上升與市場份額壓力。",
-      "source": "Stocktwits"
-    },
-    {
-      "topic": "地緣 / 國際 / 能源",
-      "title": "Google and Apple are clashing with the EU over the future of AI assistants",
-      "summary_zh": "川普 SOTU[?] 演講聚焦製造業與能源獨立,市場重新定價美國優先政策的產業受惠順序。",
-      "source": "CNN"
-    },
-    {
-      "topic": "地緣 / 國際 / 能源",
-      "title": "Taiwan Semiconductor Manufacturing Co. (TSMC)",
-      "summary_zh": "TSMC 與台灣半導體供應鏈話題再獲關注,地緣風險對全球晶片與雲端基建成本的潛在拉抬。",
-      "source": "Encyclopedia Britannica"
+      "title": "Paying for early access to Trump's Truth Social could raise big money - and major ethical issues - ABC News",
+      "summary_zh": "Truth Social 計畫銷售優先取用川普貼文的權限,試圖開創新的數據變現渠道,但面臨倫理與監管質疑。",
+      "source": "ABC News - Breaking News, Latest News and Videos"
     }
   ],
   "themes": [],
