@@ -13,12 +13,12 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 6.4
+      "score": 6.5
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 7.5
+      "score": 8.1
     },
     {
       "key": "macro_context",
@@ -28,20 +28,28 @@
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 6.2
+      "score": 7.3
     },
     {
       "key": "news_catalyst",
       "label": "新聞催化",
-      "score": 5.0
+      "score": null
     },
     {
       "key": "risk_reward",
       "label": "風險回報",
-      "score": null
+      "score": 5.0
     }
   ],
   "tracking": [
+    {
+      "date": "2026-07-20",
+      "theme": "Cybersecurity",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-07-14",
       "theme": "Cybersecurity",
