@@ -1,199 +1,161 @@
 {
   "as_of": "2026-05-15",
   "n_whales": 19,
-  "generated_at": "2026-07-20T02:06:59+00:00",
+  "generated_at": "2026-07-21T00:05:42+00:00",
   "stocks": [
     {
-      "symbol": "EXEL",
-      "name": "Exelixis, Inc.",
-      "theme": "Biotech — Oncology",
-      "signal": "sell",
+      "symbol": "AMGN",
+      "name": "Amgen Inc.",
+      "theme": "Biotech — Obesity / GLP-1",
+      "signal": "split",
       "holders": 1,
-      "increased": 0,
-      "reduced": 1,
+      "increased": 1,
+      "reduced": 0,
       "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 20629918,
-      "total_held_fmt": "$21M",
-      "whales_fmt": "達利歐 Dalio $21M 減碼",
+      "closed_pos": 1,
+      "total_held_usd": 5198232,
+      "total_held_fmt": "$5M",
+      "whales_fmt": "木頭姐 Cathie Wood — 清倉 · 達利歐 Dalio $5M 加碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
           "name": "達利歐 Dalio",
-          "value_usd": 20629918,
-          "action": "trim"
+          "value_usd": 5198232,
+          "action": "add"
         }
       ]
     },
     {
-      "symbol": "AMZN",
-      "name": "亞馬遜",
-      "theme": "Cloud Infrastructure",
-      "signal": "sell",
-      "holders": 12,
-      "increased": 5,
-      "reduced": 6,
+      "symbol": "FANG",
+      "name": "Diamondback Energy, Inc.",
+      "theme": "Energy / Oil & Gas",
+      "signal": "split",
+      "holders": 0,
+      "increased": 0,
+      "reduced": 0,
       "new_pos": 0,
-      "closed_pos": 2,
-      "total_held_usd": 9709730891,
-      "total_held_fmt": "$9.7B",
-      "whales_fmt": "巴菲特 Buffett — 清倉 · Stephen Mandel — 清倉 · 艾克曼 Ackman $2.4B 加碼 · Chase Coleman $2.1B 持有 · Philippe Laffont $1.7B 減碼 · 達利歐 Dalio $914M 加碼",
+      "closed_pos": 0,
+      "total_held_usd": 0,
+      "total_held_fmt": "—",
+      "whales_fmt": "",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": []
+    },
+    {
+      "symbol": "BMRN",
+      "name": "BioMarin Pharmaceutical Inc.",
+      "theme": "Biotech — Oncology",
+      "signal": "buy",
+      "holders": 4,
+      "increased": 2,
+      "reduced": 0,
+      "new_pos": 2,
+      "closed_pos": 1,
+      "total_held_usd": 748228287,
+      "total_held_fmt": "$748M",
+      "whales_fmt": "Philippe Laffont — 清倉 · Andreas Halvorsen $399M 加碼 · Brad Gerstner $260M 新進 · 達利歐 Dalio $90M 加碼 · 德魯肯米勒 Druckenmiller <$1M 新進",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "巴菲特 Buffett",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "Stephen Mandel",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "艾克曼 Ackman",
-          "value_usd": 2385104083,
-          "action": "add"
-        },
-        {
-          "name": "Chase Coleman",
-          "value_usd": 2082700000,
-          "action": "hold"
-        },
-        {
           "name": "Philippe Laffont",
-          "value_usd": 1651740634,
-          "action": "trim"
+          "value_usd": 0,
+          "action": "exit"
         },
         {
-          "name": "達利歐 Dalio",
-          "value_usd": 914036840,
-          "action": "add"
-        },
-        {
-          "name": "泰珀 Tepper",
-          "value_usd": 899726400,
+          "name": "Andreas Halvorsen",
+          "value_usd": 398936730,
           "action": "add"
         },
         {
           "name": "Brad Gerstner",
-          "value_usd": 435192245,
-          "action": "trim"
+          "value_usd": 259511763,
+          "action": "new"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 89763652,
+          "action": "add"
+        },
+        {
+          "name": "德魯肯米勒 Druckenmiller",
+          "value_usd": 16142,
+          "action": "new"
         }
       ]
     },
     {
-      "symbol": "EOG",
-      "name": "EOG Resources, Inc.",
-      "theme": "Energy / Oil & Gas",
-      "signal": "sell",
-      "holders": 1,
+      "symbol": "DLR",
+      "name": "Digital Realty Trust, Inc.",
+      "theme": "Cloud Infrastructure",
+      "signal": "split",
+      "holders": 0,
       "increased": 0,
-      "reduced": 1,
+      "reduced": 0,
       "new_pos": 0,
       "closed_pos": 0,
-      "total_held_usd": 1817534,
-      "total_held_fmt": "$2M",
-      "whales_fmt": "達利歐 Dalio $2M 減碼",
+      "total_held_usd": 0,
+      "total_held_fmt": "—",
+      "whales_fmt": "",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
-      "whales": [
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 1817534,
-          "action": "trim"
-        }
-      ]
+      "whales": []
     },
     {
-      "symbol": "CRWD",
-      "name": "CrowdStrike",
-      "theme": "Cybersecurity",
+      "symbol": "COP",
+      "name": "ConocoPhillips",
+      "theme": "Energy / Oil & Gas",
+      "signal": "split",
+      "holders": 0,
+      "increased": 0,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 0,
+      "total_held_fmt": "—",
+      "whales_fmt": "",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": []
+    },
+    {
+      "symbol": "EQIX",
+      "name": "Equinix, Inc.",
+      "theme": "Cloud Infrastructure",
       "signal": "split",
       "holders": 2,
       "increased": 0,
       "reduced": 1,
       "new_pos": 1,
       "closed_pos": 0,
-      "total_held_usd": 42894737,
-      "total_held_fmt": "$43M",
-      "whales_fmt": "木頭姐 Cathie Wood $41M 減碼 · 達利歐 Dalio $2M 新進",
+      "total_held_usd": 1093622401,
+      "total_held_fmt": "$1.1B",
+      "whales_fmt": "Philippe Laffont $1.1B 新進 · 達利歐 Dalio $24M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 41331145,
-          "action": "trim"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 1563592,
+          "name": "Philippe Laffont",
+          "value_usd": 1069330093,
           "action": "new"
-        }
-      ]
-    },
-    {
-      "symbol": "DDOG",
-      "name": "Datadog, Inc.",
-      "theme": "AI Software",
-      "signal": "sell",
-      "holders": 2,
-      "increased": 1,
-      "reduced": 1,
-      "new_pos": 0,
-      "closed_pos": 1,
-      "total_held_usd": 38716622,
-      "total_held_fmt": "$39M",
-      "whales_fmt": "達利歐 Dalio — 清倉 · 木頭姐 Cathie Wood $27M 加碼 · 索羅斯 Soros $12M 減碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
+        },
         {
           "name": "達利歐 Dalio",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 26752727,
-          "action": "add"
-        },
-        {
-          "name": "索羅斯 Soros",
-          "value_usd": 11963895,
+          "value_usd": 24292308,
           "action": "trim"
-        }
-      ]
-    },
-    {
-      "symbol": "AFRM",
-      "name": "Affirm Holdings, Inc.",
-      "theme": "Payments / FinTech",
-      "signal": "sell",
-      "holders": 0,
-      "increased": 0,
-      "reduced": 0,
-      "new_pos": 0,
-      "closed_pos": 1,
-      "total_held_usd": 0,
-      "total_held_fmt": "—",
-      "whales_fmt": "Stephen Mandel — 清倉",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "Stephen Mandel",
-          "value_usd": 0,
-          "action": "exit"
         }
       ]
     }
