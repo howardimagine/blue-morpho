@@ -90,14 +90,14 @@
       "tier": "ready"
     },
     {
-      "symbol": "AMAT",
-      "name": "應用材料",
-      "tier": "ready"
-    },
-    {
       "symbol": "AMD",
       "name": "超微",
       "tier": "enter"
+    },
+    {
+      "symbol": "TER",
+      "name": "泰瑞達",
+      "tier": "ready"
     }
   ],
   "price": 254.54,

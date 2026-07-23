@@ -122,14 +122,14 @@
       "tier": "ready"
     },
     {
-      "symbol": "AMAT",
-      "name": "應用材料",
-      "tier": "ready"
-    },
-    {
       "symbol": "AMD",
       "name": "超微",
       "tier": "enter"
+    },
+    {
+      "symbol": "ENTG",
+      "name": "英特格",
+      "tier": "ready"
     }
   ],
   "price": 403.2,
