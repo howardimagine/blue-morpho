@@ -13,12 +13,12 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 5.7
+      "score": null
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 5.5
+      "score": 4.9
     },
     {
       "key": "macro_context",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-07-24",
+      "theme": "Data Center",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-07-13",
       "theme": "Data Center",
