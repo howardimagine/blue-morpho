@@ -5,7 +5,7 @@
   "regime": "neutral",
   "theme": "Cloud Infrastructure",
   "business": "Cisco Systems, Inc. designs, develops, and sells technologies that help to power, secure, and draw insights from the internet in the Americas, Europe, the Middle East, Africa, the Asia Pacific, Japan, and China. The company offers data cen…",
-  "why": "THEME_TAILWIND",
+  "why": "QUALITY_COMPOUNDER",
   "rsi": null,
   "sma50": null,
   "sma200": null,
@@ -13,12 +13,12 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 8.1
+      "score": 7.6
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 4.2
+      "score": 4.9
     },
     {
       "key": "macro_context",
@@ -28,7 +28,7 @@
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 7.3
+      "score": 7.9
     },
     {
       "key": "news_catalyst",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-07-27",
+      "theme": "Cloud Infrastructure",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-07-17",
       "theme": "Cloud Infrastructure",

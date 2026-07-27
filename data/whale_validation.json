@@ -1,146 +1,141 @@
 {
   "as_of": "2026-05-15",
   "n_whales": 19,
-  "generated_at": "2026-07-24T00:05:07+00:00",
+  "generated_at": "2026-07-27T00:05:54+00:00",
   "stocks": [
     {
-      "symbol": "HAL",
-      "name": "Halliburton Company",
-      "theme": "Energy / Oil & Gas",
+      "symbol": "BAC",
+      "name": "Bank of America Corporation",
+      "theme": "Banks",
       "signal": "split",
-      "holders": 2,
+      "holders": 0,
       "increased": 0,
-      "reduced": 1,
-      "new_pos": 1,
+      "reduced": 0,
+      "new_pos": 0,
       "closed_pos": 0,
-      "total_held_usd": 62618935,
-      "total_held_fmt": "$63M",
-      "whales_fmt": "大空頭 Burry $62M 新進 · 達利歐 Dalio $1M 減碼",
+      "total_held_usd": 0,
+      "total_held_fmt": "—",
+      "whales_fmt": "",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": []
+    },
+    {
+      "symbol": "DLR",
+      "name": "Digital Realty Trust, Inc.",
+      "theme": "Cloud Infrastructure",
+      "signal": "split",
+      "holders": 0,
+      "increased": 0,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 0,
+      "total_held_fmt": "—",
+      "whales_fmt": "",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": []
+    },
+    {
+      "symbol": "JPM",
+      "name": "JP Morgan Chase & Co.",
+      "theme": "Banks",
+      "signal": "split",
+      "holders": 0,
+      "increased": 0,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 0,
+      "total_held_fmt": "—",
+      "whales_fmt": "",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": []
+    },
+    {
+      "symbol": "AMGN",
+      "name": "Amgen Inc.",
+      "theme": "Biotech — Obesity / GLP-1",
+      "signal": "split",
+      "holders": 1,
+      "increased": 1,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 1,
+      "total_held_usd": 5198232,
+      "total_held_fmt": "$5M",
+      "whales_fmt": "木頭姐 Cathie Wood — 清倉 · 達利歐 Dalio $5M 加碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "大空頭 Burry",
-          "value_usd": 61500000,
-          "action": "new"
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 0,
+          "action": "exit"
         },
         {
           "name": "達利歐 Dalio",
-          "value_usd": 1118935,
-          "action": "trim"
+          "value_usd": 5198232,
+          "action": "add"
         }
       ]
     },
     {
-      "symbol": "IMCR",
-      "name": "Immunocore Holdings plc",
-      "theme": "Biotech — Oncology",
+      "symbol": "CSCO",
+      "name": "Cisco Systems, Inc.",
+      "theme": "Cloud Infrastructure",
       "signal": "buy",
       "holders": 1,
       "increased": 1,
       "reduced": 0,
       "new_pos": 0,
       "closed_pos": 0,
-      "total_held_usd": 570740,
-      "total_held_fmt": "<$1M",
-      "whales_fmt": "達利歐 Dalio <$1M 加碼",
+      "total_held_usd": 63848190,
+      "total_held_fmt": "$64M",
+      "whales_fmt": "達利歐 Dalio $64M 加碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
           "name": "達利歐 Dalio",
-          "value_usd": 570740,
+          "value_usd": 63848190,
           "action": "add"
         }
       ]
     },
     {
-      "symbol": "VRT",
-      "name": "Vertiv",
-      "theme": "Data Center",
-      "signal": "buy",
+      "symbol": "EQIX",
+      "name": "Equinix, Inc.",
+      "theme": "Cloud Infrastructure",
+      "signal": "split",
       "holders": 2,
-      "increased": 1,
-      "reduced": 0,
-      "new_pos": 0,
+      "increased": 0,
+      "reduced": 1,
+      "new_pos": 1,
       "closed_pos": 0,
-      "total_held_usd": 353668361,
-      "total_held_fmt": "$354M",
-      "whales_fmt": "Philippe Laffont $246M 加碼 · 達利歐 Dalio $108M 持有",
+      "total_held_usd": 1093622401,
+      "total_held_fmt": "$1.1B",
+      "whales_fmt": "Philippe Laffont $1.1B 新進 · 達利歐 Dalio $24M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
           "name": "Philippe Laffont",
-          "value_usd": 245977597,
-          "action": "add"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 107690764,
-          "action": "hold"
-        }
-      ]
-    },
-    {
-      "symbol": "ARM",
-      "name": "安謀",
-      "theme": "AI Compute",
-      "signal": "buy",
-      "holders": 8,
-      "increased": 4,
-      "reduced": 2,
-      "new_pos": 2,
-      "closed_pos": 2,
-      "total_held_usd": 736616796,
-      "total_held_fmt": "$737M",
-      "whales_fmt": "Philippe Laffont — 清倉 · 大空頭 Burry — 清倉 · Andreas Halvorsen $399M 加碼 · Brad Gerstner $260M 新進 · 索羅斯 Soros $42M 加碼 · 木頭姐 Cathie Wood $22M 減碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "Philippe Laffont",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "大空頭 Burry",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "Andreas Halvorsen",
-          "value_usd": 398936730,
-          "action": "add"
-        },
-        {
-          "name": "Brad Gerstner",
-          "value_usd": 259511763,
+          "value_usd": 1069330093,
           "action": "new"
         },
         {
-          "name": "索羅斯 Soros",
-          "value_usd": 42482880,
-          "action": "add"
-        },
-        {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 21679720,
-          "action": "trim"
-        },
-        {
-          "name": "Dan Loeb",
-          "value_usd": 8030000,
-          "action": "add"
-        },
-        {
           "name": "達利歐 Dalio",
-          "value_usd": 3156735,
-          "action": "add"
+          "value_usd": 24292308,
+          "action": "trim"
         }
       ]
     }
