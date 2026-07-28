@@ -1,140 +1,172 @@
 {
   "as_of": "2026-05-15",
   "n_whales": 19,
-  "generated_at": "2026-07-27T00:05:54+00:00",
+  "generated_at": "2026-07-28T00:04:53+00:00",
   "stocks": [
     {
-      "symbol": "BAC",
-      "name": "Bank of America Corporation",
-      "theme": "Banks",
-      "signal": "split",
-      "holders": 0,
-      "increased": 0,
-      "reduced": 0,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 0,
-      "total_held_fmt": "—",
-      "whales_fmt": "",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": []
-    },
-    {
-      "symbol": "DLR",
-      "name": "Digital Realty Trust, Inc.",
-      "theme": "Cloud Infrastructure",
-      "signal": "split",
-      "holders": 0,
-      "increased": 0,
-      "reduced": 0,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 0,
-      "total_held_fmt": "—",
-      "whales_fmt": "",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": []
-    },
-    {
-      "symbol": "JPM",
-      "name": "JP Morgan Chase & Co.",
-      "theme": "Banks",
-      "signal": "split",
-      "holders": 0,
-      "increased": 0,
-      "reduced": 0,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 0,
-      "total_held_fmt": "—",
-      "whales_fmt": "",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": []
-    },
-    {
-      "symbol": "AMGN",
-      "name": "Amgen Inc.",
-      "theme": "Biotech — Obesity / GLP-1",
-      "signal": "split",
+      "symbol": "EOG",
+      "name": "EOG Resources, Inc.",
+      "theme": "Energy / Oil & Gas",
+      "signal": "sell",
       "holders": 1,
-      "increased": 1,
-      "reduced": 0,
+      "increased": 0,
+      "reduced": 1,
       "new_pos": 0,
-      "closed_pos": 1,
-      "total_held_usd": 5198232,
-      "total_held_fmt": "$5M",
-      "whales_fmt": "木頭姐 Cathie Wood — 清倉 · 達利歐 Dalio $5M 加碼",
+      "closed_pos": 0,
+      "total_held_usd": 1817534,
+      "total_held_fmt": "$2M",
+      "whales_fmt": "達利歐 Dalio $2M 減碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 1817534,
+          "action": "trim"
+        }
+      ]
+    },
+    {
+      "symbol": "ABNB",
+      "name": "Airbnb, Inc.",
+      "theme": "Travel & Leisure",
+      "signal": "sell",
+      "holders": 2,
+      "increased": 0,
+      "reduced": 2,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 23828176,
+      "total_held_fmt": "$24M",
+      "whales_fmt": "木頭姐 Cathie Wood $20M 減碼 · 達利歐 Dalio $3M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
           "name": "木頭姐 Cathie Wood",
-          "value_usd": 0,
-          "action": "exit"
+          "value_usd": 20414701,
+          "action": "trim"
         },
         {
           "name": "達利歐 Dalio",
-          "value_usd": 5198232,
-          "action": "add"
+          "value_usd": 3413475,
+          "action": "trim"
         }
       ]
     },
     {
-      "symbol": "CSCO",
-      "name": "Cisco Systems, Inc.",
-      "theme": "Cloud Infrastructure",
-      "signal": "buy",
-      "holders": 1,
-      "increased": 1,
-      "reduced": 0,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 63848190,
-      "total_held_fmt": "$64M",
-      "whales_fmt": "達利歐 Dalio $64M 加碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 63848190,
-          "action": "add"
-        }
-      ]
-    },
-    {
-      "symbol": "EQIX",
-      "name": "Equinix, Inc.",
-      "theme": "Cloud Infrastructure",
-      "signal": "split",
+      "symbol": "ESTC",
+      "name": "Elastic N.V.",
+      "theme": "AI Software",
+      "signal": "sell",
       "holders": 2,
       "increased": 0,
       "reduced": 1,
       "new_pos": 1,
-      "closed_pos": 0,
-      "total_held_usd": 1093622401,
-      "total_held_fmt": "$1.1B",
-      "whales_fmt": "Philippe Laffont $1.1B 新進 · 達利歐 Dalio $24M 減碼",
+      "closed_pos": 1,
+      "total_held_usd": 38470604,
+      "total_held_fmt": "$38M",
+      "whales_fmt": "Chase Coleman — 清倉 · 索羅斯 Soros $38M 新進 · 達利歐 Dalio <$1M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "Philippe Laffont",
-          "value_usd": 1069330093,
+          "name": "Chase Coleman",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 38042390,
           "action": "new"
         },
         {
           "name": "達利歐 Dalio",
-          "value_usd": 24292308,
+          "value_usd": 428214,
+          "action": "trim"
+        }
+      ]
+    },
+    {
+      "symbol": "FANG",
+      "name": "Diamondback Energy, Inc.",
+      "theme": "Energy / Oil & Gas",
+      "signal": "split",
+      "holders": 0,
+      "increased": 0,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 0,
+      "total_held_fmt": "—",
+      "whales_fmt": "",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": []
+    },
+    {
+      "symbol": "BKNG",
+      "name": "Booking Holdings Inc. Common St",
+      "theme": "Travel & Leisure",
+      "signal": "sell",
+      "holders": 2,
+      "increased": 0,
+      "reduced": 2,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 10353177,
+      "total_held_fmt": "$10M",
+      "whales_fmt": "Stephen Mandel $10M 減碼 · 達利歐 Dalio <$1M 減碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "Stephen Mandel",
+          "value_usd": 10125820,
+          "action": "trim"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 227357,
+          "action": "trim"
+        }
+      ]
+    },
+    {
+      "symbol": "PLTR",
+      "name": "Palantir",
+      "theme": "Defense",
+      "signal": "sell",
+      "holders": 3,
+      "increased": 0,
+      "reduced": 2,
+      "new_pos": 1,
+      "closed_pos": 0,
+      "total_held_usd": 1377572452,
+      "total_held_fmt": "$1.4B",
+      "whales_fmt": "大空頭 Burry $912M 新進 · 木頭姐 Cathie Wood $455M 減碼 · 達利歐 Dalio $11M 減碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "大空頭 Burry",
+          "value_usd": 912100000,
+          "action": "new"
+        },
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 454913400,
+          "action": "trim"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 10559052,
           "action": "trim"
         }
       ]

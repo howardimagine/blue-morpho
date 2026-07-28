@@ -1,16 +1,56 @@
 {
   "symbol": "PLTR",
   "name": "Palantir",
-  "tier": "watch",
+  "tier": "ready",
   "regime": "neutral",
   "theme": "AI Software",
   "business": "政府/企業 AI 軟體平台(Gotham/Foundry);AIP 商用化加速。",
-  "why": null,
+  "why": "INDUSTRY_EXPANSION",
   "rsi": null,
   "sma50": null,
   "sma200": null,
-  "factors": [],
-  "tracking": [],
+  "factors": [
+    {
+      "key": "theme_tailwind",
+      "label": "主題順風",
+      "score": 5.4
+    },
+    {
+      "key": "technical_setup",
+      "label": "技術形態",
+      "score": 4.9
+    },
+    {
+      "key": "macro_context",
+      "label": "總經環境",
+      "score": 5.0
+    },
+    {
+      "key": "business_quality",
+      "label": "基本面品質",
+      "score": 6.5
+    },
+    {
+      "key": "news_catalyst",
+      "label": "新聞催化",
+      "score": null
+    },
+    {
+      "key": "risk_reward",
+      "label": "風險回報",
+      "score": null
+    }
+  ],
+  "tracking": [
+    {
+      "date": "2026-07-28",
+      "theme": "Defense",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    }
+  ],
   "links": [
     {
       "label": "Finviz",
