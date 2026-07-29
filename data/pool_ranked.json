@@ -5,9 +5,9 @@
     {
       "theme": "Cloud Infrastructure",
       "n": 9,
-      "rs_1m": 10.26,
-      "rs_3m": 23.31,
-      "news_7d": 157,
+      "rs_1m": 11.47,
+      "rs_3m": 25.29,
+      "news_7d": 149,
       "stocks": [
         {
           "symbol": "NTAP",
@@ -95,9 +95,9 @@
     {
       "theme": "Travel & Leisure",
       "n": 10,
-      "rs_1m": 4.97,
-      "rs_3m": 6.45,
-      "news_7d": 46,
+      "rs_1m": 6.68,
+      "rs_3m": 8.47,
+      "news_7d": 44,
       "stocks": [
         {
           "symbol": "DAL",
@@ -186,106 +186,7 @@
           "composite": 0.396,
           "score_kind": "base",
           "is_recent": true,
-          "is_watch": false,
-          "rank": 10
-        }
-      ]
-    },
-    {
-      "theme": "AI Software",
-      "n": 15,
-      "rs_1m": 2.12,
-      "rs_3m": 3.63,
-      "news_7d": 145,
-      "stocks": [
-        {
-          "symbol": "NET",
-          "name": "NET",
-          "composite": 0.691,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
-          "symbol": "GOOG",
-          "name": "Alphabet",
-          "composite": 0.69,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 2
-        },
-        {
-          "symbol": "SNOW",
-          "name": "SNOW",
-          "composite": 0.641,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
-          "symbol": "CDNS",
-          "name": "Cadence Design Systems, Inc.",
-          "composite": 0.625,
-          "score_kind": "base",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 4
-        },
-        {
-          "symbol": "MDB",
-          "name": "MDB",
-          "composite": 0.624,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 5
-        },
-        {
-          "symbol": "ESTC",
-          "name": "Elastic N.V.",
-          "composite": 0.621,
-          "score_kind": "base",
-          "is_recent": true,
-          "is_watch": false,
-          "rank": 6
-        },
-        {
-          "symbol": "DDOG",
-          "name": "Datadog, Inc.",
-          "composite": 0.617,
-          "score_kind": "base",
-          "is_recent": false,
           "is_watch": true,
-          "rank": 7
-        },
-        {
-          "symbol": "NOW",
-          "name": "ServiceNow",
-          "composite": 0.593,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 8
-        },
-        {
-          "symbol": "ADBE",
-          "name": "Adobe Inc.",
-          "composite": 0.541,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": true,
-          "rank": 9
-        },
-        {
-          "symbol": "PLTR",
-          "name": "Palantir",
-          "composite": 0.532,
-          "score_kind": "base",
-          "is_recent": true,
-          "is_watch": false,
           "rank": 10
         }
       ]
@@ -293,9 +194,9 @@
     {
       "theme": "Energy / Oil & Gas",
       "n": 7,
-      "rs_1m": 7.47,
-      "rs_3m": -3.89,
-      "news_7d": 54,
+      "rs_1m": 12.7,
+      "rs_3m": -2.85,
+      "news_7d": 73,
       "stocks": [
         {
           "symbol": "EOG",
@@ -363,79 +264,79 @@
       ]
     },
     {
-      "theme": "Defense",
+      "theme": "Medical Devices",
       "n": 8,
-      "rs_1m": 2.47,
-      "rs_3m": 9.02,
-      "news_7d": 128,
+      "rs_1m": 9.45,
+      "rs_3m": 2.51,
+      "news_7d": 60,
       "stocks": [
         {
-          "symbol": "GD",
-          "name": "General Dynamics Corporation",
-          "composite": 0.765,
+          "symbol": "DXCM",
+          "name": "DXCM",
+          "composite": 0.75,
           "score_kind": "base",
           "is_recent": false,
-          "is_watch": false,
+          "is_watch": true,
           "rank": 1
         },
         {
-          "symbol": "RTX",
-          "name": "RTX",
-          "composite": 0.628,
+          "symbol": "EW",
+          "name": "EW",
+          "composite": 0.712,
           "score_kind": "base",
           "is_recent": false,
-          "is_watch": false,
+          "is_watch": true,
           "rank": 2
         },
         {
-          "symbol": "PLTR",
-          "name": "Palantir",
-          "composite": 0.532,
+          "symbol": "MDT",
+          "name": "MDT",
+          "composite": 0.502,
           "score_kind": "base",
-          "is_recent": true,
+          "is_recent": false,
           "is_watch": false,
           "rank": 3
         },
         {
-          "symbol": "LMT",
-          "name": "LMT",
-          "composite": 0.384,
+          "symbol": "ISRG",
+          "name": "Intuitive Surgical",
+          "composite": 0.451,
           "score_kind": "base",
           "is_recent": false,
-          "is_watch": false,
+          "is_watch": true,
           "rank": 4
         },
         {
-          "symbol": "NOC",
-          "name": "NOC",
-          "composite": 0.343,
+          "symbol": "BSX",
+          "name": "Boston Scientific Corporation",
+          "composite": 0.425,
           "score_kind": "base",
-          "is_recent": false,
+          "is_recent": true,
           "is_watch": false,
           "rank": 5
         },
         {
-          "symbol": "HII",
-          "name": "HII",
-          "composite": 0.286,
+          "symbol": "PODD",
+          "name": "PODD",
+          "composite": 0.416,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
           "rank": 6
         },
         {
-          "symbol": "KTOS",
-          "name": "KTOS",
-          "composite": 0.259,
+          "symbol": "ABT",
+          "name": "ABT",
+          "composite": 0.389,
           "score_kind": "base",
           "is_recent": false,
-          "is_watch": false,
+          "is_watch": true,
           "rank": 7
         },
         {
-          "symbol": "AVAV",
-          "name": "AVAV",
-          "composite": 0.176,
+          "symbol": "TNDM",
+          "name": "TNDM",
+          "composite": 0.169,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -444,11 +345,182 @@
       ]
     },
     {
+      "theme": "Healthcare AI / Digital Health",
+      "n": 10,
+      "rs_1m": 9.45,
+      "rs_3m": 2.51,
+      "news_7d": 94,
+      "stocks": [
+        {
+          "symbol": "NTRA",
+          "name": "NTRA",
+          "composite": 0.775,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "GH",
+          "name": "GH",
+          "composite": 0.754,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "VEEV",
+          "name": "Veeva Systems Inc.",
+          "composite": 0.638,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": true,
+          "rank": 3
+        },
+        {
+          "symbol": "TEM",
+          "name": "TEM",
+          "composite": 0.614,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "HIMS",
+          "name": "HIMS",
+          "composite": 0.573,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "RXRX",
+          "name": "RXRX",
+          "composite": 0.542,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "DOCS",
+          "name": "DOCS",
+          "composite": 0.54,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": true,
+          "rank": 7
+        },
+        {
+          "symbol": "ISRG",
+          "name": "Intuitive Surgical",
+          "composite": 0.451,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": true,
+          "rank": 8
+        },
+        {
+          "symbol": "GEHC",
+          "name": "GEHC",
+          "composite": 0.393,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": true,
+          "rank": 9
+        },
+        {
+          "symbol": "EXAS",
+          "name": "EXAS",
+          "composite": null,
+          "score_kind": null,
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 10
+        }
+      ]
+    },
+    {
+      "theme": "Gaming",
+      "n": 7,
+      "rs_1m": 8.66,
+      "rs_3m": 1.6,
+      "news_7d": 65,
+      "stocks": [
+        {
+          "symbol": "TTWO",
+          "name": "TTWO",
+          "composite": 0.742,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "EA",
+          "name": "Electronic Arts Inc.",
+          "composite": 0.634,
+          "score_kind": "base",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "U",
+          "name": "U",
+          "composite": 0.6,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "MGM",
+          "name": "MGM",
+          "composite": 0.565,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "RBLX",
+          "name": "RBLX",
+          "composite": 0.443,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "LVS",
+          "name": "LVS",
+          "composite": 0.361,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "WYNN",
+          "name": "WYNN",
+          "composite": 0.212,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        }
+      ]
+    },
+    {
       "theme": "Cybersecurity",
       "n": 8,
-      "rs_1m": 0.9,
-      "rs_3m": 28.7,
-      "news_7d": 99,
+      "rs_1m": 0.37,
+      "rs_3m": 27.34,
+      "news_7d": 102,
       "stocks": [
         {
           "symbol": "FTNT",
@@ -527,9 +599,9 @@
     {
       "theme": "Payments / FinTech",
       "n": 8,
-      "rs_1m": 9.21,
-      "rs_3m": 3.54,
-      "news_7d": 24,
+      "rs_1m": 11.58,
+      "rs_3m": 4.59,
+      "news_7d": 34,
       "stocks": [
         {
           "symbol": "AFRM",
@@ -606,6 +678,105 @@
       ]
     },
     {
+      "theme": "AI Software",
+      "n": 15,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "NET",
+          "name": "NET",
+          "composite": 0.691,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "GOOG",
+          "name": "Alphabet",
+          "composite": 0.69,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "SNOW",
+          "name": "SNOW",
+          "composite": 0.641,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "CDNS",
+          "name": "Cadence Design Systems, Inc.",
+          "composite": 0.625,
+          "score_kind": "base",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "MDB",
+          "name": "MDB",
+          "composite": 0.624,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "ESTC",
+          "name": "Elastic N.V.",
+          "composite": 0.621,
+          "score_kind": "base",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "DDOG",
+          "name": "Datadog, Inc.",
+          "composite": 0.617,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "NOW",
+          "name": "ServiceNow",
+          "composite": 0.593,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 8
+        },
+        {
+          "symbol": "ADBE",
+          "name": "Adobe Inc.",
+          "composite": 0.541,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 9
+        },
+        {
+          "symbol": "PLTR",
+          "name": "Palantir",
+          "composite": 0.532,
+          "score_kind": "base",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 10
+        }
+      ]
+    },
+    {
       "theme": "AI Robotics / Automation",
       "n": 9,
       "rs_1m": null,
@@ -663,7 +834,7 @@
           "composite": 0.451,
           "score_kind": "base",
           "is_recent": false,
-          "is_watch": false,
+          "is_watch": true,
           "rank": 6
         },
         {
@@ -1273,6 +1444,87 @@
           "symbol": "ISRG",
           "name": "Intuitive Surgical",
           "composite": 0.451,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": true,
+          "rank": 8
+        }
+      ]
+    },
+    {
+      "theme": "Defense",
+      "n": 8,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
+      "stocks": [
+        {
+          "symbol": "GD",
+          "name": "General Dynamics Corporation",
+          "composite": 0.765,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 1
+        },
+        {
+          "symbol": "RTX",
+          "name": "RTX",
+          "composite": 0.628,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 2
+        },
+        {
+          "symbol": "PLTR",
+          "name": "Palantir",
+          "composite": 0.532,
+          "score_kind": "base",
+          "is_recent": true,
+          "is_watch": false,
+          "rank": 3
+        },
+        {
+          "symbol": "LMT",
+          "name": "LMT",
+          "composite": 0.384,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 4
+        },
+        {
+          "symbol": "NOC",
+          "name": "NOC",
+          "composite": 0.343,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 5
+        },
+        {
+          "symbol": "HII",
+          "name": "HII",
+          "composite": 0.286,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 6
+        },
+        {
+          "symbol": "KTOS",
+          "name": "KTOS",
+          "composite": 0.259,
+          "score_kind": "base",
+          "is_recent": false,
+          "is_watch": false,
+          "rank": 7
+        },
+        {
+          "symbol": "AVAV",
+          "name": "AVAV",
+          "composite": 0.176,
           "score_kind": "base",
           "is_recent": false,
           "is_watch": false,
@@ -2172,87 +2424,6 @@
       ]
     },
     {
-      "theme": "Medical Devices",
-      "n": 8,
-      "rs_1m": null,
-      "rs_3m": null,
-      "news_7d": null,
-      "stocks": [
-        {
-          "symbol": "DXCM",
-          "name": "DXCM",
-          "composite": 0.75,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
-          "symbol": "EW",
-          "name": "EW",
-          "composite": 0.712,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 2
-        },
-        {
-          "symbol": "MDT",
-          "name": "MDT",
-          "composite": 0.502,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
-          "symbol": "ISRG",
-          "name": "Intuitive Surgical",
-          "composite": 0.451,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 4
-        },
-        {
-          "symbol": "BSX",
-          "name": "BSX",
-          "composite": 0.425,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 5
-        },
-        {
-          "symbol": "PODD",
-          "name": "PODD",
-          "composite": 0.416,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 6
-        },
-        {
-          "symbol": "ABT",
-          "name": "ABT",
-          "composite": 0.389,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 7
-        },
-        {
-          "symbol": "TNDM",
-          "name": "TNDM",
-          "composite": 0.169,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 8
-        }
-      ]
-    },
-    {
       "theme": "Healthcare Services / Payors",
       "n": 6,
       "rs_1m": null,
@@ -2316,105 +2487,6 @@
       ]
     },
     {
-      "theme": "Healthcare AI / Digital Health",
-      "n": 10,
-      "rs_1m": null,
-      "rs_3m": null,
-      "news_7d": null,
-      "stocks": [
-        {
-          "symbol": "NTRA",
-          "name": "NTRA",
-          "composite": 0.775,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
-          "symbol": "GH",
-          "name": "GH",
-          "composite": 0.754,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 2
-        },
-        {
-          "symbol": "VEEV",
-          "name": "Veeva Systems Inc.",
-          "composite": 0.638,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
-          "symbol": "TEM",
-          "name": "TEM",
-          "composite": 0.614,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 4
-        },
-        {
-          "symbol": "HIMS",
-          "name": "HIMS",
-          "composite": 0.573,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 5
-        },
-        {
-          "symbol": "RXRX",
-          "name": "RXRX",
-          "composite": 0.542,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 6
-        },
-        {
-          "symbol": "DOCS",
-          "name": "DOCS",
-          "composite": 0.54,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 7
-        },
-        {
-          "symbol": "ISRG",
-          "name": "Intuitive Surgical",
-          "composite": 0.451,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 8
-        },
-        {
-          "symbol": "GEHC",
-          "name": "GEHC",
-          "composite": 0.393,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 9
-        },
-        {
-          "symbol": "EXAS",
-          "name": "EXAS",
-          "composite": null,
-          "score_kind": null,
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 10
-        }
-      ]
-    },
-    {
       "theme": "Streaming / Media",
       "n": 6,
       "rs_1m": null,
@@ -2474,78 +2546,6 @@
           "is_recent": false,
           "is_watch": false,
           "rank": 6
-        }
-      ]
-    },
-    {
-      "theme": "Gaming",
-      "n": 7,
-      "rs_1m": null,
-      "rs_3m": null,
-      "news_7d": null,
-      "stocks": [
-        {
-          "symbol": "TTWO",
-          "name": "TTWO",
-          "composite": 0.742,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 1
-        },
-        {
-          "symbol": "EA",
-          "name": "EA",
-          "composite": 0.634,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 2
-        },
-        {
-          "symbol": "U",
-          "name": "U",
-          "composite": 0.6,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 3
-        },
-        {
-          "symbol": "MGM",
-          "name": "MGM",
-          "composite": 0.565,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 4
-        },
-        {
-          "symbol": "RBLX",
-          "name": "RBLX",
-          "composite": 0.443,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 5
-        },
-        {
-          "symbol": "LVS",
-          "name": "LVS",
-          "composite": 0.361,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 6
-        },
-        {
-          "symbol": "WYNN",
-          "name": "WYNN",
-          "composite": 0.212,
-          "score_kind": "base",
-          "is_recent": false,
-          "is_watch": false,
-          "rank": 7
         }
       ]
     },

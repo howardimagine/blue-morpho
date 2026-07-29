@@ -1,7 +1,7 @@
 {
   "as_of": "2026-05-15",
   "n_whales": 19,
-  "generated_at": "2026-07-29T01:30:53+00:00",
+  "generated_at": "2026-07-29T14:59:02+00:00",
   "stocks": [
     {
       "symbol": "ROK",
@@ -38,6 +38,35 @@
         {
           "name": "木頭姐 Cathie Wood",
           "value_usd": 98767,
+          "action": "trim"
+        }
+      ]
+    },
+    {
+      "symbol": "EA",
+      "name": "Electronic Arts Inc.",
+      "theme": "Gaming",
+      "signal": "split",
+      "holders": 2,
+      "increased": 1,
+      "reduced": 1,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 199415644,
+      "total_held_fmt": "$199M",
+      "whales_fmt": "索羅斯 Soros $197M 加碼 · 達利歐 Dalio $3M 減碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 196896219,
+          "action": "add"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 2519425,
           "action": "trim"
         }
       ]
@@ -82,54 +111,64 @@
       ]
     },
     {
-      "symbol": "CCL",
-      "name": "Carnival Corporation Ltd.",
-      "theme": "Travel & Leisure",
+      "symbol": "EXAS",
+      "name": "EXAS",
+      "theme": "Healthcare AI / Digital Health",
       "signal": "sell",
       "holders": 1,
       "increased": 0,
       "reduced": 1,
       "new_pos": 0,
       "closed_pos": 1,
-      "total_held_usd": 355108486,
-      "total_held_fmt": "$355M",
-      "whales_fmt": "達利歐 Dalio — 清倉 · Andreas Halvorsen $355M 減碼",
+      "total_held_usd": 627202,
+      "total_held_fmt": "<$1M",
+      "whales_fmt": "索羅斯 Soros — 清倉 · 達利歐 Dalio <$1M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "達利歐 Dalio",
+          "name": "索羅斯 Soros",
           "value_usd": 0,
           "action": "exit"
         },
         {
-          "name": "Andreas Halvorsen",
-          "value_usd": 355108486,
+          "name": "達利歐 Dalio",
+          "value_usd": 627202,
           "action": "trim"
         }
       ]
     },
     {
-      "symbol": "CDNS",
-      "name": "Cadence Design Systems, Inc.",
-      "theme": "AI Software",
+      "symbol": "BSX",
+      "name": "Boston Scientific Corporation",
+      "theme": "Medical Devices",
       "signal": "sell",
-      "holders": 1,
+      "holders": 2,
       "increased": 0,
-      "reduced": 1,
+      "reduced": 2,
       "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 7067901,
-      "total_held_fmt": "$7M",
-      "whales_fmt": "達利歐 Dalio $7M 減碼",
+      "closed_pos": 1,
+      "total_held_usd": 11398349,
+      "total_held_fmt": "$11M",
+      "whales_fmt": "Andreas Halvorsen — 清倉 · Stephen Mandel $7M 減碼 · 達利歐 Dalio $5M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
+          "name": "Andreas Halvorsen",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "Stephen Mandel",
+          "value_usd": 6567101,
+          "action": "trim"
+        },
+        {
           "name": "達利歐 Dalio",
-          "value_usd": 7067901,
+          "value_usd": 4831248,
           "action": "trim"
         }
       ]
@@ -190,65 +229,6 @@
           "name": "德魯肯米勒 Druckenmiller",
           "value_usd": 91083,
           "action": "add"
-        }
-      ]
-    },
-    {
-      "symbol": "AMZN",
-      "name": "亞馬遜",
-      "theme": "Cloud Infrastructure",
-      "signal": "sell",
-      "holders": 12,
-      "increased": 5,
-      "reduced": 6,
-      "new_pos": 0,
-      "closed_pos": 2,
-      "total_held_usd": 9709730891,
-      "total_held_fmt": "$9.7B",
-      "whales_fmt": "巴菲特 Buffett — 清倉 · Stephen Mandel — 清倉 · 艾克曼 Ackman $2.4B 加碼 · Chase Coleman $2.1B 持有 · Philippe Laffont $1.7B 減碼 · 達利歐 Dalio $914M 加碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "巴菲特 Buffett",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "Stephen Mandel",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "艾克曼 Ackman",
-          "value_usd": 2385104083,
-          "action": "add"
-        },
-        {
-          "name": "Chase Coleman",
-          "value_usd": 2082700000,
-          "action": "hold"
-        },
-        {
-          "name": "Philippe Laffont",
-          "value_usd": 1651740634,
-          "action": "trim"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 914036840,
-          "action": "add"
-        },
-        {
-          "name": "泰珀 Tepper",
-          "value_usd": 899726400,
-          "action": "add"
-        },
-        {
-          "name": "Brad Gerstner",
-          "value_usd": 435192245,
-          "action": "trim"
         }
       ]
     }

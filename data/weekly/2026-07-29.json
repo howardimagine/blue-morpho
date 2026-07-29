@@ -1,6 +1,6 @@
 {
   "date": "2026-07-29",
-  "headline": "旅遊消費接棒強攻、支付鏈續驅動,大盤止穩後資金尋找新方向 — 川普能源政策搭 Fed 決議預期,DAL、AFRM、CCL 成輪動標的",
+  "headline": "科技股重挫環境下,工業自動化與醫療器械成新的籌碼吸納點 — ROK、BSX 在高波動中浮現,遊戲與檢測股則面臨壓力考驗",
   "theme": "Cloud Infrastructure",
   "regime": "neutral",
   "picks": [
@@ -17,6 +17,18 @@
       "rr": null
     },
     {
+      "symbol": "EA",
+      "name": "Electronic Arts Inc.",
+      "tier": "ready",
+      "theme": "Gaming",
+      "rsi": 74.3,
+      "ma_stack": "bullish",
+      "price": null,
+      "business": "Electronic Arts Inc. develops, markets, publishes, and delivers games, content, and services for game consoles, PCs, and mobile phones worldwide. It develops and publishes games and experiences across diverse genres, such as sports, racing…",
+      "why": "主題面，Cloud Infrastructure 本週相對 SPY 的 1 個月強度排名靠前，市場資金持續流入。 近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
+      "rr": null
+    },
+    {
       "symbol": "DAL",
       "name": "Delta Air Lines, Inc.",
       "tier": "ready",
@@ -29,27 +41,27 @@
       "rr": null
     },
     {
-      "symbol": "CCL",
-      "name": "Carnival Corporation Ltd.",
+      "symbol": "EXAS",
+      "name": "EXAS",
       "tier": "ready",
-      "theme": "Travel & Leisure",
-      "rsi": 57.5,
-      "ma_stack": "mixed",
+      "theme": "Healthcare AI / Digital Health",
+      "rsi": 76.4,
+      "ma_stack": "bullish",
       "price": null,
-      "business": "Carnival Corporation Ltd., a cruise company, provides leisure travel services. The company operates through four segments: North America Cruise Operations, Europe Cruise Operations, Cruise Support, and Tour and Other. It operates port dest…",
-      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
+      "business": "",
+      "why": "主題面，Cloud Infrastructure 本週相對 SPY 的 1 個月強度排名靠前，市場資金持續流入。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
       "rr": null
     },
     {
-      "symbol": "CDNS",
-      "name": "Cadence Design Systems, Inc.",
+      "symbol": "BSX",
+      "name": "Boston Scientific Corporation",
       "tier": "ready",
-      "theme": "AI Software",
-      "rsi": 43.3,
-      "ma_stack": "mixed",
+      "theme": "Medical Devices",
+      "rsi": 55.0,
+      "ma_stack": "bearish",
       "price": null,
-      "business": "Cadence Design Systems, Inc. develops computational, AI-driven software, hardware, and silicon intellectual property products and solutions. The company offers functional verification services, such as Jasper, a formal verification platfor…",
-      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
+      "business": "Boston Scientific Corporation develops, manufactures, and markets medical devices for use in various interventional medical specialties worldwide. The company operates in two segments, MedSurg and Cardiovascular. It offers devices to diagn…",
+      "why": "主題面，Cloud Infrastructure 本週相對 SPY 的 1 個月強度排名靠前，市場資金持續流入。 近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
       "rr": null
     },
     {
@@ -63,40 +75,28 @@
       "business": "WFE 蝕刻/沉積龍頭,3D NAND 主力,HBM 擴產直接受惠。",
       "why": "近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
       "rr": null
-    },
-    {
-      "symbol": "AMZN",
-      "name": "亞馬遜",
-      "tier": "ready",
-      "theme": "Cloud Infrastructure",
-      "rsi": 36.5,
-      "ma_stack": "mixed",
-      "price": null,
-      "business": "電商 + AWS 雲服務;Trainium 自研 AI 晶片(透過 MRVL 代工)。",
-      "why": "主題面，Cloud Infrastructure 本週相對 SPY 的 1 個月強度排名靠前，市場資金持續流入。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
-      "rr": null
     }
   ],
   "sell_signals": {},
   "policy": [
     {
-      "topic": "川普 × 個股機會",
-      "title": "Oracle Stock Gains After Landing $7 Billion Pentagon Software Contract",
-      "summary_zh": "五角大廈向 Oracle 授予 70 億美元軟體合約,國防科技採購信號升溫,供應鏈相關防禦包商與科技承包商或將受惠。",
-      "source": "TIKR.com"
+      "topic": "政策 / 立法",
+      "title": "No single rulebook: AI risk in cross-border Canada-US M&amp;A – Part one",
+      "summary_zh": "加美跨境併購中 AI 風險監管規則尚未統一,可能影響科技企業的國際擴張速度與成本",
+      "source": "Dentons"
     },
     {
-      "topic": "川普 × 個股機會",
-      "title": "What are tariffs, how do they work and why is Trump using them?",
-      "summary_zh": "川普關稅政策框架持續推進,涉及進口商品大範圍加稅,製造業與零售將面臨成本與需求雙重壓力。",
-      "source": "BBC"
+      "topic": "政策 / 立法",
+      "title": "Clean Industry Soldiers on Against Political Opposition",
+      "summary_zh": "美國清潔產業在政治反對聲浪中持續推進,長期利好綠色能源與製造業升級,但短期政策不確定性仍高",
+      "source": "RTO Insider"
     }
   ],
   "themes": [],
   "stats": {
     "n_picks": 6,
     "n_themes": 0,
-    "journal_total": 316
+    "journal_total": 320
   },
   "_note": "命中率/超額待回測樣本成熟;entry/alpha/vol 未提供(歷史不足)。"
 }
