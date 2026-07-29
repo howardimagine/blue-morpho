@@ -1,6 +1,6 @@
 {
   "date": "2026-07-29",
-  "headline": "恐慌消退、單日科技反彈,但大盤週線未脫困局 — 資金從避險轉向精選成長,ROK、LRCX、AMAT 在製程檢測與自動化軸線上蓄勢",
+  "headline": "旅遊消費接棒強攻、支付鏈續驅動,大盤止穩後資金尋找新方向 — 川普能源政策搭 Fed 決議預期,DAL、AFRM、CCL 成輪動標的",
   "theme": "Cloud Infrastructure",
   "regime": "neutral",
   "picks": [
@@ -21,7 +21,7 @@
       "name": "Delta Air Lines, Inc.",
       "tier": "ready",
       "theme": "Travel & Leisure",
-      "rsi": 53.7,
+      "rsi": 59.5,
       "ma_stack": "bullish",
       "price": null,
       "business": "Delta Air Lines, Inc. provides scheduled air transportation for passengers and cargo in the United States and internationally. The company operates through two segments, Airline and Refinery. Its domestic network centered on core hubs in A…",
@@ -33,7 +33,7 @@
       "name": "Carnival Corporation Ltd.",
       "tier": "ready",
       "theme": "Travel & Leisure",
-      "rsi": 50.9,
+      "rsi": 57.5,
       "ma_stack": "mixed",
       "price": null,
       "business": "Carnival Corporation Ltd., a cruise company, provides leisure travel services. The company operates through four segments: North America Cruise Operations, Europe Cruise Operations, Cruise Support, and Tour and Other. It operates port dest…",
@@ -81,15 +81,15 @@
   "policy": [
     {
       "topic": "川普 × 個股機會",
-      "title": "S&amp;P 500 ends higher as investors await tech earnings",
-      "summary_zh": "S&P 500 在科技財報期待與投資人耐心中小幅翻紅,市場重心轉向接下來的 Fed 決議與科技大廠財報驗證。",
-      "source": "The Detroit News"
+      "title": "Oracle Stock Gains After Landing $7 Billion Pentagon Software Contract",
+      "summary_zh": "五角大廈向 Oracle 授予 70 億美元軟體合約,國防科技採購信號升溫,供應鏈相關防禦包商與科技承包商或將受惠。",
+      "source": "TIKR.com"
     },
     {
       "topic": "川普 × 個股機會",
-      "title": "Trump Media’s paid data feed could create two tiers of market information — and that’s a problem, experts say",
-      "summary_zh": "川普媒體推出付費數據饋送創造市場資訊雙軌制,引發監管與公平性疑慮,可能改變金融市場資訊生態。",
-      "source": "Pensions &amp; Investments"
+      "title": "What are tariffs, how do they work and why is Trump using them?",
+      "summary_zh": "川普關稅政策框架持續推進,涉及進口商品大範圍加稅,製造業與零售將面臨成本與需求雙重壓力。",
+      "source": "BBC"
     }
   ],
   "themes": [],

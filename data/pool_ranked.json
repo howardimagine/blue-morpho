@@ -7,7 +7,7 @@
       "n": 9,
       "rs_1m": 10.26,
       "rs_3m": 23.31,
-      "news_7d": 153,
+      "news_7d": 157,
       "stocks": [
         {
           "symbol": "NTAP",
@@ -196,7 +196,7 @@
       "n": 15,
       "rs_1m": 2.12,
       "rs_3m": 3.63,
-      "news_7d": 143,
+      "news_7d": 145,
       "stocks": [
         {
           "symbol": "NET",
@@ -295,7 +295,7 @@
       "n": 7,
       "rs_1m": 7.47,
       "rs_3m": -3.89,
-      "news_7d": 52,
+      "news_7d": 54,
       "stocks": [
         {
           "symbol": "EOG",
@@ -367,7 +367,7 @@
       "n": 8,
       "rs_1m": 2.47,
       "rs_3m": 9.02,
-      "news_7d": 129,
+      "news_7d": 128,
       "stocks": [
         {
           "symbol": "GD",
@@ -448,7 +448,7 @@
       "n": 8,
       "rs_1m": 0.9,
       "rs_3m": 28.7,
-      "news_7d": 100,
+      "news_7d": 99,
       "stocks": [
         {
           "symbol": "FTNT",
