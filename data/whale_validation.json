@@ -1,21 +1,50 @@
 {
   "as_of": "2026-05-15",
   "n_whales": 19,
-  "generated_at": "2026-07-29T14:59:02+00:00",
+  "generated_at": "2026-07-30T00:05:17+00:00",
   "stocks": [
     {
-      "symbol": "ROK",
-      "name": "羅克韋爾自動化",
-      "theme": "Industrial Automation",
+      "symbol": "ABT",
+      "name": "Abbott Laboratories",
+      "theme": "Medical Devices",
       "signal": "buy",
-      "holders": 4,
-      "increased": 1,
-      "reduced": 1,
+      "holders": 2,
+      "increased": 0,
+      "reduced": 0,
       "new_pos": 2,
+      "closed_pos": 0,
+      "total_held_usd": 16612109,
+      "total_held_fmt": "$17M",
+      "whales_fmt": "達利歐 Dalio $12M 新進 · 索羅斯 Soros $5M 新進",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 12017626,
+          "action": "new"
+        },
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 4594483,
+          "action": "new"
+        }
+      ]
+    },
+    {
+      "symbol": "FIS",
+      "name": "Fidelity National Information S",
+      "theme": "Payments / FinTech",
+      "signal": "buy",
+      "holders": 5,
+      "increased": 0,
+      "reduced": 1,
+      "new_pos": 4,
       "closed_pos": 0,
       "total_held_usd": 495771900,
       "total_held_fmt": "$496M",
-      "whales_fmt": "Andreas Halvorsen $485M 新進 · 索羅斯 Soros $8M 新進 · 達利歐 Dalio $3M 加碼 · 木頭姐 Cathie Wood <$1M 減碼",
+      "whales_fmt": "Andreas Halvorsen $485M 新進 · 索羅斯 Soros $8M 新進 · 達利歐 Dalio $3M 新進 · 木頭姐 Cathie Wood <$1M 減碼 · Terry Smith — 新進",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
@@ -33,96 +62,62 @@
         {
           "name": "達利歐 Dalio",
           "value_usd": 3192847,
-          "action": "add"
+          "action": "new"
         },
         {
           "name": "木頭姐 Cathie Wood",
           "value_usd": 98767,
           "action": "trim"
+        },
+        {
+          "name": "Terry Smith",
+          "value_usd": 0,
+          "action": "new"
         }
       ]
     },
     {
-      "symbol": "EA",
-      "name": "Electronic Arts Inc.",
-      "theme": "Gaming",
+      "symbol": "DXCM",
+      "name": "DexCom, Inc.",
+      "theme": "Medical Devices",
       "signal": "split",
       "holders": 2,
-      "increased": 1,
+      "increased": 0,
       "reduced": 1,
-      "new_pos": 0,
+      "new_pos": 1,
       "closed_pos": 0,
-      "total_held_usd": 199415644,
-      "total_held_fmt": "$199M",
-      "whales_fmt": "索羅斯 Soros $197M 加碼 · 達利歐 Dalio $3M 減碼",
+      "total_held_usd": 66938333,
+      "total_held_fmt": "$67M",
+      "whales_fmt": "索羅斯 Soros $58M 新進 · 達利歐 Dalio $9M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
           "name": "索羅斯 Soros",
-          "value_usd": 196896219,
-          "action": "add"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 2519425,
-          "action": "trim"
-        }
-      ]
-    },
-    {
-      "symbol": "DAL",
-      "name": "Delta Air Lines, Inc.",
-      "theme": "Travel & Leisure",
-      "signal": "sell",
-      "holders": 2,
-      "increased": 0,
-      "reduced": 1,
-      "new_pos": 1,
-      "closed_pos": 2,
-      "total_held_usd": 2648002109,
-      "total_held_fmt": "$2.6B",
-      "whales_fmt": "德魯肯米勒 Druckenmiller — 清倉 · 泰珀 Tepper — 清倉 · 巴菲特 Buffett $2.6B 新進 · 達利歐 Dalio $1M 減碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "德魯肯米勒 Druckenmiller",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "泰珀 Tepper",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "巴菲特 Buffett",
-          "value_usd": 2646532635,
+          "value_usd": 58165989,
           "action": "new"
         },
         {
           "name": "達利歐 Dalio",
-          "value_usd": 1469474,
+          "value_usd": 8772344,
           "action": "trim"
         }
       ]
     },
     {
-      "symbol": "EXAS",
-      "name": "EXAS",
+      "symbol": "GEHC",
+      "name": "GE HealthCare Technologies Inc.",
       "theme": "Healthcare AI / Digital Health",
-      "signal": "sell",
+      "signal": "split",
       "holders": 1,
-      "increased": 0,
-      "reduced": 1,
+      "increased": 1,
+      "reduced": 0,
       "new_pos": 0,
       "closed_pos": 1,
-      "total_held_usd": 627202,
-      "total_held_fmt": "<$1M",
-      "whales_fmt": "索羅斯 Soros — 清倉 · 達利歐 Dalio <$1M 減碼",
+      "total_held_usd": 5111507,
+      "total_held_fmt": "$5M",
+      "whales_fmt": "索羅斯 Soros — 清倉 · 達利歐 Dalio $5M 加碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
@@ -134,100 +129,49 @@
         },
         {
           "name": "達利歐 Dalio",
-          "value_usd": 627202,
-          "action": "trim"
+          "value_usd": 5111507,
+          "action": "add"
         }
       ]
     },
     {
-      "symbol": "BSX",
-      "name": "Boston Scientific Corporation",
-      "theme": "Medical Devices",
-      "signal": "sell",
-      "holders": 2,
+      "symbol": "COP",
+      "name": "ConocoPhillips",
+      "theme": "Energy / Oil & Gas",
+      "signal": "split",
+      "holders": 0,
       "increased": 0,
-      "reduced": 2,
+      "reduced": 0,
       "new_pos": 0,
-      "closed_pos": 1,
-      "total_held_usd": 11398349,
-      "total_held_fmt": "$11M",
-      "whales_fmt": "Andreas Halvorsen — 清倉 · Stephen Mandel $7M 減碼 · 達利歐 Dalio $5M 減碼",
+      "closed_pos": 0,
+      "total_held_usd": 0,
+      "total_held_fmt": "—",
+      "whales_fmt": "",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
-      "whales": [
-        {
-          "name": "Andreas Halvorsen",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "Stephen Mandel",
-          "value_usd": 6567101,
-          "action": "trim"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 4831248,
-          "action": "trim"
-        }
-      ]
+      "whales": []
     },
     {
-      "symbol": "LRCX",
-      "name": "科林研發",
-      "theme": "AI CapEx",
+      "symbol": "DOCS",
+      "name": "Doximity, Inc.",
+      "theme": "Healthcare AI / Digital Health",
       "signal": "buy",
-      "holders": 8,
-      "increased": 4,
-      "reduced": 2,
-      "new_pos": 1,
+      "holders": 1,
+      "increased": 1,
+      "reduced": 0,
+      "new_pos": 0,
       "closed_pos": 0,
-      "total_held_usd": 3819431162,
-      "total_held_fmt": "$3.8B",
-      "whales_fmt": "Philippe Laffont $2.1B 加碼 · Chase Coleman $833M 持有 · Andreas Halvorsen $392M 加碼 · 達利歐 Dalio $336M 減碼 · 泰珀 Tepper $82M 減碼 · Dan Loeb $16M 新進",
+      "total_held_usd": 2796443,
+      "total_held_fmt": "$3M",
+      "whales_fmt": "達利歐 Dalio $3M 加碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "Philippe Laffont",
-          "value_usd": 2145895279,
-          "action": "add"
-        },
-        {
-          "name": "Chase Coleman",
-          "value_usd": 833367797,
-          "action": "hold"
-        },
-        {
-          "name": "Andreas Halvorsen",
-          "value_usd": 392287201,
-          "action": "add"
-        },
-        {
           "name": "達利歐 Dalio",
-          "value_usd": 335708788,
-          "action": "trim"
-        },
-        {
-          "name": "泰珀 Tepper",
-          "value_usd": 81724950,
-          "action": "trim"
-        },
-        {
-          "name": "Dan Loeb",
-          "value_usd": 16024500,
-          "action": "new"
-        },
-        {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 14331564,
-          "action": "add"
-        },
-        {
-          "name": "德魯肯米勒 Druckenmiller",
-          "value_usd": 91083,
+          "value_usd": 2796443,
           "action": "add"
         }
       ]
