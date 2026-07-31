@@ -38,7 +38,7 @@
   {
     "symbol": "ANET",
     "name": "Arista Networks, Inc.",
-    "tier": "enter",
+    "tier": "ready",
     "theme": "Cloud Infrastructure"
   },
   {
@@ -104,7 +104,7 @@
   {
     "symbol": "DDOG",
     "name": "Datadog, Inc.",
-    "tier": "ready",
+    "tier": "enter",
     "theme": "AI Software"
   },
   {

@@ -1,143 +1,104 @@
 {
   "as_of": "2026-05-15",
   "n_whales": 19,
-  "generated_at": "2026-07-30T00:05:17+00:00",
+  "generated_at": "2026-07-31T00:07:09+00:00",
   "stocks": [
     {
-      "symbol": "ABT",
-      "name": "Abbott Laboratories",
-      "theme": "Medical Devices",
-      "signal": "buy",
+      "symbol": "DDOG",
+      "name": "Datadog, Inc.",
+      "theme": "AI Software",
+      "signal": "sell",
       "holders": 2,
-      "increased": 0,
-      "reduced": 0,
-      "new_pos": 2,
-      "closed_pos": 0,
-      "total_held_usd": 16612109,
-      "total_held_fmt": "$17M",
-      "whales_fmt": "達利歐 Dalio $12M 新進 · 索羅斯 Soros $5M 新進",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 12017626,
-          "action": "new"
-        },
-        {
-          "name": "索羅斯 Soros",
-          "value_usd": 4594483,
-          "action": "new"
-        }
-      ]
-    },
-    {
-      "symbol": "FIS",
-      "name": "Fidelity National Information S",
-      "theme": "Payments / FinTech",
-      "signal": "buy",
-      "holders": 5,
-      "increased": 0,
+      "increased": 1,
       "reduced": 1,
-      "new_pos": 4,
-      "closed_pos": 0,
-      "total_held_usd": 495771900,
-      "total_held_fmt": "$496M",
-      "whales_fmt": "Andreas Halvorsen $485M 新進 · 索羅斯 Soros $8M 新進 · 達利歐 Dalio $3M 新進 · 木頭姐 Cathie Wood <$1M 減碼 · Terry Smith — 新進",
+      "new_pos": 0,
+      "closed_pos": 1,
+      "total_held_usd": 38716622,
+      "total_held_fmt": "$39M",
+      "whales_fmt": "達利歐 Dalio — 清倉 · 木頭姐 Cathie Wood $27M 加碼 · 索羅斯 Soros $12M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "Andreas Halvorsen",
-          "value_usd": 484795343,
-          "action": "new"
-        },
-        {
-          "name": "索羅斯 Soros",
-          "value_usd": 7684943,
-          "action": "new"
-        },
-        {
           "name": "達利歐 Dalio",
-          "value_usd": 3192847,
-          "action": "new"
+          "value_usd": 0,
+          "action": "exit"
         },
         {
           "name": "木頭姐 Cathie Wood",
-          "value_usd": 98767,
-          "action": "trim"
+          "value_usd": 26752727,
+          "action": "add"
         },
         {
-          "name": "Terry Smith",
-          "value_usd": 0,
-          "action": "new"
+          "name": "索羅斯 Soros",
+          "value_usd": 11963895,
+          "action": "trim"
         }
       ]
     },
     {
-      "symbol": "DXCM",
-      "name": "DexCom, Inc.",
-      "theme": "Medical Devices",
+      "symbol": "CVX",
+      "name": "Chevron Corporation",
+      "theme": "Energy / Oil & Gas",
       "signal": "split",
       "holders": 2,
       "increased": 0,
       "reduced": 1,
       "new_pos": 1,
       "closed_pos": 0,
-      "total_held_usd": 66938333,
-      "total_held_fmt": "$67M",
-      "whales_fmt": "索羅斯 Soros $58M 新進 · 達利歐 Dalio $9M 減碼",
+      "total_held_usd": 17457949512,
+      "total_held_fmt": "$17.5B",
+      "whales_fmt": "巴菲特 Buffett $17.5B 減碼 · 達利歐 Dalio <$1M 新進",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "索羅斯 Soros",
-          "value_usd": 58165989,
-          "action": "new"
+          "name": "巴菲特 Buffett",
+          "value_usd": 17457364606,
+          "action": "trim"
         },
         {
           "name": "達利歐 Dalio",
-          "value_usd": 8772344,
-          "action": "trim"
+          "value_usd": 584906,
+          "action": "new"
         }
       ]
     },
     {
-      "symbol": "GEHC",
-      "name": "GE HealthCare Technologies Inc.",
-      "theme": "Healthcare AI / Digital Health",
-      "signal": "split",
-      "holders": 1,
+      "symbol": "AMAT",
+      "name": "應用材料",
+      "theme": "AI CapEx",
+      "signal": "buy",
+      "holders": 2,
       "increased": 1,
       "reduced": 0,
-      "new_pos": 0,
-      "closed_pos": 1,
-      "total_held_usd": 5111507,
-      "total_held_fmt": "$5M",
-      "whales_fmt": "索羅斯 Soros — 清倉 · 達利歐 Dalio $5M 加碼",
+      "new_pos": 1,
+      "closed_pos": 0,
+      "total_held_usd": 20735762,
+      "total_held_fmt": "$21M",
+      "whales_fmt": "達利歐 Dalio $16M 加碼 · 索羅斯 Soros $4M 新進",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "索羅斯 Soros",
-          "value_usd": 0,
-          "action": "exit"
+          "name": "達利歐 Dalio",
+          "value_usd": 16258722,
+          "action": "add"
         },
         {
-          "name": "達利歐 Dalio",
-          "value_usd": 5111507,
-          "action": "add"
+          "name": "索羅斯 Soros",
+          "value_usd": 4477040,
+          "action": "new"
         }
       ]
     },
     {
-      "symbol": "COP",
-      "name": "ConocoPhillips",
-      "theme": "Energy / Oil & Gas",
+      "symbol": "FI",
+      "name": "FI",
+      "theme": "Payments / FinTech",
       "signal": "split",
       "holders": 0,
       "increased": 0,
@@ -153,26 +114,55 @@
       "whales": []
     },
     {
-      "symbol": "DOCS",
-      "name": "Doximity, Inc.",
-      "theme": "Healthcare AI / Digital Health",
-      "signal": "buy",
+      "symbol": "ADBE",
+      "name": "Adobe Inc.",
+      "theme": "AI Software",
+      "signal": "sell",
       "holders": 1,
-      "increased": 1,
+      "increased": 0,
+      "reduced": 1,
+      "new_pos": 0,
+      "closed_pos": 1,
+      "total_held_usd": 318921,
+      "total_held_fmt": "<$1M",
+      "whales_fmt": "Philippe Laffont — 清倉 · 達利歐 Dalio <$1M 減碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "Philippe Laffont",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 318921,
+          "action": "trim"
+        }
+      ]
+    },
+    {
+      "symbol": "ANET",
+      "name": "Arista Networks, Inc.",
+      "theme": "Cloud Infrastructure",
+      "signal": "split",
+      "holders": 1,
+      "increased": 0,
       "reduced": 0,
       "new_pos": 0,
       "closed_pos": 0,
-      "total_held_usd": 2796443,
-      "total_held_fmt": "$3M",
-      "whales_fmt": "達利歐 Dalio $3M 加碼",
+      "total_held_usd": 163308573,
+      "total_held_fmt": "$163M",
+      "whales_fmt": "達利歐 Dalio $163M 持有",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
           "name": "達利歐 Dalio",
-          "value_usd": 2796443,
-          "action": "add"
+          "value_usd": 163308573,
+          "action": "hold"
         }
       ]
     }

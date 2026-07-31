@@ -1,7 +1,7 @@
 {
   "symbol": "DDOG",
   "name": "Datadog, Inc.",
-  "tier": "ready",
+  "tier": "enter",
   "regime": "neutral",
   "theme": "AI Software",
   "business": "Datadog, Inc. operates an observability and security platform for cloud applications in the United States and internationally. The company's products comprise infrastructure and application performance monitoring, log management, observabi…",
@@ -13,12 +13,12 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 5.9
+      "score": 5.1
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 5.6
+      "score": 8.1
     },
     {
       "key": "macro_context",
@@ -28,20 +28,28 @@
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 7.6
+      "score": 8.3
     },
     {
       "key": "news_catalyst",
       "label": "新聞催化",
-      "score": null
+      "score": 5.0
     },
     {
       "key": "risk_reward",
       "label": "風險回報",
-      "score": null
+      "score": 5.0
     }
   ],
   "tracking": [
+    {
+      "date": "2026-07-31",
+      "theme": "AI Software",
+      "tier": "enter",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-07-20",
       "theme": "AI Software",

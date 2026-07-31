@@ -1,11 +1,11 @@
 {
   "symbol": "ANET",
   "name": "Arista Networks, Inc.",
-  "tier": "enter",
+  "tier": "ready",
   "regime": "neutral",
   "theme": "Cloud Infrastructure",
   "business": "Arista Networks, Inc. engages in the development, marketing, and sale of data-driven, client to cloud networking solutions for AI, data center, campus, and routing environments in the Americas, Europe, the Middle East, Africa, and the Asia…",
-  "why": "NEWS_CATALYST",
+  "why": "INDUSTRY_EXPANSION",
   "rsi": null,
   "sma50": null,
   "sma200": null,
@@ -13,12 +13,12 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 8.3
+      "score": 6.4
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 7.4
+      "score": 4.2
     },
     {
       "key": "macro_context",
@@ -28,20 +28,28 @@
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 8.2
+      "score": 7.2
     },
     {
       "key": "news_catalyst",
       "label": "新聞催化",
-      "score": 9.5
+      "score": null
     },
     {
       "key": "risk_reward",
       "label": "風險回報",
-      "score": 5.0
+      "score": null
     }
   ],
   "tracking": [
+    {
+      "date": "2026-07-31",
+      "theme": "Cloud Infrastructure",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-07-22",
       "theme": "Cloud Infrastructure",
