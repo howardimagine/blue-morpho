@@ -1,104 +1,41 @@
 {
   "as_of": "2026-05-15",
   "n_whales": 19,
-  "generated_at": "2026-07-31T00:07:09+00:00",
+  "generated_at": "2026-08-03T00:06:20+00:00",
   "stocks": [
     {
-      "symbol": "DDOG",
-      "name": "Datadog, Inc.",
-      "theme": "AI Software",
+      "symbol": "ABNB",
+      "name": "Airbnb, Inc.",
+      "theme": "Travel & Leisure",
       "signal": "sell",
       "holders": 2,
-      "increased": 1,
-      "reduced": 1,
+      "increased": 0,
+      "reduced": 2,
       "new_pos": 0,
-      "closed_pos": 1,
-      "total_held_usd": 38716622,
-      "total_held_fmt": "$39M",
-      "whales_fmt": "達利歐 Dalio — 清倉 · 木頭姐 Cathie Wood $27M 加碼 · 索羅斯 Soros $12M 減碼",
+      "closed_pos": 0,
+      "total_held_usd": 23828176,
+      "total_held_fmt": "$24M",
+      "whales_fmt": "木頭姐 Cathie Wood $20M 減碼 · 達利歐 Dalio $3M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 0,
-          "action": "exit"
-        },
         {
           "name": "木頭姐 Cathie Wood",
-          "value_usd": 26752727,
-          "action": "add"
+          "value_usd": 20414701,
+          "action": "trim"
         },
         {
-          "name": "索羅斯 Soros",
-          "value_usd": 11963895,
+          "name": "達利歐 Dalio",
+          "value_usd": 3413475,
           "action": "trim"
         }
       ]
     },
     {
-      "symbol": "CVX",
-      "name": "Chevron Corporation",
+      "symbol": "FANG",
+      "name": "Diamondback Energy, Inc.",
       "theme": "Energy / Oil & Gas",
-      "signal": "split",
-      "holders": 2,
-      "increased": 0,
-      "reduced": 1,
-      "new_pos": 1,
-      "closed_pos": 0,
-      "total_held_usd": 17457949512,
-      "total_held_fmt": "$17.5B",
-      "whales_fmt": "巴菲特 Buffett $17.5B 減碼 · 達利歐 Dalio <$1M 新進",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "巴菲特 Buffett",
-          "value_usd": 17457364606,
-          "action": "trim"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 584906,
-          "action": "new"
-        }
-      ]
-    },
-    {
-      "symbol": "AMAT",
-      "name": "應用材料",
-      "theme": "AI CapEx",
-      "signal": "buy",
-      "holders": 2,
-      "increased": 1,
-      "reduced": 0,
-      "new_pos": 1,
-      "closed_pos": 0,
-      "total_held_usd": 20735762,
-      "total_held_fmt": "$21M",
-      "whales_fmt": "達利歐 Dalio $16M 加碼 · 索羅斯 Soros $4M 新進",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 16258722,
-          "action": "add"
-        },
-        {
-          "name": "索羅斯 Soros",
-          "value_usd": 4477040,
-          "action": "new"
-        }
-      ]
-    },
-    {
-      "symbol": "FI",
-      "name": "FI",
-      "theme": "Payments / FinTech",
       "signal": "split",
       "holders": 0,
       "increased": 0,
@@ -114,55 +51,153 @@
       "whales": []
     },
     {
-      "symbol": "ADBE",
-      "name": "Adobe Inc.",
-      "theme": "AI Software",
+      "symbol": "AMZN",
+      "name": "亞馬遜",
+      "theme": "Cloud Infrastructure",
       "signal": "sell",
-      "holders": 1,
-      "increased": 0,
-      "reduced": 1,
+      "holders": 12,
+      "increased": 5,
+      "reduced": 6,
       "new_pos": 0,
-      "closed_pos": 1,
-      "total_held_usd": 318921,
-      "total_held_fmt": "<$1M",
-      "whales_fmt": "Philippe Laffont — 清倉 · 達利歐 Dalio <$1M 減碼",
+      "closed_pos": 2,
+      "total_held_usd": 9709730891,
+      "total_held_fmt": "$9.7B",
+      "whales_fmt": "巴菲特 Buffett — 清倉 · Stephen Mandel — 清倉 · 艾克曼 Ackman $2.4B 加碼 · Chase Coleman $2.1B 持有 · Philippe Laffont $1.7B 減碼 · 達利歐 Dalio $914M 加碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "Philippe Laffont",
+          "name": "巴菲特 Buffett",
           "value_usd": 0,
           "action": "exit"
         },
         {
+          "name": "Stephen Mandel",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "艾克曼 Ackman",
+          "value_usd": 2385104083,
+          "action": "add"
+        },
+        {
+          "name": "Chase Coleman",
+          "value_usd": 2082700000,
+          "action": "hold"
+        },
+        {
+          "name": "Philippe Laffont",
+          "value_usd": 1651740634,
+          "action": "trim"
+        },
+        {
           "name": "達利歐 Dalio",
-          "value_usd": 318921,
+          "value_usd": 914036840,
+          "action": "add"
+        },
+        {
+          "name": "泰珀 Tepper",
+          "value_usd": 899726400,
+          "action": "add"
+        },
+        {
+          "name": "Brad Gerstner",
+          "value_usd": 435192245,
           "action": "trim"
         }
       ]
     },
     {
-      "symbol": "ANET",
-      "name": "Arista Networks, Inc.",
-      "theme": "Cloud Infrastructure",
-      "signal": "split",
-      "holders": 1,
+      "symbol": "BKNG",
+      "name": "Booking Holdings Inc. Common St",
+      "theme": "Travel & Leisure",
+      "signal": "sell",
+      "holders": 2,
       "increased": 0,
-      "reduced": 0,
+      "reduced": 2,
       "new_pos": 0,
       "closed_pos": 0,
-      "total_held_usd": 163308573,
-      "total_held_fmt": "$163M",
-      "whales_fmt": "達利歐 Dalio $163M 持有",
+      "total_held_usd": 10353177,
+      "total_held_fmt": "$10M",
+      "whales_fmt": "Stephen Mandel $10M 減碼 · 達利歐 Dalio <$1M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
+          "name": "Stephen Mandel",
+          "value_usd": 10125820,
+          "action": "trim"
+        },
+        {
           "name": "達利歐 Dalio",
-          "value_usd": 163308573,
-          "action": "hold"
+          "value_usd": 227357,
+          "action": "trim"
+        }
+      ]
+    },
+    {
+      "symbol": "CRWD",
+      "name": "CrowdStrike",
+      "theme": "Cybersecurity",
+      "signal": "split",
+      "holders": 2,
+      "increased": 0,
+      "reduced": 1,
+      "new_pos": 1,
+      "closed_pos": 0,
+      "total_held_usd": 42894737,
+      "total_held_fmt": "$43M",
+      "whales_fmt": "木頭姐 Cathie Wood $41M 減碼 · 達利歐 Dalio $2M 新進",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 41331145,
+          "action": "trim"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 1563592,
+          "action": "new"
+        }
+      ]
+    },
+    {
+      "symbol": "ESTC",
+      "name": "Elastic N.V.",
+      "theme": "AI Software",
+      "signal": "sell",
+      "holders": 2,
+      "increased": 0,
+      "reduced": 1,
+      "new_pos": 1,
+      "closed_pos": 1,
+      "total_held_usd": 38470604,
+      "total_held_fmt": "$38M",
+      "whales_fmt": "Chase Coleman — 清倉 · 索羅斯 Soros $38M 新進 · 達利歐 Dalio <$1M 減碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "Chase Coleman",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 38042390,
+          "action": "new"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 428214,
+          "action": "trim"
         }
       ]
     }
