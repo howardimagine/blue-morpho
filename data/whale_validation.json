@@ -1,168 +1,194 @@
 {
   "as_of": "2026-05-15",
   "n_whales": 19,
-  "generated_at": "2026-08-04T00:05:42+00:00",
+  "generated_at": "2026-08-05T00:05:44+00:00",
   "stocks": [
     {
-      "symbol": "EOG",
-      "name": "EOG Resources, Inc.",
-      "theme": "Energy / Oil & Gas",
-      "signal": "sell",
-      "holders": 1,
-      "increased": 0,
-      "reduced": 1,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 1817534,
-      "total_held_fmt": "$2M",
-      "whales_fmt": "達利歐 Dalio $2M 減碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 1817534,
-          "action": "trim"
-        }
-      ]
-    },
-    {
-      "symbol": "BAC",
-      "name": "Bank of America Corporation",
-      "theme": "Banks",
-      "signal": "split",
-      "holders": 0,
-      "increased": 0,
+      "symbol": "AVGO",
+      "name": "博通",
+      "theme": "AI Compute",
+      "signal": "buy",
+      "holders": 8,
+      "increased": 4,
       "reduced": 0,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 0,
-      "total_held_fmt": "—",
-      "whales_fmt": "",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": []
-    },
-    {
-      "symbol": "ISRG",
-      "name": "Intuitive Surgical",
-      "theme": "Healthcare AI / Digital Health",
-      "signal": "split",
-      "holders": 3,
-      "increased": 2,
-      "reduced": 1,
-      "new_pos": 0,
+      "new_pos": 3,
       "closed_pos": 1,
-      "total_held_usd": 434026694,
-      "total_held_fmt": "$434M",
-      "whales_fmt": "Terry Smith — 清倉 · Philippe Laffont $394M 加碼 · 木頭姐 Cathie Wood $32M 加碼 · 達利歐 Dalio $8M 減碼",
+      "total_held_usd": 3591630168,
+      "total_held_fmt": "$3.6B",
+      "whales_fmt": "Stephen Mandel — 清倉 · Philippe Laffont $1.7B 持有 · Chase Coleman $1.1B 加碼 · 達利歐 Dalio $568M 加碼 · 木頭姐 Cathie Wood $126M 新進 · 索羅斯 Soros $48M 加碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "Terry Smith",
+          "name": "Stephen Mandel",
           "value_usd": 0,
           "action": "exit"
         },
         {
           "name": "Philippe Laffont",
-          "value_usd": 394250172,
+          "value_usd": 1703497233,
+          "action": "hold"
+        },
+        {
+          "name": "Chase Coleman",
+          "value_usd": 1109535781,
+          "action": "add"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 568068464,
           "action": "add"
         },
         {
           "name": "木頭姐 Cathie Wood",
-          "value_usd": 31804161,
+          "value_usd": 126219107,
+          "action": "new"
+        },
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 48007168,
           "action": "add"
         },
         {
+          "name": "Brad Gerstner",
+          "value_usd": 20766265,
+          "action": "add"
+        },
+        {
+          "name": "Dan Loeb",
+          "value_usd": 15475500,
+          "action": "new"
+        }
+      ]
+    },
+    {
+      "symbol": "PLTR",
+      "name": "Palantir",
+      "theme": "AI Software",
+      "signal": "sell",
+      "holders": 3,
+      "increased": 0,
+      "reduced": 2,
+      "new_pos": 1,
+      "closed_pos": 0,
+      "total_held_usd": 1377572452,
+      "total_held_fmt": "$1.4B",
+      "whales_fmt": "大空頭 Burry $912M 新進 · 木頭姐 Cathie Wood $455M 減碼 · 達利歐 Dalio $11M 減碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "大空頭 Burry",
+          "value_usd": 912100000,
+          "action": "new"
+        },
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 454913400,
+          "action": "trim"
+        },
+        {
           "name": "達利歐 Dalio",
-          "value_usd": 7972361,
+          "value_usd": 10559052,
           "action": "trim"
         }
       ]
     },
     {
-      "symbol": "CCL",
-      "name": "Carnival Corporation Ltd.",
-      "theme": "Travel & Leisure",
+      "symbol": "CSCO",
+      "name": "Cisco Systems, Inc.",
+      "theme": "Cloud Infrastructure",
+      "signal": "buy",
+      "holders": 1,
+      "increased": 1,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 63848190,
+      "total_held_fmt": "$64M",
+      "whales_fmt": "達利歐 Dalio $64M 加碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 63848190,
+          "action": "add"
+        }
+      ]
+    },
+    {
+      "symbol": "AEIS",
+      "name": "先進能源",
+      "theme": "Semiconductor Equipment (WFE)",
+      "signal": "buy",
+      "holders": 1,
+      "increased": 0,
+      "reduced": 0,
+      "new_pos": 1,
+      "closed_pos": 0,
+      "total_held_usd": 10559052,
+      "total_held_fmt": "$11M",
+      "whales_fmt": "達利歐 Dalio $11M 新進",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 10559052,
+          "action": "new"
+        }
+      ]
+    },
+    {
+      "symbol": "EBAY",
+      "name": "eBay Inc.",
+      "theme": "E-commerce / Marketplaces",
       "signal": "sell",
       "holders": 1,
       "increased": 0,
       "reduced": 1,
       "new_pos": 0,
-      "closed_pos": 1,
-      "total_held_usd": 355108486,
-      "total_held_fmt": "$355M",
-      "whales_fmt": "達利歐 Dalio — 清倉 · Andreas Halvorsen $355M 減碼",
+      "closed_pos": 0,
+      "total_held_usd": 365081,
+      "total_held_fmt": "<$1M",
+      "whales_fmt": "達利歐 Dalio <$1M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
           "name": "達利歐 Dalio",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "Andreas Halvorsen",
-          "value_usd": 355108486,
+          "value_usd": 365081,
           "action": "trim"
         }
       ]
     },
     {
-      "symbol": "VRT",
-      "name": "Vertiv",
-      "theme": "Data Center",
-      "signal": "buy",
-      "holders": 2,
-      "increased": 1,
+      "symbol": "AFRM",
+      "name": "Affirm Holdings, Inc.",
+      "theme": "Payments / FinTech",
+      "signal": "sell",
+      "holders": 0,
+      "increased": 0,
       "reduced": 0,
       "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 353668361,
-      "total_held_fmt": "$354M",
-      "whales_fmt": "Philippe Laffont $246M 加碼 · 達利歐 Dalio $108M 持有",
+      "closed_pos": 1,
+      "total_held_usd": 0,
+      "total_held_fmt": "—",
+      "whales_fmt": "Stephen Mandel — 清倉",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "Philippe Laffont",
-          "value_usd": 245977597,
-          "action": "add"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 107690764,
-          "action": "hold"
-        }
-      ]
-    },
-    {
-      "symbol": "C",
-      "name": "Citigroup, Inc.",
-      "theme": "Banks",
-      "signal": "buy",
-      "holders": 1,
-      "increased": 1,
-      "reduced": 0,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 89981082,
-      "total_held_fmt": "$90M",
-      "whales_fmt": "達利歐 Dalio $90M 加碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 89981082,
-          "action": "add"
+          "name": "Stephen Mandel",
+          "value_usd": 0,
+          "action": "exit"
         }
       ]
     }
