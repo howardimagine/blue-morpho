@@ -5,7 +5,7 @@
   "regime": "neutral",
   "theme": "Cloud Infrastructure",
   "business": "Equinix, Inc. shortens the path to boundless connectivity anywhere in the world. Its digital infrastructure, data center footprint and interconnected ecosystems empower innovations that enhance our work, life and planet. Equinix connects e…",
-  "why": "THEME_TAILWIND",
+  "why": "NEWS_CATALYST",
   "rsi": null,
   "sma50": null,
   "sma200": null,
@@ -13,7 +13,7 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 7.6
+      "score": 6.5
     },
     {
       "key": "technical_setup",
@@ -28,12 +28,12 @@
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 6.7
+      "score": 7.5
     },
     {
       "key": "news_catalyst",
       "label": "新聞催化",
-      "score": null
+      "score": 10.0
     },
     {
       "key": "risk_reward",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-08-07",
+      "theme": "Cloud Infrastructure",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-07-27",
       "theme": "Cloud Infrastructure",
@@ -121,7 +129,7 @@
     {
       "symbol": "DLR",
       "name": "Digital Realty Trust, Inc.",
-      "tier": "ready"
+      "tier": "enter"
     }
   ],
   "price": 1055.85,
