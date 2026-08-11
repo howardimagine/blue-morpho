@@ -13,27 +13,27 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 5.1
+      "score": 7.3
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 8.1
+      "score": 7.4
     },
     {
       "key": "macro_context",
       "label": "總經環境",
-      "score": 5.0
+      "score": 5.4
     },
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 8.3
+      "score": 8.0
     },
     {
       "key": "news_catalyst",
       "label": "新聞催化",
-      "score": 5.0
+      "score": null
     },
     {
       "key": "risk_reward",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-08-11",
+      "theme": "AI Software",
+      "tier": "enter",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-07-31",
       "theme": "AI Software",
