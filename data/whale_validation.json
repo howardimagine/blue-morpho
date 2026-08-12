@@ -1,123 +1,162 @@
 {
   "as_of": "2026-05-15",
   "n_whales": 19,
-  "generated_at": "2026-08-11T00:07:08+00:00",
+  "generated_at": "2026-08-12T00:06:23+00:00",
   "stocks": [
     {
-      "symbol": "DDOG",
-      "name": "Datadog, Inc.",
-      "theme": "AI Software",
+      "symbol": "AMZN",
+      "name": "亞馬遜",
+      "theme": "Cloud Infrastructure",
       "signal": "sell",
-      "holders": 2,
-      "increased": 1,
-      "reduced": 1,
+      "holders": 12,
+      "increased": 5,
+      "reduced": 6,
       "new_pos": 0,
-      "closed_pos": 1,
-      "total_held_usd": 38716622,
-      "total_held_fmt": "$39M",
-      "whales_fmt": "達利歐 Dalio — 清倉 · 木頭姐 Cathie Wood $27M 加碼 · 索羅斯 Soros $12M 減碼",
+      "closed_pos": 2,
+      "total_held_usd": 9709730891,
+      "total_held_fmt": "$9.7B",
+      "whales_fmt": "巴菲特 Buffett — 清倉 · Stephen Mandel — 清倉 · 艾克曼 Ackman $2.4B 加碼 · Chase Coleman $2.1B 持有 · Philippe Laffont $1.7B 減碼 · 達利歐 Dalio $914M 加碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "達利歐 Dalio",
+          "name": "巴菲特 Buffett",
           "value_usd": 0,
           "action": "exit"
         },
         {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 26752727,
+          "name": "Stephen Mandel",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "艾克曼 Ackman",
+          "value_usd": 2385104083,
           "action": "add"
         },
         {
-          "name": "索羅斯 Soros",
-          "value_usd": 11963895,
-          "action": "trim"
-        }
-      ]
-    },
-    {
-      "symbol": "ISRG",
-      "name": "Intuitive Surgical",
-      "theme": "Healthcare AI / Digital Health",
-      "signal": "split",
-      "holders": 3,
-      "increased": 2,
-      "reduced": 1,
-      "new_pos": 0,
-      "closed_pos": 1,
-      "total_held_usd": 434026694,
-      "total_held_fmt": "$434M",
-      "whales_fmt": "Terry Smith — 清倉 · Philippe Laffont $394M 加碼 · 木頭姐 Cathie Wood $32M 加碼 · 達利歐 Dalio $8M 減碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "Terry Smith",
-          "value_usd": 0,
-          "action": "exit"
+          "name": "Chase Coleman",
+          "value_usd": 2082700000,
+          "action": "hold"
         },
         {
           "name": "Philippe Laffont",
-          "value_usd": 394250172,
-          "action": "add"
-        },
-        {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 31804161,
-          "action": "add"
+          "value_usd": 1651740634,
+          "action": "trim"
         },
         {
           "name": "達利歐 Dalio",
-          "value_usd": 7972361,
+          "value_usd": 914036840,
+          "action": "add"
+        },
+        {
+          "name": "泰珀 Tepper",
+          "value_usd": 899726400,
+          "action": "add"
+        },
+        {
+          "name": "Brad Gerstner",
+          "value_usd": 435192245,
           "action": "trim"
         }
       ]
     },
     {
-      "symbol": "EA",
-      "name": "Electronic Arts Inc.",
-      "theme": "Gaming",
+      "symbol": "ANET",
+      "name": "Arista Networks, Inc.",
+      "theme": "Cloud Infrastructure",
       "signal": "split",
-      "holders": 2,
-      "increased": 1,
-      "reduced": 1,
+      "holders": 1,
+      "increased": 0,
+      "reduced": 0,
       "new_pos": 0,
       "closed_pos": 0,
-      "total_held_usd": 199415644,
-      "total_held_fmt": "$199M",
-      "whales_fmt": "索羅斯 Soros $197M 加碼 · 達利歐 Dalio $3M 減碼",
+      "total_held_usd": 163308573,
+      "total_held_fmt": "$163M",
+      "whales_fmt": "達利歐 Dalio $163M 持有",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "索羅斯 Soros",
-          "value_usd": 196896219,
-          "action": "add"
+          "name": "達利歐 Dalio",
+          "value_usd": 163308573,
+          "action": "hold"
+        }
+      ]
+    },
+    {
+      "symbol": "BKNG",
+      "name": "Booking Holdings Inc. Common St",
+      "theme": "Travel & Leisure",
+      "signal": "sell",
+      "holders": 2,
+      "increased": 0,
+      "reduced": 2,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 10353177,
+      "total_held_fmt": "$10M",
+      "whales_fmt": "Stephen Mandel $10M 減碼 · 達利歐 Dalio <$1M 減碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "Stephen Mandel",
+          "value_usd": 10125820,
+          "action": "trim"
         },
         {
           "name": "達利歐 Dalio",
-          "value_usd": 2519425,
+          "value_usd": 227357,
           "action": "trim"
         }
       ]
     },
     {
-      "symbol": "CCL",
-      "name": "Carnival Corporation Ltd.",
+      "symbol": "ABNB",
+      "name": "Airbnb, Inc.",
       "theme": "Travel & Leisure",
       "signal": "sell",
-      "holders": 1,
+      "holders": 2,
       "increased": 0,
-      "reduced": 1,
+      "reduced": 2,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 23828176,
+      "total_held_fmt": "$24M",
+      "whales_fmt": "木頭姐 Cathie Wood $20M 減碼 · 達利歐 Dalio $3M 減碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 20414701,
+          "action": "trim"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 3413475,
+          "action": "trim"
+        }
+      ]
+    },
+    {
+      "symbol": "CRM",
+      "name": "Salesforce, Inc.",
+      "theme": "AI Software",
+      "signal": "sell",
+      "holders": 2,
+      "increased": 0,
+      "reduced": 2,
       "new_pos": 0,
       "closed_pos": 1,
-      "total_held_usd": 355108486,
-      "total_held_fmt": "$355M",
-      "whales_fmt": "達利歐 Dalio — 清倉 · Andreas Halvorsen $355M 減碼",
+      "total_held_usd": 68573785,
+      "total_held_fmt": "$69M",
+      "whales_fmt": "達利歐 Dalio — 清倉 · 索羅斯 Soros $67M 減碼 · 木頭姐 Cathie Wood $1M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
@@ -128,53 +167,45 @@
           "action": "exit"
         },
         {
-          "name": "Andreas Halvorsen",
-          "value_usd": 355108486,
+          "name": "索羅斯 Soros",
+          "value_usd": 67442191,
+          "action": "trim"
+        },
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 1131594,
           "action": "trim"
         }
       ]
     },
     {
-      "symbol": "DOCS",
-      "name": "Doximity, Inc.",
-      "theme": "Healthcare AI / Digital Health",
+      "symbol": "AMAT",
+      "name": "應用材料",
+      "theme": "AI CapEx",
       "signal": "buy",
-      "holders": 1,
+      "holders": 2,
       "increased": 1,
       "reduced": 0,
-      "new_pos": 0,
+      "new_pos": 1,
       "closed_pos": 0,
-      "total_held_usd": 2796443,
-      "total_held_fmt": "$3M",
-      "whales_fmt": "達利歐 Dalio $3M 加碼",
+      "total_held_usd": 20735762,
+      "total_held_fmt": "$21M",
+      "whales_fmt": "達利歐 Dalio $16M 加碼 · 索羅斯 Soros $4M 新進",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
           "name": "達利歐 Dalio",
-          "value_usd": 2796443,
+          "value_usd": 16258722,
           "action": "add"
+        },
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 4477040,
+          "action": "new"
         }
       ]
-    },
-    {
-      "symbol": "BBAI",
-      "name": "BigBear.ai, Inc.",
-      "theme": "AI Software",
-      "signal": "split",
-      "holders": 0,
-      "increased": 0,
-      "reduced": 0,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 0,
-      "total_held_fmt": "—",
-      "whales_fmt": "",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": []
     }
   ]
 }

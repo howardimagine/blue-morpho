@@ -18,7 +18,7 @@
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 4.2
+      "score": 4.9
     },
     {
       "key": "macro_context",
@@ -28,7 +28,7 @@
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 6.2
+      "score": 6.7
     },
     {
       "key": "news_catalyst",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-08-12",
+      "theme": "AI CapEx",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-07-31",
       "theme": "AI CapEx",
