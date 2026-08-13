@@ -28,12 +28,12 @@
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 7.8
+      "score": 7.4
     },
     {
       "key": "news_catalyst",
       "label": "新聞催化",
-      "score": 9.0
+      "score": 8.8
     },
     {
       "key": "risk_reward",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-08-13",
+      "theme": "AI CapEx",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-08-06",
       "theme": "AI CapEx",
