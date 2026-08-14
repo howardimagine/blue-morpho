@@ -5,7 +5,7 @@
   "regime": "neutral",
   "theme": "AI Software",
   "business": "Cadence Design Systems, Inc. develops computational, AI-driven software, hardware, and silicon intellectual property products and solutions. The company offers functional verification services, such as Jasper, a formal verification platfor…",
-  "why": "NEWS_CATALYST",
+  "why": "QUALITY_COMPOUNDER",
   "rsi": null,
   "sma50": null,
   "sma200": null,
@@ -13,27 +13,27 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 5.5
+      "score": 7.3
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 4.2
+      "score": 4.9
     },
     {
       "key": "macro_context",
       "label": "總經環境",
-      "score": 5.0
+      "score": 5.4
     },
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 7.2
+      "score": 7.7
     },
     {
       "key": "news_catalyst",
       "label": "新聞催化",
-      "score": 9.5
+      "score": null
     },
     {
       "key": "risk_reward",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-08-14",
+      "theme": "AI Software",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-07-29",
       "theme": "AI Software",
