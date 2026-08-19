@@ -5,7 +5,7 @@
   "regime": "neutral",
   "theme": "AI Compute",
   "business": "WFE 蝕刻/沉積龍頭,3D NAND 主力,HBM 擴產直接受惠。",
-  "why": "NEWS_CATALYST",
+  "why": "WATCHLIST_CONVICTION",
   "rsi": null,
   "sma50": null,
   "sma200": null,
@@ -18,7 +18,7 @@
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 4.9
+      "score": 5.6
     },
     {
       "key": "macro_context",
@@ -28,12 +28,12 @@
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 7.4
+      "score": 6.9
     },
     {
       "key": "news_catalyst",
       "label": "新聞催化",
-      "score": 8.8
+      "score": 7.5
     },
     {
       "key": "risk_reward",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-08-19",
+      "theme": "AI CapEx",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-08-13",
       "theme": "AI CapEx",

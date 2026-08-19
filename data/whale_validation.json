@@ -1,94 +1,45 @@
 {
-  "as_of": "2026-05-15",
+  "as_of": "2026-08-14",
   "n_whales": 19,
-  "generated_at": "2026-08-18T00:05:42+00:00",
+  "generated_at": "2026-08-19T00:06:37+00:00",
   "stocks": [
     {
-      "symbol": "BMRN",
-      "name": "BioMarin Pharmaceutical Inc.",
-      "theme": "Biotech — Oncology",
-      "signal": "buy",
-      "holders": 4,
-      "increased": 2,
-      "reduced": 0,
-      "new_pos": 2,
-      "closed_pos": 1,
-      "total_held_usd": 748228287,
-      "total_held_fmt": "$748M",
-      "whales_fmt": "Philippe Laffont — 清倉 · Andreas Halvorsen $399M 加碼 · Brad Gerstner $260M 新進 · 達利歐 Dalio $90M 加碼 · 德魯肯米勒 Druckenmiller <$1M 新進",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "Philippe Laffont",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "Andreas Halvorsen",
-          "value_usd": 398936730,
-          "action": "add"
-        },
-        {
-          "name": "Brad Gerstner",
-          "value_usd": 259511763,
-          "action": "new"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 89763652,
-          "action": "add"
-        },
-        {
-          "name": "德魯肯米勒 Druckenmiller",
-          "value_usd": 16142,
-          "action": "new"
-        }
-      ]
-    },
-    {
-      "symbol": "AMGN",
-      "name": "Amgen Inc.",
-      "theme": "Biotech — Obesity / GLP-1",
-      "signal": "split",
-      "holders": 1,
-      "increased": 1,
+      "symbol": "CSCO",
+      "name": "Cisco Systems, Inc.",
+      "theme": "Cloud Infrastructure",
+      "signal": "sell",
+      "holders": 0,
+      "increased": 0,
       "reduced": 0,
       "new_pos": 0,
       "closed_pos": 1,
-      "total_held_usd": 5198232,
-      "total_held_fmt": "$5M",
-      "whales_fmt": "木頭姐 Cathie Wood — 清倉 · 達利歐 Dalio $5M 加碼",
+      "total_held_usd": 0,
+      "total_held_fmt": "—",
+      "whales_fmt": "達利歐 Dalio — 清倉",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "木頭姐 Cathie Wood",
+          "name": "達利歐 Dalio",
           "value_usd": 0,
           "action": "exit"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 5198232,
-          "action": "add"
         }
       ]
     },
     {
-      "symbol": "DNLI",
-      "name": "Denali Therapeutics Inc.",
-      "theme": "Biotech — Oncology",
-      "signal": "buy",
-      "holders": 1,
-      "increased": 0,
-      "reduced": 0,
-      "new_pos": 1,
-      "closed_pos": 0,
-      "total_held_usd": 0,
-      "total_held_fmt": "—",
-      "whales_fmt": "Terry Smith — 新進",
+      "symbol": "ISRG",
+      "name": "Intuitive Surgical",
+      "theme": "Medical Devices",
+      "signal": "split",
+      "holders": 3,
+      "increased": 2,
+      "reduced": 1,
+      "new_pos": 0,
+      "closed_pos": 1,
+      "total_held_usd": 351311704,
+      "total_held_fmt": "$351M",
+      "whales_fmt": "Terry Smith — 清倉 · Philippe Laffont $316M 減碼 · 木頭姐 Cathie Wood $28M 加碼 · 達利歐 Dalio $8M 加碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
@@ -96,99 +47,168 @@
         {
           "name": "Terry Smith",
           "value_usd": 0,
-          "action": "new"
-        }
-      ]
-    },
-    {
-      "symbol": "MU",
-      "name": "美光",
-      "theme": "Memory (HBM / DRAM / NAND)",
-      "signal": "buy",
-      "holders": 5,
-      "increased": 1,
-      "reduced": 1,
-      "new_pos": 3,
-      "closed_pos": 0,
-      "total_held_usd": 1118075533,
-      "total_held_fmt": "$1.1B",
-      "whales_fmt": "泰珀 Tepper $563M 減碼 · 達利歐 Dalio $499M 加碼 · Philippe Laffont $56M 新進 · 索羅斯 Soros <$1M 新進 · 德魯肯米勒 Druckenmiller <$1M 新進",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "泰珀 Tepper",
-          "value_usd": 562503600,
-          "action": "trim"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 498551839,
-          "action": "add"
+          "action": "exit"
         },
         {
           "name": "Philippe Laffont",
-          "value_usd": 56058129,
+          "value_usd": 315640206,
+          "action": "trim"
+        },
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 27986730,
+          "action": "add"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 7684768,
+          "action": "add"
+        }
+      ]
+    },
+    {
+      "symbol": "BSX",
+      "name": "Boston Scientific Corporation",
+      "theme": "Medical Devices",
+      "signal": "split",
+      "holders": 1,
+      "increased": 1,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 1,
+      "total_held_usd": 18866096,
+      "total_held_fmt": "$19M",
+      "whales_fmt": "Stephen Mandel — 清倉 · 達利歐 Dalio $19M 加碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "Stephen Mandel",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 18866096,
+          "action": "add"
+        }
+      ]
+    },
+    {
+      "symbol": "LRCX",
+      "name": "科林研發",
+      "theme": "AI CapEx",
+      "signal": "sell",
+      "holders": 9,
+      "increased": 1,
+      "reduced": 5,
+      "new_pos": 2,
+      "closed_pos": 1,
+      "total_held_usd": 6811182621,
+      "total_held_fmt": "$6.8B",
+      "whales_fmt": "Dan Loeb — 清倉 · Philippe Laffont $4.1B 減碼 · Chase Coleman $1.4B 減碼 · Andreas Halvorsen $543M 加碼 · 達利歐 Dalio $407M 減碼 · Brad Gerstner $171M 新進",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "Dan Loeb",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "Philippe Laffont",
+          "value_usd": 4091329827,
+          "action": "trim"
+        },
+        {
+          "name": "Chase Coleman",
+          "value_usd": 1370837288,
+          "action": "trim"
+        },
+        {
+          "name": "Andreas Halvorsen",
+          "value_usd": 543344313,
+          "action": "add"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 406560606,
+          "action": "trim"
+        },
+        {
+          "name": "Brad Gerstner",
+          "value_usd": 170766686,
           "action": "new"
         },
         {
-          "name": "索羅斯 Soros",
-          "value_usd": 954060,
+          "name": "泰珀 Tepper",
+          "value_usd": 165748725,
+          "action": "hold"
+        },
+        {
+          "name": "Stephen Mandel",
+          "value_usd": 47395697,
           "action": "new"
+        }
+      ]
+    },
+    {
+      "symbol": "DAL",
+      "name": "Delta Air Lines, Inc.",
+      "theme": "Travel & Leisure",
+      "signal": "buy",
+      "holders": 3,
+      "increased": 1,
+      "reduced": 0,
+      "new_pos": 1,
+      "closed_pos": 0,
+      "total_held_usd": 5370741446,
+      "total_held_fmt": "$5.4B",
+      "whales_fmt": "巴菲特 Buffett $5.4B 加碼 · 達利歐 Dalio $2M 持有 · 德魯肯米勒 Druckenmiller <$1M 新進",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "巴菲特 Buffett",
+          "value_usd": 5368591200,
+          "action": "add"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 2093769,
+          "action": "hold"
         },
         {
           "name": "德魯肯米勒 Druckenmiller",
-          "value_usd": 7905,
+          "value_usd": 56477,
           "action": "new"
         }
       ]
     },
     {
-      "symbol": "AEIS",
-      "name": "先進能源",
-      "theme": "Semiconductor Equipment (WFE)",
+      "symbol": "CCL",
+      "name": "Carnival Corporation Ltd.",
+      "theme": "Travel & Leisure",
       "signal": "buy",
       "holders": 1,
-      "increased": 0,
+      "increased": 1,
       "reduced": 0,
-      "new_pos": 1,
+      "new_pos": 0,
       "closed_pos": 0,
-      "total_held_usd": 10559052,
-      "total_held_fmt": "$11M",
-      "whales_fmt": "達利歐 Dalio $11M 新進",
+      "total_held_usd": 408549657,
+      "total_held_fmt": "$409M",
+      "whales_fmt": "Andreas Halvorsen $409M 加碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "達利歐 Dalio",
-          "value_usd": 10559052,
-          "action": "new"
-        }
-      ]
-    },
-    {
-      "symbol": "ACLS",
-      "name": "艾克塞利",
-      "theme": "Semiconductor Equipment (WFE)",
-      "signal": "buy",
-      "holders": 1,
-      "increased": 0,
-      "reduced": 0,
-      "new_pos": 1,
-      "closed_pos": 0,
-      "total_held_usd": 772657,
-      "total_held_fmt": "<$1M",
-      "whales_fmt": "達利歐 Dalio <$1M 新進",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 772657,
-          "action": "new"
+          "name": "Andreas Halvorsen",
+          "value_usd": 408549657,
+          "action": "add"
         }
       ]
     }
