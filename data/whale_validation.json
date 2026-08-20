@@ -1,216 +1,154 @@
 {
   "as_of": "2026-08-14",
   "n_whales": 19,
-  "generated_at": "2026-08-19T00:06:37+00:00",
+  "generated_at": "2026-08-20T00:05:58+00:00",
   "stocks": [
     {
-      "symbol": "CSCO",
-      "name": "Cisco Systems, Inc.",
-      "theme": "Cloud Infrastructure",
+      "symbol": "NOW",
+      "name": "ServiceNow",
+      "theme": "AI Software",
       "signal": "sell",
+      "holders": 3,
+      "increased": 0,
+      "reduced": 2,
+      "new_pos": 1,
+      "closed_pos": 0,
+      "total_held_usd": 154622247,
+      "total_held_fmt": "$155M",
+      "whales_fmt": "Chase Coleman $87M 減碼 · 達利歐 Dalio $63M 新進 · 索羅斯 Soros $5M 減碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "Chase Coleman",
+          "value_usd": 86719591,
+          "action": "trim"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 63080626,
+          "action": "new"
+        },
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 4822030,
+          "action": "trim"
+        }
+      ]
+    },
+    {
+      "symbol": "DOCS",
+      "name": "Doximity, Inc.",
+      "theme": "Healthcare AI / Digital Health",
+      "signal": "buy",
+      "holders": 1,
+      "increased": 1,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 2726211,
+      "total_held_fmt": "$3M",
+      "whales_fmt": "達利歐 Dalio $3M 加碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 2726211,
+          "action": "add"
+        }
+      ]
+    },
+    {
+      "symbol": "ABT",
+      "name": "Abbott Laboratories",
+      "theme": "Medical Devices",
+      "signal": "sell",
+      "holders": 2,
+      "increased": 0,
+      "reduced": 1,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 9484598,
+      "total_held_fmt": "$9M",
+      "whales_fmt": "達利歐 Dalio $5M 減碼 · 索羅斯 Soros $4M 持有",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 5423983,
+          "action": "trim"
+        },
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 4060615,
+          "action": "hold"
+        }
+      ]
+    },
+    {
+      "symbol": "ALT",
+      "name": "Altimmune, Inc.",
+      "theme": "Biotech — Obesity / GLP-1",
+      "signal": "buy",
+      "holders": 1,
+      "increased": 0,
+      "reduced": 0,
+      "new_pos": 1,
+      "closed_pos": 0,
+      "total_held_usd": 20368000,
+      "total_held_fmt": "$20M",
+      "whales_fmt": "Andreas Halvorsen $20M 新進",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "Andreas Halvorsen",
+          "value_usd": 20368000,
+          "action": "new"
+        }
+      ]
+    },
+    {
+      "symbol": "BBAI",
+      "name": "BigBear.ai, Inc.",
+      "theme": "AI Software",
+      "signal": "split",
       "holders": 0,
       "increased": 0,
       "reduced": 0,
       "new_pos": 0,
-      "closed_pos": 1,
+      "closed_pos": 0,
       "total_held_usd": 0,
       "total_held_fmt": "—",
-      "whales_fmt": "達利歐 Dalio — 清倉",
+      "whales_fmt": "",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
-      "whales": [
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 0,
-          "action": "exit"
-        }
-      ]
+      "whales": []
     },
     {
-      "symbol": "ISRG",
-      "name": "Intuitive Surgical",
-      "theme": "Medical Devices",
+      "symbol": "AI",
+      "name": "C3.ai, Inc.",
+      "theme": "AI Software",
       "signal": "split",
-      "holders": 3,
-      "increased": 2,
-      "reduced": 1,
-      "new_pos": 0,
-      "closed_pos": 1,
-      "total_held_usd": 351311704,
-      "total_held_fmt": "$351M",
-      "whales_fmt": "Terry Smith — 清倉 · Philippe Laffont $316M 減碼 · 木頭姐 Cathie Wood $28M 加碼 · 達利歐 Dalio $8M 加碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "Terry Smith",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "Philippe Laffont",
-          "value_usd": 315640206,
-          "action": "trim"
-        },
-        {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 27986730,
-          "action": "add"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 7684768,
-          "action": "add"
-        }
-      ]
-    },
-    {
-      "symbol": "BSX",
-      "name": "Boston Scientific Corporation",
-      "theme": "Medical Devices",
-      "signal": "split",
-      "holders": 1,
-      "increased": 1,
-      "reduced": 0,
-      "new_pos": 0,
-      "closed_pos": 1,
-      "total_held_usd": 18866096,
-      "total_held_fmt": "$19M",
-      "whales_fmt": "Stephen Mandel — 清倉 · 達利歐 Dalio $19M 加碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "Stephen Mandel",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 18866096,
-          "action": "add"
-        }
-      ]
-    },
-    {
-      "symbol": "LRCX",
-      "name": "科林研發",
-      "theme": "AI CapEx",
-      "signal": "sell",
-      "holders": 9,
-      "increased": 1,
-      "reduced": 5,
-      "new_pos": 2,
-      "closed_pos": 1,
-      "total_held_usd": 6811182621,
-      "total_held_fmt": "$6.8B",
-      "whales_fmt": "Dan Loeb — 清倉 · Philippe Laffont $4.1B 減碼 · Chase Coleman $1.4B 減碼 · Andreas Halvorsen $543M 加碼 · 達利歐 Dalio $407M 減碼 · Brad Gerstner $171M 新進",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "Dan Loeb",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "Philippe Laffont",
-          "value_usd": 4091329827,
-          "action": "trim"
-        },
-        {
-          "name": "Chase Coleman",
-          "value_usd": 1370837288,
-          "action": "trim"
-        },
-        {
-          "name": "Andreas Halvorsen",
-          "value_usd": 543344313,
-          "action": "add"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 406560606,
-          "action": "trim"
-        },
-        {
-          "name": "Brad Gerstner",
-          "value_usd": 170766686,
-          "action": "new"
-        },
-        {
-          "name": "泰珀 Tepper",
-          "value_usd": 165748725,
-          "action": "hold"
-        },
-        {
-          "name": "Stephen Mandel",
-          "value_usd": 47395697,
-          "action": "new"
-        }
-      ]
-    },
-    {
-      "symbol": "DAL",
-      "name": "Delta Air Lines, Inc.",
-      "theme": "Travel & Leisure",
-      "signal": "buy",
-      "holders": 3,
-      "increased": 1,
-      "reduced": 0,
-      "new_pos": 1,
-      "closed_pos": 0,
-      "total_held_usd": 5370741446,
-      "total_held_fmt": "$5.4B",
-      "whales_fmt": "巴菲特 Buffett $5.4B 加碼 · 達利歐 Dalio $2M 持有 · 德魯肯米勒 Druckenmiller <$1M 新進",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "巴菲特 Buffett",
-          "value_usd": 5368591200,
-          "action": "add"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 2093769,
-          "action": "hold"
-        },
-        {
-          "name": "德魯肯米勒 Druckenmiller",
-          "value_usd": 56477,
-          "action": "new"
-        }
-      ]
-    },
-    {
-      "symbol": "CCL",
-      "name": "Carnival Corporation Ltd.",
-      "theme": "Travel & Leisure",
-      "signal": "buy",
-      "holders": 1,
-      "increased": 1,
+      "holders": 0,
+      "increased": 0,
       "reduced": 0,
       "new_pos": 0,
       "closed_pos": 0,
-      "total_held_usd": 408549657,
-      "total_held_fmt": "$409M",
-      "whales_fmt": "Andreas Halvorsen $409M 加碼",
+      "total_held_usd": 0,
+      "total_held_fmt": "—",
+      "whales_fmt": "",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
-      "whales": [
-        {
-          "name": "Andreas Halvorsen",
-          "value_usd": 408549657,
-          "action": "add"
-        }
-      ]
+      "whales": []
     }
   ]
 }
