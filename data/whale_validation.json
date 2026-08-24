@@ -1,116 +1,174 @@
 {
   "as_of": "2026-08-14",
   "n_whales": 19,
-  "generated_at": "2026-08-21T00:05:29+00:00",
+  "generated_at": "2026-08-24T00:06:24+00:00",
   "stocks": [
     {
-      "symbol": "EA",
-      "name": "Electronic Arts Inc.",
-      "theme": "Gaming",
+      "symbol": "BMRN",
+      "name": "BioMarin Pharmaceutical Inc.",
+      "theme": "Biotech — Oncology",
+      "signal": "sell",
+      "holders": 4,
+      "increased": 1,
+      "reduced": 3,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 1019769610,
+      "total_held_fmt": "$1.0B",
+      "whales_fmt": "Brad Gerstner $582M 減碼 · Andreas Halvorsen $436M 加碼 · 達利歐 Dalio $2M 減碼 · 德魯肯米勒 Druckenmiller <$1M 減碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "Brad Gerstner",
+          "value_usd": 582194012,
+          "action": "trim"
+        },
+        {
+          "name": "Andreas Halvorsen",
+          "value_usd": 435819735,
+          "action": "add"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 1745903,
+          "action": "trim"
+        },
+        {
+          "name": "德魯肯米勒 Druckenmiller",
+          "value_usd": 9960,
+          "action": "trim"
+        }
+      ]
+    },
+    {
+      "symbol": "ANET",
+      "name": "Arista Networks, Inc.",
+      "theme": "Cloud Infrastructure",
       "signal": "sell",
       "holders": 1,
       "increased": 0,
-      "reduced": 0,
+      "reduced": 1,
       "new_pos": 0,
-      "closed_pos": 1,
-      "total_held_usd": 199091790,
-      "total_held_fmt": "$199M",
-      "whales_fmt": "達利歐 Dalio — 清倉 · 索羅斯 Soros $199M 持有",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "索羅斯 Soros",
-          "value_usd": 199091790,
-          "action": "hold"
-        }
-      ]
-    },
-    {
-      "symbol": "VEEV",
-      "name": "Veeva Systems Inc.",
-      "theme": "Healthcare AI / Digital Health",
-      "signal": "buy",
-      "holders": 1,
-      "increased": 0,
-      "reduced": 0,
-      "new_pos": 1,
       "closed_pos": 0,
-      "total_held_usd": 5449926,
-      "total_held_fmt": "$5M",
-      "whales_fmt": "達利歐 Dalio $5M 新進",
+      "total_held_usd": 43196237,
+      "total_held_fmt": "$43M",
+      "whales_fmt": "達利歐 Dalio $43M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
           "name": "達利歐 Dalio",
-          "value_usd": 5449926,
-          "action": "new"
+          "value_usd": 43196237,
+          "action": "trim"
         }
       ]
     },
     {
-      "symbol": "CRWD",
-      "name": "CrowdStrike",
-      "theme": "Cybersecurity",
+      "symbol": "ABNB",
+      "name": "Airbnb, Inc.",
+      "theme": "Travel & Leisure",
       "signal": "split",
       "holders": 2,
       "increased": 1,
       "reduced": 1,
       "new_pos": 0,
       "closed_pos": 0,
-      "total_held_usd": 36989396,
-      "total_held_fmt": "$37M",
-      "whales_fmt": "達利歐 Dalio $19M 加碼 · 木頭姐 Cathie Wood $18M 減碼",
+      "total_held_usd": 55130017,
+      "total_held_fmt": "$55M",
+      "whales_fmt": "達利歐 Dalio $34M 加碼 · 木頭姐 Cathie Wood $21M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
           "name": "達利歐 Dalio",
-          "value_usd": 18960213,
+          "value_usd": 33905398,
           "action": "add"
         },
         {
           "name": "木頭姐 Cathie Wood",
-          "value_usd": 18029183,
+          "value_usd": 21224619,
           "action": "trim"
         }
       ]
     },
     {
-      "symbol": "DDOG",
-      "name": "Datadog, Inc.",
-      "theme": "AI Software",
-      "signal": "sell",
-      "holders": 2,
+      "symbol": "DNLI",
+      "name": "Denali Therapeutics Inc.",
+      "theme": "Biotech — Oncology",
+      "signal": "buy",
+      "holders": 1,
       "increased": 0,
-      "reduced": 2,
-      "new_pos": 0,
+      "reduced": 0,
+      "new_pos": 1,
       "closed_pos": 0,
-      "total_held_usd": 57229731,
-      "total_held_fmt": "$57M",
-      "whales_fmt": "木頭姐 Cathie Wood $55M 減碼 · 索羅斯 Soros $3M 減碼",
+      "total_held_usd": 0,
+      "total_held_fmt": "—",
+      "whales_fmt": "Terry Smith — 新進",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 54714133,
-          "action": "trim"
+          "name": "Terry Smith",
+          "value_usd": 0,
+          "action": "new"
+        }
+      ]
+    },
+    {
+      "symbol": "AMGN",
+      "name": "Amgen Inc.",
+      "theme": "Biotech — Obesity / GLP-1",
+      "signal": "buy",
+      "holders": 1,
+      "increased": 1,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 7919202,
+      "total_held_fmt": "$8M",
+      "whales_fmt": "達利歐 Dalio $8M 加碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 7919202,
+          "action": "add"
+        }
+      ]
+    },
+    {
+      "symbol": "BKNG",
+      "name": "Booking Holdings Inc. Common St",
+      "theme": "Travel & Leisure",
+      "signal": "split",
+      "holders": 1,
+      "increased": 1,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 1,
+      "total_held_usd": 7500161,
+      "total_held_fmt": "$8M",
+      "whales_fmt": "Stephen Mandel — 清倉 · 達利歐 Dalio $8M 加碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "Stephen Mandel",
+          "value_usd": 0,
+          "action": "exit"
         },
         {
-          "name": "索羅斯 Soros",
-          "value_usd": 2515598,
-          "action": "trim"
+          "name": "達利歐 Dalio",
+          "value_usd": 7500161,
+          "action": "add"
         }
       ]
     }
