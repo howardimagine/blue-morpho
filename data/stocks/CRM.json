@@ -5,7 +5,7 @@
   "regime": "neutral",
   "theme": "AI Software",
   "business": "Salesforce, Inc. provides customer relationship management technology services that connect companies and customers together in the United States, Europe, and the Asia Pacific. The company offers Agentforce, which enables customers to buil…",
-  "why": "INDUSTRY_EXPANSION",
+  "why": "NEWS_CATALYST",
   "rsi": null,
   "sma50": null,
   "sma200": null,
@@ -13,7 +13,7 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 7.0
+      "score": 7.2
     },
     {
       "key": "technical_setup",
@@ -28,12 +28,12 @@
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 7.2
+      "score": 7.9
     },
     {
       "key": "news_catalyst",
       "label": "新聞催化",
-      "score": null
+      "score": 9.8
     },
     {
       "key": "risk_reward",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-08-25",
+      "theme": "AI Software",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-08-12",
       "theme": "AI Software",
