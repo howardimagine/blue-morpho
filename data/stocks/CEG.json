@@ -115,6 +115,11 @@
       "symbol": "VST",
       "name": "Vistra",
       "tier": "watch"
+    },
+    {
+      "symbol": "CCJ",
+      "name": "Cameco",
+      "tier": "ready"
     }
   ],
   "price": 253.76,

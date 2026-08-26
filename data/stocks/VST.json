@@ -99,6 +99,11 @@
       "symbol": "CEG",
       "name": "Constellation Energy",
       "tier": "watch"
+    },
+    {
+      "symbol": "CCJ",
+      "name": "Cameco",
+      "tier": "ready"
     }
   ],
   "price": 148.02,
