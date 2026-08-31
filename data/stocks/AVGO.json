@@ -5,7 +5,7 @@
   "regime": "neutral",
   "theme": "AI Compute",
   "business": "客製化 AI ASIC(Google TPU)+ 網通/儲存 IC;VMware 軟體業務正在改造。",
-  "why": "QUALITY_COMPOUNDER",
+  "why": "THEME_TAILWIND",
   "rsi": null,
   "sma50": null,
   "sma200": null,
@@ -13,22 +13,22 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 7.8
+      "score": 8.7
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 4.9
+      "score": 3.0
     },
     {
       "key": "macro_context",
       "label": "總經環境",
-      "score": 5.7
+      "score": 5.4
     },
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 8.2
+      "score": 7.2
     },
     {
       "key": "news_catalyst",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-08-31",
+      "theme": "AI Compute",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-08-17",
       "theme": "AI Compute",

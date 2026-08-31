@@ -104,6 +104,11 @@
       "symbol": "CCJ",
       "name": "Cameco",
       "tier": "ready"
+    },
+    {
+      "symbol": "BWXT",
+      "name": "BWX Technologies, Inc.",
+      "tier": "ready"
     }
   ],
   "price": 148.02,
