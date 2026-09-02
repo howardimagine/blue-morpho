@@ -38,7 +38,13 @@
       "href": "https://www.tipranks.com/stocks/NFLX/forecast"
     }
   ],
-  "peers": [],
+  "peers": [
+    {
+      "symbol": "DIS",
+      "name": "Walt Disney Company (The)",
+      "tier": "ready"
+    }
+  ],
   "price": 80.34,
   "generated_at": "2026-06-14T15:14:40Z",
   "health_grade": "A",
