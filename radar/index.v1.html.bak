@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>BLUE MORPHO · SEPA RADAR</title>
+  <meta name="theme-color" content="#02020A">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    /* ── SEPA Radar · 子頁(無入口)· Bloomberg × TRON ───────────────── */
+    body { background: var(--bg); color: var(--text-primary); font-family: var(--font-text); }
+    .rd { max-width: 1280px; margin: 0 auto; padding: 0 var(--space-4) var(--space-16); }
+    .rd-head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-4);
+      flex-wrap: wrap; padding: var(--space-6) 0 var(--space-4); border-bottom: 1px solid var(--border); }
+    .rd-brand { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .22em; color: var(--accent); text-transform: uppercase; }
+    .rd-brand b { color: var(--text-primary); font-weight: 600; }
+    .rd-h1 { font-size: clamp(1.15rem, 2.6vw, 1.55rem); font-weight: 700; margin-top: 6px; letter-spacing: .01em; }
+    .rd-h1 span { color: var(--text-dim); font-weight: 400; font-size: .8em; }
+    .rd-meta { font-family: var(--font-mono); font-size: .68rem; color: var(--text-secondary); line-height: 1.9; text-align: right; }
+    .rd-meta b { color: var(--text-primary); font-weight: 500; }
+    .rd-meta .warn { color: var(--warning); }
+
+    .rd-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(300px, .95fr); gap: var(--space-6); margin-top: var(--space-6); align-items: start; }
+    @media (max-width: 960px) { .rd-grid { grid-template-columns: minmax(0, 1fr); } }
+
+    /* 漏斗 */
+    .fn-card { border: 1px solid var(--border); background: linear-gradient(180deg, #0b0b1a 0%, #070712 100%); border-radius: 10px;
+      padding: var(--space-4) var(--space-4) var(--space-3); position: relative; overflow: hidden; }
+    .fn-card::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .35;
+      background-image: linear-gradient(rgba(0,243,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,243,255,.06) 1px, transparent 1px);
+      background-size: 28px 28px; mask-image: radial-gradient(ellipse at 50% 40%, #000 30%, transparent 78%); }
+    .fn-title { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .18em; color: var(--accent); text-transform: uppercase; }
+    .fn-title .sub { color: var(--text-dim); letter-spacing: .04em; text-transform: none; }
+    #funnel { width: 100%; height: auto; display: block; margin-top: 6px; }
+    .fn-layer polygon { transition: filter .2s; cursor: pointer; }
+    .fn-layer text { font-family: var(--font-mono); pointer-events: none; }
+    .fn-layer .nm { font-size: 11.5px; fill: #b8d8e6; letter-spacing: .06em; }
+    .fn-layer .ct { font-size: 20px; font-weight: 700; fill: var(--text-primary); }
+    .fn-layer .pr { font-size: 10px; fill: var(--text-dim); }
+    .fn-layer.sel .nm { fill: var(--accent); }
+    .fn-layer.sel .ct { fill: var(--accent); }
+    .fn-hint { font-family: var(--font-mono); font-size: .62rem; color: var(--text-dim); margin-top: 4px; letter-spacing: .04em; }
+    .fn-hint b { color: var(--positive); font-weight: 500; }
+
+    /* 參數 */
+    .pm-card { border: 1px solid var(--border); background: var(--bg-card); border-radius: 10px; padding: var(--space-3) var(--space-4); position: sticky; top: 12px; }
+    @media (max-width: 960px) { .pm-card { position: static; } }
+    .pm-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+    .pm-title { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .18em; color: var(--accent); text-transform: uppercase; }
+    .pm-reset { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .08em; color: var(--text-secondary); background: transparent; border: 1px solid var(--border); border-radius: 4px; padding: 4px 9px; cursor: pointer; }
+    .pm-reset:hover { color: var(--accent); border-color: var(--accent); }
+    details.pg { border-top: 1px solid var(--border); padding: 6px 0; }
+    details.pg summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+      font-family: var(--font-mono); font-size: .74rem; font-weight: 600; color: var(--text-primary); padding: 6px 0; letter-spacing: .04em; }
+    details.pg summary::-webkit-details-marker { display: none; }
+    details.pg summary .cnt { color: var(--accent); font-weight: 500; }
+    details.pg summary::after { content: "▾"; color: var(--text-dim); margin-left: 8px; font-size: .7rem; }
+    details.pg[open] summary::after { content: "▴"; }
+    .pr-row { display: grid; grid-template-columns: 1fr 96px; gap: 8px; align-items: center; padding: 4px 0; }
+    .pr-lab { font-size: .72rem; color: var(--text-secondary); }
+    .pr-lab small { color: var(--text-dim); font-family: var(--font-mono); font-size: .62rem; margin-left: 4px; }
+    .pr-val { font-family: var(--font-mono); font-size: .72rem; color: var(--accent); text-align: right; font-weight: 600; }
+    .pr-row input[type=range] { grid-column: 1 / -1; width: 100%; accent-color: var(--accent); height: 14px; margin: 0; }
+    .pr-row.bool { grid-template-columns: 1fr auto; }
+    .pr-row input[type=checkbox] { accent-color: var(--accent); width: 15px; height: 15px; }
+    .pm-srv { font-family: var(--font-mono); font-size: .6rem; color: var(--text-dim); line-height: 1.7; margin-top: 8px; border-top: 1px dashed var(--border); padding-top: 8px; }
+    .pm-srv b { color: var(--text-secondary); font-weight: 500; }
+    .pm-note { font-family: var(--font-mono); font-size: .6rem; color: var(--text-dim); line-height: 1.6; padding: 2px 0 6px; }
+    .pm-note b { color: var(--accent); font-weight: 600; } .pm-note .warn { color: var(--warning); }
+    .breadth { margin-top: 10px; border-top: 1px solid var(--border); padding-top: 8px; }
+    .breadth .t { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .12em; color: var(--text-dim); text-transform: uppercase; display: flex; justify-content: space-between; }
+    .breadth svg { width: 100%; height: 54px; display: block; margin-top: 4px; }
+
+    /* 表 */
+    .tb-card { margin-top: var(--space-6); border: 1px solid var(--border); background: var(--bg-card); border-radius: 10px; overflow: hidden; }
+    .tb-bar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 12px 14px; border-bottom: 1px solid var(--border); }
+    .tb-lv { font-family: var(--font-mono); font-size: .8rem; font-weight: 700; color: var(--accent); letter-spacing: .04em; }
+    .tb-lv small { color: var(--text-dim); font-weight: 400; margin-left: 6px; }
+    .tb-bar input[type=search] { font-family: var(--font-mono); font-size: .72rem; background: #070712; border: 1px solid var(--border); color: var(--text-primary); border-radius: 4px; padding: 6px 9px; min-width: 160px; outline: none; }
+    .tb-bar input[type=search]:focus { border-color: var(--accent); }
+    .btn { font-family: var(--font-mono); font-size: .64rem; letter-spacing: .08em; color: var(--accent); background: rgba(0,243,255,.06); border: 1px solid #00f3ff55; border-radius: 4px; padding: 6px 10px; cursor: pointer; text-decoration: none; white-space: nowrap; }
+    .btn:hover { background: rgba(0,243,255,.14); }
+    .btn.ghost { color: var(--text-secondary); border-color: var(--border); background: transparent; }
+    .tb-wrap { overflow-x: auto; }
+    table.tb { width: 100%; border-collapse: collapse; font-family: var(--font-mono); font-size: .7rem; min-width: 980px; }
+    .tb th { text-align: right; font-weight: 500; color: var(--text-dim); letter-spacing: .06em; font-size: .6rem; text-transform: uppercase; padding: 8px 10px; border-bottom: 1px solid var(--border); cursor: pointer; white-space: nowrap; user-select: none; }
+    .tb th.l, .tb td.l { text-align: left; }
+    .tb th.sorted { color: var(--accent); }
+    .tb td { padding: 7px 10px; text-align: right; border-bottom: 1px solid #10162a; white-space: nowrap; color: var(--text-secondary); }
+    .tb tr:hover td { background: #0f1528; }
+    .tb tr { cursor: pointer; }
+    .tb td.sym { color: var(--accent); font-weight: 700; font-size: .78rem; }
+    .tb td.name { color: var(--text-primary); font-family: var(--font-text); max-width: 190px; overflow: hidden; text-overflow: ellipsis; }
+    .tb td.name small { color: var(--text-dim); font-family: var(--font-mono); font-size: .6rem; display: block; }
+    .pos { color: var(--positive) !important; } .neg { color: var(--negative) !important; } .wn { color: var(--warning) !important; }
+    .lv { display: inline-block; font-size: .58rem; font-weight: 700; letter-spacing: .06em; padding: 2px 6px; border-radius: 3px; border: 1px solid; }
+    .lv0 { color: #6b7a90; border-color: #2a3448; } .lv1 { color: #56c9dd; border-color: #1f5a66; } .lv2 { color: #7ee0f0; border-color: #2b7f8f; }
+    .lv3 { color: var(--accent); border-color: #00a5b0; background: rgba(0,243,255,.08); } .lv4 { color: #02020a; border-color: var(--positive); background: var(--positive); }
+    .flag { display: inline-block; font-size: .56rem; letter-spacing: .04em; padding: 1px 5px; border-radius: 3px; margin-left: 3px; border: 1px solid var(--border); color: var(--text-dim); }
+    .flag.ev { color: var(--warning); border-color: #5a4a00; } .flag.er { color: #ffb4c6; border-color: #5a2030; } .flag.bo { color: #02020a; background: var(--positive); border-color: var(--positive); font-weight: 700; }
+    .tb td.why { color: var(--text-dim); font-size: .62rem; }
+    .tb-foot { font-family: var(--font-mono); font-size: .62rem; color: var(--text-dim); padding: 8px 14px; }
+    .lv-tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+    .lv-tab { font-family: var(--font-mono); font-size: .64rem; letter-spacing: .04em; padding: 5px 10px; border: 1px solid var(--border); border-radius: 4px; background: transparent; color: var(--text-secondary); cursor: pointer; }
+    .lv-tab b { font-weight: 700; color: var(--text-primary); margin-left: 4px; }
+    .lv-tab.on { background: var(--accent); border-color: var(--accent); color: #02020a; } .lv-tab.on b { color: #02020a; }
+    .lv-tab.off { text-decoration: line-through; opacity: .55; }
+    .pg-on { font-family: var(--font-mono); font-size: .6rem; font-weight: 400; color: var(--text-dim); display: inline-flex; align-items: center; gap: 4px; cursor: pointer; }
+    .pg-on input { accent-color: var(--positive); width: 13px; height: 13px; margin: 0; }
+    details.pg.off summary { color: var(--text-dim); } details.pg.off .pr-row { opacity: .35; pointer-events: none; }
+    details.pg.off summary .cnt::after { content: " 略過"; color: var(--warning); font-size: .58rem; }
+
+    /* 抽屜(看圖) */
+    .dw-bg { position: fixed; inset: 0; background: rgba(2,2,10,.62); backdrop-filter: blur(2px); z-index: 60; }
+    .dw { position: fixed; top: 0; right: 0; bottom: 0; width: min(640px, 100vw); background: #07070f; border-left: 1px solid var(--border); z-index: 61;
+      overflow-y: auto; box-shadow: -20px 0 60px rgba(0,0,0,.6); transform: translateX(100%); transition: transform .25s cubic-bezier(.22,.61,.36,1); }
+    .dw.open { transform: none; }
+    .dw-h { position: sticky; top: 0; background: #07070f; border-bottom: 1px solid var(--border); padding: 14px 16px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; z-index: 2; }
+    .dw-sym { font-family: var(--font-mono); font-size: 1.3rem; font-weight: 700; color: var(--accent); }
+    .dw-name { color: var(--text-primary); font-size: .82rem; } .dw-name small { display: block; color: var(--text-dim); font-family: var(--font-mono); font-size: .62rem; }
+    .dw-x { margin-left: auto; background: transparent; border: 1px solid var(--border); color: var(--text-secondary); border-radius: 4px; width: 30px; height: 30px; cursor: pointer; font-size: 1rem; }
+    .dw-kpi { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border-bottom: 1px solid var(--border); }
+    .dw-kpi div { background: #07070f; padding: 10px 12px; }
+    .dw-kpi .k { font-family: var(--font-mono); font-size: .56rem; letter-spacing: .12em; color: var(--text-dim); text-transform: uppercase; }
+    .dw-kpi .v { font-family: var(--font-mono); font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-top: 2px; }
+    #chart { height: 360px; width: 100%; }
+    .dw-nochart { padding: 40px 16px; text-align: center; font-family: var(--font-mono); font-size: .7rem; color: var(--text-dim); line-height: 2; }
+    .dw-sec { padding: 12px 16px; border-top: 1px solid var(--border); }
+    .dw-sec h4 { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .16em; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; }
+    .cond { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 14px; font-family: var(--font-mono); font-size: .68rem; }
+    .cond div { display: flex; justify-content: space-between; gap: 8px; color: var(--text-secondary); }
+    .cond .ok::before { content: "✓ "; color: var(--positive); } .cond .no::before { content: "✗ "; color: var(--negative); }
+    .kv { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px 12px; font-family: var(--font-mono); font-size: .68rem; }
+    .kv .k { color: var(--text-dim); font-size: .58rem; letter-spacing: .1em; text-transform: uppercase; } .kv .v { color: var(--text-primary); font-weight: 600; }
+    .vcp-seq { font-family: var(--font-mono); font-size: .9rem; color: var(--text-primary); letter-spacing: .04em; }
+    .vcp-seq b { color: var(--positive); }
+    .dw-links { display: flex; gap: 8px; flex-wrap: wrap; padding: 12px 16px 20px; }
+    .legend { font-family: var(--font-mono); font-size: .58rem; color: var(--text-dim); padding: 6px 16px 0; display: flex; gap: 12px; flex-wrap: wrap; }
+    .legend i { display: inline-block; width: 14px; height: 2px; vertical-align: middle; margin-right: 4px; }
+
+    .rd-foot { margin-top: var(--space-8); border-top: 1px solid var(--border); padding-top: var(--space-4); font-size: .7rem; color: var(--text-dim); line-height: 1.8; }
+    .rd-foot details summary { cursor: pointer; color: var(--text-secondary); font-family: var(--font-mono); font-size: .66rem; letter-spacing: .1em; }
+    .rd-foot ol { margin: 8px 0 0 18px; }
+    .loading { font-family: var(--font-mono); font-size: .72rem; color: var(--text-dim); text-align: center; padding: var(--space-16) 0; letter-spacing: .1em; }
+    @media (max-width: 640px) { .dw-kpi { grid-template-columns: repeat(2, 1fr); } .kv { grid-template-columns: repeat(2, 1fr); } .cond { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+<div class="rd">
+  <header class="rd-head">
+    <div>
+      <div class="rd-brand">BLUE MORPHO ▎ <b>SEPA RADAR</b> · 萬中選一的狙擊</div>
+      <div class="rd-h1">Minervini 趨勢樣板漏斗 <span>· 全美股 · 每交易日收盤後</span></div>
+    </div>
+    <div class="rd-meta" id="meta">載入中…</div>
+  </header>
+
+  <div id="app" class="loading">RADAR INITIALIZING…</div>
+
+  <footer class="rd-foot">
+    <details>
+      <summary>◇ 說明 · 怎麼讀這個漏斗</summary>
+      <ol>
+        <li><b>L0 宇宙</b>:美股普通股,市值/價格/成交量門檻(伺服器參數)。</li>
+        <li><b>L1 趨勢樣板</b>:Minervini 8 條件 —— c1 價 > 150/200MA · c2 150MA > 200MA · c3 200MA 上彎 · c4 50MA > 150/200MA · c5 價 > 50MA · c6 高於 52 週低 25% · c7 距 52 週高 25% 內 · c8 RS ≥ 70;另要求 c1–c7 連續成立 N 天(反單日跳空)。</li>
+        <li><b>L2 基本面爆發</b>:最新季 營收 / EPS YoY + 加速(本季 YoY > 上季)+ 毛利率。</li>
+        <li><b>L3 催化劑·極強勢</b>:RS ≥ 80、距高 15% 內、剔除單日跳空事件股、單一產業上限。</li>
+        <li><b>L4 VCP·樞紐</b>:演算法找收縮序列(每次回檔更淺)+ 量縮 + pivot;<b>最後一哩靠你的眼睛</b>——點列開圖,或 ↗ TradingView。</li>
+      </ol>
+      <p style="margin-top:8px">RS 評級 = 0.4×近 3 月 + 0.2×3–6 月 + 0.2×6–9 月 + 0.2×9–12 月報酬,在全宇宙取百分位(1–99)。「連續天數」與 VCP 形狀參數在伺服器端以預設參數計算;其餘門檻本頁即時可調。</p>
+    </details>
+    <p style="margin-top:10px">EOD 資料 · 僅供研究與教育,不構成投資建議。交易不是每天頻繁出手,而是耐心等待目標落入漏斗的最底層。</p>
+  </footer>
+</div>
+
+<div id="dwbg" class="dw-bg" hidden></div>
+<aside id="dw" class="dw" aria-hidden="true"></aside>
+
+<script src="funnel.js?v=20260903c"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
+<script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
+<script>
+(async function () {
+  'use strict';
+  const $ = (s, r) => (r || document).querySelector(s);
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const fmt = (x, d = 1) => x == null ? '—' : Number(x).toFixed(d);
+  const pct = (x, d = 0) => x == null ? '—' : (x * 100).toFixed(d) + '%';
+  const sgn = (x, d = 1) => x == null ? '—' : (x > 0 ? '+' : '') + Number(x).toFixed(d) + '%';
+  const TVEX = { NASDAQ: 'NASDAQ', NYSE: 'NYSE', AMEX: 'AMEX' };
+  const tvUrl = m => `https://www.tradingview.com/chart/?symbol=${encodeURIComponent((TVEX[m.ex] || m.ex || '') + ':' + m.s)}`;
+  const WHY = { c1:'c1 價 < 150/200MA', c2:'c2 150MA < 200MA', c3:'c3 200MA 未上彎', c4:'c4 50MA 排列', c5:'c5 價 < 50MA', c6:'c6 離低點 < 門檻', c7:'c7 離高點 > 門檻', c8:'c8 RS 不足',
+    trend_days:'連續天數不足', stale:'K 線過期', 'L2:no_data':'無財報資料', 'L2:rev':'營收成長不足', 'L2:rev_na':'無營收(pre-revenue)', 'L2:eps':'EPS 成長不足', 'L2:eps_na':'去年同季 EPS ≤ 0(無法算成長)', 'L2:accel':'未加速', 'L2:gm':'毛利不足', 'L2:gm_na':'無毛利資料',
+    'L3:rs':'RS < 門檻', 'L3:dist':'離 52W 高太遠', 'L3:adr':'ADR 不足', 'L3:event':'事件驅動(單日跳空)', 'L3:earnings':'財報窗', 'L3:sector_cap':'產業上限',
+    'L4:no_vcp':'未見 VCP', 'L4:n':'收縮次數不足', 'L4:quality':'VCP 品質不足', 'L4:below_pivot':'離 pivot 太遠' };
+
+  let data, hist = [], P, sel = 3, sortKey = 'rs', sortDir = -1, q = '';
+  try {
+    const [a, b] = await Promise.all([fetch('data/latest.json', { cache: 'no-cache' }), fetch('data/history.json', { cache: 'no-cache' })]);
+    if (!a.ok) throw new Error('latest.json ' + a.status);
+    data = await a.json();
+    hist = b.ok ? await b.json() : [];
+  } catch (e) {
+    $('#app').innerHTML = `<div class="loading">尚無掃描資料(${esc(e.message)})<br>跑 <code>scripts/run_minervini.py --mode manual</code> 產生 latest.json</div>`;
+    return;
+  }
+  const clone = o => JSON.parse(JSON.stringify(o));
+  P = clone(data.params);
+  try { const o = JSON.parse(localStorage.getItem('radar.params') || 'null'); if (o && o.date === data.date) Object.assign(P, o.P); } catch (_) {}
+  const persist = () => { try { localStorage.setItem('radar.params', JSON.stringify({ date: data.date, P })); } catch (_) {} };
+  const get = path => path.split('.').reduce((o, k) => o[k], P);
+  const set = (path, v) => { const ks = path.split('.'); ks.slice(0, -1).reduce((o, k) => o[k], P)[ks.at(-1)] = v; };
+
+  // ── 參數定義(可調 = 純門檻;形狀參數在伺服器端)───────────────────
+  const PARAMS = [
+    { g: 'L1 趨勢樣板', k: 1, key: 'trend', items: [
+      ['trend.rs_min', 'RS 評級 ≥', 1, 99, 1, v => v],
+      ['trend.below_high_mult', '距 52W 高在', .5, 1, .01, v => Math.round((1 - v) * 100) + '% 內'],
+      ['trend.above_low_mult', '高於 52W 低', 1, 2, .05, v => '+' + Math.round((v - 1) * 100) + '%'],
+      ['trend.min_trend_days', 'c1–c7 連續成立 ≥', 0, 120, 1, v => v + ' 天'] ]},
+    { g: 'L2 基本面爆發', k: 2, key: 'fundamental', items: [
+      ['_note', 'l2note'],
+      ['fundamental.rev_growth_min', '營收 YoY ≥', 0, 1, .05, v => pct(v)],
+      ['fundamental.eps_growth_min', 'EPS YoY ≥', 0, 2, .05, v => pct(v)],
+      ['fundamental.gross_margin_min', '毛利率 ≥', 0, .9, .05, v => pct(v)],
+      ['fundamental.require_acceleration', '需要加速(本季 YoY > 上季)', 'bool'],
+      ['fundamental.accept_turnaround', '轉虧為盈視為 EPS 通過', 'bool'] ]},
+    { g: 'L3 催化劑 · 極強勢', k: 3, key: 'catalyst', items: [
+      ['catalyst.rs_min', 'RS 評級 ≥', 1, 99, 1, v => v],
+      ['catalyst.max_dist_from_high_pct', '距 52W 高 ≤', 0, 50, 1, v => v + '%'],
+      ['catalyst.max_single_day_gap_pct', '單日漲幅 > 視為事件股', 5, 60, 1, v => v + '%'],
+      ['catalyst.exclude_event_driven', '剔除事件股', 'bool'],
+      ['catalyst.sector_cap_pct', '單一產業上限', 10, 100, 5, v => v + '%'],
+      ['catalyst.min_adr_pct', '平均日振幅 ADR ≥(0 = 關)', 0, 10, .5, v => v + '%'],
+      ['catalyst.exclude_earnings_window', '剔除財報 5 天內', 'bool'] ]},
+    { g: 'L4 VCP · 樞紐', k: 4, key: 'vcp', items: [
+      ['vcp.min_contractions', '收縮次數 ≥', 1, 5, 1, v => v + ' 次'],
+      ['vcp.min_quality', 'VCP 品質分 ≥', 0, 100, 5, v => v],
+      ['vcp.max_below_pivot_pct', '現價低於 pivot ≤', 0, 30, 1, v => v + '%'] ]},
+  ];
+
+  // ── 版面 ──────────────────────────────────────────────────
+  $('#app').className = '';
+  $('#app').innerHTML = `
+    <div class="rd-grid">
+      <section class="fn-card">
+        <div class="fn-title"><span>Filter Funnel</span><span class="sub" id="fnsub"></span></div>
+        <svg id="funnel" viewBox="0 0 640 420" preserveAspectRatio="xMidYMid meet" role="img" aria-label="篩選漏斗"></svg>
+        <div class="fn-hint">點漏斗任一層(或下方分頁鈕)看該層名單 · 右側每層可「啟用/略過」、門檻可拖 · <b>L4 常態是 0 檔</b> —— 不硬湊</div>
+      </section>
+      <aside class="pm-card">
+        <div class="pm-top"><span class="pm-title">Parameters · 即時可調</span><button class="pm-reset" id="reset">↺ 重設預設</button></div>
+        <div id="params"></div>
+        <div class="pm-srv" id="srv"></div>
+        <div class="breadth"><div class="t"><span>Breadth · L1 通過家數(市場廣度)</span><span id="brv"></span></div><svg id="breadth" viewBox="0 0 300 54" preserveAspectRatio="none"></svg></div>
+      </aside>
+    </div>
+    <section class="tb-card">
+      <div class="tb-bar">
+        <div class="lv-tabs" id="lvtabs"></div>
+        <span class="tb-lv" id="tblv"></span>
+        <input type="search" id="q" placeholder="搜尋代號 / 名稱 / 產業" aria-label="搜尋">
+        <button class="btn" id="copytv">⧉ 複製 TradingView 代號</button>
+        <span style="flex:1"></span>
+        <span class="btn ghost" id="cnt"></span>
+      </div>
+      <div class="tb-wrap"><table class="tb"><thead id="th"></thead><tbody id="tbody"></tbody></table></div>
+      <div class="tb-foot" id="tbfoot"></div>
+    </section>`;
+
+  // 參數面板
+  const pm = $('#params');
+  pm.innerHTML = PARAMS.map(g => `<details class="pg ${get(g.key + '.enabled') === false ? 'off' : ''}" data-g="${g.key}" ${window.innerWidth > 960 || g.k >= 3 ? 'open' : ''}><summary><span>${g.g}</span><span style="display:flex;gap:10px;align-items:center"><span class="cnt" data-cnt="${g.k}"></span><label class="pg-on" onclick="event.stopPropagation()" title="關掉 = 整層略過,上一層通過的全部放行"><input type="checkbox" data-p="${g.key}.enabled" ${get(g.key + '.enabled') !== false ? 'checked' : ''}>啟用</label></span></summary>
+    ${g.items.map(it => it[0] === '_note' ? `<div class="pm-note" id="${it[1]}"></div>` : it[2] === 'bool'
+      ? `<label class="pr-row bool"><span class="pr-lab">${it[1]}</span><input type="checkbox" data-p="${it[0]}" ${get(it[0]) ? 'checked' : ''}></label>`
+      : `<div class="pr-row"><span class="pr-lab">${it[1]}</span><span class="pr-val" data-v="${it[0]}">${it[5](get(it[0]))}</span>
+         <input type="range" data-p="${it[0]}" min="${it[2]}" max="${it[3]}" step="${it[4]}" value="${get(it[0])}"></div>`).join('')}
+  </details>`).join('');
+  const fmtOf = Object.fromEntries(PARAMS.flatMap(g => g.items.filter(i => i[2] !== 'bool' && i[0] !== '_note').map(i => [i[0], i[5]])));
+  pm.addEventListener('input', e => {
+    const p = e.target.dataset.p; if (!p) return;
+    const v = e.target.type === 'checkbox' ? e.target.checked : Number(e.target.value);
+    set(p, v); if (fmtOf[p]) $(`[data-v="${p}"]`).textContent = fmtOf[p](v);
+    if (p.endsWith('.enabled')) e.target.closest('details.pg').classList.toggle('off', v === false);
+    persist(); recompute();
+  });
+  function syncControls() {
+    document.querySelectorAll('[data-p]').forEach(el => { const k = el.dataset.p, v = get(k);
+      if (el.type === 'checkbox') el.checked = k.endsWith('.enabled') ? v !== false : !!v;
+      else { el.value = v; const d = $(`[data-v="${k}"]`); if (d && fmtOf[k]) d.textContent = fmtOf[k](v); } });
+    document.querySelectorAll('details.pg').forEach(d => d.classList.toggle('off', get(d.dataset.g + '.enabled') === false));
+  }
+  $('#reset').onclick = () => { P = clone(data.params); persist(); syncControls(); recompute(); };
+  const sp = data.params, vp = sp.vcp, u = sp.universe;
+  $('#srv').innerHTML = `<b>伺服器參數</b>(掃描時固定):宇宙 mcap ≥ ${(u.min_mcap/1e6).toFixed(0)}M · 價 ≥ $${u.min_price} · 均量 ≥ ${(u.min_avg_volume/1e3).toFixed(0)}K · 200MA 斜率窗 ${sp.trend.ma_slope_lookback} 日 ·
+    VCP 回看 ${vp.lookback_days} 日 · 擺動強度 ${vp.swing_strength} · 收縮衰減 ≤ ×${vp.contraction_decay} · 首次收縮 ≤ ${Math.round(vp.max_first_depth*100)}% · 量縮 ≥ ${vp.volume_dryup_pct}% · 突破 = 收盤 > pivot +${vp.pivot_buffer_pct}% 且量 ≥ ${vp.breakout_volume_mult}× 均量`;
+
+  // meta
+  const gen = new Date(data.generated_at), ageH = Math.max(0, (Date.now() - gen) / 36e5);
+  $('#meta').innerHTML = `<div>資料日 <b>${data.date}</b>${data.session === 'open' ? ` <span class="warn">盤中快照 · 今日量推估 ×${data.vol_scale}</span>` : ''} · 掃描 ${ageH < 1 ? '剛剛' : ageH < 48 ? Math.round(ageH) + ' 小時前' : Math.round(ageH / 24) + ' 天前'} · ${data.elapsed_s}s</div>
+    <div>宇宙 <b>${data.universe_n.toLocaleString()}</b> 檔${(data.symbols[0] || {}).usrc ? ` <span class="warn">(沿用 ${data.symbols[0].usrc.replace('cache:', '')} 快取)</span>` : ''} · K 線 ${data.bars_ok_n.toLocaleString()}${data.stale_n ? ` · <span class="warn">stale ${data.stale_n}</span>` : ''}${data.fund_missing_n ? ` · <span class="warn">無財報 ${data.fund_missing_n}</span>` : ''}</div>`;
+
+  // ── 漏斗繪製 ───────────────────────────────────────────────
+  const svg = $('#funnel'), NS = 'http://www.w3.org/2000/svg';
+  const N = data.level_names, LV_COL = ['#3a4a66', '#1f8fa3', '#22b6cc', '#00f3ff', '#00ff9d'];
+  let curW = null;
+  svg.innerHTML = `<defs>
+      <filter id="glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      ${LV_COL.map((c, i) => `<linearGradient id="g${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c}" stop-opacity="${.10 + i * .07}"/><stop offset="1" stop-color="${c}" stop-opacity="${.22 + i * .10}"/></linearGradient>`).join('')}
+      <clipPath id="scanclip"><rect id="scanrect" x="0" y="0" width="640" height="420"/></clipPath>
+    </defs>
+    <g id="layers"></g>
+    <rect id="scan" x="0" y="0" width="640" height="3" fill="#00f3ff" opacity=".35" style="animation: scan 4.5s linear infinite"/>
+    <style>@keyframes scan { from { transform: translateY(0) } to { transform: translateY(420px) } }</style>`;
+  const CX = 250, TOP = 14, H = 372, GAP = 4, RIGHT = 372;
+  const wOf = (n, n0) => 40 + 380 * Math.log(1 + Math.max(0, n)) / Math.log(1 + Math.max(1, n0));
+  function drawFunnel(counts, animate) {
+    const n0 = counts[0], target = counts.map(c => wOf(c, n0)).concat([Math.max(18, wOf(counts[4], n0) * .35)]);
+    const from = curW || target;
+    const layers = $('#layers');
+    if (!layers.children.length) {
+      counts.forEach((_, i) => {
+        const g = document.createElementNS(NS, 'g'); g.setAttribute('class', 'fn-layer'); g.dataset.i = i;
+        g.innerHTML = `<polygon fill="url(#g${i})" stroke="${LV_COL[i]}" stroke-width="1.2"/>
+          <text class="nm" x="${RIGHT}"></text><text class="ct" x="${RIGHT}"></text><text class="pr" x="${RIGHT}"></text>`;
+        g.onclick = () => selectLevel(i);
+        layers.appendChild(g);
+      });
+    }
+    const t0 = performance.now(), dur = animate ? 380 : 0;
+    (function step(now) {
+      const k = dur ? Math.min(1, (now - t0) / dur) : 1, e = 1 - Math.pow(1 - k, 3);
+      const w = target.map((t, i) => from[i] + (t - from[i]) * e);
+      const hL = (H - GAP * 4) / 5;
+      [...layers.children].forEach((g, i) => {
+        const y1 = TOP + i * (hL + GAP), y2 = y1 + hL, wt = w[i] / 2, wb = w[i + 1] / 2;
+        g.querySelector('polygon').setAttribute('points', `${CX - wt},${y1} ${CX + wt},${y1} ${CX + wb},${y2} ${CX - wb},${y2}`);
+        const nm = g.querySelector('.nm'), ct = g.querySelector('.ct'), pr = g.querySelector('.pr');
+        nm.setAttribute('y', y1 + 22); ct.setAttribute('y', y1 + 46); pr.setAttribute('y', y1 + 62);
+        nm.textContent = N[i]; ct.textContent = counts[i].toLocaleString();
+        const key = ['', 'trend', 'fundamental', 'catalyst', 'vcp'][i], off = key && P[key].enabled === false;
+        const poly = g.querySelector('polygon'); poly.setAttribute('stroke-dasharray', off ? '7 5' : ''); poly.setAttribute('opacity', off ? .45 : 1);
+        pr.textContent = off ? '整層略過 · 上一層全部放行' : i === 0 ? '可交易宇宙' : `${(counts[i] / Math.max(1, counts[i - 1]) * 100).toFixed(1)}% 通過上一層` + (i === 4 && counts[4] === 0 ? ' · 耐心等待' : '');
+      });
+      if (k < 1) requestAnimationFrame(step); else curW = target;
+    })(t0);
+    highlight();
+  }
+  function highlight() {
+    [...$('#layers').children].forEach((g, i) => { const on = i === sel; g.classList.toggle('sel', on);
+      g.querySelector('polygon').setAttribute('filter', on ? 'url(#glow)' : ''); g.querySelector('polygon').setAttribute('stroke-width', on ? 2 : 1.2); });
+  }
+
+  // breadth sparkline
+  (function () {
+    const pts = hist.map(h => h.counts[1]);
+    if (pts.length < 2) { $('#brv').textContent = `累積中(${pts.length} 天)`; return; }
+    const mx = Math.max(...pts), mn = Math.min(...pts), rg = Math.max(1, mx - mn);
+    const d = pts.map((v, i) => `${(i / (pts.length - 1) * 300).toFixed(1)},${(50 - (v - mn) / rg * 44 + 2).toFixed(1)}`).join(' ');
+    $('#breadth').innerHTML = `<polyline points="${d}" fill="none" stroke="#00f3ff" stroke-width="1.5" vector-effect="non-scaling-stroke"/>`;
+    const last = pts.at(-1), prev = pts.at(-2);
+    $('#brv').innerHTML = `${last} <span class="${last >= prev ? 'pos' : 'neg'}">${last >= prev ? '▲' : '▼'}${Math.abs(last - prev)}</span> · ${pts.length} 天`;
+  })();
+
+  // ── 重算 + 表 ─────────────────────────────────────────────
+  let R;
+  function selectLevel(i) { sel = i; renderTable(); highlight(); renderTabs(); }
+  function renderTabs() {
+    $('#lvtabs').innerHTML = N.map((n, i) => { const key = ['', 'trend', 'fundamental', 'catalyst', 'vcp'][i];
+      return `<button class="lv-tab ${i === sel ? 'on' : ''} ${key && P[key].enabled === false ? 'off' : ''}" data-lv="${i}">${n}<b>${R.counts[i].toLocaleString()}</b></button>`; }).join('');
+  }
+  $('#lvtabs').addEventListener('click', e => { const b = e.target.closest('.lv-tab'); if (b) selectLevel(+b.dataset.lv); });
+  function recompute(first) {
+    R = RadarFunnel.evaluate(data.symbols, P, data.date);
+    if (first) { let i = 4; while (i > 0 && R.counts[i] === 0) i--; sel = i; }   // 預設:最深「有股票」的那層
+    drawFunnel(R.counts, !first);
+    renderTabs();
+    document.querySelectorAll('[data-cnt]').forEach(el => { el.textContent = R.counts[+el.dataset.cnt]; });
+    // L2 的拉桿只能動「有財報資料」的檔;把分母攤開,不然 FMP 掛掉那天拉桿看起來像壞了
+    const l1 = data.symbols.filter(m => (R.levels[m.s] ?? -1) >= 1), withF = l1.filter(m => m.f && m.f.ok).length;
+    const revNA = l1.filter(m => m.f && m.f.ok && m.f.rev_g == null).length;
+    const noteEl = $('#l2note'); if (noteEl) noteEl.innerHTML = `拉桿作用範圍:有財報 <b>${withF}</b> / ${l1.length} 檔 L1${withF < l1.length ? ` · <span class="warn">${l1.length - withF} 檔無財報(FMP 逾時,下次掃描補)</span>` : ''}${revNA ? ` · ${revNA} 檔無營收(pre-revenue 生技,任何營收門檻都過不了)` : ''}`;
+    $('#fnsub').textContent = `${R.counts[0].toLocaleString()} → ${R.counts[1]} → ${R.counts[2]} → ${R.counts[3]} → ${R.counts[4]}`;
+    renderTable();
+  }
+  const COLS = [
+    ['s', '代號', 'l'], ['name', '名稱 / 產業', 'l'], ['px', '價格'], ['rs', 'RS'], ['dh', '距高'], ['td', '趨勢天'], ['age', '在層'],
+    ['rev_g', '營收 YoY'], ['eps_g', 'EPS YoY'], ['gm', '毛利'], ['vq', 'VCP'], ['dp', '離 pivot'], ['lv', '層級 · 卡在哪', 'l']];
+  const val = (m, k) => k === 'dh' ? (m.hi ? (m.px / m.hi - 1) * 100 : null) : k === 'rev_g' || k === 'eps_g' || k === 'gm' ? (m.f || {})[k] :
+    k === 'vq' ? (m.v ? m.v.q : null) : k === 'dp' ? (m.v ? m.v.dp : null) : k === 'lv' ? R.levels[m.s] : k === 'name' ? m.name : m[k];
+  function rows() {
+    const qq = q.trim().toUpperCase();
+    return data.symbols.filter(m => (R.levels[m.s] ?? -1) >= sel && (!qq || m.s.includes(qq) || (m.name || '').toUpperCase().includes(qq) || (m.ind || '').toUpperCase().includes(qq)))
+      .sort((a, b) => { const x = val(a, sortKey), y = val(b, sortKey); if (x == null && y == null) return 0; if (x == null) return 1; if (y == null) return -1;
+        return (typeof x === 'string' ? x.localeCompare(y) : x - y) * sortDir; });
+  }
+  function renderTable() {
+    const rs = rows(), MAX = 300;
+    $('#tblv').innerHTML = `${esc(N[sel])}<small>≥ 本層 · ${rs.length} 檔</small>`;
+    $('#cnt').textContent = rs.length > MAX ? `顯示前 ${MAX}` : `${rs.length} 檔`;
+    $('#th').innerHTML = `<tr>${COLS.map(c => `<th class="${c[2] || ''} ${sortKey === c[0] ? 'sorted' : ''}" data-k="${c[0]}">${c[1]}${sortKey === c[0] ? (sortDir < 0 ? ' ▾' : ' ▴') : ''}</th>`).join('')}</tr>`;
+    $('#tbody').innerHTML = rs.slice(0, MAX).map(m => {
+      const f = m.f || {}, v = m.v, lv = R.levels[m.s], dh = val(m, 'dh');
+      const flags = [v && v.bo ? '<span class="flag bo">突破</span>' : '', (m.gap || 0) > P.catalyst.max_single_day_gap_pct ? '<span class="flag ev">事件</span>' : '',
+        m.e && m.e.next && (Date.parse(m.e.next) - Date.parse(data.date)) / 864e5 <= P.catalyst.earnings_within_days ? `<span class="flag er">財報 ${m.e.next.slice(5)}</span>` : '',
+        m.rsp ? '<span class="flag">新股</span>' : '', m.st > P.universe.max_stale_days ? '<span class="flag ev">stale</span>' : ''].join('');
+      return `<tr data-s="${m.s}">
+        <td class="l sym">${m.s}</td>
+        <td class="l name">${esc(m.name)}<small>${esc(m.sec || '')}${m.ind ? ' · ' + esc(m.ind) : ''}</small></td>
+        <td>${fmt(m.px, 2)}</td><td class="${m.rs >= 90 ? 'pos' : ''}">${fmt(m.rs, 0)}</td>
+        <td class="${dh != null && dh > -5 ? 'pos' : ''}">${sgn(dh)}</td><td>${m.td ?? '—'}</td><td>${m.age ? m.age + 'd' : '—'}</td>
+        <td class="${f.rev_g >= P.fundamental.rev_growth_min ? 'pos' : ''}">${pct(f.rev_g)}${f.rev_g != null && f.rev_g_prev != null && f.rev_g > f.rev_g_prev ? '↑' : ''}</td>
+        <td class="${f.eps_g >= P.fundamental.eps_growth_min || f.turn ? 'pos' : ''}">${f.turn ? '轉盈' : pct(f.eps_g)}${f.eps_g != null && f.eps_g_prev != null && f.eps_g > f.eps_g_prev ? '↑' : ''}</td>
+        <td>${pct(f.gm)}</td>
+        <td class="${v && v.q >= P.vcp.min_quality ? 'pos' : ''}">${v ? `${v.n}次 · Q${v.q}` : '—'}</td>
+        <td class="${v && v.dp > -3 ? 'pos' : ''}">${v ? sgn(v.dp) : '—'}</td>
+        <td class="l"><span class="lv lv${lv}">L${lv}</span> <span class="why">${lv < 4 ? esc(WHY[R.fail[m.s]] || R.fail[m.s] || '') : '🎯 狙擊候選'}</span>${flags}</td>
+      </tr>`; }).join('') || `<tr><td colspan="${COLS.length}" style="text-align:center;padding:30px;color:var(--text-dim)">此層無標的 —— 這是漏斗的正常狀態</td></tr>`;
+    $('#tbfoot').textContent = `點列開圖(內嵌 K 線:L1 依 RS 前 ${sp.output ? sp.output.embed_bars_top_n : 80} + L3/L4 全部;其餘用 TradingView)· 「趨勢天」= c1–c7 連續成立天數 · 「在層」= 連續停留天數 · ↑ = 較上季加速`;
+  }
+  $('#th').addEventListener('click', e => { const k = e.target.closest('th')?.dataset.k; if (!k) return; if (sortKey === k) sortDir *= -1; else { sortKey = k; sortDir = k === 's' || k === 'name' || k === 'lv' ? 1 : -1; } renderTable(); });
+  $('#q').addEventListener('input', e => { q = e.target.value; renderTable(); });
+  $('#tbody').addEventListener('click', e => { const s = e.target.closest('tr')?.dataset.s; if (s) openDrawer(s); });
+  $('#copytv').onclick = async () => { const txt = rows().slice(0, 100).map(m => (TVEX[m.ex] || m.ex) + ':' + m.s).join(','); try { await navigator.clipboard.writeText(txt); $('#copytv').textContent = `✓ 已複製 ${Math.min(100, rows().length)} 檔`; } catch { prompt('複製:', txt); } setTimeout(() => $('#copytv').textContent = '⧉ 複製 TradingView 代號', 1800); };
+
+  // ── 抽屜:看圖 ────────────────────────────────────────────
+  let chart;
+  const bySym = Object.fromEntries(data.symbols.map(m => [m.s, m]));
+  function sma(arr, n) { const out = []; let s = 0; for (let i = 0; i < arr.length; i++) { s += arr[i].close; if (i >= n) s -= arr[i - n].close; if (i >= n - 1) out.push({ time: arr[i].time, value: s / n }); } return out; }
+  function openDrawer(s) {
+    const m = bySym[s], f = m.f || {}, v = m.v, cs = RadarFunnel.c17(m, P.trend), lv = R.levels[s];
+    const bars = data.bars[s];
+    const dw = $('#dw');
+    dw.innerHTML = `<div class="dw-h"><span class="dw-sym">${s}</span><span class="dw-name">${esc(m.name)}<small>${esc(m.sec || '')} · ${esc(m.ind || '')} · ${m.ex} · mcap $${m.mc ? (m.mc / 1e9).toFixed(1) + 'B' : '—'}</small></span>
+        <span class="lv lv${lv}">L${lv}</span><button class="dw-x" id="dwx" aria-label="關閉">✕</button></div>
+      <div class="dw-kpi"><div><div class="k">Price</div><div class="v">$${fmt(m.px, 2)}</div></div><div><div class="k">RS</div><div class="v ${m.rs >= 90 ? 'pos' : ''}">${fmt(m.rs, 0)}${m.rsp ? '*' : ''}</div></div>
+        <div><div class="k">距 52W 高</div><div class="v">${sgn(m.hi ? (m.px / m.hi - 1) * 100 : null)}</div></div><div><div class="k">1M / 3M / 6M</div><div class="v" style="font-size:.8rem">${sgn(m.r1m, 0)} / ${sgn(m.r3m, 0)} / ${sgn(m.r6m, 0)}</div></div></div>
+      ${bars ? '<div id="chart"></div><div class="legend"><span><i style="background:#ffd000"></i>MA50</span><span><i style="background:#ff8c42"></i>MA150</span><span><i style="background:#ff3b6b"></i>MA200</span><span><i style="background:#00f3ff"></i>pivot</span><span><i style="background:#00ff9d"></i>買點(pivot +' + vp.pivot_buffer_pct + '%)</span><span>▼▲ VCP 擺動點</span></div>'
+             : '<div class="dw-nochart">此檔未內嵌 K 線(只嵌 RS 前段 + L3/L4)<br>↗ 用 TradingView 開啟看圖</div>'}
+      <div class="dw-sec"><h4>Trend Template · 8 條件</h4><div class="cond">
+        ${['價 > 150 & 200MA', '150MA > 200MA', '200MA 上彎', '50MA > 150 & 200MA', '價 > 50MA', `高於 52W 低 +${Math.round((P.trend.above_low_mult - 1) * 100)}%`, `距 52W 高 ${Math.round((1 - P.trend.below_high_mult) * 100)}% 內`]
+          .map((t, i) => `<div class="${cs[i] ? 'ok' : 'no'}"><span>c${i + 1} ${t}</span><span>${[fmt(m.px, 2), fmt(m.m150, 2) + '/' + fmt(m.m200, 2), sgn(m.m200 && m.m200p ? (m.m200 / m.m200p - 1) * 100 : null, 2), fmt(m.m50, 2), fmt(m.m50, 2), sgn(m.lo ? (m.px / m.lo - 1) * 100 : null, 0), sgn(m.hi ? (m.px / m.hi - 1) * 100 : null)][i]}</span></div>`).join('')}
+        <div class="${(m.rs || 0) >= P.trend.rs_min ? 'ok' : 'no'}"><span>c8 RS ≥ ${P.trend.rs_min}</span><span>${fmt(m.rs, 0)}</span></div>
+        <div class="${(m.td || 0) >= P.trend.min_trend_days ? 'ok' : 'no'}"><span>連續成立 ≥ ${P.trend.min_trend_days} 天</span><span>${m.td} 天</span></div></div></div>
+      <div class="dw-sec"><h4>Fundamentals · ${f.ok ? esc(f.per || '') + ' · ' + esc(f.q || '') : '無資料'}</h4>
+        ${f.ok ? `<div class="kv"><div><div class="k">營收 YoY</div><div class="v ${f.rev_g >= P.fundamental.rev_growth_min ? 'pos' : ''}">${pct(f.rev_g)} <small style="color:var(--text-dim)">上季 ${pct(f.rev_g_prev)}</small></div></div>
+          <div><div class="k">EPS YoY</div><div class="v ${f.eps_g >= P.fundamental.eps_growth_min || f.turn ? 'pos' : ''}">${f.turn ? '轉虧為盈' : pct(f.eps_g)} <small style="color:var(--text-dim)">上季 ${pct(f.eps_g_prev)}</small></div></div>
+          <div><div class="k">毛利率</div><div class="v">${pct(f.gm)}</div></div><div><div class="k">EPS</div><div class="v">${f.eps ?? '—'}</div></div>
+          <div><div class="k">營收</div><div class="v">${f.rev ? '$' + (f.rev / 1e6).toFixed(0) + 'M' : '—'}</div></div><div><div class="k">下次財報</div><div class="v ${m.e && m.e.next ? 'wn' : ''}">${m.e && m.e.next ? m.e.next : '—'}</div></div></div>`
+        : `<div style="font-family:var(--font-mono);font-size:.68rem;color:var(--text-dim)">${m.f == null ? (lv >= 1 ? '財報尚未抓到(FMP 逾時 / 預算用完)—— 下次掃描補' : '不在財報抓取範圍(c1–c7 通過或 RS ≥ 60 才抓)') : 'FMP 無此檔季度財報'}</div>`}</div>
+      <div class="dw-sec"><h4>VCP · 收縮序列</h4>
+        ${v ? `<div class="vcp-seq">${v.dep.map(x => x + '%').join(' → ')} <b>· ${v.n} 次</b></div>
+          <div class="kv" style="margin-top:8px"><div><div class="k">Pivot</div><div class="v">$${v.piv}</div></div><div><div class="k">現價 vs pivot</div><div class="v ${v.dp > -3 ? 'pos' : ''}">${sgn(v.dp)}</div></div>
+          <div><div class="k">量縮(5 日 vs 50 日)</div><div class="v ${v.dry >= vp.volume_dryup_pct ? 'pos' : ''}">${v.dry == null ? '—' : v.dry + '%'}</div></div><div><div class="k">品質分</div><div class="v ${v.q >= P.vcp.min_quality ? 'pos' : ''}">${v.q}</div></div>
+          <div><div class="k">買點</div><div class="v pos">> $${(v.piv * (1 + vp.pivot_buffer_pct / 100)).toFixed(2)}</div></div><div><div class="k">狀態</div><div class="v">${v.bo ? '⚡ 已放量突破' : v.dp > -3 ? '貼近 pivot' : '等待收縮完成'}</div></div></div>`
+        : '<div style="font-family:var(--font-mono);font-size:.68rem;color:var(--text-dim)">演算法未見成型的收縮序列(或不在計算範圍:只算 c1–c7 通過者)。這不代表沒有 —— 看圖。</div>'}</div>
+      <div class="dw-links"><a class="btn" href="${tvUrl(m)}" target="_blank" rel="noopener">↗ TradingView 開啟</a>
+        <button class="btn ghost" id="cp1">⧉ 複製 ${(TVEX[m.ex] || m.ex)}:${s}</button>
+        <span style="margin-left:auto;font-family:var(--font-mono);font-size:.6rem;color:var(--text-dim)">${lv < 4 ? '卡在:' + esc(WHY[R.fail[s]] || R.fail[s] || '') : '🎯 L4 狙擊候選 —— 人眼確認'}${m.age ? ' · 在層 ' + m.age + ' 天' : ''}</span></div>`;
+    $('#dwbg').hidden = false; dw.classList.add('open'); dw.setAttribute('aria-hidden', 'false');
+    $('#dwx').onclick = closeDrawer; $('#cp1').onclick = () => navigator.clipboard.writeText((TVEX[m.ex] || m.ex) + ':' + s).catch(() => {});
+    if (bars && window.LightweightCharts) {
+      const el = $('#chart'); if (chart) { chart.remove(); chart = null; }
+      chart = LightweightCharts.createChart(el, { layout: { background: { type: 'solid', color: '#07070f' }, textColor: '#7c93a4', fontFamily: 'JetBrains Mono, monospace', fontSize: 10 },
+        grid: { vertLines: { color: '#0f1528' }, horzLines: { color: '#0f1528' } }, rightPriceScale: { borderColor: '#1a2238' }, timeScale: { borderColor: '#1a2238', rightOffset: 4 },
+        crosshair: { mode: 0 }, width: el.clientWidth, height: 360 });
+      const cd = bars.map(b => ({ time: b[0], open: b[1], high: b[2], low: b[3], close: b[4] }));
+      const cs_ = chart.addCandlestickSeries({ upColor: '#00ff9d', downColor: '#ff3b6b', borderVisible: false, wickUpColor: '#00ff9d', wickDownColor: '#ff3b6b' });
+      cs_.setData(cd);
+      const vol = chart.addHistogramSeries({ priceFormat: { type: 'volume' }, priceScaleId: '' });
+      vol.priceScale().applyOptions({ scaleMargins: { top: .82, bottom: 0 } });
+      vol.setData(bars.map(b => ({ time: b[0], value: b[5], color: b[4] >= b[1] ? 'rgba(0,255,157,.28)' : 'rgba(255,59,107,.28)' })));
+      [[50, '#ffd000'], [150, '#ff8c42'], [200, '#ff3b6b']].forEach(([n, c]) => { if (cd.length >= n) chart.addLineSeries({ color: c, lineWidth: 1, priceLineVisible: false, lastValueVisible: false, crosshairMarkerVisible: false }).setData(sma(cd, n)); });
+      if (v) {
+        cs_.createPriceLine({ price: v.piv, color: '#00f3ff', lineWidth: 1, lineStyle: 2, axisLabelVisible: true, title: 'pivot' });
+        cs_.createPriceLine({ price: +(v.piv * (1 + vp.pivot_buffer_pct / 100)).toFixed(2), color: '#00ff9d', lineWidth: 1, lineStyle: 3, axisLabelVisible: true, title: 'buy' });
+        const have = new Set(cd.map(x => x.time));
+        cs_.setMarkers(v.pts.filter(p => have.has(p[0])).sort((a, b) => a[0] < b[0] ? -1 : 1).map(p => ({ time: p[0], position: p[2] === 'H' ? 'aboveBar' : 'belowBar', color: p[2] === 'H' ? '#00f3ff' : '#ffd000', shape: p[2] === 'H' ? 'arrowDown' : 'arrowUp', text: p[2] === 'H' ? String(p[1]) : '' })));
+      }
+      chart.timeScale().setVisibleLogicalRange({ from: Math.max(0, cd.length - 130), to: cd.length + 3 });
+      new ResizeObserver(() => chart && chart.applyOptions({ width: el.clientWidth })).observe(el);
+    } else if (bars) { $('#chart').innerHTML = '<div class="dw-nochart">圖表元件載入失敗(CDN)—— 用 TradingView 開啟</div>'; }
+  }
+  function closeDrawer() { $('#dwbg').hidden = true; $('#dw').classList.remove('open'); $('#dw').setAttribute('aria-hidden', 'true'); if (chart) { chart.remove(); chart = null; } }
+  $('#dwbg').onclick = closeDrawer; document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+
+  recompute(true);
+})();
+</script>
+</body>
+</html>

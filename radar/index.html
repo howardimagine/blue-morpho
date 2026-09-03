@@ -8,142 +8,141 @@
   <meta name="theme-color" content="#02020A">
   <link rel="stylesheet" href="../style.css">
   <style>
-    /* ── SEPA Radar · 子頁(無入口)· Bloomberg × TRON ───────────────── */
+    /* ── SEPA Radar v2 · 左:漏斗 + 參數(同寬)· 右:sidebar 兩頁(名單 ⇄ 個股)────────── */
     body { background: var(--bg); color: var(--text-primary); font-family: var(--font-text); }
-    .rd { max-width: 1280px; margin: 0 auto; padding: 0 var(--space-4) var(--space-16); }
+    .rd { max-width: 1320px; margin: 0 auto; padding: 0 var(--space-4) var(--space-12); }
     .rd-head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-4);
-      flex-wrap: wrap; padding: var(--space-6) 0 var(--space-4); border-bottom: 1px solid var(--border); }
-    .rd-brand { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .22em; color: var(--accent); text-transform: uppercase; }
+      flex-wrap: wrap; padding: var(--space-5) 0 var(--space-3); border-bottom: 1px solid var(--border); }
+    .rd-brand { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .22em; color: var(--accent); text-transform: uppercase; }
     .rd-brand b { color: var(--text-primary); font-weight: 600; }
-    .rd-h1 { font-size: clamp(1.15rem, 2.6vw, 1.55rem); font-weight: 700; margin-top: 6px; letter-spacing: .01em; }
+    .rd-h1 { font-size: clamp(1.05rem, 2.2vw, 1.35rem); font-weight: 700; margin-top: 4px; letter-spacing: .01em; }
     .rd-h1 span { color: var(--text-dim); font-weight: 400; font-size: .8em; }
-    .rd-meta { font-family: var(--font-mono); font-size: .68rem; color: var(--text-secondary); line-height: 1.9; text-align: right; }
-    .rd-meta b { color: var(--text-primary); font-weight: 500; }
-    .rd-meta .warn { color: var(--warning); }
+    .rd-meta { font-family: var(--font-mono); font-size: .66rem; color: var(--text-secondary); line-height: 1.8; text-align: right; }
+    .rd-meta b { color: var(--text-primary); font-weight: 500; } .rd-meta .warn { color: var(--warning); }
 
-    .rd-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(300px, .95fr); gap: var(--space-6); margin-top: var(--space-6); align-items: start; }
-    @media (max-width: 960px) { .rd-grid { grid-template-columns: minmax(0, 1fr); } }
+    .rd-grid { display: grid; grid-template-columns: minmax(0, 1fr) 470px; gap: var(--space-5); margin-top: var(--space-5); align-items: start; }
+    .left { display: flex; flex-direction: column; gap: var(--space-4); min-width: 0; }
+    @media (max-width: 1000px) { .rd-grid { grid-template-columns: minmax(0, 1fr); } .sb { position: static !important; height: auto !important; max-height: none !important; } }
 
-    /* 漏斗 */
-    .fn-card { border: 1px solid var(--border); background: linear-gradient(180deg, #0b0b1a 0%, #070712 100%); border-radius: 10px;
-      padding: var(--space-4) var(--space-4) var(--space-3); position: relative; overflow: hidden; }
-    .fn-card::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .35;
+    .card { border: 1px solid var(--border); background: var(--bg-card); border-radius: 10px; }
+    .card-t { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--font-mono); font-size: .64rem; letter-spacing: .18em; color: var(--accent); text-transform: uppercase; padding: 12px 14px 0; }
+    .card-t .sub { color: var(--text-dim); letter-spacing: .04em; text-transform: none; }
+
+    /* 漏斗(3D 弧形) */
+    .fn-card { background: linear-gradient(180deg, #0b0b1a 0%, #070712 100%); position: relative; overflow: hidden; padding-bottom: 6px; }
+    .fn-card::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .3;
       background-image: linear-gradient(rgba(0,243,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,243,255,.06) 1px, transparent 1px);
-      background-size: 28px 28px; mask-image: radial-gradient(ellipse at 50% 40%, #000 30%, transparent 78%); }
-    .fn-title { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .18em; color: var(--accent); text-transform: uppercase; }
-    .fn-title .sub { color: var(--text-dim); letter-spacing: .04em; text-transform: none; }
-    #funnel { width: 100%; height: auto; display: block; margin-top: 6px; }
-    .fn-layer polygon { transition: filter .2s; cursor: pointer; }
-    .fn-layer text { font-family: var(--font-mono); pointer-events: none; }
-    .fn-layer .nm { font-size: 11.5px; fill: #b8d8e6; letter-spacing: .06em; }
-    .fn-layer .ct { font-size: 20px; font-weight: 700; fill: var(--text-primary); }
-    .fn-layer .pr { font-size: 10px; fill: var(--text-dim); }
-    .fn-layer.sel .nm { fill: var(--accent); }
-    .fn-layer.sel .ct { fill: var(--accent); }
-    .fn-hint { font-family: var(--font-mono); font-size: .62rem; color: var(--text-dim); margin-top: 4px; letter-spacing: .04em; }
+      background-size: 28px 28px; mask-image: radial-gradient(ellipse at 30% 45%, #000 20%, transparent 75%); }
+    #funnel { width: 100%; height: auto; display: block; }
+    .fl { cursor: pointer; } .fl path.band { transition: filter .2s; }
+    .fl text { font-family: var(--font-mono); pointer-events: none; }
+    .fl .badge-t { font-size: 10px; font-weight: 700; fill: #dff9ff; text-anchor: middle; dominant-baseline: central; }
+    .fl .nm { font-size: 11px; fill: #b8d8e6; letter-spacing: .08em; }
+    .fl .ct { font-size: 19px; font-weight: 700; fill: var(--text-primary); }
+    .fl .pr { font-size: 9.5px; fill: var(--text-dim); }
+    .fl.sel .nm, .fl.sel .ct { fill: var(--accent); }
+    .fl.off .nm, .fl.off .ct { fill: #5a6a80; }
+    .fn-hint { font-family: var(--font-mono); font-size: .6rem; color: var(--text-dim); padding: 0 14px 6px; letter-spacing: .04em; position: relative; }
     .fn-hint b { color: var(--positive); font-weight: 500; }
 
-    /* 參數 */
-    .pm-card { border: 1px solid var(--border); background: var(--bg-card); border-radius: 10px; padding: var(--space-3) var(--space-4); position: sticky; top: 12px; }
-    @media (max-width: 960px) { .pm-card { position: static; } }
-    .pm-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
-    .pm-title { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .18em; color: var(--accent); text-transform: uppercase; }
-    .pm-reset { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .08em; color: var(--text-secondary); background: transparent; border: 1px solid var(--border); border-radius: 4px; padding: 4px 9px; cursor: pointer; }
+    /* 參數(緊湊:標籤 | 拉桿 | 值 同一列) */
+    .pm-card { padding: 0 14px 10px; }
+    .pm-top { display: flex; justify-content: space-between; align-items: center; padding: 10px 0 4px; }
+    .pm-title { font-family: var(--font-mono); font-size: .64rem; letter-spacing: .18em; color: var(--accent); text-transform: uppercase; }
+    .pm-reset { font-family: var(--font-mono); font-size: .6rem; letter-spacing: .08em; color: var(--text-secondary); background: transparent; border: 1px solid var(--border); border-radius: 4px; padding: 3px 8px; cursor: pointer; }
     .pm-reset:hover { color: var(--accent); border-color: var(--accent); }
-    details.pg { border-top: 1px solid var(--border); padding: 6px 0; }
+    details.pg { border-top: 1px solid var(--border); padding: 3px 0; }
     details.pg summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
-      font-family: var(--font-mono); font-size: .74rem; font-weight: 600; color: var(--text-primary); padding: 6px 0; letter-spacing: .04em; }
+      font-family: var(--font-mono); font-size: .7rem; font-weight: 600; color: var(--text-primary); padding: 5px 0; letter-spacing: .04em; }
     details.pg summary::-webkit-details-marker { display: none; }
     details.pg summary .cnt { color: var(--accent); font-weight: 500; }
     details.pg summary::after { content: "▾"; color: var(--text-dim); margin-left: 8px; font-size: .7rem; }
     details.pg[open] summary::after { content: "▴"; }
-    .pr-row { display: grid; grid-template-columns: 1fr 96px; gap: 8px; align-items: center; padding: 4px 0; }
-    .pr-lab { font-size: .72rem; color: var(--text-secondary); }
-    .pr-lab small { color: var(--text-dim); font-family: var(--font-mono); font-size: .62rem; margin-left: 4px; }
-    .pr-val { font-family: var(--font-mono); font-size: .72rem; color: var(--accent); text-align: right; font-weight: 600; }
-    .pr-row input[type=range] { grid-column: 1 / -1; width: 100%; accent-color: var(--accent); height: 14px; margin: 0; }
-    .pr-row.bool { grid-template-columns: 1fr auto; }
-    .pr-row input[type=checkbox] { accent-color: var(--accent); width: 15px; height: 15px; }
-    .pm-srv { font-family: var(--font-mono); font-size: .6rem; color: var(--text-dim); line-height: 1.7; margin-top: 8px; border-top: 1px dashed var(--border); padding-top: 8px; }
-    .pm-srv b { color: var(--text-secondary); font-weight: 500; }
-    .pm-note { font-family: var(--font-mono); font-size: .6rem; color: var(--text-dim); line-height: 1.6; padding: 2px 0 6px; }
+    .pg-on { font-family: var(--font-mono); font-size: .58rem; font-weight: 400; color: var(--text-dim); display: inline-flex; align-items: center; gap: 4px; cursor: pointer; }
+    .pg-on input { accent-color: var(--positive); width: 12px; height: 12px; margin: 0; }
+    details.pg.off summary { color: var(--text-dim); } details.pg.off .pr-row { opacity: .35; pointer-events: none; }
+    details.pg.off summary .cnt::after { content: " 略過"; color: var(--warning); font-size: .56rem; }
+    .pr-row { display: grid; grid-template-columns: 150px 1fr 72px; gap: 8px; align-items: center; padding: 2px 0; }
+    .pr-lab { font-size: .68rem; color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .pr-val { font-family: var(--font-mono); font-size: .68rem; color: var(--accent); text-align: right; font-weight: 600; }
+    .pr-row input[type=range] { width: 100%; accent-color: var(--accent); height: 12px; margin: 0; }
+    .pr-row.bool { grid-template-columns: 1fr auto; } .pr-row.bool input[type=checkbox] { accent-color: var(--accent); width: 14px; height: 14px; }
+    .pm-note { font-family: var(--font-mono); font-size: .58rem; color: var(--text-dim); line-height: 1.6; padding: 2px 0 4px; }
     .pm-note b { color: var(--accent); font-weight: 600; } .pm-note .warn { color: var(--warning); }
-    .breadth { margin-top: 10px; border-top: 1px solid var(--border); padding-top: 8px; }
-    .breadth .t { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .12em; color: var(--text-dim); text-transform: uppercase; display: flex; justify-content: space-between; }
-    .breadth svg { width: 100%; height: 54px; display: block; margin-top: 4px; }
+    .pm-srv { font-family: var(--font-mono); font-size: .56rem; color: var(--text-dim); line-height: 1.6; margin-top: 6px; border-top: 1px dashed var(--border); padding-top: 6px; }
+    .pm-srv b { color: var(--text-secondary); font-weight: 500; }
+    .breadth { margin-top: 8px; border-top: 1px solid var(--border); padding-top: 6px; }
+    .breadth .t { font-family: var(--font-mono); font-size: .58rem; letter-spacing: .12em; color: var(--text-dim); text-transform: uppercase; display: flex; justify-content: space-between; }
+    .breadth svg { width: 100%; height: 44px; display: block; margin-top: 3px; }
 
-    /* 表 */
-    .tb-card { margin-top: var(--space-6); border: 1px solid var(--border); background: var(--bg-card); border-radius: 10px; overflow: hidden; }
-    .tb-bar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 12px 14px; border-bottom: 1px solid var(--border); }
-    .tb-lv { font-family: var(--font-mono); font-size: .8rem; font-weight: 700; color: var(--accent); letter-spacing: .04em; }
-    .tb-lv small { color: var(--text-dim); font-weight: 400; margin-left: 6px; }
-    .tb-bar input[type=search] { font-family: var(--font-mono); font-size: .72rem; background: #070712; border: 1px solid var(--border); color: var(--text-primary); border-radius: 4px; padding: 6px 9px; min-width: 160px; outline: none; }
-    .tb-bar input[type=search]:focus { border-color: var(--accent); }
-    .btn { font-family: var(--font-mono); font-size: .64rem; letter-spacing: .08em; color: var(--accent); background: rgba(0,243,255,.06); border: 1px solid #00f3ff55; border-radius: 4px; padding: 6px 10px; cursor: pointer; text-decoration: none; white-space: nowrap; }
-    .btn:hover { background: rgba(0,243,255,.14); }
-    .btn.ghost { color: var(--text-secondary); border-color: var(--border); background: transparent; }
-    .tb-wrap { overflow-x: auto; }
-    table.tb { width: 100%; border-collapse: collapse; font-family: var(--font-mono); font-size: .7rem; min-width: 980px; }
-    .tb th { text-align: right; font-weight: 500; color: var(--text-dim); letter-spacing: .06em; font-size: .6rem; text-transform: uppercase; padding: 8px 10px; border-bottom: 1px solid var(--border); cursor: pointer; white-space: nowrap; user-select: none; }
-    .tb th.l, .tb td.l { text-align: left; }
-    .tb th.sorted { color: var(--accent); }
-    .tb td { padding: 7px 10px; text-align: right; border-bottom: 1px solid #10162a; white-space: nowrap; color: var(--text-secondary); }
-    .tb tr:hover td { background: #0f1528; }
-    .tb tr { cursor: pointer; }
-    .tb td.sym { color: var(--accent); font-weight: 700; font-size: .78rem; }
-    .tb td.name { color: var(--text-primary); font-family: var(--font-text); max-width: 190px; overflow: hidden; text-overflow: ellipsis; }
-    .tb td.name small { color: var(--text-dim); font-family: var(--font-mono); font-size: .6rem; display: block; }
-    .pos { color: var(--positive) !important; } .neg { color: var(--negative) !important; } .wn { color: var(--warning) !important; }
-    .lv { display: inline-block; font-size: .58rem; font-weight: 700; letter-spacing: .06em; padding: 2px 6px; border-radius: 3px; border: 1px solid; }
-    .lv0 { color: #6b7a90; border-color: #2a3448; } .lv1 { color: #56c9dd; border-color: #1f5a66; } .lv2 { color: #7ee0f0; border-color: #2b7f8f; }
-    .lv3 { color: var(--accent); border-color: #00a5b0; background: rgba(0,243,255,.08); } .lv4 { color: #02020a; border-color: var(--positive); background: var(--positive); }
-    .flag { display: inline-block; font-size: .56rem; letter-spacing: .04em; padding: 1px 5px; border-radius: 3px; margin-left: 3px; border: 1px solid var(--border); color: var(--text-dim); }
-    .flag.ev { color: var(--warning); border-color: #5a4a00; } .flag.er { color: #ffb4c6; border-color: #5a2030; } .flag.bo { color: #02020a; background: var(--positive); border-color: var(--positive); font-weight: 700; }
-    .tb td.why { color: var(--text-dim); font-size: .62rem; }
-    .tb-foot { font-family: var(--font-mono); font-size: .62rem; color: var(--text-dim); padding: 8px 14px; }
-    .lv-tabs { display: flex; gap: 6px; flex-wrap: wrap; }
-    .lv-tab { font-family: var(--font-mono); font-size: .64rem; letter-spacing: .04em; padding: 5px 10px; border: 1px solid var(--border); border-radius: 4px; background: transparent; color: var(--text-secondary); cursor: pointer; }
-    .lv-tab b { font-weight: 700; color: var(--text-primary); margin-left: 4px; }
+    /* Sidebar */
+    .sb { position: sticky; top: 12px; height: calc(100vh - 24px); display: flex; flex-direction: column; overflow: hidden; }
+    .sb-page { display: flex; flex-direction: column; min-height: 0; flex: 1; }
+    .sb-bar { padding: 10px 12px 8px; border-bottom: 1px solid var(--border); display: flex; flex-direction: column; gap: 7px; }
+    .lv-tabs { display: flex; gap: 4px; flex-wrap: wrap; }
+    .lv-tab { font-family: var(--font-mono); font-size: .6rem; letter-spacing: .03em; padding: 4px 8px; border: 1px solid var(--border); border-radius: 4px; background: transparent; color: var(--text-secondary); cursor: pointer; }
+    .lv-tab b { font-weight: 700; color: var(--text-primary); margin-left: 3px; }
     .lv-tab.on { background: var(--accent); border-color: var(--accent); color: #02020a; } .lv-tab.on b { color: #02020a; }
     .lv-tab.off { text-decoration: line-through; opacity: .55; }
-    .pg-on { font-family: var(--font-mono); font-size: .6rem; font-weight: 400; color: var(--text-dim); display: inline-flex; align-items: center; gap: 4px; cursor: pointer; }
-    .pg-on input { accent-color: var(--positive); width: 13px; height: 13px; margin: 0; }
-    details.pg.off summary { color: var(--text-dim); } details.pg.off .pr-row { opacity: .35; pointer-events: none; }
-    details.pg.off summary .cnt::after { content: " 略過"; color: var(--warning); font-size: .58rem; }
+    .sb-tools { display: flex; gap: 6px; align-items: center; }
+    .sb-tools input[type=search] { flex: 1; min-width: 0; font-family: var(--font-mono); font-size: .68rem; background: #070712; border: 1px solid var(--border); color: var(--text-primary); border-radius: 4px; padding: 5px 8px; outline: none; }
+    .sb-tools input[type=search]:focus { border-color: var(--accent); }
+    .sb-tools select { font-family: var(--font-mono); font-size: .62rem; background: #070712; border: 1px solid var(--border); color: var(--text-secondary); border-radius: 4px; padding: 5px 6px; }
+    .btn { font-family: var(--font-mono); font-size: .6rem; letter-spacing: .06em; color: var(--accent); background: rgba(0,243,255,.06); border: 1px solid #00f3ff55; border-radius: 4px; padding: 5px 8px; cursor: pointer; text-decoration: none; white-space: nowrap; }
+    .btn:hover { background: rgba(0,243,255,.14); } .btn.ghost { color: var(--text-secondary); border-color: var(--border); background: transparent; }
+    .sb-lv { font-family: var(--font-mono); font-size: .62rem; color: var(--text-dim); display: flex; justify-content: space-between; }
+    .sb-lv b { color: var(--accent); font-weight: 600; }
+    .sb-list { overflow-y: auto; flex: 1; min-height: 0; }
+    .row { padding: 8px 12px; border-bottom: 1px solid #10162a; cursor: pointer; }
+    .row:hover { background: #0f1528; }
+    .r1 { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: .7rem; }
+    .r1 .sym { color: var(--accent); font-weight: 700; font-size: .82rem; width: 58px; }
+    .r1 .num { color: var(--text-secondary); margin-left: auto; display: flex; gap: 10px; }
+    .r1 .num b { color: var(--text-primary); font-weight: 600; }
+    .r2 { display: flex; align-items: center; gap: 8px; margin-top: 3px; font-size: .68rem; color: var(--text-primary); min-width: 0; }
+    .r2 .name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .r2 .name small { color: var(--text-dim); font-family: var(--font-mono); font-size: .58rem; margin-left: 5px; }
+    .r2 .why { font-family: var(--font-mono); font-size: .58rem; color: var(--text-dim); white-space: nowrap; }
+    .pos { color: var(--positive) !important; } .neg { color: var(--negative) !important; } .wn { color: var(--warning) !important; }
+    .lv { display: inline-block; font-size: .55rem; font-weight: 700; letter-spacing: .06em; padding: 1px 5px; border-radius: 3px; border: 1px solid; font-family: var(--font-mono); }
+    .lv0 { color: #6b7a90; border-color: #2a3448; } .lv1 { color: #56c9dd; border-color: #1f5a66; } .lv2 { color: #7ee0f0; border-color: #2b7f8f; }
+    .lv3 { color: var(--accent); border-color: #00a5b0; background: rgba(0,243,255,.08); } .lv4 { color: #02020a; border-color: var(--positive); background: var(--positive); }
+    .flag { display: inline-block; font-size: .54rem; letter-spacing: .04em; padding: 1px 4px; border-radius: 3px; border: 1px solid var(--border); color: var(--text-dim); font-family: var(--font-mono); }
+    .flag.ev { color: var(--warning); border-color: #5a4a00; } .flag.er { color: #ffb4c6; border-color: #5a2030; } .flag.bo { color: #02020a; background: var(--positive); border-color: var(--positive); font-weight: 700; }
+    .sb-foot { font-family: var(--font-mono); font-size: .56rem; color: var(--text-dim); padding: 6px 12px; border-top: 1px solid var(--border); line-height: 1.5; }
+    .empty { text-align: center; padding: 36px 12px; color: var(--text-dim); font-family: var(--font-mono); font-size: .68rem; line-height: 1.8; }
 
-    /* 抽屜(看圖) */
-    .dw-bg { position: fixed; inset: 0; background: rgba(2,2,10,.62); backdrop-filter: blur(2px); z-index: 60; }
-    .dw { position: fixed; top: 0; right: 0; bottom: 0; width: min(640px, 100vw); background: #07070f; border-left: 1px solid var(--border); z-index: 61;
-      overflow-y: auto; box-shadow: -20px 0 60px rgba(0,0,0,.6); transform: translateX(100%); transition: transform .25s cubic-bezier(.22,.61,.36,1); }
-    .dw.open { transform: none; }
-    .dw-h { position: sticky; top: 0; background: #07070f; border-bottom: 1px solid var(--border); padding: 14px 16px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; z-index: 2; }
-    .dw-sym { font-family: var(--font-mono); font-size: 1.3rem; font-weight: 700; color: var(--accent); }
-    .dw-name { color: var(--text-primary); font-size: .82rem; } .dw-name small { display: block; color: var(--text-dim); font-family: var(--font-mono); font-size: .62rem; }
-    .dw-x { margin-left: auto; background: transparent; border: 1px solid var(--border); color: var(--text-secondary); border-radius: 4px; width: 30px; height: 30px; cursor: pointer; font-size: 1rem; }
-    .dw-kpi { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border-bottom: 1px solid var(--border); }
-    .dw-kpi div { background: #07070f; padding: 10px 12px; }
-    .dw-kpi .k { font-family: var(--font-mono); font-size: .56rem; letter-spacing: .12em; color: var(--text-dim); text-transform: uppercase; }
-    .dw-kpi .v { font-family: var(--font-mono); font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-top: 2px; }
-    #chart { height: 360px; width: 100%; }
-    .dw-nochart { padding: 40px 16px; text-align: center; font-family: var(--font-mono); font-size: .7rem; color: var(--text-dim); line-height: 2; }
-    .dw-sec { padding: 12px 16px; border-top: 1px solid var(--border); }
-    .dw-sec h4 { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .16em; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; }
-    .cond { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 14px; font-family: var(--font-mono); font-size: .68rem; }
-    .cond div { display: flex; justify-content: space-between; gap: 8px; color: var(--text-secondary); }
+    /* Sidebar 第二頁:個股 */
+    .dt-h { padding: 10px 12px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .back { font-family: var(--font-mono); font-size: .64rem; color: var(--text-secondary); background: transparent; border: 1px solid var(--border); border-radius: 4px; padding: 4px 9px; cursor: pointer; }
+    .back:hover { color: var(--accent); border-color: var(--accent); }
+    .dt-sym { font-family: var(--font-mono); font-size: 1.15rem; font-weight: 700; color: var(--accent); }
+    .dt-name { color: var(--text-primary); font-size: .76rem; min-width: 0; flex: 1; } .dt-name small { display: block; color: var(--text-dim); font-family: var(--font-mono); font-size: .58rem; }
+    .dt-body { overflow-y: auto; flex: 1; min-height: 0; }
+    .dt-kpi { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border-bottom: 1px solid var(--border); }
+    .dt-kpi div { background: var(--bg-card); padding: 8px 10px; }
+    .dt-kpi .k { font-family: var(--font-mono); font-size: .52rem; letter-spacing: .12em; color: var(--text-dim); text-transform: uppercase; }
+    .dt-kpi .v { font-family: var(--font-mono); font-size: .9rem; font-weight: 700; color: var(--text-primary); margin-top: 2px; }
+    #chart { height: 300px; width: 100%; }
+    .nochart { padding: 30px 12px; text-align: center; font-family: var(--font-mono); font-size: .66rem; color: var(--text-dim); line-height: 1.9; }
+    .legend { font-family: var(--font-mono); font-size: .54rem; color: var(--text-dim); padding: 5px 12px 0; display: flex; gap: 10px; flex-wrap: wrap; }
+    .legend i { display: inline-block; width: 12px; height: 2px; vertical-align: middle; margin-right: 3px; }
+    .sec { padding: 10px 12px; border-top: 1px solid var(--border); }
+    .sec h4 { font-family: var(--font-mono); font-size: .58rem; letter-spacing: .16em; color: var(--accent); text-transform: uppercase; margin-bottom: 6px; }
+    .cond { display: grid; grid-template-columns: 1fr 1fr; gap: 3px 12px; font-family: var(--font-mono); font-size: .64rem; }
+    .cond div { display: flex; justify-content: space-between; gap: 6px; color: var(--text-secondary); }
     .cond .ok::before { content: "✓ "; color: var(--positive); } .cond .no::before { content: "✗ "; color: var(--negative); }
-    .kv { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px 12px; font-family: var(--font-mono); font-size: .68rem; }
-    .kv .k { color: var(--text-dim); font-size: .58rem; letter-spacing: .1em; text-transform: uppercase; } .kv .v { color: var(--text-primary); font-weight: 600; }
-    .vcp-seq { font-family: var(--font-mono); font-size: .9rem; color: var(--text-primary); letter-spacing: .04em; }
-    .vcp-seq b { color: var(--positive); }
-    .dw-links { display: flex; gap: 8px; flex-wrap: wrap; padding: 12px 16px 20px; }
-    .legend { font-family: var(--font-mono); font-size: .58rem; color: var(--text-dim); padding: 6px 16px 0; display: flex; gap: 12px; flex-wrap: wrap; }
-    .legend i { display: inline-block; width: 14px; height: 2px; vertical-align: middle; margin-right: 4px; }
+    .kv { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px 10px; font-family: var(--font-mono); font-size: .64rem; }
+    .kv .k { color: var(--text-dim); font-size: .54rem; letter-spacing: .1em; text-transform: uppercase; } .kv .v { color: var(--text-primary); font-weight: 600; }
+    .vcp-seq { font-family: var(--font-mono); font-size: .84rem; color: var(--text-primary); letter-spacing: .04em; } .vcp-seq b { color: var(--positive); }
+    .dt-links { display: flex; gap: 6px; flex-wrap: wrap; padding: 10px 12px 16px; align-items: center; }
+    .dt-links .st { margin-left: auto; font-family: var(--font-mono); font-size: .56rem; color: var(--text-dim); }
 
-    .rd-foot { margin-top: var(--space-8); border-top: 1px solid var(--border); padding-top: var(--space-4); font-size: .7rem; color: var(--text-dim); line-height: 1.8; }
-    .rd-foot details summary { cursor: pointer; color: var(--text-secondary); font-family: var(--font-mono); font-size: .66rem; letter-spacing: .1em; }
+    .rd-foot { margin-top: var(--space-6); border-top: 1px solid var(--border); padding-top: var(--space-3); font-size: .68rem; color: var(--text-dim); line-height: 1.8; }
+    .rd-foot details summary { cursor: pointer; color: var(--text-secondary); font-family: var(--font-mono); font-size: .64rem; letter-spacing: .1em; }
     .rd-foot ol { margin: 8px 0 0 18px; }
-    .loading { font-family: var(--font-mono); font-size: .72rem; color: var(--text-dim); text-align: center; padding: var(--space-16) 0; letter-spacing: .1em; }
-    @media (max-width: 640px) { .dw-kpi { grid-template-columns: repeat(2, 1fr); } .kv { grid-template-columns: repeat(2, 1fr); } .cond { grid-template-columns: 1fr; } }
+    .loading { font-family: var(--font-mono); font-size: .7rem; color: var(--text-dim); text-align: center; padding: var(--space-16) 0; letter-spacing: .1em; }
+    @media (max-width: 640px) { .dt-kpi { grid-template-columns: repeat(2, 1fr); } .kv { grid-template-columns: repeat(2, 1fr); } .cond { grid-template-columns: 1fr; } .pr-row { grid-template-columns: 120px 1fr 60px; } }
   </style>
 </head>
 <body>
@@ -151,7 +150,7 @@
   <header class="rd-head">
     <div>
       <div class="rd-brand">BLUE MORPHO ▎ <b>SEPA RADAR</b> · 萬中選一的狙擊</div>
-      <div class="rd-h1">Minervini 趨勢樣板漏斗 <span>· 全美股 · 每交易日收盤後</span></div>
+      <div class="rd-h1">Minervini 趨勢樣板漏斗 <span>· 全美股 · 收盤後 + 開盤後 1h</span></div>
     </div>
     <div class="rd-meta" id="meta">載入中…</div>
   </header>
@@ -166,16 +165,13 @@
         <li><b>L1 趨勢樣板</b>:Minervini 8 條件 —— c1 價 > 150/200MA · c2 150MA > 200MA · c3 200MA 上彎 · c4 50MA > 150/200MA · c5 價 > 50MA · c6 高於 52 週低 25% · c7 距 52 週高 25% 內 · c8 RS ≥ 70;另要求 c1–c7 連續成立 N 天(反單日跳空)。</li>
         <li><b>L2 基本面爆發</b>:最新季 營收 / EPS YoY + 加速(本季 YoY > 上季)+ 毛利率。</li>
         <li><b>L3 催化劑·極強勢</b>:RS ≥ 80、距高 15% 內、剔除單日跳空事件股、單一產業上限。</li>
-        <li><b>L4 VCP·樞紐</b>:演算法找收縮序列(每次回檔更淺)+ 量縮 + pivot;<b>最後一哩靠你的眼睛</b>——點列開圖,或 ↗ TradingView。</li>
+        <li><b>L4 VCP·樞紐</b>:演算法找收縮序列(每次回檔更淺)+ 量縮 + pivot;<b>最後一哩靠你的眼睛</b>——點名單開圖,或 ↗ TradingView。</li>
       </ol>
       <p style="margin-top:8px">RS 評級 = 0.4×近 3 月 + 0.2×3–6 月 + 0.2×6–9 月 + 0.2×9–12 月報酬,在全宇宙取百分位(1–99)。「連續天數」與 VCP 形狀參數在伺服器端以預設參數計算;其餘門檻本頁即時可調。</p>
     </details>
-    <p style="margin-top:10px">EOD 資料 · 僅供研究與教育,不構成投資建議。交易不是每天頻繁出手,而是耐心等待目標落入漏斗的最底層。</p>
+    <p style="margin-top:8px">EOD 資料 · 僅供研究與教育,不構成投資建議。交易不是每天頻繁出手,而是耐心等待目標落入漏斗的最底層。</p>
   </footer>
 </div>
-
-<div id="dwbg" class="dw-bg" hidden></div>
-<aside id="dw" class="dw" aria-hidden="true"></aside>
 
 <script src="funnel.js?v=20260903c"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
@@ -190,19 +186,18 @@
   const TVEX = { NASDAQ: 'NASDAQ', NYSE: 'NYSE', AMEX: 'AMEX' };
   const tvUrl = m => `https://www.tradingview.com/chart/?symbol=${encodeURIComponent((TVEX[m.ex] || m.ex || '') + ':' + m.s)}`;
   const WHY = { c1:'c1 價 < 150/200MA', c2:'c2 150MA < 200MA', c3:'c3 200MA 未上彎', c4:'c4 50MA 排列', c5:'c5 價 < 50MA', c6:'c6 離低點 < 門檻', c7:'c7 離高點 > 門檻', c8:'c8 RS 不足',
-    trend_days:'連續天數不足', stale:'K 線過期', 'L2:no_data':'無財報資料', 'L2:rev':'營收成長不足', 'L2:rev_na':'無營收(pre-revenue)', 'L2:eps':'EPS 成長不足', 'L2:eps_na':'去年同季 EPS ≤ 0(無法算成長)', 'L2:accel':'未加速', 'L2:gm':'毛利不足', 'L2:gm_na':'無毛利資料',
+    trend_days:'連續天數不足', stale:'K 線過期', 'L2:no_data':'無財報資料', 'L2:rev':'營收成長不足', 'L2:rev_na':'無營收(pre-revenue)', 'L2:eps':'EPS 成長不足', 'L2:eps_na':'去年同季 EPS ≤ 0', 'L2:accel':'未加速', 'L2:gm':'毛利不足', 'L2:gm_na':'無毛利資料',
     'L3:rs':'RS < 門檻', 'L3:dist':'離 52W 高太遠', 'L3:adr':'ADR 不足', 'L3:event':'事件驅動(單日跳空)', 'L3:earnings':'財報窗', 'L3:sector_cap':'產業上限',
     'L4:no_vcp':'未見 VCP', 'L4:n':'收縮次數不足', 'L4:quality':'VCP 品質不足', 'L4:below_pivot':'離 pivot 太遠' };
+  const KEYS = ['', 'trend', 'fundamental', 'catalyst', 'vcp'];
 
-  let data, hist = [], P, sel = 3, sortKey = 'rs', sortDir = -1, q = '';
+  let data, hist = [], P, sel = 3, sortKey = 'rs', q = '', R;
   try {
     const [a, b] = await Promise.all([fetch('data/latest.json', { cache: 'no-cache' }), fetch('data/history.json', { cache: 'no-cache' })]);
     if (!a.ok) throw new Error('latest.json ' + a.status);
-    data = await a.json();
-    hist = b.ok ? await b.json() : [];
+    data = await a.json(); hist = b.ok ? await b.json() : [];
   } catch (e) {
-    $('#app').innerHTML = `<div class="loading">尚無掃描資料(${esc(e.message)})<br>跑 <code>scripts/run_minervini.py --mode manual</code> 產生 latest.json</div>`;
-    return;
+    $('#app').innerHTML = `<div class="loading">尚無掃描資料(${esc(e.message)})<br>跑 <code>scripts/run_minervini.py --mode manual</code> 產生 latest.json</div>`; return;
   }
   const clone = o => JSON.parse(JSON.stringify(o));
   P = clone(data.params);
@@ -210,8 +205,9 @@
   const persist = () => { try { localStorage.setItem('radar.params', JSON.stringify({ date: data.date, P })); } catch (_) {} };
   const get = path => path.split('.').reduce((o, k) => o[k], P);
   const set = (path, v) => { const ks = path.split('.'); ks.slice(0, -1).reduce((o, k) => o[k], P)[ks.at(-1)] = v; };
+  const N = data.level_names, sp = data.params, vp = sp.vcp, u = sp.universe;
+  const bySym = Object.fromEntries(data.symbols.map(m => [m.s, m]));
 
-  // ── 參數定義(可調 = 純門檻;形狀參數在伺服器端)───────────────────
   const PARAMS = [
     { g: 'L1 趨勢樣板', k: 1, key: 'trend', items: [
       ['trend.rs_min', 'RS 評級 ≥', 1, 99, 1, v => v],
@@ -231,7 +227,7 @@
       ['catalyst.max_single_day_gap_pct', '單日漲幅 > 視為事件股', 5, 60, 1, v => v + '%'],
       ['catalyst.exclude_event_driven', '剔除事件股', 'bool'],
       ['catalyst.sector_cap_pct', '單一產業上限', 10, 100, 5, v => v + '%'],
-      ['catalyst.min_adr_pct', '平均日振幅 ADR ≥(0 = 關)', 0, 10, .5, v => v + '%'],
+      ['catalyst.min_adr_pct', 'ADR ≥(0 = 關)', 0, 10, .5, v => v + '%'],
       ['catalyst.exclude_earnings_window', '剔除財報 5 天內', 'bool'] ]},
     { g: 'L4 VCP · 樞紐', k: 4, key: 'vcp', items: [
       ['vcp.min_contractions', '收縮次數 ≥', 1, 5, 1, v => v + ' 次'],
@@ -239,42 +235,47 @@
       ['vcp.max_below_pivot_pct', '現價低於 pivot ≤', 0, 30, 1, v => v + '%'] ]},
   ];
 
-  // ── 版面 ──────────────────────────────────────────────────
+  // ── 版面 ─────────────────────────────────────────────────
   $('#app').className = '';
   $('#app').innerHTML = `
     <div class="rd-grid">
-      <section class="fn-card">
-        <div class="fn-title"><span>Filter Funnel</span><span class="sub" id="fnsub"></span></div>
-        <svg id="funnel" viewBox="0 0 640 420" preserveAspectRatio="xMidYMid meet" role="img" aria-label="篩選漏斗"></svg>
-        <div class="fn-hint">點漏斗任一層(或下方分頁鈕)看該層名單 · 右側每層可「啟用/略過」、門檻可拖 · <b>L4 常態是 0 檔</b> —— 不硬湊</div>
-      </section>
-      <aside class="pm-card">
-        <div class="pm-top"><span class="pm-title">Parameters · 即時可調</span><button class="pm-reset" id="reset">↺ 重設預設</button></div>
-        <div id="params"></div>
-        <div class="pm-srv" id="srv"></div>
-        <div class="breadth"><div class="t"><span>Breadth · L1 通過家數(市場廣度)</span><span id="brv"></span></div><svg id="breadth" viewBox="0 0 300 54" preserveAspectRatio="none"></svg></div>
-      </aside>
-    </div>
-    <section class="tb-card">
-      <div class="tb-bar">
-        <div class="lv-tabs" id="lvtabs"></div>
-        <span class="tb-lv" id="tblv"></span>
-        <input type="search" id="q" placeholder="搜尋代號 / 名稱 / 產業" aria-label="搜尋">
-        <button class="btn" id="copytv">⧉ 複製 TradingView 代號</button>
-        <span style="flex:1"></span>
-        <span class="btn ghost" id="cnt"></span>
+      <div class="left">
+        <section class="card fn-card">
+          <div class="card-t"><span>Filter Funnel</span><span class="sub" id="fnsub"></span></div>
+          <svg id="funnel" viewBox="0 0 640 300" preserveAspectRatio="xMidYMid meet" role="img" aria-label="篩選漏斗"></svg>
+          <div class="fn-hint">點任一層 → 右側名單 · 每層可「啟用/略過」、門檻可拖 · <b>L4 常態是 0 檔</b> —— 不硬湊</div>
+        </section>
+        <section class="card pm-card">
+          <div class="pm-top"><span class="pm-title">Parameters · 即時可調</span><button class="pm-reset" id="reset">↺ 重設預設</button></div>
+          <div id="params"></div>
+          <div class="pm-srv" id="srv"></div>
+          <div class="breadth"><div class="t"><span>Breadth · L1 通過家數</span><span id="brv"></span></div><svg id="breadth" viewBox="0 0 300 44" preserveAspectRatio="none"></svg></div>
+        </section>
       </div>
-      <div class="tb-wrap"><table class="tb"><thead id="th"></thead><tbody id="tbody"></tbody></table></div>
-      <div class="tb-foot" id="tbfoot"></div>
-    </section>`;
+      <aside class="card sb" id="sb">
+        <div class="sb-page" id="pg-list">
+          <div class="sb-bar">
+            <div class="lv-tabs" id="lvtabs"></div>
+            <div class="sb-tools">
+              <input type="search" id="q" placeholder="搜尋代號 / 名稱 / 產業" aria-label="搜尋">
+              <select id="sort" aria-label="排序"><option value="rs">RS ↓</option><option value="dh">距高 ↓</option><option value="td">趨勢天 ↓</option><option value="vq">VCP 品質 ↓</option><option value="dp">離 pivot ↓</option><option value="s">代號 A–Z</option></select>
+              <button class="btn" id="copytv" title="複製本層代號,貼進 TradingView watchlist">⧉ TV</button>
+            </div>
+            <div class="sb-lv" id="sblv"></div>
+          </div>
+          <div class="sb-list" id="list"></div>
+          <div class="sb-foot" id="sbfoot"></div>
+        </div>
+        <div class="sb-page" id="pg-detail" hidden></div>
+      </aside>
+    </div>`;
 
   // 參數面板
   const pm = $('#params');
-  pm.innerHTML = PARAMS.map(g => `<details class="pg ${get(g.key + '.enabled') === false ? 'off' : ''}" data-g="${g.key}" ${window.innerWidth > 960 || g.k >= 3 ? 'open' : ''}><summary><span>${g.g}</span><span style="display:flex;gap:10px;align-items:center"><span class="cnt" data-cnt="${g.k}"></span><label class="pg-on" onclick="event.stopPropagation()" title="關掉 = 整層略過,上一層通過的全部放行"><input type="checkbox" data-p="${g.key}.enabled" ${get(g.key + '.enabled') !== false ? 'checked' : ''}>啟用</label></span></summary>
+  pm.innerHTML = PARAMS.map(g => `<details class="pg ${get(g.key + '.enabled') === false ? 'off' : ''}" data-g="${g.key}" open><summary><span>${g.g}</span><span style="display:flex;gap:10px;align-items:center"><span class="cnt" data-cnt="${g.k}"></span><label class="pg-on" onclick="event.stopPropagation()" title="關掉 = 整層略過,上一層通過的全部放行"><input type="checkbox" data-p="${g.key}.enabled" ${get(g.key + '.enabled') !== false ? 'checked' : ''}>啟用</label></span></summary>
     ${g.items.map(it => it[0] === '_note' ? `<div class="pm-note" id="${it[1]}"></div>` : it[2] === 'bool'
       ? `<label class="pr-row bool"><span class="pr-lab">${it[1]}</span><input type="checkbox" data-p="${it[0]}" ${get(it[0]) ? 'checked' : ''}></label>`
-      : `<div class="pr-row"><span class="pr-lab">${it[1]}</span><span class="pr-val" data-v="${it[0]}">${it[5](get(it[0]))}</span>
-         <input type="range" data-p="${it[0]}" min="${it[2]}" max="${it[3]}" step="${it[4]}" value="${get(it[0])}"></div>`).join('')}
+      : `<div class="pr-row"><span class="pr-lab" title="${it[1]}">${it[1]}</span><input type="range" data-p="${it[0]}" min="${it[2]}" max="${it[3]}" step="${it[4]}" value="${get(it[0])}"><span class="pr-val" data-v="${it[0]}">${it[5](get(it[0]))}</span></div>`).join('')}
   </details>`).join('');
   const fmtOf = Object.fromEntries(PARAMS.flatMap(g => g.items.filter(i => i[2] !== 'bool' && i[0] !== '_note').map(i => [i[0], i[5]])));
   pm.addEventListener('input', e => {
@@ -291,55 +292,61 @@
     document.querySelectorAll('details.pg').forEach(d => d.classList.toggle('off', get(d.dataset.g + '.enabled') === false));
   }
   $('#reset').onclick = () => { P = clone(data.params); persist(); syncControls(); recompute(); };
-  const sp = data.params, vp = sp.vcp, u = sp.universe;
   $('#srv').innerHTML = `<b>伺服器參數</b>(掃描時固定):宇宙 mcap ≥ ${(u.min_mcap/1e6).toFixed(0)}M · 價 ≥ $${u.min_price} · 均量 ≥ ${(u.min_avg_volume/1e3).toFixed(0)}K · 200MA 斜率窗 ${sp.trend.ma_slope_lookback} 日 ·
     VCP 回看 ${vp.lookback_days} 日 · 擺動強度 ${vp.swing_strength} · 收縮衰減 ≤ ×${vp.contraction_decay} · 首次收縮 ≤ ${Math.round(vp.max_first_depth*100)}% · 量縮 ≥ ${vp.volume_dryup_pct}% · 突破 = 收盤 > pivot +${vp.pivot_buffer_pct}% 且量 ≥ ${vp.breakout_volume_mult}× 均量`;
 
-  // meta
   const gen = new Date(data.generated_at), ageH = Math.max(0, (Date.now() - gen) / 36e5);
   $('#meta').innerHTML = `<div>資料日 <b>${data.date}</b>${data.session === 'open' ? ` <span class="warn">盤中快照 · 今日量推估 ×${data.vol_scale}</span>` : ''} · 掃描 ${ageH < 1 ? '剛剛' : ageH < 48 ? Math.round(ageH) + ' 小時前' : Math.round(ageH / 24) + ' 天前'} · ${data.elapsed_s}s</div>
     <div>宇宙 <b>${data.universe_n.toLocaleString()}</b> 檔${(data.symbols[0] || {}).usrc ? ` <span class="warn">(沿用 ${data.symbols[0].usrc.replace('cache:', '')} 快取)</span>` : ''} · K 線 ${data.bars_ok_n.toLocaleString()}${data.stale_n ? ` · <span class="warn">stale ${data.stale_n}</span>` : ''}${data.fund_missing_n ? ` · <span class="warn">無財報 ${data.fund_missing_n}</span>` : ''}</div>`;
 
-  // ── 漏斗繪製 ───────────────────────────────────────────────
+  // ── 3D 弧形漏斗 ─────────────────────────────────────────
   const svg = $('#funnel'), NS = 'http://www.w3.org/2000/svg';
-  const N = data.level_names, LV_COL = ['#3a4a66', '#1f8fa3', '#22b6cc', '#00f3ff', '#00ff9d'];
+  const LV_COL = ['#3a4f78', '#1c8ca6', '#22b8d0', '#00f3ff', '#00ff9d'];
+  const FV = { cx: 190, top: 30, bot: 286, lx: 400, rxMax: 158, rxMin: 16 };
+  const ryOf = rx => Math.max(4, rx * 0.17);
+  const rxOf = (n, n0) => FV.rxMin + (FV.rxMax - FV.rxMin) * Math.log(1 + Math.max(0, n)) / Math.log(1 + Math.max(1, n0));
+  const band = (yT, rxT, yB, rxB) => `M ${FV.cx - rxT} ${yT} A ${rxT} ${ryOf(rxT)} 0 0 0 ${FV.cx + rxT} ${yT} L ${FV.cx + rxB} ${yB} A ${rxB} ${ryOf(rxB)} 0 0 1 ${FV.cx - rxB} ${yB} Z`;
+  const backArc = (y, rx) => `M ${FV.cx - rx} ${y} A ${rx} ${ryOf(rx)} 0 0 1 ${FV.cx + rx} ${y}`;
   let curW = null;
   svg.innerHTML = `<defs>
-      <filter id="glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-      ${LV_COL.map((c, i) => `<linearGradient id="g${i}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c}" stop-opacity="${.10 + i * .07}"/><stop offset="1" stop-color="${c}" stop-opacity="${.22 + i * .10}"/></linearGradient>`).join('')}
-      <clipPath id="scanclip"><rect id="scanrect" x="0" y="0" width="640" height="420"/></clipPath>
+      <filter id="glow" x="-20%" y="-30%" width="140%" height="160%"><feGaussianBlur stdDeviation="3.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      ${LV_COL.map((c, i) => `<linearGradient id="g${i}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${c}" stop-opacity="${.30 + i * .06}"/><stop offset=".32" stop-color="${c}" stop-opacity="${.70 + i * .06}"/><stop offset=".6" stop-color="${c}" stop-opacity="${.42 + i * .06}"/><stop offset="1" stop-color="${c}" stop-opacity="${.20 + i * .05}"/></linearGradient>`).join('')}
+      <radialGradient id="mouth" cx=".5" cy=".5" r=".6"><stop offset="0" stop-color="#0a1f33"/><stop offset="1" stop-color="#0d3a55"/></radialGradient>
     </defs>
-    <g id="layers"></g>
-    <rect id="scan" x="0" y="0" width="640" height="3" fill="#00f3ff" opacity=".35" style="animation: scan 4.5s linear infinite"/>
-    <style>@keyframes scan { from { transform: translateY(0) } to { transform: translateY(420px) } }</style>`;
-  const CX = 250, TOP = 14, H = 372, GAP = 4, RIGHT = 372;
-  const wOf = (n, n0) => 40 + 380 * Math.log(1 + Math.max(0, n)) / Math.log(1 + Math.max(1, n0));
+    <ellipse id="mouthEl" fill="url(#mouth)" stroke="#2fa5c0" stroke-width="1"/>
+    <g id="layers"></g>`;
+  const layers = $('#layers');
+  N.forEach((_, i) => {
+    const g = document.createElementNS(NS, 'g'); g.setAttribute('class', 'fl'); g.dataset.i = i;
+    g.innerHTML = `<path class="band" fill="url(#g${i})" stroke="${LV_COL[i]}" stroke-width="1"/><path class="ring" fill="none" stroke="${LV_COL[i]}" stroke-opacity=".35" stroke-width=".8"/>
+      <line class="lead" stroke="${LV_COL[i]}" stroke-opacity=".55" stroke-width="1" stroke-dasharray="2 3"/>
+      <circle class="badge" r="11" fill="#070712" stroke="${LV_COL[i]}" stroke-width="1.2"/><text class="badge-t"></text>
+      <text class="nm" x="${FV.lx}"></text><text class="ct" x="${FV.lx}"></text><text class="pr" x="${FV.lx}"></text>`;
+    g.onclick = () => selectLevel(i);
+    layers.appendChild(g);
+  });
   function drawFunnel(counts, animate) {
-    const n0 = counts[0], target = counts.map(c => wOf(c, n0)).concat([Math.max(18, wOf(counts[4], n0) * .35)]);
-    const from = curW || target;
-    const layers = $('#layers');
-    if (!layers.children.length) {
-      counts.forEach((_, i) => {
-        const g = document.createElementNS(NS, 'g'); g.setAttribute('class', 'fn-layer'); g.dataset.i = i;
-        g.innerHTML = `<polygon fill="url(#g${i})" stroke="${LV_COL[i]}" stroke-width="1.2"/>
-          <text class="nm" x="${RIGHT}"></text><text class="ct" x="${RIGHT}"></text><text class="pr" x="${RIGHT}"></text>`;
-        g.onclick = () => selectLevel(i);
-        layers.appendChild(g);
-      });
-    }
-    const t0 = performance.now(), dur = animate ? 380 : 0;
+    const n0 = counts[0];
+    const target = counts.map(c => rxOf(c, n0)).concat([Math.max(12, rxOf(counts[4], n0) * .62)]);
+    const from = curW || target, t0 = performance.now(), dur = animate ? 380 : 0;
+    const hL = (FV.bot - FV.top) / 5;
     (function step(now) {
       const k = dur ? Math.min(1, (now - t0) / dur) : 1, e = 1 - Math.pow(1 - k, 3);
       const w = target.map((t, i) => from[i] + (t - from[i]) * e);
-      const hL = (H - GAP * 4) / 5;
+      const mouth = $('#mouthEl'); mouth.setAttribute('cx', FV.cx); mouth.setAttribute('cy', FV.top); mouth.setAttribute('rx', w[0]); mouth.setAttribute('ry', ryOf(w[0]));
       [...layers.children].forEach((g, i) => {
-        const y1 = TOP + i * (hL + GAP), y2 = y1 + hL, wt = w[i] / 2, wb = w[i + 1] / 2;
-        g.querySelector('polygon').setAttribute('points', `${CX - wt},${y1} ${CX + wt},${y1} ${CX + wb},${y2} ${CX - wb},${y2}`);
+        const yT = FV.top + i * hL, yB = yT + hL, my = yT + hL / 2, rxMid = (w[i] + w[i + 1]) / 2;
+        g.querySelector('.band').setAttribute('d', band(yT, w[i], yB, w[i + 1]));
+        g.querySelector('.ring').setAttribute('d', i === 0 ? '' : backArc(yT, w[i]));
+        const badge = g.querySelector('.badge'), bt = g.querySelector('.badge-t'), lead = g.querySelector('.lead');
+        badge.setAttribute('cx', FV.cx); badge.setAttribute('cy', my); bt.setAttribute('x', FV.cx); bt.setAttribute('y', my); bt.textContent = 'L' + i;
+        lead.setAttribute('x1', FV.cx + Math.max(rxMid, 14) + 6); lead.setAttribute('y1', my); lead.setAttribute('x2', FV.lx - 10); lead.setAttribute('y2', my);
         const nm = g.querySelector('.nm'), ct = g.querySelector('.ct'), pr = g.querySelector('.pr');
-        nm.setAttribute('y', y1 + 22); ct.setAttribute('y', y1 + 46); pr.setAttribute('y', y1 + 62);
+        nm.setAttribute('y', my - 12); ct.setAttribute('y', my + 9); pr.setAttribute('y', my + 22);
+        const off = KEYS[i] && P[KEYS[i]].enabled === false;
+        g.classList.toggle('off', !!off);
+        g.querySelector('.band').setAttribute('stroke-dasharray', off ? '6 4' : ''); g.querySelector('.band').setAttribute('opacity', off ? .4 : 1);
         nm.textContent = N[i]; ct.textContent = counts[i].toLocaleString();
-        const key = ['', 'trend', 'fundamental', 'catalyst', 'vcp'][i], off = key && P[key].enabled === false;
-        const poly = g.querySelector('polygon'); poly.setAttribute('stroke-dasharray', off ? '7 5' : ''); poly.setAttribute('opacity', off ? .45 : 1);
         pr.textContent = off ? '整層略過 · 上一層全部放行' : i === 0 ? '可交易宇宙' : `${(counts[i] / Math.max(1, counts[i - 1]) * 100).toFixed(1)}% 通過上一層` + (i === 4 && counts[4] === 0 ? ' · 耐心等待' : '');
       });
       if (k < 1) requestAnimationFrame(step); else curW = target;
@@ -347,123 +354,107 @@
     highlight();
   }
   function highlight() {
-    [...$('#layers').children].forEach((g, i) => { const on = i === sel; g.classList.toggle('sel', on);
-      g.querySelector('polygon').setAttribute('filter', on ? 'url(#glow)' : ''); g.querySelector('polygon').setAttribute('stroke-width', on ? 2 : 1.2); });
+    [...layers.children].forEach((g, i) => { const on = i === sel; g.classList.toggle('sel', on);
+      const b = g.querySelector('.band'); b.setAttribute('filter', on ? 'url(#glow)' : ''); b.setAttribute('stroke-width', on ? 2 : 1); });
   }
 
-  // breadth sparkline
+  // breadth
   (function () {
     const pts = hist.map(h => h.counts[1]);
     if (pts.length < 2) { $('#brv').textContent = `累積中(${pts.length} 天)`; return; }
     const mx = Math.max(...pts), mn = Math.min(...pts), rg = Math.max(1, mx - mn);
-    const d = pts.map((v, i) => `${(i / (pts.length - 1) * 300).toFixed(1)},${(50 - (v - mn) / rg * 44 + 2).toFixed(1)}`).join(' ');
-    $('#breadth').innerHTML = `<polyline points="${d}" fill="none" stroke="#00f3ff" stroke-width="1.5" vector-effect="non-scaling-stroke"/>`;
+    $('#breadth').innerHTML = `<polyline points="${pts.map((v, i) => `${(i / (pts.length - 1) * 300).toFixed(1)},${(40 - (v - mn) / rg * 34 + 2).toFixed(1)}`).join(' ')}" fill="none" stroke="#00f3ff" stroke-width="1.5" vector-effect="non-scaling-stroke"/>`;
     const last = pts.at(-1), prev = pts.at(-2);
     $('#brv').innerHTML = `${last} <span class="${last >= prev ? 'pos' : 'neg'}">${last >= prev ? '▲' : '▼'}${Math.abs(last - prev)}</span> · ${pts.length} 天`;
   })();
 
-  // ── 重算 + 表 ─────────────────────────────────────────────
-  let R;
-  function selectLevel(i) { sel = i; renderTable(); highlight(); renderTabs(); }
+  // ── 重算 ──────────────────────────────────────────────────
+  function selectLevel(i) { sel = i; showList(); renderList(); highlight(); renderTabs(); }
   function renderTabs() {
-    $('#lvtabs').innerHTML = N.map((n, i) => { const key = ['', 'trend', 'fundamental', 'catalyst', 'vcp'][i];
-      return `<button class="lv-tab ${i === sel ? 'on' : ''} ${key && P[key].enabled === false ? 'off' : ''}" data-lv="${i}">${n}<b>${R.counts[i].toLocaleString()}</b></button>`; }).join('');
+    $('#lvtabs').innerHTML = N.map((n, i) => `<button class="lv-tab ${i === sel ? 'on' : ''} ${KEYS[i] && P[KEYS[i]].enabled === false ? 'off' : ''}" data-lv="${i}">${n.replace(/^L\d /, 'L' + i + ' ')}<b>${R.counts[i].toLocaleString()}</b></button>`).join('');
   }
   $('#lvtabs').addEventListener('click', e => { const b = e.target.closest('.lv-tab'); if (b) selectLevel(+b.dataset.lv); });
   function recompute(first) {
     R = RadarFunnel.evaluate(data.symbols, P, data.date);
-    if (first) { let i = 4; while (i > 0 && R.counts[i] === 0) i--; sel = i; }   // 預設:最深「有股票」的那層
+    if (first) { let i = 4; while (i > 0 && R.counts[i] === 0) i--; sel = i; }
     drawFunnel(R.counts, !first);
     renderTabs();
     document.querySelectorAll('[data-cnt]').forEach(el => { el.textContent = R.counts[+el.dataset.cnt]; });
-    // L2 的拉桿只能動「有財報資料」的檔;把分母攤開,不然 FMP 掛掉那天拉桿看起來像壞了
-    const l1 = data.symbols.filter(m => (R.levels[m.s] ?? -1) >= 1), withF = l1.filter(m => m.f && m.f.ok).length;
-    const revNA = l1.filter(m => m.f && m.f.ok && m.f.rev_g == null).length;
-    const noteEl = $('#l2note'); if (noteEl) noteEl.innerHTML = `拉桿作用範圍:有財報 <b>${withF}</b> / ${l1.length} 檔 L1${withF < l1.length ? ` · <span class="warn">${l1.length - withF} 檔無財報(FMP 逾時,下次掃描補)</span>` : ''}${revNA ? ` · ${revNA} 檔無營收(pre-revenue 生技,任何營收門檻都過不了)` : ''}`;
     $('#fnsub').textContent = `${R.counts[0].toLocaleString()} → ${R.counts[1]} → ${R.counts[2]} → ${R.counts[3]} → ${R.counts[4]}`;
-    renderTable();
+    const l1 = data.symbols.filter(m => (R.levels[m.s] ?? -1) >= 1), withF = l1.filter(m => m.f && m.f.ok).length, revNA = l1.filter(m => m.f && m.f.ok && m.f.rev_g == null).length;
+    $('#l2note').innerHTML = `拉桿作用範圍:有財報 <b>${withF}</b> / ${l1.length} 檔 L1${withF < l1.length ? ` · <span class="warn">${l1.length - withF} 檔無財報(FMP 逾時,下次掃描補)</span>` : ''}${revNA ? ` · ${revNA} 檔無營收(pre-revenue)` : ''}`;
+    renderList();
+    if (curSym && !$('#pg-detail').hidden) renderDetail(curSym, true);   // 參數變了 → 個股頁的 ✓✗ 也跟著變
   }
-  const COLS = [
-    ['s', '代號', 'l'], ['name', '名稱 / 產業', 'l'], ['px', '價格'], ['rs', 'RS'], ['dh', '距高'], ['td', '趨勢天'], ['age', '在層'],
-    ['rev_g', '營收 YoY'], ['eps_g', 'EPS YoY'], ['gm', '毛利'], ['vq', 'VCP'], ['dp', '離 pivot'], ['lv', '層級 · 卡在哪', 'l']];
-  const val = (m, k) => k === 'dh' ? (m.hi ? (m.px / m.hi - 1) * 100 : null) : k === 'rev_g' || k === 'eps_g' || k === 'gm' ? (m.f || {})[k] :
-    k === 'vq' ? (m.v ? m.v.q : null) : k === 'dp' ? (m.v ? m.v.dp : null) : k === 'lv' ? R.levels[m.s] : k === 'name' ? m.name : m[k];
+
+  // ── Sidebar 第 1 頁:名單 ─────────────────────────────────
+  const val = (m, k) => k === 'dh' ? (m.hi ? (m.px / m.hi - 1) * 100 : null) : k === 'vq' ? (m.v ? m.v.q : null) : k === 'dp' ? (m.v ? m.v.dp : null) : m[k];
   function rows() {
     const qq = q.trim().toUpperCase();
     return data.symbols.filter(m => (R.levels[m.s] ?? -1) >= sel && (!qq || m.s.includes(qq) || (m.name || '').toUpperCase().includes(qq) || (m.ind || '').toUpperCase().includes(qq)))
-      .sort((a, b) => { const x = val(a, sortKey), y = val(b, sortKey); if (x == null && y == null) return 0; if (x == null) return 1; if (y == null) return -1;
-        return (typeof x === 'string' ? x.localeCompare(y) : x - y) * sortDir; });
+      .sort((a, b) => { if (sortKey === 's') return a.s < b.s ? -1 : 1; const x = val(a, sortKey), y = val(b, sortKey); if (x == null && y == null) return 0; if (x == null) return 1; if (y == null) return -1; return y - x; });
   }
-  function renderTable() {
+  function renderList() {
     const rs = rows(), MAX = 300;
-    $('#tblv').innerHTML = `${esc(N[sel])}<small>≥ 本層 · ${rs.length} 檔</small>`;
-    $('#cnt').textContent = rs.length > MAX ? `顯示前 ${MAX}` : `${rs.length} 檔`;
-    $('#th').innerHTML = `<tr>${COLS.map(c => `<th class="${c[2] || ''} ${sortKey === c[0] ? 'sorted' : ''}" data-k="${c[0]}">${c[1]}${sortKey === c[0] ? (sortDir < 0 ? ' ▾' : ' ▴') : ''}</th>`).join('')}</tr>`;
-    $('#tbody').innerHTML = rs.slice(0, MAX).map(m => {
-      const f = m.f || {}, v = m.v, lv = R.levels[m.s], dh = val(m, 'dh');
+    $('#sblv').innerHTML = `<span><b>${esc(N[sel])}</b> · ≥ 本層</span><span>${rs.length > MAX ? `顯示前 ${MAX} / ` : ''}${rs.length} 檔</span>`;
+    $('#list').innerHTML = rs.slice(0, MAX).map(m => {
+      const v = m.v, lv = R.levels[m.s], dh = val(m, 'dh');
       const flags = [v && v.bo ? '<span class="flag bo">突破</span>' : '', (m.gap || 0) > P.catalyst.max_single_day_gap_pct ? '<span class="flag ev">事件</span>' : '',
-        m.e && m.e.next && (Date.parse(m.e.next) - Date.parse(data.date)) / 864e5 <= P.catalyst.earnings_within_days ? `<span class="flag er">財報 ${m.e.next.slice(5)}</span>` : '',
-        m.rsp ? '<span class="flag">新股</span>' : '', m.st > P.universe.max_stale_days ? '<span class="flag ev">stale</span>' : ''].join('');
-      return `<tr data-s="${m.s}">
-        <td class="l sym">${m.s}</td>
-        <td class="l name">${esc(m.name)}<small>${esc(m.sec || '')}${m.ind ? ' · ' + esc(m.ind) : ''}</small></td>
-        <td>${fmt(m.px, 2)}</td><td class="${m.rs >= 90 ? 'pos' : ''}">${fmt(m.rs, 0)}</td>
-        <td class="${dh != null && dh > -5 ? 'pos' : ''}">${sgn(dh)}</td><td>${m.td ?? '—'}</td><td>${m.age ? m.age + 'd' : '—'}</td>
-        <td class="${f.rev_g >= P.fundamental.rev_growth_min ? 'pos' : ''}">${pct(f.rev_g)}${f.rev_g != null && f.rev_g_prev != null && f.rev_g > f.rev_g_prev ? '↑' : ''}</td>
-        <td class="${f.eps_g >= P.fundamental.eps_growth_min || f.turn ? 'pos' : ''}">${f.turn ? '轉盈' : pct(f.eps_g)}${f.eps_g != null && f.eps_g_prev != null && f.eps_g > f.eps_g_prev ? '↑' : ''}</td>
-        <td>${pct(f.gm)}</td>
-        <td class="${v && v.q >= P.vcp.min_quality ? 'pos' : ''}">${v ? `${v.n}次 · Q${v.q}` : '—'}</td>
-        <td class="${v && v.dp > -3 ? 'pos' : ''}">${v ? sgn(v.dp) : '—'}</td>
-        <td class="l"><span class="lv lv${lv}">L${lv}</span> <span class="why">${lv < 4 ? esc(WHY[R.fail[m.s]] || R.fail[m.s] || '') : '🎯 狙擊候選'}</span>${flags}</td>
-      </tr>`; }).join('') || `<tr><td colspan="${COLS.length}" style="text-align:center;padding:30px;color:var(--text-dim)">此層無標的 —— 這是漏斗的正常狀態</td></tr>`;
-    $('#tbfoot').textContent = `點列開圖(內嵌 K 線:L1 依 RS 前 ${sp.output ? sp.output.embed_bars_top_n : 80} + L3/L4 全部;其餘用 TradingView)· 「趨勢天」= c1–c7 連續成立天數 · 「在層」= 連續停留天數 · ↑ = 較上季加速`;
+        m.e && m.e.next && (Date.parse(m.e.next) - Date.parse(data.date)) / 864e5 <= P.catalyst.earnings_within_days ? `<span class="flag er">財報 ${m.e.next.slice(5)}</span>` : '', m.rsp ? '<span class="flag">新股</span>' : ''].join('');
+      return `<div class="row" data-s="${m.s}">
+        <div class="r1"><span class="sym">${m.s}</span><span class="lv lv${lv}">L${lv}</span>${flags}
+          <span class="num"><span>RS <b class="${m.rs >= 90 ? 'pos' : ''}">${fmt(m.rs, 0)}</b></span><span>距高 <b class="${dh != null && dh > -5 ? 'pos' : ''}">${sgn(dh)}</b></span>${v ? `<span>VCP <b class="${v.q >= P.vcp.min_quality ? 'pos' : ''}">Q${v.q}</b></span>` : ''}</span></div>
+        <div class="r2"><span class="name">${esc(m.name)}<small>${esc(m.sec || '')}</small></span><span class="why">${lv < 4 ? esc(WHY[R.fail[m.s]] || R.fail[m.s] || '') : '🎯 狙擊候選'}</span></div>
+      </div>`; }).join('') || `<div class="empty">此層無標的<br>這是漏斗的正常狀態</div>`;
+    $('#sbfoot').textContent = `點列開圖 · 內嵌 K 線:L4/L3 + 有 VCP 形狀者 + RS 前 ${sp.output ? sp.output.embed_bars_top_n : 80};其餘用 TradingView`;
   }
-  $('#th').addEventListener('click', e => { const k = e.target.closest('th')?.dataset.k; if (!k) return; if (sortKey === k) sortDir *= -1; else { sortKey = k; sortDir = k === 's' || k === 'name' || k === 'lv' ? 1 : -1; } renderTable(); });
-  $('#q').addEventListener('input', e => { q = e.target.value; renderTable(); });
-  $('#tbody').addEventListener('click', e => { const s = e.target.closest('tr')?.dataset.s; if (s) openDrawer(s); });
-  $('#copytv').onclick = async () => { const txt = rows().slice(0, 100).map(m => (TVEX[m.ex] || m.ex) + ':' + m.s).join(','); try { await navigator.clipboard.writeText(txt); $('#copytv').textContent = `✓ 已複製 ${Math.min(100, rows().length)} 檔`; } catch { prompt('複製:', txt); } setTimeout(() => $('#copytv').textContent = '⧉ 複製 TradingView 代號', 1800); };
+  $('#q').addEventListener('input', e => { q = e.target.value; renderList(); });
+  $('#sort').addEventListener('change', e => { sortKey = e.target.value; renderList(); });
+  $('#list').addEventListener('click', e => { const s = e.target.closest('.row')?.dataset.s; if (s) showDetail(s); });
+  $('#copytv').onclick = async () => { const txt = rows().slice(0, 100).map(m => (TVEX[m.ex] || m.ex) + ':' + m.s).join(','); try { await navigator.clipboard.writeText(txt); $('#copytv').textContent = `✓ ${Math.min(100, rows().length)}`; } catch { prompt('複製:', txt); } setTimeout(() => $('#copytv').textContent = '⧉ TV', 1600); };
 
-  // ── 抽屜:看圖 ────────────────────────────────────────────
-  let chart;
-  const bySym = Object.fromEntries(data.symbols.map(m => [m.s, m]));
+  // ── Sidebar 第 2 頁:個股(有返回)───────────────────────
+  let chart = null, curSym = null;
   function sma(arr, n) { const out = []; let s = 0; for (let i = 0; i < arr.length; i++) { s += arr[i].close; if (i >= n) s -= arr[i - n].close; if (i >= n - 1) out.push({ time: arr[i].time, value: s / n }); } return out; }
-  function openDrawer(s) {
-    const m = bySym[s], f = m.f || {}, v = m.v, cs = RadarFunnel.c17(m, P.trend), lv = R.levels[s];
-    const bars = data.bars[s];
-    const dw = $('#dw');
-    dw.innerHTML = `<div class="dw-h"><span class="dw-sym">${s}</span><span class="dw-name">${esc(m.name)}<small>${esc(m.sec || '')} · ${esc(m.ind || '')} · ${m.ex} · mcap $${m.mc ? (m.mc / 1e9).toFixed(1) + 'B' : '—'}</small></span>
-        <span class="lv lv${lv}">L${lv}</span><button class="dw-x" id="dwx" aria-label="關閉">✕</button></div>
-      <div class="dw-kpi"><div><div class="k">Price</div><div class="v">$${fmt(m.px, 2)}</div></div><div><div class="k">RS</div><div class="v ${m.rs >= 90 ? 'pos' : ''}">${fmt(m.rs, 0)}${m.rsp ? '*' : ''}</div></div>
-        <div><div class="k">距 52W 高</div><div class="v">${sgn(m.hi ? (m.px / m.hi - 1) * 100 : null)}</div></div><div><div class="k">1M / 3M / 6M</div><div class="v" style="font-size:.8rem">${sgn(m.r1m, 0)} / ${sgn(m.r3m, 0)} / ${sgn(m.r6m, 0)}</div></div></div>
+  function showList() { $('#pg-detail').hidden = true; $('#pg-list').hidden = false; if (chart) { chart.remove(); chart = null; } curSym = null; }
+  function showDetail(s) { curSym = s; $('#pg-list').hidden = true; $('#pg-detail').hidden = false; renderDetail(s); $('#pg-detail').scrollTop = 0; }
+  function renderDetail(s, keepScroll) {
+    const m = bySym[s], f = m.f || {}, v = m.v, cs = RadarFunnel.c17(m, P.trend), lv = R.levels[s], bars = data.bars[s];
+    const pg = $('#pg-detail'), scrollY = keepScroll ? (pg.querySelector('.dt-body')?.scrollTop || 0) : 0;
+    if (chart) { chart.remove(); chart = null; }
+    pg.innerHTML = `<div class="dt-h"><button class="back" id="back">← 名單</button><span class="dt-sym">${s}</span><span class="dt-name">${esc(m.name)}<small>${esc(m.sec || '')} · ${esc(m.ind || '')} · ${m.ex} · mcap $${m.mc ? (m.mc / 1e9).toFixed(1) + 'B' : '—'}</small></span><span class="lv lv${lv}">L${lv}</span></div>
+      <div class="dt-body">
+      <div class="dt-kpi"><div><div class="k">Price</div><div class="v">$${fmt(m.px, 2)}</div></div><div><div class="k">RS</div><div class="v ${m.rs >= 90 ? 'pos' : ''}">${fmt(m.rs, 0)}${m.rsp ? '*' : ''}</div></div>
+        <div><div class="k">距 52W 高</div><div class="v">${sgn(m.hi ? (m.px / m.hi - 1) * 100 : null)}</div></div><div><div class="k">1M / 3M / 6M</div><div class="v" style="font-size:.72rem">${sgn(m.r1m, 0)} / ${sgn(m.r3m, 0)} / ${sgn(m.r6m, 0)}</div></div></div>
       ${bars ? '<div id="chart"></div><div class="legend"><span><i style="background:#ffd000"></i>MA50</span><span><i style="background:#ff8c42"></i>MA150</span><span><i style="background:#ff3b6b"></i>MA200</span><span><i style="background:#00f3ff"></i>pivot</span><span><i style="background:#00ff9d"></i>買點(pivot +' + vp.pivot_buffer_pct + '%)</span><span>▼▲ VCP 擺動點</span></div>'
-             : '<div class="dw-nochart">此檔未內嵌 K 線(只嵌 RS 前段 + L3/L4)<br>↗ 用 TradingView 開啟看圖</div>'}
-      <div class="dw-sec"><h4>Trend Template · 8 條件</h4><div class="cond">
+             : '<div class="nochart">此檔未內嵌 K 線(只嵌 RS 前段 + VCP + L3/L4)<br>↗ 用 TradingView 開啟看圖</div>'}
+      <div class="sec"><h4>Trend Template · 8 條件(✓✗ 跟著左側參數變)</h4><div class="cond">
         ${['價 > 150 & 200MA', '150MA > 200MA', '200MA 上彎', '50MA > 150 & 200MA', '價 > 50MA', `高於 52W 低 +${Math.round((P.trend.above_low_mult - 1) * 100)}%`, `距 52W 高 ${Math.round((1 - P.trend.below_high_mult) * 100)}% 內`]
           .map((t, i) => `<div class="${cs[i] ? 'ok' : 'no'}"><span>c${i + 1} ${t}</span><span>${[fmt(m.px, 2), fmt(m.m150, 2) + '/' + fmt(m.m200, 2), sgn(m.m200 && m.m200p ? (m.m200 / m.m200p - 1) * 100 : null, 2), fmt(m.m50, 2), fmt(m.m50, 2), sgn(m.lo ? (m.px / m.lo - 1) * 100 : null, 0), sgn(m.hi ? (m.px / m.hi - 1) * 100 : null)][i]}</span></div>`).join('')}
         <div class="${(m.rs || 0) >= P.trend.rs_min ? 'ok' : 'no'}"><span>c8 RS ≥ ${P.trend.rs_min}</span><span>${fmt(m.rs, 0)}</span></div>
         <div class="${(m.td || 0) >= P.trend.min_trend_days ? 'ok' : 'no'}"><span>連續成立 ≥ ${P.trend.min_trend_days} 天</span><span>${m.td} 天</span></div></div></div>
-      <div class="dw-sec"><h4>Fundamentals · ${f.ok ? esc(f.per || '') + ' · ' + esc(f.q || '') : '無資料'}</h4>
+      <div class="sec"><h4>Fundamentals · ${f.ok ? esc(f.per || '') + ' · ' + esc(f.q || '') : '無資料'}</h4>
         ${f.ok ? `<div class="kv"><div><div class="k">營收 YoY</div><div class="v ${f.rev_g >= P.fundamental.rev_growth_min ? 'pos' : ''}">${pct(f.rev_g)} <small style="color:var(--text-dim)">上季 ${pct(f.rev_g_prev)}</small></div></div>
           <div><div class="k">EPS YoY</div><div class="v ${f.eps_g >= P.fundamental.eps_growth_min || f.turn ? 'pos' : ''}">${f.turn ? '轉虧為盈' : pct(f.eps_g)} <small style="color:var(--text-dim)">上季 ${pct(f.eps_g_prev)}</small></div></div>
           <div><div class="k">毛利率</div><div class="v">${pct(f.gm)}</div></div><div><div class="k">EPS</div><div class="v">${f.eps ?? '—'}</div></div>
           <div><div class="k">營收</div><div class="v">${f.rev ? '$' + (f.rev / 1e6).toFixed(0) + 'M' : '—'}</div></div><div><div class="k">下次財報</div><div class="v ${m.e && m.e.next ? 'wn' : ''}">${m.e && m.e.next ? m.e.next : '—'}</div></div></div>`
-        : `<div style="font-family:var(--font-mono);font-size:.68rem;color:var(--text-dim)">${m.f == null ? (lv >= 1 ? '財報尚未抓到(FMP 逾時 / 預算用完)—— 下次掃描補' : '不在財報抓取範圍(c1–c7 通過或 RS ≥ 60 才抓)') : 'FMP 無此檔季度財報'}</div>`}</div>
-      <div class="dw-sec"><h4>VCP · 收縮序列</h4>
+        : `<div style="font-family:var(--font-mono);font-size:.64rem;color:var(--text-dim)">${m.f == null ? (lv >= 1 ? '財報尚未抓到(FMP 逾時 / 預算用完)—— 下次掃描補' : '不在財報抓取範圍(c1–c7 通過或 RS ≥ 60 才抓)') : 'FMP 無此檔季度財報'}</div>`}</div>
+      <div class="sec"><h4>VCP · 收縮序列</h4>
         ${v ? `<div class="vcp-seq">${v.dep.map(x => x + '%').join(' → ')} <b>· ${v.n} 次</b></div>
-          <div class="kv" style="margin-top:8px"><div><div class="k">Pivot</div><div class="v">$${v.piv}</div></div><div><div class="k">現價 vs pivot</div><div class="v ${v.dp > -3 ? 'pos' : ''}">${sgn(v.dp)}</div></div>
+          <div class="kv" style="margin-top:6px"><div><div class="k">Pivot</div><div class="v">$${v.piv}</div></div><div><div class="k">現價 vs pivot</div><div class="v ${v.dp > -3 ? 'pos' : ''}">${sgn(v.dp)}</div></div>
           <div><div class="k">量縮(5 日 vs 50 日)</div><div class="v ${v.dry >= vp.volume_dryup_pct ? 'pos' : ''}">${v.dry == null ? '—' : v.dry + '%'}</div></div><div><div class="k">品質分</div><div class="v ${v.q >= P.vcp.min_quality ? 'pos' : ''}">${v.q}</div></div>
           <div><div class="k">買點</div><div class="v pos">> $${(v.piv * (1 + vp.pivot_buffer_pct / 100)).toFixed(2)}</div></div><div><div class="k">狀態</div><div class="v">${v.bo ? '⚡ 已放量突破' : v.dp > -3 ? '貼近 pivot' : '等待收縮完成'}</div></div></div>`
-        : '<div style="font-family:var(--font-mono);font-size:.68rem;color:var(--text-dim)">演算法未見成型的收縮序列(或不在計算範圍:只算 c1–c7 通過者)。這不代表沒有 —— 看圖。</div>'}</div>
-      <div class="dw-links"><a class="btn" href="${tvUrl(m)}" target="_blank" rel="noopener">↗ TradingView 開啟</a>
-        <button class="btn ghost" id="cp1">⧉ 複製 ${(TVEX[m.ex] || m.ex)}:${s}</button>
-        <span style="margin-left:auto;font-family:var(--font-mono);font-size:.6rem;color:var(--text-dim)">${lv < 4 ? '卡在:' + esc(WHY[R.fail[s]] || R.fail[s] || '') : '🎯 L4 狙擊候選 —— 人眼確認'}${m.age ? ' · 在層 ' + m.age + ' 天' : ''}</span></div>`;
-    $('#dwbg').hidden = false; dw.classList.add('open'); dw.setAttribute('aria-hidden', 'false');
-    $('#dwx').onclick = closeDrawer; $('#cp1').onclick = () => navigator.clipboard.writeText((TVEX[m.ex] || m.ex) + ':' + s).catch(() => {});
+        : '<div style="font-family:var(--font-mono);font-size:.64rem;color:var(--text-dim)">演算法未見成型的收縮序列(或不在計算範圍:只算 c1–c7 通過者)。這不代表沒有 —— 看圖。</div>'}</div>
+      <div class="dt-links"><a class="btn" href="${tvUrl(m)}" target="_blank" rel="noopener">↗ TradingView</a><button class="btn ghost" id="cp1">⧉ ${(TVEX[m.ex] || m.ex)}:${s}</button>
+        <span class="st">${lv < 4 ? '卡在:' + esc(WHY[R.fail[s]] || R.fail[s] || '') : '🎯 L4 狙擊候選 —— 人眼確認'}${m.age ? ' · 在層 ' + m.age + ' 天' : ''}</span></div>
+      </div>`;
+    $('#back').onclick = showList;
+    $('#cp1').onclick = () => navigator.clipboard.writeText((TVEX[m.ex] || m.ex) + ':' + s).catch(() => {});
     if (bars && window.LightweightCharts) {
-      const el = $('#chart'); if (chart) { chart.remove(); chart = null; }
-      chart = LightweightCharts.createChart(el, { layout: { background: { type: 'solid', color: '#07070f' }, textColor: '#7c93a4', fontFamily: 'JetBrains Mono, monospace', fontSize: 10 },
+      const el = $('#chart');
+      chart = LightweightCharts.createChart(el, { layout: { background: { type: 'solid', color: '#0b0b1a' }, textColor: '#7c93a4', fontFamily: 'JetBrains Mono, monospace', fontSize: 10 },
         grid: { vertLines: { color: '#0f1528' }, horzLines: { color: '#0f1528' } }, rightPriceScale: { borderColor: '#1a2238' }, timeScale: { borderColor: '#1a2238', rightOffset: 4 },
-        crosshair: { mode: 0 }, width: el.clientWidth, height: 360 });
+        crosshair: { mode: 0 }, width: el.clientWidth, height: 300 });
       const cd = bars.map(b => ({ time: b[0], open: b[1], high: b[2], low: b[3], close: b[4] }));
       const cs_ = chart.addCandlestickSeries({ upColor: '#00ff9d', downColor: '#ff3b6b', borderVisible: false, wickUpColor: '#00ff9d', wickDownColor: '#ff3b6b' });
       cs_.setData(cd);
@@ -477,12 +468,12 @@
         const have = new Set(cd.map(x => x.time));
         cs_.setMarkers(v.pts.filter(p => have.has(p[0])).sort((a, b) => a[0] < b[0] ? -1 : 1).map(p => ({ time: p[0], position: p[2] === 'H' ? 'aboveBar' : 'belowBar', color: p[2] === 'H' ? '#00f3ff' : '#ffd000', shape: p[2] === 'H' ? 'arrowDown' : 'arrowUp', text: p[2] === 'H' ? String(p[1]) : '' })));
       }
-      chart.timeScale().setVisibleLogicalRange({ from: Math.max(0, cd.length - 130), to: cd.length + 3 });
+      chart.timeScale().setVisibleLogicalRange({ from: Math.max(0, cd.length - 110), to: cd.length + 3 });
       new ResizeObserver(() => chart && chart.applyOptions({ width: el.clientWidth })).observe(el);
-    } else if (bars) { $('#chart').innerHTML = '<div class="dw-nochart">圖表元件載入失敗(CDN)—— 用 TradingView 開啟</div>'; }
+    } else if (bars) { $('#chart').innerHTML = '<div class="nochart">圖表元件載入失敗(CDN)—— 用 TradingView 開啟</div>'; }
+    if (keepScroll) pg.querySelector('.dt-body').scrollTop = scrollY;
   }
-  function closeDrawer() { $('#dwbg').hidden = true; $('#dw').classList.remove('open'); $('#dw').setAttribute('aria-hidden', 'true'); if (chart) { chart.remove(); chart = null; } }
-  $('#dwbg').onclick = closeDrawer; document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#pg-detail').hidden) showList(); });
 
   recompute(true);
 })();
