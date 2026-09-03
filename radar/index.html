@@ -66,6 +66,8 @@
     .pr-row input[type=checkbox] { accent-color: var(--accent); width: 15px; height: 15px; }
     .pm-srv { font-family: var(--font-mono); font-size: .6rem; color: var(--text-dim); line-height: 1.7; margin-top: 8px; border-top: 1px dashed var(--border); padding-top: 8px; }
     .pm-srv b { color: var(--text-secondary); font-weight: 500; }
+    .pm-note { font-family: var(--font-mono); font-size: .6rem; color: var(--text-dim); line-height: 1.6; padding: 2px 0 6px; }
+    .pm-note b { color: var(--accent); font-weight: 600; } .pm-note .warn { color: var(--warning); }
     .breadth { margin-top: 10px; border-top: 1px solid var(--border); padding-top: 8px; }
     .breadth .t { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .12em; color: var(--text-dim); text-transform: uppercase; display: flex; justify-content: space-between; }
     .breadth svg { width: 100%; height: 54px; display: block; margin-top: 4px; }
@@ -175,7 +177,7 @@
 <div id="dwbg" class="dw-bg" hidden></div>
 <aside id="dw" class="dw" aria-hidden="true"></aside>
 
-<script src="funnel.js?v=20260903b"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
+<script src="funnel.js?v=20260903c"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 (async function () {
@@ -188,7 +190,7 @@
   const TVEX = { NASDAQ: 'NASDAQ', NYSE: 'NYSE', AMEX: 'AMEX' };
   const tvUrl = m => `https://www.tradingview.com/chart/?symbol=${encodeURIComponent((TVEX[m.ex] || m.ex || '') + ':' + m.s)}`;
   const WHY = { c1:'c1 價 < 150/200MA', c2:'c2 150MA < 200MA', c3:'c3 200MA 未上彎', c4:'c4 50MA 排列', c5:'c5 價 < 50MA', c6:'c6 離低點 < 門檻', c7:'c7 離高點 > 門檻', c8:'c8 RS 不足',
-    trend_days:'連續天數不足', stale:'K 線過期', 'L2:no_data':'無財報資料', 'L2:rev':'營收成長不足', 'L2:eps':'EPS 成長不足', 'L2:accel':'未加速', 'L2:gm':'毛利不足',
+    trend_days:'連續天數不足', stale:'K 線過期', 'L2:no_data':'無財報資料', 'L2:rev':'營收成長不足', 'L2:rev_na':'無營收(pre-revenue)', 'L2:eps':'EPS 成長不足', 'L2:eps_na':'去年同季 EPS ≤ 0(無法算成長)', 'L2:accel':'未加速', 'L2:gm':'毛利不足', 'L2:gm_na':'無毛利資料',
     'L3:rs':'RS < 門檻', 'L3:dist':'離 52W 高太遠', 'L3:adr':'ADR 不足', 'L3:event':'事件驅動(單日跳空)', 'L3:earnings':'財報窗', 'L3:sector_cap':'產業上限',
     'L4:no_vcp':'未見 VCP', 'L4:n':'收縮次數不足', 'L4:quality':'VCP 品質不足', 'L4:below_pivot':'離 pivot 太遠' };
 
@@ -217,6 +219,7 @@
       ['trend.above_low_mult', '高於 52W 低', 1, 2, .05, v => '+' + Math.round((v - 1) * 100) + '%'],
       ['trend.min_trend_days', 'c1–c7 連續成立 ≥', 0, 120, 1, v => v + ' 天'] ]},
     { g: 'L2 基本面爆發', k: 2, key: 'fundamental', items: [
+      ['_note', 'l2note'],
       ['fundamental.rev_growth_min', '營收 YoY ≥', 0, 1, .05, v => pct(v)],
       ['fundamental.eps_growth_min', 'EPS YoY ≥', 0, 2, .05, v => pct(v)],
       ['fundamental.gross_margin_min', '毛利率 ≥', 0, .9, .05, v => pct(v)],
@@ -268,12 +271,12 @@
   // 參數面板
   const pm = $('#params');
   pm.innerHTML = PARAMS.map(g => `<details class="pg ${get(g.key + '.enabled') === false ? 'off' : ''}" data-g="${g.key}" ${window.innerWidth > 960 || g.k >= 3 ? 'open' : ''}><summary><span>${g.g}</span><span style="display:flex;gap:10px;align-items:center"><span class="cnt" data-cnt="${g.k}"></span><label class="pg-on" onclick="event.stopPropagation()" title="關掉 = 整層略過,上一層通過的全部放行"><input type="checkbox" data-p="${g.key}.enabled" ${get(g.key + '.enabled') !== false ? 'checked' : ''}>啟用</label></span></summary>
-    ${g.items.map(it => it[2] === 'bool'
+    ${g.items.map(it => it[0] === '_note' ? `<div class="pm-note" id="${it[1]}"></div>` : it[2] === 'bool'
       ? `<label class="pr-row bool"><span class="pr-lab">${it[1]}</span><input type="checkbox" data-p="${it[0]}" ${get(it[0]) ? 'checked' : ''}></label>`
       : `<div class="pr-row"><span class="pr-lab">${it[1]}</span><span class="pr-val" data-v="${it[0]}">${it[5](get(it[0]))}</span>
          <input type="range" data-p="${it[0]}" min="${it[2]}" max="${it[3]}" step="${it[4]}" value="${get(it[0])}"></div>`).join('')}
   </details>`).join('');
-  const fmtOf = Object.fromEntries(PARAMS.flatMap(g => g.items.filter(i => i[2] !== 'bool').map(i => [i[0], i[5]])));
+  const fmtOf = Object.fromEntries(PARAMS.flatMap(g => g.items.filter(i => i[2] !== 'bool' && i[0] !== '_note').map(i => [i[0], i[5]])));
   pm.addEventListener('input', e => {
     const p = e.target.dataset.p; if (!p) return;
     const v = e.target.type === 'checkbox' ? e.target.checked : Number(e.target.value);
@@ -373,6 +376,10 @@
     drawFunnel(R.counts, !first);
     renderTabs();
     document.querySelectorAll('[data-cnt]').forEach(el => { el.textContent = R.counts[+el.dataset.cnt]; });
+    // L2 的拉桿只能動「有財報資料」的檔;把分母攤開,不然 FMP 掛掉那天拉桿看起來像壞了
+    const l1 = data.symbols.filter(m => (R.levels[m.s] ?? -1) >= 1), withF = l1.filter(m => m.f && m.f.ok).length;
+    const revNA = l1.filter(m => m.f && m.f.ok && m.f.rev_g == null).length;
+    const noteEl = $('#l2note'); if (noteEl) noteEl.innerHTML = `拉桿作用範圍:有財報 <b>${withF}</b> / ${l1.length} 檔 L1${withF < l1.length ? ` · <span class="warn">${l1.length - withF} 檔無財報(FMP 逾時,下次掃描補)</span>` : ''}${revNA ? ` · ${revNA} 檔無營收(pre-revenue 生技,任何營收門檻都過不了)` : ''}`;
     $('#fnsub').textContent = `${R.counts[0].toLocaleString()} → ${R.counts[1]} → ${R.counts[2]} → ${R.counts[3]} → ${R.counts[4]}`;
     renderTable();
   }
