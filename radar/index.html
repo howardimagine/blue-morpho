@@ -146,6 +146,13 @@
     .kv { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px 10px; font-family: var(--font-mono); font-size: .64rem; }
     .kv .k { color: var(--text-dim); font-size: .54rem; letter-spacing: .1em; text-transform: uppercase; } .kv .v { color: var(--text-primary); font-weight: 600; }
     .vcp-seq { font-family: var(--font-mono); font-size: .84rem; color: var(--text-primary); letter-spacing: .04em; } .vcp-seq b { color: var(--positive); }
+    table.rsx { width: 100%; border-collapse: collapse; font-family: var(--font-mono); font-size: var(--fs-sm); }
+    .rsx th { text-align: right; font-weight: 500; color: var(--dim); font-size: var(--fs-xs); letter-spacing: .06em; padding: 3px 6px; border-bottom: 1px solid var(--border); }
+    .rsx th:first-child, .rsx td:first-child, .rsx th:nth-child(2), .rsx td:nth-child(2) { text-align: left; }
+    .rsx td { text-align: right; padding: 5px 6px; border-bottom: 1px solid #10162a; color: #C4D3E0; white-space: nowrap; }
+    .rsx td small { color: var(--dim); margin-left: 5px; font-size: var(--fs-xs); }
+    .rsx-sum { display: flex; flex-direction: column; gap: 4px; margin-top: 8px; font-family: var(--font-mono); font-size: var(--fs-sm); color: var(--sec); }
+    .rsx-sum b { color: var(--text-primary); }
     .dt-links { display: flex; gap: 6px; flex-wrap: wrap; padding: 10px 12px 16px; align-items: center; }
     .dt-links .st { margin-left: auto; font-family: var(--font-mono); font-size: .56rem; color: var(--text-dim); }
 
@@ -356,7 +363,7 @@
     document.querySelectorAll('details.pg').forEach(d => d.classList.toggle('off', get(d.dataset.g + '.enabled') === false));
   }
   $('#reset').onclick = () => { P = clone(data.params); persist(); syncControls(); recompute(); };
-  $('#srv').innerHTML = `<b>伺服器參數</b>(掃描時固定):宇宙 mcap ≥ ${(u.min_mcap/1e6).toFixed(0)}M · 價 ≥ $${u.min_price} · 均量 ≥ ${(u.min_avg_volume/1e3).toFixed(0)}K · 200MA 斜率窗 ${sp.trend.ma_slope_lookback} 日 ·
+  $('#srv').innerHTML = `${data.rs_meta && data.rs_meta.n ? `<b>RS 基準</b>:${data.rs_meta.n} 檔 · 基準日 3M ${data.rs_meta.dates['63']} / 6M ${data.rs_meta.dates['126']} / 9M ${data.rs_meta.dates['189']} / 12M ${data.rs_meta.dates['252']}${data.rs_meta.spy ? ` · SPY 相當 RS <b>${data.rs_meta.spy.rating}</b>` : ''}<br>` : ''}<b>伺服器參數</b>(掃描時固定):宇宙 mcap ≥ ${(u.min_mcap/1e6).toFixed(0)}M · 價 ≥ $${u.min_price} · 均量 ≥ ${(u.min_avg_volume/1e3).toFixed(0)}K · 200MA 斜率窗 ${sp.trend.ma_slope_lookback} 日 ·
     VCP 回看 ${vp.lookback_days} 日 · 擺動強度 ${vp.swing_strength} · 收縮衰減 ≤ ×${vp.contraction_decay} · 首次收縮 ≤ ${Math.round(vp.max_first_depth*100)}% · 量縮 ≥ ${vp.volume_dryup_pct}% · 突破 = 收盤 > pivot +${vp.pivot_buffer_pct}% 且量 ≥ ${vp.breakout_volume_mult}× 均量`;
 
   const gen = new Date(data.generated_at), ageH = Math.max(0, (Date.now() - gen) / 36e5);
@@ -500,6 +507,15 @@
           .map((t, i) => `<div class="${cs[i] ? 'ok' : 'no'}"><span>c${i + 1} ${t}</span><span>${[fmt(m.px, 2), fmt(m.m150, 2) + '/' + fmt(m.m200, 2), sgn(m.m200 && m.m200p ? (m.m200 / m.m200p - 1) * 100 : null, 2), fmt(m.m50, 2), fmt(m.m50, 2), sgn(m.lo ? (m.px / m.lo - 1) * 100 : null, 0), sgn(m.hi ? (m.px / m.hi - 1) * 100 : null)][i]}</span></div>`).join('')}
         <div class="${(m.rs || 0) >= P.trend.rs_min ? 'ok' : 'no'}"><span>c8 RS ≥ ${P.trend.rs_min}</span><span>${fmt(m.rs, 0)}</span></div>
         <div class="${(m.td || 0) >= P.trend.min_trend_days ? 'ok' : 'no'}"><span>連續成立 ≥ ${P.trend.min_trend_days} 天</span><span>${m.td} 天</span></div></div></div>
+      ${m.rsx ? `<div class="sec"><h4>RS Rating · 算法攤開(全宇宙 ${(data.rs_meta||{}).n || '—'} 檔同一組基準日)</h4>
+        <table class="rsx"><thead><tr><th>區間</th><th>基準日</th><th>基準價</th><th>報酬</th><th>權重</th><th>貢獻</th></tr></thead><tbody>
+        ${[[63,'3 個月',.4],[126,'6 個月',.2],[189,'9 個月',.2],[252,'12 個月',.2]].map(([n,lab,w],i) => { const r = m.rsx.r[i], b = m.rsx.b[i]; const wEff = m.rsp ? (i < 2 ? .5 : 0) : w;
+          return `<tr><td>${lab}<small>r(${n})</small></td><td>${((data.rs_meta||{}).dates||{})[n] || '—'}</td><td>$${fmt(b, 2)}</td><td class="${r > 0 ? 'pos' : r < 0 ? 'neg' : ''}">${r == null ? '—' : sgn(r*100)}</td><td>× ${wEff}</td><td>${r == null ? '—' : (wEff*r >= 0 ? '+' : '') + (wEff*r).toFixed(4)}</td></tr>`; }).join('')}
+        </tbody></table>
+        <div class="rsx-sum"><span>RS_raw = <b>${m.rsx.raw == null ? '—' : (m.rsx.raw >= 0 ? '+' : '') + m.rsx.raw.toFixed(4)}</b></span>
+          <span>在 ${(data.rs_meta||{}).n || '—'} 檔裡贏過 <b>${m.rsx.beat ?? '—'}</b> 檔 → 百分位 <b>${m.rsx.beat != null && data.rs_meta ? (m.rsx.beat / data.rs_meta.n).toFixed(3) : '—'}</b> → ×98+1 = <b class="pos">RS ${fmt(m.rs, 0)}</b></span>
+          ${m.rsp ? '<span class="wn">新股:不足 252 根 K 線,退用 0.5×r(63)+0.5×r(126)</span>' : ''}
+          ${(data.rs_meta||{}).spy ? `<span>對照:SPY 套同一公式 raw ${data.rs_meta.spy.raw >= 0 ? '+' : ''}${data.rs_meta.spy.raw} → 相當於 RS <b>${data.rs_meta.spy.rating}</b></span>` : ''}</div></div>` : ''}
       <div class="sec"><h4>Fundamentals · ${f.ok ? esc(f.per || '') + ' · ' + esc(f.q || '') : '無資料'}</h4>
         ${f.ok ? `<div class="kv"><div><div class="k">營收 YoY</div><div class="v ${f.rev_g >= P.fundamental.rev_growth_min ? 'pos' : ''}">${pct(f.rev_g)} <small style="color:var(--text-dim)">上季 ${pct(f.rev_g_prev)}</small></div></div>
           <div><div class="k">EPS YoY</div><div class="v ${f.eps_g >= P.fundamental.eps_growth_min || f.turn ? 'pos' : ''}">${f.turn ? '轉虧為盈' : pct(f.eps_g)} <small style="color:var(--text-dim)">上季 ${pct(f.eps_g_prev)}</small></div></div>
