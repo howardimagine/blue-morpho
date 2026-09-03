@@ -294,7 +294,7 @@
 
   // meta
   const gen = new Date(data.generated_at), ageH = Math.max(0, (Date.now() - gen) / 36e5);
-  $('#meta').innerHTML = `<div>資料日 <b>${data.date}</b> · 掃描 ${ageH < 1 ? '剛剛' : ageH < 48 ? Math.round(ageH) + ' 小時前' : Math.round(ageH / 24) + ' 天前'} · ${data.elapsed_s}s</div>
+  $('#meta').innerHTML = `<div>資料日 <b>${data.date}</b>${data.session === 'open' ? ` <span class="warn">盤中快照 · 今日量推估 ×${data.vol_scale}</span>` : ''} · 掃描 ${ageH < 1 ? '剛剛' : ageH < 48 ? Math.round(ageH) + ' 小時前' : Math.round(ageH / 24) + ' 天前'} · ${data.elapsed_s}s</div>
     <div>宇宙 <b>${data.universe_n.toLocaleString()}</b> 檔${(data.symbols[0] || {}).usrc ? ` <span class="warn">(沿用 ${data.symbols[0].usrc.replace('cache:', '')} 快取)</span>` : ''} · K 線 ${data.bars_ok_n.toLocaleString()}${data.stale_n ? ` · <span class="warn">stale ${data.stale_n}</span>` : ''}${data.fund_missing_n ? ` · <span class="warn">無財報 ${data.fund_missing_n}</span>` : ''}</div>`;
 
   // ── 漏斗繪製 ───────────────────────────────────────────────
