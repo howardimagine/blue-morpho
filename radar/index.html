@@ -20,9 +20,11 @@
     .rd-meta { font-family: var(--font-mono); font-size: .66rem; color: var(--text-secondary); line-height: 1.8; text-align: right; }
     .rd-meta b { color: var(--text-primary); font-weight: 500; } .rd-meta .warn { color: var(--warning); }
 
-    .rd-grid { display: grid; grid-template-columns: minmax(0, 1fr) 470px; gap: var(--space-5); margin-top: var(--space-5); align-items: start; }
+    :root { --sbw: 470px; }
+    .rd-grid { display: grid; grid-template-columns: minmax(0, 1fr) var(--sbw); gap: var(--space-5); margin-top: var(--space-5); align-items: start; transition: grid-template-columns .25s; }
+    .sb-spacer { width: var(--sbw); }
     .left { display: flex; flex-direction: column; gap: var(--space-4); min-width: 0; }
-    @media (max-width: 1000px) { .rd-grid { grid-template-columns: minmax(0, 1fr); } .sb { position: static !important; height: auto !important; max-height: none !important; } }
+    @media (max-width: 1000px) { .rd-grid { grid-template-columns: minmax(0, 1fr); } .sb-spacer { display: none; } .sb { position: static !important; width: auto !important; height: 78vh !important; right: auto !important; } }
 
     .card { border: 1px solid var(--border); background: var(--bg-card); border-radius: 10px; }
     .card-t { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--font-mono); font-size: .64rem; letter-spacing: .18em; color: var(--accent); text-transform: uppercase; padding: 12px 14px 0; }
@@ -76,7 +78,9 @@
     .breadth svg { width: 100%; height: 44px; display: block; margin-top: 3px; }
 
     /* Sidebar */
-    .sb { position: sticky; top: 12px; height: calc(100vh - 24px); display: flex; flex-direction: column; overflow: hidden; }
+    /* fixed 而非 sticky:style.css 對 html/body 設 overflow-x:hidden,Chrome 會讓 sticky 失效 */
+    .sb { position: fixed; top: 12px; bottom: 12px; width: var(--sbw); right: max(16px, calc((100vw - 1320px) / 2 + 16px));
+      display: flex; flex-direction: column; overflow: hidden; transition: width .25s; z-index: 5; }
     .sb-page { display: flex; flex-direction: column; min-height: 0; flex: 1; }
     .sb-bar { padding: 10px 12px 8px; border-bottom: 1px solid var(--border); display: flex; flex-direction: column; gap: 7px; }
     .lv-tabs { display: flex; gap: 4px; flex-wrap: wrap; }
@@ -103,6 +107,11 @@
     .r2 .name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .r2 .name small { color: var(--text-dim); font-family: var(--font-mono); font-size: .58rem; margin-left: 5px; }
     .r2 .why { font-family: var(--font-mono); font-size: .58rem; color: var(--text-dim); white-space: nowrap; }
+    .r3 { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; margin-top: 5px; font-family: var(--font-mono); }
+    .r3 div { min-width: 0; } .r3 i { display: block; font-style: normal; font-size: .5rem; letter-spacing: .06em; color: var(--text-dim); text-transform: uppercase; white-space: nowrap; }
+    .r3 b { display: block; font-size: .62rem; font-weight: 600; color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .r4 { margin-top: 4px; font-family: var(--font-mono); font-size: .58rem; color: var(--text-dim); display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
+    .r4 .tgt { color: var(--positive); }
     .pos { color: var(--positive) !important; } .neg { color: var(--negative) !important; } .wn { color: var(--warning) !important; }
     .lv { display: inline-block; font-size: .55rem; font-weight: 700; letter-spacing: .06em; padding: 1px 5px; border-radius: 3px; border: 1px solid; font-family: var(--font-mono); }
     .lv0 { color: #6b7a90; border-color: #2a3448; } .lv1 { color: #56c9dd; border-color: #1f5a66; } .lv2 { color: #7ee0f0; border-color: #2b7f8f; }
@@ -123,7 +132,7 @@
     .dt-kpi div { background: var(--bg-card); padding: 8px 10px; }
     .dt-kpi .k { font-family: var(--font-mono); font-size: .52rem; letter-spacing: .12em; color: var(--text-dim); text-transform: uppercase; }
     .dt-kpi .v { font-family: var(--font-mono); font-size: .9rem; font-weight: 700; color: var(--text-primary); margin-top: 2px; }
-    #chart { height: 300px; width: 100%; }
+    #chart { height: 340px; width: 100%; }
     .nochart { padding: 30px 12px; text-align: center; font-family: var(--font-mono); font-size: .66rem; color: var(--text-dim); line-height: 1.9; }
     .legend { font-family: var(--font-mono); font-size: .54rem; color: var(--text-dim); padding: 5px 12px 0; display: flex; gap: 10px; flex-wrap: wrap; }
     .legend i { display: inline-block; width: 12px; height: 2px; vertical-align: middle; margin-right: 3px; }
@@ -252,13 +261,14 @@
           <div class="breadth"><div class="t"><span>Breadth · L1 通過家數</span><span id="brv"></span></div><svg id="breadth" viewBox="0 0 300 44" preserveAspectRatio="none"></svg></div>
         </section>
       </div>
+      <div class="sb-spacer"></div>
       <aside class="card sb" id="sb">
         <div class="sb-page" id="pg-list">
           <div class="sb-bar">
             <div class="lv-tabs" id="lvtabs"></div>
             <div class="sb-tools">
               <input type="search" id="q" placeholder="搜尋代號 / 名稱 / 產業" aria-label="搜尋">
-              <select id="sort" aria-label="排序"><option value="rs">RS ↓</option><option value="dh">距高 ↓</option><option value="td">趨勢天 ↓</option><option value="vq">VCP 品質 ↓</option><option value="dp">離 pivot ↓</option><option value="s">代號 A–Z</option></select>
+              <select id="sort" aria-label="排序"><option value="rs">RS ↓</option><option value="dh">距高 ↓</option><option value="px">價格 ↓</option><option value="td">趨勢天 ↓</option><option value="age">在層 ↓</option><option value="rev_g">營收 YoY ↓</option><option value="eps_g">EPS YoY ↓</option><option value="gm">毛利 ↓</option><option value="vq">VCP 品質 ↓</option><option value="dp">離 pivot ↓</option><option value="s">代號 A–Z</option></select>
               <button class="btn" id="copytv" title="複製本層代號,貼進 TradingView watchlist">⧉ TV</button>
             </div>
             <div class="sb-lv" id="sblv"></div>
@@ -388,7 +398,8 @@
   }
 
   // ── Sidebar 第 1 頁:名單 ─────────────────────────────────
-  const val = (m, k) => k === 'dh' ? (m.hi ? (m.px / m.hi - 1) * 100 : null) : k === 'vq' ? (m.v ? m.v.q : null) : k === 'dp' ? (m.v ? m.v.dp : null) : m[k];
+  const val = (m, k) => k === 'dh' ? (m.hi ? (m.px / m.hi - 1) * 100 : null) : k === 'vq' ? (m.v ? m.v.q : null) : k === 'dp' ? (m.v ? m.v.dp : null)
+    : (k === 'rev_g' || k === 'eps_g' || k === 'gm') ? (m.f || {})[k] : m[k];
   function rows() {
     const qq = q.trim().toUpperCase();
     return data.symbols.filter(m => (R.levels[m.s] ?? -1) >= sel && (!qq || m.s.includes(qq) || (m.name || '').toUpperCase().includes(qq) || (m.ind || '').toUpperCase().includes(qq)))
@@ -401,10 +412,20 @@
       const v = m.v, lv = R.levels[m.s], dh = val(m, 'dh');
       const flags = [v && v.bo ? '<span class="flag bo">突破</span>' : '', (m.gap || 0) > P.catalyst.max_single_day_gap_pct ? '<span class="flag ev">事件</span>' : '',
         m.e && m.e.next && (Date.parse(m.e.next) - Date.parse(data.date)) / 864e5 <= P.catalyst.earnings_within_days ? `<span class="flag er">財報 ${m.e.next.slice(5)}</span>` : '', m.rsp ? '<span class="flag">新股</span>' : ''].join('');
+      const f = m.f || {}, up = (a, b) => (a != null && b != null && a > b) ? '↑' : '';
       return `<div class="row" data-s="${m.s}">
         <div class="r1"><span class="sym">${m.s}</span><span class="lv lv${lv}">L${lv}</span>${flags}
-          <span class="num"><span>RS <b class="${m.rs >= 90 ? 'pos' : ''}">${fmt(m.rs, 0)}</b></span><span>距高 <b class="${dh != null && dh > -5 ? 'pos' : ''}">${sgn(dh)}</b></span>${v ? `<span>VCP <b class="${v.q >= P.vcp.min_quality ? 'pos' : ''}">Q${v.q}</b></span>` : ''}</span></div>
-        <div class="r2"><span class="name">${esc(m.name)}<small>${esc(m.sec || '')}</small></span><span class="why">${lv < 4 ? esc(WHY[R.fail[m.s]] || R.fail[m.s] || '') : '🎯 狙擊候選'}</span></div>
+          <span class="num"><span>$<b>${fmt(m.px, 2)}</b></span><span>RS <b class="${m.rs >= 90 ? 'pos' : ''}">${fmt(m.rs, 0)}</b></span><span>距高 <b class="${dh != null && dh > -5 ? 'pos' : ''}">${sgn(dh)}</b></span></span></div>
+        <div class="r2"><span class="name">${esc(m.name)}<small>${esc(m.sec || '')}${m.ind ? ' · ' + esc(m.ind) : ''}</small></span></div>
+        <div class="r3">
+          <div><i>趨勢天</i><b>${m.td ?? '—'}</b></div><div><i>在層</i><b>${m.age ? m.age + 'd' : '—'}</b></div>
+          <div><i>營收YoY</i><b class="${f.rev_g >= P.fundamental.rev_growth_min ? 'pos' : ''}">${pct(f.rev_g)}${up(f.rev_g, f.rev_g_prev)}</b></div>
+          <div><i>EPS YoY</i><b class="${f.eps_g >= P.fundamental.eps_growth_min || f.turn ? 'pos' : ''}">${f.turn ? '轉盈' : pct(f.eps_g)}${up(f.eps_g, f.eps_g_prev)}</b></div>
+          <div><i>毛利</i><b>${pct(f.gm)}</b></div>
+          <div><i>VCP</i><b class="${v && v.q >= P.vcp.min_quality ? 'pos' : ''}">${v ? `${v.n}次·Q${v.q}` : '—'}</b></div>
+          <div><i>離pivot</i><b class="${v && v.dp > -3 ? 'pos' : ''}">${v ? sgn(v.dp) : '—'}</b></div>
+        </div>
+        <div class="r4">${lv < 4 ? '卡在:' + esc(WHY[R.fail[m.s]] || R.fail[m.s] || '') : '<span class="tgt">🎯 狙擊候選</span>'}</div>
       </div>`; }).join('') || `<div class="empty">此層無標的<br>這是漏斗的正常狀態</div>`;
     $('#sbfoot').textContent = `點列開圖 · 內嵌 K 線:L4/L3 + 有 VCP 形狀者 + RS 前 ${sp.output ? sp.output.embed_bars_top_n : 80};其餘用 TradingView`;
   }
@@ -416,8 +437,9 @@
   // ── Sidebar 第 2 頁:個股(有返回)───────────────────────
   let chart = null, curSym = null;
   function sma(arr, n) { const out = []; let s = 0; for (let i = 0; i < arr.length; i++) { s += arr[i].close; if (i >= n) s -= arr[i - n].close; if (i >= n - 1) out.push({ time: arr[i].time, value: s / n }); } return out; }
-  function showList() { $('#pg-detail').hidden = true; $('#pg-list').hidden = false; if (chart) { chart.remove(); chart = null; } curSym = null; }
-  function showDetail(s) { curSym = s; $('#pg-list').hidden = true; $('#pg-detail').hidden = false; renderDetail(s); $('#pg-detail').scrollTop = 0; }
+  const setWide = w => document.documentElement.style.setProperty('--sbw', w ? '640px' : '470px');
+  function showList() { $('#pg-detail').hidden = true; $('#pg-list').hidden = false; if (chart) { chart.remove(); chart = null; } curSym = null; setWide(false); }
+  function showDetail(s) { curSym = s; $('#pg-list').hidden = true; $('#pg-detail').hidden = false; setWide(true); renderDetail(s); $('#pg-detail').scrollTop = 0; }
   function renderDetail(s, keepScroll) {
     const m = bySym[s], f = m.f || {}, v = m.v, cs = RadarFunnel.c17(m, P.trend), lv = R.levels[s], bars = data.bars[s];
     const pg = $('#pg-detail'), scrollY = keepScroll ? (pg.querySelector('.dt-body')?.scrollTop || 0) : 0;
@@ -454,7 +476,7 @@
       const el = $('#chart');
       chart = LightweightCharts.createChart(el, { layout: { background: { type: 'solid', color: '#0b0b1a' }, textColor: '#7c93a4', fontFamily: 'JetBrains Mono, monospace', fontSize: 10 },
         grid: { vertLines: { color: '#0f1528' }, horzLines: { color: '#0f1528' } }, rightPriceScale: { borderColor: '#1a2238' }, timeScale: { borderColor: '#1a2238', rightOffset: 4 },
-        crosshair: { mode: 0 }, width: el.clientWidth, height: 300 });
+        crosshair: { mode: 0 }, width: el.clientWidth, height: 340 });
       const cd = bars.map(b => ({ time: b[0], open: b[1], high: b[2], low: b[3], close: b[4] }));
       const cs_ = chart.addCandlestickSeries({ upColor: '#00ff9d', downColor: '#ff3b6b', borderVisible: false, wickUpColor: '#00ff9d', wickDownColor: '#ff3b6b' });
       cs_.setData(cd);
