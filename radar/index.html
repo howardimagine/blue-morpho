@@ -10,21 +10,22 @@
   <style>
     /* ── SEPA Radar v2 · 左:漏斗 + 參數(同寬)· 右:sidebar 兩頁(名單 ⇄ 個股)────────── */
     body { background: var(--bg); color: var(--text-primary); font-family: var(--font-text); }
-    .rd { max-width: 1320px; margin: 0 auto; padding: 0 var(--space-4) var(--space-12); }
-    .rd-head { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--space-4);
-      flex-wrap: wrap; padding: var(--space-5) 0 var(--space-3); border-bottom: 1px solid var(--border); }
+    :root { --hdr: 62px; --sbw: 470px; }
+    .rd { padding: calc(var(--hdr) + 16px) 24px 48px; margin-right: var(--sbw); transition: margin-right .25s; }
+    /* header:固定、通欄、永遠在 sidebar 之上 */
+    .rd-head { position: fixed; top: 0; left: 0; right: 0; height: var(--hdr); z-index: 20; background: var(--bg); border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding: 0 24px; }
     .rd-brand { font-family: var(--font-mono); font-size: .66rem; letter-spacing: .22em; color: var(--accent); text-transform: uppercase; }
     .rd-brand b { color: var(--text-primary); font-weight: 600; }
-    .rd-h1 { font-size: clamp(1.05rem, 2.2vw, 1.35rem); font-weight: 700; margin-top: 4px; letter-spacing: .01em; }
+    .rd-h1 { font-size: 1.05rem; font-weight: 700; margin-top: 2px; letter-spacing: .01em; white-space: nowrap; }
     .rd-h1 span { color: var(--text-dim); font-weight: 400; font-size: .8em; }
-    .rd-meta { font-family: var(--font-mono); font-size: .66rem; color: var(--text-secondary); line-height: 1.8; text-align: right; }
+    .rd-meta { font-family: var(--font-mono); font-size: .62rem; color: var(--text-secondary); line-height: 1.6; text-align: right; }
     .rd-meta b { color: var(--text-primary); font-weight: 500; } .rd-meta .warn { color: var(--warning); }
 
-    :root { --sbw: 470px; }
-    .rd-grid { display: grid; grid-template-columns: minmax(0, 1fr) var(--sbw); gap: var(--space-5); margin-top: var(--space-5); align-items: start; transition: grid-template-columns .25s; }
-    .sb-spacer { width: var(--sbw); }
-    .left { display: flex; flex-direction: column; gap: var(--space-4); min-width: 0; }
-    @media (max-width: 1000px) { .rd-grid { grid-template-columns: minmax(0, 1fr); } .sb-spacer { display: none; } .sb { position: static !important; width: auto !important; height: 78vh !important; right: auto !important; } }
+    .rd-grid { display: block; }
+    .left { display: flex; flex-direction: column; gap: var(--space-4); min-width: 0; max-width: 1100px; margin: 0 auto; }
+    @media (max-width: 1000px) { .rd { margin-right: 0; } .rd-head { position: static; height: auto; padding: 12px 16px; flex-wrap: wrap; } .rd { padding-top: 16px; }
+      .sb { position: static !important; width: auto !important; height: 78vh !important; border-left: 0 !important; border-top: 1px solid var(--border); margin-top: 16px; } }
 
     .card { border: 1px solid var(--border); background: var(--bg-card); border-radius: 10px; }
     .card-t { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--font-mono); font-size: .64rem; letter-spacing: .18em; color: var(--accent); text-transform: uppercase; padding: 12px 14px 0; }
@@ -78,10 +79,11 @@
     .breadth svg { width: 100%; height: 44px; display: block; margin-top: 3px; }
 
     /* Sidebar */
-    /* fixed 而非 sticky:style.css 對 html/body 設 overflow-x:hidden,Chrome 會讓 sticky 失效 */
-    .sb { position: fixed; top: 12px; bottom: 12px; width: var(--sbw); right: max(16px, calc((100vw - 1320px) / 2 + 16px));
-      display: flex; flex-direction: column; overflow: hidden; transition: width .25s; z-index: 5; }
+    /* fixed 而非 sticky:style.css 對 html/body 設 overflow-x:hidden,Chrome 會讓 sticky 失效。通欄:header 下方貼右到底,無圓角無間距 */
+    .sb { position: fixed; top: var(--hdr); right: 0; bottom: 0; width: var(--sbw); border-radius: 0; border: 0; border-left: 1px solid var(--border);
+      background: var(--bg-card); display: flex; flex-direction: column; overflow: hidden; transition: width .25s; z-index: 10; }
     .sb-page { display: flex; flex-direction: column; min-height: 0; flex: 1; }
+    .sb-page[hidden] { display: none !important; }   /* ← 沒這行 hidden 會被 display:flex 蓋掉,名單與個股頁會同時出現 */
     .sb-bar { padding: 10px 12px 8px; border-bottom: 1px solid var(--border); display: flex; flex-direction: column; gap: 7px; }
     .lv-tabs { display: flex; gap: 4px; flex-wrap: wrap; }
     .lv-tab { font-family: var(--font-mono); font-size: .6rem; letter-spacing: .03em; padding: 4px 8px; border: 1px solid var(--border); border-radius: 4px; background: transparent; color: var(--text-secondary); cursor: pointer; }
@@ -261,8 +263,7 @@
           <div class="breadth"><div class="t"><span>Breadth · L1 通過家數</span><span id="brv"></span></div><svg id="breadth" viewBox="0 0 300 44" preserveAspectRatio="none"></svg></div>
         </section>
       </div>
-      <div class="sb-spacer"></div>
-      <aside class="card sb" id="sb">
+      <aside class="sb" id="sb">
         <div class="sb-page" id="pg-list">
           <div class="sb-bar">
             <div class="lv-tabs" id="lvtabs"></div>
