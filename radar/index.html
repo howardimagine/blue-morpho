@@ -154,6 +154,55 @@
     .rd-foot ol { margin: 8px 0 0 18px; }
     .loading { font-family: var(--font-mono); font-size: .7rem; color: var(--text-dim); text-align: center; padding: var(--space-16) 0; letter-spacing: .1em; }
     @media (max-width: 640px) { .dt-kpi { grid-template-columns: repeat(2, 1fr); } .kv { grid-template-columns: repeat(2, 1fr); } .cond { grid-template-columns: 1fr; } .pr-row { grid-template-columns: 120px 1fr 60px; } }
+
+    /* ══ 可讀性(Howard:字級與對比度)——統一覆寫:最小 11px、暗灰改 ≥5:1 色階 ═══════════════ */
+    :root { --dim: #8A9BB0; --dim2: #6F8197; --sbw: 500px; }
+    .rd-brand { font-size: .72rem; } .rd-h1 { font-size: 1.1rem; } .rd-meta { font-size: .76rem; color: #B4C3D3; } .rd-meta .warn { color: #FFD666; }
+    .card-t { font-size: .7rem; } .card-t .sub { color: var(--dim); font-size: .74rem; }
+    /* 漏斗 SVG 文字 */
+    .fl .badge-t { font-size: 11px; } .fl .nm { font-size: 12.5px; fill: #C9E3EE; } .fl .ct { font-size: 21px; } .fl .pr { font-size: 11px; fill: #8FA3B8; }
+    .fl.off .nm, .fl.off .ct { fill: #7C8FA6; }
+    .fn-hint { font-size: .7rem; color: var(--dim); }
+    /* 參數 */
+    .pm-title { font-size: .7rem; } .pm-reset { font-size: .68rem; padding: 4px 10px; color: #B4C3D3; }
+    details.pg summary { font-size: .8rem; padding: 7px 0; } details.pg summary::after { color: var(--dim); }
+    .pg-on { font-size: .66rem; color: var(--dim); } .pg-on input { width: 14px; height: 14px; }
+    details.pg.off summary { color: var(--dim2); } details.pg.off summary .cnt::after { font-size: .62rem; }
+    .pr-row { grid-template-columns: 168px 1fr 78px; padding: 3px 0; }
+    .pr-lab { font-size: .78rem; color: #B4C3D3; } .pr-val { font-size: .78rem; }
+    .pr-row input[type=range] { height: 16px; }
+    .pm-note { font-size: .7rem; color: var(--dim); } .pm-note .warn { color: #FFD666; }
+    .pm-srv { font-size: .72rem; color: var(--dim); line-height: 1.7; } .pm-srv b { color: #B4C3D3; }
+    .breadth .t { font-size: .66rem; color: var(--dim); }
+    /* Sidebar 名單 */
+    .lv-tab { font-size: .7rem; padding: 5px 9px; color: #B4C3D3; } .lv-tab.off { opacity: .6; }
+    .sb-tools input[type=search] { font-size: .76rem; padding: 6px 9px; } .sb-tools select { font-size: .7rem; color: #B4C3D3; }
+    .btn { font-size: .68rem; padding: 6px 9px; } .btn.ghost { color: #B4C3D3; }
+    .sb-lv { font-size: .7rem; color: var(--dim); }
+    .row { padding: 10px 12px; }
+    .r1 { font-size: .78rem; gap: 9px; } .r1 .sym { font-size: .92rem; width: 62px; } .r1 .num { gap: 12px; color: #B4C3D3; }
+    .r2 { font-size: .78rem; margin-top: 4px; } .r2 .name small { font-size: .72rem; color: var(--dim); }
+    .r3 { gap: 5px; margin-top: 7px; } .r3 i { font-size: .7rem; color: var(--dim); } .r3 b { font-size: .74rem; color: #D5E4EE; }
+    .r4 { font-size: .7rem; color: var(--dim); margin-top: 5px; }
+    .lv { font-size: .62rem; padding: 2px 6px; } .lv0 { color: #8A9BB0; border-color: #3a4658; } .lv1 { color: #6ED3E6; border-color: #27707e; } .lv2 { color: #8FE7F5; border-color: #33919f; }
+    .flag { font-size: .62rem; padding: 1px 5px; color: var(--dim); } .flag.ev { color: #FFD666; border-color: #6a5800; } .flag.er { color: #FFB4C6; }
+    .sb-foot { font-size: .7rem; color: var(--dim); } .empty { font-size: .76rem; color: var(--dim); }
+    /* Sidebar 個股頁 */
+    .back { font-size: .72rem; padding: 5px 10px; color: #B4C3D3; }
+    .dt-sym { font-size: 1.25rem; } .dt-name { font-size: .82rem; } .dt-name small { font-size: .68rem; color: var(--dim); }
+    .dt-kpi .k { font-size: .7rem; color: var(--dim); } .dt-kpi .v { font-size: 1rem; } .dt-kpi div { padding: 9px 11px; }
+    .nochart { font-size: .76rem; color: var(--dim); }
+    .legend { font-size: .7rem; color: var(--dim); }
+    .sec h4 { font-size: .72rem; margin-bottom: 8px; }
+    .cond { font-size: .76rem; gap: 5px 14px; } .cond div { color: #C4D3E0; }
+    .kv { font-size: .76rem; gap: 7px 12px; } .kv .k { font-size: .7rem; color: var(--dim); }
+    .kv .v small { color: var(--dim) !important; }
+    .vcp-seq { font-size: .92rem; }
+    .dt-links .st { font-size: .72rem; color: var(--dim); }
+    .sec > div[style*="text-dim"] { color: var(--dim) !important; font-size: .74rem !important; }
+    /* 頁尾 */
+    .rd-foot { font-size: .78rem; color: var(--dim); } .rd-foot details summary { font-size: .7rem; color: #B4C3D3; }
+    @media (max-width: 640px) { .pr-row { grid-template-columns: 130px 1fr 66px; } }
   </style>
 </head>
 <body>
@@ -438,7 +487,7 @@
   // ── Sidebar 第 2 頁:個股(有返回)───────────────────────
   let chart = null, curSym = null;
   function sma(arr, n) { const out = []; let s = 0; for (let i = 0; i < arr.length; i++) { s += arr[i].close; if (i >= n) s -= arr[i - n].close; if (i >= n - 1) out.push({ time: arr[i].time, value: s / n }); } return out; }
-  const setWide = w => document.documentElement.style.setProperty('--sbw', w ? '640px' : '470px');
+  const setWide = w => document.documentElement.style.setProperty('--sbw', w ? '680px' : '500px');
   function showList() { $('#pg-detail').hidden = true; $('#pg-list').hidden = false; if (chart) { chart.remove(); chart = null; } curSym = null; setWide(false); }
   function showDetail(s) { curSym = s; $('#pg-list').hidden = true; $('#pg-detail').hidden = false; setWide(true); renderDetail(s); $('#pg-detail').scrollTop = 0; }
   function renderDetail(s, keepScroll) {
