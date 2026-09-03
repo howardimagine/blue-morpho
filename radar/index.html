@@ -11,7 +11,7 @@
     /* ── SEPA Radar v2 · 左:漏斗 + 參數(同寬)· 右:sidebar 兩頁(名單 ⇄ 個股)────────── */
     body { background: var(--bg); color: var(--text-primary); font-family: var(--font-text); }
     :root { --hdr: 62px; --sbw: 470px; }
-    .rd { padding: calc(var(--hdr) + 16px) 24px 48px; margin-right: var(--sbw); transition: margin-right .25s; }
+    .rd { padding: calc(var(--hdr) + 16px) 24px 48px; margin-right: var(--sbw); }
     /* header:固定、通欄、永遠在 sidebar 之上 */
     .rd-head { position: fixed; top: 0; left: 0; right: 0; height: var(--hdr); z-index: 20; background: var(--bg); border-bottom: 1px solid var(--border);
       display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); padding: 0 24px; }
@@ -81,7 +81,7 @@
     /* Sidebar */
     /* fixed 而非 sticky:style.css 對 html/body 設 overflow-x:hidden,Chrome 會讓 sticky 失效。通欄:header 下方貼右到底,無圓角無間距 */
     .sb { position: fixed; top: var(--hdr); right: 0; bottom: 0; width: var(--sbw); border-radius: 0; border: 0; border-left: 1px solid var(--border);
-      background: var(--bg-card); display: flex; flex-direction: column; overflow: hidden; transition: width .25s; z-index: 10; }
+      background: var(--bg-card); display: flex; flex-direction: column; overflow: hidden; z-index: 10; }
     .sb-page { display: flex; flex-direction: column; min-height: 0; flex: 1; }
     .sb-page[hidden] { display: none !important; }   /* ← 沒這行 hidden 會被 display:flex 蓋掉,名單與個股頁會同時出現 */
     .sb-bar { padding: 10px 12px 8px; border-bottom: 1px solid var(--border); display: flex; flex-direction: column; gap: 7px; }
@@ -155,53 +155,54 @@
     .loading { font-family: var(--font-mono); font-size: .7rem; color: var(--text-dim); text-align: center; padding: var(--space-16) 0; letter-spacing: .1em; }
     @media (max-width: 640px) { .dt-kpi { grid-template-columns: repeat(2, 1fr); } .kv { grid-template-columns: repeat(2, 1fr); } .cond { grid-template-columns: 1fr; } .pr-row { grid-template-columns: 120px 1fr 60px; } }
 
-    /* ══ 可讀性(Howard:字級與對比度)——統一覆寫:最小 11px、暗灰改 ≥5:1 色階 ═══════════════ */
-    :root { --dim: #8A9BB0; --dim2: #6F8197; --sbw: 500px; }
-    .rd-brand { font-size: .72rem; } .rd-h1 { font-size: 1.1rem; } .rd-meta { font-size: .76rem; color: #B4C3D3; } .rd-meta .warn { color: #FFD666; }
-    .card-t { font-size: .7rem; } .card-t .sub { color: var(--dim); font-size: .74rem; }
-    /* 漏斗 SVG 文字 */
-    .fl .badge-t { font-size: 11px; } .fl .nm { font-size: 12.5px; fill: #C9E3EE; } .fl .ct { font-size: 21px; } .fl .pr { font-size: 11px; fill: #8FA3B8; }
+    /* ══ 字級收斂:全頁只用 4 級(xs 11 / sm 12.5 / md 14 / lg 17px)+ 對比 ≥ 6.9:1 ═══════════════════ */
+    :root { --fs-xs: 11px; --fs-sm: 12.5px; --fs-md: 14px; --fs-lg: 17px; --dim: #8A9BB0; --sec: #B4C3D3; --sbw: 600px; }
+    .rd-brand { font-size: var(--fs-xs); } .rd-h1 { font-size: var(--fs-lg); } .rd-meta { font-size: var(--fs-sm); color: var(--sec); } .rd-meta .warn { color: #FFD666; }
+    .card-t { font-size: var(--fs-xs); } .card-t .sub { color: var(--dim); font-size: var(--fs-sm); }
+    /* 漏斗 SVG:viewBox 單位會隨寬度放大(×1.3~1.4),所以這裡故意小 */
+    .fl .badge-t { font-size: 9px; } .fl .nm { font-size: 9.5px; fill: #C9E3EE; } .fl .ct { font-size: 15px; } .fl .pr { font-size: 8.5px; fill: #8FA3B8; }
     .fl.off .nm, .fl.off .ct { fill: #7C8FA6; }
-    .fn-hint { font-size: .7rem; color: var(--dim); }
+    .fn-hint { font-size: var(--fs-xs); color: var(--dim); }
     /* 參數 */
-    .pm-title { font-size: .7rem; } .pm-reset { font-size: .68rem; padding: 4px 10px; color: #B4C3D3; }
-    details.pg summary { font-size: .8rem; padding: 7px 0; } details.pg summary::after { color: var(--dim); }
-    .pg-on { font-size: .66rem; color: var(--dim); } .pg-on input { width: 14px; height: 14px; }
-    details.pg.off summary { color: var(--dim2); } details.pg.off summary .cnt::after { font-size: .62rem; }
+    .pm-title { font-size: var(--fs-xs); } .pm-reset { font-size: var(--fs-xs); padding: 4px 10px; color: var(--sec); }
+    details.pg summary { font-size: var(--fs-sm); padding: 7px 0; } details.pg summary::after { color: var(--dim); }
+    .pg-on { font-size: var(--fs-xs); color: var(--dim); } .pg-on input { width: 14px; height: 14px; }
+    details.pg.off summary { color: var(--dim); } details.pg.off summary .cnt::after { font-size: var(--fs-xs); }
     .pr-row { grid-template-columns: 168px 1fr 78px; padding: 3px 0; }
-    .pr-lab { font-size: .78rem; color: #B4C3D3; } .pr-val { font-size: .78rem; }
+    .pr-lab { font-size: var(--fs-sm); color: var(--sec); } .pr-val { font-size: var(--fs-sm); }
     .pr-row input[type=range] { height: 16px; }
-    .pm-note { font-size: .7rem; color: var(--dim); } .pm-note .warn { color: #FFD666; }
-    .pm-srv { font-size: .72rem; color: var(--dim); line-height: 1.7; } .pm-srv b { color: #B4C3D3; }
-    .breadth .t { font-size: .66rem; color: var(--dim); }
+    .pm-note, .pm-srv, .breadth .t { font-size: var(--fs-xs); color: var(--dim); } .pm-note .warn { color: #FFD666; } .pm-srv b { color: var(--sec); }
     /* Sidebar 名單 */
-    .lv-tab { font-size: .7rem; padding: 5px 9px; color: #B4C3D3; } .lv-tab.off { opacity: .6; }
-    .sb-tools input[type=search] { font-size: .76rem; padding: 6px 9px; } .sb-tools select { font-size: .7rem; color: #B4C3D3; }
-    .btn { font-size: .68rem; padding: 6px 9px; } .btn.ghost { color: #B4C3D3; }
-    .sb-lv { font-size: .7rem; color: var(--dim); }
+    .lv-tab { font-size: var(--fs-xs); padding: 5px 9px; color: var(--sec); } .lv-tab.off { opacity: .6; }
+    .sb-tools input[type=search] { font-size: var(--fs-sm); padding: 6px 9px; } .sb-tools select { font-size: var(--fs-xs); color: var(--sec); }
+    .btn { font-size: var(--fs-xs); padding: 6px 9px; } .btn.ghost { color: var(--sec); }
+    .sb-lv, .sb-foot, .r4 { font-size: var(--fs-xs); color: var(--dim); }
     .row { padding: 10px 12px; }
-    .r1 { font-size: .78rem; gap: 9px; } .r1 .sym { font-size: .92rem; width: 62px; } .r1 .num { gap: 12px; color: #B4C3D3; }
-    .r2 { font-size: .78rem; margin-top: 4px; } .r2 .name small { font-size: .72rem; color: var(--dim); }
-    .r3 { gap: 5px; margin-top: 7px; } .r3 i { font-size: .7rem; color: var(--dim); } .r3 b { font-size: .74rem; color: #D5E4EE; }
-    .r4 { font-size: .7rem; color: var(--dim); margin-top: 5px; }
-    .lv { font-size: .62rem; padding: 2px 6px; } .lv0 { color: #8A9BB0; border-color: #3a4658; } .lv1 { color: #6ED3E6; border-color: #27707e; } .lv2 { color: #8FE7F5; border-color: #33919f; }
-    .flag { font-size: .62rem; padding: 1px 5px; color: var(--dim); } .flag.ev { color: #FFD666; border-color: #6a5800; } .flag.er { color: #FFB4C6; }
-    .sb-foot { font-size: .7rem; color: var(--dim); } .empty { font-size: .76rem; color: var(--dim); }
-    /* Sidebar 個股頁 */
-    .back { font-size: .72rem; padding: 5px 10px; color: #B4C3D3; }
-    .dt-sym { font-size: 1.25rem; } .dt-name { font-size: .82rem; } .dt-name small { font-size: .68rem; color: var(--dim); }
-    .dt-kpi .k { font-size: .7rem; color: var(--dim); } .dt-kpi .v { font-size: 1rem; } .dt-kpi div { padding: 9px 11px; }
-    .nochart { font-size: .76rem; color: var(--dim); }
-    .legend { font-size: .7rem; color: var(--dim); }
-    .sec h4 { font-size: .72rem; margin-bottom: 8px; }
-    .cond { font-size: .76rem; gap: 5px 14px; } .cond div { color: #C4D3E0; }
-    .kv { font-size: .76rem; gap: 7px 12px; } .kv .k { font-size: .7rem; color: var(--dim); }
-    .kv .v small { color: var(--dim) !important; }
-    .vcp-seq { font-size: .92rem; }
-    .dt-links .st { font-size: .72rem; color: var(--dim); }
-    .sec > div[style*="text-dim"] { color: var(--dim) !important; font-size: .74rem !important; }
+    .r1 { font-size: var(--fs-sm); gap: 9px; } .r1 .sym { font-size: var(--fs-md); width: 64px; } .r1 .num { gap: 12px; color: var(--sec); }
+    .r2 { font-size: var(--fs-sm); margin-top: 4px; } .r2 .name small { font-size: var(--fs-xs); color: var(--dim); }
+    .r3 { gap: 5px; margin-top: 7px; } .r3 i { font-size: 10px; color: var(--dim); } .r3 b { font-size: var(--fs-sm); color: #D5E4EE; }
+    .r4 { margin-top: 5px; }
+    .lv { font-size: 10px; padding: 2px 6px; } .lv0 { color: #8A9BB0; border-color: #3a4658; } .lv1 { color: #6ED3E6; border-color: #27707e; } .lv2 { color: #8FE7F5; border-color: #33919f; }
+    .flag { font-size: 10px; padding: 1px 5px; color: var(--dim); } .flag.ev { color: #FFD666; border-color: #6a5800; } .flag.er { color: #FFB4C6; }
+    .empty { font-size: var(--fs-sm); color: var(--dim); }
+    /* Sidebar 個股頁:整體放大 */
+    .dt-h { padding: 10px 14px; gap: 12px; }
+    .back { font-family: var(--font-mono); font-size: var(--fs-sm); font-weight: 700; letter-spacing: .04em; color: #02020a; background: var(--accent); border: 1px solid var(--accent); border-radius: 5px; padding: 8px 14px; cursor: pointer; white-space: nowrap; }
+    .back:hover { background: #7ff7ff; color: #02020a; }
+    .dt-sym { font-size: 21px; } .dt-name { font-size: var(--fs-md); } .dt-name small { font-size: var(--fs-xs); color: var(--dim); margin-top: 2px; }
+    .dt-kpi div { padding: 11px 12px; } .dt-kpi .k { font-size: var(--fs-xs); color: var(--dim); } .dt-kpi .v { font-size: var(--fs-lg); }
+    .dt-kpi .v[style] { font-size: var(--fs-md) !important; }
+    #chart { height: 360px; }
+    .nochart { font-size: var(--fs-sm); color: var(--dim); }
+    .legend { font-size: var(--fs-xs); color: var(--dim); padding-top: 6px; }
+    .sec { padding: 14px 14px; } .sec h4 { font-size: var(--fs-xs); margin-bottom: 10px; }
+    .cond { font-size: var(--fs-md); gap: 7px 16px; } .cond div { color: #C4D3E0; }
+    .kv { font-size: var(--fs-md); gap: 10px 14px; } .kv .k { font-size: var(--fs-xs); color: var(--dim); margin-bottom: 2px; } .kv .v small { color: var(--dim) !important; font-size: var(--fs-xs); }
+    .vcp-seq { font-size: var(--fs-lg); }
+    .sec > div[style*="text-dim"] { color: var(--dim) !important; font-size: var(--fs-sm) !important; }
+    .dt-links { padding: 12px 14px 18px; gap: 8px; } .dt-links .btn { font-size: var(--fs-sm); padding: 8px 12px; } .dt-links .st { font-size: var(--fs-xs); color: var(--dim); }
     /* 頁尾 */
-    .rd-foot { font-size: .78rem; color: var(--dim); } .rd-foot details summary { font-size: .7rem; color: #B4C3D3; }
+    .rd-foot { font-size: var(--fs-sm); color: var(--dim); } .rd-foot details summary { font-size: var(--fs-xs); color: var(--sec); }
     @media (max-width: 640px) { .pr-row { grid-template-columns: 130px 1fr 66px; } }
   </style>
 </head>
@@ -212,7 +213,10 @@
       <div class="rd-brand">BLUE MORPHO ▎ <b>SEPA RADAR</b> · 萬中選一的狙擊</div>
       <div class="rd-h1">Minervini 趨勢樣板漏斗 <span>· 全美股 · 收盤後 + 開盤後 1h</span></div>
     </div>
-    <div class="rd-meta" id="meta">載入中…</div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <div class="rd-meta" id="meta">載入中…</div>
+      <button class="btn" id="refresh" title="在 Howard 的主機上觸發重掃(全掃 → 推網站,約 2–4 分鐘)" style="font-size:var(--fs-sm);padding:8px 12px">⟳ 更新資料</button>
+    </div>
   </header>
 
   <div id="app" class="loading">RADAR INITIALIZING…</div>
@@ -462,22 +466,13 @@
       const v = m.v, lv = R.levels[m.s], dh = val(m, 'dh');
       const flags = [v && v.bo ? '<span class="flag bo">突破</span>' : '', (m.gap || 0) > P.catalyst.max_single_day_gap_pct ? '<span class="flag ev">事件</span>' : '',
         m.e && m.e.next && (Date.parse(m.e.next) - Date.parse(data.date)) / 864e5 <= P.catalyst.earnings_within_days ? `<span class="flag er">財報 ${m.e.next.slice(5)}</span>` : '', m.rsp ? '<span class="flag">新股</span>' : ''].join('');
-      const f = m.f || {}, up = (a, b) => (a != null && b != null && a > b) ? '↑' : '';
       return `<div class="row" data-s="${m.s}">
         <div class="r1"><span class="sym">${m.s}</span><span class="lv lv${lv}">L${lv}</span>${flags}
-          <span class="num"><span>$<b>${fmt(m.px, 2)}</b></span><span>RS <b class="${m.rs >= 90 ? 'pos' : ''}">${fmt(m.rs, 0)}</b></span><span>距高 <b class="${dh != null && dh > -5 ? 'pos' : ''}">${sgn(dh)}</b></span></span></div>
+          <span class="num"><span>RS <b class="${m.rs >= 90 ? 'pos' : ''}">${fmt(m.rs, 0)}</b></span><span>距高 <b class="${dh != null && dh > -5 ? 'pos' : ''}">${sgn(dh)}</b></span><span>VCP <b class="${v && v.q >= P.vcp.min_quality ? 'pos' : ''}">${v ? `${v.n}次·Q${v.q}` : '—'}</b></span></span></div>
         <div class="r2"><span class="name">${esc(m.name)}<small>${esc(m.sec || '')}${m.ind ? ' · ' + esc(m.ind) : ''}</small></span></div>
-        <div class="r3">
-          <div><i>趨勢天</i><b>${m.td ?? '—'}</b></div><div><i>在層</i><b>${m.age ? m.age + 'd' : '—'}</b></div>
-          <div><i>營收YoY</i><b class="${f.rev_g >= P.fundamental.rev_growth_min ? 'pos' : ''}">${pct(f.rev_g)}${up(f.rev_g, f.rev_g_prev)}</b></div>
-          <div><i>EPS YoY</i><b class="${f.eps_g >= P.fundamental.eps_growth_min || f.turn ? 'pos' : ''}">${f.turn ? '轉盈' : pct(f.eps_g)}${up(f.eps_g, f.eps_g_prev)}</b></div>
-          <div><i>毛利</i><b>${pct(f.gm)}</b></div>
-          <div><i>VCP</i><b class="${v && v.q >= P.vcp.min_quality ? 'pos' : ''}">${v ? `${v.n}次·Q${v.q}` : '—'}</b></div>
-          <div><i>離pivot</i><b class="${v && v.dp > -3 ? 'pos' : ''}">${v ? sgn(v.dp) : '—'}</b></div>
-        </div>
         <div class="r4">${lv < 4 ? '卡在:' + esc(WHY[R.fail[m.s]] || R.fail[m.s] || '') : '<span class="tgt">🎯 狙擊候選</span>'}</div>
       </div>`; }).join('') || `<div class="empty">此層無標的<br>這是漏斗的正常狀態</div>`;
-    $('#sbfoot').textContent = `點列開圖 · 內嵌 K 線:L4/L3 + 有 VCP 形狀者 + RS 前 ${sp.output ? sp.output.embed_bars_top_n : 80};其餘用 TradingView`;
+    $('#sbfoot').textContent = `點列開圖 · 進 L1 的每檔都有內嵌 K 線;L0 未進 L1 者用 ↗ TradingView 看圖`;
   }
   $('#q').addEventListener('input', e => { q = e.target.value; renderList(); });
   $('#sort').addEventListener('change', e => { sortKey = e.target.value; renderList(); });
@@ -487,19 +482,19 @@
   // ── Sidebar 第 2 頁:個股(有返回)───────────────────────
   let chart = null, curSym = null;
   function sma(arr, n) { const out = []; let s = 0; for (let i = 0; i < arr.length; i++) { s += arr[i].close; if (i >= n) s -= arr[i - n].close; if (i >= n - 1) out.push({ time: arr[i].time, value: s / n }); } return out; }
-  const setWide = w => document.documentElement.style.setProperty('--sbw', w ? '680px' : '500px');
+  const setWide = _ => {};   // 固定寬度,不再縮放(Howard:一直縮放頭很暈)
   function showList() { $('#pg-detail').hidden = true; $('#pg-list').hidden = false; if (chart) { chart.remove(); chart = null; } curSym = null; setWide(false); }
   function showDetail(s) { curSym = s; $('#pg-list').hidden = true; $('#pg-detail').hidden = false; setWide(true); renderDetail(s); $('#pg-detail').scrollTop = 0; }
   function renderDetail(s, keepScroll) {
     const m = bySym[s], f = m.f || {}, v = m.v, cs = RadarFunnel.c17(m, P.trend), lv = R.levels[s], bars = data.bars[s];
     const pg = $('#pg-detail'), scrollY = keepScroll ? (pg.querySelector('.dt-body')?.scrollTop || 0) : 0;
     if (chart) { chart.remove(); chart = null; }
-    pg.innerHTML = `<div class="dt-h"><button class="back" id="back">← 名單</button><span class="dt-sym">${s}</span><span class="dt-name">${esc(m.name)}<small>${esc(m.sec || '')} · ${esc(m.ind || '')} · ${m.ex} · mcap $${m.mc ? (m.mc / 1e9).toFixed(1) + 'B' : '—'}</small></span><span class="lv lv${lv}">L${lv}</span></div>
+    pg.innerHTML = `<div class="dt-h"><button class="back" id="back">← 返回名單</button><span class="dt-sym">${s}</span><span class="dt-name">${esc(m.name)}<small>${esc(m.sec || '')} · ${esc(m.ind || '')} · ${m.ex} · mcap $${m.mc ? (m.mc / 1e9).toFixed(1) + 'B' : '—'}</small></span><span class="lv lv${lv}">L${lv}</span></div>
       <div class="dt-body">
       <div class="dt-kpi"><div><div class="k">Price</div><div class="v">$${fmt(m.px, 2)}</div></div><div><div class="k">RS</div><div class="v ${m.rs >= 90 ? 'pos' : ''}">${fmt(m.rs, 0)}${m.rsp ? '*' : ''}</div></div>
         <div><div class="k">距 52W 高</div><div class="v">${sgn(m.hi ? (m.px / m.hi - 1) * 100 : null)}</div></div><div><div class="k">1M / 3M / 6M</div><div class="v" style="font-size:.72rem">${sgn(m.r1m, 0)} / ${sgn(m.r3m, 0)} / ${sgn(m.r6m, 0)}</div></div></div>
       ${bars ? '<div id="chart"></div><div class="legend"><span><i style="background:#ffd000"></i>MA50</span><span><i style="background:#ff8c42"></i>MA150</span><span><i style="background:#ff3b6b"></i>MA200</span><span><i style="background:#00f3ff"></i>pivot</span><span><i style="background:#00ff9d"></i>買點(pivot +' + vp.pivot_buffer_pct + '%)</span><span>▼▲ VCP 擺動點</span></div>'
-             : '<div class="nochart">此檔未內嵌 K 線(只嵌 RS 前段 + VCP + L3/L4)<br>↗ 用 TradingView 開啟看圖</div>'}
+             : '<div class="nochart">此檔未進 L1,沒有內嵌 K 線(只嵌 L1 通過者 + 有 VCP 形狀者,控制檔案大小)<br>↗ 用 TradingView 開啟看圖</div>'}
       <div class="sec"><h4>Trend Template · 8 條件(✓✗ 跟著左側參數變)</h4><div class="cond">
         ${['價 > 150 & 200MA', '150MA > 200MA', '200MA 上彎', '50MA > 150 & 200MA', '價 > 50MA', `高於 52W 低 +${Math.round((P.trend.above_low_mult - 1) * 100)}%`, `距 52W 高 ${Math.round((1 - P.trend.below_high_mult) * 100)}% 內`]
           .map((t, i) => `<div class="${cs[i] ? 'ok' : 'no'}"><span>c${i + 1} ${t}</span><span>${[fmt(m.px, 2), fmt(m.m150, 2) + '/' + fmt(m.m200, 2), sgn(m.m200 && m.m200p ? (m.m200 / m.m200p - 1) * 100 : null, 2), fmt(m.m50, 2), fmt(m.m50, 2), sgn(m.lo ? (m.px / m.lo - 1) * 100 : null, 0), sgn(m.hi ? (m.px / m.hi - 1) * 100 : null)][i]}</span></div>`).join('')}
@@ -546,6 +541,26 @@
     if (keepScroll) pg.querySelector('.dt-body').scrollTop = scrollY;
   }
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#pg-detail').hidden) showList(); });
+
+  // ── ⟳ 更新資料:打本機後台 8765(只有在 Howard 的 Mac 上才連得到;其他人按會得到提示)────────
+  const API = 'http://localhost:8765/api/';
+  const api = async (m, args = []) => { const r = await fetch(API + m, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(args) }); if (!r.ok) throw new Error(r.status); return r.json(); };
+  const btn = $('#refresh'); let pollT = null;
+  const setBtn = (t, busy) => { btn.textContent = t; btn.disabled = !!busy; btn.style.opacity = busy ? .6 : 1; };
+  async function pollStatus() {
+    try {
+      const st = await api('minervini_status');
+      if (st.running) { setBtn(`⟳ ${st.step || '掃描中'}…`, true); pollT = setTimeout(pollStatus, 4000); return; }
+      if (st.error) { setBtn('⟳ 更新失敗:' + st.error.slice(0, 40), false); return; }
+      if (st.done) { setBtn('✓ 完成,重新載入…', true); setTimeout(() => location.reload(), location.hostname === 'localhost' ? 800 : 65000); return; }
+      setBtn('⟳ 更新資料', false);
+    } catch { setBtn('⟳ 更新資料', false); }
+  }
+  btn.onclick = async () => {
+    try { setBtn('⟳ 啟動中…', true); const st = await api('minervini_refresh', [true]); if (!st.ok) throw 0; pollStatus(); }
+    catch { setBtn('⟳ 更新資料', false); alert('連不到本機後台(localhost:8765)。\n「更新資料」只能在 Howard 的 Mac 上按;其他裝置請等排程(收盤後 05:30 / 開盤後 1h 台北)。'); }
+  };
+  api('minervini_status').then(st => { if (st.running) pollStatus(); }).catch(() => {});
 
   recompute(true);
 })();
