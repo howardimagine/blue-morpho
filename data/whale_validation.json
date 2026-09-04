@@ -1,98 +1,63 @@
 {
   "as_of": "2026-08-14",
   "n_whales": 19,
-  "generated_at": "2026-09-02T00:06:49+00:00",
+  "generated_at": "2026-09-04T00:07:19+00:00",
   "stocks": [
     {
-      "symbol": "ESTC",
-      "name": "Elastic N.V.",
-      "theme": "AI Software",
-      "signal": "buy",
-      "holders": 2,
-      "increased": 2,
-      "reduced": 0,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 58176023,
-      "total_held_fmt": "$58M",
-      "whales_fmt": "索羅斯 Soros $57M 加碼 · 達利歐 Dalio $1M 加碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "索羅斯 Soros",
-          "value_usd": 56888854,
-          "action": "add"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 1287169,
-          "action": "add"
-        }
-      ]
-    },
-    {
-      "symbol": "CDNS",
-      "name": "Cadence Design Systems, Inc.",
-      "theme": "AI Software",
-      "signal": "sell",
-      "holders": 1,
-      "increased": 0,
-      "reduced": 1,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 421860,
-      "total_held_fmt": "<$1M",
-      "whales_fmt": "達利歐 Dalio <$1M 減碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 421860,
-          "action": "trim"
-        }
-      ]
-    },
-    {
-      "symbol": "ALT",
-      "name": "Altimmune, Inc.",
-      "theme": "Biotech — Obesity / GLP-1",
-      "signal": "buy",
-      "holders": 1,
-      "increased": 0,
-      "reduced": 0,
-      "new_pos": 1,
-      "closed_pos": 0,
-      "total_held_usd": 20368000,
-      "total_held_fmt": "$20M",
-      "whales_fmt": "Andreas Halvorsen $20M 新進",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "Andreas Halvorsen",
-          "value_usd": 20368000,
-          "action": "new"
-        }
-      ]
-    },
-    {
-      "symbol": "CSCO",
-      "name": "Cisco Systems, Inc.",
-      "theme": "Cloud Infrastructure",
-      "signal": "sell",
+      "symbol": "FANG",
+      "name": "Diamondback Energy, Inc.",
+      "theme": "Energy / Oil & Gas",
+      "signal": "split",
       "holders": 0,
       "increased": 0,
       "reduced": 0,
       "new_pos": 0,
-      "closed_pos": 1,
+      "closed_pos": 0,
       "total_held_usd": 0,
       "total_held_fmt": "—",
-      "whales_fmt": "達利歐 Dalio — 清倉",
+      "whales_fmt": "",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": []
+    },
+    {
+      "symbol": "GILD",
+      "name": "Gilead Sciences, Inc.",
+      "theme": "Biotech — Oncology",
+      "signal": "buy",
+      "holders": 1,
+      "increased": 1,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 36749906,
+      "total_held_fmt": "$37M",
+      "whales_fmt": "達利歐 Dalio $37M 加碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 36749906,
+          "action": "add"
+        }
+      ]
+    },
+    {
+      "symbol": "EA",
+      "name": "Electronic Arts Inc.",
+      "theme": "Gaming",
+      "signal": "sell",
+      "holders": 1,
+      "increased": 0,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 1,
+      "total_held_usd": 199091790,
+      "total_held_fmt": "$199M",
+      "whales_fmt": "達利歐 Dalio — 清倉 · 索羅斯 Soros $199M 持有",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
@@ -101,42 +66,86 @@
           "name": "達利歐 Dalio",
           "value_usd": 0,
           "action": "exit"
+        },
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 199091790,
+          "action": "hold"
         }
       ]
     },
     {
-      "symbol": "DDOG",
-      "name": "Datadog, Inc.",
-      "theme": "AI Software",
-      "signal": "sell",
-      "holders": 2,
-      "increased": 0,
+      "symbol": "FIS",
+      "name": "Fidelity National Information S",
+      "theme": "Payments / FinTech",
+      "signal": "buy",
+      "holders": 5,
+      "increased": 2,
       "reduced": 2,
-      "new_pos": 0,
+      "new_pos": 1,
       "closed_pos": 0,
-      "total_held_usd": 57229731,
-      "total_held_fmt": "$57M",
-      "whales_fmt": "木頭姐 Cathie Wood $55M 減碼 · 索羅斯 Soros $3M 減碼",
+      "total_held_usd": 264635527,
+      "total_held_fmt": "$265M",
+      "whales_fmt": "Andreas Halvorsen $227M 減碼 · 達利歐 Dalio $23M 加碼 · 索羅斯 Soros $14M 加碼 · 木頭姐 Cathie Wood <$1M 減碼 · Terry Smith — 新進",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 54714133,
+          "name": "Andreas Halvorsen",
+          "value_usd": 227429748,
           "action": "trim"
         },
         {
+          "name": "達利歐 Dalio",
+          "value_usd": 22654674,
+          "action": "add"
+        },
+        {
           "name": "索羅斯 Soros",
-          "value_usd": 2515598,
+          "value_usd": 14455117,
+          "action": "add"
+        },
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 95988,
           "action": "trim"
+        },
+        {
+          "name": "Terry Smith",
+          "value_usd": 0,
+          "action": "new"
         }
       ]
     },
     {
-      "symbol": "DIS",
-      "name": "Walt Disney Company (The)",
-      "theme": "Streaming / Media",
+      "symbol": "DOCS",
+      "name": "Doximity, Inc.",
+      "theme": "Healthcare AI / Digital Health",
+      "signal": "buy",
+      "holders": 1,
+      "increased": 1,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 2726211,
+      "total_held_fmt": "$3M",
+      "whales_fmt": "達利歐 Dalio $3M 加碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 2726211,
+          "action": "add"
+        }
+      ]
+    },
+    {
+      "symbol": "AFRM",
+      "name": "Affirm Holdings, Inc.",
+      "theme": "Payments / FinTech",
       "signal": "split",
       "holders": 0,
       "increased": 0,
