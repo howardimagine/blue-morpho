@@ -475,14 +475,15 @@
     : (k === 'rev_g' || k === 'eps_g' || k === 'gm') ? (m.f || {})[k] : m[k];
   function rows() {
     const qq = q.trim().toUpperCase();
-    return data.symbols.filter(m => (R.levels[m.s] ?? -1) >= sel && (!qq || m.s.includes(qq) || (m.name || '').toUpperCase().includes(qq) || (m.ind || '').toUpperCase().includes(qq)))
+    // 被排除的(落後 / 資料異常)沒有層級;在 L0 分頁仍列出並標原因,不讓它們「消失」
+    return data.symbols.filter(m => (R.levels[m.s] ?? (sel === 0 ? 0 : -1)) >= sel && (!qq || m.s.includes(qq) || (m.name || '').toUpperCase().includes(qq) || (m.ind || '').toUpperCase().includes(qq)))
       .sort((a, b) => { if (sortKey === 's') return a.s < b.s ? -1 : 1; const x = val(a, sortKey), y = val(b, sortKey); if (x == null && y == null) return 0; if (x == null) return 1; if (y == null) return -1; return y - x; });
   }
   function renderList() {
     const rs = rows(), MAX = 300;
     $('#sblv').innerHTML = `<span><b>${esc(N[sel])}</b> · ≥ 本層</span><span>${rs.length > MAX ? `顯示前 ${MAX} / ` : ''}${rs.length} 檔</span>`;
     $('#list').innerHTML = rs.slice(0, MAX).map(m => {
-      const v = m.v, lv = R.levels[m.s], dh = val(m, 'dh');
+      const v = m.v, lv = R.levels[m.s] ?? 0, dh = val(m, 'dh');
       const dEarn = m.e && m.e.next ? (Date.parse(m.e.next) - Date.parse(data.date)) / 864e5 : null;
       const flags = [v && v.bo && lv >= 3 ? '<span class="flag bo">突破</span>' : '', (m.gap || 0) > P.catalyst.max_single_day_gap_pct ? '<span class="flag ev">事件</span>' : '',
         dEarn != null && dEarn >= 0 && dEarn <= P.catalyst.earnings_within_days ? `<span class="flag er">財報 ${m.e.next.slice(5)}</span>` : '', m.rsp ? '<span class="flag">新股</span>' : ''].join('');
