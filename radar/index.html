@@ -286,8 +286,12 @@
   let ver = (() => { try { return localStorage.getItem('radar.ver') || data.profile || 'v1'; } catch { return data.profile || 'v1'; } })();
   if (!VERS.includes(ver)) ver = VERS[0];
   const baseParams = () => clone((data.profiles && data.profiles[ver]) || data.params);
+  // 深合併:瀏覽器存的舊參數只覆蓋「它有的鍵」,新版新增的鍵(如 power_play)不會被整組蓋掉
+  const dmerge = (base, over) => { for (const k in (over || {})) {
+    if (over[k] && typeof over[k] === 'object' && !Array.isArray(over[k]) && base[k] && typeof base[k] === 'object') dmerge(base[k], over[k]);
+    else base[k] = over[k]; } return base; };
   P = baseParams();
-  try { const o = JSON.parse(localStorage.getItem('radar.params.' + ver) || 'null'); if (o && o.date === data.date) Object.assign(P, o.P); } catch (_) {}
+  try { const o = JSON.parse(localStorage.getItem('radar.params.' + ver) || 'null'); if (o && o.date === data.date) dmerge(P, o.P); } catch (_) {}
   const persist = () => { try { localStorage.setItem('radar.params.' + ver, JSON.stringify({ date: data.date, P })); localStorage.setItem('radar.ver', ver); } catch (_) {} };
   const get = path => path.split('.').reduce((o, k) => (o == null ? undefined : o[k]), P);
   const set = (path, v) => { const ks = path.split('.'); ks.slice(0, -1).reduce((o, k) => o[k], P)[ks.at(-1)] = v; };
@@ -392,7 +396,7 @@
   $('#refresh').parentElement.insertBefore(mwrap, vwrap);
   document.querySelector('.rd-h1 span').textContent = ` · ${data.market_name || '全美股'} · 收盤後 + 開盤後 1h`;
   vwrap.addEventListener('click', e => { const b = e.target.closest('[data-ver]'); if (!b || b.dataset.ver === ver) return;
-    ver = b.dataset.ver; P = baseParams(); try { const o = JSON.parse(localStorage.getItem('radar.params.' + ver) || 'null'); if (o && o.date === data.date) Object.assign(P, o.P); } catch (_) {}
+    ver = b.dataset.ver; P = baseParams(); try { const o = JSON.parse(localStorage.getItem('radar.params.' + ver) || 'null'); if (o && o.date === data.date) dmerge(P, o.P); } catch (_) {}
     persist(); vwrap.querySelectorAll('[data-ver]').forEach(x => x.classList.toggle('on', x.dataset.ver === ver)); syncControls(); recompute(); });
   $('#srv').innerHTML = `${data.rs_meta && data.rs_meta.n ? `<b>RS 基準</b>:${data.rs_meta.n} 檔 · 基準日 3M ${data.rs_meta.dates['63']} / 6M ${data.rs_meta.dates['126']} / 9M ${data.rs_meta.dates['189']} / 12M ${data.rs_meta.dates['252']}${data.rs_meta.spy ? ` · SPY 相當 RS <b>${data.rs_meta.spy.rating}</b>` : ''}<br>` : ''}<b>伺服器參數</b>(掃描時固定):宇宙 mcap ≥ ${(u.min_mcap/1e6).toFixed(0)}M · 價 ≥ $${u.min_price} · 均量 ≥ ${(u.min_avg_volume/1e3).toFixed(0)}K · 200MA 斜率窗 ${sp.trend.ma_slope_lookback} 日 ·
     VCP 回看 ${vp.lookback_days} 日 · 擺動強度 ${vp.swing_strength} · 收縮衰減 ≤ ×${vp.contraction_decay} · 首次收縮 ≤ ${Math.round(vp.max_first_depth*100)}% · 量縮 ≥ ${vp.volume_dryup_pct}% · 突破 = 收盤 > pivot +${vp.pivot_buffer_pct}% 且量 ≥ ${vp.breakout_volume_mult}× 均量`;
