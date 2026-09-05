@@ -249,7 +249,7 @@
   </footer>
 </div>
 
-<script src="funnel.js?v=20260906a"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
+<script src="funnel.js?v=20260906b"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 (async function () {
@@ -289,7 +289,7 @@
   P = baseParams();
   try { const o = JSON.parse(localStorage.getItem('radar.params.' + ver) || 'null'); if (o && o.date === data.date) Object.assign(P, o.P); } catch (_) {}
   const persist = () => { try { localStorage.setItem('radar.params.' + ver, JSON.stringify({ date: data.date, P })); localStorage.setItem('radar.ver', ver); } catch (_) {} };
-  const get = path => path.split('.').reduce((o, k) => o[k], P);
+  const get = path => path.split('.').reduce((o, k) => (o == null ? undefined : o[k]), P);
   const set = (path, v) => { const ks = path.split('.'); ks.slice(0, -1).reduce((o, k) => o[k], P)[ks.at(-1)] = v; };
   const N = data.level_names, sp = data.params, vp = sp.vcp, u = sp.universe;
   const bySym = Object.fromEntries(data.symbols.map(m => [m.s, m]));
@@ -364,7 +364,7 @@
   // 參數面板
   const pm = $('#params');
   pm.innerHTML = PARAMS.map(g => `<details class="pg ${get(g.key + '.enabled') === false ? 'off' : ''}" data-g="${g.key}" open><summary><span>${g.g}</span><span style="display:flex;gap:10px;align-items:center"><span class="cnt" data-cnt="${g.k}"></span><label class="pg-on" onclick="event.stopPropagation()" title="關掉 = 整層略過,上一層通過的全部放行"><input type="checkbox" data-p="${g.key}.enabled" ${get(g.key + '.enabled') !== false ? 'checked' : ''}>啟用</label></span></summary>
-    ${g.items.map(it => it[0] === '_note' ? `<div class="pm-note" id="${it[1]}"></div>` : it[2] === 'bool'
+    ${g.items.filter(it => it[0] === '_note' || get(it[0]) !== undefined).map(it => it[0] === '_note' ? `<div class="pm-note" id="${it[1]}"></div>` : it[2] === 'bool'
       ? `<label class="pr-row bool"><span class="pr-lab">${it[1]}</span><input type="checkbox" data-p="${it[0]}" ${get(it[0]) ? 'checked' : ''}></label>`
       : `<div class="pr-row"><span class="pr-lab" title="${it[1]}">${it[1]}</span><input type="range" data-p="${it[0]}" min="${it[2]}" max="${it[3]}" step="${it[4]}" value="${get(it[0])}"><span class="pr-val" data-v="${it[0]}">${it[5](get(it[0]))}</span></div>`).join('')}
   </details>`).join('');
