@@ -119,6 +119,7 @@
     .lv0 { color: #6b7a90; border-color: #2a3448; } .lv1 { color: #56c9dd; border-color: #1f5a66; } .lv2 { color: #7ee0f0; border-color: #2b7f8f; }
     .lv3 { color: var(--accent); border-color: #00a5b0; background: rgba(0,243,255,.08); } .lv4 { color: #02020a; border-color: var(--positive); background: var(--positive); }
     .flag { display: inline-block; font-size: .54rem; letter-spacing: .04em; padding: 1px 4px; border-radius: 3px; border: 1px solid var(--border); color: var(--text-dim); font-family: var(--font-mono); }
+    .flag.pp { color: #02020a; background: #ffd000; border-color: #ffd000; font-weight: 700; }
     .flag.ev { color: var(--warning); border-color: #5a4a00; } .flag.er { color: #ffb4c6; border-color: #5a2030; } .flag.bo { color: #02020a; background: var(--positive); border-color: var(--positive); font-weight: 700; }
     .sb-foot { font-family: var(--font-mono); font-size: .56rem; color: var(--text-dim); padding: 6px 12px; border-top: 1px solid var(--border); line-height: 1.5; }
     .empty { text-align: center; padding: 36px 12px; color: var(--text-dim); font-family: var(--font-mono); font-size: .68rem; line-height: 1.8; }
@@ -248,7 +249,7 @@
   </footer>
 </div>
 
-<script src="funnel.js?v=20260905a"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
+<script src="funnel.js?v=20260906a"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 (async function () {
@@ -258,7 +259,7 @@
   const fmt = (x, d = 1) => x == null ? '—' : Number(x).toFixed(d);
   const pct = (x, d = 0) => x == null ? '—' : (x * 100).toFixed(d) + '%';
   const sgn = (x, d = 1) => x == null ? '—' : (x > 0 ? '+' : '') + Number(x).toFixed(d) + '%';
-  const TVEX = { NASDAQ: 'NASDAQ', NYSE: 'NYSE', AMEX: 'AMEX' };
+  const TVEX = { NASDAQ: 'NASDAQ', NYSE: 'NYSE', AMEX: 'AMEX', TWSE: 'TWSE', TPEX: 'TPEX' };
   const tvUrl = m => `https://www.tradingview.com/chart/?symbol=${encodeURIComponent((TVEX[m.ex] || m.ex || '') + ':' + m.s)}`;
   const WHY = { c1:'c1 價 < 150/200MA', c2:'c2 150MA < 200MA', c3:'c3 200MA 未上彎', c4:'c4 50MA 排列', c5:'c5 價 < 50MA', c6:'c6 離低點 < 門檻', c7:'c7 離高點 > 門檻', c8:'c8 RS 不足',
     trend_days:'連續天數不足', stale:'K 線落後(無當日收盤)', hist:'歷史不足 200/252 根', 'data:corrupt':'資料異常(拆股混雜),已排除', 'L2:no_data':'無財報資料', 'L2:rev':'營收成長不足', 'L2:rev_na':'無營收(pre-revenue)', 'L2:eps':'EPS 成長不足', 'L2:eps_na':'去年同季 EPS ≤ 0', 'L2:accel':'未加速', 'L2:gm':'毛利不足', 'L2:gm_na':'無毛利資料',
@@ -268,16 +269,26 @@
 
   let data, hist = [], P, sel = 3, sortKey = 'rs', q = '', R;
   try {
-    const [a, b] = await Promise.all([fetch('data/latest.json', { cache: 'no-cache' }), fetch('data/history.json', { cache: 'no-cache' })]);
+    // 市場:?m=tw 或 localStorage;美股 = data/,其他 = data/<m>/
+    var MKT = (new URLSearchParams(location.search).get('m') || (() => { try { return localStorage.getItem('radar.mkt'); } catch { return null; } })() || 'us');
+    try { localStorage.setItem('radar.mkt', MKT); } catch (_) {}
+    const DP = MKT === 'us' ? 'data/' : `data/${MKT}/`;
+    const [a, b] = await Promise.all([fetch(DP + 'latest.json', { cache: 'no-cache' }), fetch(DP + 'history.json', { cache: 'no-cache' })]);
     if (!a.ok) throw new Error('latest.json ' + a.status);
     data = await a.json(); hist = b.ok ? await b.json() : [];
   } catch (e) {
-    $('#app').innerHTML = `<div class="loading">尚無掃描資料(${esc(e.message)})<br>跑 <code>scripts/run_minervini.py --mode manual</code> 產生 latest.json</div>`; return;
+    $('#app').innerHTML = `<div class="loading">尚無掃描資料(${esc(e.message)})<br>跑 <code>scripts/run_minervini.py --mode manual --market ${esc(MKT)}</code> 產生 latest.json<br><br><a href="?m=us" class="btn">美股</a> <a href="?m=tw" class="btn">台股</a></div>`; return;
   }
+  const CUR = data.currency || '$';
   const clone = o => JSON.parse(JSON.stringify(o));
-  P = clone(data.params);
-  try { const o = JSON.parse(localStorage.getItem('radar.params') || 'null'); if (o && o.date === data.date) Object.assign(P, o.P); } catch (_) {}
-  const persist = () => { try { localStorage.setItem('radar.params', JSON.stringify({ date: data.date, P })); } catch (_) {} };
+  // 版本:v1.0 / v2.0 各有一套參數(伺服器 profiles);頁面只是換基準再重算,不用重掃
+  const VERS = Object.keys(data.profiles || { v1: data.params });
+  let ver = (() => { try { return localStorage.getItem('radar.ver') || data.profile || 'v1'; } catch { return data.profile || 'v1'; } })();
+  if (!VERS.includes(ver)) ver = VERS[0];
+  const baseParams = () => clone((data.profiles && data.profiles[ver]) || data.params);
+  P = baseParams();
+  try { const o = JSON.parse(localStorage.getItem('radar.params.' + ver) || 'null'); if (o && o.date === data.date) Object.assign(P, o.P); } catch (_) {}
+  const persist = () => { try { localStorage.setItem('radar.params.' + ver, JSON.stringify({ date: data.date, P })); localStorage.setItem('radar.ver', ver); } catch (_) {} };
   const get = path => path.split('.').reduce((o, k) => o[k], P);
   const set = (path, v) => { const ks = path.split('.'); ks.slice(0, -1).reduce((o, k) => o[k], P)[ks.at(-1)] = v; };
   const N = data.level_names, sp = data.params, vp = sp.vcp, u = sp.universe;
@@ -288,7 +299,12 @@
       ['trend.rs_min', 'RS 評級 ≥', 1, 99, 1, v => v],
       ['trend.below_high_mult', '距 52W 高在', .5, 1, .01, v => Math.round((1 - v) * 100) + '% 內'],
       ['trend.above_low_mult', '高於 52W 低', 1, 2, .05, v => '+' + Math.round((v - 1) * 100) + '%'],
-      ['trend.min_trend_days', 'c1–c7 連續成立 ≥', 0, 120, 1, v => v + ' 天'] ]},
+      ['trend.min_trend_days', 'c1–c7 連續成立 ≥', 0, 120, 1, v => v + ' 天'],
+      ['trend.power_play.enabled', '強力拉升直通(標「PP 直通」)', 'bool'],
+      ['trend.power_play.min_gain_pct', '　PP:漲勢 ≥', 50, 200, 5, v => v + '%'],
+      ['trend.power_play.max_correction_pct', '　PP:整理回檔 ≤', 5, 40, 1, v => v + '%'],
+      ['trend.power_play.max_above_run_high_pct', '　PP:可高過漲勢高 ≤', 0, 20, 1, v => v + '%'],
+      ['trend.power_play.run_vol_mult', '　PP:漲勢峰值量 ≥', 1, 10, 0.5, v => v + '× 均量'] ]},
     { g: 'L2 基本面爆發', k: 2, key: 'fundamental', items: [
       ['_note', 'l2note'],
       ['fundamental.rev_growth_min', '營收 YoY ≥', 0, 1, .05, v => pct(v)],
@@ -366,7 +382,18 @@
       else { el.value = v; const d = $(`[data-v="${k}"]`); if (d && fmtOf[k]) d.textContent = fmtOf[k](v); } });
     document.querySelectorAll('details.pg').forEach(d => d.classList.toggle('off', get(d.dataset.g + '.enabled') === false));
   }
-  $('#reset').onclick = () => { P = clone(data.params); persist(); syncControls(); recompute(); };
+  $('#reset').onclick = () => { P = baseParams(); persist(); syncControls(); recompute(); };
+  // 版本切換鈕(header)
+  const vwrap = document.createElement('div'); vwrap.className = 'lv-tabs'; vwrap.style.marginRight = '8px';
+  vwrap.innerHTML = VERS.map(v => `<button class="lv-tab ${v === ver ? 'on' : ''}" data-ver="${v}" title="切換規則版本(v1 = 原版 8 條 + VCP;v2 = 直通/條件式事件/cheat/MVP)">${v === 'v1' ? 'v1.0' : v === 'v2' ? 'v2.0' : v}</button>`).join('');
+  $('#refresh').parentElement.insertBefore(vwrap, $('#refresh'));
+  const mwrap = document.createElement('div'); mwrap.className = 'lv-tabs'; mwrap.style.marginRight = '8px';
+  mwrap.innerHTML = [['us', '美股'], ['tw', '台股']].map(([k, n]) => `<a class="lv-tab ${k === MKT ? 'on' : ''}" href="?m=${k}" title="切換市場(各自獨立的宇宙 / K 線 / 快照)">${n}</a>`).join('');
+  $('#refresh').parentElement.insertBefore(mwrap, vwrap);
+  document.querySelector('.rd-h1 span').textContent = ` · ${data.market_name || '全美股'} · 收盤後 + 開盤後 1h`;
+  vwrap.addEventListener('click', e => { const b = e.target.closest('[data-ver]'); if (!b || b.dataset.ver === ver) return;
+    ver = b.dataset.ver; P = baseParams(); try { const o = JSON.parse(localStorage.getItem('radar.params.' + ver) || 'null'); if (o && o.date === data.date) Object.assign(P, o.P); } catch (_) {}
+    persist(); vwrap.querySelectorAll('[data-ver]').forEach(x => x.classList.toggle('on', x.dataset.ver === ver)); syncControls(); recompute(); });
   $('#srv').innerHTML = `${data.rs_meta && data.rs_meta.n ? `<b>RS 基準</b>:${data.rs_meta.n} 檔 · 基準日 3M ${data.rs_meta.dates['63']} / 6M ${data.rs_meta.dates['126']} / 9M ${data.rs_meta.dates['189']} / 12M ${data.rs_meta.dates['252']}${data.rs_meta.spy ? ` · SPY 相當 RS <b>${data.rs_meta.spy.rating}</b>` : ''}<br>` : ''}<b>伺服器參數</b>(掃描時固定):宇宙 mcap ≥ ${(u.min_mcap/1e6).toFixed(0)}M · 價 ≥ $${u.min_price} · 均量 ≥ ${(u.min_avg_volume/1e3).toFixed(0)}K · 200MA 斜率窗 ${sp.trend.ma_slope_lookback} 日 ·
     VCP 回看 ${vp.lookback_days} 日 · 擺動強度 ${vp.swing_strength} · 收縮衰減 ≤ ×${vp.contraction_decay} · 首次收縮 ≤ ${Math.round(vp.max_first_depth*100)}% · 量縮 ≥ ${vp.volume_dryup_pct}% · 突破 = 收盤 > pivot +${vp.pivot_buffer_pct}% 且量 ≥ ${vp.breakout_volume_mult}× 均量`;
 
@@ -377,7 +404,7 @@
   // 資料品質:誠實攤開。degraded = yfinance 限流,名單不完整;任何落後的股票在列與個股頁都標 K 線日期
   (function () {
     const q = data.quality; const b = $('#qbanner'); if (!q) return;
-    const parts = [`當日收盤 <b>${q.fresh}</b> / ${q.universe}`, q.lag1 ? `落後 1 日 ${q.lag1}` : '', q.stale ? `落後更多 ${q.stale}` : '', q.failed_fetch ? `抓取失敗 ${q.failed_fetch}` : '', q.corrupt ? `資料異常排除 ${q.corrupt}` : '', q.carried ? `宇宙沿用 ${q.carried}` : ''].filter(Boolean);
+    const parts = [`當日收盤 <b>${q.fresh}</b> / ${q.universe}`, q.lag1 ? `落後 1 日 ${q.lag1}` : '', q.stale ? `落後更多 ${q.stale}` : '', q.failed_fetch ? `宇宙內抓取失敗 ${q.failed_fetch}` : '', q.corrupt ? `資料異常排除 ${q.corrupt}` : '', q.carried ? `宇宙沿用 ${q.carried}` : ''].filter(Boolean);
     b.hidden = false; b.classList.toggle('bad', !!q.degraded);
     b.innerHTML = (q.degraded ? '⚠ <b>DEGRADED</b> —— yfinance 限流,今天有 ' + (q.universe - q.fresh) + ' 檔沒有當日收盤,它們不進 L1、不排 RS;名單不完整。 · ' : '資料品質 · ') + parts.join(' · ') + `<span style="float:right">K 線日 ${data.date}</span>`;
   })();
@@ -485,7 +512,8 @@
     $('#list').innerHTML = rs.slice(0, MAX).map(m => {
       const v = m.v, lv = R.levels[m.s] ?? 0, dh = val(m, 'dh');
       const dEarn = m.e && m.e.next ? (Date.parse(m.e.next) - Date.parse(data.date)) / 864e5 : null;
-      const flags = [v && v.bo && lv >= 3 ? '<span class="flag bo">突破</span>' : '', (m.gap || 0) > P.catalyst.max_single_day_gap_pct ? '<span class="flag ev">事件</span>' : '',
+      const flags = [R.tag && R.tag[m.s] === 'pp' ? '<span class="flag pp" title="強力拉升直通:8 週內翻倍後緊整理,略過 c2/c3/c4 與連續天數">PP 直通</span>' : '',
+        v && v.bo && lv >= 3 ? '<span class="flag bo">突破</span>' : '', (m.gap || 0) > P.catalyst.max_single_day_gap_pct ? '<span class="flag ev">事件</span>' : '',
         dEarn != null && dEarn >= 0 && dEarn <= P.catalyst.earnings_within_days ? `<span class="flag er">財報 ${m.e.next.slice(5)}</span>` : '', m.rsp ? '<span class="flag">新股</span>' : ''].join('');
       return `<div class="row" data-s="${m.s}">
         <div class="r1"><span class="sym">${m.s}</span><span class="lv lv${lv}">L${lv}</span>${m.st > 0 ? `<span class="kd" title="沒有 ${data.date} 的收盤,最後 K 線 ${m.d}">K線 ${m.d.slice(5)}</span>` : ''}${flags}
@@ -510,9 +538,9 @@
     const m = bySym[s], f = m.f || {}, v = m.v, cs = RadarFunnel.c17(m, P.trend), lv = R.levels[s], bars = data.bars[s];
     const pg = $('#pg-detail'), scrollY = keepScroll ? (pg.querySelector('.dt-body')?.scrollTop || 0) : 0;
     if (chart) { chart.remove(); chart = null; }
-    pg.innerHTML = `<div class="dt-h"><button class="back" id="back">← 返回名單</button><span class="dt-sym">${s}</span><span class="dt-name">${esc(m.name)}<small>${esc(m.sec || '')} · ${esc(m.ind || '')} · ${m.ex} · mcap $${m.mc ? (m.mc / 1e9).toFixed(1) + 'B' : '—'}</small></span><span class="lv lv${lv}">L${lv}</span>${m.st > 0 ? `<span class="kd">最後 K 線 ${m.d}(落後 ${m.st} 個交易日)</span>` : ''}</div>
+    pg.innerHTML = `<div class="dt-h"><button class="back" id="back">← 返回名單</button><span class="dt-sym">${s}</span><span class="dt-name">${esc(m.name)}<small>${esc(m.sec || '')} · ${esc(m.ind || '')} · ${m.ex} · mcap ${m.mc ? CUR + (m.mc / 1e9).toFixed(1) + 'B' : '—'}</small></span><span class="lv lv${lv}">L${lv}</span>${m.st > 0 ? `<span class="kd">最後 K 線 ${m.d}(落後 ${m.st} 個交易日)</span>` : ''}</div>
       <div class="dt-body">
-      <div class="dt-kpi"><div><div class="k">Price</div><div class="v">$${fmt(m.px, 2)}</div></div><div><div class="k">RS</div><div class="v ${m.rs >= 90 ? 'pos' : ''}">${fmt(m.rs, 0)}${m.rsp ? '*' : ''}</div></div>
+      <div class="dt-kpi"><div><div class="k">Price</div><div class="v">${CUR}${fmt(m.px, 2)}</div></div><div><div class="k">RS</div><div class="v ${m.rs >= 90 ? 'pos' : ''}">${fmt(m.rs, 0)}${m.rsp ? '*' : ''}</div></div>
         <div><div class="k">距 52W 高</div><div class="v">${sgn(m.hi ? (m.px / m.hi - 1) * 100 : null)}</div></div><div><div class="k">1M / 3M / 6M</div><div class="v" style="font-size:.72rem">${sgn(m.r1m, 0)} / ${sgn(m.r3m, 0)} / ${sgn(m.r6m, 0)}</div></div></div>
       ${bars ? '<div id="chart"></div><div class="legend"><span><i style="background:#ffd000"></i>MA50</span><span><i style="background:#ff8c42"></i>MA150</span><span><i style="background:#ff3b6b"></i>MA200</span><span><i style="background:#00f3ff"></i>pivot</span><span><i style="background:#00ff9d"></i>買點(pivot +' + vp.pivot_buffer_pct + '%)</span><span>▼▲ VCP 擺動點</span></div>'
              : '<div class="nochart">此檔未進 L1,沒有內嵌 K 線(只嵌 L1 通過者 + 有 VCP 形狀者,控制檔案大小)<br>↗ 用 TradingView 開啟看圖</div>'}
@@ -536,6 +564,16 @@
           <div><div class="k">毛利率</div><div class="v">${pct(f.gm)}</div></div><div><div class="k">EPS</div><div class="v">${f.eps ?? '—'}</div></div>
           <div><div class="k">營收</div><div class="v">${f.rev ? '$' + (f.rev / 1e6).toFixed(0) + 'M' : '—'}</div></div><div><div class="k">下次財報</div><div class="v ${m.e && m.e.next ? 'wn' : ''}">${m.e && m.e.next ? m.e.next : '—'}</div></div></div>`
         : `<div style="font-family:var(--font-mono);font-size:.64rem;color:var(--text-dim)">${m.f == null ? (lv >= 1 ? '財報尚未抓到(FMP 逾時 / 預算用完)—— 下次掃描補' : '不在財報抓取範圍(c1–c7 通過或 RS ≥ 60 才抓)') : 'FMP 無此檔季度財報'}</div>`}</div>
+      ${m.pp ? `<div class="sec"><h4>Power Play · 強力拉升${R.tag && R.tag[s] === 'pp' ? '(本檔以 PP 直通進 L1)' : ''}</h4>
+        <div class="kv"><div><div class="k">漲勢幅度</div><div class="v ${m.pp.g >= (P.trend.power_play||{}).min_gain_pct ? 'pos' : ''}">${sgn(m.pp.g, 0)}</div></div>
+        <div><div class="k">整理天數</div><div class="v">${m.pp.cd} 根</div></div>
+        <div><div class="k">回檔</div><div class="v ${m.pp.corr <= ((P.trend.power_play||{}).max_correction_pct ?? 20) ? 'pos' : ''}">${fmt(m.pp.corr, 1)}%</div></div>
+        <div><div class="k">距漲勢高</div><div class="v">${sgn(m.pp.dh)}</div></div>
+        <div><div class="k">漲勢量 峰值 / 均值</div><div class="v">${fmt(m.pp.vpk, 1)}× / ${fmt(m.pp.vr, 1)}×</div></div>
+        <div><div class="k">最大單日佔比</div><div class="v ${m.pp.one > ((P.trend.power_play||{}).max_single_day_pct ?? 40) ? 'wn' : ''}">${fmt(m.pp.one, 0)}%</div></div>
+        <div><div class="k">近 10 根區間</div><div class="v">${fmt(m.pp.t10, 1)}%</div></div>
+        <div><div class="k">整理區間高(pivot)</div><div class="v">${CUR}${fmt(m.pp.piv, 2)}</div></div>
+        <div><div class="k">今日量</div><div class="v">${fmt(m.pp.lvr, 1)}× 均量</div></div></div></div>` : ''}
       <div class="sec"><h4>VCP · 收縮序列</h4>
         ${v ? `<div class="vcp-seq">${v.dep.map(x => x + '%').join(' → ')} <b>· ${v.n} 次</b></div>
           <div class="kv" style="margin-top:6px"><div><div class="k">Pivot</div><div class="v">$${v.piv}</div></div><div><div class="k">現價 vs pivot</div><div class="v ${v.dp > -3 ? 'pos' : ''}">${sgn(v.dp)}</div></div>
@@ -587,7 +625,7 @@
     } catch { setBtn('⟳ 更新資料', false); }
   }
   btn.onclick = async () => {
-    try { setBtn('⟳ 啟動中…', true); const st = await api('minervini_refresh', [true]); if (!st.ok) throw 0; pollStatus(); }
+    try { setBtn('⟳ 啟動中…', true); const st = await api('minervini_refresh', [true, MKT]); if (!st.ok) throw 0; pollStatus(); }
     catch { setBtn('⟳ 更新資料', false); alert('連不到本機後台(localhost:8765)。\n「更新資料」只能在 Howard 的 Mac 上按;其他裝置請等排程(收盤後 05:30 / 開盤後 1h 台北)。'); }
   };
   api('minervini_status').then(st => { if (st.running) pollStatus(); }).catch(() => {});

@@ -23,6 +23,23 @@
     ];
   }
 
+  // 強力拉升直通(與 Python _pp_ok 逐行對應)
+  function ppOk(m, t, cs) {
+    const P = t.power_play || {}, pp = m.pp;
+    if (!P.enabled || !pp) return false;
+    const vol = (P.run_vol_def || 'peak') === 'peak' ? pp.vpk : pp.vr;
+    return (pp.g || 0) >= (P.min_gain_pct ?? 100)
+      && (P.min_consol_bars ?? 10) <= pp.cd && pp.cd <= (P.max_consol_bars ?? 45)
+      && pp.corr != null && pp.corr <= (P.max_correction_pct ?? 20)
+      && pp.dh != null && pp.dh >= -(P.max_correction_pct ?? 20) && pp.dh <= (P.max_above_run_high_pct ?? 0)
+      && pp.t10 != null && pp.t10 <= (P.max_tight10_pct ?? 25)
+      && pp.one != null && pp.one <= (P.max_single_day_pct ?? 40)
+      && vol != null && vol >= (P.run_vol_mult ?? 3)
+      && pp.vr != null && pp.vr >= (P.run_vol_mean_min ?? 1.5)
+      && (m.adr || 0) >= (P.min_adr_pct ?? 2)
+      && cs[0] && cs[4] && cs[5] && cs[6] && (m.rs || 0) >= t.rs_min;
+  }
+
   function earnWithin(m, days, today) {
     const nxt = m.e && m.e.next;
     if (!nxt) return false;
@@ -35,7 +52,7 @@
     const t = P.trend, fu = P.fundamental, ca = P.catalyst, vp = P.vcp, u = P.universe;
     // 每層 enabled=false → 整層略過(上一層通過的全部放行);缺鍵視為 true —— 與 Python 一致
     const on = { trend: t.enabled !== false, fundamental: fu.enabled !== false, catalyst: ca.enabled !== false, vcp: vp.enabled !== false };
-    const levels = {}, fail = {}, pool = [];
+    const levels = {}, fail = {}, tag = {}, pool = [];   // tag:v2 標籤(pp/hvc/cheat),永遠不是失敗碼
     for (const m of symbols) {
       const s = m.s;
       if ((m.st == null ? 99 : m.st) > u.max_stale_days || m.px == null) { fail[s] = 'stale'; continue; }
@@ -45,9 +62,12 @@
         if (m.m200 == null || m.hi == null) { fail[s] = 'hist'; continue; }   // 歷史不足 200/252 根:算不出來,不是 c1 沒過
         const cs = c17(m, t);
         const bad = cs.indexOf(false);
-        if (bad >= 0) { fail[s] = 'c' + (bad + 1); continue; }
+        const pok = ppOk(m, t, cs);                 // 強力拉升直通
+        if (bad >= 0 && !pok) { fail[s] = 'c' + (bad + 1); continue; }
         if ((m.rs || 0) < t.rs_min) { fail[s] = 'c8'; continue; }
-        if ((m.td || 0) < t.min_trend_days) { fail[s] = 'trend_days'; continue; }
+        const tdShort = (m.td || 0) < t.min_trend_days;
+        if (tdShort && !pok) { fail[s] = 'trend_days'; continue; }
+        if (pok && (bad >= 0 || tdShort)) tag[s] = 'pp';
       }
       levels[s] = 1;
       if (on.fundamental) {
@@ -68,7 +88,8 @@
         if ((m.rs || 0) < ca.rs_min) { fail[s] = 'L3:rs'; continue; }
         if (m.hi && (m.px / m.hi - 1) * 100 < -ca.max_dist_from_high_pct) { fail[s] = 'L3:dist'; continue; }
         if (ca.min_adr_pct && (m.adr || 0) < ca.min_adr_pct) { fail[s] = 'L3:adr'; continue; }
-        if (ca.exclude_event_driven && (m.gap || 0) > ca.max_single_day_gap_pct) { fail[s] = 'L3:event'; continue; }
+        const ev_ = ca.event_consecutive_days ? ((m.lu || 0) >= ca.event_consecutive_days) : ((m.gap || 0) > ca.max_single_day_gap_pct);   // 台股:連續漲停 ≥ N 天;美股:單日 > N%
+        if (ca.exclude_event_driven && ev_) { fail[s] = 'L3:event'; continue; }
         if (ca.exclude_earnings_window && earnWithin(m, ca.earnings_within_days, today)) { fail[s] = 'L3:earnings'; continue; }
       }
       pool.push(m);
@@ -94,7 +115,7 @@
     }
     const vals = Object.values(levels);
     const counts = [0, 1, 2, 3, 4].map(i => vals.filter(x => x >= i).length);
-    return { levels, counts, fail, l4 };
+    return { levels, counts, fail, l4, tag };
   }
 
   return { evaluate, c17 };
