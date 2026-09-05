@@ -39,8 +39,10 @@
     for (const m of symbols) {
       const s = m.s;
       if ((m.st == null ? 99 : m.st) > u.max_stale_days || m.px == null) { fail[s] = 'stale'; continue; }
+      if (m.bad) { fail[s] = 'data:' + m.bad; continue; }
       levels[s] = 0;
       if (on.trend) {
+        if (m.m200 == null || m.hi == null) { fail[s] = 'hist'; continue; }   // 歷史不足 200/252 根:算不出來,不是 c1 沒過
         const cs = c17(m, t);
         const bad = cs.indexOf(false);
         if (bad >= 0) { fail[s] = 'c' + (bad + 1); continue; }

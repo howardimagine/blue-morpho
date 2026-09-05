@@ -160,6 +160,9 @@
     .rd-foot details summary { cursor: pointer; color: var(--text-secondary); font-family: var(--font-mono); font-size: .64rem; letter-spacing: .1em; }
     .rd-foot ol { margin: 8px 0 0 18px; }
     .loading { font-family: var(--font-mono); font-size: .7rem; color: var(--text-dim); text-align: center; padding: var(--space-16) 0; letter-spacing: .1em; }
+    #qbanner { margin: 10px 0 0; padding: 10px 14px; border: 1px solid #5a4a00; background: rgba(255,208,0,.08); color: var(--warning); font-family: var(--font-mono); font-size: var(--fs-sm); border-radius: 6px; line-height: 1.6; }
+    #qbanner.bad { border-color: #7a1f33; background: rgba(255,59,107,.08); color: #ffb4c6; }
+    .kd { display: inline-block; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--warning); border: 1px solid #5a4a00; border-radius: 3px; padding: 1px 5px; margin-left: 4px; }
     @media (max-width: 640px) { .dt-kpi { grid-template-columns: repeat(2, 1fr); } .kv { grid-template-columns: repeat(2, 1fr); } .cond { grid-template-columns: 1fr; } .pr-row { grid-template-columns: 120px 1fr 60px; } }
 
     /* ══ 字級收斂:全頁只用 4 級(xs 11 / sm 12.5 / md 14 / lg 17px)+ 對比 ≥ 6.9:1 ═══════════════════ */
@@ -226,6 +229,7 @@
     </div>
   </header>
 
+  <div id="qbanner" hidden></div>
   <div id="app" class="loading">RADAR INITIALIZING…</div>
 
   <footer class="rd-foot">
@@ -244,7 +248,7 @@
   </footer>
 </div>
 
-<script src="funnel.js?v=20260903c"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
+<script src="funnel.js?v=20260905a"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 (async function () {
@@ -257,8 +261,8 @@
   const TVEX = { NASDAQ: 'NASDAQ', NYSE: 'NYSE', AMEX: 'AMEX' };
   const tvUrl = m => `https://www.tradingview.com/chart/?symbol=${encodeURIComponent((TVEX[m.ex] || m.ex || '') + ':' + m.s)}`;
   const WHY = { c1:'c1 價 < 150/200MA', c2:'c2 150MA < 200MA', c3:'c3 200MA 未上彎', c4:'c4 50MA 排列', c5:'c5 價 < 50MA', c6:'c6 離低點 < 門檻', c7:'c7 離高點 > 門檻', c8:'c8 RS 不足',
-    trend_days:'連續天數不足', stale:'K 線過期', 'L2:no_data':'無財報資料', 'L2:rev':'營收成長不足', 'L2:rev_na':'無營收(pre-revenue)', 'L2:eps':'EPS 成長不足', 'L2:eps_na':'去年同季 EPS ≤ 0', 'L2:accel':'未加速', 'L2:gm':'毛利不足', 'L2:gm_na':'無毛利資料',
-    'L3:rs':'RS < 門檻', 'L3:dist':'離 52W 高太遠', 'L3:adr':'ADR 不足', 'L3:event':'事件驅動(單日跳空)', 'L3:earnings':'財報窗', 'L3:sector_cap':'產業上限',
+    trend_days:'連續天數不足', stale:'K 線落後(無當日收盤)', hist:'歷史不足 200/252 根', 'data:corrupt':'資料異常(拆股混雜),已排除', 'L2:no_data':'無財報資料', 'L2:rev':'營收成長不足', 'L2:rev_na':'無營收(pre-revenue)', 'L2:eps':'EPS 成長不足', 'L2:eps_na':'去年同季 EPS ≤ 0', 'L2:accel':'未加速', 'L2:gm':'毛利不足', 'L2:gm_na':'無毛利資料',
+    'L3:rs':'RS < 門檻', 'L3:dist':'離 52W 高太遠', 'L3:adr':'ADR 不足', 'L3:event':'事件驅動(單日大漲 >門檻)', 'L3:earnings':'財報窗', 'L3:sector_cap':'產業上限',
     'L4:no_vcp':'未見 VCP', 'L4:n':'收縮次數不足', 'L4:quality':'VCP 品質不足', 'L4:below_pivot':'離 pivot 太遠' };
   const KEYS = ['', 'trend', 'fundamental', 'catalyst', 'vcp'];
 
@@ -295,7 +299,7 @@
     { g: 'L3 催化劑 · 極強勢', k: 3, key: 'catalyst', items: [
       ['catalyst.rs_min', 'RS 評級 ≥', 1, 99, 1, v => v],
       ['catalyst.max_dist_from_high_pct', '距 52W 高 ≤', 0, 50, 1, v => v + '%'],
-      ['catalyst.max_single_day_gap_pct', '單日漲幅 > 視為事件股', 5, 60, 1, v => v + '%'],
+      ['catalyst.max_single_day_gap_pct', '60 日內單日漲幅 > 視為事件股', 5, 60, 1, v => v + '%'],
       ['catalyst.exclude_event_driven', '剔除事件股', 'bool'],
       ['catalyst.sector_cap_pct', '單一產業上限', 10, 100, 5, v => v + '%'],
       ['catalyst.min_adr_pct', 'ADR ≥(0 = 關)', 0, 10, .5, v => v + '%'],
@@ -369,6 +373,14 @@
   const gen = new Date(data.generated_at), ageH = Math.max(0, (Date.now() - gen) / 36e5);
   $('#meta').innerHTML = `<div>資料日 <b>${data.date}</b>${data.session === 'open' ? ` <span class="warn">盤中快照 · 今日量推估 ×${data.vol_scale}</span>` : ''} · 掃描 ${ageH < 1 ? '剛剛' : ageH < 48 ? Math.round(ageH) + ' 小時前' : Math.round(ageH / 24) + ' 天前'} · ${data.elapsed_s}s</div>
     <div>宇宙 <b>${data.universe_n.toLocaleString()}</b> 檔${(data.symbols[0] || {}).usrc ? ` <span class="warn">(沿用 ${data.symbols[0].usrc.replace('cache:', '')} 快取)</span>` : ''} · K 線 ${data.bars_ok_n.toLocaleString()}${data.stale_n ? ` · <span class="warn">stale ${data.stale_n}</span>` : ''}${data.fund_missing_n ? ` · <span class="warn">無財報 ${data.fund_missing_n}</span>` : ''}</div>`;
+
+  // 資料品質:誠實攤開。degraded = yfinance 限流,名單不完整;任何落後的股票在列與個股頁都標 K 線日期
+  (function () {
+    const q = data.quality; const b = $('#qbanner'); if (!q) return;
+    const parts = [`當日收盤 <b>${q.fresh}</b> / ${q.universe}`, q.lag1 ? `落後 1 日 ${q.lag1}` : '', q.stale ? `落後更多 ${q.stale}` : '', q.failed_fetch ? `抓取失敗 ${q.failed_fetch}` : '', q.corrupt ? `資料異常排除 ${q.corrupt}` : '', q.carried ? `宇宙沿用 ${q.carried}` : ''].filter(Boolean);
+    b.hidden = false; b.classList.toggle('bad', !!q.degraded);
+    b.innerHTML = (q.degraded ? '⚠ <b>DEGRADED</b> —— yfinance 限流,今天有 ' + (q.universe - q.fresh) + ' 檔沒有當日收盤,它們不進 L1、不排 RS;名單不完整。 · ' : '資料品質 · ') + parts.join(' · ') + `<span style="float:right">K 線日 ${data.date}</span>`;
+  })();
 
   // ── 3D 弧形漏斗 ─────────────────────────────────────────
   const svg = $('#funnel'), NS = 'http://www.w3.org/2000/svg';
@@ -471,10 +483,11 @@
     $('#sblv').innerHTML = `<span><b>${esc(N[sel])}</b> · ≥ 本層</span><span>${rs.length > MAX ? `顯示前 ${MAX} / ` : ''}${rs.length} 檔</span>`;
     $('#list').innerHTML = rs.slice(0, MAX).map(m => {
       const v = m.v, lv = R.levels[m.s], dh = val(m, 'dh');
-      const flags = [v && v.bo ? '<span class="flag bo">突破</span>' : '', (m.gap || 0) > P.catalyst.max_single_day_gap_pct ? '<span class="flag ev">事件</span>' : '',
-        m.e && m.e.next && (Date.parse(m.e.next) - Date.parse(data.date)) / 864e5 <= P.catalyst.earnings_within_days ? `<span class="flag er">財報 ${m.e.next.slice(5)}</span>` : '', m.rsp ? '<span class="flag">新股</span>' : ''].join('');
+      const dEarn = m.e && m.e.next ? (Date.parse(m.e.next) - Date.parse(data.date)) / 864e5 : null;
+      const flags = [v && v.bo && lv >= 3 ? '<span class="flag bo">突破</span>' : '', (m.gap || 0) > P.catalyst.max_single_day_gap_pct ? '<span class="flag ev">事件</span>' : '',
+        dEarn != null && dEarn >= 0 && dEarn <= P.catalyst.earnings_within_days ? `<span class="flag er">財報 ${m.e.next.slice(5)}</span>` : '', m.rsp ? '<span class="flag">新股</span>' : ''].join('');
       return `<div class="row" data-s="${m.s}">
-        <div class="r1"><span class="sym">${m.s}</span><span class="lv lv${lv}">L${lv}</span>${flags}
+        <div class="r1"><span class="sym">${m.s}</span><span class="lv lv${lv}">L${lv}</span>${m.st > 0 ? `<span class="kd" title="沒有 ${data.date} 的收盤,最後 K 線 ${m.d}">K線 ${m.d.slice(5)}</span>` : ''}${flags}
           <span class="num"><span>RS <b class="${m.rs >= 90 ? 'pos' : ''}">${fmt(m.rs, 0)}</b></span><span>距高 <b class="${dh != null && dh > -5 ? 'pos' : ''}">${sgn(dh)}</b></span><span>VCP <b class="${v && v.q >= P.vcp.min_quality ? 'pos' : ''}">${v ? `${v.n}次·Q${v.q}` : '—'}</b></span></span></div>
         <div class="r2"><span class="name">${esc(m.name)}<small>${esc(m.sec || '')}${m.ind ? ' · ' + esc(m.ind) : ''}</small></span></div>
         <div class="r4">${lv < 4 ? '卡在:' + esc(WHY[R.fail[m.s]] || R.fail[m.s] || '') : '<span class="tgt">🎯 狙擊候選</span>'}</div>
@@ -496,7 +509,7 @@
     const m = bySym[s], f = m.f || {}, v = m.v, cs = RadarFunnel.c17(m, P.trend), lv = R.levels[s], bars = data.bars[s];
     const pg = $('#pg-detail'), scrollY = keepScroll ? (pg.querySelector('.dt-body')?.scrollTop || 0) : 0;
     if (chart) { chart.remove(); chart = null; }
-    pg.innerHTML = `<div class="dt-h"><button class="back" id="back">← 返回名單</button><span class="dt-sym">${s}</span><span class="dt-name">${esc(m.name)}<small>${esc(m.sec || '')} · ${esc(m.ind || '')} · ${m.ex} · mcap $${m.mc ? (m.mc / 1e9).toFixed(1) + 'B' : '—'}</small></span><span class="lv lv${lv}">L${lv}</span></div>
+    pg.innerHTML = `<div class="dt-h"><button class="back" id="back">← 返回名單</button><span class="dt-sym">${s}</span><span class="dt-name">${esc(m.name)}<small>${esc(m.sec || '')} · ${esc(m.ind || '')} · ${m.ex} · mcap $${m.mc ? (m.mc / 1e9).toFixed(1) + 'B' : '—'}</small></span><span class="lv lv${lv}">L${lv}</span>${m.st > 0 ? `<span class="kd">最後 K 線 ${m.d}(落後 ${m.st} 個交易日)</span>` : ''}</div>
       <div class="dt-body">
       <div class="dt-kpi"><div><div class="k">Price</div><div class="v">$${fmt(m.px, 2)}</div></div><div><div class="k">RS</div><div class="v ${m.rs >= 90 ? 'pos' : ''}">${fmt(m.rs, 0)}${m.rsp ? '*' : ''}</div></div>
         <div><div class="k">距 52W 高</div><div class="v">${sgn(m.hi ? (m.px / m.hi - 1) * 100 : null)}</div></div><div><div class="k">1M / 3M / 6M</div><div class="v" style="font-size:.72rem">${sgn(m.r1m, 0)} / ${sgn(m.r3m, 0)} / ${sgn(m.r6m, 0)}</div></div></div>
@@ -513,7 +526,7 @@
           return `<tr><td>${lab}<small>r(${n})</small></td><td>${((data.rs_meta||{}).dates||{})[n] || '—'}</td><td>$${fmt(b, 2)}</td><td class="${r > 0 ? 'pos' : r < 0 ? 'neg' : ''}">${r == null ? '—' : sgn(r*100)}</td><td>× ${wEff}</td><td>${r == null ? '—' : (wEff*r >= 0 ? '+' : '') + (wEff*r).toFixed(4)}</td></tr>`; }).join('')}
         </tbody></table>
         <div class="rsx-sum"><span>RS_raw = <b>${m.rsx.raw == null ? '—' : (m.rsx.raw >= 0 ? '+' : '') + m.rsx.raw.toFixed(4)}</b></span>
-          <span>在 ${(data.rs_meta||{}).n || '—'} 檔裡贏過 <b>${m.rsx.beat ?? '—'}</b> 檔 → 百分位 <b>${m.rsx.beat != null && data.rs_meta ? (m.rsx.beat / data.rs_meta.n).toFixed(3) : '—'}</b> → ×98+1 = <b class="pos">RS ${fmt(m.rs, 0)}</b></span>
+          <span>${m.rs == null ? '<span class="wn">不在 RS 分母(沒有當日收盤或資料異常)</span>' : `在 ${(data.rs_meta||{}).n || '—'} 檔裡贏過 <b>${m.rsx.beat ?? '—'}</b> 檔 → (贏過數+1)/N = <b>${m.rsx.beat != null && data.rs_meta ? ((m.rsx.beat + 1) / data.rs_meta.n).toFixed(3) : '—'}</b> → ×98+1 = <b class="pos">RS ${fmt(m.rs, 0)}</b>`}</span>
           ${m.rsp ? '<span class="wn">新股:不足 252 根 K 線,退用 0.5×r(63)+0.5×r(126)</span>' : ''}
           ${(data.rs_meta||{}).spy ? `<span>對照:SPY 套同一公式 raw ${data.rs_meta.spy.raw >= 0 ? '+' : ''}${data.rs_meta.spy.raw} → 相當於 RS <b>${data.rs_meta.spy.rating}</b></span>` : ''}</div></div>` : ''}
       <div class="sec"><h4>Fundamentals · ${f.ok ? esc(f.per || '') + ' · ' + esc(f.q || '') : '無資料'}</h4>
