@@ -252,7 +252,7 @@
   </footer>
 </div>
 
-<script src="funnel.js?v=20260906c"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
+<script src="funnel.js?v=20260906d"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 (async function () {
@@ -470,6 +470,10 @@
         g.querySelector('.band').setAttribute('stroke-dasharray', off ? '6 4' : ''); g.querySelector('.band').setAttribute('opacity', off ? .4 : 1);
         nm.textContent = N[i]; ct.textContent = counts[i].toLocaleString();
         pr.textContent = off ? '整層略過 · 上一層全部放行' : i === 0 ? '可交易宇宙' : `${(counts[i] / Math.max(1, counts[i - 1]) * 100).toFixed(1)}% 通過上一層` + (i === 4 && counts[4] === 0 ? ' · 耐心等待' : '');
+        if (i === 2 && !off && COV.missing > 0) {          // L2 財報沒抓滿 → 這個數字是低估,直接標在漏斗上
+          pr.textContent = `⚠ ${COV.missing} 檔無財報被當不合格 · 實際可能更多`;
+          pr.setAttribute('fill', '#FFD000');
+        } else { pr.setAttribute('fill', 'var(--text-dim)'); }
       });
       if (k < 1) requestAnimationFrame(step); else curW = target;
     })(t0);
@@ -496,15 +500,25 @@
     $('#lvtabs').innerHTML = N.map((n, i) => `<button class="lv-tab ${i === sel ? 'on' : ''} ${KEYS[i] && P[KEYS[i]].enabled === false ? 'off' : ''}" data-lv="${i}">${n.replace(/^L\d /, 'L' + i + ' ')}<b>${R.counts[i].toLocaleString()}</b></button>`).join('');
   }
   $('#lvtabs').addEventListener('click', e => { const b = e.target.closest('.lv-tab'); if (b) selectLevel(+b.dataset.lv); });
+  const COV = { missing: 0, have: 0, total: 0 };
   function recompute(first) {
     R = RadarFunnel.evaluate(data.symbols, P, data.date);
+    // 進入 L2 閘門的檔數 vs 其中真的有財報的 —— 關掉 L1 時分母會變成整個 L0,失真程度一目了然
+    const intoL2 = data.symbols.filter(m => (R.levels[m.s] ?? -1) >= 1);
+    COV.total = intoL2.length;
+    COV.have = intoL2.filter(m => m.f && m.f.ok).length;
+    COV.missing = P.fundamental.enabled === false ? 0 : COV.total - COV.have;
     if (first) { let i = 4; while (i > 0 && R.counts[i] === 0) i--; sel = i; }
     drawFunnel(R.counts, !first);
     renderTabs();
     document.querySelectorAll('[data-cnt]').forEach(el => { el.textContent = R.counts[+el.dataset.cnt]; });
     $('#fnsub').textContent = `${R.counts[0].toLocaleString()} → ${R.counts[1]} → ${R.counts[2]} → ${R.counts[3]} → ${R.counts[4]}`;
     const l1 = data.symbols.filter(m => (R.levels[m.s] ?? -1) >= 1), withF = l1.filter(m => m.f && m.f.ok).length, revNA = l1.filter(m => m.f && m.f.ok && m.f.rev_g == null).length;
-    $('#l2note').innerHTML = `拉桿作用範圍:有財報 <b>${withF}</b> / ${l1.length} 檔 L1${withF < l1.length ? ` · <span class="warn">${l1.length - withF} 檔無財報(FMP 逾時,下次掃描補)</span>` : ''}${revNA ? ` · ${revNA} 檔無營收(pre-revenue)` : ''}`;
+    const fc = data.fund_cov || {};
+    $('#l2note').innerHTML = `拉桿作用範圍:進入 L2 的 ${l1.length} 檔中有財報 <b>${withF}</b> 檔`
+      + (withF < l1.length ? ` · <span class="warn">${l1.length - withF} 檔尚未抓到財報,會被當成不合格 → 這一層的數字是<b>低估</b></span>` : '')
+      + (revNA ? ` · ${revNA} 檔無營收(pre-revenue,任何營收門檻都過不了)` : '')
+      + (fc.universe ? `<br>全宇宙財報覆蓋 ${fc.universe_have}/${fc.universe}(每次掃描依 RS 由高到低漸進補,快取 30 天)` : '');
     renderList();
     if (curSym && !$('#pg-detail').hidden) renderDetail(curSym, true);   // 參數變了 → 個股頁的 ✓✗ 也跟著變
   }
