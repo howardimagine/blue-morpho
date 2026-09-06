@@ -252,7 +252,7 @@
   </footer>
 </div>
 
-<script src="funnel.js?v=20260906d"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
+<script src="funnel.js?v=20260906e"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 (async function () {
@@ -470,8 +470,9 @@
         g.querySelector('.band').setAttribute('stroke-dasharray', off ? '6 4' : ''); g.querySelector('.band').setAttribute('opacity', off ? .4 : 1);
         nm.textContent = N[i]; ct.textContent = counts[i].toLocaleString();
         pr.textContent = off ? '整層略過 · 上一層全部放行' : i === 0 ? '可交易宇宙' : `${(counts[i] / Math.max(1, counts[i - 1]) * 100).toFixed(1)}% 通過上一層` + (i === 4 && counts[4] === 0 ? ' · 耐心等待' : '');
-        if (i === 2 && !off && COV.missing > 0) {          // L2 財報沒抓滿 → 這個數字是低估,直接標在漏斗上
-          pr.textContent = `⚠ ${COV.missing} 檔無財報被當不合格 · 實際可能更多`;
+        // L2 財報沒抓滿 → 這個數字是低估,直接標在漏斗上;只在「有意義」時才警告(≥5 檔或 ≥2%),不然一兩檔會變雜訊
+        if (i === 2 && !off && COV.missing >= Math.max(5, COV.total * 0.02)) {
+          pr.textContent = `⚠ ${COV.missing} 檔尚無財報 → 此數字為低估`;
           pr.setAttribute('fill', '#FFD000');
         } else { pr.setAttribute('fill', 'var(--text-dim)'); }
       });
@@ -516,7 +517,7 @@
     const l1 = data.symbols.filter(m => (R.levels[m.s] ?? -1) >= 1), withF = l1.filter(m => m.f && m.f.ok).length, revNA = l1.filter(m => m.f && m.f.ok && m.f.rev_g == null).length;
     const fc = data.fund_cov || {};
     $('#l2note').innerHTML = `拉桿作用範圍:進入 L2 的 ${l1.length} 檔中有財報 <b>${withF}</b> 檔`
-      + (withF < l1.length ? ` · <span class="warn">${l1.length - withF} 檔尚未抓到財報,會被當成不合格 → 這一層的數字是<b>低估</b></span>` : '')
+      + (l1.length - withF >= Math.max(5, l1.length * 0.02) ? ` · <span class="warn">${l1.length - withF} 檔尚未抓到財報,會被當成不合格 → 這一層的數字是<b>低估</b></span>` : (l1.length - withF ? ` · ${l1.length - withF} 檔無財報` : ''))
       + (revNA ? ` · ${revNA} 檔無營收(pre-revenue,任何營收門檻都過不了)` : '')
       + (fc.universe ? `<br>全宇宙財報覆蓋 ${fc.universe_have}/${fc.universe}(每次掃描依 RS 由高到低漸進補,快取 30 天)` : '');
     renderList();
