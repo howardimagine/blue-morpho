@@ -163,6 +163,9 @@
     .loading { font-family: var(--font-mono); font-size: .7rem; color: var(--text-dim); text-align: center; padding: var(--space-16) 0; letter-spacing: .1em; }
     #qbanner { margin: 10px 0 0; padding: 10px 14px; border: 1px solid #5a4a00; background: rgba(255,208,0,.08); color: var(--warning); font-family: var(--font-mono); font-size: var(--fs-sm); border-radius: 6px; line-height: 1.6; }
     #qbanner.bad { border-color: #7a1f33; background: rgba(255,59,107,.08); color: #ffb4c6; }
+    .hdr-sel { font-family: var(--font-mono); font-size: var(--fs-sm); color: var(--text-primary); background: var(--bg-card);
+      border: 1px solid var(--border); border-radius: 4px; padding: 7px 10px; cursor: pointer; outline: none; }
+    .hdr-sel:hover, .hdr-sel:focus { border-color: var(--accent); color: var(--accent); }
     .kd { display: inline-block; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--warning); border: 1px solid #5a4a00; border-radius: 3px; padding: 1px 5px; margin-left: 4px; }
     @media (max-width: 640px) { .dt-kpi { grid-template-columns: repeat(2, 1fr); } .kv { grid-template-columns: repeat(2, 1fr); } .cond { grid-template-columns: 1fr; } .pr-row { grid-template-columns: 120px 1fr 60px; } }
 
@@ -224,9 +227,9 @@
       <div class="rd-brand">BLUE MORPHO ▎ <b>SEPA RADAR</b> · 萬中選一的狙擊</div>
       <div class="rd-h1">Minervini 趨勢樣板漏斗 <span>· 全美股 · 收盤後 + 開盤後 1h</span></div>
     </div>
-    <div style="display:flex;align-items:center;gap:12px">
+    <div style="display:flex;align-items:center;gap:12px" id="hdr-tools">
       <div class="rd-meta" id="meta">載入中…</div>
-      <button class="btn" id="refresh" title="在 Howard 的主機上觸發重掃(全掃 → 推網站,約 2–4 分鐘)" style="font-size:var(--fs-sm);padding:8px 12px">⟳ 更新資料</button>
+      <button class="btn" id="refresh" title="在本機後台觸發重掃(全掃 → 推網站,約 1–4 分鐘)" style="font-size:var(--fs-sm);padding:8px 12px" hidden>⟳ 更新資料</button>
     </div>
   </header>
 
@@ -249,7 +252,7 @@
   </footer>
 </div>
 
-<script src="funnel.js?v=20260906b"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
+<script src="funnel.js?v=20260906c"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 (async function () {
@@ -388,16 +391,21 @@
   }
   $('#reset').onclick = () => { P = baseParams(); persist(); syncControls(); recompute(); };
   // 版本切換鈕(header)
-  const vwrap = document.createElement('div'); vwrap.className = 'lv-tabs'; vwrap.style.marginRight = '8px';
-  vwrap.innerHTML = VERS.map(v => `<button class="lv-tab ${v === ver ? 'on' : ''}" data-ver="${v}" title="切換規則版本(v1 = 原版 8 條 + VCP;v2 = 直通/條件式事件/cheat/MVP)">${v === 'v1' ? 'v1.0' : v === 'v2' ? 'v2.0' : v}</button>`).join('');
-  $('#refresh').parentElement.insertBefore(vwrap, $('#refresh'));
-  const mwrap = document.createElement('div'); mwrap.className = 'lv-tabs'; mwrap.style.marginRight = '8px';
-  mwrap.innerHTML = [['us', '美股'], ['tw', '台股']].map(([k, n]) => `<a class="lv-tab ${k === MKT ? 'on' : ''}" href="?m=${k}" title="切換市場(各自獨立的宇宙 / K 線 / 快照)">${n}</a>`).join('');
-  $('#refresh').parentElement.insertBefore(mwrap, vwrap);
+  const VLABEL = { v1: 'v1.0 原版', v2: 'v2.0 強力拉升直通' };
+  const vwrap = document.createElement('select'); vwrap.id = 'versel'; vwrap.className = 'hdr-sel';
+  vwrap.title = '切換規則版本(v1.0 = 趨勢樣板 8 條 + VCP;v2.0 = 加上強力拉升直通)';
+  vwrap.innerHTML = VERS.map(v => `<option value="${v}" ${v === ver ? 'selected' : ''}>${VLABEL[v] || v}</option>`).join('');
+  $('#hdr-tools').insertBefore(vwrap, $('#refresh'));
+  const mwrap = document.createElement('select'); mwrap.id = 'mktsel'; mwrap.className = 'hdr-sel';
+  mwrap.title = '切換市場(各自獨立的宇宙 / K 線 / 快照)';
+  mwrap.innerHTML = [['us', '美股'], ['tw', '台股']].map(([k, n]) => `<option value="${k}" ${k === MKT ? 'selected' : ''}>${n}</option>`).join('');
+  mwrap.addEventListener('change', () => { location.search = '?m=' + mwrap.value; });
+  $('#hdr-tools').insertBefore(mwrap, vwrap);
   document.querySelector('.rd-h1 span').textContent = ` · ${data.market_name || '全美股'} · 收盤後 + 開盤後 1h`;
-  vwrap.addEventListener('click', e => { const b = e.target.closest('[data-ver]'); if (!b || b.dataset.ver === ver) return;
-    ver = b.dataset.ver; P = baseParams(); try { const o = JSON.parse(localStorage.getItem('radar.params.' + ver) || 'null'); if (o && o.date === data.date) dmerge(P, o.P); } catch (_) {}
-    persist(); vwrap.querySelectorAll('[data-ver]').forEach(x => x.classList.toggle('on', x.dataset.ver === ver)); syncControls(); recompute(); });
+  vwrap.addEventListener('change', () => {
+    ver = vwrap.value; P = baseParams();
+    try { const o = JSON.parse(localStorage.getItem('radar.params.' + ver) || 'null'); if (o && o.date === data.date) dmerge(P, o.P); } catch (_) {}
+    persist(); syncControls(); recompute(); });
   $('#srv').innerHTML = `${data.rs_meta && data.rs_meta.n ? `<b>RS 基準</b>:${data.rs_meta.n} 檔 · 基準日 3M ${data.rs_meta.dates['63']} / 6M ${data.rs_meta.dates['126']} / 9M ${data.rs_meta.dates['189']} / 12M ${data.rs_meta.dates['252']}${data.rs_meta.spy ? ` · SPY 相當 RS <b>${data.rs_meta.spy.rating}</b>` : ''}<br>` : ''}<b>伺服器參數</b>(掃描時固定):宇宙 mcap ≥ ${(u.min_mcap/1e6).toFixed(0)}M · 價 ≥ $${u.min_price} · 均量 ≥ ${(u.min_avg_volume/1e3).toFixed(0)}K · 200MA 斜率窗 ${sp.trend.ma_slope_lookback} 日 ·
     VCP 回看 ${vp.lookback_days} 日 · 擺動強度 ${vp.swing_strength} · 收縮衰減 ≤ ×${vp.contraction_decay} · 首次收縮 ≤ ${Math.round(vp.max_first_depth*100)}% · 量縮 ≥ ${vp.volume_dryup_pct}% · 突破 = 收盤 > pivot +${vp.pivot_buffer_pct}% 且量 ≥ ${vp.breakout_volume_mult}× 均量`;
 
@@ -617,7 +625,7 @@
   // ── ⟳ 更新資料:打本機後台 8765(只有在 Howard 的 Mac 上才連得到;其他人按會得到提示)────────
   const API = 'http://localhost:8765/api/';
   const api = async (m, args = []) => { const r = await fetch(API + m, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(args) }); if (!r.ok) throw new Error(r.status); return r.json(); };
-  const btn = $('#refresh'); let pollT = null;
+  const btn = $('#refresh'); let pollT = null;   // 預設 hidden;探測到本機後台才顯示
   const setBtn = (t, busy) => { btn.textContent = t; btn.disabled = !!busy; btn.style.opacity = busy ? .6 : 1; };
   async function pollStatus() {
     try {
@@ -630,9 +638,10 @@
   }
   btn.onclick = async () => {
     try { setBtn('⟳ 啟動中…', true); const st = await api('minervini_refresh', [true, MKT]); if (!st.ok) throw 0; pollStatus(); }
-    catch { setBtn('⟳ 更新資料', false); alert('連不到本機後台(localhost:8765)。\n「更新資料」只能在 Howard 的 Mac 上按;其他裝置請等排程(收盤後 05:30 / 開盤後 1h 台北)。'); }
+    catch { setBtn('⟳ 後台已離線', false); btn.hidden = true; }
   };
-  api('minervini_status').then(st => { if (st.running) pollStatus(); }).catch(() => {});
+  // 只有真的連得到本機後台(= 在跑引擎的那台機器上)才顯示這顆鈕;其他人看不到,不會按了才跳錯誤
+  api('minervini_status').then(st => { btn.hidden = false; if (st.running) pollStatus(); }).catch(() => { btn.hidden = true; });
 
   recompute(true);
 })();
