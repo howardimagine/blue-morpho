@@ -252,7 +252,7 @@
   </footer>
 </div>
 
-<script src="funnel.js?v=20260906e"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
+<script src="funnel.js?v=20260906f"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 (async function () {
@@ -267,7 +267,8 @@
   const WHY = { c1:'c1 價 < 150/200MA', c2:'c2 150MA < 200MA', c3:'c3 200MA 未上彎', c4:'c4 50MA 排列', c5:'c5 價 < 50MA', c6:'c6 離低點 < 門檻', c7:'c7 離高點 > 門檻', c8:'c8 RS 不足',
     trend_days:'連續天數不足', stale:'K 線落後(無當日收盤)', hist:'歷史不足 200/252 根', 'data:corrupt':'資料異常(拆股混雜),已排除', 'L2:no_data':'無財報資料', 'L2:rev':'營收成長不足', 'L2:rev_na':'無營收(pre-revenue)', 'L2:eps':'EPS 成長不足', 'L2:eps_na':'去年同季 EPS ≤ 0', 'L2:accel':'未加速', 'L2:gm':'毛利不足', 'L2:gm_na':'無毛利資料',
     'L3:rs':'RS < 門檻', 'L3:dist':'離 52W 高太遠', 'L3:adr':'ADR 不足', 'L3:event':'事件驅動(單日大漲 >門檻)', 'L3:earnings':'財報窗', 'L3:sector_cap':'產業上限',
-    'L4:no_vcp':'未見 VCP', 'L4:n':'收縮次數不足', 'L4:quality':'VCP 品質不足', 'L4:below_pivot':'離 pivot 太遠' };
+    'L4:no_vcp':'未見 VCP', 'L4:n':'收縮次數不足', 'L4:quality':'VCP 品質不足', 'L4:below_pivot':'離 pivot 太遠',
+    'L4:extended':'已突破 pivot 太多(追高)', 'L4:no_dryup':'量沒縮(不符 VCP)', 'L2:rev_base':'基期極低的假成長' };
   const KEYS = ['', 'trend', 'fundamental', 'catalyst', 'vcp'];
 
   let data, hist = [], P, sel = 3, sortKey = 'rs', q = '', R;
@@ -330,7 +331,9 @@
     { g: 'L4 VCP · 樞紐', k: 4, key: 'vcp', items: [
       ['vcp.min_contractions', '收縮次數 ≥', 1, 5, 1, v => v + ' 次'],
       ['vcp.min_quality', 'VCP 品質分 ≥', 0, 100, 5, v => v],
-      ['vcp.max_below_pivot_pct', '現價低於 pivot ≤', 0, 30, 1, v => v + '%'] ]},
+      ['vcp.max_below_pivot_pct', '現價低於 pivot ≤', 0, 30, 1, v => v + '%'],
+      ['vcp.max_above_pivot_pct', '現價高於 pivot ≤(追高守門)', 0, 20, 0.5, v => v + '%'],
+      ['vcp.min_dryup_pct', '量縮至少(負值 = 允許量增)', -50, 60, 5, v => v + '%'] ]},
   ];
 
   // ── 版面 ─────────────────────────────────────────────────

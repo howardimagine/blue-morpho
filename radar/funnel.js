@@ -78,6 +78,7 @@
         const accel = (f.rev_g != null && f.rev_g_prev != null && f.rev_g > f.rev_g_prev) ||
                       (f.eps_g != null && f.eps_g_prev != null && f.eps_g > f.eps_g_prev);
         const gmOk = f.gm != null && f.gm >= fu.gross_margin_min;
+        if (fu.max_rev_growth != null && f.rev_g != null && f.rev_g > fu.max_rev_growth) { fail[s] = 'L2:rev_base'; continue; }
         if (!revOk) { fail[s] = f.rev_g != null ? 'L2:rev' : 'L2:rev_na'; continue; }
         if (!epsOk) { fail[s] = f.eps_g != null ? 'L2:eps' : 'L2:eps_na'; continue; }
         if (fu.require_acceleration && !accel) { fail[s] = 'L2:accel'; continue; }
@@ -109,6 +110,9 @@
         if (vc.n < vp.min_contractions) { fail[m.s] = 'L4:n'; continue; }
         if (vc.q < vp.min_quality) { fail[m.s] = 'L4:quality'; continue; }
         if (vc.dp < -vp.max_below_pivot_pct) { fail[m.s] = 'L4:below_pivot'; continue; }
+        // v2 品質守門(v1 缺鍵 → 恆不觸發)
+        if (vp.max_above_pivot_pct != null && vc.dp > vp.max_above_pivot_pct) { fail[m.s] = 'L4:extended'; continue; }
+        if (vp.min_dryup_pct != null && (vc.dry == null || vc.dry < vp.min_dryup_pct)) { fail[m.s] = 'L4:no_dryup'; continue; }
       }
       levels[m.s] = 4;
       l4.push(m.s);
