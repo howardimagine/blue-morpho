@@ -162,6 +162,7 @@
     .rd-foot ol { margin: 8px 0 0 18px; }
     .loading { font-family: var(--font-mono); font-size: .7rem; color: var(--text-dim); text-align: center; padding: var(--space-16) 0; letter-spacing: .1em; }
     #qbanner { margin: 10px 0 0; padding: 10px 14px; border: 1px solid #5a4a00; background: rgba(255,208,0,.08); color: var(--warning); font-family: var(--font-mono); font-size: var(--fs-sm); border-radius: 6px; line-height: 1.6; }
+    #qbanner.ok { border-color: #0f5a4a; background: rgba(0,255,190,.06); color: #9ff5dc; }
     #qbanner.bad { border-color: #7a1f33; background: rgba(255,59,107,.08); color: #ffb4c6; }
     .hdr-sel { font-family: var(--font-mono); font-size: var(--fs-sm); color: var(--text-primary); background: var(--bg-card);
       border: 1px solid var(--border); border-radius: 4px; padding: 7px 10px; cursor: pointer; outline: none; }
@@ -252,7 +253,7 @@
   </footer>
 </div>
 
-<script src="funnel.js?v=20260906f"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
+<script src="funnel.js?v=20260907a"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 (async function () {
@@ -420,8 +421,12 @@
   (function () {
     const q = data.quality; const b = $('#qbanner'); if (!q) return;
     const parts = [`當日收盤 <b>${q.fresh}</b> / ${q.universe}`, q.lag1 ? `落後 1 日 ${q.lag1}` : '', q.stale ? `落後更多 ${q.stale}` : '', q.failed_fetch ? `宇宙內抓取失敗 ${q.failed_fetch}` : '', q.corrupt ? `資料異常排除 ${q.corrupt}` : '', q.carried ? `宇宙沿用 ${q.carried}` : ''].filter(Boolean);
-    b.hidden = false; b.classList.toggle('bad', !!q.degraded);
-    b.innerHTML = (q.degraded ? '⚠ <b>DEGRADED</b> —— yfinance 限流,今天有 ' + (q.universe - q.fresh) + ' 檔沒有當日收盤,它們不進 L1、不排 RS;名單不完整。 · ' : '資料品質 · ') + parts.join(' · ') + `<span style="float:right">K 線日 ${data.date}</span>`;
+    const v = q.verdict || (q.degraded ? 'degraded' : 'ok');
+    b.hidden = false; b.classList.toggle('bad', v === 'degraded'); b.classList.toggle('ok', v === 'ok');
+    const head = v === 'ok' ? '✓ <b>可信</b> —— 全宇宙當日收盤齊全、無抓取失敗'
+      : v === 'warn' ? '⚠ <b>部分可信</b> —— ' + (q.why || []).join(';')
+      : '✗ <b>DEGRADED</b> —— yfinance 限流,今天有 ' + (q.universe - q.fresh) + ' 檔沒有當日收盤,它們不進 L1、不排 RS;名單不完整';
+    b.innerHTML = head + ' · ' + parts.join(' · ') + `<span style="float:right">K 線日 ${data.date}</span>`;
   })();
 
   // ── 3D 弧形漏斗 ─────────────────────────────────────────
