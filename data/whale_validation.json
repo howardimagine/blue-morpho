@@ -1,164 +1,186 @@
 {
   "as_of": "2026-08-14",
   "n_whales": 19,
-  "generated_at": "2026-09-04T00:07:19+00:00",
+  "generated_at": "2026-09-07T00:07:13+00:00",
   "stocks": [
     {
-      "symbol": "FANG",
-      "name": "Diamondback Energy, Inc.",
+      "symbol": "CVX",
+      "name": "Chevron Corporation",
       "theme": "Energy / Oil & Gas",
-      "signal": "split",
-      "holders": 0,
-      "increased": 0,
-      "reduced": 0,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 0,
-      "total_held_fmt": "—",
-      "whales_fmt": "",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": []
-    },
-    {
-      "symbol": "GILD",
-      "name": "Gilead Sciences, Inc.",
-      "theme": "Biotech — Oncology",
       "signal": "buy",
-      "holders": 1,
+      "holders": 2,
       "increased": 1,
       "reduced": 0,
       "new_pos": 0,
       "closed_pos": 0,
-      "total_held_usd": 36749906,
-      "total_held_fmt": "$37M",
-      "whales_fmt": "達利歐 Dalio $37M 加碼",
+      "total_held_usd": 14011793747,
+      "total_held_fmt": "$14.0B",
+      "whales_fmt": "巴菲特 Buffett $14.0B 持有 · 達利歐 Dalio $26M 加碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
+          "name": "巴菲特 Buffett",
+          "value_usd": 13986141890,
+          "action": "hold"
+        },
+        {
           "name": "達利歐 Dalio",
-          "value_usd": 36749906,
+          "value_usd": 25651857,
           "action": "add"
         }
       ]
     },
     {
-      "symbol": "EA",
-      "name": "Electronic Arts Inc.",
-      "theme": "Gaming",
-      "signal": "sell",
+      "symbol": "VEEV",
+      "name": "Veeva Systems Inc.",
+      "theme": "Healthcare AI",
+      "signal": "buy",
       "holders": 1,
       "increased": 0,
       "reduced": 0,
-      "new_pos": 0,
-      "closed_pos": 1,
-      "total_held_usd": 199091790,
-      "total_held_fmt": "$199M",
-      "whales_fmt": "達利歐 Dalio — 清倉 · 索羅斯 Soros $199M 持有",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "索羅斯 Soros",
-          "value_usd": 199091790,
-          "action": "hold"
-        }
-      ]
-    },
-    {
-      "symbol": "FIS",
-      "name": "Fidelity National Information S",
-      "theme": "Payments / FinTech",
-      "signal": "buy",
-      "holders": 5,
-      "increased": 2,
-      "reduced": 2,
       "new_pos": 1,
       "closed_pos": 0,
-      "total_held_usd": 264635527,
-      "total_held_fmt": "$265M",
-      "whales_fmt": "Andreas Halvorsen $227M 減碼 · 達利歐 Dalio $23M 加碼 · 索羅斯 Soros $14M 加碼 · 木頭姐 Cathie Wood <$1M 減碼 · Terry Smith — 新進",
+      "total_held_usd": 5449926,
+      "total_held_fmt": "$5M",
+      "whales_fmt": "達利歐 Dalio $5M 新進",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "Andreas Halvorsen",
-          "value_usd": 227429748,
-          "action": "trim"
-        },
-        {
           "name": "達利歐 Dalio",
-          "value_usd": 22654674,
-          "action": "add"
-        },
-        {
-          "name": "索羅斯 Soros",
-          "value_usd": 14455117,
-          "action": "add"
-        },
-        {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 95988,
-          "action": "trim"
-        },
-        {
-          "name": "Terry Smith",
-          "value_usd": 0,
+          "value_usd": 5449926,
           "action": "new"
         }
       ]
     },
     {
-      "symbol": "DOCS",
-      "name": "Doximity, Inc.",
-      "theme": "Healthcare AI / Digital Health",
-      "signal": "buy",
+      "symbol": "MU",
+      "name": "美光",
+      "theme": "Memory (HBM / DRAM / NAND)",
+      "signal": "split",
+      "holders": 5,
+      "increased": 2,
+      "reduced": 2,
+      "new_pos": 1,
+      "closed_pos": 1,
+      "total_held_usd": 5154917163,
+      "total_held_fmt": "$5.2B",
+      "whales_fmt": "德魯肯米勒 Druckenmiller — 清倉 · Philippe Laffont $3.6B 加碼 · 泰珀 Tepper $1.1B 減碼 · Brad Gerstner $242M 新進 · 達利歐 Dalio $135M 減碼 · 索羅斯 Soros $26M 加碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "德魯肯米勒 Druckenmiller",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "Philippe Laffont",
+          "value_usd": 3627089685,
+          "action": "add"
+        },
+        {
+          "name": "泰珀 Tepper",
+          "value_usd": 1125432750,
+          "action": "trim"
+        },
+        {
+          "name": "Brad Gerstner",
+          "value_usd": 241846841,
+          "action": "new"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 134666397,
+          "action": "trim"
+        },
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 25881490,
+          "action": "add"
+        }
+      ]
+    },
+    {
+      "symbol": "ANET",
+      "name": "Arista Networks, Inc.",
+      "theme": "Cloud Infrastructure",
+      "signal": "sell",
       "holders": 1,
-      "increased": 1,
-      "reduced": 0,
+      "increased": 0,
+      "reduced": 1,
       "new_pos": 0,
       "closed_pos": 0,
-      "total_held_usd": 2726211,
-      "total_held_fmt": "$3M",
-      "whales_fmt": "達利歐 Dalio $3M 加碼",
+      "total_held_usd": 43196237,
+      "total_held_fmt": "$43M",
+      "whales_fmt": "達利歐 Dalio $43M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
           "name": "達利歐 Dalio",
-          "value_usd": 2726211,
+          "value_usd": 43196237,
+          "action": "trim"
+        }
+      ]
+    },
+    {
+      "symbol": "AMAT",
+      "name": "應用材料",
+      "theme": "AI CapEx",
+      "signal": "buy",
+      "holders": 2,
+      "increased": 2,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 75468816,
+      "total_held_fmt": "$75M",
+      "whales_fmt": "達利歐 Dalio $53M 加碼 · 索羅斯 Soros $22M 加碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 53393243,
+          "action": "add"
+        },
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 22075573,
           "action": "add"
         }
       ]
     },
     {
-      "symbol": "AFRM",
-      "name": "Affirm Holdings, Inc.",
-      "theme": "Payments / FinTech",
-      "signal": "split",
-      "holders": 0,
-      "increased": 0,
+      "symbol": "COIN",
+      "name": "Coinbase Global, Inc.",
+      "theme": "Crypto Infrastructure",
+      "signal": "buy",
+      "holders": 1,
+      "increased": 1,
       "reduced": 0,
       "new_pos": 0,
       "closed_pos": 0,
-      "total_held_usd": 0,
-      "total_held_fmt": "—",
-      "whales_fmt": "",
+      "total_held_usd": 367129713,
+      "total_held_fmt": "$367M",
+      "whales_fmt": "木頭姐 Cathie Wood $367M 加碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
-      "whales": []
+      "whales": [
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 367129713,
+          "action": "add"
+        }
+      ]
     }
   ]
 }
