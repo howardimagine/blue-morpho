@@ -127,6 +127,15 @@
     /* Sidebar 第二頁:個股 */
     .dt-h { padding: 10px 12px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
     .back { font-family: var(--font-mono); font-size: .64rem; color: var(--text-secondary); background: transparent; border: 1px solid var(--border); border-radius: 4px; padding: 4px 9px; cursor: pointer; }
+    .lv-tab.tk { margin-left: auto; border-color: #2a4a3a; color: #9ff5dc; }
+    .tk-sum { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border-bottom: 1px solid var(--border); }
+    .tk-sum > div { background: var(--bg-card); padding: 8px 12px; } .tk-sum .k { font-family: var(--font-mono); font-size: var(--fs-xs); letter-spacing: .08em; color: var(--dim); text-transform: uppercase; }
+    .tk-sum .v { font-family: var(--font-mono); font-size: var(--fs-lg); font-weight: 700; color: var(--text-primary); margin-top: 2px; } .tk-sum .v small { font-size: var(--fs-xs); color: var(--dim); font-weight: 400; margin-left: 4px; }
+    table.tk { width: 100%; border-collapse: collapse; font-family: var(--font-mono); font-size: var(--fs-sm); }
+    .tk th { text-align: right; font-weight: 500; color: var(--dim); font-size: var(--fs-xs); letter-spacing: .06em; padding: 6px 8px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg-card); }
+    .tk td { text-align: right; padding: 7px 8px; border-bottom: 1px solid #10162a; white-space: nowrap; } .tk th:first-child, .tk td:first-child { text-align: left; }
+    .tk tr { cursor: pointer; } .tk tr:hover td { background: rgba(0,243,255,.04); } .tk td .nm { display: block; color: var(--dim); font-size: var(--fs-xs); font-family: var(--font-body); }
+    .tk-note { padding: 10px 12px; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--dim); line-height: 1.6; border-top: 1px solid var(--border); }
     .back:hover { color: var(--accent); border-color: var(--accent); }
     .dt-sym { font-family: var(--font-mono); font-size: 1.15rem; font-weight: 700; color: var(--accent); }
     .dt-name { color: var(--text-primary); font-size: .76rem; min-width: 0; flex: 1; } .dt-name small { display: block; color: var(--text-dim); font-family: var(--font-mono); font-size: .58rem; }
@@ -253,7 +262,7 @@
   </footer>
 </div>
 
-<script src="funnel.js?v=20260907a"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
+<script src="funnel.js?v=20260908a"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 (async function () {
@@ -272,15 +281,15 @@
     'L4:extended':'已突破 pivot 太多(追高)', 'L4:no_dryup':'量沒縮(不符 VCP)', 'L2:rev_base':'基期極低的假成長' };
   const KEYS = ['', 'trend', 'fundamental', 'catalyst', 'vcp'];
 
-  let data, hist = [], P, sel = 3, sortKey = 'rs', q = '', R;
+  let data, hist = [], track = null, P, sel = 3, sortKey = 'rs', q = '', R;
   try {
     // 市場:?m=tw 或 localStorage;美股 = data/,其他 = data/<m>/
     var MKT = (new URLSearchParams(location.search).get('m') || (() => { try { return localStorage.getItem('radar.mkt'); } catch { return null; } })() || 'us');
     try { localStorage.setItem('radar.mkt', MKT); } catch (_) {}
     const DP = MKT === 'us' ? 'data/' : `data/${MKT}/`;
-    const [a, b] = await Promise.all([fetch(DP + 'latest.json', { cache: 'no-cache' }), fetch(DP + 'history.json', { cache: 'no-cache' })]);
+    const [a, b, c] = await Promise.all([fetch(DP + 'latest.json', { cache: 'no-cache' }), fetch(DP + 'history.json', { cache: 'no-cache' }), fetch(DP + 'track.json', { cache: 'no-cache' })]);
     if (!a.ok) throw new Error('latest.json ' + a.status);
-    data = await a.json(); hist = b.ok ? await b.json() : [];
+    data = await a.json(); hist = b.ok ? await b.json() : []; track = c.ok ? await c.json() : null;
   } catch (e) {
     $('#app').innerHTML = `<div class="loading">尚無掃描資料(${esc(e.message)})<br>跑 <code>scripts/run_minervini.py --mode manual --market ${esc(MKT)}</code> 產生 latest.json<br><br><a href="?m=us" class="btn">美股</a> <a href="?m=tw" class="btn">台股</a></div>`; return;
   }
@@ -369,6 +378,7 @@
           <div class="sb-foot" id="sbfoot"></div>
         </div>
         <div class="sb-page" id="pg-detail" hidden></div>
+        <div class="sb-page" id="pg-track" hidden></div>
       </aside>
     </div>`;
 
@@ -409,7 +419,7 @@
   vwrap.addEventListener('change', () => {
     ver = vwrap.value; P = baseParams();
     try { const o = JSON.parse(localStorage.getItem('radar.params.' + ver) || 'null'); if (o && o.date === data.date) dmerge(P, o.P); } catch (_) {}
-    persist(); syncControls(); recompute(); });
+    persist(); syncControls(); recompute(); if (!$('#pg-track').hidden) renderTrack(); });
   $('#srv').innerHTML = `${data.rs_meta && data.rs_meta.n ? `<b>RS 基準</b>:${data.rs_meta.n} 檔 · 基準日 3M ${data.rs_meta.dates['63']} / 6M ${data.rs_meta.dates['126']} / 9M ${data.rs_meta.dates['189']} / 12M ${data.rs_meta.dates['252']}${data.rs_meta.spy ? ` · SPY 相當 RS <b>${data.rs_meta.spy.rating}</b>` : ''}<br>` : ''}<b>伺服器參數</b>(掃描時固定):宇宙 mcap ≥ ${(u.min_mcap/1e6).toFixed(0)}M · 價 ≥ $${u.min_price} · 均量 ≥ ${(u.min_avg_volume/1e3).toFixed(0)}K · 200MA 斜率窗 ${sp.trend.ma_slope_lookback} 日 ·
     VCP 回看 ${vp.lookback_days} 日 · 擺動強度 ${vp.swing_strength} · 收縮衰減 ≤ ×${vp.contraction_decay} · 首次收縮 ≤ ${Math.round(vp.max_first_depth*100)}% · 量縮 ≥ ${vp.volume_dryup_pct}% · 突破 = 收盤 > pivot +${vp.pivot_buffer_pct}% 且量 ≥ ${vp.breakout_volume_mult}× 均量`;
 
@@ -506,9 +516,10 @@
   // ── 重算 ──────────────────────────────────────────────────
   function selectLevel(i) { sel = i; showList(); renderList(); highlight(); renderTabs(); }
   function renderTabs() {
-    $('#lvtabs').innerHTML = N.map((n, i) => `<button class="lv-tab ${i === sel ? 'on' : ''} ${KEYS[i] && P[KEYS[i]].enabled === false ? 'off' : ''}" data-lv="${i}">${n.replace(/^L\d /, 'L' + i + ' ')}<b>${R.counts[i].toLocaleString()}</b></button>`).join('');
+    $('#lvtabs').innerHTML = N.map((n, i) => `<button class="lv-tab ${i === sel ? 'on' : ''} ${KEYS[i] && P[KEYS[i]].enabled === false ? 'off' : ''}" data-lv="${i}">${n.replace(/^L\d /, 'L' + i + ' ')}<b>${R.counts[i].toLocaleString()}</b></button>`).join('')
+      + `<button class="lv-tab tk" data-lv="track" title="過四關(L4)的股票,從過關日到現在的裸報酬">📈 成功率<b>${(track && track.summary && track.summary[ver] || {}).n || 0}</b></button>`;
   }
-  $('#lvtabs').addEventListener('click', e => { const b = e.target.closest('.lv-tab'); if (b) selectLevel(+b.dataset.lv); });
+  $('#lvtabs').addEventListener('click', e => { const b = e.target.closest('.lv-tab'); if (!b) return; b.dataset.lv === 'track' ? showTrack() : selectLevel(+b.dataset.lv); });
   const COV = { missing: 0, have: 0, total: 0 };
   function recompute(first) {
     R = RadarFunnel.evaluate(data.symbols, P, data.date);
@@ -567,8 +578,22 @@
   let chart = null, curSym = null;
   function sma(arr, n) { const out = []; let s = 0; for (let i = 0; i < arr.length; i++) { s += arr[i].close; if (i >= n) s -= arr[i - n].close; if (i >= n - 1) out.push({ time: arr[i].time, value: s / n }); } return out; }
   const setWide = _ => {};   // 固定寬度,不再縮放(Howard:一直縮放頭很暈)
-  function showList() { $('#pg-detail').hidden = true; $('#pg-list').hidden = false; if (chart) { chart.remove(); chart = null; } curSym = null; setWide(false); }
-  function showDetail(s) { curSym = s; $('#pg-list').hidden = true; $('#pg-detail').hidden = false; setWide(true); renderDetail(s); $('#pg-detail').scrollTop = 0; }
+  // ── Sidebar 第 3 頁:成功率(過四關後的裸報酬;不含書中停損停利)──────────
+  function showTrack() { $('#pg-list').hidden = true; $('#pg-detail').hidden = true; $('#pg-track').hidden = false; if (chart) { chart.remove(); chart = null; } curSym = null; setWide(true); renderTrack(); }
+  function renderTrack() {
+    const pg = $('#pg-track'), es = (track && track.entries || []).filter(e => e.p === ver), sm = (track && track.summary || {})[ver];
+    const pc = x => x == null ? '—' : `<span class="${x > 0 ? 'pos' : x < 0 ? 'neg' : ''}">${x > 0 ? '+' : ''}${x.toFixed(1)}%</span>`;
+    pg.innerHTML = `<div class="dt-h"><button class="back" id="back-tk">← 返回名單</button><span class="dt-sym">成功率</span><span class="dt-name">${VLABEL[ver] || ver} · 過四關(L4)的每一筆,從過關日收盤到現在<small>資料到 ${track && track.date || '—'} · 同檔掉出 L4 超過 20 個掃描日再進 = 新一筆</small></span></div>
+      ${sm ? `<div class="tk-sum"><div><div class="k">筆數</div><div class="v">${sm.n}</div></div><div><div class="k">勝率(現在 > 進場)</div><div class="v ${sm.win / sm.n >= .5 ? 'pos' : ''}">${Math.round(sm.win / sm.n * 100)}%<small>${sm.win}/${sm.n}</small></div></div><div><div class="k">平均報酬 / 中位</div><div class="v">${pc(sm.avg)}<small>中位 ${sm.med > 0 ? '+' : ''}${sm.med}%</small></div></div><div><div class="k">平均最佳 · 曾達 +10% / +20%</div><div class="v">${pc(sm.best_avg)}<small>${sm.hit10} / ${sm.hit20} 筆</small></div></div></div>` : ''}
+      <div class="dt-body">${es.length ? `<table class="tk"><thead><tr><th>代號</th><th>過關日</th><th>過關價</th><th>現價</th><th>報酬率</th><th>最佳報酬率</th><th>天數</th></tr></thead><tbody>
+      ${es.map(e => `<tr data-s="${e.s}"><td><b>${e.s}</b><span class="nm">${esc(e.name || '')}</span></td><td>${e.date}</td><td>${CUR}${fmt(e.px, 2)}</td><td>${CUR}${fmt(e.now, 2)}</td><td>${pc(e.ret)}</td><td title="過關後最高價 ${e.best_date}">${pc(e.best)}</td><td>${e.days}</td></tr>`).join('')}</tbody></table>`
+      : '<div class="empty">尚無過四關的紀錄<br>每次收盤掃描會自動累積</div>'}
+      <div class="tk-note">報酬率 = 現在收盤 ÷ 過關日收盤 − 1(裸報酬,<b>未套用書中 8% 停損 / 分批停利</b>);最佳報酬率 = 過關後任一日最高價 ÷ 過關日收盤 − 1(理論最大漲點)。天數 = 過關後的交易日數。點列開個股。</div></div>`;
+    $('#back-tk').onclick = showList;
+    pg.querySelectorAll('tr[data-s]').forEach(tr => tr.onclick = () => { if (bySym[tr.dataset.s]) showDetail(tr.dataset.s); });
+  }
+  function showList() { $('#pg-detail').hidden = true; $('#pg-track').hidden = true; $('#pg-list').hidden = false; if (chart) { chart.remove(); chart = null; } curSym = null; setWide(false); }
+  function showDetail(s) { curSym = s; $('#pg-list').hidden = true; $('#pg-track').hidden = true; $('#pg-detail').hidden = false; setWide(true); renderDetail(s); $('#pg-detail').scrollTop = 0; }
   function renderDetail(s, keepScroll) {
     const m = bySym[s], f = m.f || {}, v = m.v, cs = RadarFunnel.c17(m, P.trend), lv = R.levels[s], bars = data.bars[s];
     const pg = $('#pg-detail'), scrollY = keepScroll ? (pg.querySelector('.dt-body')?.scrollTop || 0) : 0;
