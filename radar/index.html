@@ -251,7 +251,10 @@
       .pr-row { grid-template-columns: 1fr 64px; } .pr-row .pr-lab { grid-column: 1 / -1; padding-top: 6px; }
       .pr-row input[type=range] { height: 28px; }
       .dt-kpi { grid-template-columns: repeat(2, 1fr); }
-      .tk th:nth-child(3), .tk td:nth-child(3), .tk th:nth-child(7), .tk td:nth-child(7) { display: none; }   /* 過關價、天數:桌機才看 */
+      .tk th:nth-child(4), .tk td:nth-child(4), .tk th:nth-child(7), .tk td:nth-child(7) { display: none; }   /* 現價、天數:桌機才看;手機留 過關日/過關價/報酬/最佳 */
+      .tk { font-size: 11.5px; } .tk td { padding: 8px 5px; } .tk td .nm { max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .dt-h { gap: 8px 10px; } .dt-h .back { order: -1; flex: 0 0 100%; text-align: left; }   /* 返回鍵獨佔一列、整列可點 */
+      .dt-name small { display: block; margin-top: 2px; }
       .tk-sum { grid-template-columns: repeat(2, 1fr); } .tk-sum .v { font-size: 15px; }
       .mnav { display: flex; position: fixed; left: 0; right: 0; bottom: 0; height: var(--nav); z-index: 30; background: var(--bg); border-top: 1px solid var(--border);
         padding-bottom: env(safe-area-inset-bottom); }
