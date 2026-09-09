@@ -292,7 +292,9 @@
       .tk th:nth-child(4), .tk td:nth-child(4), .tk th:nth-child(7), .tk td:nth-child(7) { display: none; }   /* 現價、天數:桌機才看;手機留 過關日/過關價/報酬/最佳 */
       .tk { font-size: 11.5px; } .tk td { padding: 8px 5px; } .tk td .nm { max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
       .dt-h { gap: 8px 10px; } .dt-h .back { order: -1; flex: 0 0 100%; text-align: left; }   /* 返回鍵獨佔一列、整列可點 */
-      .dt-h.tk-h .back { flex: 0 0 auto; align-self: stretch; justify-content: flex-start; }
+      .dt-h.tk-h .back { display: none; }   /* 手機用底部 tab 切,不需要返回 */
+      .sb-list, .dt-body { padding-bottom: 28px; overflow-x: hidden; } .dt-body > * { max-width: 100%; min-width: 0; }
+      table.rsx { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }   /* RS 分解表太寬 → 表格自己橫捲,不要整頁位移 */
       .lv-tabs { flex-wrap: wrap; row-gap: 4px; }
       .tk { font-size: 12.5px; } .tk td, .tk th { padding: 8px 4px; } .tk td .nm { max-width: 92px; }
       .dt-name small { display: block; margin-top: 2px; }
@@ -322,9 +324,9 @@
 
   <nav class="mnav" id="mnav" aria-label="手機分頁">
     <button data-m="list" class="on">名單<b id="mn-l4"></b></button>
-    <button data-m="funnel">漏斗</button>
-    <button data-m="params">參數</button>
     <button data-m="track">成功率</button>
+    <button data-m="params">參數</button>
+    <button data-m="funnel">漏斗</button>
   </nav>
 
   <footer class="rd-foot">
@@ -343,7 +345,7 @@
   </footer>
 </div>
 
-<script src="funnel.js?v=20260909h"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
+<script src="funnel.js?v=20260909j"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 (async function () {
@@ -453,12 +455,10 @@
             <div class="sb-tools">
               <input type="search" id="q" placeholder="搜尋代號 / 名稱 / 產業" aria-label="搜尋">
               <select id="sort" aria-label="排序"><option value="rs">RS ↓</option><option value="dh">距高 ↓</option><option value="px">價格 ↓</option><option value="td">趨勢天 ↓</option><option value="age">在層 ↓</option><option value="rev_g">營收 YoY ↓</option><option value="eps_g">EPS YoY ↓</option><option value="gm">毛利 ↓</option><option value="vq">VCP 品質 ↓</option><option value="dp">離 pivot ↓</option><option value="s">代號 A–Z</option></select>
-              <button class="btn" id="copytv" title="複製本層代號,貼進 TradingView watchlist">⧉ TV</button>
             </div>
             <div class="sb-lv" id="sblv"></div>
           </div>
           <div class="sb-list" id="list"></div>
-          <div class="sb-foot" id="sbfoot"></div>
         </div>
         <div class="sb-page" id="pg-detail" hidden></div>
         <div class="sb-page" id="pg-track" hidden></div>
@@ -655,12 +655,10 @@
         <div class="r2"><span class="name">${esc(m.name)}<small>${esc(m.sec || '')}${m.ind ? ' · ' + esc(m.ind) : ''}</small></span></div>
         <div class="r4">${lv < 4 ? '卡在:' + esc(WHY[R.fail[m.s]] || R.fail[m.s] || '') : '<span class="tgt">狙擊候選</span>'}</div>
       </div>`; }).join('') || `<div class="empty">此層無標的<br>這是漏斗的正常狀態</div>`;
-    $('#sbfoot').textContent = `點列開圖 · 進 L1 的每檔都有內嵌 K 線;L0 未進 L1 者用 ↗ TradingView 看圖`;
   }
   $('#q').addEventListener('input', e => { q = e.target.value; renderList(); });
   $('#sort').addEventListener('change', e => { sortKey = e.target.value; renderList(); });
   $('#list').addEventListener('click', e => { const s = e.target.closest('.row')?.dataset.s; if (s) showDetail(s); });
-  $('#copytv').onclick = async () => { const txt = rows().slice(0, 100).map(m => (TVEX[m.ex] || m.ex) + ':' + m.s).join(','); try { await navigator.clipboard.writeText(txt); $('#copytv').textContent = `✓ ${Math.min(100, rows().length)}`; } catch { prompt('複製:', txt); } setTimeout(() => $('#copytv').textContent = '⧉ TV', 1600); };
 
   // ── Sidebar 第 2 頁:個股(有返回)───────────────────────
   let chart = null, curSym = null;
@@ -728,11 +726,10 @@
           <div><div class="k">量縮(5 日 vs 50 日)</div><div class="v ${v.dry >= vp.volume_dryup_pct ? 'pos' : ''}">${v.dry == null ? '—' : v.dry + '%'}</div></div><div><div class="k">品質分</div><div class="v ${v.q >= P.vcp.min_quality ? 'pos' : ''}">${v.q}</div></div>
           <div><div class="k">買點</div><div class="v pos">> $${(v.piv * (1 + vp.pivot_buffer_pct / 100)).toFixed(2)}</div></div><div><div class="k">狀態</div><div class="v">${v.bo ? '已放量突破' : v.dp > -3 ? '貼近 pivot' : '等待收縮完成'}</div></div></div>`
         : '<div style="font-family:var(--font-mono);font-size:.64rem;color:var(--text-dim)">演算法未見成型的收縮序列(或不在計算範圍:只算 c1–c7 通過者)。這不代表沒有 —— 看圖。</div>'}</div>
-      <div class="dt-links"><a class="btn" href="${tvUrl(m)}" target="_blank" rel="noopener">↗ TradingView</a><button class="btn ghost" id="cp1">⧉ ${(TVEX[m.ex] || m.ex)}:${s}</button>
+      <div class="dt-links"><a class="btn" href="${tvUrl(m)}" target="_blank" rel="noopener">↗ TradingView</a>
         <span class="st">${lv < 4 ? '卡在:' + esc(WHY[R.fail[s]] || R.fail[s] || '') : 'L4 狙擊候選 —— 人眼確認'}${m.age ? ' · 在層 ' + m.age + ' 天' : ''}</span></div>
       </div>`;
     $('#back').onclick = showList;
-    $('#cp1').onclick = () => navigator.clipboard.writeText((TVEX[m.ex] || m.ex) + ':' + s).catch(() => {});
     if (bars && window.LightweightCharts) {
       const el = $('#chart');
       chart = LightweightCharts.createChart(el, { layout: { background: { type: 'solid', color: CSSV('--bg-card') }, textColor: CSSV('--dim'), fontFamily: 'JetBrains Mono, monospace', fontSize: 10 },
