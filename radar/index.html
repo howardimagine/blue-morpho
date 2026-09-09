@@ -266,6 +266,7 @@
     .lv-tab.off:not(.tk) { text-decoration: line-through; opacity: .5; }
     .lv-tab.tk { margin-left: 10px; }
     #hdr-tools { gap: 8px; }
+    .fn-meta { display: none; }
     .mnav { display: none; }
     @media (max-width: 768px) {
       :root { --hdr: 54px; --nav: calc(56px + env(safe-area-inset-bottom)); --ctl-sm: 36px; --ctl-md: 42px; --tag-h: 20px; --fs-xs: 12.5px; --fs-sm: 14px; --fs-md: 16px; --fs-lg: 19px; }
@@ -281,6 +282,7 @@
       #qbanner { margin: 0 0 10px; padding: 8px 10px; font-size: 11px; line-height: 1.5; } 
       body:not([data-m="funnel"]) .fn-card, body:not([data-m="params"]) .pm-card, body:not([data-m="funnel"]) #qbanner, body:not([data-m="funnel"]) .rd-foot { display: none; }
       .fn-hint { display: none; }
+      .fn-meta { display: block; padding: 12px 14px 0; font-family: var(--font-mono); font-size: 12.5px; line-height: 1.7; color: var(--dim); } .fn-meta b { color: var(--text-primary); } .fn-meta .warn { color: var(--warning); }
       .sb { position: fixed !important; top: var(--hdr); left: 0; right: 0; bottom: var(--nav); width: auto !important; height: auto !important; margin: 0; border: 0 !important; z-index: 10; }
       body[data-m="funnel"] .sb, body[data-m="params"] .sb { display: none; }
       /* 拇指可點:分頁鈕、列、滑桿、返回鍵 */
@@ -347,7 +349,7 @@
   </footer>
 </div>
 
-<script src="funnel.js?v=20260909n"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
+<script src="funnel.js?v=20260909o"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 (async function () {
@@ -440,6 +442,7 @@
     <div class="rd-grid">
       <div class="left">
         <section class="card fn-card">
+          <div class="fn-meta" id="fn-meta"></div>
           <div class="card-t"><span>Filter Funnel</span><span class="sub" id="fnsub"></span></div>
           <svg id="funnel" viewBox="0 0 640 300" preserveAspectRatio="xMidYMid meet" role="img" aria-label="篩選漏斗"></svg>
           <div class="fn-hint">點任一層 → 右側名單 · 每層可「啟用/略過」、門檻可拖 · <b>L4 常態是 0 檔</b> —— 不硬湊</div>
@@ -520,6 +523,7 @@
     const why = (q.why || []).join('、');
     const qtxt = v === 'ok' ? '資料品質 OK' : v === 'warn' ? `資料品質 <span class="warn">${why || '部分落後'}</span>` : '<span class="warn">資料品質 DEGRADED</span>';
     $('#meta').insertAdjacentHTML('beforeend', ' · ' + qtxt);
+    $('#fn-meta').innerHTML = $('#meta').innerHTML;
     if (v === 'degraded') { b.hidden = false; b.classList.add('bad'); b.innerHTML = `<b>DEGRADED</b> —— yfinance 限流,${q.universe - q.fresh} 檔沒有當日收盤,不進 L1、不排 RS;名單不完整`; }
   })();
 
