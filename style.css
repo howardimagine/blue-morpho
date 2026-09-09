@@ -988,8 +988,8 @@ img { max-width: 100%; display: block; }
   --border: #DCE3EC; --border-accent: #0891B233;
   --text-primary: #0B1220; --text-secondary: #46566A; --text-dim: #8391A3;
   --accent: #0891B2; --accent-dim: #0891B214;
-  --positive: #059669; --warning: #B45309; --negative: #DC2626;
-  --positive-dim: #05966914; --warning-dim: #B4530914; --negative-dim: #DC262614;
+  --positive: #EA580C; --warning: #B45309; --negative: #4F46E5;   /* 白底不用綠:正向橙、負向靛藍(Howard 2026-09-09) */
+  --positive-dim: #EA580C14; --warning-dim: #B4530914; --negative-dim: #4F46E514;
   --on-accent: #FFFFFF;
 }
 :root[data-theme="dark"] { --on-accent: #02020A; }
