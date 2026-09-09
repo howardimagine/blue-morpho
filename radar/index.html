@@ -290,7 +290,12 @@
       body:not([data-m="funnel"]) .fn-card, body:not([data-m="params"]) .pm-card, body:not([data-m="funnel"]) #qbanner, body:not([data-m="funnel"]) .rd-foot { display: none; }
       .fn-hint { display: none; } #fnsub { display: none; }
       /* 直式漏斗:名稱/數字寫在層內、置中,描邊做底讓深淺主題都讀得到;badge 移到層的左上角、不要引線 */
-      #funnel.mob { max-height: 72vh; }
+      /* 漏斗分頁鎖一屏:卡片撐滿 header 與底部 tab 之間,SVG 吃剩餘高度,不捲動;說明頁尾在這頁不顯示 */
+      body[data-m="funnel"] { overflow: hidden; height: 100dvh; }
+      body[data-m="funnel"] .rd { height: 100dvh; box-sizing: border-box; overflow: hidden; }
+      body[data-m="funnel"] .rd-foot { display: none; }
+      body[data-m="funnel"] .fn-card { height: calc(100dvh - var(--hdr) - var(--nav) - 20px); display: flex; flex-direction: column; padding-bottom: 8px; }
+      #funnel.mob { flex: 1; min-height: 0; height: 100%; width: 100%; }
       #funnel.mob .nm, #funnel.mob .ct, #funnel.mob .pr { text-anchor: middle; paint-order: stroke; stroke: var(--bg-card); stroke-opacity: .55; stroke-width: 2.5px; stroke-linejoin: round; }
       #funnel.mob .nm { font-size: 13px; fill: var(--text-primary); letter-spacing: .02em; } #funnel.mob .ct { font-size: 22px; font-weight: 700; fill: var(--text-primary); } #funnel.mob .pr { font-size: 10.5px; fill: var(--text-primary); opacity: .75; }
       #funnel.mob .lead, #funnel.mob .badge, #funnel.mob .badge-t { display: none; }
@@ -361,7 +366,7 @@
   </footer>
 </div>
 
-<script src="funnel.js?v=20260909s"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
+<script src="funnel.js?v=20260909t"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 (async function () {
