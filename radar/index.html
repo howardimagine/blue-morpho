@@ -288,7 +288,12 @@
       .rd { padding: calc(var(--hdr) + 10px) 12px calc(var(--nav) + 16px); margin-right: 0; }
       #qbanner { margin: 0 0 10px; padding: 8px 10px; font-size: 11px; line-height: 1.5; } 
       body:not([data-m="funnel"]) .fn-card, body:not([data-m="params"]) .pm-card, body:not([data-m="funnel"]) #qbanner, body:not([data-m="funnel"]) .rd-foot { display: none; }
-      .fn-hint { display: none; }
+      .fn-hint { display: none; } #fnsub { display: none; }
+      /* 直式漏斗:名稱/數字寫在層內、置中,描邊做底讓深淺主題都讀得到;badge 移到層的左上角、不要引線 */
+      #funnel.mob { max-height: 72vh; }
+      #funnel.mob .nm, #funnel.mob .ct, #funnel.mob .pr { text-anchor: middle; paint-order: stroke; stroke: var(--bg-card); stroke-opacity: .55; stroke-width: 2.5px; stroke-linejoin: round; }
+      #funnel.mob .nm { font-size: 13px; fill: var(--text-primary); letter-spacing: .02em; } #funnel.mob .ct { font-size: 22px; font-weight: 700; fill: var(--text-primary); } #funnel.mob .pr { font-size: 10.5px; fill: var(--dim); }
+      #funnel.mob .lead, #funnel.mob .badge, #funnel.mob .badge-t { display: none; }
       .fn-meta { display: block; padding: 12px 14px 0; font-family: var(--font-mono); font-size: 12.5px; line-height: 1.7; color: var(--dim); } .fn-meta b { color: var(--text-primary); } .fn-meta .warn { color: var(--warning); }
       .sb { position: fixed !important; top: var(--hdr); left: 0; right: 0; bottom: var(--nav); width: auto !important; height: auto !important; margin: 0; border: 0 !important; z-index: 10; }
       body[data-m="funnel"] .sb, body[data-m="params"] .sb { display: none; }
@@ -356,7 +361,7 @@
   </footer>
 </div>
 
-<script src="funnel.js?v=20260909p"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
+<script src="funnel.js?v=20260909r"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 (async function () {
@@ -537,7 +542,9 @@
   // ── 3D 弧形漏斗 ─────────────────────────────────────────
   const svg = $('#funnel'), NS = 'http://www.w3.org/2000/svg';
   const LV_COL = ['var(--lv0c)', 'var(--lv1c)', 'var(--lv2c)', 'var(--lv3c)', 'var(--lv4c)'];
-  const FV = { cx: 190, top: 30, bot: 286, lx: 400, rxMax: 158, rxMin: 16 };
+  const MOBF = matchMedia('(max-width: 768px)').matches;
+  const FV = MOBF ? { cx: 180, top: 28, bot: 520, lx: 0, rxMax: 168, rxMin: 66 } : { cx: 190, top: 30, bot: 286, lx: 400, rxMax: 158, rxMin: 16 };
+  if (MOBF) { svg.setAttribute('viewBox', '0 0 360 540'); svg.classList.add('mob'); }
   const ryOf = rx => Math.max(4, rx * 0.17);
   const rxOf = (n, n0) => FV.rxMin + (FV.rxMax - FV.rxMin) * Math.log(1 + Math.max(0, n)) / Math.log(1 + Math.max(1, n0));
   const band = (yT, rxT, yB, rxB) => `M ${FV.cx - rxT} ${yT} A ${rxT} ${ryOf(rxT)} 0 0 0 ${FV.cx + rxT} ${yT} L ${FV.cx + rxB} ${yB} A ${rxB} ${ryOf(rxB)} 0 0 1 ${FV.cx - rxB} ${yB} Z`;
@@ -577,7 +584,8 @@
         badge.setAttribute('cx', FV.cx); badge.setAttribute('cy', my); bt.setAttribute('x', FV.cx); bt.setAttribute('y', my); bt.textContent = 'L' + i;
         lead.setAttribute('x1', FV.cx + Math.max(rxMid, 14) + 6); lead.setAttribute('y1', my); lead.setAttribute('x2', FV.lx - 10); lead.setAttribute('y2', my);
         const nm = g.querySelector('.nm'), ct = g.querySelector('.ct'), pr = g.querySelector('.pr');
-        nm.setAttribute('y', my - 12); ct.setAttribute('y', my + 9); pr.setAttribute('y', my + 22);
+        if (MOBF) { [nm, ct, pr].forEach(t => t.setAttribute('x', FV.cx)); nm.setAttribute('y', my - 4); ct.setAttribute('y', my + 18); pr.setAttribute('y', my + 34); }
+        else { nm.setAttribute('y', my - 12); ct.setAttribute('y', my + 9); pr.setAttribute('y', my + 22); }
         const off = KEYS[i] && P[KEYS[i]].enabled === false;
         g.classList.toggle('off', !!off);
         g.querySelector('.band').setAttribute('stroke-dasharray', off ? '6 4' : ''); g.querySelector('.band').setAttribute('opacity', off ? .4 : 1);
