@@ -1,8 +1,8 @@
-/* 主題:淺色為預設,深色可切(記在 localStorage bm.theme)。放在 <head> 最前面避免閃一下。 */
+/* 主題:深色為預設,淺色可切(記在 localStorage bm.theme)。放在 <head> 最前面避免閃一下。 */
 (function () {
   var KEY = 'bm.theme', root = document.documentElement, t = null;
   try { t = localStorage.getItem(KEY); } catch (e) {}
-  root.dataset.theme = t === 'dark' ? 'dark' : 'light';
+  root.dataset.theme = t === 'light' ? 'light' : 'dark';
   function paint() {
     var dark = root.dataset.theme === 'dark', m = document.querySelector('meta[name=theme-color]');
     if (m) m.setAttribute('content', dark ? '#02020A' : '#FFFFFF');
