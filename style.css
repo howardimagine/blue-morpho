@@ -988,11 +988,14 @@ img { max-width: 100%; display: block; }
   --border: #DCE3EC; --border-accent: #0891B233;
   --text-primary: #0B1220; --text-secondary: #46566A; --text-dim: #8391A3;
   --accent: #0891B2; --accent-dim: #0891B214;
-  --positive: #EA580C; --warning: #B45309; --negative: #4F46E5;   /* 白底不用綠:正向橙、負向靛藍(Howard 2026-09-09) */
-  --positive-dim: #EA580C14; --warning-dim: #B4530914; --negative-dim: #4F46E514;
+  --positive: #EA580C; --warning: #F59E0B; --negative: #1D4ED8;   /* 白底只用藍+橙延伸:正向橙、警示琥珀、負向藍(Howard 2026-09-09) */
+  --positive-dim: #EA580C14; --warning-dim: #F59E0B14; --negative-dim: #1D4ED814;
+  --up: #16A34A; --down: #DC2626;                                   /* 漲跌色:不管主題,美股綠漲紅跌;台股(html[data-mkt=tw])紅漲綠跌 */
   --on-accent: #FFFFFF;
 }
-:root[data-theme="dark"] { --on-accent: #02020A; }
+:root[data-theme="dark"] { --on-accent: #02020A; --up: #00FF9D; --down: #FF3B6B; }
+:root[data-mkt="tw"] { --up: #DC2626; --down: #16A34A; } :root[data-mkt="tw"][data-theme="dark"] { --up: #FF3B6B; --down: #00FF9D; }
+.up { color: var(--up) !important; } .dn { color: var(--down) !important; }
 :root:not([data-theme="dark"]) .hero { background: var(--bg); }
 :root:not([data-theme="dark"]) .hero::before {
   background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(8,145,178,.08) 0%, transparent 70%),

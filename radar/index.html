@@ -7,7 +7,7 @@
   <meta name="robots" content="noindex, nofollow, noarchive">
   <title>BLUE MORPHO · SEPA RADAR</title>
   <meta name="theme-color" content="#02020A">
-  <link rel="stylesheet" href="../style.css?v=20260909c">
+  <link rel="stylesheet" href="../style.css?v=20260909d">
   <style>
     /* ── SEPA Radar v2 · 左:漏斗 + 參數(同寬)· 右:sidebar 兩頁(名單 ⇄ 個股)────────── */
     body { background: var(--bg); color: var(--text-primary); font-family: var(--font-text); }
@@ -133,6 +133,7 @@
     .tk-sum > div { background: var(--bg-card); padding: 8px 12px; } .tk-sum .k { font-family: var(--font-mono); font-size: var(--fs-xs); letter-spacing: .08em; color: var(--dim); text-transform: uppercase; }
     .tk-sum .v { font-family: var(--font-mono); font-size: var(--fs-lg); font-weight: 700; color: var(--text-primary); margin-top: 2px; } .tk-sum .v small { font-size: var(--fs-xs); color: var(--dim); font-weight: 400; margin-left: 4px; }
     table.tk { width: 100%; border-collapse: collapse; font-family: var(--font-mono); font-size: var(--fs-sm); }
+    .tk th { cursor: pointer; user-select: none; } .tk th i { font-style: normal; font-size: 9px; margin-left: 3px; opacity: .45; } .tk th.on { color: var(--accent); } .tk th.on i { opacity: 1; }
     .tk th { text-align: right; font-weight: 500; color: var(--dim); font-size: var(--fs-xs); letter-spacing: .06em; padding: 6px 8px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg-card); }
     .tk td { text-align: right; padding: 7px 8px; border-bottom: 1px solid var(--border); white-space: nowrap; } .tk th:first-child, .tk td:first-child { text-align: left; }
     .tk tr { cursor: pointer; } .tk tr:hover td { background: rgba(0,243,255,.04); } .tk td .nm { display: block; color: var(--dim); font-size: var(--fs-xs); font-family: var(--font-body); }
@@ -296,7 +297,7 @@
       .sb-list, .dt-body { padding-bottom: 28px; overflow-x: hidden; } .dt-body > * { max-width: 100%; min-width: 0; }
       table.rsx { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }   /* RS 分解表太寬 → 表格自己橫捲,不要整頁位移 */
       .lv-tabs { flex-wrap: wrap; row-gap: 4px; }
-      .tk { font-size: 12.5px; } .tk td, .tk th { padding: 8px 4px; } .tk td .nm { max-width: 92px; }
+      .tk { font-size: 12.5px; } .tk td, .tk th { padding: 10px 4px; } .tk th:first-child, .tk td:first-child { padding-left: 14px; } .tk th:last-child, .tk td:last-child, .tk th:nth-child(6), .tk td:nth-child(6) { padding-right: 14px; } .tk td .nm { max-width: 92px; }
       .dt-name small { display: block; margin-top: 2px; }
       .tk-sum { grid-template-columns: repeat(2, 1fr); } .tk-sum .v { font-size: 15px; }
       .mnav { display: flex; position: fixed; left: 0; right: 0; bottom: 0; height: var(--nav); z-index: 30; background: var(--bg); border-top: 1px solid var(--border);
@@ -345,7 +346,7 @@
   </footer>
 </div>
 
-<script src="funnel.js?v=20260909j"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
+<script src="funnel.js?v=20260909k"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 (async function () {
@@ -369,6 +370,7 @@
     // 市場:?m=tw 或 localStorage;美股 = data/,其他 = data/<m>/
     var MKT = (new URLSearchParams(location.search).get('m') || (() => { try { return localStorage.getItem('radar.mkt'); } catch { return null; } })() || 'us');
     try { localStorage.setItem('radar.mkt', MKT); } catch (_) {}
+    document.documentElement.dataset.mkt = MKT;
     const DP = MKT === 'us' ? 'data/' : `data/${MKT}/`;
     const [a, b, c] = await Promise.all([fetch(DP + 'latest.json', { cache: 'no-cache' }), fetch(DP + 'history.json', { cache: 'no-cache' }), fetch(DP + 'track.json', { cache: 'no-cache' })]);
     if (!a.ok) throw new Error('latest.json ' + a.status);
@@ -666,16 +668,18 @@
   const setWide = _ => {};   // 固定寬度,不再縮放(Howard:一直縮放頭很暈)
   // ── Sidebar 第 3 頁:成功率(過四關後的裸報酬;不含書中停損停利)──────────
   function showTrack() { $('#pg-list').hidden = true; $('#pg-detail').hidden = true; $('#pg-track').hidden = false; if (chart) { chart.remove(); chart = null; } curSym = null; setWide(true); renderTrack(); }
+  let tkSort = { k: 'date', d: -1 };   // 成功率表排序:預設過關日新→舊;點表頭切換
   function renderTrack() {
     const pg = $('#pg-track'), es = (track && track.entries || []).filter(e => e.p === ver), sm = (track && track.summary || {})[ver];
-    const pc = x => x == null ? '—' : `<span class="${x > 0 ? 'pos' : x < 0 ? 'neg' : ''}">${x > 0 ? '+' : ''}${x.toFixed(1)}%</span>`;
+    const pc = x => x == null ? '—' : `<span class="${x > 0 ? 'up' : x < 0 ? 'dn' : ''}">${x > 0 ? '+' : ''}${x.toFixed(1)}%</span>`;
     pg.innerHTML = `<div class="dt-h tk-h"><button class="back" id="back-tk">← 返回名單</button><div class="tk-title">成功率<small>${VLABEL[ver] || ver}</small></div><div class="tk-desc">過四關(L4)的每一筆,從過關日收盤到現在 · 資料到 ${track && track.date || '—'} · 同檔掉出 L4 超過 20 個掃描日再進 = 新一筆</div></div>
       ${sm ? `<div class="tk-sum"><div><div class="k">筆數</div><div class="v">${sm.n}</div></div><div><div class="k">勝率(現在 > 進場)</div><div class="v ${sm.win / sm.n >= .5 ? 'pos' : ''}">${Math.round(sm.win / sm.n * 100)}%<small>${sm.win}/${sm.n}</small></div></div><div><div class="k">平均報酬 / 中位</div><div class="v">${pc(sm.avg)}<small>中位 ${sm.med > 0 ? '+' : ''}${sm.med}%</small></div></div><div><div class="k">平均最佳 · 曾達 +10% / +20%</div><div class="v">${pc(sm.best_avg)}<small>${sm.hit10} / ${sm.hit20} 筆</small></div></div></div>` : ''}
-      <div class="dt-body">${es.length ? `<table class="tk"><thead><tr><th>代號</th><th>過關日</th><th>過關價</th><th>現價</th><th>報酬</th><th>最佳</th><th>天數</th></tr></thead><tbody>
-      ${es.map(e => `<tr data-s="${e.s}"><td><b>${e.s}</b><span class="nm">${esc(e.name || '')}</span></td><td>${e.date}</td><td>${CUR}${fmt(e.px, 2)}</td><td>${CUR}${fmt(e.now, 2)}</td><td>${pc(e.ret)}</td><td title="過關後最高價 ${e.best_date}">${pc(e.best)}</td><td>${e.days}</td></tr>`).join('')}</tbody></table>`
+      <div class="dt-body">${es.length ? `<table class="tk"><thead><tr>${[['s', '代號'], ['date', '過關日'], ['px', '過關價'], ['now', '現價'], ['ret', '報酬'], ['best', '最佳'], ['days', '天數']].map(([k, n]) => `<th data-k="${k}" class="${tkSort.k === k ? 'on' : ''}">${n}<i>${tkSort.k === k ? (tkSort.d < 0 ? '▼' : '▲') : '▽'}</i></th>`).join('')}</tr></thead><tbody>
+      ${es.sort((a, b) => { const x = a[tkSort.k], y = b[tkSort.k]; return (typeof x === 'string' ? (x < y ? -1 : x > y ? 1 : 0) : (x ?? -1e9) - (y ?? -1e9)) * tkSort.d; }).map(e => `<tr data-s="${e.s}"><td><b>${e.s}</b><span class="nm">${esc(e.name || '')}</span></td><td>${e.date}</td><td>${CUR}${fmt(e.px, 2)}</td><td>${CUR}${fmt(e.now, 2)}</td><td>${pc(e.ret)}</td><td title="過關後最高價 ${e.best_date}">${pc(e.best)}</td><td>${e.days}</td></tr>`).join('')}</tbody></table>`
       : '<div class="empty">尚無過四關的紀錄<br>每次收盤掃描會自動累積</div>'}
       <div class="tk-note">報酬率 = 現在收盤 ÷ 過關日收盤 − 1(裸報酬,<b>未套用書中 8% 停損 / 分批停利</b>);最佳報酬率 = 過關後任一日最高價 ÷ 過關日收盤 − 1(理論最大漲點)。天數 = 過關後的交易日數。點列開個股。</div></div>`;
     $('#back-tk').onclick = showList;
+    pg.querySelectorAll('.tk th').forEach(th => th.onclick = () => { const k = th.dataset.k; tkSort = { k, d: tkSort.k === k ? -tkSort.d : (k === 's' || k === 'date' ? -1 : -1) }; renderTrack(); });
     pg.querySelectorAll('tr[data-s]').forEach(tr => tr.onclick = () => { if (bySym[tr.dataset.s]) showDetail(tr.dataset.s); });
   }
   function showList() { $('#pg-detail').hidden = true; $('#pg-track').hidden = true; $('#pg-list').hidden = false; if (chart) { chart.remove(); chart = null; } curSym = null; setWide(false); }
@@ -687,7 +691,7 @@
     pg.innerHTML = `<div class="dt-h"><button class="back" id="back">← 返回名單</button><span class="dt-sym">${s}</span><span class="dt-name">${esc(m.name)}<small>${esc(m.sec || '')} · ${esc(m.ind || '')} · ${m.ex} · mcap ${m.mc ? CUR + (m.mc / 1e9).toFixed(1) + 'B' : '—'}</small></span><span class="lv lv${lv}">L${lv}</span>${m.st > 0 ? `<span class="kd">最後 K 線 ${m.d}(落後 ${m.st} 個交易日)</span>` : ''}</div>
       <div class="dt-body">
       <div class="dt-kpi"><div><div class="k">Price</div><div class="v">${CUR}${fmt(m.px, 2)}</div></div><div><div class="k">RS</div><div class="v ${m.rs >= 90 ? 'pos' : ''}">${fmt(m.rs, 0)}${m.rsp ? '*' : ''}</div></div>
-        <div><div class="k">距 52W 高</div><div class="v">${sgn(m.hi ? (m.px / m.hi - 1) * 100 : null)}</div></div><div><div class="k">1M / 3M / 6M</div><div class="v" style="font-size:.72rem">${sgn(m.r1m, 0)} / ${sgn(m.r3m, 0)} / ${sgn(m.r6m, 0)}</div></div></div>
+        <div><div class="k">距 52W 高</div><div class="v">${sgn(m.hi ? (m.px / m.hi - 1) * 100 : null)}</div></div><div><div class="k">1M / 3M / 6M</div><div class="v" style="font-size:.72rem">${[m.r1m, m.r3m, m.r6m].map(x => `<span class="${x > 0 ? 'up' : x < 0 ? 'dn' : ''}">${sgn(x, 0)}</span>`).join(' / ')}</div></div></div>
       ${bars ? '<div id="chart"></div><div class="legend"><span><i style="background:var(--warning)"></i>MA50</span><span><i style="background:#ff8c42"></i>MA150</span><span><i style="background:var(--negative)"></i>MA200</span><span><i style="background:#00f3ff"></i>pivot</span><span><i style="background:#00ff9d"></i>買點(pivot +' + vp.pivot_buffer_pct + '%)</span><span>▼▲ VCP 擺動點</span></div>'
              : '<div class="nochart">此檔未進 L1,沒有內嵌 K 線(只嵌 L1 通過者 + 有 VCP 形狀者,控制檔案大小)<br>↗ 用 TradingView 開啟看圖</div>'}
       <div class="sec"><h4>Trend Template · 8 條件(✓✗ 跟著左側參數變)</h4><div class="cond">
@@ -736,7 +740,7 @@
         grid: { vertLines: { color: CSSV('--bg-hover') }, horzLines: { color: CSSV('--bg-hover') } }, rightPriceScale: { borderColor: CSSV('--border') }, timeScale: { borderColor: CSSV('--border'), rightOffset: 4 },
         crosshair: { mode: 0 }, width: el.clientWidth, height: 340 });
       const cd = bars.map(b => ({ time: b[0], open: b[1], high: b[2], low: b[3], close: b[4] }));
-      const cs_ = chart.addCandlestickSeries({ upColor: CSSV('--positive'), downColor: CSSV('--negative'), borderVisible: false, wickUpColor: CSSV('--positive'), wickDownColor: CSSV('--negative') });
+      const cs_ = chart.addCandlestickSeries({ upColor: CSSV('--up'), downColor: CSSV('--down'), borderVisible: false, wickUpColor: CSSV('--up'), wickDownColor: CSSV('--down') });
       cs_.setData(cd);
       const vol = chart.addHistogramSeries({ priceFormat: { type: 'volume' }, priceScaleId: '' });
       vol.priceScale().applyOptions({ scaleMargins: { top: .82, bottom: 0 } });
