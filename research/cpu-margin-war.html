@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="../theme.js"></script>
 <title>CPU 帝國的毛利率戰爭 — Blue Morpho 深度研究</title>
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
 <style>
@@ -28,7 +29,7 @@
   a{color:var(--cy);text-decoration:none;border-bottom:1px solid rgba(0,243,255,.3)}
   .hook{font-size:1.02rem;color:var(--tx2);border-left:3px solid var(--pp);padding:4px 0 4px 16px;margin:16px 0}
   .tldr{background:linear-gradient(180deg,rgba(0,243,255,.06),transparent);border:1px solid var(--line);border-left:3px solid var(--cy);border-radius:8px;padding:16px 18px;margin:14px 0;font-size:.95rem}
-  .warn{background:rgba(255,208,0,.05);border:1px solid rgba(255,208,0,.3);border-left:3px solid var(--am);border-radius:8px;padding:14px 16px;margin:14px 0;font-size:.88rem;color:#ffe9a8}
+  .warn{background:rgba(255,208,0,.05);border:1px solid rgba(255,208,0,.3);border-left:3px solid var(--am);border-radius:8px;padding:14px 16px;margin:14px 0;font-size:.88rem;color:var(--am)}
   .steel{background:rgba(122,92,255,.06);border:1px solid rgba(122,92,255,.4);border-left:3px solid var(--pp);border-radius:8px;padding:16px 18px;margin:16px 0}
   .steel h3{color:var(--pp);margin-top:0}
   .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;margin:14px 0}
@@ -45,6 +46,10 @@
   hr{border:0;border-top:1px solid var(--line);margin:30px 0}
   .foot{color:var(--mut);font-size:.78rem;margin-top:30px;line-height:1.7}
   ul{padding-left:20px} li{margin:6px 0}
+
+  :root:not([data-theme="dark"]){ --bg:#ffffff; --panel:#f6f8fb; --panel2:#edf1f6; --line:#dce3ec;
+    --cy:#0891b2; --gr:#059669; --rd:#dc2626; --am:#b45309; --pp:#6d28d9; --tx:#0b1220; --tx2:#334155; --mut:#64748b; }
+  .theme-btn{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;color:var(--mut);background:transparent;border:1px solid var(--line);border-radius:4px;padding:4px 8px;cursor:pointer;margin-left:10px}
 </style>
 </head>
 <body>
@@ -114,7 +119,7 @@
   </div>
   <p>AVGO 的 AI 引擎是真的：<b>FY2026 AI 半導體營收估 $56B、+180%</b>（客製 XPU＋AI 網通）。
     <span class="mut">（<a href="https://futurumgroup.com/insights/broadcom-q2-fy-2026-vmware-stability-supports-ai-led-semiconductor-expansion/">Futurum</a>）</span>
-    ⚠ 誠實標註：AVGO 約 <b>32% 營收是 VMware 軟體</b>（穩定、不是這題），AI 裡約 30% 是網通非 XPU——客製曝險大、但非 100%。</p>
+    誠實標註：AVGO 約 <b>32% 營收是 VMware 軟體</b>（穩定、不是這題），AI 裡約 30% 是網通非 XPU——客製曝險大、但非 100%。</p>
 
   <h2>五、把毛利率和估值綁在一起看</h2>
   <p>用同一把本益比比不同毛利率的公司，是<b>蘋果比橘子</b>——一塊 92% 毛利的營收本來就該值更高倍數。做個「<b>毛利品質調整倍數</b>」＝ fwd P/E ÷ 毛利率（示意啟發式）：</p>
@@ -184,37 +189,38 @@
     CPU 復興 <a href="https://newsletter.semianalysis.com/p/cpus-are-back-the-datacenter-cpu">SemiAnalysis</a>/<a href="https://www.tomshardware.com/pc-components/cpus/shifting-need-for-cpus-in-ai-workloads-drives-intensifying-shortages-price-hikes">Tom's Hardware</a> ·
     AMD 份額 <a href="https://semiengineering.com/data-center-cpu-dominance-is-shifting-to-amd-and-arm/">SemiEngineering</a> ·
     AVGO AI $56B <a href="https://futurumgroup.com/insights/broadcom-q2-fy-2026-vmware-stability-supports-ai-led-semiconductor-expansion/">Futurum</a> ·
-    個股財務：Blue Morpho 引擎（FMP + yfinance）TTM 快照，2026-07（⚠ 絕對報價/PE 存疑，見第六節）。<br>
+    個股財務：Blue Morpho 引擎（FMP + yfinance）TTM 快照，2026-07（絕對報價/PE 存疑，見第六節）。<br>
     本站僅供資訊與教育參考，非投資建議。© 2026 Blue Morpho。
   </div>
 </div>
 
+<script>const V=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();addEventListener('bm-theme',()=>location.reload());</script>
 <script>
 const MONO='"JetBrains Mono","SF Mono",monospace';
-const TIP={backgroundColor:'#0b0b1a',borderColor:'#1a2238',textStyle:{color:'#cfe3ee',fontFamily:MONO,fontSize:11}};
+const TIP={backgroundColor:V('--panel'),borderColor:V('--line'),textStyle:{color:V('--tx2'),fontFamily:MONO,fontSize:11}};
 const mk=id=>{const c=echarts.init(document.getElementById(id),null,{renderer:'canvas'});window.addEventListener('resize',()=>c.resize());return c;};
 
 // ── 毛利率 bar(依模式分色) ──
 mk('gm').setOption({
   backgroundColor:'transparent',grid:{left:44,right:14,top:16,bottom:28},
   tooltip:Object.assign({trigger:'axis',valueFormatter:v=>v+'%'},TIP),
-  xAxis:{type:'category',data:['ARM','AVGO','QCOM','AMD','INTC'],axisLine:{lineStyle:{color:'#1a2238'}},axisLabel:{color:'#cfe3ee',fontFamily:MONO,fontSize:11}},
-  yAxis:{type:'value',max:100,axisLabel:{color:'#8895a8',fontFamily:MONO,fontSize:9,formatter:'{value}%'},splitLine:{lineStyle:{color:'#11161f'}}},
+  xAxis:{type:'category',data:['ARM','AVGO','QCOM','AMD','INTC'],axisLine:{lineStyle:{color:V('--line')}},axisLabel:{color:V('--tx2'),fontFamily:MONO,fontSize:11}},
+  yAxis:{type:'value',max:100,axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9,formatter:'{value}%'},splitLine:{lineStyle:{color:V('--panel')}}},
   series:[{type:'bar',barWidth:34,itemStyle:{borderRadius:[3,3,0,0]},
-    label:{show:true,position:'top',color:'#cfe3ee',fontFamily:MONO,fontSize:11,formatter:'{c}%'},
-    data:[{value:92,itemStyle:{color:'#7a5cff'}},{value:68,itemStyle:{color:'#00f3ff'}},
-          {value:55,itemStyle:{color:'#00f3ff'}},{value:50,itemStyle:{color:'#00f3ff'}},
-          {value:35,itemStyle:{color:'#ff5d5d'}}]}]
+    label:{show:true,position:'top',color:V('--tx2'),fontFamily:MONO,fontSize:11,formatter:'{c}%'},
+    data:[{value:92,itemStyle:{color:V('--pp')}},{value:68,itemStyle:{color:V('--cy')}},
+          {value:55,itemStyle:{color:V('--cy')}},{value:50,itemStyle:{color:V('--cy')}},
+          {value:35,itemStyle:{color:V('--rd')}}]}]
 });
 
 // ── 利潤池 ──
 mk('pool').setOption({
   backgroundColor:'transparent',grid:{left:44,right:14,top:16,bottom:28},
   tooltip:Object.assign({trigger:'axis',valueFormatter:v=>'$'+v+'B'},TIP),
-  xAxis:{type:'category',data:['AVGO','QCOM','AMD','ARM','INTC'],axisLine:{lineStyle:{color:'#1a2238'}},axisLabel:{color:'#cfe3ee',fontFamily:MONO,fontSize:11}},
-  yAxis:{type:'value',axisLabel:{color:'#8895a8',fontFamily:MONO,fontSize:9,formatter:'${value}B'},splitLine:{lineStyle:{color:'#11161f'}}},
-  series:[{type:'bar',barWidth:34,itemStyle:{color:'#00ff9d',borderRadius:[3,3,0,0]},
-    label:{show:true,position:'top',color:'#00ff9d',fontFamily:MONO,fontSize:11,formatter:p=>'$'+p.value+'B'},
+  xAxis:{type:'category',data:['AVGO','QCOM','AMD','ARM','INTC'],axisLine:{lineStyle:{color:V('--line')}},axisLabel:{color:V('--tx2'),fontFamily:MONO,fontSize:11}},
+  yAxis:{type:'value',axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9,formatter:'${value}B'},splitLine:{lineStyle:{color:V('--panel')}}},
+  series:[{type:'bar',barWidth:34,itemStyle:{color:V('--gr'),borderRadius:[3,3,0,0]},
+    label:{show:true,position:'top',color:V('--gr'),fontFamily:MONO,fontSize:11,formatter:p=>'$'+p.value+'B'},
     data:[25.5,12.4,3.7,0.9,0.0]}]
 });
 
@@ -223,16 +229,16 @@ const S=v=>Math.max(9,Math.sqrt(v+0.5)*5.5);
 mk('val').setOption({
   backgroundColor:'transparent',grid:{left:44,right:20,top:20,bottom:40},
   tooltip:Object.assign({trigger:'item',formatter:p=>`<b>${p.data.name}</b><br>毛利 ${p.data.value[0]}% · fwdP/E ${p.data.value[1]}x · 營業利益 $${p.data.value[2]}B`},TIP),
-  xAxis:{name:'毛利率 →高',nameTextStyle:{color:'#8895a8',fontFamily:MONO,fontSize:10},min:25,max:100,axisLine:{lineStyle:{color:'#1a2238'}},axisLabel:{color:'#8895a8',fontFamily:MONO,fontSize:9,formatter:'{value}%'},splitLine:{lineStyle:{color:'#11161f'}}},
-  yAxis:{name:'fwd P/E →貴',nameTextStyle:{color:'#8895a8',fontFamily:MONO,fontSize:10},min:0,max:130,axisLine:{lineStyle:{color:'#1a2238'}},axisLabel:{color:'#8895a8',fontFamily:MONO,fontSize:9},splitLine:{lineStyle:{color:'#11161f'}}},
+  xAxis:{name:'毛利率 →高',nameTextStyle:{color:V('--mut'),fontFamily:MONO,fontSize:10},min:25,max:100,axisLine:{lineStyle:{color:V('--line')}},axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9,formatter:'{value}%'},splitLine:{lineStyle:{color:V('--panel')}}},
+  yAxis:{name:'fwd P/E →貴',nameTextStyle:{color:V('--mut'),fontFamily:MONO,fontSize:10},min:0,max:130,axisLine:{lineStyle:{color:V('--line')}},axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9},splitLine:{lineStyle:{color:V('--panel')}}},
   series:[{type:'scatter',symbolSize:d=>S(d[2]),
-    label:{show:true,formatter:p=>p.data.name,position:'right',color:'#cfe3ee',fontFamily:MONO,fontSize:11},
+    label:{show:true,formatter:p=>p.data.name,position:'right',color:V('--tx2'),fontFamily:MONO,fontSize:11},
     data:[
-      {name:'ARM',value:[92,115,0.9],itemStyle:{color:'#7a5cff'}},
-      {name:'INTC',value:[35,90,0.0],itemStyle:{color:'#ff5d5d'}},
-      {name:'AMD',value:[50,44,3.7],itemStyle:{color:'#ffd000'}},
-      {name:'QCOM',value:[55,16.9,12.4],itemStyle:{color:'#00f3ff'}},
-      {name:'AVGO',value:[68,19.5,25.5],itemStyle:{color:'#00ff9d'}}]}]
+      {name:'ARM',value:[92,115,0.9],itemStyle:{color:V('--pp')}},
+      {name:'INTC',value:[35,90,0.0],itemStyle:{color:V('--rd')}},
+      {name:'AMD',value:[50,44,3.7],itemStyle:{color:V('--am')}},
+      {name:'QCOM',value:[55,16.9,12.4],itemStyle:{color:V('--cy')}},
+      {name:'AVGO',value:[68,19.5,25.5],itemStyle:{color:V('--gr')}}]}]
 });
 
 // ── 供應鏈 sankey(線粗≈TTM 營收 $B,分配為估計) ──
@@ -243,10 +249,10 @@ mk('chain').setOption({
     left:12,right:92,top:14,bottom:14,
     label:{position:'right',color:'#cfeaf2',fontFamily:MONO,fontSize:11},
     lineStyle:{color:'gradient',opacity:0.4,curveness:0.5},emphasis:{focus:'adjacency',lineStyle:{opacity:0.85}},
-    levels:[{depth:0,itemStyle:{color:'#7a5cff'},lineStyle:{color:'source',opacity:.35}},
+    levels:[{depth:0,itemStyle:{color:V('--pp')},lineStyle:{color:'source',opacity:.35}},
             {depth:1,itemStyle:{color:'#5c8cff'},lineStyle:{color:'source',opacity:.35}},
-            {depth:2,itemStyle:{color:'#00f3ff'},lineStyle:{color:'source',opacity:.35}},
-            {depth:3,itemStyle:{color:'#00ff9d'},lineStyle:{color:'source',opacity:.35}}],
+            {depth:2,itemStyle:{color:V('--cy')},lineStyle:{color:'source',opacity:.35}},
+            {depth:3,itemStyle:{color:V('--gr')},lineStyle:{color:'source',opacity:.35}}],
     data:[
       {name:'ARM 架構授權',depth:0},{name:'x86 架構',depth:0},
       {name:'AMD 設計',depth:1},{name:'QCOM/AVGO 設計',depth:1},{name:'自研(AWS/Google/NVDA)',depth:1},{name:'INTC 設計+自製',depth:1},

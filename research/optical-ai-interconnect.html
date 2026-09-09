@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="../theme.js"></script>
 <title>光通訊 / AI 互連 — Blue Morpho 深度研究</title>
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
 <style>
@@ -28,7 +29,7 @@
   .tldr{background:linear-gradient(180deg,rgba(0,243,255,.06),transparent);border:1px solid var(--line);
     border-left:3px solid var(--cy);border-radius:8px;padding:16px 18px;margin:14px 0;font-size:.95rem}
   .warn{background:rgba(255,208,0,.05);border:1px solid rgba(255,208,0,.3);border-left:3px solid var(--am);
-    border-radius:8px;padding:14px 16px;margin:14px 0;font-size:.9rem;color:#ffe9a8}
+    border-radius:8px;padding:14px 16px;margin:14px 0;font-size:.9rem;color:var(--am)}
   .steel{background:rgba(122,92,255,.06);border:1px solid rgba(122,92,255,.4);border-left:3px solid var(--pp);
     border-radius:8px;padding:16px 18px;margin:16px 0}
   .steel h3{color:var(--pp);margin-top:0}
@@ -55,6 +56,10 @@
   .topbar .brand{color:var(--cy);letter-spacing:.2em;font-weight:700}
   .topbar .nav a{color:var(--mut);margin-left:16px}
   .topbar .nav a:hover{color:var(--cy)}
+
+  :root:not([data-theme="dark"]){ --bg:#ffffff; --panel:#f6f8fb; --panel2:#edf1f6; --line:#dce3ec;
+    --cy:#0891b2; --gr:#059669; --rd:#dc2626; --am:#b45309; --pp:#6d28d9; --tx:#0b1220; --tx2:#334155; --mut:#64748b; }
+  .theme-btn{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;color:var(--mut);background:transparent;border:1px solid var(--line);border-radius:4px;padding:4px 8px;cursor:pointer;margin-left:10px}
 </style>
 </head>
 <body>
@@ -149,7 +154,7 @@
   <p class="mut" style="font-size:.8rem">*CIEN 為 GAAP，受併購攤銷壓低；下方情境改用調整後營益率。</p>
 
   <h2>估值定位：毛利率 × 倍數一起看</h2>
-  <p>⚠ 本鏈的絕對報價/本益比源頭存疑（見上方資料誠信），以下倍數<b>只當「相對定位」看，不當精確值</b>。
+  <p>本鏈的絕對報價/本益比源頭存疑（見上方資料誠信），以下倍數<b>只當「相對定位」看，不當精確值</b>。
     用「毛利品質調整倍數＝fwd P/E ÷ 毛利率」（示意啟發式）衡量「為每分毛利品質付多少」：</p>
   <div class="card">
     <div class="cardhd">毛利率（→高）× fwd P/E（→貴）· 泡泡＝營業利益$</div>
@@ -239,9 +244,10 @@
   </div>
 </div>
 
+<script>const V=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();addEventListener('bm-theme',()=>location.reload());</script>
 <script>
 const MONO='"JetBrains Mono","SF Mono",monospace';
-const TIP={backgroundColor:'#0b0b1a',borderColor:'#1a2238',textStyle:{color:'#cfe3ee',fontFamily:MONO,fontSize:11}};
+const TIP={backgroundColor:V('--panel'),borderColor:V('--line'),textStyle:{color:V('--tx2'),fontFamily:MONO,fontSize:11}};
 function mk(id){const el=document.getElementById(id);const c=echarts.init(el,null,{renderer:'canvas'});
   window.addEventListener('resize',()=>c.resize());return c;}
 
@@ -255,9 +261,9 @@ mk('sankey').setOption({
     lineStyle:{color:'gradient',opacity:0.4,curveness:0.5},
     emphasis:{focus:'adjacency',lineStyle:{opacity:0.85}},
     levels:[
-      {depth:0,itemStyle:{color:'#7a5cff'},lineStyle:{color:'source',opacity:.35}},
-      {depth:1,itemStyle:{color:'#00f3ff'},lineStyle:{color:'source',opacity:.35}},
-      {depth:2,itemStyle:{color:'#00ff9d'},lineStyle:{color:'source',opacity:.35}}],
+      {depth:0,itemStyle:{color:V('--pp')},lineStyle:{color:'source',opacity:.35}},
+      {depth:1,itemStyle:{color:V('--cy')},lineStyle:{color:'source',opacity:.35}},
+      {depth:2,itemStyle:{color:V('--gr')},lineStyle:{color:'source',opacity:.35}}],
     data:[
       {name:'COHR 雷射',depth:0},{name:'LITE 雷射',depth:0},{name:'MRVL DSP',depth:0},
       {name:'CRDO DSP',depth:0},{name:'MTSI 矽光',depth:0},
@@ -283,12 +289,12 @@ mk('pool').setOption({
   backgroundColor:'transparent',
   grid:{left:44,right:14,top:16,bottom:28},
   tooltip:Object.assign({trigger:'axis',valueFormatter:v=>'$'+v+'B'},TIP),
-  xAxis:{type:'category',data:['COHR','CIEN','CRDO','FN'],axisLine:{lineStyle:{color:'#1a2238'}},axisLabel:{color:'#cfe3ee',fontFamily:MONO,fontSize:11}},
-  yAxis:{type:'value',axisLabel:{color:'#8895a8',fontFamily:MONO,fontSize:9,formatter:'${value}B'},splitLine:{lineStyle:{color:'#11161f'}}},
+  xAxis:{type:'category',data:['COHR','CIEN','CRDO','FN'],axisLine:{lineStyle:{color:V('--line')}},axisLabel:{color:V('--tx2'),fontFamily:MONO,fontSize:11}},
+  yAxis:{type:'value',axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9,formatter:'${value}B'},splitLine:{lineStyle:{color:V('--panel')}}},
   series:[
-    {name:'毛利$',type:'bar',data:[2.06,2.00,0.91,0.41],itemStyle:{color:'#00f3ff',borderRadius:[3,3,0,0]},barWidth:16},
-    {name:'營業利益$',type:'bar',data:[0.55,0.31,0.45,0.32],itemStyle:{color:'#00ff9d',borderRadius:[3,3,0,0]},barWidth:16,
-      label:{show:true,position:'top',color:'#00ff9d',fontFamily:MONO,fontSize:10,formatter:p=>'$'+p.value+'B'}}]
+    {name:'毛利$',type:'bar',data:[2.06,2.00,0.91,0.41],itemStyle:{color:V('--cy'),borderRadius:[3,3,0,0]},barWidth:16},
+    {name:'營業利益$',type:'bar',data:[0.55,0.31,0.45,0.32],itemStyle:{color:V('--gr'),borderRadius:[3,3,0,0]},barWidth:16,
+      label:{show:true,position:'top',color:V('--gr'),fontFamily:MONO,fontSize:10,formatter:p=>'$'+p.value+'B'}}]
 });
 
 // ── 情境 EPS ──
@@ -296,13 +302,13 @@ mk('scen').setOption({
   backgroundColor:'transparent',
   grid:{left:40,right:14,top:16,bottom:28},
   tooltip:Object.assign({trigger:'axis',valueFormatter:v=>'$'+v},TIP),
-  xAxis:{type:'category',data:['CIEN','COHR','CRDO'],axisLine:{lineStyle:{color:'#1a2238'}},axisLabel:{color:'#cfe3ee',fontFamily:MONO,fontSize:11}},
-  yAxis:{type:'value',axisLabel:{color:'#8895a8',fontFamily:MONO,fontSize:9,formatter:'${value}'},splitLine:{lineStyle:{color:'#11161f'}}},
+  xAxis:{type:'category',data:['CIEN','COHR','CRDO'],axisLine:{lineStyle:{color:V('--line')}},axisLabel:{color:V('--tx2'),fontFamily:MONO,fontSize:11}},
+  yAxis:{type:'value',axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9,formatter:'${value}'},splitLine:{lineStyle:{color:V('--panel')}}},
   series:[
-    {name:'Bear',type:'bar',data:[4.3,3.5,3.7],itemStyle:{color:'#ff5d5d',borderRadius:[3,3,0,0]},barWidth:14},
-    {name:'Base',type:'bar',data:[6.0,5.0,5.0],itemStyle:{color:'#00f3ff',borderRadius:[3,3,0,0]},barWidth:14,
-      label:{show:true,position:'top',color:'#00f3ff',fontFamily:MONO,fontSize:10,formatter:p=>'$'+p.value}},
-    {name:'Bull',type:'bar',data:[7.7,6.9,6.7],itemStyle:{color:'#00ff9d',borderRadius:[3,3,0,0]},barWidth:14}]
+    {name:'Bear',type:'bar',data:[4.3,3.5,3.7],itemStyle:{color:V('--rd'),borderRadius:[3,3,0,0]},barWidth:14},
+    {name:'Base',type:'bar',data:[6.0,5.0,5.0],itemStyle:{color:V('--cy'),borderRadius:[3,3,0,0]},barWidth:14,
+      label:{show:true,position:'top',color:V('--cy'),fontFamily:MONO,fontSize:10,formatter:p=>'$'+p.value}},
+    {name:'Bull',type:'bar',data:[7.7,6.9,6.7],itemStyle:{color:V('--gr'),borderRadius:[3,3,0,0]},barWidth:14}]
 });
 
 // ── 估值定位:毛利率 × fwd P/E(倍數為近似值,僅相對比較) ──
@@ -313,16 +319,16 @@ mk('scen').setOption({
   c.setOption({
     backgroundColor:'transparent',grid:{left:44,right:24,top:20,bottom:40},
     tooltip:Object.assign({trigger:'item',formatter:p=>`<b>${p.data.name}</b><br>毛利 ${p.data.value[0]}% · fwdP/E ~${p.data.value[1]}x · 營業利益 $${p.data.value[2]}B`},TIP),
-    xAxis:{name:'毛利率 →高',nameTextStyle:{color:'#8895a8',fontFamily:MONO,fontSize:10},min:5,max:80,axisLine:{lineStyle:{color:'#1a2238'}},axisLabel:{color:'#8895a8',fontFamily:MONO,fontSize:9,formatter:'{value}%'},splitLine:{lineStyle:{color:'#11161f'}}},
-    yAxis:{name:'fwd P/E →貴',nameTextStyle:{color:'#8895a8',fontFamily:MONO,fontSize:10},min:20,max:60,axisLine:{lineStyle:{color:'#1a2238'}},axisLabel:{color:'#8895a8',fontFamily:MONO,fontSize:9},splitLine:{lineStyle:{color:'#11161f'}}},
+    xAxis:{name:'毛利率 →高',nameTextStyle:{color:V('--mut'),fontFamily:MONO,fontSize:10},min:5,max:80,axisLine:{lineStyle:{color:V('--line')}},axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9,formatter:'{value}%'},splitLine:{lineStyle:{color:V('--panel')}}},
+    yAxis:{name:'fwd P/E →貴',nameTextStyle:{color:V('--mut'),fontFamily:MONO,fontSize:10},min:20,max:60,axisLine:{lineStyle:{color:V('--line')}},axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9},splitLine:{lineStyle:{color:V('--panel')}}},
     series:[{type:'scatter',symbolSize:d=>S(d[2]),
-      label:{show:true,formatter:p=>p.data.name,position:'right',color:'#cfe3ee',fontFamily:MONO,fontSize:11},
+      label:{show:true,formatter:p=>p.data.name,position:'right',color:V('--tx2'),fontFamily:MONO,fontSize:11},
       data:[
-        {name:'CRDO',value:[68,31,0.45],itemStyle:{color:'#00ff9d'}},
-        {name:'CIEN',value:[43,51,0.31],itemStyle:{color:'#00f3ff'}},
-        {name:'LITE',value:[38,47,0.05],itemStyle:{color:'#8895a8'}},
-        {name:'COHR',value:[37,48,0.55],itemStyle:{color:'#ffd000'}},
-        {name:'FN',value:[12,33,0.32],itemStyle:{color:'#ff5d5d'}}]}]
+        {name:'CRDO',value:[68,31,0.45],itemStyle:{color:V('--gr')}},
+        {name:'CIEN',value:[43,51,0.31],itemStyle:{color:V('--cy')}},
+        {name:'LITE',value:[38,47,0.05],itemStyle:{color:V('--mut')}},
+        {name:'COHR',value:[37,48,0.55],itemStyle:{color:V('--am')}},
+        {name:'FN',value:[12,33,0.32],itemStyle:{color:V('--rd')}}]}]
   });
 })();
 </script>

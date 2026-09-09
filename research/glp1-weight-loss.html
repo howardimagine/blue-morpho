@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="../theme.js"></script>
 <title>減肥藥 / GLP-1 — Blue Morpho 深度研究</title>
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
 <style>
@@ -31,7 +32,7 @@
   .tldr{background:linear-gradient(180deg,rgba(0,243,255,.06),transparent);border:1px solid var(--line);
     border-left:3px solid var(--cy);border-radius:8px;padding:16px 18px;margin:14px 0;font-size:.95rem}
   .warn{background:rgba(255,208,0,.05);border:1px solid rgba(255,208,0,.3);border-left:3px solid var(--am);
-    border-radius:8px;padding:14px 16px;margin:14px 0;font-size:.9rem;color:#ffe9a8}
+    border-radius:8px;padding:14px 16px;margin:14px 0;font-size:.9rem;color:var(--am)}
   .steel{background:rgba(122,92,255,.06);border:1px solid rgba(122,92,255,.4);border-left:3px solid var(--pp);
     border-radius:8px;padding:16px 18px;margin:16px 0}
   .steel h3{color:var(--pp);margin-top:0}
@@ -50,6 +51,10 @@
   .foot{color:var(--mut);font-size:.78rem;margin-top:30px;line-height:1.7}
   ul{padding-left:20px} li{margin:6px 0}
   code{font-family:var(--mono);color:var(--am);font-size:.85em}
+
+  :root:not([data-theme="dark"]){ --bg:#ffffff; --panel:#f6f8fb; --panel2:#edf1f6; --line:#dce3ec;
+    --cy:#0891b2; --gr:#059669; --rd:#dc2626; --am:#b45309; --pp:#6d28d9; --tx:#0b1220; --tx2:#334155; --mut:#64748b; }
+  .theme-btn{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;color:var(--mut);background:transparent;border:1px solid var(--line);border-radius:4px;padding:4px 8px;cursor:pointer;margin-left:10px}
 </style>
 </head>
 <body>
@@ -206,9 +211,10 @@
   </div>
 </div>
 
+<script>const V=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();addEventListener('bm-theme',()=>location.reload());</script>
 <script>
 const MONO='"JetBrains Mono","SF Mono",monospace';
-const TIP={backgroundColor:'#0b0b1a',borderColor:'#1a2238',textStyle:{color:'#cfe3ee',fontFamily:MONO,fontSize:11}};
+const TIP={backgroundColor:V('--panel'),borderColor:V('--line'),textStyle:{color:V('--tx2'),fontFamily:MONO,fontSize:11}};
 const mk=id=>{const el=document.getElementById(id);const c=echarts.init(el,null,{renderer:'canvas'});window.addEventListener('resize',()=>c.resize());return c;};
 
 // ── 價值鏈 sankey(結構示意) ──
@@ -219,9 +225,9 @@ mk('sankey').setOption({
     left:12,right:96,top:14,bottom:14,
     label:{position:'right',color:'#cfeaf2',fontFamily:MONO,fontSize:11},
     lineStyle:{color:'gradient',opacity:0.4,curveness:0.5},emphasis:{focus:'adjacency',lineStyle:{opacity:0.85}},
-    levels:[{depth:0,itemStyle:{color:'#7a5cff'},lineStyle:{color:'source',opacity:.35}},
-            {depth:1,itemStyle:{color:'#00f3ff'},lineStyle:{color:'source',opacity:.35}},
-            {depth:2,itemStyle:{color:'#00ff9d'},lineStyle:{color:'source',opacity:.35}}],
+    levels:[{depth:0,itemStyle:{color:V('--pp')},lineStyle:{color:'source',opacity:.35}},
+            {depth:1,itemStyle:{color:V('--cy')},lineStyle:{color:'source',opacity:.35}},
+            {depth:2,itemStyle:{color:V('--gr')},lineStyle:{color:'source',opacity:.35}}],
     data:[
       {name:'胜肽 API',depth:0},{name:'CDMO 充填',depth:0},{name:'小分子 API(口服)',depth:0},
       {name:'注射筆/PFS',depth:1},{name:'藥廠自建產能',depth:1},{name:'口服錠劑(跳過device)',depth:1},
@@ -240,13 +246,13 @@ mk('sankey').setOption({
 mk('adh').setOption({
   backgroundColor:'transparent',grid:{left:40,right:14,top:16,bottom:44},
   tooltip:Object.assign({trigger:'axis',valueFormatter:v=>v+'%'},TIP),
-  xAxis:{type:'category',data:['純肥胖\n12mo','糖尿病\n12mo','整體\n2021','整體\n2024'],axisLine:{lineStyle:{color:'#1a2238'}},axisLabel:{color:'#cfe3ee',fontFamily:MONO,fontSize:10,lineHeight:13}},
-  yAxis:{type:'value',max:100,axisLabel:{color:'#8895a8',fontFamily:MONO,fontSize:9,formatter:'{value}%'},splitLine:{lineStyle:{color:'#11161f'}}},
+  xAxis:{type:'category',data:['純肥胖\n12mo','糖尿病\n12mo','整體\n2021','整體\n2024'],axisLine:{lineStyle:{color:V('--line')}},axisLabel:{color:V('--tx2'),fontFamily:MONO,fontSize:10,lineHeight:13}},
+  yAxis:{type:'value',max:100,axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9,formatter:'{value}%'},splitLine:{lineStyle:{color:V('--panel')}}},
   series:[{type:'bar',data:[
-      {value:35,itemStyle:{color:'#ffd000'}},{value:54,itemStyle:{color:'#ffd000'}},
-      {value:33,itemStyle:{color:'#ff5d5d'}},{value:61,itemStyle:{color:'#00ff9d'}}],
+      {value:35,itemStyle:{color:V('--am')}},{value:54,itemStyle:{color:V('--am')}},
+      {value:33,itemStyle:{color:V('--rd')}},{value:61,itemStyle:{color:V('--gr')}}],
     barWidth:34,itemStyle:{borderRadius:[3,3,0,0]},
-    label:{show:true,position:'top',color:'#cfe3ee',fontFamily:MONO,fontSize:11,formatter:'{c}%'}}]
+    label:{show:true,position:'top',color:V('--tx2'),fontFamily:MONO,fontSize:11,formatter:'{c}%'}}]
 });
 
 // ── 估值定位散點 ──
@@ -254,30 +260,30 @@ const S=(r)=>Math.max(10,Math.sqrt(r)*5.5);
 mk('scatter').setOption({
   backgroundColor:'transparent',grid:{left:52,right:24,top:20,bottom:40},
   tooltip:Object.assign({trigger:'item',formatter:p=>`<b>${p.data.name}</b><br>fwdP/E ${p.data.value[0]} · 成長 ${p.data.value[1]}% · 營收 $${p.data.value[2]}B`},TIP),
-  xAxis:{name:'fwd P/E →貴',nameTextStyle:{color:'#8895a8',fontFamily:MONO,fontSize:10},min:0,max:45,axisLine:{lineStyle:{color:'#1a2238'}},axisLabel:{color:'#8895a8',fontFamily:MONO,fontSize:9},splitLine:{lineStyle:{color:'#11161f'}}},
-  yAxis:{name:'營收成長% →高',nameTextStyle:{color:'#8895a8',fontFamily:MONO,fontSize:10},min:-20,max:65,axisLine:{lineStyle:{color:'#1a2238'}},axisLabel:{color:'#8895a8',fontFamily:MONO,fontSize:9,formatter:'{value}%'},splitLine:{lineStyle:{color:'#11161f'}}},
+  xAxis:{name:'fwd P/E →貴',nameTextStyle:{color:V('--mut'),fontFamily:MONO,fontSize:10},min:0,max:45,axisLine:{lineStyle:{color:V('--line')}},axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9},splitLine:{lineStyle:{color:V('--panel')}}},
+  yAxis:{name:'營收成長% →高',nameTextStyle:{color:V('--mut'),fontFamily:MONO,fontSize:10},min:-20,max:65,axisLine:{lineStyle:{color:V('--line')}},axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9,formatter:'{value}%'},splitLine:{lineStyle:{color:V('--panel')}}},
   series:[{type:'scatter',symbolSize:d=>S(d[2]),
-    label:{show:true,formatter:p=>p.data.name,position:'right',color:'#cfe3ee',fontFamily:MONO,fontSize:11},
+    label:{show:true,formatter:p=>p.data.name,position:'right',color:V('--tx2'),fontFamily:MONO,fontSize:11},
     data:[
-      {name:'LLY',value:[27,45,65],itemStyle:{color:'#00ff9d'}},
-      {name:'NVO',value:[14.8,-9,44],itemStyle:{color:'#ffd000'}},
-      {name:'AMGN',value:[15.4,10,37],itemStyle:{color:'#00f3ff'}},
-      {name:'HIMS',value:[39,59,2.35],itemStyle:{color:'#ff5d5d'}},
-      {name:'WST',value:[37.6,6,3.07],itemStyle:{color:'#ff5d5d'}},
-      {name:'STVN',value:[21.6,3,1.14],itemStyle:{color:'#8895a8'}}]}]
+      {name:'LLY',value:[27,45,65],itemStyle:{color:V('--gr')}},
+      {name:'NVO',value:[14.8,-9,44],itemStyle:{color:V('--am')}},
+      {name:'AMGN',value:[15.4,10,37],itemStyle:{color:V('--cy')}},
+      {name:'HIMS',value:[39,59,2.35],itemStyle:{color:V('--rd')}},
+      {name:'WST',value:[37.6,6,3.07],itemStyle:{color:V('--rd')}},
+      {name:'STVN',value:[21.6,3,1.14],itemStyle:{color:V('--mut')}}]}]
 });
 
 // ── 財務模型:3 年隱含報酬 ──
 mk('model').setOption({
   backgroundColor:'transparent',grid:{left:44,right:14,top:16,bottom:28},
   tooltip:Object.assign({trigger:'axis',valueFormatter:v=>(v>0?'+':'')+v+'%'},TIP),
-  xAxis:{type:'category',data:['LLY','NVO','AMGN'],axisLine:{lineStyle:{color:'#1a2238'}},axisLabel:{color:'#cfe3ee',fontFamily:MONO,fontSize:11}},
-  yAxis:{type:'value',axisLabel:{color:'#8895a8',fontFamily:MONO,fontSize:9,formatter:'{value}%'},splitLine:{lineStyle:{color:'#11161f'}}},
+  xAxis:{type:'category',data:['LLY','NVO','AMGN'],axisLine:{lineStyle:{color:V('--line')}},axisLabel:{color:V('--tx2'),fontFamily:MONO,fontSize:11}},
+  yAxis:{type:'value',axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9,formatter:'{value}%'},splitLine:{lineStyle:{color:V('--panel')}}},
   series:[
-    {name:'Bear',type:'bar',data:[-36,-27,-19],itemStyle:{color:'#ff5d5d',borderRadius:[0,0,3,3]},barWidth:14},
-    {name:'Base',type:'bar',data:[-10,7,2],itemStyle:{color:'#00f3ff',borderRadius:3},barWidth:14,
-      label:{show:true,position:'top',color:'#00f3ff',fontFamily:MONO,fontSize:10,formatter:p=>(p.value>0?'+':'')+p.value+'%'}},
-    {name:'Bull',type:'bar',data:[14,55,27],itemStyle:{color:'#00ff9d',borderRadius:[3,3,0,0]},barWidth:14}]
+    {name:'Bear',type:'bar',data:[-36,-27,-19],itemStyle:{color:V('--rd'),borderRadius:[0,0,3,3]},barWidth:14},
+    {name:'Base',type:'bar',data:[-10,7,2],itemStyle:{color:V('--cy'),borderRadius:3},barWidth:14,
+      label:{show:true,position:'top',color:V('--cy'),fontFamily:MONO,fontSize:10,formatter:p=>(p.value>0?'+':'')+p.value+'%'}},
+    {name:'Bull',type:'bar',data:[14,55,27],itemStyle:{color:V('--gr'),borderRadius:[3,3,0,0]},barWidth:14}]
 });
 </script>
 </body>

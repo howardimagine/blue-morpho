@@ -980,3 +980,27 @@ img { max-width: 100%; display: block; }
 .val-grid .vc b{display:block;color:var(--accent);font-family:var(--font-mono);font-size:1.05rem}
 .val-grid .vc s{display:block;color:var(--text-secondary);font-size:0.7rem;text-decoration:none;margin-top:2px}
 .deep-chart{margin:14px 0 4px;overflow-x:auto}
+
+
+/* ── 淺色主題(預設;<html data-theme="dark"> 才是原本的 TRON 深色)─────────────── */
+:root:not([data-theme="dark"]) {
+  --bg: #FFFFFF; --bg-card: #F6F8FB; --bg-hover: #EDF1F6;
+  --border: #DCE3EC; --border-accent: #0891B233;
+  --text-primary: #0B1220; --text-secondary: #46566A; --text-dim: #8391A3;
+  --accent: #0891B2; --accent-dim: #0891B214;
+  --positive: #059669; --warning: #B45309; --negative: #DC2626;
+  --positive-dim: #05966914; --warning-dim: #B4530914; --negative-dim: #DC262614;
+  --on-accent: #FFFFFF;
+}
+:root[data-theme="dark"] { --on-accent: #02020A; }
+:root:not([data-theme="dark"]) .hero { background: var(--bg); }
+:root:not([data-theme="dark"]) .hero::before {
+  background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(8,145,178,.08) 0%, transparent 70%),
+    linear-gradient(to bottom, rgba(255,255,255,.86) 0%, rgba(255,255,255,.72) 40%, rgba(255,255,255,.84) 75%, rgba(255,255,255,.96) 100%); }
+:root:not([data-theme="dark"]) .subscribe-input { background: var(--bg); box-shadow: none; }
+:root:not([data-theme="dark"]) .subscribe-input:focus { background: var(--bg); box-shadow: 0 0 0 3px var(--accent-dim); }
+:root:not([data-theme="dark"]) .subscribe-input::placeholder { color: var(--text-dim); }
+:root:not([data-theme="dark"]) .subscribe-btn, :root:not([data-theme="dark"]) .nav-cta { color: #fff; }
+.theme-btn { font-family: var(--font-mono); font-size: .6rem; letter-spacing: .12em; color: var(--text-secondary); background: transparent;
+  border: 1px solid var(--border); border-radius: 4px; padding: 5px 9px; cursor: pointer; flex-shrink: 0; }
+.theme-btn:hover { color: var(--accent); border-color: var(--accent); }

@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="../theme.js"></script>
   <meta name="robots" content="noindex, nofollow, noarchive">
   <title>BLUE MORPHO · SEPA RADAR</title>
   <meta name="theme-color" content="#02020A">
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style.css?v=20260909">
   <style>
     /* ── SEPA Radar v2 · 左:漏斗 + 參數(同寬)· 右:sidebar 兩頁(名單 ⇄ 個股)────────── */
     body { background: var(--bg); color: var(--text-primary); font-family: var(--font-text); }
@@ -32,19 +33,19 @@
     .card-t .sub { color: var(--text-dim); letter-spacing: .04em; text-transform: none; }
 
     /* 漏斗(3D 弧形) */
-    .fn-card { background: linear-gradient(180deg, #0b0b1a 0%, #070712 100%); position: relative; overflow: hidden; padding-bottom: 6px; }
+    .fn-card { background: linear-gradient(180deg, var(--bg-card) 0%, var(--bg) 100%); position: relative; overflow: hidden; padding-bottom: 6px; }
     .fn-card::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .3;
       background-image: linear-gradient(rgba(0,243,255,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,243,255,.06) 1px, transparent 1px);
       background-size: 28px 28px; mask-image: radial-gradient(ellipse at 30% 45%, #000 20%, transparent 75%); }
     #funnel { width: 100%; height: auto; display: block; }
     .fl { cursor: pointer; } .fl path.band { transition: filter .2s; }
     .fl text { font-family: var(--font-mono); pointer-events: none; }
-    .fl .badge-t { font-size: 10px; font-weight: 700; fill: #dff9ff; text-anchor: middle; dominant-baseline: central; }
-    .fl .nm { font-size: 11px; fill: #b8d8e6; letter-spacing: .08em; }
+    .fl .badge-t { font-size: 10px; font-weight: 700; fill: var(--text-primary); text-anchor: middle; dominant-baseline: central; }
+    .fl .nm { font-size: 11px; fill: var(--sec); letter-spacing: .08em; }
     .fl .ct { font-size: 19px; font-weight: 700; fill: var(--text-primary); }
     .fl .pr { font-size: 9.5px; fill: var(--text-dim); }
     .fl.sel .nm, .fl.sel .ct { fill: var(--accent); }
-    .fl.off .nm, .fl.off .ct { fill: #5a6a80; }
+    .fl.off .nm, .fl.off .ct { fill: var(--dim); }
     .fn-hint { font-family: var(--font-mono); font-size: .6rem; color: var(--text-dim); padding: 0 14px 6px; letter-spacing: .04em; position: relative; }
     .fn-hint b { color: var(--positive); font-weight: 500; }
 
@@ -88,19 +89,19 @@
     .lv-tabs { display: flex; gap: 4px; flex-wrap: wrap; }
     .lv-tab { font-family: var(--font-mono); font-size: .6rem; letter-spacing: .03em; padding: 4px 8px; border: 1px solid var(--border); border-radius: 4px; background: transparent; color: var(--text-secondary); cursor: pointer; }
     .lv-tab b { font-weight: 700; color: var(--text-primary); margin-left: 3px; }
-    .lv-tab.on { background: var(--accent); border-color: var(--accent); color: #02020a; } .lv-tab.on b { color: #02020a; }
+    .lv-tab.on { background: var(--accent); border-color: var(--accent); color: var(--on-accent); } .lv-tab.on b { color: var(--on-accent); }
     .lv-tab.off { text-decoration: line-through; opacity: .55; }
     .sb-tools { display: flex; gap: 6px; align-items: center; }
-    .sb-tools input[type=search] { flex: 1; min-width: 0; font-family: var(--font-mono); font-size: .68rem; background: #070712; border: 1px solid var(--border); color: var(--text-primary); border-radius: 4px; padding: 5px 8px; outline: none; }
+    .sb-tools input[type=search] { flex: 1; min-width: 0; font-family: var(--font-mono); font-size: .68rem; background: var(--bg); border: 1px solid var(--border); color: var(--text-primary); border-radius: 4px; padding: 5px 8px; outline: none; }
     .sb-tools input[type=search]:focus { border-color: var(--accent); }
-    .sb-tools select { font-family: var(--font-mono); font-size: .62rem; background: #070712; border: 1px solid var(--border); color: var(--text-secondary); border-radius: 4px; padding: 5px 6px; }
-    .btn { font-family: var(--font-mono); font-size: .6rem; letter-spacing: .06em; color: var(--accent); background: rgba(0,243,255,.06); border: 1px solid #00f3ff55; border-radius: 4px; padding: 5px 8px; cursor: pointer; text-decoration: none; white-space: nowrap; }
+    .sb-tools select { font-family: var(--font-mono); font-size: .62rem; background: var(--bg); border: 1px solid var(--border); color: var(--text-secondary); border-radius: 4px; padding: 5px 6px; }
+    .btn { font-family: var(--font-mono); font-size: .6rem; letter-spacing: .06em; color: var(--accent); background: rgba(0,243,255,.06); border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); border-radius: 4px; padding: 5px 8px; cursor: pointer; text-decoration: none; white-space: nowrap; }
     .btn:hover { background: rgba(0,243,255,.14); } .btn.ghost { color: var(--text-secondary); border-color: var(--border); background: transparent; }
     .sb-lv { font-family: var(--font-mono); font-size: .62rem; color: var(--text-dim); display: flex; justify-content: space-between; }
     .sb-lv b { color: var(--accent); font-weight: 600; }
     .sb-list { overflow-y: auto; flex: 1; min-height: 0; }
-    .row { padding: 8px 12px; border-bottom: 1px solid #10162a; cursor: pointer; }
-    .row:hover { background: #0f1528; }
+    .row { padding: 8px 12px; border-bottom: 1px solid var(--border); cursor: pointer; }
+    .row:hover { background: var(--bg-hover); }
     .r1 { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: .7rem; }
     .r1 .sym { color: var(--accent); font-weight: 700; font-size: .82rem; width: 58px; }
     .r1 .num { color: var(--text-secondary); margin-left: auto; display: flex; gap: 10px; }
@@ -116,24 +117,24 @@
     .r4 .tgt { color: var(--positive); }
     .pos { color: var(--positive) !important; } .neg { color: var(--negative) !important; } .wn { color: var(--warning) !important; }
     .lv { display: inline-block; font-size: .55rem; font-weight: 700; letter-spacing: .06em; padding: 1px 5px; border-radius: 3px; border: 1px solid; font-family: var(--font-mono); }
-    .lv0 { color: #6b7a90; border-color: #2a3448; } .lv1 { color: #56c9dd; border-color: #1f5a66; } .lv2 { color: #7ee0f0; border-color: #2b7f8f; }
-    .lv3 { color: var(--accent); border-color: #00a5b0; background: rgba(0,243,255,.08); } .lv4 { color: #02020a; border-color: var(--positive); background: var(--positive); }
+    .lv0 { color: var(--dim); } .lv1 { color: var(--lv1); } .lv2 { color: var(--lv2); } .lv0, .lv1, .lv2, .lv3 { border-color: color-mix(in srgb, currentColor 45%, transparent); }
+    .lv3 { color: var(--accent); background: var(--accent-dim); } .lv4 { color: var(--on-accent); border-color: var(--positive); background: var(--positive); }
     .flag { display: inline-block; font-size: .54rem; letter-spacing: .04em; padding: 1px 4px; border-radius: 3px; border: 1px solid var(--border); color: var(--text-dim); font-family: var(--font-mono); }
-    .flag.pp { color: #02020a; background: #ffd000; border-color: #ffd000; font-weight: 700; }
-    .flag.ev { color: var(--warning); border-color: #5a4a00; } .flag.er { color: #ffb4c6; border-color: #5a2030; } .flag.bo { color: #02020a; background: var(--positive); border-color: var(--positive); font-weight: 700; }
+    .flag.pp { color: var(--on-accent); background: var(--warning); border-color: var(--warning); font-weight: 700; }
+    .flag.ev { color: var(--warning); } .flag.er { color: var(--negative); } .flag.ev, .flag.er { border-color: color-mix(in srgb, currentColor 45%, transparent); } .flag.bo { color: var(--on-accent); background: var(--positive); border-color: var(--positive); font-weight: 700; }
     .sb-foot { font-family: var(--font-mono); font-size: .56rem; color: var(--text-dim); padding: 6px 12px; border-top: 1px solid var(--border); line-height: 1.5; }
     .empty { text-align: center; padding: 36px 12px; color: var(--text-dim); font-family: var(--font-mono); font-size: .68rem; line-height: 1.8; }
 
     /* Sidebar 第二頁:個股 */
     .dt-h { padding: 10px 12px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
     .back { font-family: var(--font-mono); font-size: .64rem; color: var(--text-secondary); background: transparent; border: 1px solid var(--border); border-radius: 4px; padding: 4px 9px; cursor: pointer; }
-    .lv-tab.tk { margin-left: auto; border-color: #2a4a3a; color: #9ff5dc; }
+    .lv-tab.tk { margin-left: auto; color: var(--positive); border-color: color-mix(in srgb, var(--positive) 40%, transparent); }
     .tk-sum { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border-bottom: 1px solid var(--border); }
     .tk-sum > div { background: var(--bg-card); padding: 8px 12px; } .tk-sum .k { font-family: var(--font-mono); font-size: var(--fs-xs); letter-spacing: .08em; color: var(--dim); text-transform: uppercase; }
     .tk-sum .v { font-family: var(--font-mono); font-size: var(--fs-lg); font-weight: 700; color: var(--text-primary); margin-top: 2px; } .tk-sum .v small { font-size: var(--fs-xs); color: var(--dim); font-weight: 400; margin-left: 4px; }
     table.tk { width: 100%; border-collapse: collapse; font-family: var(--font-mono); font-size: var(--fs-sm); }
     .tk th { text-align: right; font-weight: 500; color: var(--dim); font-size: var(--fs-xs); letter-spacing: .06em; padding: 6px 8px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg-card); }
-    .tk td { text-align: right; padding: 7px 8px; border-bottom: 1px solid #10162a; white-space: nowrap; } .tk th:first-child, .tk td:first-child { text-align: left; }
+    .tk td { text-align: right; padding: 7px 8px; border-bottom: 1px solid var(--border); white-space: nowrap; } .tk th:first-child, .tk td:first-child { text-align: left; }
     .tk tr { cursor: pointer; } .tk tr:hover td { background: rgba(0,243,255,.04); } .tk td .nm { display: block; color: var(--dim); font-size: var(--fs-xs); font-family: var(--font-body); }
     .tk-note { padding: 10px 12px; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--dim); line-height: 1.6; border-top: 1px solid var(--border); }
     .back:hover { color: var(--accent); border-color: var(--accent); }
@@ -159,7 +160,7 @@
     table.rsx { width: 100%; border-collapse: collapse; font-family: var(--font-mono); font-size: var(--fs-sm); }
     .rsx th { text-align: right; font-weight: 500; color: var(--dim); font-size: var(--fs-xs); letter-spacing: .06em; padding: 3px 6px; border-bottom: 1px solid var(--border); }
     .rsx th:first-child, .rsx td:first-child, .rsx th:nth-child(2), .rsx td:nth-child(2) { text-align: left; }
-    .rsx td { text-align: right; padding: 5px 6px; border-bottom: 1px solid #10162a; color: #C4D3E0; white-space: nowrap; }
+    .rsx td { text-align: right; padding: 5px 6px; border-bottom: 1px solid var(--border); color: var(--sec); white-space: nowrap; }
     .rsx td small { color: var(--dim); margin-left: 5px; font-size: var(--fs-xs); }
     .rsx-sum { display: flex; flex-direction: column; gap: 4px; margin-top: 8px; font-family: var(--font-mono); font-size: var(--fs-sm); color: var(--sec); }
     .rsx-sum b { color: var(--text-primary); }
@@ -170,22 +171,23 @@
     .rd-foot details summary { cursor: pointer; color: var(--text-secondary); font-family: var(--font-mono); font-size: .64rem; letter-spacing: .1em; }
     .rd-foot ol { margin: 8px 0 0 18px; }
     .loading { font-family: var(--font-mono); font-size: .7rem; color: var(--text-dim); text-align: center; padding: var(--space-16) 0; letter-spacing: .1em; }
-    #qbanner { margin: 10px 0 0; padding: 10px 14px; border: 1px solid #5a4a00; background: rgba(255,208,0,.08); color: var(--warning); font-family: var(--font-mono); font-size: var(--fs-sm); border-radius: 6px; line-height: 1.6; }
-    #qbanner.ok { border-color: #0f5a4a; background: rgba(0,255,190,.06); color: #9ff5dc; }
-    #qbanner.bad { border-color: #7a1f33; background: rgba(255,59,107,.08); color: #ffb4c6; }
+    #qbanner { margin: 10px 0 0; padding: 10px 14px; border: 1px solid color-mix(in srgb, var(--warning) 45%, transparent); background: rgba(255,208,0,.08); color: var(--warning); font-family: var(--font-mono); font-size: var(--fs-sm); border-radius: 6px; line-height: 1.6; }
+    #qbanner.ok { border-color: color-mix(in srgb, var(--positive) 45%, transparent); background: var(--positive-dim); color: var(--positive); }
+    #qbanner.bad { border-color: color-mix(in srgb, var(--negative) 45%, transparent); background: var(--negative-dim); color: var(--negative); }
     .hdr-sel { font-family: var(--font-mono); font-size: var(--fs-sm); color: var(--text-primary); background: var(--bg-card);
       border: 1px solid var(--border); border-radius: 4px; padding: 7px 10px; cursor: pointer; outline: none; }
     .hdr-sel:hover, .hdr-sel:focus { border-color: var(--accent); color: var(--accent); }
-    .kd { display: inline-block; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--warning); border: 1px solid #5a4a00; border-radius: 3px; padding: 1px 5px; margin-left: 4px; }
+    .kd { display: inline-block; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--warning); border: 1px solid color-mix(in srgb, var(--warning) 45%, transparent); border-radius: 3px; padding: 1px 5px; margin-left: 4px; }
     @media (max-width: 640px) { .dt-kpi { grid-template-columns: repeat(2, 1fr); } .kv { grid-template-columns: repeat(2, 1fr); } .cond { grid-template-columns: 1fr; } .pr-row { grid-template-columns: 120px 1fr 60px; } }
 
     /* ══ 字級收斂:全頁只用 4 級(xs 11 / sm 12.5 / md 14 / lg 17px)+ 對比 ≥ 6.9:1 ═══════════════════ */
-    :root { --fs-xs: 11px; --fs-sm: 12.5px; --fs-md: 14px; --fs-lg: 17px; --dim: #8A9BB0; --sec: #B4C3D3; --sbw: 600px; }
-    .rd-brand { font-size: var(--fs-xs); } .rd-h1 { font-size: var(--fs-lg); } .rd-meta { font-size: var(--fs-sm); color: var(--sec); } .rd-meta .warn { color: #FFD666; }
+    :root { --fs-xs: 11px; --fs-sm: 12.5px; --fs-md: 14px; --fs-lg: 17px; --dim: #8A9BB0; --sec: #B4C3D3; --sbw: 600px; --lv1: #56c9dd; --lv2: #7ee0f0; --lv0c: #3a4f78; --lv1c: #1c8ca6; --lv2c: #22b8d0; --lv3c: #00f3ff; --lv4c: #00ff9d; --mouth1: #0a1f33; --mouth2: #0d3a55; }
+    :root:not([data-theme="dark"]) { --dim: #64748B; --sec: #334155; --lv1: #0E7490; --lv2: #0891B2; --lv0c: #94A3B8; --lv1c: #0E7490; --lv2c: #0891B2; --lv3c: #0284C7; --lv4c: #059669; --mouth1: #CFE8F3; --mouth2: #9CCFE3; }
+    .rd-brand { font-size: var(--fs-xs); } .rd-h1 { font-size: var(--fs-lg); } .rd-meta { font-size: var(--fs-sm); color: var(--sec); } .rd-meta .warn { color: var(--warning); }
     .card-t { font-size: var(--fs-xs); } .card-t .sub { color: var(--dim); font-size: var(--fs-sm); }
     /* 漏斗 SVG:viewBox 單位會隨寬度放大(×1.3~1.4),所以這裡故意小 */
-    .fl .badge-t { font-size: 9px; } .fl .nm { font-size: 9.5px; fill: #C9E3EE; } .fl .ct { font-size: 15px; } .fl .pr { font-size: 8.5px; fill: #8FA3B8; }
-    .fl.off .nm, .fl.off .ct { fill: #7C8FA6; }
+    .fl .badge-t { font-size: 9px; } .fl .nm { font-size: 9.5px; fill: var(--sec); } .fl .ct { font-size: 15px; } .fl .pr { font-size: 8.5px; fill: var(--dim); }
+    .fl.off .nm, .fl.off .ct { fill: var(--dim); }
     .fn-hint { font-size: var(--fs-xs); color: var(--dim); }
     /* 參數 */
     .pm-title { font-size: var(--fs-xs); } .pm-reset { font-size: var(--fs-xs); padding: 4px 10px; color: var(--sec); }
@@ -195,7 +197,7 @@
     .pr-row { grid-template-columns: 168px 1fr 78px; padding: 3px 0; }
     .pr-lab { font-size: var(--fs-sm); color: var(--sec); } .pr-val { font-size: var(--fs-sm); }
     .pr-row input[type=range] { height: 16px; }
-    .pm-note, .pm-srv, .breadth .t { font-size: var(--fs-xs); color: var(--dim); } .pm-note .warn { color: #FFD666; } .pm-srv b { color: var(--sec); }
+    .pm-note, .pm-srv, .breadth .t { font-size: var(--fs-xs); color: var(--dim); } .pm-note .warn { color: var(--warning); } .pm-srv b { color: var(--sec); }
     /* Sidebar 名單 */
     .lv-tab { font-size: var(--fs-xs); padding: 5px 9px; color: var(--sec); } .lv-tab.off { opacity: .6; }
     .sb-tools input[type=search] { font-size: var(--fs-sm); padding: 6px 9px; } .sb-tools select { font-size: var(--fs-xs); color: var(--sec); }
@@ -204,15 +206,15 @@
     .row { padding: 10px 12px; }
     .r1 { font-size: var(--fs-sm); gap: 9px; } .r1 .sym { font-size: var(--fs-md); width: 64px; } .r1 .num { gap: 12px; color: var(--sec); }
     .r2 { font-size: var(--fs-sm); margin-top: 4px; } .r2 .name small { font-size: var(--fs-xs); color: var(--dim); }
-    .r3 { gap: 5px; margin-top: 7px; } .r3 i { font-size: 10px; color: var(--dim); } .r3 b { font-size: var(--fs-sm); color: #D5E4EE; }
+    .r3 { gap: 5px; margin-top: 7px; } .r3 i { font-size: 10px; color: var(--dim); } .r3 b { font-size: var(--fs-sm); color: var(--sec); }
     .r4 { margin-top: 5px; }
-    .lv { font-size: 10px; padding: 2px 6px; } .lv0 { color: #8A9BB0; border-color: #3a4658; } .lv1 { color: #6ED3E6; border-color: #27707e; } .lv2 { color: #8FE7F5; border-color: #33919f; }
-    .flag { font-size: 10px; padding: 1px 5px; color: var(--dim); } .flag.ev { color: #FFD666; border-color: #6a5800; } .flag.er { color: #FFB4C6; }
+    .lv { font-size: 10px; padding: 2px 6px; } 
+    .flag { font-size: 10px; padding: 1px 5px; color: var(--dim); } .flag.ev { color: var(--warning); } .flag.er { color: var(--negative); }
     .empty { font-size: var(--fs-sm); color: var(--dim); }
     /* Sidebar 個股頁:整體放大 */
     .dt-h { padding: 10px 14px; gap: 12px; }
-    .back { font-family: var(--font-mono); font-size: var(--fs-sm); font-weight: 700; letter-spacing: .04em; color: #02020a; background: var(--accent); border: 1px solid var(--accent); border-radius: 5px; padding: 8px 14px; cursor: pointer; white-space: nowrap; }
-    .back:hover { background: #7ff7ff; color: #02020a; }
+    .back { font-family: var(--font-mono); font-size: var(--fs-sm); font-weight: 700; letter-spacing: .04em; color: var(--on-accent); background: var(--accent); border: 1px solid var(--accent); border-radius: 5px; padding: 8px 14px; cursor: pointer; white-space: nowrap; }
+    .back:hover { filter: brightness(1.12); }
     .dt-sym { font-size: 21px; } .dt-name { font-size: var(--fs-md); } .dt-name small { font-size: var(--fs-xs); color: var(--dim); margin-top: 2px; }
     .dt-kpi div { padding: 11px 12px; } .dt-kpi .k { font-size: var(--fs-xs); color: var(--dim); } .dt-kpi .v { font-size: var(--fs-lg); }
     .dt-kpi .v[style] { font-size: var(--fs-md) !important; }
@@ -220,7 +222,7 @@
     .nochart { font-size: var(--fs-sm); color: var(--dim); }
     .legend { font-size: var(--fs-xs); color: var(--dim); padding-top: 6px; }
     .sec { padding: 14px 14px; } .sec h4 { font-size: var(--fs-xs); margin-bottom: 10px; }
-    .cond { font-size: var(--fs-md); gap: 7px 16px; } .cond div { color: #C4D3E0; }
+    .cond { font-size: var(--fs-md); gap: 7px 16px; } .cond div { color: var(--sec); }
     .kv { font-size: var(--fs-md); gap: 10px 14px; } .kv .k { font-size: var(--fs-xs); color: var(--dim); margin-bottom: 2px; } .kv .v small { color: var(--dim) !important; font-size: var(--fs-xs); }
     .vcp-seq { font-size: var(--fs-lg); }
     .sec > div[style*="text-dim"] { color: var(--dim) !important; font-size: var(--fs-sm) !important; }
@@ -231,7 +233,10 @@
     /* ── 手機(≤768):底部分頁列切換「名單 / 漏斗 / 參數 / 成功率」,一次只看一個模組;名單是預設、佔滿整個畫面(隨時查上榜) ── */
     .mnav { display: none; }
     @media (max-width: 768px) {
-      :root { --hdr: 54px; --nav: 56px; }
+      :root { --hdr: 54px; --nav: 56px; --fs-xs: 12.5px; --fs-sm: 14px; --fs-md: 16px; --fs-lg: 19px; }
+      .r1 .sym { font-size: 18px; width: 70px; } .r2, .r4 { font-size: 14px; } .r1 .num { font-size: 13px; gap: 8px; white-space: nowrap; }
+      .tk { font-size: 13px; } .tk-sum .v { font-size: 17px; } .dt-kpi .v { font-size: 20px; } .pr-lab, .pr-val { font-size: 14.5px; } .cond, .kv { font-size: 15px; }
+      .rd-foot, .tk-note, .sb-foot, #l2note { font-size: 13px; }
       .rd-head { position: fixed; top: 0; left: 0; right: 0; height: var(--hdr); padding: 0 12px; flex-wrap: nowrap; gap: 8px; }
       .rd-head > div:first-child { min-width: 0; } .rd-brand { font-size: .56rem; letter-spacing: .14em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
       .rd-h1 { font-size: .8rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .rd-h1 span { display: none; }
@@ -243,11 +248,11 @@
       .sb { position: fixed !important; top: var(--hdr); left: 0; right: 0; bottom: var(--nav); width: auto !important; height: auto !important; margin: 0; border: 0 !important; z-index: 10; }
       body[data-m="funnel"] .sb, body[data-m="params"] .sb { display: none; }
       /* 拇指可點:分頁鈕、列、滑桿、返回鍵 */
-      .lv-tab { font-size: 12px; padding: 8px 10px; } .lv-tab.tk { display: none; }   /* 底部分頁列已有成功率 */
+      .lv-tab { font-size: 13.5px; padding: 9px 11px; } .lv-tab.tk { display: none; }   /* 底部分頁列已有成功率 */
       .sb-tools input[type=search] { font-size: 16px; padding: 8px 10px; }   /* 16px 才不會 iOS 自動放大 */
-      .sb-tools select, .sb-tools .btn { font-size: 12px; padding: 8px 8px; }
+      .sb-tools select, .sb-tools .btn { font-size: 13px; padding: 8px 8px; }
       .row { padding: 12px 12px; } .r1 .num { gap: 10px; }
-      .back { font-size: 13px; padding: 8px 12px; }
+      .back { font-size: 15px; padding: 10px 12px; }
       .pr-row { grid-template-columns: 1fr 64px; } .pr-row .pr-lab { grid-column: 1 / -1; padding-top: 6px; }
       .pr-row input[type=range] { height: 28px; }
       .dt-kpi { grid-template-columns: repeat(2, 1fr); }
@@ -258,9 +263,9 @@
       .tk-sum { grid-template-columns: repeat(2, 1fr); } .tk-sum .v { font-size: 15px; }
       .mnav { display: flex; position: fixed; left: 0; right: 0; bottom: 0; height: var(--nav); z-index: 30; background: var(--bg); border-top: 1px solid var(--border);
         padding-bottom: env(safe-area-inset-bottom); }
-      .mnav button { flex: 1; background: transparent; border: 0; color: var(--text-secondary); font-family: var(--font-mono); font-size: 11px; letter-spacing: .04em; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; cursor: pointer; }
-      .mnav button i { font-style: normal; font-size: 17px; line-height: 1; } .mnav button.on { color: var(--accent); }
-      .mnav button b { position: absolute; margin-left: 44px; margin-top: -22px; font-size: 9px; font-weight: 700; color: #02020a; background: var(--accent); border-radius: 8px; padding: 1px 5px; }
+      .mnav button { flex: 1; background: transparent; border: 0; color: var(--text-secondary); font-family: var(--font-mono); font-size: 14px; font-weight: 600; letter-spacing: .04em; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; cursor: pointer; }
+      .mnav button.on { color: var(--accent); box-shadow: inset 0 2px 0 var(--accent); }
+      .mnav button b { margin-left: 6px; font-size: 10px; font-weight: 700; color: var(--on-accent); background: var(--accent); border-radius: 8px; padding: 1px 5px; }
     }
   </style>
 </head>
@@ -281,15 +286,15 @@
   <div id="app" class="loading">RADAR INITIALIZING…</div>
 
   <nav class="mnav" id="mnav" aria-label="手機分頁">
-    <button data-m="list" class="on"><i>📋</i>名單<b id="mn-l4"></b></button>
-    <button data-m="funnel"><i>🔻</i>漏斗</button>
-    <button data-m="params"><i>⚙️</i>參數</button>
-    <button data-m="track"><i>📈</i>成功率</button>
+    <button data-m="list" class="on">名單<b id="mn-l4"></b></button>
+    <button data-m="funnel">漏斗</button>
+    <button data-m="params">參數</button>
+    <button data-m="track">成功率</button>
   </nav>
 
   <footer class="rd-foot">
     <details>
-      <summary>◇ 說明 · 怎麼讀這個漏斗</summary>
+      <summary>說明 · 怎麼讀這個漏斗</summary>
       <ol>
         <li><b>L0 宇宙</b>:美股普通股,市值/價格/成交量門檻(伺服器參數)。</li>
         <li><b>L1 趨勢樣板</b>:Minervini 8 條件 —— c1 價 > 150/200MA · c2 150MA > 200MA · c3 200MA 上彎 · c4 50MA > 150/200MA · c5 價 > 50MA · c6 高於 52 週低 25% · c7 距 52 週高 25% 內 · c8 RS ≥ 70;另要求 c1–c7 連續成立 N 天(反單日跳空)。</li>
@@ -303,7 +308,7 @@
   </footer>
 </div>
 
-<script src="funnel.js?v=20260909a"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
+<script src="funnel.js?v=20260909b"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 (async function () {
@@ -336,6 +341,8 @@
   }
   const CUR = data.currency || '$';
   const clone = o => JSON.parse(JSON.stringify(o));
+  const CSSV = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  addEventListener('bm-theme', () => { if (curSym && !$('#pg-detail').hidden) renderDetail(curSym, true); });
   // 版本:v1.0 / v2.0 各有一套參數(伺服器 profiles);頁面只是換基準再重算,不用重掃
   const VERS = Object.keys(data.profiles || { v1: data.params });
   let ver = (() => { try { return localStorage.getItem('radar.ver') || data.profile || 'v1'; } catch { return data.profile || 'v1'; } })();
@@ -474,15 +481,15 @@
     const parts = [`當日收盤 <b>${q.fresh}</b> / ${q.universe}`, q.lag1 ? `落後 1 日 ${q.lag1}` : '', q.stale ? `落後更多 ${q.stale}` : '', q.failed_fetch ? `宇宙內抓取失敗 ${q.failed_fetch}` : '', q.corrupt ? `資料異常排除 ${q.corrupt}` : '', q.carried ? `宇宙沿用 ${q.carried}` : ''].filter(Boolean);
     const v = q.verdict || (q.degraded ? 'degraded' : 'ok');
     b.hidden = false; b.classList.toggle('bad', v === 'degraded'); b.classList.toggle('ok', v === 'ok');
-    const head = v === 'ok' ? '✓ <b>可信</b> —— 全宇宙當日收盤齊全、無抓取失敗'
-      : v === 'warn' ? '⚠ <b>部分可信</b> —— ' + (q.why || []).join(';')
-      : '✗ <b>DEGRADED</b> —— yfinance 限流,今天有 ' + (q.universe - q.fresh) + ' 檔沒有當日收盤,它們不進 L1、不排 RS;名單不完整';
+    const head = v === 'ok' ? '<b>可信</b> —— 全宇宙當日收盤齊全、無抓取失敗'
+      : v === 'warn' ? '<b>部分可信</b> —— ' + (q.why || []).join(';')
+      : '<b>DEGRADED</b> —— yfinance 限流,今天有 ' + (q.universe - q.fresh) + ' 檔沒有當日收盤,它們不進 L1、不排 RS;名單不完整';
     b.innerHTML = head + ' · ' + parts.join(' · ') + `<span style="float:right">K 線日 ${data.date}</span>`;
   })();
 
   // ── 3D 弧形漏斗 ─────────────────────────────────────────
   const svg = $('#funnel'), NS = 'http://www.w3.org/2000/svg';
-  const LV_COL = ['#3a4f78', '#1c8ca6', '#22b8d0', '#00f3ff', '#00ff9d'];
+  const LV_COL = ['var(--lv0c)', 'var(--lv1c)', 'var(--lv2c)', 'var(--lv3c)', 'var(--lv4c)'];
   const FV = { cx: 190, top: 30, bot: 286, lx: 400, rxMax: 158, rxMin: 16 };
   const ryOf = rx => Math.max(4, rx * 0.17);
   const rxOf = (n, n0) => FV.rxMin + (FV.rxMax - FV.rxMin) * Math.log(1 + Math.max(0, n)) / Math.log(1 + Math.max(1, n0));
@@ -492,16 +499,16 @@
   svg.innerHTML = `<defs>
       <filter id="glow" x="-20%" y="-30%" width="140%" height="160%"><feGaussianBlur stdDeviation="3.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
       ${LV_COL.map((c, i) => `<linearGradient id="g${i}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${c}" stop-opacity="${.30 + i * .06}"/><stop offset=".32" stop-color="${c}" stop-opacity="${.70 + i * .06}"/><stop offset=".6" stop-color="${c}" stop-opacity="${.42 + i * .06}"/><stop offset="1" stop-color="${c}" stop-opacity="${.20 + i * .05}"/></linearGradient>`).join('')}
-      <radialGradient id="mouth" cx=".5" cy=".5" r=".6"><stop offset="0" stop-color="#0a1f33"/><stop offset="1" stop-color="#0d3a55"/></radialGradient>
+      <radialGradient id="mouth" cx=".5" cy=".5" r=".6"><stop offset="0" stop-color="var(--mouth1)"/><stop offset="1" stop-color="var(--mouth2)"/></radialGradient>
     </defs>
-    <ellipse id="mouthEl" fill="url(#mouth)" stroke="#2fa5c0" stroke-width="1"/>
+    <ellipse id="mouthEl" fill="url(#mouth)" stroke="var(--lv2c)" stroke-width="1"/>
     <g id="layers"></g>`;
   const layers = $('#layers');
   N.forEach((_, i) => {
     const g = document.createElementNS(NS, 'g'); g.setAttribute('class', 'fl'); g.dataset.i = i;
     g.innerHTML = `<path class="band" fill="url(#g${i})" stroke="${LV_COL[i]}" stroke-width="1"/><path class="ring" fill="none" stroke="${LV_COL[i]}" stroke-opacity=".35" stroke-width=".8"/>
       <line class="lead" stroke="${LV_COL[i]}" stroke-opacity=".55" stroke-width="1" stroke-dasharray="2 3"/>
-      <circle class="badge" r="11" fill="#070712" stroke="${LV_COL[i]}" stroke-width="1.2"/><text class="badge-t"></text>
+      <circle class="badge" r="11" fill="var(--bg)" stroke="${LV_COL[i]}" stroke-width="1.2"/><text class="badge-t"></text>
       <text class="nm" x="${FV.lx}"></text><text class="ct" x="${FV.lx}"></text><text class="pr" x="${FV.lx}"></text>`;
     g.onclick = () => selectLevel(i);
     layers.appendChild(g);
@@ -531,8 +538,8 @@
         pr.textContent = off ? '整層略過 · 上一層全部放行' : i === 0 ? '可交易宇宙' : `${(counts[i] / Math.max(1, counts[i - 1]) * 100).toFixed(1)}% 通過上一層` + (i === 4 && counts[4] === 0 ? ' · 耐心等待' : '');
         // L2 財報沒抓滿 → 這個數字是低估,直接標在漏斗上;只在「有意義」時才警告(≥5 檔或 ≥2%),不然一兩檔會變雜訊
         if (i === 2 && !off && COV.missing >= Math.max(5, COV.total * 0.02)) {
-          pr.textContent = `⚠ ${COV.missing} 檔尚無財報 → 此數字為低估`;
-          pr.setAttribute('fill', '#FFD000');
+          pr.textContent = `${COV.missing} 檔尚無財報 → 此數字為低估`;
+          pr.setAttribute('fill', 'var(--warning)');
         } else { pr.setAttribute('fill', 'var(--text-dim)'); }
       });
       if (k < 1) requestAnimationFrame(step); else curW = target;
@@ -549,7 +556,7 @@
     const pts = hist.map(h => h.counts[1]);
     if (pts.length < 2) { $('#brv').textContent = `累積中(${pts.length} 天)`; return; }
     const mx = Math.max(...pts), mn = Math.min(...pts), rg = Math.max(1, mx - mn);
-    $('#breadth').innerHTML = `<polyline points="${pts.map((v, i) => `${(i / (pts.length - 1) * 300).toFixed(1)},${(40 - (v - mn) / rg * 34 + 2).toFixed(1)}`).join(' ')}" fill="none" stroke="#00f3ff" stroke-width="1.5" vector-effect="non-scaling-stroke"/>`;
+    $('#breadth').innerHTML = `<polyline points="${pts.map((v, i) => `${(i / (pts.length - 1) * 300).toFixed(1)},${(40 - (v - mn) / rg * 34 + 2).toFixed(1)}`).join(' ')}" fill="none" stroke="var(--accent)" stroke-width="1.5" vector-effect="non-scaling-stroke"/>`;
     const last = pts.at(-1), prev = pts.at(-2);
     $('#brv').innerHTML = `${last} <span class="${last >= prev ? 'pos' : 'neg'}">${last >= prev ? '▲' : '▼'}${Math.abs(last - prev)}</span> · ${pts.length} 天`;
   })();
@@ -562,7 +569,7 @@
   function selectLevel(i) { sel = i; showList(); renderList(); highlight(); renderTabs(); if (isMobile()) mnav('list'); }
   function renderTabs() {
     $('#lvtabs').innerHTML = N.map((n, i) => `<button class="lv-tab ${i === sel ? 'on' : ''} ${KEYS[i] && P[KEYS[i]].enabled === false ? 'off' : ''}" data-lv="${i}">${n.replace(/^L\d /, 'L' + i + ' ')}<b>${R.counts[i].toLocaleString()}</b></button>`).join('')
-      + `<button class="lv-tab tk" data-lv="track" title="過四關(L4)的股票,從過關日到現在的裸報酬">📈 成功率<b>${(track && track.summary && track.summary[ver] || {}).n || 0}</b></button>`;
+      + `<button class="lv-tab tk" data-lv="track" title="過四關(L4)的股票,從過關日到現在的裸報酬">成功率<b>${(track && track.summary && track.summary[ver] || {}).n || 0}</b></button>`;
   }
   $('#lvtabs').addEventListener('click', e => { const b = e.target.closest('.lv-tab'); if (!b) return; b.dataset.lv === 'track' ? showTrack() : selectLevel(+b.dataset.lv); });
   const COV = { missing: 0, have: 0, total: 0 };
@@ -611,7 +618,7 @@
         <div class="r1"><span class="sym">${m.s}</span><span class="lv lv${lv}">L${lv}</span>${m.st > 0 ? `<span class="kd" title="沒有 ${data.date} 的收盤,最後 K 線 ${m.d}">K線 ${m.d.slice(5)}</span>` : ''}${flags}
           <span class="num"><span>RS <b class="${m.rs >= 90 ? 'pos' : ''}">${fmt(m.rs, 0)}</b></span><span>距高 <b class="${dh != null && dh > -5 ? 'pos' : ''}">${sgn(dh)}</b></span><span>VCP <b class="${v && v.q >= P.vcp.min_quality ? 'pos' : ''}">${v ? `${v.n}次·Q${v.q}` : '—'}</b></span></span></div>
         <div class="r2"><span class="name">${esc(m.name)}<small>${esc(m.sec || '')}${m.ind ? ' · ' + esc(m.ind) : ''}</small></span></div>
-        <div class="r4">${lv < 4 ? '卡在:' + esc(WHY[R.fail[m.s]] || R.fail[m.s] || '') : '<span class="tgt">🎯 狙擊候選</span>'}</div>
+        <div class="r4">${lv < 4 ? '卡在:' + esc(WHY[R.fail[m.s]] || R.fail[m.s] || '') : '<span class="tgt">狙擊候選</span>'}</div>
       </div>`; }).join('') || `<div class="empty">此層無標的<br>這是漏斗的正常狀態</div>`;
     $('#sbfoot').textContent = `點列開圖 · 進 L1 的每檔都有內嵌 K 線;L0 未進 L1 者用 ↗ TradingView 看圖`;
   }
@@ -648,7 +655,7 @@
       <div class="dt-body">
       <div class="dt-kpi"><div><div class="k">Price</div><div class="v">${CUR}${fmt(m.px, 2)}</div></div><div><div class="k">RS</div><div class="v ${m.rs >= 90 ? 'pos' : ''}">${fmt(m.rs, 0)}${m.rsp ? '*' : ''}</div></div>
         <div><div class="k">距 52W 高</div><div class="v">${sgn(m.hi ? (m.px / m.hi - 1) * 100 : null)}</div></div><div><div class="k">1M / 3M / 6M</div><div class="v" style="font-size:.72rem">${sgn(m.r1m, 0)} / ${sgn(m.r3m, 0)} / ${sgn(m.r6m, 0)}</div></div></div>
-      ${bars ? '<div id="chart"></div><div class="legend"><span><i style="background:#ffd000"></i>MA50</span><span><i style="background:#ff8c42"></i>MA150</span><span><i style="background:#ff3b6b"></i>MA200</span><span><i style="background:#00f3ff"></i>pivot</span><span><i style="background:#00ff9d"></i>買點(pivot +' + vp.pivot_buffer_pct + '%)</span><span>▼▲ VCP 擺動點</span></div>'
+      ${bars ? '<div id="chart"></div><div class="legend"><span><i style="background:var(--warning)"></i>MA50</span><span><i style="background:#ff8c42"></i>MA150</span><span><i style="background:var(--negative)"></i>MA200</span><span><i style="background:#00f3ff"></i>pivot</span><span><i style="background:#00ff9d"></i>買點(pivot +' + vp.pivot_buffer_pct + '%)</span><span>▼▲ VCP 擺動點</span></div>'
              : '<div class="nochart">此檔未進 L1,沒有內嵌 K 線(只嵌 L1 通過者 + 有 VCP 形狀者,控制檔案大小)<br>↗ 用 TradingView 開啟看圖</div>'}
       <div class="sec"><h4>Trend Template · 8 條件(✓✗ 跟著左側參數變)</h4><div class="cond">
         ${['價 > 150 & 200MA', '150MA > 200MA', '200MA 上彎', '50MA > 150 & 200MA', '價 > 50MA', `高於 52W 低 +${Math.round((P.trend.above_low_mult - 1) * 100)}%`, `距 52W 高 ${Math.round((1 - P.trend.below_high_mult) * 100)}% 內`]
@@ -684,30 +691,30 @@
         ${v ? `<div class="vcp-seq">${v.dep.map(x => x + '%').join(' → ')} <b>· ${v.n} 次</b></div>
           <div class="kv" style="margin-top:6px"><div><div class="k">Pivot</div><div class="v">$${v.piv}</div></div><div><div class="k">現價 vs pivot</div><div class="v ${v.dp > -3 ? 'pos' : ''}">${sgn(v.dp)}</div></div>
           <div><div class="k">量縮(5 日 vs 50 日)</div><div class="v ${v.dry >= vp.volume_dryup_pct ? 'pos' : ''}">${v.dry == null ? '—' : v.dry + '%'}</div></div><div><div class="k">品質分</div><div class="v ${v.q >= P.vcp.min_quality ? 'pos' : ''}">${v.q}</div></div>
-          <div><div class="k">買點</div><div class="v pos">> $${(v.piv * (1 + vp.pivot_buffer_pct / 100)).toFixed(2)}</div></div><div><div class="k">狀態</div><div class="v">${v.bo ? '⚡ 已放量突破' : v.dp > -3 ? '貼近 pivot' : '等待收縮完成'}</div></div></div>`
+          <div><div class="k">買點</div><div class="v pos">> $${(v.piv * (1 + vp.pivot_buffer_pct / 100)).toFixed(2)}</div></div><div><div class="k">狀態</div><div class="v">${v.bo ? '已放量突破' : v.dp > -3 ? '貼近 pivot' : '等待收縮完成'}</div></div></div>`
         : '<div style="font-family:var(--font-mono);font-size:.64rem;color:var(--text-dim)">演算法未見成型的收縮序列(或不在計算範圍:只算 c1–c7 通過者)。這不代表沒有 —— 看圖。</div>'}</div>
       <div class="dt-links"><a class="btn" href="${tvUrl(m)}" target="_blank" rel="noopener">↗ TradingView</a><button class="btn ghost" id="cp1">⧉ ${(TVEX[m.ex] || m.ex)}:${s}</button>
-        <span class="st">${lv < 4 ? '卡在:' + esc(WHY[R.fail[s]] || R.fail[s] || '') : '🎯 L4 狙擊候選 —— 人眼確認'}${m.age ? ' · 在層 ' + m.age + ' 天' : ''}</span></div>
+        <span class="st">${lv < 4 ? '卡在:' + esc(WHY[R.fail[s]] || R.fail[s] || '') : 'L4 狙擊候選 —— 人眼確認'}${m.age ? ' · 在層 ' + m.age + ' 天' : ''}</span></div>
       </div>`;
     $('#back').onclick = showList;
     $('#cp1').onclick = () => navigator.clipboard.writeText((TVEX[m.ex] || m.ex) + ':' + s).catch(() => {});
     if (bars && window.LightweightCharts) {
       const el = $('#chart');
-      chart = LightweightCharts.createChart(el, { layout: { background: { type: 'solid', color: '#0b0b1a' }, textColor: '#7c93a4', fontFamily: 'JetBrains Mono, monospace', fontSize: 10 },
-        grid: { vertLines: { color: '#0f1528' }, horzLines: { color: '#0f1528' } }, rightPriceScale: { borderColor: '#1a2238' }, timeScale: { borderColor: '#1a2238', rightOffset: 4 },
+      chart = LightweightCharts.createChart(el, { layout: { background: { type: 'solid', color: CSSV('--bg-card') }, textColor: CSSV('--dim'), fontFamily: 'JetBrains Mono, monospace', fontSize: 10 },
+        grid: { vertLines: { color: CSSV('--bg-hover') }, horzLines: { color: CSSV('--bg-hover') } }, rightPriceScale: { borderColor: CSSV('--border') }, timeScale: { borderColor: CSSV('--border'), rightOffset: 4 },
         crosshair: { mode: 0 }, width: el.clientWidth, height: 340 });
       const cd = bars.map(b => ({ time: b[0], open: b[1], high: b[2], low: b[3], close: b[4] }));
-      const cs_ = chart.addCandlestickSeries({ upColor: '#00ff9d', downColor: '#ff3b6b', borderVisible: false, wickUpColor: '#00ff9d', wickDownColor: '#ff3b6b' });
+      const cs_ = chart.addCandlestickSeries({ upColor: CSSV('--positive'), downColor: CSSV('--negative'), borderVisible: false, wickUpColor: CSSV('--positive'), wickDownColor: CSSV('--negative') });
       cs_.setData(cd);
       const vol = chart.addHistogramSeries({ priceFormat: { type: 'volume' }, priceScaleId: '' });
       vol.priceScale().applyOptions({ scaleMargins: { top: .82, bottom: 0 } });
       vol.setData(bars.map(b => ({ time: b[0], value: b[5], color: b[4] >= b[1] ? 'rgba(0,255,157,.28)' : 'rgba(255,59,107,.28)' })));
-      [[50, '#ffd000'], [150, '#ff8c42'], [200, '#ff3b6b']].forEach(([n, c]) => { if (cd.length >= n) chart.addLineSeries({ color: c, lineWidth: 1, priceLineVisible: false, lastValueVisible: false, crosshairMarkerVisible: false }).setData(sma(cd, n)); });
+      [[50, CSSV('--warning')], [150, '#ff8c42'], [200, CSSV('--negative')]].forEach(([n, c]) => { if (cd.length >= n) chart.addLineSeries({ color: c, lineWidth: 1, priceLineVisible: false, lastValueVisible: false, crosshairMarkerVisible: false }).setData(sma(cd, n)); });
       if (v) {
-        cs_.createPriceLine({ price: v.piv, color: '#00f3ff', lineWidth: 1, lineStyle: 2, axisLabelVisible: true, title: 'pivot' });
-        cs_.createPriceLine({ price: +(v.piv * (1 + vp.pivot_buffer_pct / 100)).toFixed(2), color: '#00ff9d', lineWidth: 1, lineStyle: 3, axisLabelVisible: true, title: 'buy' });
+        cs_.createPriceLine({ price: v.piv, color: CSSV('--accent'), lineWidth: 1, lineStyle: 2, axisLabelVisible: true, title: 'pivot' });
+        cs_.createPriceLine({ price: +(v.piv * (1 + vp.pivot_buffer_pct / 100)).toFixed(2), color: CSSV('--positive'), lineWidth: 1, lineStyle: 3, axisLabelVisible: true, title: 'buy' });
         const have = new Set(cd.map(x => x.time));
-        cs_.setMarkers(v.pts.filter(p => have.has(p[0])).sort((a, b) => a[0] < b[0] ? -1 : 1).map(p => ({ time: p[0], position: p[2] === 'H' ? 'aboveBar' : 'belowBar', color: p[2] === 'H' ? '#00f3ff' : '#ffd000', shape: p[2] === 'H' ? 'arrowDown' : 'arrowUp', text: p[2] === 'H' ? String(p[1]) : '' })));
+        cs_.setMarkers(v.pts.filter(p => have.has(p[0])).sort((a, b) => a[0] < b[0] ? -1 : 1).map(p => ({ time: p[0], position: p[2] === 'H' ? 'aboveBar' : 'belowBar', color: p[2] === 'H' ? CSSV('--accent') : CSSV('--warning'), shape: p[2] === 'H' ? 'arrowDown' : 'arrowUp', text: p[2] === 'H' ? String(p[1]) : '' })));
       }
       chart.timeScale().setVisibleLogicalRange({ from: Math.max(0, cd.length - 110), to: cd.length + 3 });
       new ResizeObserver(() => chart && chart.applyOptions({ width: el.clientWidth })).observe(el);
