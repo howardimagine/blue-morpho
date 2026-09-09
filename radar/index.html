@@ -20,7 +20,7 @@
     .rd-brand b { color: var(--text-primary); font-weight: 600; }
     .rd-h1 { font-size: 1.05rem; font-weight: 700; margin-top: 2px; letter-spacing: .01em; white-space: nowrap; }
     .rd-h1 span { color: var(--text-dim); font-weight: 400; font-size: .8em; }
-    .rd-meta { font-family: var(--font-mono); font-size: .62rem; color: var(--text-secondary); line-height: 1.6; text-align: right; }
+    .rd-meta { font-family: var(--font-mono); font-size: .62rem; color: var(--text-secondary); line-height: 1.6; text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 2px; }
     .rd-meta b { color: var(--text-primary); font-weight: 500; } .rd-meta .warn { color: var(--warning); }
 
     .rd-grid { display: block; }
@@ -187,7 +187,7 @@
     /* ══ 字級收斂:全頁只用 4 級(xs 11 / sm 12.5 / md 14 / lg 17px)+ 對比 ≥ 6.9:1 ═══════════════════ */
     :root { --fs-xs: 11px; --fs-sm: 12.5px; --fs-md: 14px; --fs-lg: 17px; --dim: #8A9BB0; --sec: #B4C3D3; --sbw: 600px; --lv1: #56c9dd; --lv2: #7ee0f0; --lv0c: #3a4f78; --lv1c: #1c8ca6; --lv2c: #22b8d0; --lv3c: #00f3ff; --lv4c: #00ff9d; --mouth1: #0a1f33; --mouth2: #0d3a55; }
     :root:not([data-theme="dark"]) { --dim: #64748B; --sec: #334155; --lv1: #0E7490; --lv2: #0891B2; --lv0c: #94A3B8; --lv1c: #0E7490; --lv2c: #0891B2; --lv3c: #0284C7; --lv4c: #059669; --mouth1: #CFE8F3; --mouth2: #9CCFE3; }
-    .rd-brand { font-size: var(--fs-xs); } .rd-h1 { font-size: var(--fs-lg); } .rd-meta { font-size: var(--fs-sm); color: var(--sec); } .rd-meta .warn { color: var(--warning); }
+    .rd-brand { font-size: var(--fs-xs); } .rd-h1 { font-size: var(--fs-lg); } .rd-meta { font-size: var(--fs-xs); color: var(--dim); } .rd-meta .warn { color: var(--warning); }
     .card-t { font-size: var(--fs-xs); } .card-t .sub { color: var(--dim); font-size: var(--fs-sm); }
     /* 漏斗 SVG:viewBox 單位會隨寬度放大(×1.3~1.4),所以這裡故意小 */
     .fl .badge-t { font-size: 9px; } .fl .nm { font-size: 9.5px; fill: var(--sec); } .fl .ct { font-size: 15px; } .fl .pr { font-size: 8.5px; fill: var(--dim); }
@@ -253,6 +253,7 @@
     .lv-tab:hover, .pm-reset:hover, .theme-btn:hover, .hdr-sel:hover, .sb-tools select:hover, .sb-tools input[type=search]:focus { border-color: var(--accent); color: var(--accent); }
     .lv, .flag, .kd, .mnav button b { box-sizing: border-box; display: inline-flex; align-items: center; height: var(--tag-h); padding: 0 6px; font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: .05em; line-height: 1; border-radius: 3px; border: 1px solid transparent; margin: 0; }
     .flag { font-weight: 600; border-color: var(--border); color: var(--dim); } .kd { margin-left: 4px; }
+    .lv, .flag, .kd { white-space: nowrap; flex-shrink: 0; }
     .sb-tools { gap: 6px; } .r1 { gap: 8px; } .r4 { gap: 5px; }
     /* 層級分頁 = stage 箭頭:每顆 chevron 互扣;無邊框(邊框在 clip-path 下會被切),改用底色深一階 */
     .lv-tabs { display: flex; gap: 0; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; } .lv-tabs::-webkit-scrollbar { display: none; }
@@ -266,12 +267,12 @@
     .mnav { display: none; }
     @media (max-width: 768px) {
       :root { --hdr: 54px; --nav: calc(56px + env(safe-area-inset-bottom)); --ctl-sm: 36px; --ctl-md: 42px; --tag-h: 20px; --fs-xs: 12.5px; --fs-sm: 14px; --fs-md: 16px; --fs-lg: 19px; }
-      .r1 .sym { font-size: 18px; width: 70px; } .r2, .r4 { font-size: 14px; } .r1 .num { font-size: 13px; gap: 8px; white-space: nowrap; }
+      .r1 { flex-wrap: wrap; row-gap: 6px; } .r1 .sym { font-size: 18px; width: auto; min-width: 58px; } .r2, .r4 { font-size: 14px; } .r1 .num { font-size: 13px; gap: 10px; white-space: nowrap; margin-left: 0; flex-basis: 100%; }   /* 手機:數字固定自成一列、靠左,不跟旗標搶位 */
       .tk { font-size: 13px; } .tk-sum .v { font-size: 17px; } .dt-kpi .v { font-size: 20px; } .pr-lab, .pr-val { font-size: 14.5px; } .cond, .kv { font-size: 15px; }
       .rd-foot, .tk-note, .sb-foot, #l2note { font-size: 13px; }
       .rd-head { position: fixed; top: 0; left: 0; right: 0; height: var(--hdr); padding: 0 12px; flex-wrap: nowrap; gap: 8px; }
       .rd-head > div:first-child { min-width: 0; } .rd-brand { font-size: .56rem; letter-spacing: .14em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-      .rd-brand { display: none; } .rd-h1 { font-size: .9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .rd-h1 span { display: none; }
+      .rd-h1 { font-size: .9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .rd-h1 span { display: none; }
       #hdr-tools .theme-btn { padding: 0 10px; font-size: 14px; }
       #hdr-tools { gap: 6px; flex-shrink: 0; } #meta { display: none; } #refresh { display: none !important; }
       .rd { padding: calc(var(--hdr) + 10px) 12px calc(var(--nav) + 16px); margin-right: 0; }
@@ -307,12 +308,11 @@
 <body>
 <div class="rd">
   <header class="rd-head">
-    <div>
-      <div class="rd-brand">BLUE MORPHO ▎ <b>SEPA RADAR</b> · 萬中選一的狙擊</div>
+    <div style="min-width:0">
       <div class="rd-h1">Minervini 趨勢樣板漏斗 <span>· 全美股 · 收盤後 + 開盤後 1h</span></div>
+      <div class="rd-meta" id="meta">載入中…</div>
     </div>
     <div style="display:flex;align-items:center;gap:12px" id="hdr-tools">
-      <div class="rd-meta" id="meta">載入中…</div>
       <button class="btn" id="refresh" title="在本機後台觸發重掃(全掃 → 推網站,約 1–4 分鐘)" hidden>⟳ 更新資料</button>
     </div>
   </header>
@@ -343,7 +343,7 @@
   </footer>
 </div>
 
-<script src="funnel.js?v=20260909f"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
+<script src="funnel.js?v=20260909h"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 (async function () {
@@ -507,8 +507,7 @@
     VCP 回看 ${vp.lookback_days} 日 · 擺動強度 ${vp.swing_strength} · 收縮衰減 ≤ ×${vp.contraction_decay} · 首次收縮 ≤ ${Math.round(vp.max_first_depth*100)}% · 量縮 ≥ ${vp.volume_dryup_pct}% · 突破 = 收盤 > pivot +${vp.pivot_buffer_pct}% 且量 ≥ ${vp.breakout_volume_mult}× 均量`;
 
   const gen = new Date(data.generated_at), ageH = Math.max(0, (Date.now() - gen) / 36e5);
-  $('#meta').innerHTML = `<div>資料日 <b>${data.date}</b>${data.session === 'open' ? ` <span class="warn">盤中快照 · 今日量推估 ×${data.vol_scale}</span>` : ''} · 掃描 ${ageH < 1 ? '剛剛' : ageH < 48 ? Math.round(ageH) + ' 小時前' : Math.round(ageH / 24) + ' 天前'} · ${data.elapsed_s}s</div>
-    <div>宇宙 <b>${data.universe_n.toLocaleString()}</b> 檔${(data.symbols[0] || {}).usrc ? ` <span class="warn">(沿用 ${data.symbols[0].usrc.replace('cache:', '')} 快取)</span>` : ''} · K 線 ${data.bars_ok_n.toLocaleString()}${data.stale_n ? ` · <span class="warn">stale ${data.stale_n}</span>` : ''}${data.fund_missing_n ? ` · <span class="warn">無財報 ${data.fund_missing_n}</span>` : ''}</div>`;
+  $('#meta').innerHTML = `<span>資料日 <b>${data.date}</b>${data.session === 'open' ? ` <span class="warn">盤中快照 · 今日量推估 ×${data.vol_scale}</span>` : ''} · 掃描 ${ageH < 1 ? '剛剛' : ageH < 48 ? Math.round(ageH) + ' 小時前' : Math.round(ageH / 24) + ' 天前'} · ${data.elapsed_s}s</span> · <span>宇宙 <b>${data.universe_n.toLocaleString()}</b> 檔${(data.symbols[0] || {}).usrc ? ` <span class="warn">(沿用 ${data.symbols[0].usrc.replace('cache:', '')} 快取)</span>` : ''} · K 線 ${data.bars_ok_n.toLocaleString()}${data.stale_n ? ` · <span class="warn">stale ${data.stale_n}</span>` : ''}${data.fund_missing_n ? ` · <span class="warn">無財報 ${data.fund_missing_n}</span>` : ''}</span>`;
 
   // 資料品質:誠實攤開。degraded = yfinance 限流,名單不完整;任何落後的股票在列與個股頁都標 K 線日期
   (function () {
