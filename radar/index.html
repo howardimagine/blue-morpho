@@ -136,6 +136,10 @@
     .tk th { text-align: right; font-weight: 500; color: var(--dim); font-size: var(--fs-xs); letter-spacing: .06em; padding: 6px 8px; border-bottom: 1px solid var(--border); position: sticky; top: 0; background: var(--bg-card); }
     .tk td { text-align: right; padding: 7px 8px; border-bottom: 1px solid var(--border); white-space: nowrap; } .tk th:first-child, .tk td:first-child { text-align: left; }
     .tk tr { cursor: pointer; } .tk tr:hover td { background: rgba(0,243,255,.04); } .tk td .nm { display: block; color: var(--dim); font-size: var(--fs-xs); font-family: var(--font-body); }
+    .tk-h { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .tk-title { font-family: var(--font-mono); font-size: var(--fs-lg); font-weight: 700; color: var(--text-primary); display: flex; align-items: baseline; gap: 8px; }
+    .tk-title small { font-size: var(--fs-xs); font-weight: 500; color: var(--accent); letter-spacing: .06em; }
+    .tk-desc { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--dim); line-height: 1.6; }
     .tk-note { padding: 10px 12px; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--dim); line-height: 1.6; border-top: 1px solid var(--border); }
     .back:hover { color: var(--accent); border-color: var(--accent); }
     .dt-sym { font-family: var(--font-mono); font-size: 1.15rem; font-weight: 700; color: var(--accent); }
@@ -241,7 +245,7 @@
       box-sizing: border-box; display: inline-flex; align-items: center; gap: 5px; font-family: var(--font-mono); letter-spacing: .04em; line-height: 1;
       border-radius: var(--r); border: 1px solid var(--border); background: transparent; color: var(--sec); cursor: pointer; margin: 0; white-space: nowrap; }
     .lv-tab, .btn, .pm-reset, .theme-btn { height: var(--ctl-sm); padding: 0 10px; font-size: var(--fs-xs); }
-    .hdr-sel, #refresh, .sb-tools input[type=search], .sb-tools select, .back { height: var(--ctl-md); padding: 0 12px; font-size: var(--fs-sm); }
+    .hdr-sel, #refresh, .sb-tools input[type=search], .sb-tools select, .back, #hdr-tools .theme-btn { height: var(--ctl-md); padding: 0 12px; font-size: var(--fs-sm); }
     .hdr-sel, .sb-tools select { padding-right: 8px; } .sb-tools input[type=search] { cursor: text; color: var(--text-primary); }
     .btn, #refresh { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 40%, transparent); background: var(--accent-dim); } .btn:hover, #refresh:hover { filter: brightness(1.15); }
     .lv-tab b { margin-left: 2px; } .lv-tab.on { background: var(--accent); border-color: var(--accent); color: var(--on-accent); } .lv-tab.on b { color: var(--on-accent); }
@@ -249,7 +253,15 @@
     .lv-tab:hover, .pm-reset:hover, .theme-btn:hover, .hdr-sel:hover, .sb-tools select:hover, .sb-tools input[type=search]:focus { border-color: var(--accent); color: var(--accent); }
     .lv, .flag, .kd, .mnav button b { box-sizing: border-box; display: inline-flex; align-items: center; height: var(--tag-h); padding: 0 6px; font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: .05em; line-height: 1; border-radius: 3px; border: 1px solid transparent; margin: 0; }
     .flag { font-weight: 600; border-color: var(--border); color: var(--dim); } .kd { margin-left: 4px; }
-    .sb-tools { gap: 6px; } .lv-tabs { gap: 5px; } .r1 { gap: 8px; } .r4 { gap: 5px; }
+    .sb-tools { gap: 6px; } .r1 { gap: 8px; } .r4 { gap: 5px; }
+    /* 層級分頁 = stage 箭頭:每顆 chevron 互扣;無邊框(邊框在 clip-path 下會被切),改用底色深一階 */
+    .lv-tabs { display: flex; gap: 0; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; } .lv-tabs::-webkit-scrollbar { display: none; }
+    .lv-tab:not(.tk) { border: 0; border-radius: 0; background: var(--bg-hover); color: var(--sec); padding: 0 12px 0 18px; margin-right: -6px; flex-shrink: 0;
+      clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 50%, calc(100% - 9px) 100%, 0 100%, 9px 50%); }
+    .lv-tab:not(.tk):first-child { padding-left: 12px; clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 50%, calc(100% - 9px) 100%, 0 100%); border-radius: var(--r) 0 0 var(--r); }
+    .lv-tab:not(.tk):hover { color: var(--accent); } .lv-tab.on:not(.tk) { background: var(--accent); color: var(--on-accent); z-index: 1; position: relative; }
+    .lv-tab.off:not(.tk) { text-decoration: line-through; opacity: .5; }
+    .lv-tab.tk { margin-left: 10px; }
     #hdr-tools { gap: 8px; }
     .mnav { display: none; }
     @media (max-width: 768px) {
@@ -260,7 +272,7 @@
       .rd-head { position: fixed; top: 0; left: 0; right: 0; height: var(--hdr); padding: 0 12px; flex-wrap: nowrap; gap: 8px; }
       .rd-head > div:first-child { min-width: 0; } .rd-brand { font-size: .56rem; letter-spacing: .14em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
       .rd-brand { display: none; } .rd-h1 { font-size: .9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .rd-h1 span { display: none; }
-      .theme-btn { padding: 0 8px; }
+      #hdr-tools .theme-btn { padding: 0 10px; font-size: 14px; }
       #hdr-tools { gap: 6px; flex-shrink: 0; } #meta { display: none; } #refresh { display: none !important; }
       .rd { padding: calc(var(--hdr) + 10px) 12px calc(var(--nav) + 16px); margin-right: 0; }
       #qbanner { margin: 0 0 10px; padding: 8px 10px; font-size: 11px; line-height: 1.5; } #qbanner span[style] { float: none !important; display: block; }
@@ -279,6 +291,9 @@
       .tk th:nth-child(4), .tk td:nth-child(4), .tk th:nth-child(7), .tk td:nth-child(7) { display: none; }   /* 現價、天數:桌機才看;手機留 過關日/過關價/報酬/最佳 */
       .tk { font-size: 11.5px; } .tk td { padding: 8px 5px; } .tk td .nm { max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
       .dt-h { gap: 8px 10px; } .dt-h .back { order: -1; flex: 0 0 100%; text-align: left; }   /* 返回鍵獨佔一列、整列可點 */
+      .dt-h.tk-h .back { flex: 0 0 auto; align-self: stretch; justify-content: flex-start; }
+      .lv-tabs { flex-wrap: wrap; row-gap: 4px; }
+      .tk { font-size: 12.5px; } .tk td, .tk th { padding: 8px 4px; } .tk td .nm { max-width: 92px; }
       .dt-name small { display: block; margin-top: 2px; }
       .tk-sum { grid-template-columns: repeat(2, 1fr); } .tk-sum .v { font-size: 15px; }
       .mnav { display: flex; position: fixed; left: 0; right: 0; bottom: 0; height: var(--nav); z-index: 30; background: var(--bg); border-top: 1px solid var(--border);
@@ -328,7 +343,7 @@
   </footer>
 </div>
 
-<script src="funnel.js?v=20260909c"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
+<script src="funnel.js?v=20260909f"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 (async function () {
@@ -587,8 +602,9 @@
   $('#mnav').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; const m = b.dataset.m; mnav(m); if (m === 'list') showList(); else if (m === 'track') showTrack(); else window.scrollTo(0, 0); });
   mnav('list');
   function selectLevel(i) { sel = i; showList(); renderList(); highlight(); renderTabs(); if (isMobile()) mnav('list'); }
+  const SHORT = ['宇宙', '趨勢', '基本面', '催化', 'VCP'];
   function renderTabs() {
-    $('#lvtabs').innerHTML = N.map((n, i) => `<button class="lv-tab ${i === sel ? 'on' : ''} ${KEYS[i] && P[KEYS[i]].enabled === false ? 'off' : ''}" data-lv="${i}">${n.replace(/^L\d /, 'L' + i + ' ')}<b>${R.counts[i].toLocaleString()}</b></button>`).join('')
+    $('#lvtabs').innerHTML = N.map((n, i) => `<button class="lv-tab ${i === sel ? 'on' : ''} ${KEYS[i] && P[KEYS[i]].enabled === false ? 'off' : ''}" data-lv="${i}">L${i} ${SHORT[i]}<b>${R.counts[i].toLocaleString()}</b></button>`).join('')
       + `<button class="lv-tab tk" data-lv="track" title="過四關(L4)的股票,從過關日到現在的裸報酬">成功率<b>${(track && track.summary && track.summary[ver] || {}).n || 0}</b></button>`;
   }
   $('#lvtabs').addEventListener('click', e => { const b = e.target.closest('.lv-tab'); if (!b) return; b.dataset.lv === 'track' ? showTrack() : selectLevel(+b.dataset.lv); });
@@ -656,9 +672,9 @@
   function renderTrack() {
     const pg = $('#pg-track'), es = (track && track.entries || []).filter(e => e.p === ver), sm = (track && track.summary || {})[ver];
     const pc = x => x == null ? '—' : `<span class="${x > 0 ? 'pos' : x < 0 ? 'neg' : ''}">${x > 0 ? '+' : ''}${x.toFixed(1)}%</span>`;
-    pg.innerHTML = `<div class="dt-h"><button class="back" id="back-tk">← 返回名單</button><span class="dt-sym">成功率</span><span class="dt-name">${VLABEL[ver] || ver} · 過四關(L4)的每一筆,從過關日收盤到現在<small>資料到 ${track && track.date || '—'} · 同檔掉出 L4 超過 20 個掃描日再進 = 新一筆</small></span></div>
+    pg.innerHTML = `<div class="dt-h tk-h"><button class="back" id="back-tk">← 返回名單</button><div class="tk-title">成功率<small>${VLABEL[ver] || ver}</small></div><div class="tk-desc">過四關(L4)的每一筆,從過關日收盤到現在 · 資料到 ${track && track.date || '—'} · 同檔掉出 L4 超過 20 個掃描日再進 = 新一筆</div></div>
       ${sm ? `<div class="tk-sum"><div><div class="k">筆數</div><div class="v">${sm.n}</div></div><div><div class="k">勝率(現在 > 進場)</div><div class="v ${sm.win / sm.n >= .5 ? 'pos' : ''}">${Math.round(sm.win / sm.n * 100)}%<small>${sm.win}/${sm.n}</small></div></div><div><div class="k">平均報酬 / 中位</div><div class="v">${pc(sm.avg)}<small>中位 ${sm.med > 0 ? '+' : ''}${sm.med}%</small></div></div><div><div class="k">平均最佳 · 曾達 +10% / +20%</div><div class="v">${pc(sm.best_avg)}<small>${sm.hit10} / ${sm.hit20} 筆</small></div></div></div>` : ''}
-      <div class="dt-body">${es.length ? `<table class="tk"><thead><tr><th>代號</th><th>過關日</th><th>過關價</th><th>現價</th><th>報酬率</th><th>最佳報酬率</th><th>天數</th></tr></thead><tbody>
+      <div class="dt-body">${es.length ? `<table class="tk"><thead><tr><th>代號</th><th>過關日</th><th>過關價</th><th>現價</th><th>報酬</th><th>最佳</th><th>天數</th></tr></thead><tbody>
       ${es.map(e => `<tr data-s="${e.s}"><td><b>${e.s}</b><span class="nm">${esc(e.name || '')}</span></td><td>${e.date}</td><td>${CUR}${fmt(e.px, 2)}</td><td>${CUR}${fmt(e.now, 2)}</td><td>${pc(e.ret)}</td><td title="過關後最高價 ${e.best_date}">${pc(e.best)}</td><td>${e.days}</td></tr>`).join('')}</tbody></table>`
       : '<div class="empty">尚無過四關的紀錄<br>每次收盤掃描會自動累積</div>'}
       <div class="tk-note">報酬率 = 現在收盤 ÷ 過關日收盤 − 1(裸報酬,<b>未套用書中 8% 停損 / 分批停利</b>);最佳報酬率 = 過關後任一日最高價 ÷ 過關日收盤 − 1(理論最大漲點)。天數 = 過關後的交易日數。點列開個股。</div></div>`;
