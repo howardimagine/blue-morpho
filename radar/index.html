@@ -267,9 +267,16 @@
     .lv-tab.tk { margin-left: 10px; }
     #hdr-tools { gap: 8px; }
     .fn-meta { display: none; }
+    /* 開關:取代 checkbox,桌機/手機同一顆 */
+    :root { --sw-h: 18px; --sw-w: 32px; }
+    .pg-on input, .pr-row.bool input[type=checkbox] { appearance: none; -webkit-appearance: none; width: var(--sw-w); height: var(--sw-h); margin: 0; border-radius: 999px; background: var(--border); position: relative; cursor: pointer; transition: background .15s; flex-shrink: 0; }
+    .pg-on input::after, .pr-row.bool input[type=checkbox]::after { content: ""; position: absolute; top: 2px; left: 2px; width: calc(var(--sw-h) - 4px); height: calc(var(--sw-h) - 4px); border-radius: 50%; background: var(--bg); box-shadow: 0 1px 2px rgba(0,0,0,.35); transition: transform .15s; }
+    .pg-on input:checked, .pr-row.bool input[type=checkbox]:checked { background: var(--accent); }
+    .pg-on input:checked::after, .pr-row.bool input[type=checkbox]:checked::after { transform: translateX(calc(var(--sw-w) - var(--sw-h))); }
+    .pg-on { gap: 6px; }
     .mnav { display: none; }
     @media (max-width: 768px) {
-      :root { --hdr: 54px; --nav: calc(56px + env(safe-area-inset-bottom)); --ctl-sm: 36px; --ctl-md: 42px; --tag-h: 20px; --fs-xs: 12.5px; --fs-sm: 14px; --fs-md: 16px; --fs-lg: 19px; }
+      :root { --sw-h: 26px; --sw-w: 46px; --hdr: 54px; --nav: calc(56px + env(safe-area-inset-bottom)); --ctl-sm: 36px; --ctl-md: 42px; --tag-h: 20px; --fs-xs: 12.5px; --fs-sm: 14px; --fs-md: 16px; --fs-lg: 19px; }
       .r1 { flex-wrap: wrap; row-gap: 6px; } .r1 .sym { font-size: 18px; width: auto; min-width: 58px; } .r2, .r4 { font-size: 14px; } .r1 .num { font-size: 13px; gap: 10px; white-space: nowrap; margin-left: 0; flex-basis: 100%; }   /* 手機:數字固定自成一列、靠左,不跟旗標搶位 */
       .tk { font-size: 13px; } .tk-sum .v { font-size: 17px; } .dt-kpi .v { font-size: 20px; } .pr-lab, .pr-val { font-size: 14.5px; } .cond, .kv { font-size: 15px; }
       .rd-foot, .tk-note, .sb-foot, #l2note { font-size: 13px; }
@@ -349,7 +356,7 @@
   </footer>
 </div>
 
-<script src="funnel.js?v=20260909o"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
+<script src="funnel.js?v=20260909p"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 (async function () {
