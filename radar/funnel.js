@@ -79,10 +79,13 @@
                       (f.eps_g != null && f.eps_g_prev != null && f.eps_g > f.eps_g_prev);
         const gmOk = f.gm != null && f.gm >= fu.gross_margin_min;
         if (fu.max_rev_growth != null && f.rev_g != null && f.rev_g > fu.max_rev_growth) { fail[s] = 'L2:rev_base'; continue; }
-        if (!revOk) { fail[s] = f.rev_g != null ? 'L2:rev' : 'L2:rev_na'; continue; }
-        if (!epsOk) { fail[s] = f.eps_g != null ? 'L2:eps' : 'L2:eps_na'; continue; }
+        if (fu.growth_any) { if (!(revOk || epsOk)) { fail[s] = (f.rev_g != null || f.eps_g != null) ? 'L2:growth' : 'L2:rev_na'; continue; } }
+        else {
+          if (!revOk) { fail[s] = f.rev_g != null ? 'L2:rev' : 'L2:rev_na'; continue; }
+          if (!epsOk) { fail[s] = f.eps_g != null ? 'L2:eps' : 'L2:eps_na'; continue; }
+        }
         if (fu.require_acceleration && !accel) { fail[s] = 'L2:accel'; continue; }
-        if (!gmOk) { fail[s] = f.gm != null ? 'L2:gm' : 'L2:gm_na'; continue; }
+        if ((fu.gm_gate !== false) && !gmOk) { fail[s] = f.gm != null ? 'L2:gm' : 'L2:gm_na'; continue; }
       }
       levels[s] = 2;
       if (on.catalyst) {

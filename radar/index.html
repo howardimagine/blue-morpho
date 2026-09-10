@@ -372,7 +372,7 @@
   </footer>
 </div>
 
-<script src="funnel.js?v=20260910c"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
+<script src="funnel.js?v=20260910d"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 (async function () {
@@ -385,7 +385,7 @@
   const TVEX = { NASDAQ: 'NASDAQ', NYSE: 'NYSE', AMEX: 'AMEX', TWSE: 'TWSE', TPEX: 'TPEX' };
   const tvUrl = m => `https://www.tradingview.com/chart/?symbol=${encodeURIComponent((TVEX[m.ex] || m.ex || '') + ':' + m.s)}`;
   const WHY = { c1:'c1 價 < 150/200MA', c2:'c2 150MA < 200MA', c3:'c3 200MA 未上彎', c4:'c4 50MA 排列', c5:'c5 價 < 50MA', c6:'c6 離低點 < 門檻', c7:'c7 離高點 > 門檻', c8:'c8 RS 不足',
-    trend_days:'連續天數不足', stale:'K 線落後(無當日收盤)', hist:'歷史不足 200/252 根', 'data:corrupt':'資料異常(拆股混雜),已排除', 'L2:no_data':'無財報資料', 'L2:rev':'營收成長不足', 'L2:rev_na':'無營收(pre-revenue)', 'L2:eps':'EPS 成長不足', 'L2:eps_na':'去年同季 EPS ≤ 0', 'L2:accel':'未加速', 'L2:gm':'毛利不足', 'L2:gm_na':'無毛利資料',
+    trend_days:'連續天數不足', stale:'K 線落後(無當日收盤)', hist:'歷史不足 200/252 根', 'data:corrupt':'資料異常(拆股混雜),已排除', 'L2:no_data':'無財報資料', 'L2:growth':'營收與 EPS 都不足', 'L2:rev':'營收成長不足', 'L2:rev_na':'無營收(pre-revenue)', 'L2:eps':'EPS 成長不足', 'L2:eps_na':'去年同季 EPS ≤ 0', 'L2:accel':'未加速', 'L2:gm':'毛利不足', 'L2:gm_na':'無毛利資料',
     'L3:rs':'RS < 門檻', 'L3:dist':'離 52W 高太遠', 'L3:adr':'ADR 不足', 'L3:event':'事件驅動(單日大漲 >門檻)', 'L3:earnings':'財報窗', 'L3:sector_cap':'產業上限',
     'L4:no_vcp':'未見 VCP', 'L4:n':'收縮次數不足', 'L4:quality':'VCP 品質不足', 'L4:below_pivot':'離 pivot 太遠',
     'L4:extended':'已突破 pivot 太多(追高)', 'L4:no_dryup':'量沒縮(不符 VCP)', 'L2:rev_base':'基期極低的假成長' };
@@ -442,6 +442,8 @@
       ['fundamental.eps_growth_min', 'EPS YoY ≥', 0, 2, .05, v => pct(v)],
       ['fundamental.gross_margin_min', '毛利率 ≥', 0, .9, .05, v => pct(v)],
       ['fundamental.require_acceleration', '需要加速(本季 YoY > 上季)', 'bool'],
+      ['fundamental.growth_any', '營收或 EPS 任一達標即可', 'bool'],
+      ['fundamental.gm_gate', '毛利率當閘門(關 = 只標不擋)', 'bool'],
       ['fundamental.accept_turnaround', '轉虧為盈視為 EPS 通過', 'bool'] ]},
     { g: 'L3 催化劑 · 極強勢', k: 3, key: 'catalyst', items: [
       ['catalyst.rs_min', 'RS 評級 ≥', 1, 99, 1, v => v],
@@ -517,7 +519,7 @@
   }
   $('#reset').onclick = () => { P = baseParams(); persist(); syncControls(); recompute(); };
   // 版本切換鈕(header)
-  const VLABEL = { v1: 'v1.0 原版', v2: 'v2.0 強力拉升直通' };
+  const VLABEL = { v1: 'v1.0 原版', v2: 'v2.0 強力拉升直通', v3: 'v3.0 寬(照書放寬上游)' };
   const vwrap = document.createElement('select'); vwrap.id = 'versel'; vwrap.className = 'hdr-sel';
   vwrap.title = '切換規則版本(v1.0 = 趨勢樣板 8 條 + VCP;v2.0 = 加上強力拉升直通)';
   vwrap.innerHTML = VERS.map(v => `<option value="${v}" ${v === ver ? 'selected' : ''}>${matchMedia('(max-width: 768px)').matches ? (VLABEL[v] || v).split(' ')[0] : (VLABEL[v] || v)}</option>`).join('');
@@ -712,7 +714,7 @@
     const bestAvg = n ? es.map(B_).filter(x => x != null).reduce((a, b) => a + b, 0) / n : null;
     const chip = (k, n_) => `<button class="lv-tab ${tkF === k ? 'on' : ''}" data-f="${k}">${n_}<b>${k === 'all' ? all.length : k === 'dead' ? cnt('void') + cnt('expired') : cnt(k)}</b></button>`;
     pg.innerHTML = `<div class="dt-h tk-h"><button class="back" id="back-tk">← 返回名單</button><div class="tk-title">觀察池<small>${VLABEL[ver] || ver}</small></div>
-      <div class="tk-desc">過四關 = 拿到一張觀察票(記下當天的 pivot),之後不論還在不在 L4 都盯著:收盤站上 pivot 且放量 = <b>觸發</b>(書的進場點);失效 = 跌到 pivot −${P.vcp.max_below_pivot_pct}%(作廢)或 40 個交易日沒觸發(過期) · 資料到 ${track && track.date || '—'}</div></div>
+      <div class="tk-desc">過四關 = 拿到一張觀察票(記下當天的 pivot),之後不論還在不在 L4 都盯著:收盤站上 pivot 且放量 = <b>觸發</b>(書的進場點);失效 = ${P.vcp.void_mode === 'last_low' ? '跌破最後一腿低點' : '跌到 pivot −' + P.vcp.max_below_pivot_pct + '%'}(作廢)或 ${P.vcp.watch_expire_bars || 40} 個交易日沒觸發(過期) · 資料到 ${track && track.date || '—'}</div></div>
       <div class="tk-bar"><div class="lv-tabs">${chip('all', '全部')}${chip('wait', '等待')}${chip('trig', '已觸發')}${chip('dead', '失效')}</div>
         <div class="lv-tabs"><span class="tk-lab">報酬基準</span><button class="lv-tab ${tkB === 'entry' ? 'on' : ''}" data-b="entry">過關日</button><button class="lv-tab ${tkB === 'trig' ? 'on' : ''}" data-b="trig">突破日</button></div></div>
       <div class="tk-sum"><div><div class="k">${tkB === 'trig' ? '已觸發筆數' : '筆數'}</div><div class="v">${n}</div></div><div><div class="k">勝率(現在 > 進場)</div><div class="v ${n && win / n >= .5 ? 'pos' : ''}">${n ? Math.round(win / n * 100) + '%' : '—'}<small>${win}/${n}</small></div></div><div><div class="k">平均報酬 / 中位</div><div class="v">${n ? pc(rs.reduce((a, b) => a + b, 0) / n) : '—'}<small>中位 ${n ? (rs[n >> 1] > 0 ? '+' : '') + rs[n >> 1] + '%' : '—'}</small></div></div><div><div class="k">平均最佳</div><div class="v">${bestAvg == null ? '—' : pc(bestAvg)}<small>曾達 +10%:${es.filter(e => (B_(e) ?? 0) >= 10).length} 筆</small></div></div></div>
