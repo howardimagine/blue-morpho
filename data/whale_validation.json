@@ -1,249 +1,163 @@
 {
   "as_of": "2026-08-14",
   "n_whales": 19,
-  "generated_at": "2026-09-09T00:07:30+00:00",
+  "generated_at": "2026-09-10T00:06:55+00:00",
   "stocks": [
     {
-      "symbol": "CRWD",
-      "name": "CrowdStrike",
-      "theme": "Cybersecurity",
-      "signal": "split",
-      "holders": 2,
+      "symbol": "EOG",
+      "name": "EOG Resources, Inc.",
+      "theme": "Energy / Oil & Gas",
+      "signal": "buy",
+      "holders": 1,
       "increased": 1,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 69980124,
+      "total_held_fmt": "$70M",
+      "whales_fmt": "達利歐 Dalio $70M 加碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 69980124,
+          "action": "add"
+        }
+      ]
+    },
+    {
+      "symbol": "EXEL",
+      "name": "Exelixis, Inc.",
+      "theme": "Biotech — Oncology",
+      "signal": "sell",
+      "holders": 1,
+      "increased": 0,
       "reduced": 1,
       "new_pos": 0,
       "closed_pos": 0,
-      "total_held_usd": 36989396,
-      "total_held_fmt": "$37M",
-      "whales_fmt": "達利歐 Dalio $19M 加碼 · 木頭姐 Cathie Wood $18M 減碼",
+      "total_held_usd": 21810738,
+      "total_held_fmt": "$22M",
+      "whales_fmt": "達利歐 Dalio $22M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
           "name": "達利歐 Dalio",
-          "value_usd": 18960213,
-          "action": "add"
-        },
-        {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 18029183,
+          "value_usd": 21810738,
           "action": "trim"
         }
       ]
     },
     {
-      "symbol": "AVGO",
-      "name": "博通",
-      "theme": "AI Compute",
-      "signal": "sell",
-      "holders": 6,
-      "increased": 2,
-      "reduced": 2,
-      "new_pos": 1,
-      "closed_pos": 3,
-      "total_held_usd": 3641987477,
-      "total_held_fmt": "$3.6B",
-      "whales_fmt": "德魯肯米勒 Druckenmiller — 清倉 · Brad Gerstner — 清倉 · Dan Loeb — 清倉 · Philippe Laffont $2.2B 加碼 · Chase Coleman $663M 減碼 · 達利歐 Dalio $498M 減碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "德魯肯米勒 Druckenmiller",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "Brad Gerstner",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "Dan Loeb",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
-          "name": "Philippe Laffont",
-          "value_usd": 2208640410,
-          "action": "add"
-        },
-        {
-          "name": "Chase Coleman",
-          "value_usd": 662596921,
-          "action": "trim"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 497845413,
-          "action": "trim"
-        },
-        {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 153820556,
-          "action": "hold"
-        },
-        {
-          "name": "索羅斯 Soros",
-          "value_usd": 62421677,
-          "action": "add"
-        }
-      ]
-    },
-    {
-      "symbol": "CLSK",
-      "name": "CleanSpark, Inc.",
+      "symbol": "FBTC",
+      "name": "Fidelity Wise Origin Bitcoin Fu",
       "theme": "Crypto Infrastructure",
-      "signal": "sell",
+      "signal": "split",
       "holders": 0,
       "increased": 0,
       "reduced": 0,
       "new_pos": 0,
-      "closed_pos": 1,
+      "closed_pos": 0,
       "total_held_usd": 0,
       "total_held_fmt": "—",
-      "whales_fmt": "達利歐 Dalio — 清倉",
+      "whales_fmt": "",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": []
+    },
+    {
+      "symbol": "BWXT",
+      "name": "BWX Technologies, Inc.",
+      "theme": "Nuclear / SMR",
+      "signal": "sell",
+      "holders": 2,
+      "increased": 0,
+      "reduced": 2,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 110235551,
+      "total_held_fmt": "$110M",
+      "whales_fmt": "木頭姐 Cathie Wood $107M 減碼 · 達利歐 Dalio $3M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 107034337,
+          "action": "trim"
+        },
+        {
           "name": "達利歐 Dalio",
-          "value_usd": 0,
-          "action": "exit"
+          "value_usd": 3201214,
+          "action": "trim"
         }
       ]
     },
     {
-      "symbol": "BMRN",
-      "name": "BioMarin Pharmaceutical Inc.",
-      "theme": "Biotech — Oncology",
+      "symbol": "GEV",
+      "name": "GE Vernova",
+      "theme": "Electrification / Power",
       "signal": "sell",
       "holders": 4,
-      "increased": 1,
+      "increased": 0,
       "reduced": 3,
       "new_pos": 0,
       "closed_pos": 0,
-      "total_held_usd": 1019769610,
-      "total_held_fmt": "$1.0B",
-      "whales_fmt": "Brad Gerstner $582M 減碼 · Andreas Halvorsen $436M 加碼 · 達利歐 Dalio $2M 減碼 · 德魯肯米勒 Druckenmiller <$1M 減碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "Brad Gerstner",
-          "value_usd": 582194012,
-          "action": "trim"
-        },
-        {
-          "name": "Andreas Halvorsen",
-          "value_usd": 435819735,
-          "action": "add"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 1745903,
-          "action": "trim"
-        },
-        {
-          "name": "德魯肯米勒 Druckenmiller",
-          "value_usd": 9960,
-          "action": "trim"
-        }
-      ]
-    },
-    {
-      "symbol": "EQIX",
-      "name": "Equinix, Inc.",
-      "theme": "Cloud Infrastructure",
-      "signal": "buy",
-      "holders": 3,
-      "increased": 1,
-      "reduced": 1,
-      "new_pos": 1,
-      "closed_pos": 0,
-      "total_held_usd": 1337909078,
-      "total_held_fmt": "$1.3B",
-      "whales_fmt": "Philippe Laffont $1.3B 加碼 · 達利歐 Dalio $10M 減碼 · 德魯肯米勒 Druckenmiller <$1M 新進",
+      "total_held_usd": 4088974749,
+      "total_held_fmt": "$4.1B",
+      "whales_fmt": "Philippe Laffont $3.0B 持有 · Chase Coleman $937M 減碼 · 達利歐 Dalio $144M 減碼 · 木頭姐 Cathie Wood $2M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
           "name": "Philippe Laffont",
-          "value_usd": 1327501387,
-          "action": "add"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 10388459,
-          "action": "trim"
-        },
-        {
-          "name": "德魯肯米勒 Druckenmiller",
-          "value_usd": 19232,
-          "action": "new"
-        }
-      ]
-    },
-    {
-      "symbol": "AMZN",
-      "name": "亞馬遜",
-      "theme": "Cloud Infrastructure",
-      "signal": "buy",
-      "holders": 12,
-      "increased": 8,
-      "reduced": 4,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 11727675001,
-      "total_held_fmt": "$11.7B",
-      "whales_fmt": "Philippe Laffont $2.8B 加碼 · 艾克曼 Ackman $2.4B 加碼 · Chase Coleman $2.3B 減碼 · 泰珀 Tepper $1.2B 加碼 · Andreas Halvorsen $882M 加碼 · Brad Gerstner $578M 加碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "Philippe Laffont",
-          "value_usd": 2820705995,
-          "action": "add"
-        },
-        {
-          "name": "艾克曼 Ackman",
-          "value_usd": 2385104083,
-          "action": "add"
+          "value_usd": 3005484557,
+          "action": "hold"
         },
         {
           "name": "Chase Coleman",
-          "value_usd": 2307979214,
+          "value_usd": 936963773,
           "action": "trim"
-        },
-        {
-          "name": "泰珀 Tepper",
-          "value_usd": 1191700000,
-          "action": "add"
-        },
-        {
-          "name": "Andreas Halvorsen",
-          "value_usd": 882063449,
-          "action": "add"
-        },
-        {
-          "name": "Brad Gerstner",
-          "value_usd": 578058158,
-          "action": "add"
         },
         {
           "name": "達利歐 Dalio",
-          "value_usd": 482753142,
+          "value_usd": 144235212,
           "action": "trim"
         },
         {
-          "name": "Dan Loeb",
-          "value_usd": 417095000,
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 2291207,
           "action": "trim"
+        }
+      ]
+    },
+    {
+      "symbol": "ALT",
+      "name": "Altimmune, Inc.",
+      "theme": "Biotech — Obesity / GLP-1",
+      "signal": "buy",
+      "holders": 1,
+      "increased": 0,
+      "reduced": 0,
+      "new_pos": 1,
+      "closed_pos": 0,
+      "total_held_usd": 20368000,
+      "total_held_fmt": "$20M",
+      "whales_fmt": "Andreas Halvorsen $20M 新進",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "Andreas Halvorsen",
+          "value_usd": 20368000,
+          "action": "new"
         }
       ]
     }
