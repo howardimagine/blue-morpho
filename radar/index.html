@@ -368,7 +368,7 @@
   </footer>
 </div>
 
-<script src="funnel.js?v=20260910a"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
+<script src="funnel.js?v=20260910b"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 (async function () {
@@ -700,16 +700,16 @@
     const pg = $('#pg-track'), all = (track && track.entries || []).filter(e => e.p === ver);
     const pc = x => x == null ? '—' : `<span class="${x > 0 ? 'up' : x < 0 ? 'dn' : ''}">${x > 0 ? '+' : ''}${x.toFixed(1)}%</span>`;
     const cnt = k => all.filter(e => e.status === k).length;
-    let es = tkF === 'all' ? all.slice() : all.filter(e => e.status === tkF);
+    let es = tkF === 'all' ? all.slice() : tkF === 'dead' ? all.filter(e => e.status === 'void' || e.status === 'expired') : all.filter(e => e.status === tkF);
     if (tkB === 'trig') es = es.filter(e => e.status === 'trig');
     // 成功率照目前篩選 + 基準算:基準=突破日時只算已觸發的(書的進場點),其餘是「沒扣扳機」不算輸
     const R_ = e => tkB === 'trig' ? e.ret_t : e.ret, B_ = e => tkB === 'trig' ? e.best_t : e.best;
     const rs = es.map(R_).filter(x => x != null).sort((a, b) => a - b), n = rs.length, win = rs.filter(x => x > 0).length;
     const bestAvg = n ? es.map(B_).filter(x => x != null).reduce((a, b) => a + b, 0) / n : null;
-    const chip = (k, n_, on) => `<button class="lv-tab ${on ? 'on' : ''}" data-f="${k}">${n_}<b>${k === 'all' ? all.length : cnt(k)}</b></button>`;
+    const chip = (k, n_) => `<button class="lv-tab ${tkF === k ? 'on' : ''}" data-f="${k}">${n_}<b>${k === 'all' ? all.length : k === 'dead' ? cnt('void') + cnt('expired') : cnt(k)}</b></button>`;
     pg.innerHTML = `<div class="dt-h tk-h"><button class="back" id="back-tk">← 返回名單</button><div class="tk-title">觀察池<small>${VLABEL[ver] || ver}</small></div>
-      <div class="tk-desc">過四關 = 拿到一張觀察票(記下當天的 pivot),之後不論還在不在 L4 都盯著:收盤站上 pivot 且放量 = <b>觸發</b>(書的進場點);跌到 pivot −${P.vcp.max_below_pivot_pct}% = 作廢;40 個交易日沒觸發 = 過期 · 資料到 ${track && track.date || '—'}</div>
-      <div class="tk-bar"><div class="lv-tabs">${chip('all', '全部')}${chip('wait', '等待')}${chip('trig', '已觸發')}${chip('void', '作廢')}${chip('expired', '過期')}</div>
+      <div class="tk-desc">過四關 = 拿到一張觀察票(記下當天的 pivot),之後不論還在不在 L4 都盯著:收盤站上 pivot 且放量 = <b>觸發</b>(書的進場點);失效 = 跌到 pivot −${P.vcp.max_below_pivot_pct}%(作廢)或 40 個交易日沒觸發(過期) · 資料到 ${track && track.date || '—'}</div></div>
+      <div class="tk-bar"><div class="lv-tabs">${chip('all', '全部')}${chip('wait', '等待')}${chip('trig', '已觸發')}${chip('dead', '失效')}</div>
         <div class="lv-tabs"><span class="tk-lab">報酬基準</span><button class="lv-tab ${tkB === 'entry' ? 'on' : ''}" data-b="entry">過關日</button><button class="lv-tab ${tkB === 'trig' ? 'on' : ''}" data-b="trig">突破日</button></div></div>
       <div class="tk-sum"><div><div class="k">${tkB === 'trig' ? '已觸發筆數' : '筆數'}</div><div class="v">${n}</div></div><div><div class="k">勝率(現在 > 進場)</div><div class="v ${n && win / n >= .5 ? 'pos' : ''}">${n ? Math.round(win / n * 100) + '%' : '—'}<small>${win}/${n}</small></div></div><div><div class="k">平均報酬 / 中位</div><div class="v">${n ? pc(rs.reduce((a, b) => a + b, 0) / n) : '—'}<small>中位 ${n ? (rs[n >> 1] > 0 ? '+' : '') + rs[n >> 1] + '%' : '—'}</small></div></div><div><div class="k">平均最佳</div><div class="v">${bestAvg == null ? '—' : pc(bestAvg)}<small>曾達 +10%:${es.filter(e => (B_(e) ?? 0) >= 10).length} 筆</small></div></div></div>
       <div class="dt-body">${es.length ? `<table class="tk"><thead><tr>${[['s', '代號'], ['status', '狀態'], ['date', '過關日'], ['piv', 'Pivot'], ['trig_date', '觸發日'], [tkB === 'trig' ? 'ret_t' : 'ret', '報酬'], [tkB === 'trig' ? 'best_t' : 'best', '最佳'], [tkB === 'trig' ? 'days_t' : 'days', '天數']].map(([k, n_]) => `<th data-k="${k}" class="${tkSort.k === k ? 'on' : ''}">${n_}<i>${tkSort.k === k ? (tkSort.d < 0 ? '▼' : '▲') : '▽'}</i></th>`).join('')}</tr></thead><tbody>
