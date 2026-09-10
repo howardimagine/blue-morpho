@@ -141,6 +141,8 @@
     .tk-h { flex-direction: column; align-items: flex-start; gap: 8px; }
     .tk-title { font-family: var(--font-mono); font-size: var(--fs-lg); font-weight: 700; color: var(--text-primary); display: flex; align-items: baseline; gap: 8px; }
     .tk-title small { font-size: var(--fs-xs); font-weight: 500; color: var(--accent); letter-spacing: .06em; }
+    .tk-bar { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; padding: 8px 12px; border-bottom: 1px solid var(--border); } .tk-bar .lv-tabs { gap: 4px; } .tk-lab { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--dim); align-self: center; margin-right: 2px; }
+    .tk-bar .lv-tab { border: 1px solid var(--border) !important; border-radius: var(--r) !important; clip-path: none !important; padding: 0 10px !important; margin: 0 !important; background: transparent !important; color: var(--sec); } .tk-bar .lv-tab.on { background: var(--accent) !important; color: var(--on-accent); }
     .tk-desc { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--dim); line-height: 1.6; }
     .tk-note { padding: 10px 12px; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--dim); line-height: 1.6; border-top: 1px solid var(--border); }
     .back:hover { color: var(--accent); border-color: var(--accent); }
@@ -310,7 +312,7 @@
       .pr-row { grid-template-columns: 1fr 64px; } .pr-row .pr-lab { grid-column: 1 / -1; padding-top: 6px; }
       .pr-row input[type=range] { height: 28px; }
       .dt-kpi { grid-template-columns: repeat(2, 1fr); }
-      .tk th:nth-child(4), .tk td:nth-child(4), .tk th:nth-child(7), .tk td:nth-child(7) { display: none; }   /* 現價、天數:桌機才看;手機留 過關日/過關價/報酬/最佳 */
+      .tk th:nth-child(4), .tk td:nth-child(4), .tk th:nth-child(5), .tk td:nth-child(5), .tk th:nth-child(8), .tk td:nth-child(8) { display: none; }   /* 現價、天數:桌機才看;手機留 過關日/過關價/報酬/最佳 */
       .tk { font-size: 11.5px; } .tk td { padding: 8px 5px; } .tk td .nm { max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
       .dt-h { gap: 8px 10px; } .dt-h .back { order: -1; flex: 0 0 100%; text-align: left; }   /* 返回鍵獨佔一列、整列可點 */
       .dt-h.tk-h .back { display: none; }   /* 手機用底部 tab 切,不需要返回 */
@@ -345,7 +347,7 @@
 
   <nav class="mnav" id="mnav" aria-label="手機分頁">
     <button data-m="list" class="on">名單<b id="mn-l4"></b></button>
-    <button data-m="track">成功率</button>
+    <button data-m="track">觀察池</button>
     <button data-m="params">參數</button>
     <button data-m="funnel">漏斗</button>
   </nav>
@@ -366,7 +368,7 @@
   </footer>
 </div>
 
-<script src="funnel.js?v=20260909t"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
+<script src="funnel.js?v=20260910a"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 (async function () {
@@ -630,7 +632,7 @@
   const SHORT = ['宇宙', '趨勢', '基本面', '催化', 'VCP'];
   function renderTabs() {
     $('#lvtabs').innerHTML = N.map((n, i) => `<button class="lv-tab ${i === sel ? 'on' : ''} ${KEYS[i] && P[KEYS[i]].enabled === false ? 'off' : ''}" data-lv="${i}">L${i} ${SHORT[i]}<b>${R.counts[i].toLocaleString()}</b></button>`).join('')
-      + `<button class="lv-tab tk" data-lv="track" title="過四關(L4)的股票,從過關日到現在的裸報酬">成功率<b>${(track && track.summary && track.summary[ver] || {}).n || 0}</b></button>`;
+      + `<button class="lv-tab tk" data-lv="track" title="過四關的觀察票:等待 / 觸發 / 作廢,含成功率">觀察池<b>${(track && track.summary && track.summary[ver] || {}).n || 0}</b></button>`;
   }
   $('#lvtabs').addEventListener('click', e => { const b = e.target.closest('.lv-tab'); if (!b) return; b.dataset.lv === 'track' ? showTrack() : selectLevel(+b.dataset.lv); });
   const COV = { missing: 0, have: 0, total: 0 };
@@ -690,20 +692,34 @@
   let chart = null, curSym = null;
   function sma(arr, n) { const out = []; let s = 0; for (let i = 0; i < arr.length; i++) { s += arr[i].close; if (i >= n) s -= arr[i - n].close; if (i >= n - 1) out.push({ time: arr[i].time, value: s / n }); } return out; }
   const setWide = _ => {};   // 固定寬度,不再縮放(Howard:一直縮放頭很暈)
-  // ── Sidebar 第 3 頁:成功率(過四關後的裸報酬;不含書中停損停利)──────────
+  // ── Sidebar 第 3 頁:觀察池(過四關的票 + 突破追蹤 + 成功率)──────────
   function showTrack() { $('#pg-list').hidden = true; $('#pg-detail').hidden = true; $('#pg-track').hidden = false; if (chart) { chart.remove(); chart = null; } curSym = null; setWide(true); renderTrack(); }
-  let tkSort = { k: 'date', d: -1 };   // 成功率表排序:預設過關日新→舊;點表頭切換
+  let tkSort = { k: 'date', d: -1 }, tkF = 'all', tkB = 'entry';   // 觀察池:排序 / 狀態篩選 / 報酬基準(過關日 or 突破日)
+  const ST = { wait: ['等待', ''], trig: ['已觸發', 'pos'], void: ['作廢', 'neg'], expired: ['過期', ''] };
   function renderTrack() {
-    const pg = $('#pg-track'), es = (track && track.entries || []).filter(e => e.p === ver), sm = (track && track.summary || {})[ver];
+    const pg = $('#pg-track'), all = (track && track.entries || []).filter(e => e.p === ver);
     const pc = x => x == null ? '—' : `<span class="${x > 0 ? 'up' : x < 0 ? 'dn' : ''}">${x > 0 ? '+' : ''}${x.toFixed(1)}%</span>`;
-    pg.innerHTML = `<div class="dt-h tk-h"><button class="back" id="back-tk">← 返回名單</button><div class="tk-title">成功率<small>${VLABEL[ver] || ver}</small></div><div class="tk-desc">過四關(L4)的每一筆,從過關日收盤到現在 · 資料到 ${track && track.date || '—'} · 同檔掉出 L4 超過 20 個掃描日再進 = 新一筆</div></div>
-      ${sm ? `<div class="tk-sum"><div><div class="k">筆數</div><div class="v">${sm.n}</div></div><div><div class="k">勝率(現在 > 進場)</div><div class="v ${sm.win / sm.n >= .5 ? 'pos' : ''}">${Math.round(sm.win / sm.n * 100)}%<small>${sm.win}/${sm.n}</small></div></div><div><div class="k">平均報酬 / 中位</div><div class="v">${pc(sm.avg)}<small>中位 ${sm.med > 0 ? '+' : ''}${sm.med}%</small></div></div><div><div class="k">平均最佳 · 曾達 +10% / +20%</div><div class="v">${pc(sm.best_avg)}<small>${sm.hit10} / ${sm.hit20} 筆</small></div></div></div>` : ''}
-      <div class="dt-body">${es.length ? `<table class="tk"><thead><tr>${[['s', '代號'], ['date', '過關日'], ['px', '過關價'], ['now', '現價'], ['ret', '報酬'], ['best', '最佳'], ['days', '天數']].map(([k, n]) => `<th data-k="${k}" class="${tkSort.k === k ? 'on' : ''}">${n}<i>${tkSort.k === k ? (tkSort.d < 0 ? '▼' : '▲') : '▽'}</i></th>`).join('')}</tr></thead><tbody>
-      ${es.sort((a, b) => { const x = a[tkSort.k], y = b[tkSort.k]; return (typeof x === 'string' ? (x < y ? -1 : x > y ? 1 : 0) : (x ?? -1e9) - (y ?? -1e9)) * tkSort.d; }).map(e => `<tr data-s="${e.s}"><td><b>${e.s}</b><span class="nm">${esc(e.name || '')}</span></td><td>${e.date}</td><td>${CUR}${fmt(e.px, 2)}</td><td>${CUR}${fmt(e.now, 2)}</td><td>${pc(e.ret)}</td><td title="過關後最高價 ${e.best_date}">${pc(e.best)}</td><td>${e.days}</td></tr>`).join('')}</tbody></table>`
-      : '<div class="empty">尚無過四關的紀錄<br>每次收盤掃描會自動累積</div>'}
-      <div class="tk-note">報酬率 = 現在收盤 ÷ 過關日收盤 − 1(裸報酬,<b>未套用書中 8% 停損 / 分批停利</b>);最佳報酬率 = 過關後任一日最高價 ÷ 過關日收盤 − 1(理論最大漲點)。天數 = 過關後的交易日數。點列開個股。</div></div>`;
+    const cnt = k => all.filter(e => e.status === k).length;
+    let es = tkF === 'all' ? all.slice() : all.filter(e => e.status === tkF);
+    if (tkB === 'trig') es = es.filter(e => e.status === 'trig');
+    // 成功率照目前篩選 + 基準算:基準=突破日時只算已觸發的(書的進場點),其餘是「沒扣扳機」不算輸
+    const R_ = e => tkB === 'trig' ? e.ret_t : e.ret, B_ = e => tkB === 'trig' ? e.best_t : e.best;
+    const rs = es.map(R_).filter(x => x != null).sort((a, b) => a - b), n = rs.length, win = rs.filter(x => x > 0).length;
+    const bestAvg = n ? es.map(B_).filter(x => x != null).reduce((a, b) => a + b, 0) / n : null;
+    const chip = (k, n_, on) => `<button class="lv-tab ${on ? 'on' : ''}" data-f="${k}">${n_}<b>${k === 'all' ? all.length : cnt(k)}</b></button>`;
+    pg.innerHTML = `<div class="dt-h tk-h"><button class="back" id="back-tk">← 返回名單</button><div class="tk-title">觀察池<small>${VLABEL[ver] || ver}</small></div>
+      <div class="tk-desc">過四關 = 拿到一張觀察票(記下當天的 pivot),之後不論還在不在 L4 都盯著:收盤站上 pivot 且放量 = <b>觸發</b>(書的進場點);跌到 pivot −${P.vcp.max_below_pivot_pct}% = 作廢;40 個交易日沒觸發 = 過期 · 資料到 ${track && track.date || '—'}</div>
+      <div class="tk-bar"><div class="lv-tabs">${chip('all', '全部')}${chip('wait', '等待')}${chip('trig', '已觸發')}${chip('void', '作廢')}${chip('expired', '過期')}</div>
+        <div class="lv-tabs"><span class="tk-lab">報酬基準</span><button class="lv-tab ${tkB === 'entry' ? 'on' : ''}" data-b="entry">過關日</button><button class="lv-tab ${tkB === 'trig' ? 'on' : ''}" data-b="trig">突破日</button></div></div>
+      <div class="tk-sum"><div><div class="k">${tkB === 'trig' ? '已觸發筆數' : '筆數'}</div><div class="v">${n}</div></div><div><div class="k">勝率(現在 > 進場)</div><div class="v ${n && win / n >= .5 ? 'pos' : ''}">${n ? Math.round(win / n * 100) + '%' : '—'}<small>${win}/${n}</small></div></div><div><div class="k">平均報酬 / 中位</div><div class="v">${n ? pc(rs.reduce((a, b) => a + b, 0) / n) : '—'}<small>中位 ${n ? (rs[n >> 1] > 0 ? '+' : '') + rs[n >> 1] + '%' : '—'}</small></div></div><div><div class="k">平均最佳</div><div class="v">${bestAvg == null ? '—' : pc(bestAvg)}<small>曾達 +10%:${es.filter(e => (B_(e) ?? 0) >= 10).length} 筆</small></div></div></div>
+      <div class="dt-body">${es.length ? `<table class="tk"><thead><tr>${[['s', '代號'], ['status', '狀態'], ['date', '過關日'], ['piv', 'Pivot'], ['trig_date', '觸發日'], [tkB === 'trig' ? 'ret_t' : 'ret', '報酬'], [tkB === 'trig' ? 'best_t' : 'best', '最佳'], [tkB === 'trig' ? 'days_t' : 'days', '天數']].map(([k, n_]) => `<th data-k="${k}" class="${tkSort.k === k ? 'on' : ''}">${n_}<i>${tkSort.k === k ? (tkSort.d < 0 ? '▼' : '▲') : '▽'}</i></th>`).join('')}</tr></thead><tbody>
+      ${es.sort((a, b) => { const x = a[tkSort.k], y = b[tkSort.k]; return (typeof x === 'string' || typeof y === 'string' ? String(x ?? '') < String(y ?? '') ? -1 : String(x ?? '') > String(y ?? '') ? 1 : 0 : (x ?? -1e9) - (y ?? -1e9)) * tkSort.d; }).map(e => `<tr data-s="${e.s}"><td><b>${e.s}</b><span class="nm">${esc(e.name || '')}</span></td><td><span class="lv ${ST[e.status][1]}" style="border-color:currentColor">${ST[e.status][0]}</span></td><td>${e.date}<span class="nm">${CUR}${fmt(e.px, 2)}</span></td><td>${e.piv == null ? '—' : CUR + fmt(e.piv, 2)}</td><td>${e.trig_date ? e.trig_date + `<span class="nm">${CUR}${fmt(e.trig_px, 2)}</span>` : e.void_date ? `<span class="nm">作廢 ${e.void_date}</span>` : '—'}</td><td>${pc(R_(e))}</td><td>${pc(B_(e))}</td><td>${tkB === 'trig' ? (e.days_t ?? '—') : e.days}</td></tr>`).join('')}</tbody></table>`
+      : '<div class="empty">此篩選下沒有紀錄</div>'}
+      <div class="tk-note">報酬 = 現在收盤 ÷ 進場價 − 1(裸報酬,<b>未套用書中 8% 停損 / 分批停利</b>);最佳 = 進場後任一日最高價 ÷ 進場價 − 1。「過關日」基準 = 型態成形當天就進場(偷跑);「突破日」基準 = 只算已觸發者、從觸發日收盤起算(書的規則)。點列開個股。</div></div>`;
     $('#back-tk').onclick = showList;
-    pg.querySelectorAll('.tk th').forEach(th => th.onclick = () => { const k = th.dataset.k; tkSort = { k, d: tkSort.k === k ? -tkSort.d : (k === 's' || k === 'date' ? -1 : -1) }; renderTrack(); });
+    pg.querySelectorAll('[data-f]').forEach(b => b.onclick = () => { tkF = b.dataset.f; renderTrack(); });
+    pg.querySelectorAll('[data-b]').forEach(b => b.onclick = () => { tkB = b.dataset.b; tkSort = { k: 'date', d: -1 }; renderTrack(); });
+    pg.querySelectorAll('.tk th').forEach(th => th.onclick = () => { const k = th.dataset.k; tkSort = { k, d: tkSort.k === k ? -tkSort.d : -1 }; renderTrack(); });
     pg.querySelectorAll('tr[data-s]').forEach(tr => tr.onclick = () => { if (bySym[tr.dataset.s]) showDetail(tr.dataset.s); });
   }
   function showList() { $('#pg-detail').hidden = true; $('#pg-track').hidden = true; $('#pg-list').hidden = false; if (chart) { chart.remove(); chart = null; } curSym = null; setWide(false); }
