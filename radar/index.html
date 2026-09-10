@@ -316,6 +316,10 @@
       .tk { font-size: 11.5px; } .tk td { padding: 8px 5px; } .tk td .nm { max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
       .dt-h { gap: 8px 10px; } .dt-h .back { order: -1; flex: 0 0 100%; text-align: left; }   /* 返回鍵獨佔一列、整列可點 */
       .dt-h.tk-h .back { display: none; }   /* 手機用底部 tab 切,不需要返回 */
+      /* 觀察池:整頁一個捲動區,說明/統計往上滑走;篩選列與表頭滑到頂端後 sticky */
+      #pg-track { overflow-y: auto; -webkit-overflow-scrolling: touch; } #pg-track .dt-body { flex: none; overflow: visible; }
+      #pg-track .tk-bar { position: sticky; top: 0; z-index: 3; background: var(--bg-card); }
+      #pg-track .tk th { top: var(--tkbar, 0px); z-index: 2; }
       .sb-list, .dt-body { padding-bottom: 28px; overflow-x: hidden; } .dt-body > * { max-width: 100%; min-width: 0; }
       table.rsx { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }   /* RS 分解表太寬 → 表格自己橫捲,不要整頁位移 */
       .lv-tabs { flex-wrap: wrap; row-gap: 4px; }
@@ -368,7 +372,7 @@
   </footer>
 </div>
 
-<script src="funnel.js?v=20260910b"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
+<script src="funnel.js?v=20260910c"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 (async function () {
@@ -717,6 +721,7 @@
       : '<div class="empty">此篩選下沒有紀錄</div>'}
       <div class="tk-note">報酬 = 現在收盤 ÷ 進場價 − 1(裸報酬,<b>未套用書中 8% 停損 / 分批停利</b>);最佳 = 進場後任一日最高價 ÷ 進場價 − 1。「過關日」基準 = 型態成形當天就進場(偷跑);「突破日」基準 = 只算已觸發者、從觸發日收盤起算(書的規則)。點列開個股。</div></div>`;
     $('#back-tk').onclick = showList;
+    pg.style.setProperty('--tkbar', (pg.querySelector('.tk-bar')?.offsetHeight || 0) + 'px');   // 表頭貼在篩選列下方
     pg.querySelectorAll('[data-f]').forEach(b => b.onclick = () => { tkF = b.dataset.f; renderTrack(); });
     pg.querySelectorAll('[data-b]').forEach(b => b.onclick = () => { tkB = b.dataset.b; tkSort = { k: 'date', d: -1 }; renderTrack(); });
     pg.querySelectorAll('.tk th').forEach(th => th.onclick = () => { const k = th.dataset.k; tkSort = { k, d: tkSort.k === k ? -tkSort.d : -1 }; renderTrack(); });
