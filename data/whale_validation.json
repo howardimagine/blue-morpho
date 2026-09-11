@@ -1,60 +1,99 @@
 {
   "as_of": "2026-08-14",
   "n_whales": 19,
-  "generated_at": "2026-09-10T00:06:55+00:00",
+  "generated_at": "2026-09-11T00:05:07+00:00",
   "stocks": [
     {
-      "symbol": "EOG",
-      "name": "EOG Resources, Inc.",
+      "symbol": "HAL",
+      "name": "Halliburton Company",
       "theme": "Energy / Oil & Gas",
       "signal": "buy",
-      "holders": 1,
+      "holders": 2,
       "increased": 1,
       "reduced": 0,
-      "new_pos": 0,
+      "new_pos": 1,
       "closed_pos": 0,
-      "total_held_usd": 69980124,
-      "total_held_fmt": "$70M",
-      "whales_fmt": "達利歐 Dalio $70M 加碼",
+      "total_held_usd": 115490176,
+      "total_held_fmt": "$115M",
+      "whales_fmt": "大空頭 Burry $62M 新進 · 達利歐 Dalio $54M 加碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
+          "name": "大空頭 Burry",
+          "value_usd": 61500000,
+          "action": "new"
+        },
+        {
           "name": "達利歐 Dalio",
-          "value_usd": 69980124,
+          "value_usd": 53990176,
           "action": "add"
         }
       ]
     },
     {
-      "symbol": "EXEL",
-      "name": "Exelixis, Inc.",
-      "theme": "Biotech — Oncology",
+      "symbol": "NOW",
+      "name": "ServiceNow",
+      "theme": "AI Software",
       "signal": "sell",
-      "holders": 1,
+      "holders": 3,
       "increased": 0,
-      "reduced": 1,
-      "new_pos": 0,
+      "reduced": 2,
+      "new_pos": 1,
       "closed_pos": 0,
-      "total_held_usd": 21810738,
-      "total_held_fmt": "$22M",
-      "whales_fmt": "達利歐 Dalio $22M 減碼",
+      "total_held_usd": 154622247,
+      "total_held_fmt": "$155M",
+      "whales_fmt": "Chase Coleman $87M 減碼 · 達利歐 Dalio $63M 新進 · 索羅斯 Soros $5M 減碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "Chase Coleman",
+          "value_usd": 86719591,
+          "action": "trim"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 63080626,
+          "action": "new"
+        },
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 4822030,
+          "action": "trim"
+        }
+      ]
+    },
+    {
+      "symbol": "CSCO",
+      "name": "Cisco Systems, Inc.",
+      "theme": "Cloud Infrastructure",
+      "signal": "sell",
+      "holders": 0,
+      "increased": 0,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 1,
+      "total_held_usd": 0,
+      "total_held_fmt": "—",
+      "whales_fmt": "達利歐 Dalio — 清倉",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
           "name": "達利歐 Dalio",
-          "value_usd": 21810738,
-          "action": "trim"
+          "value_usd": 0,
+          "action": "exit"
         }
       ]
     },
     {
-      "symbol": "FBTC",
-      "name": "Fidelity Wise Origin Bitcoin Fu",
-      "theme": "Crypto Infrastructure",
+      "symbol": "DIS",
+      "name": "Walt Disney Company (The)",
+      "theme": "Streaming / Media",
       "signal": "split",
       "holders": 0,
       "increased": 0,
@@ -70,94 +109,41 @@
       "whales": []
     },
     {
-      "symbol": "BWXT",
-      "name": "BWX Technologies, Inc.",
-      "theme": "Nuclear / SMR",
-      "signal": "sell",
-      "holders": 2,
-      "increased": 0,
+      "symbol": "ROK",
+      "name": "羅克韋爾自動化",
+      "theme": "Industrial Automation",
+      "signal": "split",
+      "holders": 4,
+      "increased": 2,
       "reduced": 2,
       "new_pos": 0,
       "closed_pos": 0,
-      "total_held_usd": 110235551,
-      "total_held_fmt": "$110M",
-      "whales_fmt": "木頭姐 Cathie Wood $107M 減碼 · 達利歐 Dalio $3M 減碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 107034337,
-          "action": "trim"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 3201214,
-          "action": "trim"
-        }
-      ]
-    },
-    {
-      "symbol": "GEV",
-      "name": "GE Vernova",
-      "theme": "Electrification / Power",
-      "signal": "sell",
-      "holders": 4,
-      "increased": 0,
-      "reduced": 3,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 4088974749,
-      "total_held_fmt": "$4.1B",
-      "whales_fmt": "Philippe Laffont $3.0B 持有 · Chase Coleman $937M 減碼 · 達利歐 Dalio $144M 減碼 · 木頭姐 Cathie Wood $2M 減碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "Philippe Laffont",
-          "value_usd": 3005484557,
-          "action": "hold"
-        },
-        {
-          "name": "Chase Coleman",
-          "value_usd": 936963773,
-          "action": "trim"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 144235212,
-          "action": "trim"
-        },
-        {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 2291207,
-          "action": "trim"
-        }
-      ]
-    },
-    {
-      "symbol": "ALT",
-      "name": "Altimmune, Inc.",
-      "theme": "Biotech — Obesity / GLP-1",
-      "signal": "buy",
-      "holders": 1,
-      "increased": 0,
-      "reduced": 0,
-      "new_pos": 1,
-      "closed_pos": 0,
-      "total_held_usd": 20368000,
-      "total_held_fmt": "$20M",
-      "whales_fmt": "Andreas Halvorsen $20M 新進",
+      "total_held_usd": 264635527,
+      "total_held_fmt": "$265M",
+      "whales_fmt": "Andreas Halvorsen $227M 減碼 · 達利歐 Dalio $23M 加碼 · 索羅斯 Soros $14M 加碼 · 木頭姐 Cathie Wood <$1M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
           "name": "Andreas Halvorsen",
-          "value_usd": 20368000,
-          "action": "new"
+          "value_usd": 227429748,
+          "action": "trim"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 22654674,
+          "action": "add"
+        },
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 14455117,
+          "action": "add"
+        },
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 95988,
+          "action": "trim"
         }
       ]
     }
