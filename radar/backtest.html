@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<script src="../theme.js"></script>
+<title>SEPA 回測手冊 · Blue Morpho</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+  :root { --paper:#F7F8F6; --ink:#14181C; --ink-2:#4A5561; --mute:#7C8792; --line:#D9DEE3; --panel:#EEF1F0; --accent:#0E7490; --accent-ink:#0B5C73; --warm:#C2410C; --good:#1F7A4D; --bad:#B3261E; --good-bg:#E3F1E8; --bad-bg:#F6E1DF; --neutral-bg:#ECEFF2; --side:#F0F2F1;
+    --serif:"IBM Plex Serif","Noto Serif TC",Georgia,serif; --sans:"Noto Sans TC","PingFang TC",system-ui,sans-serif; --mono:"IBM Plex Mono","SF Mono",Menlo,monospace; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --paper:#0F1316; --ink:#E8ECEF; --ink-2:#B7C0C8; --mute:#7F8A94; --line:#26303A; --panel:#161C21; --accent:#38B6D3; --accent-ink:#7ED3E6; --warm:#F0844A; --good:#5CC08A; --bad:#F08A80; --good-bg:#16342A; --bad-bg:#3B1F1D; --neutral-bg:#1C2329; --side:#12171B; } }
+  :root[data-theme="dark"] { --paper:#0F1316; --ink:#E8ECEF; --ink-2:#B7C0C8; --mute:#7F8A94; --line:#26303A; --panel:#161C21; --accent:#38B6D3; --accent-ink:#7ED3E6; --warm:#F0844A; --good:#5CC08A; --bad:#F08A80; --good-bg:#16342A; --bad-bg:#3B1F1D; --neutral-bg:#1C2329; --side:#12171B; }
+  * { box-sizing:border-box; } body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans); font-size:15.5px; line-height:1.8; }
+  .layout { display:grid; grid-template-columns:240px 1fr; min-height:100vh; }
+  nav { position:sticky; top:0; height:100vh; overflow-y:auto; background:var(--side); border-right:1px solid var(--line); padding:28px 18px; }
+  nav .brand { font-family:var(--mono); font-size:11px; letter-spacing:.14em; color:var(--accent-ink); text-transform:uppercase; margin-bottom:14px; }
+  nav a { display:block; color:var(--ink-2); text-decoration:none; font-size:14px; padding:6px 10px; border-radius:4px; } nav a:hover { background:var(--panel); color:var(--ink); }
+  nav a.h { font-weight:700; color:var(--ink); margin-top:10px; } nav a.sub { padding-left:22px; font-size:13px; }
+  nav .foot { margin-top:24px; font-family:var(--mono); font-size:11px; color:var(--mute); line-height:1.6; }
+  main { padding:48px 56px 96px; max-width:980px; }
+  h1 { font-family:var(--serif); font-weight:600; font-size:32px; line-height:1.25; margin:0 0 10px; text-wrap:balance; }
+  .lede { font-size:17px; color:var(--ink-2); max-width:66ch; }
+  h2 { font-family:var(--serif); font-weight:600; font-size:25px; margin:64px 0 12px; padding-top:16px; border-top:1px solid var(--line); scroll-margin-top:20px; }
+  h3 { font-size:17px; font-weight:700; margin:30px 0 8px; scroll-margin-top:20px; } h4 { font-size:15px; margin:20px 0 6px; }
+  p { max-width:70ch; margin:0 0 12px; }
+  .verdict { border-top:3px solid var(--accent); background:var(--panel); padding:20px 22px; margin:24px 0; } .verdict p { max-width:none; margin:0 0 8px; } .verdict p:last-child { margin:0; }
+  .kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin:18px 0; }
+  .kpi { background:var(--paper); padding:12px 14px; } .kpi .k { font-family:var(--mono); font-size:11px; letter-spacing:.08em; color:var(--mute); text-transform:uppercase; } .kpi .v { font-family:var(--mono); font-size:22px; margin-top:2px; font-variant-numeric:tabular-nums; } .kpi .v small { font-size:12px; color:var(--mute); margin-left:6px; }
+  .pos { color:var(--good); } .neg { color:var(--bad); } .mute { color:var(--mute); }
+  table { border-collapse:collapse; width:100%; font-family:var(--mono); font-size:12.5px; font-variant-numeric:tabular-nums; } .tbl { overflow-x:auto; margin:10px 0 4px; }
+  th { text-align:right; font-weight:500; color:var(--mute); font-size:11px; letter-spacing:.05em; padding:7px 8px; border-bottom:1px solid var(--ink); white-space:nowrap; vertical-align:bottom; }
+  td { text-align:right; padding:8px 8px; border-bottom:1px solid var(--line); white-space:nowrap; vertical-align:top; } th:first-child, td:first-child { text-align:left; } td.name { font-family:var(--sans); font-weight:500; white-space:normal; min-width:150px; } tr.hl td { background:var(--panel); }
+  td.note, th.note { white-space:normal; text-align:left; font-family:var(--sans); font-size:12.5px; color:var(--ink-2); min-width:160px; }
+  .cap { font-size:13px; color:var(--mute); margin:4px 0 0; max-width:none; }
+  .book { border-left:3px solid var(--accent); padding:8px 14px; background:var(--panel); margin:12px 0; font-size:14.5px; } .book p { margin:0 0 4px; max-width:none; } .book .src { font-family:var(--mono); font-size:11.5px; color:var(--mute); }
+  .warn { border-left:3px solid var(--warm); padding:8px 14px; background:var(--panel); margin:14px 0; } .warn p { margin:0; max-width:none; }
+  details { border:1px solid var(--line); border-radius:4px; padding:10px 16px; margin:14px 0; background:var(--panel); } summary { cursor:pointer; font-weight:700; } details[open] summary { margin-bottom:10px; }
+  ul, ol { padding-left:22px; max-width:70ch; } li { margin:5px 0; } code { font-family:var(--mono); font-size:12.5px; background:var(--panel); padding:1px 5px; border-radius:3px; }
+  @media (max-width:900px) { .layout { grid-template-columns:1fr; } nav { position:static; height:auto; border-right:0; border-bottom:1px solid var(--line); } nav a { display:inline-block; } nav a.h { display:block; } main { padding:28px 18px 64px; } .kpis { grid-template-columns:repeat(2,1fr); } }
+</style>
+</head>
+<body>
+<div class="layout">
+<nav>
+  <div class="brand">Blue Morpho · SEPA</div>
+  <a href="./" style="font-family:var(--mono);font-size:12px;color:var(--accent)">← 回雷達</a>
+  <a href="#top" class="h">總覽</a>
+  <a href="#screen" class="h">篩選方式</a><a href="#screen-book" class="sub">書的原則</a><a href="#screen-funnel" class="sub">五層漏斗</a><a href="#screen-tiers" class="sub">六個檔位</a>
+  <a href="#calc" class="h">計算方式</a><a href="#calc-layers" class="sub">三層回測</a><a href="#calc-defs" class="sub">名詞與公式</a><a href="#calc-data" class="sub">資料與限制</a>
+  <a href="#perf" class="h">回測績效</a><a href="#perf-s1" class="sub">篩選層(逐年)</a><a href="#perf-exit" class="sub">出場變體(逐年)</a><a href="#perf-filter" class="sub">過濾變體(逐年)</a><a href="#perf-tier" class="sub">五檔對照</a><a href="#perf-slice" class="sub">RS / 產業 / 大盤</a><a href="#perf-port" class="sub">部位層</a>
+  <a href="#playbook" class="h">Playbook</a><a href="#pb-screen" class="sub">篩選</a><a href="#pb-entry" class="sub">進場</a><a href="#pb-exit" class="sub">出場</a><a href="#pb-size" class="sub">配資</a><a href="#pb-limits" class="sub">限制</a>
+  <a href="#process" class="h">測試與修正過程</a>
+  <div class="foot">資料 2021-09 → 2026-09<br>2,228 檔 · 基準 SPY<br>2026-09-13</div>
+</nav>
+<main>
+  <div id="top"></div>
+  <div class="brand" style="font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--accent-ink)">MINERVINI SEPA · 五年回測手冊</div>
+  <h1>篩選、計算、績效、Playbook</h1>
+  <p class="lede">把 Mark Minervini 的 SEPA 寫成規則,用 2,228 檔美股五年日 K 回放。這份手冊只留四件事:怎麼篩、怎麼算、結果(全部分年)、最後建議怎麼做。測試與修正的過程收在最後一節。</p>
+  <div class="verdict">
+    <p><b>結論。</b>機械化的 SEPA 在可執行條件下只有 +0.05R;出場改回書的原意、避開盤整轉弱、只做強勢產業後到 +0.42R——但 edge 幾乎全在前 2% 的大贏家,而且要 12 檔以上的分散才能在帳戶層實現(6 檔集中年化 0.1%,12 檔等權 22–26%)。</p>
+    <p><b>建議的 paper trade 版</b>:560 筆、勝率 34%、扣滑價 +0.42R、獲利因子 1.9、五年四年正、12 檔等權年化 25.9% / 最大回撤 −25%。倖存者偏差沒修,當上限看。</p>
+  </div>
+  <div class="kpis">
+    <div class="kpi"><div class="k">真實基準</div><div class="v">+0.05R<small>29%</small></div></div>
+    <div class="kpi"><div class="k">照書出場</div><div class="v pos">+0.16R</div></div>
+    <div class="kpi"><div class="k">paper trade 版</div><div class="v pos">+0.42R<small>扣滑價</small></div></div>
+    <div class="kpi"><div class="k">去前 2% 大贏家</div><div class="v">+0.06R</div></div>
+  </div>
+
+  <h2 id="screen">篩選方式</h2>
+  <h3 id="screen-book">書的原則(SEPA 五要素)</h3>
+  <p>Mark Minervini,1997 年美國投資冠軍賽冠軍(155%)。方法叫 SEPA,寫在《Trade Like a Stock Market Wizard》(2013,TLSMW)、《Think &amp; Trade Like a Champion》(2017,TTLAC)、《Momentum Masters》(2015)。中文《超級績效》系列。</p>
+  <div class="book"><p><b>① 趨勢</b>——只買第二階段(上漲期)的股票。判斷用趨勢樣板八條:價 &gt; MA150 &gt; MA200;MA200 上彎 ≥ 1 月;MA50 &gt; MA150 &gt; MA200;價 &gt; MA50;高於 52 週低 ≥ 25%;距 52 週高 ≤ 25%;RS 排名 ≥ 70(偏好 90+)。</p><p class="src">TLSMW ch.5–6 · TTLAC ch.3</p></div>
+  <div class="book"><p><b>② 基本面</b>——超級績效股 90% 以上起漲前有盈餘成長且加速(本季年增率 &gt; 上季)。「Code 33」(EPS、營收、毛利連續三季加速)是理想不是門檻;他也買轉機股。</p><p class="src">TLSMW ch.7–8</p></div>
+  <div class="book"><p><b>③ 催化劑</b>——新產品、新管理層、產業週期。沒有可量化規則。</p><p class="src">TLSMW ch.9</p></div>
+  <div class="book"><p><b>④ 進場點</b>——<b>VCP</b>:先漲 25–300%,修正 15–50%,歷時 3–65 週,2–6 次收縮、每次約前次一半、最後 ≤10%,底部量乾涸。<b>pivot</b> = 最後一次收縮的高點,前幾根要 tight。盤中穿過 pivot 就買,買區 pivot 到 +3~5%,超過不追;放量是確認不是必要。不買連漲 3–4 天後的突破、財報前 1–2 天不開新倉、第 3–4 個底之後失敗率高。</p><p class="src">TLSMW ch.10–11 · TTLAC ch.6–7 · Momentum Masters</p></div>
+  <div class="book"><p><b>⑤ 出場</b>——停損最多 10%、平均 5–6%;突破後幾天走勢不對先砍;幾週不動就出(時間停損);賺到 2–3 倍風險後停損拉到成本;1–3 週漲 20%+ 或高潮訊號賣進強勢;跌破 20 日(快)/ 50 日(慢)均線賣進弱勢。</p><p class="src">TLSMW ch.12–13 · TTLAC ch.9</p></div>
+  <div class="book"><p><b>⑥ 部位與回饋</b>——報酬 = 勝率 × 賺賠比 × 換手 × 曝險;勝率最不重要(他約 50%,好市場 60–70%,壞市場 &lt; 40%)。4–8 檔、單檔 ≤ 25%、先小試單賺了才加;連敗就縮到 25% 曝險。</p><p class="src">TTLAC ch.4–5、ch.8</p></div>
+  <p>①④⑤ 可以寫成規則;② 需要時點財報(我們沒有);③⑥ 靠判斷。這決定了回測能量到什麼。</p>
+
+  <h3 id="screen-funnel">線上雷達的五層漏斗</h3>
+  <div class="tbl"><table><thead><tr><th>層</th><th class="note">條件</th><th class="note">對應</th><th>今日</th></tr></thead><tbody>
+    <tr><td class="name">L0 宇宙</td><td class="note">NASDAQ / NYSE / AMEX,市值 ≥ 3 億、價 ≥ $5、日均量 ≥ 20 萬</td><td class="note">可交易性</td><td>2,228</td></tr>
+    <tr><td class="name">L1 趨勢</td><td class="note">趨勢樣板 8 條;RS = 全宇宙百分位(0.4×3 月 + 0.2×6 月 + 0.2×9 月 + 0.2×12 月報酬)</td><td class="note">①</td><td>~290</td></tr>
+    <tr><td class="name">L2 基本面</td><td class="note">最新季營收 YoY ≥ 20%、EPS YoY ≥ 25%、加速、毛利 ≥ 30%</td><td class="note">②(門檻自定)</td><td>~55</td></tr>
+    <tr><td class="name">L3 催化</td><td class="note">RS ≥ 80、距高 15%、剔除單日漲 &gt;25% 事件股、產業 ≤ 30%</td><td class="note">③ 的代理(書沒這些數字)</td><td>~33</td></tr>
+    <tr><td class="name">L4 VCP</td><td class="note">65 日內擺動高低 → 收縮序列 ≥ 2 次(每次 ≤ 前次 × 0.75)、量縮、品質分 ≥ 50、現價在 pivot 下方 10% 內</td><td class="note">④(參數自定)</td><td>~10</td></tr>
+  </tbody></table></div>
+
+  <h3 id="screen-tiers">回測用的六個檔位</h3>
+  <p>線上門檻是「書 + 判斷」定的。回測把技術面拆成六檔,每往下只收緊一兩個維度。<b>財報層不進回測</b>(沒有時點財報,放進去就是偷看)。</p>
+  <div class="tbl"><table><thead><tr><th>檔位</th><th>RS</th><th>趨勢</th><th>距 52 週高</th><th>VCP 次</th><th>最後一腳</th><th>量縮</th><th>距 pivot</th><th>Q</th><th>事件股</th></tr></thead><tbody>
+    <tr><td class="name">寬 A</td><td>≥ 60</td><td>價 &gt; MA50</td><td>≤ 25%</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>不擋</td></tr>
+    <tr><td class="name">寬 B</td><td>≥ 70</td><td>MA50 &gt; 150</td><td>≤ 25%</td><td>≥ 1</td><td>&lt; 15%</td><td>—</td><td>≥ −8%</td><td>—</td><td>不擋</td></tr>
+    <tr class="hl"><td class="name">現行 P</td><td>≥ 80</td><td>完整 8 條</td><td>≤ 15%</td><td>≥ 2</td><td>—</td><td>—</td><td>≥ −10%</td><td>≥ 50</td><td>擋</td></tr>
+    <tr><td class="name">中 C</td><td>≥ 80</td><td>完整 8 條</td><td>≤ 15%</td><td>≥ 2</td><td>&lt; 10%</td><td>≥ 0%</td><td>≥ −5%</td><td>≥ 40</td><td>擋</td></tr>
+    <tr><td class="name">緊 D</td><td>≥ 85</td><td>完整 8 條</td><td>≤ 15%</td><td>≥ 2</td><td>&lt; 8%</td><td>≥ 20%</td><td>≥ −3%</td><td>≥ 50</td><td>擋</td></tr>
+    <tr><td class="name">極緊 E / E2</td><td>≥ 90</td><td>完整 8 條</td><td>≤ 15%</td><td>≥ 3</td><td>&lt; 5 / 8%</td><td>≥ 30 / 25%</td><td>0~+2 / −2~+3%</td><td>≥ 65 / 60</td><td>擋</td></tr>
+    <tr><td class="name">週級 LP / LC</td><td colspan="9" class="note">P / C 的門檻,但 VCP 改用書的定義:250 日視窗、週級擺動、前置上漲 ≥ 25%、修正 ≥ 12%、pivot 前 5 根收盤區間 ≤ 5%</td></tr>
+  </tbody></table></div>
+  <p class="cap">P = 線上雷達現行技術面門檻(對照組)。E 五年零訊號。</p>
+  <h4>我們自己加的、書沒有的</h4>
+  <ul><li>c1–c7 連續 20 天(已移除)</li><li>L2 毛利閘、營收與 EPS 雙達標(書重 EPS)</li><li>L3 RS 80(書 70)、距高 15%(書 25%)、事件股一律剔除(書最愛的 power play 就長這樣)</li><li>L4 收縮比 0.75(書約 0.5)、65 日視窗(書 5–26 週)、品質分</li><li>RS 權重 0.4/0.2/0.2/0.2 是 IBD 的</li></ul>
+
+  <h2 id="calc">計算方式</h2>
+  <h3 id="calc-layers">三層回測</h3>
+  <div class="tbl"><table><thead><tr><th>層</th><th class="note">問題</th><th class="note">做法</th><th class="note">判準</th></tr></thead><tbody>
+    <tr><td class="name">Ⅰ 篩選</td><td class="note">篩出來的股票之後走得好不好?</td><td class="note">每日收盤後判六檔;通過 → 隔日開盤買、第 20/40/60 根收盤賣,不停損不設目標;同檔 60 根只算一次;扣 SPY 同期</td><td class="note">絕對與相對勝率 ≥ 55%、平均超額 &gt; 0</td></tr>
+    <tr><td class="name">Ⅱ 進出場</td><td class="note">照書操作賺不賺?</td><td class="note">用 Ⅰ 的 setup,等書的買點才進,套書的賣法,計 R 倍數</td><td class="note">期望值 ≥ 0.3R、PF ≥ 1.5、逐年不靠一年</td></tr>
+    <tr><td class="name">Ⅲ 部位</td><td class="note">帳戶會怎樣?</td><td class="note">Ⅱ 的交易按時間排,套配資規則跑權益曲線</td><td class="note">年化、最大回撤</td></tr>
+  </tbody></table></div>
+  <h4>無前視</h4>
+  <ul><li>每個 as-of 日只取當日為止的 K 線算均線、52 週高低、RS 排名(分母只算當天有真實收盤的檔;2022 年 1,953 檔,未上市 0 檔混入)、VCP。</li><li>成交價用「訊號出現後最早能買到的價」:Ⅰ 隔日開盤;Ⅱ 觸發日收盤或隔日開盤。</li><li>停損用最低價觸及、跳空用開盤;追蹤線用前一日為止的 20 日低。</li><li>train 2022–24 / test 2025–26;另做去前 2%、去前 3 個月、bootstrap。</li></ul>
+
+  <h3 id="calc-defs">名詞與公式</h3>
+  <div class="tbl"><table><thead><tr><th>名詞</th><th class="note">算法</th><th class="note">例(進場 $50、停損 6%)</th></tr></thead><tbody>
+    <tr><td class="name">初始風險 R</td><td class="note">進場價 × 停損%</td><td class="note">$3。不同價位、波動的股票換成同一把尺</td></tr>
+    <tr><td class="name">單筆 R</td><td class="note">(出場 − 進場) ÷ 風險 − 成本% ÷ 停損%</td><td class="note">$56 出 → 6 ÷ 3 = +2.0R;扣來回 0.2 / 6 = 0.03 → +1.97R</td></tr>
+    <tr><td class="name">勝率</td><td class="note">R &gt; 0 的比例;另列「不含平手」(|R| ≥ 0.1)</td><td class="note">保本出場的 −0.03R 不灌水</td></tr>
+    <tr><td class="name">期望值</td><td class="note">R 的算術平均 = 勝率 × 平均贏 + (1 − 勝率) × 平均輸</td><td class="note">0.334 × 2.75 + 0.666 × (−0.74) = +0.42R</td></tr>
+    <tr><td class="name">獲利因子 PF</td><td class="note">正 R 加總 ÷ 負 R 絕對值加總</td><td class="note">574 ÷ 310 = 1.85;≥ 1.5 堪用</td></tr>
+    <tr><td class="name">中位 R</td><td class="note">排序後中間值</td><td class="note">−0.47R:一半以上賠,期望值靠右尾</td></tr>
+    <tr><td class="name">觸發率</td><td class="note">setup 後 40 根內真的突破放量的比例</td><td class="note">沒觸發不算輸</td></tr>
+    <tr><td class="name">相對超額(Ⅰ)</td><td class="note">個股 N 日報酬 − SPY 同期</td><td class="note">多頭年隨便挑都正</td></tr>
+    <tr><td class="name">去前 2%</td><td class="note">砍掉 R 最高 2% 再算</td><td class="note">edge 有多集中</td></tr>
+    <tr><td class="name">年化 / 最大回撤</td><td class="note">權益 CAGR;(權益 ÷ 歷史高 − 1) 最小值</td><td class="note">Ⅲ</td></tr>
+    <tr><td class="name">滑價</td><td class="note">paper trade 版每筆扣 0.3%(≈ 0.05R)</td><td class="note">隔日開盤成交的追價</td></tr>
+  </tbody></table></div>
+
+  <h3 id="calc-data">資料與限制</h3>
+  <div class="tbl"><table><thead><tr><th>項目</th><th class="note">來源</th><th class="note">限制</th></tr></thead><tbody>
+    <tr><td class="name">股票池</td><td class="note">2026-09 FMP 篩選器,2,228 檔</td><td class="note"><b>倖存者偏差</b>:下市、被併、跌出門檻的不在;早年「60 日跌 &gt;30%」比例只有近年 1/3。無法修(FMP Starter 下市名單只給第 0 頁)</td></tr>
+    <tr><td class="name">日 K</td><td class="note">yfinance 調整後,2021-09 → 2026-09</td><td class="note">髒點 31 筆訊號(0.08%)</td></tr>
+    <tr><td class="name">基準</td><td class="note">SPY 調整後收盤</td><td class="note">—</td></tr>
+    <tr><td class="name">產業</td><td class="note">FMP sector,今日值</td><td class="note">分類可能變過</td></tr>
+    <tr><td class="name">財報</td><td class="note">只有最新一季</td><td class="note">L2 不進回測</td></tr>
+    <tr><td class="name">時間</td><td class="note">RS 暖機 252 根 → 訊號 2022-09 起</td><td class="note">一段週期;2022 只有尾巴</td></tr>
+  </tbody></table></div>
+
+  <h2 id="perf">回測績效(全部分年)</h2>
+  <p>逐年欄 = 該年觸發的交易期望值 R(第一層為 40 日平均超額 %)。所有 Ⅱ 層表都是「跨檔位去重後的全樣本」,paper trade 版已扣滑價。</p>
+
+  <h3 id="perf-s1">Ⅰ 篩選層:六檔 + 週級(40 日超額,逐年)</h3>
+  <div class="tbl"><table><thead><tr><th>檔位</th><th>訊號</th><th>絕對勝率</th><th>相對 SPY</th><th>40 日超額</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2026</th></tr></thead><tbody><tr><td class="name">寬 A</td><td>13,608</td><td>54.3%</td><td>44.8%</td><td class="pos">+0.43</td><td class="pos">+0.62</td><td class="neg">-1.24</td><td class="pos">+1.11</td><td class="pos">+0.70</td><td class="pos">+1.29</td></tr><tr><td class="name">寬 B</td><td>11,746</td><td>54.6%</td><td>45.8%</td><td class="pos">+0.45</td><td class="pos">+1.39</td><td class="neg">-1.78</td><td class="pos">+0.92</td><td class="pos">+1.10</td><td class="pos">+1.85</td></tr><tr><td class="name">現行 P</td><td>5,207</td><td>53.6%</td><td>43.9%</td><td class="neg">-0.32</td><td class="neg">-1.52</td><td class="neg">-2.26</td><td class="pos">+0.49</td><td class="pos">+0.68</td><td class="pos">+0.96</td></tr><tr><td class="name">中 C</td><td>4,272</td><td>54.6%</td><td>44.0%</td><td class="neg">-0.57</td><td class="neg">-2.57</td><td class="neg">-2.50</td><td class="neg">-0.02</td><td class="pos">+0.68</td><td class="pos">+1.60</td></tr><tr><td class="name">緊 D</td><td>1,960</td><td>55.4%</td><td>45.0%</td><td class="neg">-0.06</td><td class="neg">-2.90</td><td class="neg">-1.31</td><td class="pos">+0.89</td><td class="pos">+0.67</td><td class="pos">+1.85</td></tr><tr><td class="name">極緊 E2</td><td>173</td><td>49.7%</td><td>44.5%</td><td class="neg">-1.77</td><td class="neg">-5.41</td><td class="neg">-2.14</td><td class="neg">-2.45</td><td class="neg">-1.69</td><td class="pos">+3.79</td></tr><tr><td class="name">週級 P</td><td>2,006</td><td>54.1%</td><td>45.5%</td><td class="pos">+0.03</td><td class="neg">-0.60</td><td class="neg">-2.44</td><td class="pos">+1.10</td><td class="pos">+0.65</td><td class="pos">+2.13</td></tr><tr><td class="name">週級 C</td><td>1,242</td><td>53.6%</td><td>43.4%</td><td class="neg">-0.92</td><td class="neg">-1.11</td><td class="neg">-2.64</td><td class="pos">+1.34</td><td class="neg">-1.58</td><td class="neg">-0.38</td></tr></tbody></table></div>
+  <p class="cap">沒有一檔相對 SPY 過 55%;2022 全負、2023 輸給大盤、2024 最好。E2 / 週級不如日線版。<b>篩選本身只有微弱、不穩定的 edge。</b></p>
+
+  <h3 id="perf-exit">Ⅱ 出場變體(全樣本,逐年)</h3>
+  <div class="tbl"><table><thead><tr><th>規則</th><th>成交</th><th>勝率</th><th>期望值</th><th>PF</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2026</th><th class="note">讀法</th></tr></thead><tbody><tr><td class="name">舊:+1R 保本 / +2R 賣半 / 20 日低</td><td>16,521</td><td>29.2%</td><td class="pos">+0.05</td><td>1.11</td><td class="neg">-0.10</td><td class="pos">+0.04</td><td class="pos">+0.12</td><td class="pos">+0.04</td><td class="pos">+0.02</td><td class="note">真實基準(已修成交價)</td></tr><tr><td class="name">不保本不賣半 / 20 日低 + MA50</td><td>16,324</td><td>29.9%</td><td class="pos">+0.16</td><td>1.25</td><td class="neg">-0.12</td><td class="pos">+0.16</td><td class="pos">+0.24</td><td class="pos">+0.21</td><td class="pos">+0.05</td><td class="note">最大單一改善</td></tr><tr><td class="name">+ 5 根收破 pivot 砍、20 根未達 +1R 出</td><td>16,536</td><td>31.3%</td><td class="pos">+0.15</td><td>1.25</td><td class="neg">-0.11</td><td class="pos">+0.14</td><td class="pos">+0.21</td><td class="pos">+0.21</td><td class="pos">+0.05</td><td class="note">期望值持平,連虧減半</td></tr><tr><td class="name">同上,停損 8%</td><td>16,223</td><td>32.8%</td><td class="pos">+0.14</td><td>1.28</td><td class="neg">-0.09</td><td class="pos">+0.12</td><td class="pos">+0.22</td><td class="pos">+0.20</td><td class="pos">+0.05</td><td class="note">勝率高、期望值略低</td></tr><tr><td class="name">同上,ATR 2.5× 停損</td><td>16,231</td><td>33.4%</td><td class="pos">+0.14</td><td>1.26</td><td class="neg">-0.12</td><td class="pos">+0.12</td><td class="pos">+0.23</td><td class="pos">+0.17</td><td class="pos">+0.07</td><td class="note">同上</td></tr></tbody></table></div>
+  <p class="cap">拿掉 +1R 保本與 +2R 賣半是最大單一改善(被保本洗掉的交易 64% 在 20 根內又漲 ≥ 1R);代價是中位更差、連虧更長。追蹤線改 10 日低 / MA20 更差;只停損不追蹤期望值最高但停損率 67%,不可執行。</p>
+
+  <h3 id="perf-filter">Ⅱ 過濾變體(逐年)</h3>
+  <div class="tbl"><table><thead><tr><th>規則</th><th>成交</th><th>勝率</th><th>期望值</th><th>PF</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2026</th><th class="note">讀法</th></tr></thead><tbody><tr><td class="name">第 1 步出場(基準)</td><td>16,324</td><td>29.9%</td><td class="pos">+0.16</td><td>1.25</td><td class="neg">-0.12</td><td class="pos">+0.16</td><td class="pos">+0.24</td><td class="pos">+0.21</td><td class="pos">+0.05</td><td class="note"></td></tr><tr><td class="name">+ SPY 20 日 ≥ 0、過熱減半</td><td>14,204</td><td>30.4%</td><td class="pos">+0.17</td><td>1.35</td><td class="neg">-0.17</td><td class="pos">+0.17</td><td class="pos">+0.19</td><td class="pos">+0.24</td><td class="pos">+0.13</td><td class="note">小幅</td></tr><tr><td class="name">+ 產業四類、RS ≥ 70、dp ≥ −5(K3)</td><td>5,225</td><td>31.6%</td><td class="pos">+0.32</td><td>1.64</td><td class="neg">-0.08</td><td class="pos">+0.25</td><td class="pos">+0.35</td><td class="pos">+0.50</td><td class="pos">+0.28</td><td class="note">過關,但產業是事後選的</td></tr><tr><td class="name">K3 + 只做新鮮突破</td><td>1,459</td><td>31.7%</td><td class="pos">+0.32</td><td>1.65</td><td class="neg">-0.41</td><td class="pos">+0.23</td><td class="pos">+0.57</td><td class="pos">+0.43</td><td class="pos">+0.08</td><td class="note">整體不變、樣本少</td></tr><tr><td class="name">K3 + 週級底部 LP/LC</td><td>514</td><td>33.7%</td><td class="pos">+0.27</td><td>1.51</td><td class="neg">-0.42</td><td class="pos">+0.31</td><td class="pos">+0.65</td><td class="neg">-0.07</td><td class="pos">+0.18</td><td class="note">沒有更好</td></tr><tr><td class="name">K3 + pivot_fail + no_progress(舊「最終規則」)</td><td>5,280</td><td>32.9%</td><td class="pos">+0.30</td><td>1.62</td><td class="neg">-0.07</td><td class="pos">+0.22</td><td class="pos">+0.29</td><td class="pos">+0.49</td><td class="pos">+0.27</td><td class="note">審計後降級</td></tr><tr><td class="name">paper trade 版(新鮮突破、隔日開盤、Tech/Mat、A+C,扣滑價)</td><td>560</td><td>32.3%</td><td class="pos">+0.42</td><td>1.92</td><td class="neg">-0.16</td><td class="pos">+0.26</td><td class="pos">+0.52</td><td class="pos">+0.45</td><td class="pos">+0.55</td><td class="note">目前建議</td></tr></tbody></table></div>
+  <h4>逐年成交筆數</h4>
+  <div class="tbl"><table><thead><tr><th>版本</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2026</th></tr></thead><tbody><tr><td class="name">paper trade 版</td><td>18</td><td>140</td><td>213</td><td>128</td><td>61</td></tr><tr><td class="name">舊最終規則</td><td>259</td><td>1555</td><td>1371</td><td>1198</td><td>897</td></tr><tr><td class="name">K3</td><td>257</td><td>1540</td><td>1346</td><td>1189</td><td>893</td></tr></tbody></table></div>
+  <p class="cap">2022 只有 18–25 筆且全負——大盤門檻在空頭尾段沒能保護。paper trade 版 train +0.39 / test +0.48;去前 2% +0.06;Tech 435 筆 +0.46、Materials 125 筆 +0.29。</p>
+
+  <h3 id="perf-tier">五檔對照</h3>
+  <h4>同一套過濾與出場(舊最終規則:產業四類 + 大盤 + pivot_fail + no_progress)</h4>
+  <div class="tbl"><table><thead><tr><th>檔位</th><th>成交</th><th>勝率</th><th>期望值</th><th>中位</th><th>PF</th></tr></thead><tbody><tr><td class="name">A</td><td>2,383</td><td>34.9%</td><td class="pos">+0.45</td><td>-0.52</td><td>1.92</td></tr><tr><td class="name">B</td><td>2,936</td><td>32.7%</td><td class="pos">+0.25</td><td>-0.45</td><td>1.54</td></tr><tr><td class="name">P</td><td>1,354</td><td>32.8%</td><td class="pos">+0.24</td><td>-0.46</td><td>1.5</td></tr><tr><td class="name">C</td><td>1,208</td><td>33.9%</td><td class="pos">+0.31</td><td>-0.40</td><td>1.67</td></tr><tr><td class="name">D</td><td>626</td><td>33.4%</td><td class="pos">+0.42</td><td>-0.47</td><td>1.85</td></tr></tbody></table></div>
+  <h4>paper trade 版(Tech / Materials、新鮮突破、隔日開盤、未扣滑價)</h4>
+  <div class="tbl"><table><thead><tr><th>檔位</th><th>成交</th><th>勝率</th><th>期望值</th><th>中位</th><th>PF</th></tr></thead><tbody><tr><td class="name">A</td><td>407</td><td>34.2%</td><td class="pos">+0.42</td><td>-0.40</td><td>1.94</td></tr><tr><td class="name">C</td><td>195</td><td>29.7%</td><td class="pos">+0.53</td><td>-0.53</td><td>2.12</td></tr></tbody></table></div>
+  <p class="cap">最寬的 A 跟最緊的 D 一樣好、樣本 4 倍;B、P 去前 2% 歸零。<b>VCP 細節門檻沒有增量 edge。</b></p>
+
+  <h3 id="perf-slice">RS / 產業 / 大盤切片</h3>
+  <div class="tbl"><table><thead><tr><th>RS(K3 池)</th><th>70–80</th><th>80–85</th><th>85–90</th><th>90+</th></tr></thead><tbody>
+    <tr><td class="name">n</td><td>1,929</td><td>980</td><td>891</td><td>1,480</td></tr><tr><td class="name">期望值</td><td>+0.21</td><td>+0.11</td><td>+0.34</td><td class="pos">+0.51</td></tr><tr><td class="name">勝率</td><td>35.0%</td><td>33.4%</td><td>34.1%</td><td>29.1%</td></tr></tbody></table></div>
+  <p class="cap">不單調(80–85 最差);RS ≥ 70 當底線即可,不足以支持更高門檻。</p>
+  <div class="tbl"><table><thead><tr><th>產業(緊 D,無產業篩選 1,197 筆)</th><th>train 22–24</th><th>test 25–26</th><th>全期</th><th class="note">讀法</th></tr></thead><tbody>
+    <tr class="hl"><td class="name">Technology</td><td>+0.75 (168)</td><td class="pos">+1.12 (74)</td><td class="pos">+0.86</td><td class="note">唯一每段都正;去掉它 test 期歸零</td></tr>
+    <tr><td class="name">Industrials</td><td>+0.49 (148)</td><td class="neg">−0.20 (91)</td><td>+0.23</td><td class="note">test 翻負</td></tr>
+    <tr><td class="name">Basic Materials</td><td>−0.04 (45)</td><td>+0.98 (28)</td><td>+0.35</td><td class="note">樣本小</td></tr>
+    <tr><td class="name">Energy</td><td class="neg">−0.31 (50)</td><td class="neg">−0.45 (22)</td><td class="neg">−0.35</td><td class="note">五年每年負</td></tr>
+    <tr><td class="name">其餘七類</td><td colspan="3">全期 ≤ +0.03,多數負</td><td class="note">跨檔位一致</td></tr>
+  </tbody></table></div>
+  <p class="cap">產業是這五年的週期(AI capex),會隨主題失效;只用 2022–24 選會選出不同組合,只有 Tech 每次都在。</p>
+  <div class="tbl"><table><thead><tr><th class="note">大盤切法</th><th class="note">結果</th></tr></thead><tbody>
+    <tr><td class="note">SPY 20 日報酬 &lt; −3 / −3~0 / 0~3 / &gt; 3%</td><td class="note">−0.02 / <b>−0.08</b> / +0.11 / +0.06 → 盤整轉弱是唯一顯著負區</td></tr>
+    <tr><td class="note">SPY 高於 200MA 5~10% / &gt; 10%</td><td class="note">+0.11 / <b>−0.01</b> → 過熱不好</td></tr>
+    <tr><td class="note">SPY 50/200MA 價差 0~3% / &gt; 3%</td><td class="note">+0.20 / +0.01 → 剛轉多最好,但只 10–19 個月</td></tr>
+    <tr><td class="note">SPY &gt; 200MA 且 50 &gt; 200 / SPY &gt; 50MA</td><td class="note">沒幫助 / 2022 更差</td></tr>
+  </tbody></table></div>
+
+  <h3 id="perf-port">Ⅲ 部位層</h3>
+  <div class="tbl"><table><thead><tr><th class="note">交易池</th><th class="note">配資</th><th>成交</th><th>年化</th><th>最大回撤</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2026</th></tr></thead><tbody>
+    <tr><td class="note">緊 D + 四類 + 出場</td><td class="note">6 檔 × 10%,+1R 加到 25%,連敗縮曝險(書)</td><td>232</td><td class="neg">0.1%</td><td>−17.5%</td><td>−8</td><td>−2</td><td>+17</td><td>−4</td><td>−1</td></tr>
+    <tr><td class="note">同上</td><td class="note">6 檔 × 10% 等權</td><td>229</td><td>5.1%</td><td>−16.5%</td><td>−7</td><td>+3</td><td>+26</td><td>−7</td><td>+10</td></tr>
+    <tr class="hl"><td class="note">同上</td><td class="note">12 檔 × 8% 等權</td><td>367</td><td class="pos">22.0%</td><td>−16.5%</td><td>−8</td><td>+9</td><td>+72</td><td>+11</td><td>+17</td></tr>
+    <tr class="hl"><td class="note">paper trade 版</td><td class="note">12 檔 × 8% 等權</td><td>361</td><td class="pos">25.9%</td><td>−25.3%</td><td>−0</td><td>+18</td><td>+52</td><td>+20</td><td>+21</td></tr>
+    <tr><td class="note">K3 全檔位</td><td class="note">6 檔書式</td><td>258</td><td>32.5%</td><td>−37.6%</td><td>−9</td><td>−8</td><td>+93</td><td>+3</td><td>+85</td></tr>
+    <tr><td class="note">不篩選</td><td class="note">6 檔書式</td><td>331</td><td>10.3%</td><td>−30.6%</td><td>−1</td><td>+18</td><td>+29</td><td>+7</td><td>−6</td></tr>
+  </tbody></table></div>
+  <p class="cap">逐年欄 = 年報酬 %。同一批交易換配資,年化從 0.1% 到 22%:edge 在 2% 的大贏家,持股太少就常錯過。12 檔隨機挑選 20 次:16.7–23.4%,不是運氣。<b>與書的「4–8 檔集中」相反</b>——作者敢集中是因為能盤中判斷。</p>
+
+  <h2 id="playbook">Playbook:建議的篩選與進出場</h2>
+  <p>把三輪審查的每一條吃進去後的版本。實跑:560 筆、勝率 33.9%、+0.47R;<b>扣 0.3% 滑價 +0.42R、PF 1.92</b>;train +0.39 / test +0.48;12 檔等權年化 25.9%、最大回撤 −25%。</p>
+
+  <h3 id="pb-screen">一、篩選(每天收盤後)</h3>
+  <div class="tbl"><table><thead><tr><th>條件</th><th class="note">門檻</th><th class="note">依據</th></tr></thead><tbody>
+    <tr><td class="name">趨勢</td><td class="note">A 檔:價 &gt; MA50、RS ≥ 60、距 52 週高 ≤ 25%;或 C 檔:趨勢樣板 8 條、RS ≥ 80、距高 ≤ 15%</td><td class="note">書①;五檔對照 A ≈ D,樣本 4 倍</td></tr>
+    <tr><td class="name">型態</td><td class="note">A 不要求;C 要 VCP ≥ 2 次、最後一腳 &lt; 10%、量縮 ≥ 0、現價距 pivot ≥ −5%</td><td class="note">書④;細門檻是雜訊,只留結構</td></tr>
+    <tr><td class="name">產業</td><td class="note">Technology,可加 Basic Materials;<b>每年初用前 12 個月各產業期望值重選</b></td><td class="note">產業表;Energy 五年皆負</td></tr>
+    <tr><td class="name">不加</td><td class="note">RS 更高、VCP 更細、品質分、連續天數</td><td class="note">RS 不單調;VCP 無增量 edge</td></tr>
+  </tbody></table></div>
+
+  <h3 id="pb-entry">二、進場</h3>
+  <div class="tbl"><table><thead><tr><th>規則</th><th class="note">內容</th><th class="note">依據</th></tr></thead><tbody>
+    <tr><td class="name">觀察窗</td><td class="note">setup 後 40 個交易日內,過期作廢</td><td class="note">書:底部可拖 8–12 週</td></tr>
+    <tr><td class="name">觸發</td><td class="note">收盤 &gt; pivot × 1.005 <b>且</b> 量 ≥ 前 50 日均量 × 1.5 <b>且</b> 前一天收盤仍在 pivot 以下(新鮮突破)</td><td class="note">TLSMW ch.11;審計:84% 追高是舊規則站不住的主因,新鮮突破 +1.04R vs 追高 +0.31R</td></tr>
+    <tr><td class="name">大盤</td><td class="note">觸發日 SPY 近 20 日報酬 ≥ 0 才進;SPY 高於 200 日線 &gt; 10% 部位減半</td><td class="note">大盤切片</td></tr>
+    <tr><td class="name">成交</td><td class="note">隔日開盤;回測扣 0.3% 滑價</td><td class="note">MOC 掛單時量條件未定</td></tr>
+    <tr><td class="name">同檔</td><td class="note">持倉中不重複進</td><td class="note">—</td></tr>
+  </tbody></table></div>
+
+  <h3 id="pb-exit">三、出場(先到先出)</h3>
+  <div class="tbl"><table><thead><tr><th>規則</th><th class="note">觸發</th><th class="note">動作</th><th class="note">依據</th></tr></thead><tbody>
+    <tr><td class="name">初始停損</td><td class="note">最低價跌破進場 −6%(跳空用開盤)</td><td class="note">全出</td><td class="note">書:平均 5–6%;6% 優於 8%</td></tr>
+    <tr><td class="name">突破失敗</td><td class="note">5 根內收盤跌回 pivot 以下且量 ≥ 均量</td><td class="note">隔日開盤全出</td><td class="note">TTLAC ch.9</td></tr>
+    <tr><td class="name">時間停損</td><td class="note">20 根未曾觸及 +1R</td><td class="note">隔日開盤全出</td><td class="note">書:幾週不動就出</td></tr>
+    <tr><td class="name">順勢追蹤</td><td class="note">收盤跌破前 20 日最低 或 MA50</td><td class="note">隔日開盤全出</td><td class="note">書用 20/50 日均線;20 日低回測較好</td></tr>
+    <tr><td class="name">到期</td><td class="note">60 根</td><td class="note">收盤全出</td><td class="note">—</td></tr>
+  </tbody></table></div>
+  <div class="warn"><p><b>不要做:+1R 移停損到成本、+2R 賣一半。</b>書有這兩條但觸發是 2–3R 且靠盤感;機械化的 +1R / +2R 把期望值從 +0.16 壓到 +0.05。</p></div>
+
+  <h3 id="pb-size">四、配資</h3>
+  <ul><li>12 檔 × 8% 等權;不加碼、不因連敗縮曝險。</li><li>單筆風險 ≈ 0.5% 帳戶;滿倉最大同時風險 6%。</li><li>預期:中位交易 −0.45R、最長連虧 ~24 筆、連續 6 個月為負是常態、年度報酬幾乎全來自兩三個月。</li></ul>
+
+  <h3 id="pb-limits">五、限制</h3>
+  <ol><li>倖存者偏差沒修:所有期望值當上限,真實前瞻估 +0.10~+0.30R。</li><li>去前 2% 大贏家只剩 +0.06R:任何一年沒抓到那幾檔就是平的。</li><li>產業條件是這五年的週期,每年重選。</li><li>規則是 40+ 變體裡挑的,p 值是挑完才算;要三個月 out-of-sample。</li><li>只有一段週期,真正熊市未知。</li><li>書的一半(盤中判斷、賣進強勢、類股領先、財報迴避)沒模擬。</li><li>財報層不在內。</li><li>賺的可能不是 VCP:A 檔(不要求 VCP)一樣好,財報跳空日 +1.45R。</li></ol>
+
+  <h2 id="process">測試與修正過程(收起)</h2>
+  <details><summary>第一版第二層回測與三方對抗審查(09-11 → 09-12)</summary>
+    <p>第一版「書的進出場」:等突破、−8% 停損、+1R 保本、+2R 賣半、20 日低出。五檔 +0.13~+0.20R、勝率 33%。三位獨立顧問(回測審計、方法論、量化切片)審後共識:① 成交價偷看收盤(用收盤確認卻用盤中 pivot 價成交,30% 交易這樣成交,這批 +0.50R 其餘 +0.04R)② 作者報酬一半在部位層沒模擬 ③ 保本賣半是絞肉機 ④ SPY &gt; 200MA 閘門無效 ⑤ 產業有系統性差異 ⑥ VCP 細門檻是雜訊 ⑦ 65 日視窗抓日線噪音。開六步修正:修回測 → 出場照書 → 大盤過濾 → 篩選瘦身 → 底部辨識重做 → 時點宇宙 → 部位層。</p>
+  </details>
+  <details><summary>六步修正的結果(09-13)</summary>
+    <p>全樣本:修對 +0.05 → 照書出場 +0.16 → 加 pivot_fail / no_progress +0.15(連虧 64 → 33)→ 大盤過濾 +0.17 → K3(產業四類、RS ≥ 70、dp ≥ −5)+0.32 / PF 1.64 → 週級底部 +0.27(沒更好)→ 時點宇宙未做(FMP 付費牆)→ 部位層:K3 書式配資 32.5% / −37.6%。舊「最終規則」(緊 D + K3 + 書的出場)626 筆 +0.42R / PF 1.85。</p>
+  </details>
+  <details><summary>第二輪對抗審計(09-13)</summary>
+    <div class="tbl"><table><thead><tr><th class="note">問題</th><th>嚴重度</th><th class="note">證據</th><th class="note">處置</th></tr></thead><tbody>
+      <tr><td class="note">觸發不是 pivot 買點</td><td class="neg">嚴重</td><td class="note">626 筆中 84% 觸發前已站上 pivot,成交價高於 pivot 中位 6.4%;新鮮突破 99 筆 +1.04R vs 追高 527 筆 +0.31R</td><td class="note">改 fresh=True</td></tr>
+      <tr><td class="note">產業白名單事後選擇</td><td class="neg">嚴重</td><td class="note">Energy 五年每年負;去掉 Tech 後 test 期 −0.004R</td><td class="note">只留 Tech ± Materials,每年 walk-forward</td></tr>
+      <tr><td class="note">時間集中</td><td>中</td><td class="note">前 13 筆(77% 利潤)集中在 2024-09 與 2025-09;去前 3 個月 +0.19R;42 個月中 21 個月負</td><td class="note">揭露;配資要能承受</td></tr>
+      <tr><td class="note">多重比較</td><td>中</td><td class="note">t = 3.36、bootstrap 95% [+0.20, +0.68];40+ 變體 Bonferroni 後 p 0.03–0.08</td><td class="note">out-of-sample 後再算</td></tr>
+      <tr><td class="note">MOC 可執行性</td><td>中</td><td class="note">隔日開盤 +0.356;扣 0.3% 滑價 +0.33</td><td class="note">改隔日開盤 + 滑價</td></tr>
+      <tr><td class="note">部位層 R 失真</td><td>中</td><td class="note">加碼後 cost 變均價但 risk 不變,46 筆 R 被算成 0.83(實際 2.72)</td><td class="note">已修</td></tr>
+      <tr><td class="note">財報因子</td><td>輕</td><td class="note">觸發日漲 &gt;10% 的 58 筆 +1.45R</td><td class="note">部分 edge 是財報動能</td></tr>
+      <tr><td class="note">停損執行 / RS 前視 / 量能 / 髒資料</td><td class="pos">無</td><td class="note">停損改收盤成交無差;RS 分母正確;量比最大 13.5×;髒點 0.08%</td><td class="note">過關</td></tr>
+    </tbody></table></div>
+  </details>
+  <details><summary>程式與檔案</summary>
+    <ul><li>Ⅰ <code>agents/tier_backtest.py</code> · <code>scripts/run_tier_backtest.py --bars-db backtest/bars_5y.sqlite</code></li>
+    <li>Ⅱ <code>agents/trade_sim.py</code> · <code>scripts/run_trade_sim.py --fresh --fill open --sectors "Technology,Basic Materials" --tiers A,C --spy20-min 0 --overheat 10 --pivot-fail 5 --no-progress 20</code></li>
+    <li>Ⅲ <code>agents/portfolio_sim.py</code> · <code>scripts/run_portfolio_sim.py --max-pos 12 --size0 0.08 --no-add --no-feedback</code></li>
+    <li>指標與 VCP:<code>agents/minervini.py</code>(與線上雷達同源);自檢 <code>tests/test_{tier_backtest,trade_sim,minervini}.py</code></li>
+    <li>規格 <code>reports/tier_backtest_規格.md</code>;審查 <code>sepa_advisory_plan_20260912.md</code>;各變體原始表 <code>reports/trade_sim_20260913_*.md</code></li></ul>
+  </details>
+  <p class="cap" style="margin-top:40px">參考:Minervini (2013) Trade Like a Stock Market Wizard;(2017) Think &amp; Trade Like a Champion;(2015) Momentum Masters。章節對照可能有一兩章誤差。回測不構成投資建議。2026-09-13。</p>
+</main>
+</div>
+</body>
+</html>

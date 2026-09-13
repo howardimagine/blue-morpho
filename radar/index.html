@@ -276,6 +276,11 @@
     .pg-on input:checked, .pr-row.bool input[type=checkbox]:checked { background: var(--accent); }
     .pg-on input:checked::after, .pr-row.bool input[type=checkbox]:checked::after { transform: translateX(calc(var(--sw-w) - var(--sw-h))); }
     .pg-on { gap: 6px; }
+    /* 回測報告 floating 入口:右下角、避開手機底部分頁列 */
+    .bt-fab { position: fixed; right: 18px; bottom: 18px; z-index: 25; display: inline-flex; align-items: center; gap: 6px; height: var(--ctl-md); padding: 0 14px; border-radius: 999px;
+      font-family: var(--font-mono); font-size: var(--fs-sm); letter-spacing: .04em; color: var(--on-accent); background: var(--accent); text-decoration: none; box-shadow: 0 4px 16px rgba(0,0,0,.28); }
+    .bt-fab:hover { filter: brightness(1.12); }
+    @media (max-width: 768px) { .bt-fab { bottom: calc(var(--nav) + 12px); right: 12px; } }
     .mnav { display: none; }
     @media (max-width: 768px) {
       :root { --sw-h: 26px; --sw-w: 46px; --hdr: 54px; --nav: calc(56px + env(safe-area-inset-bottom)); --ctl-sm: 36px; --ctl-md: 42px; --tag-h: 20px; --fs-xs: 12.5px; --fs-sm: 14px; --fs-md: 16px; --fs-lg: 19px; }
@@ -349,6 +354,7 @@
   <div id="qbanner" hidden></div>
   <div id="app" class="loading">RADAR INITIALIZING…</div>
 
+  <a class="bt-fab" href="backtest.html" title="五年回測手冊:篩選 / 計算 / 逐年績效 / Playbook">回測報告 ↗</a>
   <nav class="mnav" id="mnav" aria-label="手機分頁">
     <button data-m="list" class="on">名單<b id="mn-l4"></b></button>
     <button data-m="track">觀察池</button>
