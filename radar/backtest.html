@@ -50,6 +50,7 @@
   <a href="#screen" class="h">篩選方式</a><a href="#screen-book" class="sub">書的原則</a><a href="#screen-funnel" class="sub">五層漏斗</a><a href="#screen-tiers" class="sub">六個檔位</a>
   <a href="#calc" class="h">計算方式</a><a href="#calc-layers" class="sub">三層回測</a><a href="#calc-defs" class="sub">名詞與公式</a><a href="#calc-data" class="sub">資料與限制</a>
   <a href="#perf" class="h">回測績效</a><a href="#perf-yearly" class="sub"><b>每年預期績效</b></a><a href="#perf-ledger" class="sub"><b>逐筆進出場(逐年)</b></a><a href="#perf-port" class="sub">部位層</a><a href="#perf-process" class="sub">推導過程(摺疊)</a>
+  <a href="#topics" class="h">主題分析</a><a href="#tp-stop" class="sub">停損會不會錯殺</a><a href="#tp-profit" class="sub">停利會不會太早</a><a href="#tp-cap" class="sub">拿掉 60 根到期</a><a href="#tp-sum" class="sub">結論</a>
   <a href="#playbook" class="h">Playbook</a><a href="#pb-screen" class="sub">篩選</a><a href="#pb-entry" class="sub">進場</a><a href="#pb-exit" class="sub">出場</a><a href="#pb-size" class="sub">配資</a><a href="#pb-limits" class="sub">限制</a>
     <a href="#process" class="h">測試與修正過程</a>
   <div class="foot">資料 2021-09 → 2026-09<br>2,228 檔 · 基準 SPY<br>2026-09-13</div>
@@ -824,7 +825,82 @@
   </tbody></table></div>
   <p class="cap"><b>讀法</b>:四條合起來的嚴格 L2 能挑出一小群期望值高一倍的交易(三池方向一致),但拆開看只有「EPS ≥ 25%」單獨有效,「加速」反向、「毛利」不穩、書的寬版沒差——合起來有效可能是因為條件疊到只剩最強的成長股,不是每一條都在貢獻。勝率只多 1–5 點:<b>基本面提高的是贏家的幅度,不是贏的次數</b>。逐年不穩(2022、2026 負),樣本 58–385 筆。作為篩選:可以當加權排序、不建議當硬閘門(會把 paper 池砍到 58 筆)。</p>
   </details>
-<h2 id="playbook">Playbook:建議的篩選與進出場</h2>
+
+  <h2 id="topics">主題分析</h2>
+  <p>針對單一問題把規則的一個維度拉開來測,其餘全部固定(paper trade 池 560 筆、同進場、同篩選)。每題先講結論,表格在後。</p>
+
+  <h3 id="tp-stop">主題一:停損會不會錯殺?</h3>
+  <div class="verdict"><p><b>會錯殺,但拿不回來。</b>被 −6% 停損的 237 筆裡,57% 之後曾漲到 +5R 以上——看起來像錯殺;但把停損放寬到 8–10% 總報酬持平、12% 以上變差、幾乎不停損(25%)砍掉一半以上。原因:分不出哪些會回來,而多數跌破 −6% 的最後跌得更深。停損 6–10% 之間是「勝率換舒適度」的選擇,不是績效的選擇。書說「平均 5–6%」是對的。</p></div>
+  <h4>A. 被各種原因出場的交易,如果不出會怎樣(以原進場價、原 6% 風險計)</h4>
+  <div class="tbl"><table><thead><tr><th>出場原因</th><th>n</th><th>出場時 R</th><th>之後 60 根最高</th><th>之後 250 根最高</th><th>250 根後落點</th><th>之後曾達 +2R</th><th>曾達 +5R</th></tr></thead><tbody>
+    <tr><td class="name">停損</td><td>237</td><td class="neg">−1.06</td><td>+3.5</td><td>+14.3</td><td>+5.7</td><td>73%</td><td><b>57%</b></td></tr>
+    <tr><td class="name">突破失敗</td><td>65</td><td>−0.33</td><td>+2.8</td><td>+13.1</td><td>+3.4</td><td>75%</td><td>52%</td></tr>
+    <tr><td class="name">時間停損</td><td>39</td><td>+0.15</td><td>+2.5</td><td>+5.4</td><td>+0.8</td><td>69%</td><td>33%</td></tr>
+    <tr><td class="name">追蹤出場</td><td>176</td><td>+1.30</td><td>+6.0</td><td>+12.8</td><td>+4.5</td><td>85%</td><td>61%</td></tr>
+    <tr><td class="name">60 根到期</td><td>43</td><td class="pos">+7.45</td><td>+13.0</td><td>+24.4</td><td>+14.2</td><td>91%</td><td>84%</td></tr>
+  </tbody></table></div>
+  <p class="cap">「之後最高」是事後諸葛:它們先跌 6% 停損,中途可能再跌 20% 才回頭;而且這批是五年多頭裡的 Tech 動能股,「最後會漲回來」本來就是高機率。落點是平均,被少數幾筆拉高。</p>
+  <h4>B. 直接把停損放寬、持有拉長重跑(用「總報酬 %」比,因為 R 的尺會隨停損寬度變)</h4>
+  <div class="tbl"><table><thead><tr><th>停損 / 最長持有</th><th>勝率</th><th>期望值</th><th>PF</th><th>平均報酬</th><th>中位報酬</th><th>總報酬</th></tr></thead><tbody>
+    <tr class="hl"><td class="name">6% / 60 根(現行)</td><td>32%</td><td class="pos">+0.42R</td><td>1.92</td><td>+2.5%</td><td>−2.7%</td><td class="pos">+1,416%</td></tr>
+    <tr><td class="name">8% / 60</td><td>36%</td><td>+0.33</td><td>1.87</td><td>+2.6%</td><td>−2.0%</td><td>+1,458%</td></tr>
+    <tr><td class="name">10% / 60</td><td>39%</td><td>+0.26</td><td>1.82</td><td>+2.6%</td><td>−1.7%</td><td>+1,440%</td></tr>
+    <tr><td class="name">12% / 60</td><td>40%</td><td>+0.20</td><td>1.72</td><td>+2.4%</td><td>−1.7%</td><td>+1,319%</td></tr>
+    <tr><td class="name">6% / 120</td><td>32%</td><td>+0.34</td><td>1.73</td><td>+2.0%</td><td>−2.7%</td><td>+1,130%</td></tr>
+    <tr><td class="name">10% / 120</td><td>39%</td><td>+0.20</td><td>1.64</td><td>+2.0%</td><td>−1.7%</td><td>+1,118%</td></tr>
+    <tr><td class="name">10% / 120,拿掉突破失敗砍與時間停損</td><td>35%</td><td>+0.18</td><td>1.49</td><td>+1.8%</td><td>−2.7%</td><td>+1,002%</td></tr>
+    <tr><td class="name">25%(幾乎不停損)/ 120</td><td>29%</td><td>+0.04</td><td>1.28</td><td>+1.1%</td><td>−2.9%</td><td class="neg">+578%</td></tr>
+  </tbody></table></div>
+  <p class="cap">放寬到 8–10%:勝率 +4~7 點,總報酬持平(多贏的和多賠的互相抵掉)。12% 以上開始虧,不停損砍半。持有拉長到 120 根反而差:追蹤線在 60 根內已經清掉走完的部位,拉長只是讓轉弱的股票多晃。「突破失敗砍」與「時間停損」拿掉也變差——它們砍的是 R 接近 0 的拖延單。<b>真正該改的不是停損,是停損後允許再進</b>(同檔第二次新鮮突破),下一輪測。</p>
+
+  <h3 id="tp-profit">主題二:停利會不會太早?</h3>
+  <div class="verdict"><p><b>任何主動鎖利都更差;現行的追蹤線其實也可有可無。</b>追蹤出場的 176 筆平均回吐 MFE 的 72%,看起來很痛;但固定目標、賣半、回吐出場、賣進強勢、緊追蹤線,全部輸給現行。最好的是「只停損 + 60 根到期、完全不追蹤」(+0.54R)。這套策略的獲利結構容不下任何鎖利動作:賺錢的是 8% 的大贏家,在 +2~5R 出場的規則把它們全切掉。</p></div>
+  <h4>A. 追蹤出場的回吐(176 筆)</h4>
+  <div class="tbl"><table><thead><tr><th>曾漲到(MFE)</th><th>n</th><th>平均最高</th><th>出場</th><th>保留比例</th></tr></thead><tbody>
+    <tr><td class="name">0–1R</td><td>28</td><td>+0.4</td><td class="neg">−0.6</td><td>—</td></tr><tr><td class="name">1–2R</td><td>36</td><td>+1.5</td><td>−0.1</td><td>−8%</td></tr><tr><td class="name">2–3R</td><td>34</td><td>+2.5</td><td>+0.4</td><td>15%</td></tr><tr><td class="name">3–5R</td><td>39</td><td>+3.9</td><td>+1.5</td><td>38%</td></tr><tr><td class="name">5R+</td><td>39</td><td>+12.8</td><td>+4.6</td><td>36%</td></tr>
+  </tbody></table></div>
+  <h4>B. 換掉獲利出場(進場 / 停損 / 突破失敗 / 時間停損 / 60 根都同)</h4>
+  <div class="tbl"><table><thead><tr><th class="note">獲利出場</th><th>勝率</th><th>期望值</th><th>PF</th><th>總 R</th><th>最大單筆</th></tr></thead><tbody>
+    <tr class="hl"><td class="note">現行:跌破 20 日低 或 MA50</td><td>32%</td><td class="pos">+0.42</td><td>1.92</td><td>+236</td><td>52R</td></tr>
+    <tr><td class="note">只 MA50(拿掉 20 日低)</td><td>33%</td><td>+0.43</td><td>1.92</td><td>+241</td><td>52R</td></tr>
+    <tr><td class="note">吊燈:高點 −4 ATR 或 MA50</td><td>33%</td><td>+0.42</td><td>1.92</td><td>+236</td><td>52R</td></tr>
+    <tr class="hl"><td class="note"><b>不追蹤:只停損 + 60 根到期</b></td><td>32%</td><td class="pos">+0.54</td><td>2.04</td><td class="pos">+301</td><td>52R</td></tr>
+    <tr><td class="note">MA20 或 MA50(書:快走勢用 20 日線)</td><td>36%</td><td>+0.27</td><td>1.66</td><td>+150</td><td>52R</td></tr>
+    <tr><td class="note">10 日低 或 MA50</td><td>34%</td><td>+0.28</td><td>1.65</td><td>+159</td><td>52R</td></tr>
+    <tr><td class="note">吊燈 −3 ATR</td><td>34%</td><td>+0.35</td><td>1.79</td><td>+196</td><td>52R</td></tr>
+    <tr><td class="note">目標 +2R / +3R / +5R / +8R 全出</td><td>38 / 35 / 33 / 33%</td><td>+0.07 / +0.14 / +0.22 / +0.32</td><td>1.18–1.70</td><td>+41 / +76 / +124 / +178</td><td>2–8R</td></tr>
+    <tr><td class="note">+3R 賣半 / +5R 賣半,其餘追蹤</td><td>35 / 33%</td><td>+0.28 / +0.32</td><td>1.63 / 1.71</td><td>+156 / +180</td><td>27–28R</td></tr>
+    <tr><td class="note">MFE ≥ 3R 回吐 50% 出 / ≥ 5R 回吐 40% 出</td><td>34 / 33%</td><td>+0.30 / +0.37</td><td>1.68 / 1.82</td><td>+168 / +207</td><td>52R</td></tr>
+    <tr><td class="note">賣進強勢:收盤高於 MA20 逾 20% / 30%</td><td>38 / 34%</td><td>+0.20 / +0.28</td><td>1.48 / 1.64</td><td>+109 / +158</td><td>11–19R</td></tr>
+    <tr><td class="note">現行 + 最長 120 根</td><td>32%</td><td>+0.34</td><td>1.73</td><td>+189</td><td>43R</td></tr>
+  </tbody></table></div>
+  <p class="cap">停利越積極、賺越少,沒有例外。書的「快走勢用 20 日均線」機械化後 +0.27,比 20 日低點差。20 日低那條線其實沒作用(拿掉只留 MA50 結果一樣)——60 根內幾乎都是 MA50 先觸發。</p>
+
+  <h3 id="tp-cap">主題三:拿掉 60 根到期會怎樣?那什麼時候出場?</h3>
+  <div class="verdict"><p><b>60 根到期的作用不是保護獲利,是把資金還給下一個訊號。</b>單筆 R 隨「抱越久」單調上升,不停利到 +1.66R;但帳戶層反過來:不停利只有年化 21.6%(資金卡住、五年只成交 73 筆、曝險 93%、2025–26 零報酬),而<b>「不追蹤 + 60 根」年化 30.1%、回撤 −16.3%,優於現行 26.7%</b>。不用時間到期的話,MA100 收破是最合理的一條線(+0.46R、最長 296 根),但回撤到 −31%。</p></div>
+  <div class="tbl"><table><thead><tr><th class="note">出場</th><th>勝率</th><th>期望值</th><th>PF</th><th>總 R</th><th>持有最長</th><th>資料末未出</th><th>帳戶年化</th><th>最大回撤</th><th>曝險</th></tr></thead><tbody>
+    <tr><td class="note">現行:MA50 / 20 日低 / 60 根</td><td>31%</td><td>+0.39</td><td>1.79</td><td>+217</td><td>61</td><td>4</td><td>26.7%</td><td>−26.5%</td><td>62%</td></tr>
+    <tr class="hl"><td class="note"><b>不追蹤 + 60 根到期</b></td><td>31%</td><td class="pos">+0.50</td><td>1.91</td><td>+277</td><td>60</td><td>4</td><td class="pos">30.1%</td><td class="pos">−16.3%</td><td>67%</td></tr>
+    <tr><td class="note">MA20 收破,無上限</td><td>34%</td><td>+0.19</td><td>1.42</td><td>+104</td><td>63</td><td>1</td><td>—</td><td>—</td><td>—</td></tr>
+    <tr><td class="note">MA50 收破,無上限</td><td>31%</td><td>+0.34</td><td>1.67</td><td>+190</td><td>214</td><td>4</td><td>—</td><td>—</td><td>—</td></tr>
+    <tr><td class="note">MA100 收破,無上限</td><td>29%</td><td>+0.46</td><td>1.83</td><td>+257</td><td>297</td><td>5</td><td>30.5%</td><td>−30.7%</td><td>78%</td></tr>
+    <tr><td class="note">MA150 / MA200 收破,無上限</td><td>25 / 23%</td><td>+0.94 / +0.87</td><td>2.59 / 2.41</td><td>+526 / +486</td><td>569 / 576</td><td>10 / 14</td><td>—</td><td>—</td><td>—</td></tr>
+    <tr><td class="note">不追蹤 + 250 根</td><td>20%</td><td>+1.09</td><td>2.63</td><td>+612</td><td>250</td><td>22</td><td>28.5%</td><td>−31.2%</td><td>86%</td></tr>
+    <tr><td class="note"><b>不停利</b>:只停損,永不出</td><td>16%</td><td class="pos">+1.66</td><td>3.35</td><td>+930</td><td>968</td><td class="neg">61</td><td class="neg">21.6%</td><td>−31.3%</td><td>93%</td></tr>
+    <tr><td class="note">MA50 + 到 +5R 後停損提到 +1R</td><td>31%</td><td>+0.21</td><td>1.41</td><td>+116</td><td>127</td><td>4</td><td>—</td><td>—</td><td>—</td></tr>
+  </tbody></table></div>
+  <p class="cap">「未出」= 資料結束仍持有,以最後收盤計,未實現;不停利那列的 +1.66R 有 11% 是這種部位,在五年多頭 Tech 裡「買了不放」——不是規則。帳戶年化 = 12 檔 × 8% 等權、未扣滑價。「到 +5R 後停損提到 +1R」再次證明鎖利有害。</p>
+
+  <h3 id="tp-sum">三題合起來的結論</h3>
+  <ul>
+    <li><b>停損 6%、不放寬</b>:放寬只換勝率,不換報酬;不停損砍半。</li>
+    <li><b>不做任何鎖利</b>:不保本、不賣半、不設目標、不因回吐出場、不賣進強勢——每一種都輸。</li>
+    <li><b>追蹤線可有可無,時間到期不可少</b>:20 日低沒作用;MA50 在 60 根內幾乎不會先觸發;60 根到期讓資金週轉,是帳戶層報酬的來源。</li>
+    <li><b>建議把 Playbook 的出場改成「只停損 + 突破失敗 + 時間停損 + 60 根到期」</b>:單筆 +0.50R、帳戶 30.1% / −16.3%,兩項都優於現行,規則還更簡單。心理代價:贏家會從高點吐回一半才到期出場,中位交易 −0.57R。</li>
+    <li>這套策略的長相:低勝率、靠尾巴、要抱得住——任何「讓它看起來舒服一點」的動作都在削它。</li>
+  </ul>
+
+  <h2 id="playbook">Playbook:建議的篩選與進出場</h2>
   <p>把三輪審查的每一條吃進去後的版本。實跑:560 筆、勝率 33.9%、+0.47R;<b>扣 0.3% 滑價 +0.42R、PF 1.92</b>;train +0.39 / test +0.48;12 檔等權年化 25.9%、最大回撤 −25%。</p>
 
   <h3 id="pb-screen">一、篩選(每天收盤後)</h3>
