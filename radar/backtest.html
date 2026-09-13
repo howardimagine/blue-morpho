@@ -898,6 +898,17 @@
 
   <h3 id="tp-tier">主題四:檔位鬆緊有差嗎?五檔對照</h3>
   <div class="verdict"><p><b>沒有增量 edge。</b>同一套過濾與出場下,最寬的 A(RS ≥ 60、只要價 &gt; MA50、不要求 VCP)跟最緊的 D 一樣好、樣本 4 倍;中間的 B、P 去前 2% 大贏家就歸零。VCP 的細節門檻(收縮次數、最後一腳、量縮、品質分)是雜訊——選 A 或 C 就夠,不必堅持 D。</p></div>
+
+  <div class="tbl"><table><thead><tr><th>檔位</th><th class="note">一句話</th><th class="note">技術面門檻(每往下一檔只多收緊一兩項)</th><th class="note">對應書的哪段</th></tr></thead><tbody>
+    <tr><td class="name">寬 A</td><td class="note">「只要在漲、離高點不遠」</td><td class="note">RS ≥ 60、價 &gt; MA50、距 52 週高 ≤ 25%;<b>不要求 VCP</b>(沒有 pivot,用 52 週高當突破線)</td><td class="note">趨勢樣板的最低要求,還沒到 8 條</td></tr>
+    <tr><td class="name">寬 B</td><td class="note">「趨勢成形、開始收縮」</td><td class="note">RS ≥ 70、MA50 &gt; MA150、距高 ≤ 25%;VCP 至少 1 次收縮、最後一腳 &lt; 15%、現價在 pivot 下方 8% 內</td><td class="note">趨勢樣板一半 + VCP 雛形</td></tr>
+    <tr class="hl"><td class="name">現行 P</td><td class="note">「線上雷達今天的門檻」</td><td class="note">RS ≥ 80、趨勢樣板 8 條全成立、距高 ≤ 15%;VCP ≥ 2 次收縮、品質分 ≥ 50、pivot 下方 10% 內;剔除單日漲 &gt;25% 的事件股</td><td class="note">書的 L1 + 我們自訂的 L3/L4;對照組</td></tr>
+    <tr><td class="name">中 C</td><td class="note">「P 再加量縮與貼近 pivot」</td><td class="note">P 的條件 + 最後一腳 &lt; 10%、近 5 日量比 50 日均量少(量縮 ≥ 0)、pivot 下方 5% 內;品質分放到 ≥ 40</td><td class="note">TLSMW ch.10 VCP 的「最後一腳小、量乾涸」</td></tr>
+    <tr><td class="name">緊 D</td><td class="note">「教科書等級的 VCP」</td><td class="note">RS ≥ 85、最後一腳 &lt; 8%、量縮 ≥ 20%、pivot 下方 3% 內、品質分 ≥ 50</td><td class="note">書裡「最後收縮 2–3%、量乾涸到底部最低」的接近版</td></tr>
+    <tr><td class="name">極緊 E / E2</td><td class="note">「條件全疊」</td><td class="note">RS ≥ 90、≥ 3 次收縮、最後一腳 &lt; 5%、量縮 ≥ 30%、品質分 ≥ 65;E 還要求當日已突破放量(五年零訊號),E2 拿掉這條</td><td class="note">把書每一句都當硬門檻的結果</td></tr>
+  </tbody></table></div>
+  <p class="cap">「距 pivot」= 現價 ÷ 最後一次收縮高點 − 1;「最後一腳」= 最後一次收縮的深度;「量縮」= 近 5 日均量比 50 日均量少幾 %;「品質分」= 收縮次數、最後一腳、量縮、距 pivot 合成的 0–100 分。完整定義在「篩選方式 → 六個檔位」。</p>
+
   <h4>同一套過濾與出場(舊最終規則:產業四類 + 大盤 + pivot_fail + no_progress)</h4>
   <div class="tbl"><table><thead><tr><th>檔位</th><th>成交</th><th>勝率</th><th>期望值</th><th>中位</th><th>PF</th></tr></thead><tbody><tr><td class="name">A</td><td>2,383</td><td>34.9%</td><td class="pos">+0.45</td><td>-0.52</td><td>1.92</td></tr><tr><td class="name">B</td><td>2,936</td><td>32.7%</td><td class="pos">+0.25</td><td>-0.45</td><td>1.54</td></tr><tr><td class="name">P</td><td>1,354</td><td>32.8%</td><td class="pos">+0.24</td><td>-0.46</td><td>1.5</td></tr><tr><td class="name">C</td><td>1,208</td><td>33.9%</td><td class="pos">+0.31</td><td>-0.40</td><td>1.67</td></tr><tr><td class="name">D</td><td>626</td><td>33.4%</td><td class="pos">+0.42</td><td>-0.47</td><td>1.85</td></tr></tbody></table></div>
   <h4>paper trade 版(Tech / Materials、新鮮突破、隔日開盤、未扣滑價)</h4>
