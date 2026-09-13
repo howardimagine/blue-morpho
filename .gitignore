@@ -1,3 +1,4 @@
 .DS_Store
 *.log
 _給設計師*.md
+.env
