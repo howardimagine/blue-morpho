@@ -249,7 +249,7 @@
       box-sizing: border-box; display: inline-flex; align-items: center; gap: 5px; font-family: var(--font-mono); letter-spacing: .04em; line-height: 1;
       border-radius: var(--r); border: 1px solid var(--border); background: transparent; color: var(--sec); cursor: pointer; margin: 0; white-space: nowrap; }
     .lv-tab, .btn, .pm-reset, .theme-btn { height: var(--ctl-sm); padding: 0 10px; font-size: var(--fs-xs); }
-    .hdr-sel, #refresh, .sb-tools input[type=search], .sb-tools select, .back, #hdr-tools .theme-btn { height: var(--ctl-md); padding: 0 12px; font-size: var(--fs-sm); }
+    .hdr-sel, #refresh, #rules-btn, .sb-tools input[type=search], .sb-tools select, .back, #hdr-tools .theme-btn { height: var(--ctl-md); padding: 0 12px; font-size: var(--fs-sm); }
     .hdr-sel, .sb-tools select { padding-right: 8px; } .sb-tools input[type=search] { cursor: text; color: var(--text-primary); }
     .btn, #refresh { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 40%, transparent); background: var(--accent-dim); } .btn:hover, #refresh:hover { filter: brightness(1.15); }
     .lv-tab b { margin-left: 2px; } .lv-tab.on { background: var(--accent); border-color: var(--accent); color: var(--on-accent); } .lv-tab.on b { color: var(--on-accent); }
@@ -285,6 +285,8 @@
     dialog#rules::backdrop { background: rgba(0,0,0,.55); }
     .rl { padding: 18px 20px 16px; } .rl-h { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; } .rl-h b { font-size: var(--fs-lg); } .rl-h span { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--dim); flex: 1; }
     .rl ol { padding-left: 20px; margin: 0; font-size: var(--fs-md); line-height: 1.7; } .rl li { margin: 6px 0; } .rl-f { margin-top: 12px; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--dim); line-height: 1.6; }
+    .rl-tabs { display: flex; gap: 6px; margin-bottom: 12px; } .rl-tabs .btn.on { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+    .rl-p[hidden] { display: none; } .rl-v { font-size: var(--fs-md); line-height: 1.7; } .rl-v dt { font-family: var(--font-mono); color: var(--accent); margin-top: 8px; } .rl-v dd { margin: 0 0 4px; } .rl-v dt:first-child { margin-top: 0; }
     .mnav { display: none; }
     @media (max-width: 768px) {
       :root { --sw-h: 26px; --sw-w: 46px; --hdr: 54px; --nav: calc(56px + env(safe-area-inset-bottom)); --ctl-sm: 36px; --ctl-md: 42px; --tag-h: 20px; --fs-xs: 12.5px; --fs-sm: 14px; --fs-md: 16px; --fs-lg: 19px; }
@@ -362,8 +364,9 @@
   <a class="bt-fab" href="backtest.html" title="五年回測手冊:篩選 / 計算 / 逐年績效 / Playbook">回測報告 ↗</a>
   <dialog id="rules">
     <div class="rl">
-      <div class="rl-h"><b>停損停利守則</b><span>v4 · 依五年回測(手冊 主題分析)</span><button class="btn ghost" id="rules-x">關閉</button></div>
-      <ol>
+      <div class="rl-h"><b id="rl-title">停損停利守則</b><span id="rl-sub">v4 · 依五年回測(手冊 主題分析)</span><button class="btn ghost" id="rules-x">關閉</button></div>
+      <div class="rl-tabs"><button class="btn on" data-p="rules">守則</button><button class="btn" data-p="vers">版本差異</button></div>
+      <div class="rl-p" data-p="rules"><ol>
         <li><b>只在新鮮突破進場</b>:前一天收盤仍在 pivot 下、當天收盤站上 pivot × 1.005 且量 ≥ 50 日均量 × 1.5。已經站上兩天以上的不追(追高 +0.31R vs 新鮮 +1.04R)。</li>
         <li><b>隔日開盤買</b>,不用盤中 pivot 價當成本。大盤 20 日報酬 &lt; 0 不開新倉;SPY 高於 200 日線 &gt; 10% 部位減半。</li>
         <li><b>停損 −6%</b>,跳空開低用開盤價。不放寬(8–10% 只換勝率不換報酬)、不縮(不停損砍半)。</li>
@@ -373,7 +376,13 @@
         <li><b>12 檔 × 8% 等權</b>,單筆風險 ≈ 帳戶 0.5%;不加碼、不因連敗縮曝險。</li>
         <li><b>預期的長相</b>:勝率 ~31%、中位交易 −0.5R、最長連虧 ~24 筆、一年賺的集中在兩三個月;倖存者偏差未修,回測數字當上限。</li>
       </ol>
-      <div class="rl-f">人要看的:市場廣度、類股是否同步、這是第幾個底、突破頭三天走勢、財報日 —— 見手冊 Playbook「人為判斷要求」。</div>
+      <div class="rl-f">人要看的:市場廣度、類股是否同步、這是第幾個底、突破頭三天走勢、財報日 —— 見手冊 Playbook「人為判斷要求」。</div></div>
+      <div class="rl-p" data-p="vers" hidden><dl class="rl-v">
+        <dt>v1.0 原版</dt><dd>照書逐字:趨勢樣板 8 條全過、基本面(盈餘 / 營收成長、毛利)是硬門檻、RS ≥ 70、VCP 收縮要乾淨。最嚴,名單最少。</dd>
+        <dt>v2.0 強力拉升直通</dt><dd>v1 + 「強力拉升」(8 週漲 ≥ 100% 且回檔淺)可跳過 VCP 直接進候選。其餘同 v1。</dd>
+        <dt>v3.0 寬(照書放寬上游)</dt><dd>基本面改成任一成長指標過即可、毛利不擋;距高 25%、RS 70 回到書的原值;觀察票作廢改成跌破最後一腿低點。名單變多,給人挑。</dd>
+        <dt>v4.0 回測版</dt><dd>依五年回測手冊定:上游同 v3,基本面只標記不擋;加大盤狀態(SPY 20 日 &lt; 0 不開新倉、過熱減半)、產業標記(Tech / Materials 偏多,Energy 偏空);觀察池照策略結算 —— 新鮮突破、隔日開盤、−6% 停損、5 / 20 / 60 根出場。</dd>
+      </dl><div class="rl-f">四版共用同一份掃描資料,切換只是換規則重算,不用重掃。詳細參數與回測數字見回測報告。</div></div>
     </div>
   </dialog>
   <nav class="mnav" id="mnav" aria-label="手機分頁">
@@ -845,6 +854,8 @@
   const API = 'http://localhost:8765/api/';
   const api = async (m, args = []) => { const r = await fetch(API + m, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(args) }); if (!r.ok) throw new Error(r.status); return r.json(); };
   $('#rules-btn').onclick = () => $('#rules').showModal(); $('#rules-x').onclick = () => $('#rules').close();
+  document.querySelectorAll('.rl-tabs .btn').forEach(b => b.onclick = () => { const p = b.dataset.p; document.querySelectorAll('.rl-tabs .btn').forEach(x => x.classList.toggle('on', x === b)); document.querySelectorAll('.rl-p').forEach(x => x.hidden = x.dataset.p !== p);
+    $('#rl-title').textContent = p === 'vers' ? '四個版本差異' : '停損停利守則'; $('#rl-sub').textContent = p === 'vers' ? 'v1 → v4 · 同一份掃描,換規則重算' : 'v4 · 依五年回測(手冊 主題分析)'; });
   const btn = $('#refresh'); let pollT = null;   // 預設 hidden;探測到本機後台才顯示
   const setBtn = (t, busy) => { btn.textContent = t; btn.disabled = !!busy; btn.style.opacity = busy ? .6 : 1; };
   async function pollStatus() {
