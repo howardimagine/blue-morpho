@@ -44,7 +44,7 @@
 </style>
 </head>
 <body>
-<div class="layout"><nav><div class="brand">Blue Morpho · SEPA</div><a href="backtest.html" style="font-family:var(--mono);font-size:12px;color:var(--accent)">← 回手冊</a><a href="#top" class="h">總覽</a>
+<div class="layout"><nav><div class="brand">Blue Morpho · SEPA</div><a href="backtest.html" style="font-family:var(--mono);font-size:12px;color:var(--accent)">← 回手冊</a><a href="#top" class="h">總覽</a><a href="#yearly-exp" class="sub">每年預期績效</a>
 <a href="#y2022" class="sub">2022</a>
 <a href="#y2023" class="sub">2023</a>
 <a href="#y2024" class="sub">2024</a>
@@ -54,7 +54,18 @@
 <p class="lede">建議檔位(寬 A / 中 C)+ Tech / Materials + 大盤門檻 + 新鮮突破,五年 560 筆,每一筆用同一套規則結算。</p>
 <div class="verdict"><p><b>統一結算規則。</b>進場 = 觸發隔日開盤;停損 −6%(跳空用開盤);5 根內收破 pivot 帶量、20 根未達 +1R、收破 20 日低或 MA50 → 隔日開盤出;60 根到期收盤出。無保本、無賣半。每筆扣來回成本 0.2% 與單邊滑價 0.3%(R 欄已扣 0.05R,報酬% 欄已扣 0.3%)。「減半」= 觸發日 SPY 高於 200 日線 &gt;10%,部位減半,R 已按 0.5 計。</p>
 <p><b>全期</b>:560 筆 · 勝率 32.3% · 期望值 +0.42R · 總計 +236R · 獲利因子 1.92 · 平均報酬 +2.9% · 中位 -3.5% · 最佳 +52.0R · 最差 -2.0R</p></div>
-<h2>逐年彙總</h2><div class="tbl"><table><thead><tr><th>年</th><th>筆數</th><th>勝率</th><th>期望值 R</th><th>總 R</th><th>PF</th><th>平均報酬</th><th>中位報酬</th><th>最佳</th><th>最差</th></tr></thead><tbody>
+
+  <h2 id="yearly-exp">每年預期績效(帳戶層,12 檔 × 8% 等權,含滑價)</h2>
+  <div class="tbl"><table><thead><tr><th>年</th><th>觸發</th><th>策略報酬</th><th>SPY 同期</th><th>超額</th><th>年內最大回撤</th><th class="note">讀法</th></tr></thead><tbody>
+    <tr><td class="name">2022(9–12 月)</td><td>18</td><td class="neg">−0.8%</td><td class="neg">−1.9%</td><td class="pos">+1.1</td><td>−6.6%</td><td class="note">大盤門檻幾乎沒出手,小虧</td></tr>
+    <tr><td class="name">2023</td><td>140</td><td class="pos">+13.3%</td><td class="pos">+26.7%</td><td class="neg">−13.4</td><td>−12.0%</td><td class="note">七巨頭年,中小型動能股輸給大盤</td></tr>
+    <tr class="hl"><td class="name">2024</td><td>213</td><td class="pos">+43.2%</td><td class="pos">+25.6%</td><td class="pos">+17.6</td><td>−10.1%</td><td class="note">AI capex 擴散年,右尾集中在 9 月</td></tr>
+    <tr><td class="name">2025</td><td>128</td><td class="pos">+13.7%</td><td class="pos">+18.0%</td><td class="neg">−4.3</td><td class="neg">−26.8%</td><td class="note">年中深回撤,全年最大回撤在這裡</td></tr>
+    <tr><td class="name">2026(到 9 月)</td><td>61</td><td class="pos">+16.9%</td><td class="pos">+11.6%</td><td class="pos">+5.4</td><td>−14.8%</td><td class="note">未完年</td></tr>
+    <tr class="hl"><td class="name">全期年化</td><td>560</td><td class="pos">+20.3%</td><td class="pos">≈ +16%</td><td class="pos">≈ +4</td><td>−26.8%</td><td class="note">10 萬 → 20.8 萬;五年五年正、三年贏 SPY</td></tr>
+  </tbody></table></div>
+  <p class="cap"><b>算法</b>:560 筆交易按觸發日排、最多同時 12 檔、每檔帳戶 8%、不加碼不縮曝險;進場價 × 1.003、出場價 × 0.997(單邊滑價 0.3%);每日收盤估值。SPY 為調整後收盤同期報酬。<b>預期的意思</b>:這是「照規則做、五年會長這樣」——不是保證;倖存者偏差未修,真實值當七折看(年化 ≈ 14%);edge 集中在少數月份,任一年沒抓到那幾檔就是平的,2023 就是這種年。</p>
+  <h2>逐年彙總(交易層,R)</h2><div class="tbl"><table><thead><tr><th>年</th><th>筆數</th><th>勝率</th><th>期望值 R</th><th>總 R</th><th>PF</th><th>平均報酬</th><th>中位報酬</th><th>最佳</th><th>最差</th></tr></thead><tbody>
 <tr><td class="name"><a href="#y2022">2022</a></td><td>18</td><td>33.3%</td><td class="neg">-0.16</td><td class="neg">-3</td><td>0.71</td><td>-0.8%</td><td>-4.6%</td><td>+4.2</td><td>-1.1</td></tr>
 <tr><td class="name"><a href="#y2023">2023</a></td><td>140</td><td>41.4%</td><td class="pos">+0.26</td><td class="pos">+36</td><td>1.65</td><td>+1.5%</td><td>-1.5%</td><td>+7.7</td><td>-1.7</td></tr>
 <tr><td class="name"><a href="#y2024">2024</a></td><td>213</td><td>32.9%</td><td class="pos">+0.52</td><td class="pos">+111</td><td>2.44</td><td>+4.0%</td><td>-2.6%</td><td>+52.0</td><td>-1.7</td></tr>
