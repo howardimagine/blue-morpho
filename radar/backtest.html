@@ -51,7 +51,7 @@
   <a href="#calc" class="h">計算方式</a><a href="#calc-layers" class="sub">三層回測</a><a href="#calc-defs" class="sub">名詞與公式</a><a href="#calc-data" class="sub">資料與限制</a>
   <a href="#perf" class="h">回測績效</a><a href="#perf-yearly" class="sub"><b>每年預期績效</b></a><a href="#perf-ledger" class="sub"><b>逐筆進出場(逐年)</b></a><a href="#perf-port" class="sub">部位層</a><a href="#perf-process" class="sub">推導過程(摺疊)</a>
   <a href="#topics" class="h">主題分析</a><a href="#tp-stop" class="sub">停損會不會錯殺</a><a href="#tp-profit" class="sub">停利會不會太早</a><a href="#tp-cap" class="sub">拿掉 60 根到期</a><a href="#tp-tier" class="sub">檔位鬆緊(五檔對照)</a><a href="#tp-sum" class="sub">結論</a>
-  <a href="#playbook" class="h">Playbook</a><a href="#pb-screen" class="sub">篩選</a><a href="#pb-entry" class="sub">進場</a><a href="#pb-exit" class="sub">出場</a><a href="#pb-size" class="sub">配資</a><a href="#pb-limits" class="sub">限制</a>
+  <a href="#playbook" class="h">Playbook</a><a href="#pb-screen" class="sub">篩選</a><a href="#pb-entry" class="sub">進場</a><a href="#pb-exit" class="sub">出場</a><a href="#pb-size" class="sub">配資</a><a href="#pb-human" class="sub">人為判斷要求</a><a href="#pb-limits" class="sub">限制</a>
     <a href="#process" class="h">測試與修正過程</a>
   <div class="foot">資料 2021-09 → 2026-09<br>2,228 檔 · 基準 SPY<br>2026-09-13</div>
 </nav>
@@ -938,7 +938,25 @@
     <li><b>每年預期(含滑價)</b>:2022 −0.8 / 2023 +13.3 / 2024 +43.2 / 2025 +13.7 / 2026 +16.9%;年化 20.3%、最大回撤 −26.8%;SPY 同期 −1.9 / +26.7 / +25.6 / +18.0 / +11.6 → 五年贏三年。逐年表與每筆紀錄:<a href="trades.html#yearly-exp">逐筆交易紀錄</a>。</li></ul>
 
   <p class="cap">每一筆進出場、統一規則結算的紀錄:<a href="trades.html">逐筆交易紀錄</a>(560 筆,分年)。</p>
-  <h3 id="pb-limits">五、限制</h3>
+  
+  <h3 id="pb-human">六、規則做不到的部分:人為判斷要求(作者哪裡留一手)</h3>
+  <p>回測只能模擬書裡能寫成規則的一半。作者的 50% 勝率、集中 4–8 檔敢加碼,靠的是下面這些——書裡或者只講原則沒給數字,或者根本沒講(留在付費 workshop)。用這套 Playbook 的人,這幾件事要自己補上。</p>
+  <div class="tbl"><table><thead><tr><th class="note">判斷點</th><th class="note">書怎麼說(留白在哪)</th><th class="note">我們填的假設 / 回測怎麼處理</th><th class="note">人要做什麼</th></tr></thead><tbody>
+    <tr><td class="note"><b>市場環境:出不出手</b></td><td class="note">TTLAC ch.5 progressive exposure:連續失敗就縮到 25% 曝險、市場好轉再放大——「好轉」的定義是他自己的交易回饋,沒有規則</td><td class="note">用 SPY 20 日報酬 ≥ 0 當代理;2022 仍全負、2023 輸大盤 13 點</td><td class="note">廣度差(新高股 &lt;15%)、指數靠少數權值股撐的年份,自己決定停手或減半。這是五年裡輸給 SPY 的兩年最主要的原因</td></tr>
+    <tr><td class="note"><b>盤中買點</b></td><td class="note">「盤中穿過 pivot 就買、用盤中換算量判斷是否放量」(Momentum Masters)——收盤前才知道量夠不夠,他靠盤中感覺</td><td class="note">改成收盤確認、隔日開盤買,平均多付 0.2–0.3%,並漏掉當天穿過又收回的 squat</td><td class="note">有時間看盤的人可以在盤中穿越時買、當天量不足就砍;沒時間就照隔日開盤,接受少 0.05R</td></tr>
+    <tr><td class="note"><b>什麼叫 tight、什麼叫量乾涸</b></td><td class="note">TLSMW ch.10:pivot 前幾根要「tight」、量要「乾涸到底部最低」——都沒數字</td><td class="note">tight 5%、量縮 20–50%;回測顯示這些門檻沒有區分力</td><td class="note">看圖。機械門檻挑不出「好看的底」,但人一眼能分辨鬆散震盪和真正收斂——這是 VCP 唯一還值得靠眼睛的地方</td></tr>
+    <tr><td class="note"><b>類股與領先股</b></td><td class="note">TLSMW ch.9 Follow the Leaders:同類股要有領先股同步突破,否則單一突破可疑</td><td class="note">只用「產業白名單」代理,而且是事後選的</td><td class="note">突破當天看同產業有沒有兩三檔一起動;沒有,降部位或不進</td></tr>
+    <tr><td class="note"><b>底部的階段(late-stage base)</b></td><td class="note">TLSMW ch.10:第 3–4 個底之後失敗率跳升,他會數底</td><td class="note">沒數;65 日視窗看不到前面的底</td><td class="note">打開週線:這是漲勢裡的第幾個整理?第 3 個以後不追</td></tr>
+    <tr><td class="note"><b>財報前後</b></td><td class="note">TTLAC ch.7:財報前 1–2 天不開新倉;財報跳空後的強勢他反而會買(power play)</td><td class="note">事件股只在 setup 日擋;觸發日碰到財報跳空的 58 筆 +1.45R——沒規則處理</td><td class="note">查財報日;前兩天不進,跳空後第一次收縮再進</td></tr>
+    <tr><td class="note"><b>賣進強勢</b></td><td class="note">TLSMW ch.13:1–3 週漲 20%+、最大單日漲幅、最寬 K 棒、最大量 → 高潮訊號賣一半或全出——組合判斷,沒公式</td><td class="note">所有機械化的「賣進強勢」都輸給不賣</td><td class="note">這是書裡最靠盤感的一條。規則版建議不做;真的要做,只在同時出現三個高潮訊號時賣一半</td></tr>
+    <tr><td class="note"><b>走勢不對就砍</b></td><td class="note">TTLAC ch.9:突破後 1–10 天 squat 不回復、低量突破後高量跌回 → 出,不等停損</td><td class="note">只有「5 根內收破 pivot 帶量」一條,占出場 8%</td><td class="note">突破後頭三天:收黑帶量、開高走低、量比前日大又收在 pivot 下——人可以判斷提前砍,規則不行</td></tr>
+    <tr><td class="note"><b>加碼與集中</b></td><td class="note">TTLAC ch.8:先 10–20% 試單,對了加到 25%;4–8 檔——「對了」是走勢判斷</td><td class="note">機械版 +1R 加碼、6 檔集中 → 年化 0.1%;12 檔等權 22–30%</td><td class="note">規則版不要集中。真的要照書集中,前提是你能挑出那 2% 的大贏家——回測證明規則挑不出來</td></tr>
+    <tr><td class="note"><b>基本面的「品質」</b></td><td class="note">TLSMW ch.7 Code 33、機構品質、產業龍頭——理想描述,無門檻</td><td class="note">EPS ≥ 25% 有效、加速反向、毛利不穩</td><td class="note">EPS 成長當排序;「這家公司是不是這輪主題的龍頭」靠人判斷</td></tr>
+    <tr><td class="note"><b>付費才有的</b></td><td class="note">Leadership Profile 評分、SEPA 排名、確切停損位置(pivot 區低點 vs 固定 %)——只在 workshop</td><td class="note">用 RS 百分位、固定 6%</td><td class="note">無法補;知道就好</td></tr>
+  </tbody></table></div>
+  <div class="warn"><p><b>總結:</b>規則能給你的是「候選 + 進出場紀律」;<b>市場環境、類股同步、底部階段、突破頭三天的走勢、財報時點</b>這五項是人一定要看的,也是作者勝率比機械版高 15 點的來源。反過來,<b>賣進強勢、鎖利、集中加碼</b>三項機械化後全部有害,沒有盤感就不要做——照規則抱到 60 根反而更好。</p></div>
+
+  <h3 id="pb-limits">七、限制</h3>
   <ol><li>倖存者偏差沒修:所有期望值當上限,真實前瞻估 +0.10~+0.30R。</li><li>去前 2% 大贏家只剩 +0.06R:任何一年沒抓到那幾檔就是平的。</li><li>產業條件是這五年的週期,每年重選。</li><li>規則是 40+ 變體裡挑的,p 值是挑完才算;要三個月 out-of-sample。</li><li>只有一段週期,真正熊市未知。</li><li>書的一半(盤中判斷、賣進強勢、類股領先、財報迴避、催化劑)沒模擬。</li><li>財報層只做事後切片(時點財報),沒進回放的檔位定義;L2 過的樣本少且逐年不穩。</li><li>賺的可能不是 VCP:A 檔(不要求 VCP)一樣好,財報跳空日 +1.45R。</li></ol>
 
   <h2 id="process">測試與修正過程(收起)</h2>
