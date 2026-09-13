@@ -35,14 +35,70 @@
 <style>.vt{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:10px 0}.vt .lab{font-family:var(--mono);font-size:12px;color:var(--mute)}.vt button{font-family:var(--mono);font-size:12.5px;padding:5px 10px;border:1px solid var(--line);background:transparent;color:var(--ink-2);border-radius:4px;cursor:pointer}.vt button.on{background:var(--accent);border-color:var(--accent);color:#fff}</style>
 <style>.dash{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin:16px 0}.dcard{border:1px solid var(--line);border-top:3px solid var(--accent);background:var(--panel);padding:16px 18px}.dm{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--mute);display:flex;justify-content:space-between}.dm span{font-size:11px}.dx{font-family:var(--mono);font-size:40px;line-height:1.2;margin:4px 0}.ds{font-size:13px;color:var(--ink-2)}.dcard ul{font-size:13.5px;margin:8px 0;padding-left:18px}nav a{cursor:pointer}@media (max-width:900px){.dash{grid-template-columns:1fr}}</style>
 <div class="layout"><nav><div class="brand">Leveraged ETF Rotation</div>
-<a class="h" href="#over">15 年超額總覽</a><a class="h" href="#dash">今日建議</a><a class="h" href="#verdict">結論</a><a class="h" href="#design">回測設計</a><a class="sub" href="#strats">策略檔位</a><a class="sub" href="#data">市場與資料</a><a class="sub" href="#replay">回放規則</a><a class="sub" href="#rules">過關判準</a>
+<a class="h" href="#plain">白話說明</a><a class="h" href="#over">15 年超額總覽</a><a class="h" href="#dash">今日建議</a><a class="h" href="#verdict">結論</a><a class="h" href="#design">回測設計</a><a class="sub" href="#strats">策略檔位</a><a class="sub" href="#data">市場與資料</a><a class="sub" href="#replay">回放規則</a><a class="sub" href="#rules">過關判準</a>
 <a class="h" href="#best">各指數最佳策略</a><a class="sub" href="#best-QQQ">QQQ</a><a class="sub" href="#best-SPY">SPY</a><a class="sub" href="#best-SOX">SOX</a><a class="sub" href="#best-TW">TW</a><a class="h" href="#calib">合成校驗</a><a class="h" href="#markets">各市場結果</a><a class="h" href="#findings">關鍵發現</a><a class="h" href="#sens">參數敏感度</a><a class="h" href="#yearly">逐年報酬</a><a class="h" href="#limits">已知限制</a><a class="h" href="#next">下一步</a>
 <div class="foot">2000-03 → 2026-09-13<br>4 市場 × 165 組合<br>agents/lev_rotation.py</div></nav>
 <main>
 <h1>槓桿 ETF 輪動回測手冊</h1>
 <p class="lede">用不同倍數的大盤槓桿 ETF 輪動來避險,目標是「最大回撤不超過 −50% 的前提下,年化報酬最高」。四個市場(那斯達克、標普、半導體、台股)從 2000 年回放 26 年,含網路泡沫、2008、2020、2022 四次大跌。</p>
 
-<h2 id="over" style="border-top:0;margin-top:28px">近 15 年每年績效(各指數最佳策略,含換手成本)</h2>
+<h2 id="plain" style="border-top:0;margin-top:28px">先看這裡:這個策略在做什麼(白話版)</h2>
+
+<h3>一句話</h3>
+<div class="verdict"><p><b>大盤在漲、而且漲得很平穩的時候,開槓桿(2 倍、3 倍);大盤開始亂晃,就降槓桿;大盤轉跌,全部換成現金。</b></p><p>每天收盤後看一次,需要換才換,隔天開盤執行。</p></div>
+
+<h3>先懂三個名詞</h3>
+<ul>
+<li><b>槓桿 ETF</b>:例如 <b>TQQQ</b>,那斯達克漲 1%,它漲約 3%;跌 1%,它也跌約 3%。<b>UPRO</b> 是標普 500 的 3 倍,<b>SSO</b> 是 2 倍,台股 <b>00631L</b> 是台灣 50 的 2 倍。</li>
+<li><b>槓桿為什麼危險</b>:大盤跌 33%,3 倍 ETF 就跌掉將近 100%,幾乎歸零;大盤只要漲回原點,槓桿 ETF 卻回不去。2000 年網路泡沫,一直抱 3 倍那斯達克的人本金全沒了。<b>所以槓桿一定要搭配「什麼時候下車」的規則。</b></li>
+<li><b>最大回撤</b>:從最高點到最低點帳上最多虧幾 %。−50% 代表 100 萬曾經剩 50 萬。這份回測的底線是<b>不能超過 −50%</b>。</li>
+</ul>
+
+<h3>策略怎麼算:兩個開關</h3>
+<h4>開關 1:紅綠燈 —— 現在該不該上車?</h4>
+<p>把指數<b>最近 200 個交易日(約 10 個月)的收盤價平均</b>,叫「200 日均線」,代表長期趨勢。</p>
+<ul>
+<li>收盤價 <b>高於均線 3% 以上</b> → 綠燈,可以持有槓桿。</li>
+<li>收盤價 <b>低於均線 3% 以上</b> → 紅燈,全部賣掉換現金(放短期公債 / 貨幣基金)。</li>
+<li>在均線上下 3% 之間 → <b>維持原狀不動</b>,避免在均線附近被來回洗。</li>
+</ul>
+<div class="book"><p><b>例子</b>:標普 200 日均線是 6,000 點。</p><p>收盤 6,200(高 3.3%)→ 綠燈上車;之後跌到 5,900(低 1.7%)→ 還在緩衝區,不動;再跌到 5,800(低 3.3%)→ 紅燈,隔天開盤全部換現金。</p></div>
+
+<h4>開關 2:油門 —— 綠燈時要開幾倍?(波動目標)</h4>
+<p>綠燈時,再看大盤<b>最近 20 天晃得多厲害</b>(「波動率」,把每天漲跌幅換算成一年的幅度)。晃得越兇,開越少倍。</p>
+<div class="book"><p><b>公式</b>:建議倍數 = 目標波動 ÷ 最近 20 天波動,<b>四捨五入到 1、2、3 倍</b>(不到 0.5 倍就拿現金;最多 3 倍,台股最多 2 倍)。</p>
+<p><b>例子(標普,目標波動 45%)</b></p>
+<p>・市場很平靜,最近波動 10% → 45 ÷ 10 = 4.5 → 超過上限 → <b>3 倍(UPRO)</b></p>
+<p>・開始晃,波動 20% → 45 ÷ 20 = 2.25 → <b>2 倍(SSO)</b></p>
+<p>・很亂,波動 35% → 45 ÷ 35 = 1.3 → <b>1 倍(SPY)</b></p>
+<p>・恐慌,波動 100% → 0.45 → <b>現金</b></p>
+<p class="src">為什麼有用:大跌前後幾乎都先「晃」起來,這個油門會在趨勢還沒翻空前就自動鬆腳。學術依據:Moreira &amp; Muir(2017)。</p></div>
+
+<h3>每個指數用哪個版本</h3>
+<div class="tbl"><table><tr><th>指數</th><th class="note">用的規則</th><th class="note">可以選的產品</th><th class="note">一句話</th></tr>
+<tr><td>標普 SPY</td><td class="note">紅綠燈 + 油門,目標波動 45%,最多 3 倍</td><td class="note">現金 / SPY / SSO / UPRO</td><td class="note">最推薦,一年只換約 4 次</td></tr>
+<tr><td>那斯達克 QQQ</td><td class="note">紅綠燈 + 油門,目標波動 30%,最多 3 倍</td><td class="note">現金 / QQQ / QLD / TQQQ</td><td class="note">有效但只多賺一點,換手多</td></tr>
+<tr><td>台股 TW</td><td class="note">紅綠燈 + 壓力檢查:每週五看 VIX 恐慌指數結構、信用利差,有壓力就從 2 倍降到 1 倍</td><td class="note">現金 / 0050 / 00631L</td><td class="note">績效好,但參數一動就變,保守看待</td></tr>
+<tr><td>半導體 SOX</td><td class="note">沒有規則過關</td><td class="note">—</td><td class="note">回測顯示直接抱 1 倍反而比較好</td></tr></table></div>
+
+<h3>實際操作流程</h3>
+<ol>
+<li><b>每天收盤後</b>看一次下方「今日建議持有倍數」。</li>
+<li>建議跟你現在持有的一樣 → 什麼都不做。</li>
+<li>不一樣 → <b>隔天開盤</b>把部位換成建議的產品(例:SSO 全賣、買 UPRO)。不要一半一半,只持有一種。</li>
+<li>紅燈 → 全部換現金,等綠燈再回來。</li>
+</ol>
+
+<h3>表格怎麼讀</h3>
+<ul>
+<li><b>策略報酬</b>:照上面規則操作那一年賺賠多少,已經扣掉 ETF 內扣費用、借錢成本、每次換倉 0.1%(台股 0.2%)。</li>
+<li><b>1x 同期</b>:同一年單純抱 1 倍(SPY、QQQ、0050…)不動的報酬。</li>
+<li><b>超額</b>:策略 − 1 倍。正的 = 用這套規則比單純抱著多賺。</li>
+<li><b>換手</b>:那一年換了幾次倍數。</li>
+</ul>
+<div class="warn"><p><b>要有心理準備</b>:這不是每年都贏。像標普版 2015、2022、2025 都輸單純持有,輸在「剛下車就反彈」。它贏在長期、以及大崩盤時保住本金。回測是歷史,不保證未來;這不是投資建議。</p></div>
+
+<h2 id="over">近 15 年每年績效(各指數最佳策略,含換手成本)</h2>
 <div class="vt vt2"><span class="lab">切換指數:</span><button data-m="QQQ" class="on">QQQ</button><button data-m="SPY" class="">SPY</button><button data-m="SOX" class="">SOX</button><button data-m="TW" class="">TW</button></div>
 <div class="ex" data-m="QQQ">
 <p class="ds"><b>波動目標 20% 3x · 現金防守</b> · 產品:現金 / 1x QQQ / 2x QLD / 3x TQQQ</p>
