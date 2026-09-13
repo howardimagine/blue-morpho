@@ -50,7 +50,7 @@
   <a href="#screen" class="h">篩選方式</a><a href="#screen-book" class="sub">書的原則</a><a href="#screen-funnel" class="sub">五層漏斗</a><a href="#screen-tiers" class="sub">六個檔位</a>
   <a href="#calc" class="h">計算方式</a><a href="#calc-layers" class="sub">三層回測</a><a href="#calc-defs" class="sub">名詞與公式</a><a href="#calc-data" class="sub">資料與限制</a>
   <a href="#perf" class="h">回測績效</a><a href="#perf-yearly" class="sub"><b>每年預期績效</b></a><a href="#perf-ledger" class="sub"><b>逐筆進出場(逐年)</b></a><a href="#perf-port" class="sub">部位層</a><a href="#perf-process" class="sub">推導過程(摺疊)</a>
-  <a href="#topics" class="h">主題分析</a><a href="#tp-stop" class="sub">停損會不會錯殺</a><a href="#tp-profit" class="sub">停利會不會太早</a><a href="#tp-cap" class="sub">拿掉 60 根到期</a><a href="#tp-sum" class="sub">結論</a>
+  <a href="#topics" class="h">主題分析</a><a href="#tp-stop" class="sub">停損會不會錯殺</a><a href="#tp-profit" class="sub">停利會不會太早</a><a href="#tp-cap" class="sub">拿掉 60 根到期</a><a href="#tp-tier" class="sub">檔位鬆緊(五檔對照)</a><a href="#tp-sum" class="sub">結論</a>
   <a href="#playbook" class="h">Playbook</a><a href="#pb-screen" class="sub">篩選</a><a href="#pb-entry" class="sub">進場</a><a href="#pb-exit" class="sub">出場</a><a href="#pb-size" class="sub">配資</a><a href="#pb-limits" class="sub">限制</a>
     <a href="#process" class="h">測試與修正過程</a>
   <div class="foot">資料 2021-09 → 2026-09<br>2,228 檔 · 基準 SPY<br>2026-09-13</div>
@@ -777,14 +777,6 @@
   <p class="cap">2022 只有 18–25 筆且全負——大盤門檻在空頭尾段沒能保護。paper trade 版 train +0.39 / test +0.48;去前 2% +0.06;Tech 435 筆 +0.46、Materials 125 筆 +0.29。</p>
 
   </details>
-<details><summary>五檔對照</summary><h4 id="perf-tier" style="margin:0 0 6px">五檔對照</h3>
-  <h4>同一套過濾與出場(舊最終規則:產業四類 + 大盤 + pivot_fail + no_progress)</h4>
-  <div class="tbl"><table><thead><tr><th>檔位</th><th>成交</th><th>勝率</th><th>期望值</th><th>中位</th><th>PF</th></tr></thead><tbody><tr><td class="name">A</td><td>2,383</td><td>34.9%</td><td class="pos">+0.45</td><td>-0.52</td><td>1.92</td></tr><tr><td class="name">B</td><td>2,936</td><td>32.7%</td><td class="pos">+0.25</td><td>-0.45</td><td>1.54</td></tr><tr><td class="name">P</td><td>1,354</td><td>32.8%</td><td class="pos">+0.24</td><td>-0.46</td><td>1.5</td></tr><tr><td class="name">C</td><td>1,208</td><td>33.9%</td><td class="pos">+0.31</td><td>-0.40</td><td>1.67</td></tr><tr><td class="name">D</td><td>626</td><td>33.4%</td><td class="pos">+0.42</td><td>-0.47</td><td>1.85</td></tr></tbody></table></div>
-  <h4>paper trade 版(Tech / Materials、新鮮突破、隔日開盤、未扣滑價)</h4>
-  <div class="tbl"><table><thead><tr><th>檔位</th><th>成交</th><th>勝率</th><th>期望值</th><th>中位</th><th>PF</th></tr></thead><tbody><tr><td class="name">A</td><td>407</td><td>34.2%</td><td class="pos">+0.42</td><td>-0.40</td><td>1.94</td></tr><tr><td class="name">C</td><td>195</td><td>29.7%</td><td class="pos">+0.53</td><td>-0.53</td><td>2.12</td></tr></tbody></table></div>
-  <p class="cap">最寬的 A 跟最緊的 D 一樣好、樣本 4 倍;B、P 去前 2% 歸零。<b>VCP 細節門檻沒有增量 edge。</b></p>
-
-  </details>
 <details><summary>RS / 產業 / 大盤切片</summary><h4 id="perf-slice" style="margin:0 0 6px">RS / 產業 / 大盤切片</h3>
   <div class="tbl"><table><thead><tr><th>RS(K3 池)</th><th>70–80</th><th>80–85</th><th>85–90</th><th>90+</th></tr></thead><tbody>
     <tr><td class="name">n</td><td>1,929</td><td>980</td><td>891</td><td>1,480</td></tr><tr><td class="name">期望值</td><td>+0.21</td><td>+0.11</td><td>+0.34</td><td class="pos">+0.51</td></tr><tr><td class="name">勝率</td><td>35.0%</td><td>33.4%</td><td>34.1%</td><td>29.1%</td></tr></tbody></table></div>
@@ -891,12 +883,22 @@
   </tbody></table></div>
   <p class="cap">「未出」= 資料結束仍持有,以最後收盤計,未實現;不停利那列的 +1.66R 有 11% 是這種部位,在五年多頭 Tech 裡「買了不放」——不是規則。帳戶年化 = 12 檔 × 8% 等權、未扣滑價。「到 +5R 後停損提到 +1R」再次證明鎖利有害。</p>
 
-  <h3 id="tp-sum">三題合起來的結論</h3>
+  <h3 id="tp-tier">主題四:檔位鬆緊有差嗎?五檔對照</h3>
+  <div class="verdict"><p><b>沒有增量 edge。</b>同一套過濾與出場下,最寬的 A(RS ≥ 60、只要價 &gt; MA50、不要求 VCP)跟最緊的 D 一樣好、樣本 4 倍;中間的 B、P 去前 2% 大贏家就歸零。VCP 的細節門檻(收縮次數、最後一腳、量縮、品質分)是雜訊——選 A 或 C 就夠,不必堅持 D。</p></div>
+  <h4>同一套過濾與出場(舊最終規則:產業四類 + 大盤 + pivot_fail + no_progress)</h4>
+  <div class="tbl"><table><thead><tr><th>檔位</th><th>成交</th><th>勝率</th><th>期望值</th><th>中位</th><th>PF</th></tr></thead><tbody><tr><td class="name">A</td><td>2,383</td><td>34.9%</td><td class="pos">+0.45</td><td>-0.52</td><td>1.92</td></tr><tr><td class="name">B</td><td>2,936</td><td>32.7%</td><td class="pos">+0.25</td><td>-0.45</td><td>1.54</td></tr><tr><td class="name">P</td><td>1,354</td><td>32.8%</td><td class="pos">+0.24</td><td>-0.46</td><td>1.5</td></tr><tr><td class="name">C</td><td>1,208</td><td>33.9%</td><td class="pos">+0.31</td><td>-0.40</td><td>1.67</td></tr><tr><td class="name">D</td><td>626</td><td>33.4%</td><td class="pos">+0.42</td><td>-0.47</td><td>1.85</td></tr></tbody></table></div>
+  <h4>paper trade 版(Tech / Materials、新鮮突破、隔日開盤、未扣滑價)</h4>
+  <div class="tbl"><table><thead><tr><th>檔位</th><th>成交</th><th>勝率</th><th>期望值</th><th>中位</th><th>PF</th></tr></thead><tbody><tr><td class="name">A</td><td>407</td><td>34.2%</td><td class="pos">+0.42</td><td>-0.40</td><td>1.94</td></tr><tr><td class="name">C</td><td>195</td><td>29.7%</td><td class="pos">+0.53</td><td>-0.53</td><td>2.12</td></tr></tbody></table></div>
+  <p class="cap">最寬的 A 跟最緊的 D 一樣好、樣本 4 倍;B、P 去前 2% 歸零。<b>VCP 細節門檻沒有增量 edge。</b></p>
+
+  
+<h3 id="tp-sum">三題合起來的結論</h3>
   <ul>
     <li><b>停損 6%、不放寬</b>:放寬只換勝率,不換報酬;不停損砍半。</li>
     <li><b>不做任何鎖利</b>:不保本、不賣半、不設目標、不因回吐出場、不賣進強勢——每一種都輸。</li>
     <li><b>追蹤線可有可無,時間到期不可少</b>:20 日低沒作用;MA50 在 60 根內幾乎不會先觸發;60 根到期讓資金週轉,是帳戶層報酬的來源。</li>
     <li><b>建議把 Playbook 的出場改成「只停損 + 突破失敗 + 時間停損 + 60 根到期」</b>:單筆 +0.50R、帳戶 30.1% / −16.3%,兩項都優於現行,規則還更簡單。心理代價:贏家會從高點吐回一半才到期出場,中位交易 −0.57R。</li>
+    <li><b>檔位不用挑最緊</b>:A 與 D 同樣好,VCP 細門檻是雜訊;樣本多的 A 或有結構的 C 即可。</li>
     <li>這套策略的長相:低勝率、靠尾巴、要抱得住——任何「讓它看起來舒服一點」的動作都在削它。</li>
   </ul>
 
