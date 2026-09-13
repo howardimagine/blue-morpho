@@ -49,7 +49,7 @@
   <a href="#top" class="h">總覽</a>
   <a href="#screen" class="h">篩選方式</a><a href="#screen-book" class="sub">書的原則</a><a href="#screen-funnel" class="sub">五層漏斗</a><a href="#screen-tiers" class="sub">六個檔位</a>
   <a href="#calc" class="h">計算方式</a><a href="#calc-layers" class="sub">三層回測</a><a href="#calc-defs" class="sub">名詞與公式</a><a href="#calc-data" class="sub">資料與限制</a>
-  <a href="#perf" class="h">回測績效</a><a href="#perf-s1" class="sub">篩選層(逐年)</a><a href="#perf-exit" class="sub">出場變體(逐年)</a><a href="#perf-filter" class="sub">過濾變體(逐年)</a><a href="#perf-tier" class="sub">五檔對照</a><a href="#perf-slice" class="sub">RS / 產業 / 大盤</a><a href="#perf-port" class="sub">部位層</a>
+  <a href="#perf" class="h">回測績效</a><a href="#perf-s1" class="sub">篩選層(逐年)</a><a href="#perf-exit" class="sub">出場變體(逐年)</a><a href="#perf-filter" class="sub">過濾變體(逐年)</a><a href="#perf-tier" class="sub">五檔對照</a><a href="#perf-slice" class="sub">RS / 產業 / 大盤</a><a href="#perf-l2" class="sub">L2 基本面(逐年)</a><a href="#perf-port" class="sub">部位層</a>
   <a href="#playbook" class="h">Playbook</a><a href="#pb-screen" class="sub">篩選</a><a href="#pb-entry" class="sub">進場</a><a href="#pb-exit" class="sub">出場</a><a href="#pb-size" class="sub">配資</a><a href="#pb-limits" class="sub">限制</a>
   <a href="#process" class="h">測試與修正過程</a>
   <div class="foot">資料 2021-09 → 2026-09<br>2,228 檔 · 基準 SPY<br>2026-09-13</div>
@@ -61,6 +61,7 @@
   <p class="lede">把 Mark Minervini 的 SEPA 寫成規則,用 2,228 檔美股五年日 K 回放。這份手冊只留四件事:怎麼篩、怎麼算、結果(全部分年)、最後建議怎麼做。測試與修正的過程收在最後一節。</p>
   <div class="verdict">
     <p><b>結論。</b>機械化的 SEPA 在可執行條件下只有 +0.05R;出場改回書的原意、避開盤整轉弱、只做強勢產業後到 +0.42R——但 edge 幾乎全在前 2% 的大贏家,而且要 12 檔以上的分散才能在帳戶層實現(6 檔集中年化 0.1%,12 檔等權 22–26%)。</p>
+    <p><b>基本面(第二要素)補測後</b>:四條全過的交易期望值高一倍,但勝率只多 1–5 點、樣本剩 1/10、逐年不穩;「加速」單獨反向。基本面提高的是贏家幅度,不是贏的次數。</p>
     <p><b>建議的 paper trade 版</b>:560 筆、勝率 34%、扣滑價 +0.42R、獲利因子 1.9、五年四年正、12 檔等權年化 25.9% / 最大回撤 −25%。倖存者偏差沒修,當上限看。</p>
   </div>
   <div class="kpis">
@@ -85,13 +86,13 @@
   <div class="tbl"><table><thead><tr><th>層</th><th class="note">條件</th><th class="note">對應</th><th>今日</th></tr></thead><tbody>
     <tr><td class="name">L0 宇宙</td><td class="note">NASDAQ / NYSE / AMEX,市值 ≥ 3 億、價 ≥ $5、日均量 ≥ 20 萬</td><td class="note">可交易性</td><td>2,228</td></tr>
     <tr><td class="name">L1 趨勢</td><td class="note">趨勢樣板 8 條;RS = 全宇宙百分位(0.4×3 月 + 0.2×6 月 + 0.2×9 月 + 0.2×12 月報酬)</td><td class="note">①</td><td>~290</td></tr>
-    <tr><td class="name">L2 基本面</td><td class="note">最新季營收 YoY ≥ 20%、EPS YoY ≥ 25%、加速、毛利 ≥ 30%</td><td class="note">②(門檻自定)</td><td>~55</td></tr>
+    <tr><td class="name">L2 基本面</td><td class="note">最新季營收 YoY ≥ 20%、EPS YoY ≥ 25%、加速(本季 YoY &gt; 上季)、毛利 ≥ 30%</td><td class="note">②(門檻自定;回測用時點財報事後切片,見績效 L2 節)</td><td>~55</td></tr>
     <tr><td class="name">L3 催化</td><td class="note">RS ≥ 80、距高 15%、剔除單日漲 &gt;25% 事件股、產業 ≤ 30%</td><td class="note">③ 的代理(書沒這些數字)</td><td>~33</td></tr>
     <tr><td class="name">L4 VCP</td><td class="note">65 日內擺動高低 → 收縮序列 ≥ 2 次(每次 ≤ 前次 × 0.75)、量縮、品質分 ≥ 50、現價在 pivot 下方 10% 內</td><td class="note">④(參數自定)</td><td>~10</td></tr>
   </tbody></table></div>
 
   <h3 id="screen-tiers">回測用的六個檔位</h3>
-  <p>線上門檻是「書 + 判斷」定的。回測把技術面拆成六檔,每往下只收緊一兩個維度。<b>財報層不進回測</b>(沒有時點財報,放進去就是偷看)。</p>
+  <p>線上門檻是「書 + 判斷」定的。回測把技術面拆成六檔,每往下只收緊一兩個維度。財報層不進檔位定義;改用<b>時點財報</b>(每檔 40 季、以申報日對齊 setup 日)在事後把同一批交易切成「L2 過 / 不過」比較——這樣不偷看未來,也能量出第二要素值多少。</p>
   <div class="tbl"><table><thead><tr><th>檔位</th><th>RS</th><th>趨勢</th><th>距 52 週高</th><th>VCP 次</th><th>最後一腳</th><th>量縮</th><th>距 pivot</th><th>Q</th><th>事件股</th></tr></thead><tbody>
     <tr><td class="name">寬 A</td><td>≥ 60</td><td>價 &gt; MA50</td><td>≤ 25%</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>不擋</td></tr>
     <tr><td class="name">寬 B</td><td>≥ 70</td><td>MA50 &gt; 150</td><td>≤ 25%</td><td>≥ 1</td><td>&lt; 15%</td><td>—</td><td>≥ −8%</td><td>—</td><td>不擋</td></tr>
@@ -136,7 +137,7 @@
     <tr><td class="name">日 K</td><td class="note">yfinance 調整後,2021-09 → 2026-09</td><td class="note">髒點 31 筆訊號(0.08%)</td></tr>
     <tr><td class="name">基準</td><td class="note">SPY 調整後收盤</td><td class="note">—</td></tr>
     <tr><td class="name">產業</td><td class="note">FMP sector,今日值</td><td class="note">分類可能變過</td></tr>
-    <tr><td class="name">財報</td><td class="note">只有最新一季</td><td class="note">L2 不進回測</td></tr>
+    <tr><td class="name">財報(時點)</td><td class="note">FMP 季報 40 季 × 2,268 檔,含申報日;setup 日只用「申報日 ≤ 當天」的最新季算 YoY、加速、毛利</td><td class="note">7–23 筆 setup 無資料;EPS 去年同季 ≤ 0 時 YoY 無定義(轉正視為通過)</td></tr>
     <tr><td class="name">時間</td><td class="note">RS 暖機 252 根 → 訊號 2022-09 起</td><td class="note">一段週期;2022 只有尾巴</td></tr>
   </tbody></table></div>
 
@@ -183,6 +184,25 @@
     <tr><td class="note">SPY &gt; 200MA 且 50 &gt; 200 / SPY &gt; 50MA</td><td class="note">沒幫助 / 2022 更差</td></tr>
   </tbody></table></div>
 
+
+  <h3 id="perf-l2">L2 基本面(時點財報,同一批交易事後切片)</h3>
+  <p>對三個交易池,依 setup 當天看得到的最新季報分組。「我們的 L2」= 營收 YoY ≥ 20% 且 EPS YoY ≥ 25% 且加速且毛利 ≥ 30%(線上雷達現行);「書的 L2」= EPS 或營收任一達標且加速。</p>
+  <div class="tbl"><table><thead><tr><th>池 / 分組</th><th>n</th><th>勝率</th><th>期望值</th><th>PF</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2026</th></tr></thead><tbody>
+    <tr><td class="name">全樣本(第 1 步出場)· 我們的 L2 過</td><td>1,118</td><td>30.9%</td><td class="pos">+0.27</td><td>1.43</td><td class="neg">−0.33</td><td>+0.06</td><td class="pos">+0.59</td><td class="pos">+0.78</td><td class="neg">−0.22</td></tr>
+    <tr><td class="name">　　　　　　　　　　　不過</td><td>15,104</td><td>29.8%</td><td>+0.15</td><td>1.24</td><td>−0.07</td><td>+0.16</td><td>+0.22</td><td>+0.17</td><td>+0.06</td></tr>
+    <tr class="hl"><td class="name">K3 池 · 我們的 L2 過</td><td>385</td><td>32.5%</td><td class="pos">+0.65</td><td>2.20</td><td class="neg">−0.62</td><td>+0.36</td><td class="pos">+1.04</td><td class="pos">+1.30</td><td>+0.18</td></tr>
+    <tr><td class="name">　　　　不過</td><td>4,817</td><td>31.6%</td><td>+0.30</td><td>1.60</td><td>0.00</td><td>+0.25</td><td>+0.32</td><td>+0.42</td><td>+0.28</td></tr>
+    <tr class="hl"><td class="name">paper trade 池 · 我們的 L2 過</td><td>58</td><td>36.2%</td><td class="pos">+0.98</td><td>3.13</td><td class="neg">−1.08 (2)</td><td>+0.41</td><td class="pos">+1.35</td><td class="pos">+2.40</td><td class="neg">−0.67 (8)</td></tr>
+    <tr><td class="name">　　　　　　　不過</td><td>495</td><td>31.7%</td><td>+0.35</td><td>1.76</td><td>−0.09</td><td>+0.25</td><td>+0.45</td><td>+0.22</td><td>+0.63</td></tr>
+  </tbody></table></div>
+  <div class="tbl"><table><thead><tr><th>單一條件(全樣本 / K3 / paper 期望值)</th><th>通過</th><th>不通過</th><th class="note">讀法</th></tr></thead><tbody>
+    <tr><td class="name">書的 L2(EPS 或營收 + 加速)</td><td>+0.15 / +0.35 / +0.32</td><td>+0.17 / +0.31 / +0.47</td><td class="note"><b>沒有幫助</b>,paper 池反而較差</td></tr>
+    <tr><td class="name">EPS YoY ≥ 25%(或轉正)</td><td>+0.19 / +0.41 / +0.53</td><td>+0.15 / +0.27 / +0.34</td><td class="note">三池一致較好,幅度中等</td></tr>
+    <tr><td class="name">加速(本季 YoY &gt; 上季)</td><td>+0.12 / +0.28 / +0.32</td><td>+0.22 / +0.40 / +0.57</td><td class="note"><b>反向</b>:不加速的反而好——書最強調的一條在機械化後不成立</td></tr>
+    <tr><td class="name">毛利 ≥ 30%</td><td>+0.10 / +0.33 / +0.50</td><td>+0.27 / +0.33 / +0.27</td><td class="note">方向不一致</td></tr>
+    <tr><td class="name">EPS 為正 vs 虧損</td><td>+0.13 / +0.28 / +0.38</td><td>+0.24 / +0.46 / +0.49</td><td class="note">虧損股勝率低 6–8 點,但期望值更高(右尾更肥)</td></tr>
+  </tbody></table></div>
+  <p class="cap"><b>讀法</b>:四條合起來的嚴格 L2 能挑出一小群期望值高一倍的交易(三池方向一致),但拆開看只有「EPS ≥ 25%」單獨有效,「加速」反向、「毛利」不穩、書的寬版沒差——合起來有效可能是因為條件疊到只剩最強的成長股,不是每一條都在貢獻。勝率只多 1–5 點:<b>基本面提高的是贏家的幅度,不是贏的次數</b>。逐年不穩(2022、2026 負),樣本 58–385 筆。作為篩選:可以當加權排序、不建議當硬閘門(會把 paper 池砍到 58 筆)。</p>
   <h3 id="perf-port">Ⅲ 部位層</h3>
   <div class="tbl"><table><thead><tr><th class="note">交易池</th><th class="note">配資</th><th>成交</th><th>年化</th><th>最大回撤</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2026</th></tr></thead><tbody>
     <tr><td class="note">緊 D + 四類 + 出場</td><td class="note">6 檔 × 10%,+1R 加到 25%,連敗縮曝險(書)</td><td>232</td><td class="neg">0.1%</td><td>−17.5%</td><td>−8</td><td>−2</td><td>+17</td><td>−4</td><td>−1</td></tr>
@@ -202,7 +222,8 @@
     <tr><td class="name">趨勢</td><td class="note">A 檔:價 &gt; MA50、RS ≥ 60、距 52 週高 ≤ 25%;或 C 檔:趨勢樣板 8 條、RS ≥ 80、距高 ≤ 15%</td><td class="note">書①;五檔對照 A ≈ D,樣本 4 倍</td></tr>
     <tr><td class="name">型態</td><td class="note">A 不要求;C 要 VCP ≥ 2 次、最後一腳 &lt; 10%、量縮 ≥ 0、現價距 pivot ≥ −5%</td><td class="note">書④;細門檻是雜訊,只留結構</td></tr>
     <tr><td class="name">產業</td><td class="note">Technology,可加 Basic Materials;<b>每年初用前 12 個月各產業期望值重選</b></td><td class="note">產業表;Energy 五年皆負</td></tr>
-    <tr><td class="name">不加</td><td class="note">RS 更高、VCP 更細、品質分、連續天數</td><td class="note">RS 不單調;VCP 無增量 edge</td></tr>
+    <tr><td class="name">基本面</td><td class="note">EPS YoY ≥ 25%(或去年虧損本季轉正)當<b>排序加權</b>,不當閘門;營收 ≥ 20% 且加速且毛利 ≥ 30% 全過的優先</td><td class="note">L2 切片:四條全過 +0.65~+0.98R 但只剩 1/10 樣本;加速單獨反向、毛利不穩</td></tr>
+    <tr><td class="name">不加</td><td class="note">RS 更高、VCP 更細、品質分、連續天數、「加速」當硬條件</td><td class="note">RS 不單調;VCP 無增量 edge;加速反向</td></tr>
   </tbody></table></div>
 
   <h3 id="pb-entry">二、進場</h3>
@@ -228,7 +249,7 @@
   <ul><li>12 檔 × 8% 等權;不加碼、不因連敗縮曝險。</li><li>單筆風險 ≈ 0.5% 帳戶;滿倉最大同時風險 6%。</li><li>預期:中位交易 −0.45R、最長連虧 ~24 筆、連續 6 個月為負是常態、年度報酬幾乎全來自兩三個月。</li></ul>
 
   <h3 id="pb-limits">五、限制</h3>
-  <ol><li>倖存者偏差沒修:所有期望值當上限,真實前瞻估 +0.10~+0.30R。</li><li>去前 2% 大贏家只剩 +0.06R:任何一年沒抓到那幾檔就是平的。</li><li>產業條件是這五年的週期,每年重選。</li><li>規則是 40+ 變體裡挑的,p 值是挑完才算;要三個月 out-of-sample。</li><li>只有一段週期,真正熊市未知。</li><li>書的一半(盤中判斷、賣進強勢、類股領先、財報迴避)沒模擬。</li><li>財報層不在內。</li><li>賺的可能不是 VCP:A 檔(不要求 VCP)一樣好,財報跳空日 +1.45R。</li></ol>
+  <ol><li>倖存者偏差沒修:所有期望值當上限,真實前瞻估 +0.10~+0.30R。</li><li>去前 2% 大贏家只剩 +0.06R:任何一年沒抓到那幾檔就是平的。</li><li>產業條件是這五年的週期,每年重選。</li><li>規則是 40+ 變體裡挑的,p 值是挑完才算;要三個月 out-of-sample。</li><li>只有一段週期,真正熊市未知。</li><li>書的一半(盤中判斷、賣進強勢、類股領先、財報迴避、催化劑)沒模擬。</li><li>財報層只做事後切片(時點財報),沒進回放的檔位定義;L2 過的樣本少且逐年不穩。</li><li>賺的可能不是 VCP:A 檔(不要求 VCP)一樣好,財報跳空日 +1.45R。</li></ol>
 
   <h2 id="process">測試與修正過程(收起)</h2>
   <details><summary>第一版第二層回測與三方對抗審查(09-11 → 09-12)</summary>
@@ -249,10 +270,12 @@
       <tr><td class="note">停損執行 / RS 前視 / 量能 / 髒資料</td><td class="pos">無</td><td class="note">停損改收盤成交無差;RS 分母正確;量比最大 13.5×;髒點 0.08%</td><td class="note">過關</td></tr>
     </tbody></table></div>
   </details>
+  <details><summary>L2 時點財報補測(09-13)</summary><p>FMP <code>income-statement?period=quarter&amp;limit=40</code>(Starter 可用)抓 2,268 檔 × 40 季含申報日 → <code>backtest/fund_pit.sqlite</code>(<code>scripts/build_fund_pit.py</code>,10 分鐘)。對 paper / K3 / 全樣本三池,setup 日只用申報日 ≤ 當天的最新季算 YoY、加速、毛利,事後分組。結果見績效 L2 節。</p></details>
   <details><summary>程式與檔案</summary>
     <ul><li>Ⅰ <code>agents/tier_backtest.py</code> · <code>scripts/run_tier_backtest.py --bars-db backtest/bars_5y.sqlite</code></li>
     <li>Ⅱ <code>agents/trade_sim.py</code> · <code>scripts/run_trade_sim.py --fresh --fill open --sectors "Technology,Basic Materials" --tiers A,C --spy20-min 0 --overheat 10 --pivot-fail 5 --no-progress 20</code></li>
     <li>Ⅲ <code>agents/portfolio_sim.py</code> · <code>scripts/run_portfolio_sim.py --max-pos 12 --size0 0.08 --no-add --no-feedback</code></li>
+    <li>L2 時點財報:<code>scripts/build_fund_pit.py</code> → <code>backtest/fund_pit.sqlite</code></li>
     <li>指標與 VCP:<code>agents/minervini.py</code>(與線上雷達同源);自檢 <code>tests/test_{tier_backtest,trade_sim,minervini}.py</code></li>
     <li>規格 <code>reports/tier_backtest_規格.md</code>;審查 <code>sepa_advisory_plan_20260912.md</code>;各變體原始表 <code>reports/trade_sim_20260913_*.md</code></li></ul>
   </details>
