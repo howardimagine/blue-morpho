@@ -281,6 +281,10 @@
       font-family: var(--font-mono); font-size: var(--fs-sm); letter-spacing: .04em; color: var(--on-accent); background: var(--accent); text-decoration: none; box-shadow: 0 4px 16px rgba(0,0,0,.28); }
     .bt-fab:hover { filter: brightness(1.12); }
     @media (max-width: 768px) { .bt-fab { bottom: calc(var(--nav) + 12px); right: 12px; } }
+    dialog#rules { border: 1px solid var(--border); border-radius: 8px; background: var(--bg-card); color: var(--text-primary); padding: 0; max-width: 560px; width: calc(100% - 32px); }
+    dialog#rules::backdrop { background: rgba(0,0,0,.55); }
+    .rl { padding: 18px 20px 16px; } .rl-h { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; } .rl-h b { font-size: var(--fs-lg); } .rl-h span { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--dim); flex: 1; }
+    .rl ol { padding-left: 20px; margin: 0; font-size: var(--fs-md); line-height: 1.7; } .rl li { margin: 6px 0; } .rl-f { margin-top: 12px; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--dim); line-height: 1.6; }
     .mnav { display: none; }
     @media (max-width: 768px) {
       :root { --sw-h: 26px; --sw-w: 46px; --hdr: 54px; --nav: calc(56px + env(safe-area-inset-bottom)); --ctl-sm: 36px; --ctl-md: 42px; --tag-h: 20px; --fs-xs: 12.5px; --fs-sm: 14px; --fs-md: 16px; --fs-lg: 19px; }
@@ -291,7 +295,7 @@
       .rd-head > div:first-child { min-width: 0; } .rd-brand { font-size: .56rem; letter-spacing: .14em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
       .rd-h1 { font-size: .9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .rd-h1 span { display: none; }
       #hdr-tools .theme-btn { padding: 0 10px; font-size: 14px; }
-      #hdr-tools { gap: 6px; flex-shrink: 0; } #meta { display: none; } #refresh { display: none !important; }
+      #hdr-tools { gap: 6px; flex-shrink: 0; } #meta { display: none; } #refresh { display: none !important; } #rules-btn { display: none; }
       .rd { padding: calc(var(--hdr) + 10px) 12px calc(var(--nav) + 16px); margin-right: 0; }
       #qbanner { margin: 0 0 10px; padding: 8px 10px; font-size: 11px; line-height: 1.5; } 
       body:not([data-m="funnel"]) .fn-card, body:not([data-m="params"]) .pm-card, body:not([data-m="funnel"]) #qbanner, body:not([data-m="funnel"]) .rd-foot { display: none; }
@@ -347,6 +351,7 @@
       <div class="rd-meta" id="meta">載入中…</div>
     </div>
     <div style="display:flex;align-items:center;gap:12px" id="hdr-tools">
+      <button class="btn" id="rules-btn" title="停損停利守則">守則</button>
       <button class="btn" id="refresh" title="在本機後台觸發重掃(全掃 → 推網站,約 1–4 分鐘)" hidden>⟳ 更新資料</button>
     </div>
   </header>
@@ -355,6 +360,22 @@
   <div id="app" class="loading">RADAR INITIALIZING…</div>
 
   <a class="bt-fab" href="backtest.html" title="五年回測手冊:篩選 / 計算 / 逐年績效 / Playbook">回測報告 ↗</a>
+  <dialog id="rules">
+    <div class="rl">
+      <div class="rl-h"><b>停損停利守則</b><span>v4 · 依五年回測(手冊 主題分析)</span><button class="btn ghost" id="rules-x">關閉</button></div>
+      <ol>
+        <li><b>只在新鮮突破進場</b>:前一天收盤仍在 pivot 下、當天收盤站上 pivot × 1.005 且量 ≥ 50 日均量 × 1.5。已經站上兩天以上的不追(追高 +0.31R vs 新鮮 +1.04R)。</li>
+        <li><b>隔日開盤買</b>,不用盤中 pivot 價當成本。大盤 20 日報酬 &lt; 0 不開新倉;SPY 高於 200 日線 &gt; 10% 部位減半。</li>
+        <li><b>停損 −6%</b>,跳空開低用開盤價。不放寬(8–10% 只換勝率不換報酬)、不縮(不停損砍半)。</li>
+        <li><b>突破後 5 根內收盤跌回 pivot 且量 ≥ 均量 → 隔日開盤出</b>(走勢不對就砍)。</li>
+        <li><b>20 根仍未曾到 +1R → 隔日開盤出</b>(時間停損)。</li>
+        <li><b>60 根到期收盤出</b>。到期的作用是把資金還給下一個訊號;不追蹤線、不移保本、不賣半、不設目標、不賣進強勢——這五種鎖利在回測裡每一種都輸。</li>
+        <li><b>12 檔 × 8% 等權</b>,單筆風險 ≈ 帳戶 0.5%;不加碼、不因連敗縮曝險。</li>
+        <li><b>預期的長相</b>:勝率 ~31%、中位交易 −0.5R、最長連虧 ~24 筆、一年賺的集中在兩三個月;倖存者偏差未修,回測數字當上限。</li>
+      </ol>
+      <div class="rl-f">人要看的:市場廣度、類股是否同步、這是第幾個底、突破頭三天走勢、財報日 —— 見手冊 Playbook「人為判斷要求」。</div>
+    </div>
+  </dialog>
   <nav class="mnav" id="mnav" aria-label="手機分頁">
     <button data-m="list" class="on">名單<b id="mn-l4"></b></button>
     <button data-m="track">觀察池</button>
@@ -378,7 +399,7 @@
   </footer>
 </div>
 
-<script src="funnel.js?v=20260912a"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
+<script src="funnel.js?v=20260914a"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 (async function () {
@@ -525,7 +546,7 @@
   }
   $('#reset').onclick = () => { P = baseParams(); persist(); syncControls(); recompute(); };
   // 版本切換鈕(header)
-  const VLABEL = { v1: 'v1.0 原版', v2: 'v2.0 強力拉升直通', v3: 'v3.0 寬(照書放寬上游)' };
+  const VLABEL = { v1: 'v1.0 原版', v2: 'v2.0 強力拉升直通', v3: 'v3.0 寬(照書放寬上游)', v4: 'v4.0 回測版' };
   const vwrap = document.createElement('select'); vwrap.id = 'versel'; vwrap.className = 'hdr-sel';
   vwrap.title = '切換規則版本(v1.0 = 趨勢樣板 8 條 + VCP;v2.0 = 加上強力拉升直通)';
   vwrap.innerHTML = VERS.map(v => `<option value="${v}" ${v === ver ? 'selected' : ''}>${matchMedia('(max-width: 768px)').matches ? (VLABEL[v] || v).split(' ')[0] : (VLABEL[v] || v)}</option>`).join('');
@@ -553,7 +574,9 @@
     // 資料品質併進標題下那行(短);只有 DEGRADED 才另出橫幅
     const why = (q.why || []).join('、');
     const qtxt = v === 'ok' ? '資料品質 OK' : v === 'warn' ? `資料品質 <span class="warn">${why || '部分落後'}</span>` : '<span class="warn">資料品質 DEGRADED</span>';
-    $('#meta').insertAdjacentHTML('beforeend', ' · ' + qtxt);
+    const mk = data.market;
+    const mtxt = !mk ? '' : mk.state === 'weak' ? `<span class="warn">大盤 盤整轉弱(20 日 ${mk.r20 > 0 ? '+' : ''}${mk.r20}%)— 不進新倉</span>` : mk.state === 'hot' ? `<span class="warn">大盤 過熱(高於 200 日線 +${mk.above200}%)— 部位減半</span>` : `大盤 OK(20 日 ${mk.r20 > 0 ? '+' : ''}${mk.r20}% · 高於 200 日線 ${mk.above200 > 0 ? '+' : ''}${mk.above200}%)`;
+    $('#meta').insertAdjacentHTML('beforeend', ' · ' + qtxt + (mtxt ? ' · ' + mtxt : ''));
     $('#fn-meta').innerHTML = $('#meta').innerHTML;
     if (v === 'degraded') { b.hidden = false; b.classList.add('bad'); b.innerHTML = `<b>DEGRADED</b> —— yfinance 限流,${q.universe - q.fresh} 檔沒有當日收盤,不進 L1、不排 RS;名單不完整`; }
   })();
@@ -688,7 +711,9 @@
       const dEarn = m.e && m.e.next ? (Date.parse(m.e.next) - Date.parse(data.date)) / 864e5 : null;
       const flags = [R.tag && R.tag[m.s] === 'pp' ? '<span class="flag pp" title="強力拉升直通:8 週內翻倍後緊整理,略過 c2/c3/c4 與連續天數">PP 直通</span>' : '',
         v && v.bo && lv >= 3 ? '<span class="flag bo">突破</span>' : '', (m.gap || 0) > P.catalyst.max_single_day_gap_pct ? '<span class="flag ev">事件</span>' : '',
-        dEarn != null && dEarn >= 0 && dEarn <= P.catalyst.earnings_within_days ? `<span class="flag er">財報 ${m.e.next.slice(5)}</span>` : '', m.rsp ? '<span class="flag">新股</span>' : ''].join('');
+        dEarn != null && dEarn >= 0 && dEarn <= P.catalyst.earnings_within_days ? `<span class="flag er">財報 ${m.e.next.slice(5)}</span>` : '', m.rsp ? '<span class="flag">新股</span>' : '',
+        (P.catalyst.sector_fav || []).includes(m.sec) ? '<span class="flag bo" title="回測 2022–26 期望值為正的產業(每年重看)">產業有利</span>' : (P.catalyst.sector_unfav || []).includes(m.sec) ? '<span class="flag ev" title="回測期望值為負的產業">產業不利</span>' : '',
+        P.fundamental.tag_only && m.f && m.f.ok ? ((m.f.rev_g >= P.fundamental.rev_growth_min && (m.f.eps_g >= P.fundamental.eps_growth_min || m.f.turn) && (m.f.gm ?? 1) >= P.fundamental.gross_margin_min) ? '<span class="flag pp" title="營收、EPS、毛利全過:回測期望值高一倍">強成長</span>' : (m.f.eps_g >= P.fundamental.eps_growth_min || m.f.turn) ? '<span class="flag" title="EPS YoY ≥ 25%(或轉正):回測單獨有效">盈餘</span>' : '') : ''].join('');
       return `<div class="row" data-s="${m.s}">
         <div class="r1"><span class="sym">${m.s}</span><span class="lv lv${lv}">L${lv}</span>${m.st > 0 ? `<span class="kd" title="沒有 ${data.date} 的收盤,最後 K 線 ${m.d}">K線 ${m.d.slice(5)}</span>` : ''}${flags}
           <span class="num"><span>RS <b class="${m.rs >= 90 ? 'pos' : ''}">${fmt(m.rs, 0)}</b></span><span>距高 <b class="${dh != null && dh > -5 ? 'pos' : ''}">${sgn(dh)}</b></span><span>VCP <b class="${v && v.q >= P.vcp.min_quality ? 'pos' : ''}">${v ? `${v.n}次·Q${v.q}` : '—'}</b></span></span></div>
@@ -707,13 +732,15 @@
   // ── Sidebar 第 3 頁:觀察池(過四關的票 + 突破追蹤 + 成功率)──────────
   function showTrack() { $('#pg-list').hidden = true; $('#pg-detail').hidden = true; $('#pg-track').hidden = false; if (chart) { chart.remove(); chart = null; } curSym = null; setWide(true); renderTrack(); }
   let tkSort = { k: 'date', d: -1 }, tkF = 'all', tkB = 'entry';   // 觀察池:排序 / 狀態篩選 / 報酬基準(過關日 or 突破日)
-  const ST = { wait: ['等待', ''], trig: ['已觸發', 'pos'], void: ['作廢', 'neg'], expired: ['過期', ''] };
+  const ST = { wait: ['等待', ''], trig: ['已觸發', 'pos'], open: ['持有中', 'pos'], exit: ['已出場', ''], void: ['作廢', 'neg'], expired: ['過期', ''] };
+  const XR = { stop: '停損', pivot_fail: '突破失敗', no_progress: '時間停損', time: '到期' };
   function renderTrack() {
-    const pg = $('#pg-track'), all = (track && track.entries || []).filter(e => e.p === ver);
+    const pg = $('#pg-track'), all = (track && track.entries || []).filter(e => e.p === ver), sm = (track && track.summary || {})[ver];
     const pc = x => x == null ? '—' : `<span class="${x > 0 ? 'up' : x < 0 ? 'dn' : ''}">${x > 0 ? '+' : ''}${x.toFixed(1)}%</span>`;
     const cnt = k => all.filter(e => e.status === k).length;
     let es = tkF === 'all' ? all.slice() : tkF === 'dead' ? all.filter(e => e.status === 'void' || e.status === 'expired') : all.filter(e => e.status === tkF);
-    if (tkB === 'trig') es = es.filter(e => e.status === 'trig');
+    if (tkB === 'trig') es = es.filter(e => ['trig', 'open', 'exit'].includes(e.status));
+    const V4 = P.vcp.exit_mode === 'v4';
     // 成功率照目前篩選 + 基準算:基準=突破日時只算已觸發的(書的進場點),其餘是「沒扣扳機」不算輸
     const R_ = e => tkB === 'trig' ? e.ret_t : e.ret, B_ = e => tkB === 'trig' ? e.best_t : e.best;
     const rs = es.map(R_).filter(x => x != null).sort((a, b) => a - b), n = rs.length, win = rs.filter(x => x > 0).length;
@@ -721,15 +748,16 @@
     const nz = (x, f) => x == null ? '—' : f(x);
     const chip = (k, n_) => `<button class="lv-tab ${tkF === k ? 'on' : ''}" data-f="${k}">${n_}<b>${k === 'all' ? all.length : k === 'dead' ? cnt('void') + cnt('expired') : cnt(k)}</b></button>`;
     pg.innerHTML = `<div class="dt-h tk-h"><button class="back" id="back-tk">← 返回名單</button><div class="tk-title">觀察池<small>${VLABEL[ver] || ver}</small></div>
-      <div class="tk-desc">過四關 = 拿到一張觀察票(記下當天的 pivot),之後不論還在不在 L4 都盯著:收盤站上 pivot 且放量 = <b>觸發</b>(書的進場點);失效 = ${P.vcp.void_mode === 'last_low' ? '跌破最後一腿低點' : '跌到 pivot −' + P.vcp.max_below_pivot_pct + '%'}(作廢)或 ${P.vcp.watch_expire_bars || 40} 個交易日沒觸發(過期) · 資料到 ${track && track.date || '—'}</div></div>
-      <div class="tk-bar"><div class="lv-tabs">${chip('all', '全部')}${chip('wait', '等待')}${chip('trig', '已觸發')}${chip('dead', '失效')}</div>
+      <div class="tk-desc">${V4 ? `<b>v4 照回測策略結算</b>:新鮮突破(前一天收盤仍在 pivot 下、收盤站上 pivot 且放量)→ 隔日開盤進場 → −${P.vcp.stop_pct}% 停損 / ${P.vcp.pivot_fail_bars} 根內收破 pivot 帶量 / ${P.vcp.no_progress_bars} 根未達 +1R / ${P.vcp.hold_max_bars} 根到期;不追蹤、不保本。R = 賺賠 ÷ 初始風險,已扣 0.2% 成本。<button class="btn" id="rules-btn2" style="margin-left:8px">守則</button> · ` : ''}過四關 = 拿到一張觀察票(記下當天的 pivot),之後不論還在不在 L4 都盯著:收盤站上 pivot 且放量 = <b>觸發</b>(書的進場點);失效 = ${P.vcp.void_mode === 'last_low' ? '跌破最後一腿低點' : '跌到 pivot −' + P.vcp.max_below_pivot_pct + '%'}(作廢)或 ${P.vcp.watch_expire_bars || 40} 個交易日沒觸發(過期) · 資料到 ${track && track.date || '—'}</div></div>
+      <div class="tk-bar"><div class="lv-tabs">${chip('all', '全部')}${chip('wait', '等待')}${V4 ? chip('open', '持有中') + chip('exit', '已出場') : chip('trig', '已觸發')}${chip('dead', '失效')}</div>
         <div class="lv-tabs"><span class="tk-lab">報酬基準</span><button class="lv-tab ${tkB === 'entry' ? 'on' : ''}" data-b="entry">過關日</button><button class="lv-tab ${tkB === 'trig' ? 'on' : ''}" data-b="trig">突破日</button></div></div>
       <div class="tk-sum"><div><div class="k">${tkB === 'trig' ? '已觸發筆數' : '筆數'}</div><div class="v">${n}</div></div><div><div class="k">勝率(現在 > 進場)</div><div class="v ${n && win / n >= .5 ? 'pos' : ''}">${n ? Math.round(win / n * 100) + '%' : '—'}<small>${win}/${n}</small></div></div><div><div class="k">平均報酬 / 中位</div><div class="v">${n ? pc(rs.reduce((a, b) => a + b, 0) / n) : '—'}<small>中位 ${n ? (rs[n >> 1] > 0 ? '+' : '') + rs[n >> 1] + '%' : '—'}</small></div></div><div><div class="k">平均最佳</div><div class="v">${bestAvg == null ? '—' : pc(bestAvg)}<small>曾達 +10%:${es.filter(e => (B_(e) ?? 0) >= 10).length} 筆</small></div></div></div>
-      <div class="dt-body">${es.length ? `<table class="tk"><thead><tr>${[['s', '代號'], ['status', '狀態'], ['date', '過關日'], ['piv', 'Pivot'], ['trig_date', '觸發日'], [tkB === 'trig' ? 'ret_t' : 'ret', '報酬'], [tkB === 'trig' ? 'best_t' : 'best', '最佳'], [tkB === 'trig' ? 'days_t' : 'days', '天數']].map(([k, n_]) => `<th data-k="${k}" class="${tkSort.k === k ? 'on' : ''}">${n_}<i>${tkSort.k === k ? (tkSort.d < 0 ? '▼' : '▲') : '▽'}</i></th>`).join('')}</tr></thead><tbody>
-      ${es.sort((a, b) => { const x = a[tkSort.k], y = b[tkSort.k]; return (typeof x === 'string' || typeof y === 'string' ? String(x ?? '') < String(y ?? '') ? -1 : String(x ?? '') > String(y ?? '') ? 1 : 0 : (x ?? -1e9) - (y ?? -1e9)) * tkSort.d; }).map(e => `<tr data-s="${e.s}"><td><b>${e.s}</b><span class="nm">${esc(e.name || '')}</span></td><td><span class="lv ${ST[e.status][1]}" style="border-color:currentColor">${ST[e.status][0]}</span></td><td>${e.date}<span class="nm">${e.px == null ? '等隔日開盤' : CUR + fmt(e.px, 2)}</span></td><td>${e.piv == null ? '—' : CUR + fmt(e.piv, 2)}</td><td>${e.trig_date ? e.trig_date + `<span class="nm">${e.trig_px == null ? '等隔日開盤' : CUR + fmt(e.trig_px, 2)}</span>` : e.void_date ? `<span class="nm">作廢 ${e.void_date}</span>` : '—'}</td><td>${pc(R_(e))}</td><td>${pc(B_(e))}</td><td>${tkB === 'trig' ? (e.days_t ?? '—') : e.days}</td></tr>`).join('')}</tbody></table>`
+      ${V4 && sm && sm.closed && sm.closed.n ? `<div class="tk-sum"><div><div class="k">已出場</div><div class="v">${sm.closed.n}<small>持有中 ${(sm.status || {}).open || 0}</small></div></div><div><div class="k">勝率</div><div class="v ${sm.closed.win / sm.closed.n >= .5 ? 'pos' : ''}">${Math.round(sm.closed.win / sm.closed.n * 100)}%<small>${sm.closed.win}/${sm.closed.n}</small></div></div><div><div class="k">期望值</div><div class="v ${sm.closed.exp_r > 0 ? 'pos' : 'neg'}">${sm.closed.exp_r > 0 ? '+' : ''}${sm.closed.exp_r}R</div></div><div><div class="k">獲利因子</div><div class="v">${sm.closed.pf ?? '—'}</div></div></div>` : ''}
+      <div class="dt-body">${es.length ? `<table class="tk"><thead><tr>${[['s', '代號'], ['status', '狀態'], ['date', '過關日'], ['piv', 'Pivot'], ['trig_date', '觸發日'], [tkB === 'trig' ? 'ret_t' : 'ret', '報酬'], [tkB === 'trig' ? 'best_t' : 'best', '最佳'], [tkB === 'trig' ? 'days_t' : 'days', '天數'], ...(V4 ? [['exit_d', '出場'], ['r', 'R']] : [])].map(([k, n_]) => `<th data-k="${k}" class="${tkSort.k === k ? 'on' : ''}">${n_}<i>${tkSort.k === k ? (tkSort.d < 0 ? '▼' : '▲') : '▽'}</i></th>`).join('')}</tr></thead><tbody>
+      ${es.sort((a, b) => { const x = a[tkSort.k], y = b[tkSort.k]; return (typeof x === 'string' || typeof y === 'string' ? String(x ?? '') < String(y ?? '') ? -1 : String(x ?? '') > String(y ?? '') ? 1 : 0 : (x ?? -1e9) - (y ?? -1e9)) * tkSort.d; }).map(e => `<tr data-s="${e.s}"><td><b>${e.s}</b><span class="nm">${esc(e.name || '')}</span></td><td><span class="lv ${ST[e.status][1]}" style="border-color:currentColor">${ST[e.status][0]}</span></td><td>${e.date}<span class="nm">${e.px == null ? '等隔日開盤' : CUR + fmt(e.px, 2)}</span></td><td>${e.piv == null ? '—' : CUR + fmt(e.piv, 2)}</td><td>${e.trig_date ? e.trig_date + `<span class="nm">${e.trig_px == null ? '等隔日開盤' : CUR + fmt(e.trig_px, 2)}</span>` : e.void_date ? `<span class="nm">作廢 ${e.void_date}</span>` : '—'}</td><td>${pc(R_(e))}</td><td>${pc(B_(e))}</td><td>${tkB === 'trig' ? (e.days_t ?? '—') : e.days}</td>${V4 ? `<td>${e.exit_d ? e.exit_d.slice(5) + `<span class="nm">${XR[e.exit_reason] || ''} ${CUR}${fmt(e.exit_px, 2)}</span>` : e.status === 'open' ? `<span class="nm">持有中(高點 +${e.hi_r ?? 0}R)</span>` : '—'}</td><td class="${(e.r ?? 0) > 0 ? 'up' : (e.r ?? 0) < 0 ? 'dn' : ''}">${e.r == null ? '—' : (e.r > 0 ? '+' : '') + e.r.toFixed(2)}</td>` : ''}</tr>`).join('')}</tbody></table>`
       : '<div class="empty">此篩選下沒有紀錄</div>'}
       <div class="tk-note">進場價一律用<b>隔日開盤</b>(收盤後才看到訊號,當天收盤價買不到;隔日還沒開盤的顯示「等隔日開盤」,不計入統計)。報酬 = 現在收盤 ÷ 進場價 − 1(裸報酬,<b>未套用書中停損 / 分批停利</b>);最佳 = 進場後任一日最高價 ÷ 進場價 − 1。「過關日」基準 = 型態成形隔天就進場(偷跑);「突破日」基準 = 只算已觸發者、從觸發隔日開盤起算(書的規則)。點列開個股。</div></div>`;
-    $('#back-tk').onclick = showList;
+    $('#back-tk').onclick = showList; const rb2 = $('#rules-btn2'); if (rb2) rb2.onclick = () => $('#rules').showModal();
     pg.style.setProperty('--tkbar', (pg.querySelector('.tk-bar')?.offsetHeight || 0) + 'px');   // 表頭貼在篩選列下方
     pg.querySelectorAll('[data-f]').forEach(b => b.onclick = () => { tkF = b.dataset.f; renderTrack(); });
     pg.querySelectorAll('[data-b]').forEach(b => b.onclick = () => { tkB = b.dataset.b; tkSort = { k: 'date', d: -1 }; renderTrack(); });
@@ -816,6 +844,7 @@
   // ── ⟳ 更新資料:打本機後台 8765(只有在 Howard 的 Mac 上才連得到;其他人按會得到提示)────────
   const API = 'http://localhost:8765/api/';
   const api = async (m, args = []) => { const r = await fetch(API + m, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(args) }); if (!r.ok) throw new Error(r.status); return r.json(); };
+  $('#rules-btn').onclick = () => $('#rules').showModal(); $('#rules-x').onclick = () => $('#rules').close();
   const btn = $('#refresh'); let pollT = null;   // 預設 hidden;探測到本機後台才顯示
   const setBtn = (t, busy) => { btn.textContent = t; btn.disabled = !!busy; btn.style.opacity = busy ? .6 : 1; };
   async function pollStatus() {
