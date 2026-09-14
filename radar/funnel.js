@@ -57,6 +57,7 @@
       const s = m.s;
       if ((m.st == null ? 99 : m.st) > u.max_stale_days || m.px == null) { fail[s] = 'stale'; continue; }
       if (m.bad) { fail[s] = 'data:' + m.bad; continue; }
+      if (u.liq_gate && ((m.px || 0) < u.min_price || (m.v50 || 0) < u.min_avg_volume)) { fail[s] = 'L0:liq'; continue; }   // 與 minervini.evaluate 同(v5)
       levels[s] = 0;
       if (on.trend) {
         if (m.m200 == null || m.hi == null) { fail[s] = 'hist'; continue; }   // 歷史不足 200/252 根:算不出來,不是 c1 沒過
