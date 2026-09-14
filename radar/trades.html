@@ -41,6 +41,30 @@
   @media (max-width:900px) { .layout { grid-template-columns:1fr; } nav { position:static; height:auto; border-right:0; border-bottom:1px solid var(--line); } nav a { display:inline-block; } nav a.h { display:block; } main { padding:28px 18px 64px; } .kpis { grid-template-columns:repeat(2,1fr); } }
 
   td.r { font-weight:500; } .sticky th { position:sticky; top:0; background:var(--paper); z-index:1; }
+
+  /* 手機:表格改成一列一張卡片,整頁不左右滑(2026-09-15) */
+  .layout > * { min-width:0; }
+  @media (max-width:640px) {
+    html, body { overflow-x:hidden; }
+    .layout { grid-template-columns:minmax(0,1fr); }
+    main { padding:22px 14px 56px; }
+    p, li, dd, .cap, .verdict, summary { overflow-wrap:anywhere; }
+    code { white-space:normal; overflow-wrap:anywhere; }
+    .vt { display:flex; flex-wrap:wrap; gap:6px; }
+    .tbl { overflow-x:visible; }
+    .tbl table, .tbl tbody, .tbl tr, .tbl td { display:block; width:auto !important; }
+    .tbl thead { display:none; }
+    .tbl tr { border:1px solid var(--line); border-radius:6px; padding:8px 12px; margin:0 0 8px; background:var(--paper); }
+    .tbl tr.hl { border-color:var(--accent); background:var(--panel); }
+    .tbl td { padding:3px 0 !important; border:0 !important; text-align:right; white-space:normal !important; min-width:0; overflow-wrap:anywhere; }
+    .tbl td::after { content:""; display:block; clear:both; }
+    .tbl td::before { content:attr(data-l); float:left; max-width:45%; margin-right:12px; text-align:left; color:var(--mute); font-family:var(--sans); font-size:12px; }
+    .tbl td:not([data-l])::before, .tbl td[data-l=""]::before { display:none; }
+    .tbl td:not([data-l]), .tbl td[data-l=""] { text-align:left; }
+    .tbl td:first-child { font-weight:700; border-bottom:1px solid var(--line) !important; padding-bottom:6px !important; margin-bottom:4px; }
+    .tbl td[hidden], .tbl tr[hidden] { display:none !important; }
+    .kpis { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  }
 </style>
 </head>
 <body>
@@ -648,5 +672,8 @@
 <tr><td class="name">SNOW</td><td class="note">Snowflake Inc. · Technology</td><td>A</td><td>2026-08-25</td><td>2026-09-03</td><td>353.63</td><td>2026-09-08</td><td>332.41</td><td>停損</td><td>1</td><td class="neg">-6.3%</td><td class="r neg">-1.08</td></tr>
 </tbody></table></div>
 <p class="cap" style="margin-top:40px">來源 data/minervini/backtest/trades_20260913_paper.json;規則 scripts/run_trade_sim.py --fresh --fill open --sectors "Technology,Basic Materials" --tiers A,C --spy20-min 0 --overheat 10 --pivot-fail 5 --no-progress 20。回測不構成投資建議。2026-09-13。</p></main></div>
+<script>/* 手機卡片表格:把欄名寫進每格 data-l */
+(function(){document.querySelectorAll('table').forEach(function(t){var hr=t.tHead&&t.tHead.rows.length?t.tHead.rows[t.tHead.rows.length-1]:null;if(!hr)return;var names=[];[].forEach.call(hr.cells,function(c){var n=+(c.getAttribute('colspan')||1);for(var i=0;i<n;i++)names.push(c.textContent.trim());});
+[].forEach.call(t.tBodies,function(b){[].forEach.call(b.rows,function(r){var k=0;[].forEach.call(r.cells,function(c){var n=+(c.getAttribute('colspan')||1);if(n===1&&names[k]!=null)c.setAttribute('data-l',names[k]);k+=n;});});});});})();</script>
 </body>
 </html>
