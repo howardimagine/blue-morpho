@@ -49,7 +49,7 @@
   <a href="#top" class="h">總覽</a>
   <a href="#screen" class="h">篩選方式</a><a href="#screen-book" class="sub">書的原則</a><a href="#screen-funnel" class="sub">五層漏斗</a><a href="#screen-tiers" class="sub">六個檔位</a>
   <a href="#calc" class="h">計算方式</a><a href="#calc-layers" class="sub">三層回測</a><a href="#calc-defs" class="sub">名詞與公式</a><a href="#calc-data" class="sub">資料與限制</a>
-  <a href="#perf" class="h">回測績效</a><a href="#perf-pit10y" class="sub"><b>十年時點驗證(含下市)</b></a><a href="#perf-pit10y-ledger" class="sub">十年逐筆(標下市)</a><a href="#perf-yearly" class="sub"><b>每年預期績效(可切換市場 / 出場)</b></a><a href="#perf-ledger" class="sub"><b>逐筆進出場(逐年)</b></a><a href="#perf-port" class="sub">部位層</a><a href="#perf-process" class="sub">推導過程(摺疊)</a>
+  <a href="#perf" class="h">回測績效</a><a href="#perf-pit10y" class="sub"><b>十年時點驗證(含下市)</b></a><a href="#perf-pit10y-fund" class="sub"><b>十年:加入基本面</b></a><a href="#perf-pit10y-ledger" class="sub">十年逐筆(標下市)</a><a href="#perf-yearly" class="sub"><b>每年預期績效(可切換市場 / 出場)</b></a><a href="#perf-ledger" class="sub"><b>逐筆進出場(逐年)</b></a><a href="#perf-port" class="sub">部位層</a><a href="#perf-process" class="sub">推導過程(摺疊)</a>
   <a href="#topics" class="h">主題分析</a><a href="#tp-stop" class="sub">停損會不會錯殺</a><a href="#tp-profit" class="sub">停利會不會太早</a><a href="#tp-cap" class="sub">拿掉 60 根到期</a><a href="#tp-tier" class="sub">檔位鬆緊(五檔對照)</a><a href="#tp-sum" class="sub">結論</a>
   <a href="#playbook" class="h">Playbook</a><a href="#pb-screen" class="sub">篩選</a><a href="#pb-entry" class="sub">進場</a><a href="#pb-exit" class="sub">出場</a><a href="#pb-size" class="sub">配資</a><a href="#pb-human" class="sub">人為判斷要求</a><a href="#pb-limits" class="sub">限制</a>
     <a href="#process" class="h">測試與修正過程</a>
@@ -62,6 +62,7 @@
   <p class="lede">把 Mark Minervini 的 SEPA 寫成規則,用 2,228 檔美股五年日 K 回放。這份手冊只留四件事:怎麼篩、怎麼算、結果(全部分年)、最後建議怎麼做。測試與修正的過程收在最後一節。</p>
   <div class="verdict">
     <p><b>十年時點驗證(2026-09-14,最重要)。</b>用 FMP 下市名單補回約 5,400 檔下市股、延長到 2016 年重跑:建議規則 1930 筆、+0.11R、PF 1.20,去前 2% 大贏家 -0.13R;帳戶年化 <b>5.8%、最大回撤 -48.6%,輸 SPY 的 15.0%</b>。前五年 -0.02R、後五年 +0.27R;下市股上的交易 +0.00R。<b>下面五年的數字是「有利環境 + 倖存者」的上限</b>,前瞻請用 +0.1~+0.3R、接受連續兩三年落後大盤。見回測績效「十年時點宇宙驗證」。</p>
+    <p><b>加入時點基本面後(2026-09-14)</b>:四條全過(營收 ≥ 20%、EPS ≥ 25% 或轉正、加速、毛利 ≥ 30%)是十年唯一前後五年都有效的過濾(+0.29R / +0.19R),含下市股仍成立;產業篩選與「只看 EPS」都是五年樣本的巧合。帳戶層年化 8–11%,仍輸 SPY 15%。</p>
     <p><b>結論(以下為 2021–2026 五年、活股宇宙)。</b>機械化的 SEPA 在可執行條件下只有 +0.05R;出場改回書的原意、避開盤整轉弱、只做強勢產業後到 +0.42R——但 edge 幾乎全在前 2% 的大贏家,而且要 12 檔以上的分散才能在帳戶層實現(6 檔集中年化 0.1%,12 檔等權 22–26%)。</p>
     <p><b>基本面(第二要素)補測後</b>:四條全過的交易期望值高一倍,但勝率只多 1–5 點、樣本剩 1/10、逐年不穩;「加速」單獨反向。基本面提高的是贏家幅度,不是贏的次數。</p>
     <p><b>建議規則(主題分析後改為「不追蹤 + 60 根」出場)</b>:560 筆、勝率 31%、扣滑價 +0.50R、獲利因子 1.91、五年四年正、12 檔等權年化 26.7% / 最大回撤 -23.5%(現行追蹤線版 20.7% / -26.1%)。倖存者偏差沒修,當上限看。</p>
@@ -197,6 +198,28 @@
 <tr><td class="note">標的仍在交易</td><td class="note">1364 筆 · 28% · <span class="pos">+0.16R</span> · PF 1.29</td><td class="note">1380 筆 · 29% · <span class="pos">+0.11R</span> · PF 1.24</td><td class="note">1257 筆 · 13% · <span class="pos">+1.45R</span> · PF 3.05</td></tr>
 <tr><td class="note">去前 2% 大贏家</td><td class="note"><span class="neg">-0.13R</span></td><td class="note"><span class="neg">-0.16R</span></td><td class="note"><span class="neg">-0.26R</span></td></tr></tbody></table></div>
 <p class="cap"><b>資料</b>:活股 2,281 檔 yfinance 10 年日 K;下市股 FMP delisted-companies 翻到 2016-09(5,565 檔,NASDAQ / NYSE / AMEX)+ FMP 日 K;交易日曆以 SPY 為準,與活股同代號的下市股不併入(避免兩家公司價格拼接)。訊號 166,723 筆,37% 來自下市股。<b>已知不足</b>:FMP 名單 2021 年以前明顯缺漏(2019 年只 45 檔、2020 年 88 檔,實際每年約 600–800 檔),前五年仍殘留倖存者偏差,真實值只會更差;市值 / 成交額用今日值;下市原因(併購 vs 退市)不分。「不停利」在十年樣本會出現抱 8 年的單筆(例 SQ 改代號、AZPN 被併購),R 數字不可用來做決策。</p>
+<h3 id="perf-pit10y-fund">十年:加入時點基本面</h3>
+<div class="verdict"><p><b>基本面四條全過,是十年裡唯一前後五年都有效的過濾。</b>去掉產業篩選、改用申報日 ≤ setup 日的季報:營收年增 ≥ 20%、EPS 年增 ≥ 25% 或轉正、成長加速、毛利 ≥ 30%。699 筆、+0.24R、PF 1.46,前五年 +0.29R、後五年 +0.19R,去前 2% 大贏家 −0.05R(原建議 −0.13R);下市股上 +0.22R、活股 +0.24R,不靠倖存者。</p>
+<p><b>兩個五年版結論被推翻。</b>① <b>產業篩選是事後挑的</b>:Tech / Materials 前五年 −0.02R;四條全過裡賺最多的是 Healthcare(+1.13R),正是五年版排除的產業。② <b>只看 EPS 沒用</b>(+0.03R),五年版說它有效是樣本期的巧合;要營收、EPS、加速、毛利同時成立才有效果。</p>
+<p><b>但帳戶層仍輸大盤。</b>十年只有約 70 筆 / 年,12 檔 × 8% 平均曝險 42%,年化 8.0%(回撤 −23.8%);集中到 6 檔 × 16% 年化 10.6%、回撤 −35.6%。SPY 同期 15.0%。逐年四年賠(2019、2022、2023、2026)。結論:基本面讓選股有真的 edge,但這套規則單獨當系統跑,不夠彌補空手的時間——比較適合當「核心持有指數 + 衛星部位」的選股器。</p></div>
+<div class="tbl"><table><thead><tr><th class="note">過濾</th><th>筆數</th><th>勝率</th><th>期望值</th><th>去前 2%</th><th>PF</th><th>前五年</th><th>後五年</th><th>帳戶年化</th><th>回撤</th><th>曝險</th></tr></thead><tbody>
+<tr><td class="note">無篩(技術面 + 大盤)</td><td>10579</td><td>27%</td><td><span class="pos">+0.02R</span></td><td><span class="neg">-0.19R</span></td><td>1.05</td><td><span class="pos">+0.03R</span></td><td><span class="pos">+0.02R</span></td><td><span class="pos">+1.5</span>%</td><td>-59.4%</td><td>84%</td></tr>
+<tr><td class="note">產業 Tech/Materials(原建議)</td><td>1930</td><td>26%</td><td><span class="pos">+0.11R</span></td><td><span class="neg">-0.13R</span></td><td>1.20</td><td><span class="neg">-0.02R</span></td><td><span class="pos">+0.27R</span></td><td><span class="pos">+5.8</span>%</td><td>-48.6%</td><td>71%</td></tr>
+<tr><td class="note">EPS 年增 ≥25% 或轉正</td><td>3506</td><td>27%</td><td><span class="pos">+0.03R</span></td><td><span class="neg">-0.18R</span></td><td>1.06</td><td><span class="pos">+0.01R</span></td><td><span class="pos">+0.04R</span></td><td><span class="pos">+2.4</span>%</td><td>-37.4%</td><td>78%</td></tr>
+<tr><td class="note">EPS 或營收成長(v3 任一)</td><td>4639</td><td>26%</td><td><span class="pos">+0.04R</span></td><td><span class="neg">-0.19R</span></td><td>1.08</td><td><span class="pos">+0.02R</span></td><td><span class="pos">+0.05R</span></td><td><span class="pos">+4.6</span>%</td><td>-51.4%</td><td>81%</td></tr>
+<tr class="hl"><td class="note">四條全過(L2)</td><td>699</td><td>27%</td><td><span class="pos">+0.24R</span></td><td><span class="neg">-0.05R</span></td><td>1.46</td><td><span class="pos">+0.29R</span></td><td><span class="pos">+0.19R</span></td><td><span class="pos">+8.0</span>%</td><td>-23.8%</td><td>42%</td></tr>
+<tr><td class="note">EPS 為正</td><td>6464</td><td>28%</td><td><span class="neg">-0.01R</span></td><td><span class="neg">-0.18R</span></td><td>0.98</td><td><span class="neg">-0.01R</span></td><td><span class="neg">-0.01R</span></td><td><span class="neg">-0.2</span>%</td><td>-46.5%</td><td>81%</td></tr>
+<tr><td class="note">產業 + EPS</td><td>693</td><td>26%</td><td><span class="pos">+0.13R</span></td><td><span class="neg">-0.14R</span></td><td>1.24</td><td><span class="neg">-0.01R</span></td><td><span class="pos">+0.25R</span></td><td><span class="pos">+3.8</span>%</td><td>-30.8%</td><td>46%</td></tr>
+<tr><td class="note">產業 + 四條全過</td><td>160</td><td>27%</td><td><span class="pos">+0.46R</span></td><td><span class="pos">+0.13R</span></td><td>1.80</td><td><span class="pos">+0.27R</span></td><td><span class="pos">+0.60R</span></td><td><span class="pos">+2.5</span>%</td><td>-15.1%</td><td>13%</td></tr>
+<tr><td class="note">產業 + EPS 為正</td><td>1159</td><td>27%</td><td><span class="pos">+0.08R</span></td><td><span class="neg">-0.15R</span></td><td>1.15</td><td><span class="neg">-0.05R</span></td><td><span class="pos">+0.19R</span></td><td><span class="pos">+2.5</span>%</td><td>-38.9%</td><td>60%</td></tr>
+</tbody></table></div>
+<p class="cap">共同條件:A / C 檔、SPY 20 日 ≥ 0、過熱減半、新鮮突破、隔日開盤、−6% 停損、5 / 20 / 60 根、不追蹤;R 扣成本與滑價;帳戶層 12 檔 × 8% 等權。財報覆蓋 84% 的交易,沒有財報的 1,695 筆(六成是下市股)+0.06R,在基本面規則裡視為不過關。FMP 季報的申報日對 2018 年以前部分公司是估計值,可能早幾天。</p>
+<div class="tbl"><table><thead><tr><th class="note">四條全過 · 配資</th><th>年化</th><th>最大回撤</th><th>平均曝險</th><th>成交</th></tr></thead><tbody>
+<tr><td class="note">12 檔 × 8%</td><td><span class="pos">+8.0</span>%</td><td>-23.8%</td><td>42%</td><td>562</td></tr>
+<tr><td class="note">8 檔 × 12.5%</td><td><span class="pos">+8.9</span>%</td><td>-29.9%</td><td>54%</td><td>480</td></tr>
+<tr><td class="note">6 檔 × 16%</td><td><span class="pos">+10.6</span>%</td><td>-35.6%</td><td>60%</td><td>395</td></tr>
+<tr><td class="note">4 檔 × 25%</td><td><span class="pos">+6.5</span>%</td><td>-36.5%</td><td>65%</td><td>303</td></tr>
+</tbody></table></div><p class="cap">SPY 同期年化 15.0%。訊號少時集中能提高曝險,但 4 檔開始錯過訊號、報酬反降。</p>
 <h3 id="perf-pit10y-ledger">十年逐筆紀錄(建議規則,標注下市)</h3>
 <p>1930 筆。<b>下市</b> = 該股之後下市或被併購(日期為 FMP 下市日);<b>下市出場</b> = 持有中 K 線終止,以最後收盤結算。R 已扣成本與滑價。</p>
 <details><summary>2017 · 257 筆 · 32% · <span class="pos">+0.21R</span> · PF 1.34 · 其中下市股 144 筆(<span class="pos">+0.33R</span>)</summary><div class="tbl"><table><thead><tr><th>代號</th><th class="note">名稱 · 產業</th><th>檔</th><th>觸發</th><th>進場</th><th>出場日</th><th>出場</th><th>原因</th><th>根</th><th>報酬</th><th>R</th><th class="note">下市</th></tr></thead><tbody>
@@ -4173,7 +4196,7 @@
   <div class="warn"><p><b>總結:</b>規則能給你的是「候選 + 進出場紀律」;<b>市場環境、類股同步、底部階段、突破頭三天的走勢、財報時點</b>這五項是人一定要看的,也是作者勝率比機械版高 15 點的來源。反過來,<b>賣進強勢、鎖利、集中加碼</b>三項機械化後全部有害,沒有盤感就不要做——照規則抱到 60 根反而更好。</p></div>
 
   <h3 id="pb-limits">七、限制</h3>
-  <ol><li><b>十年時點驗證推翻了五年的強度</b>:含下市股、2016 起重跑,建議規則 +0.11R、帳戶年化 5.8% 輸 SPY 15.0%;2016–2021 無 edge(-0.02R)。FMP 下市名單 2021 前缺漏,前段真實值只會更差。</li><li>倖存者偏差沒修:所有期望值當上限,真實前瞻估 +0.10~+0.30R。</li><li>去前 2% 大贏家只剩 +0.06R:任何一年沒抓到那幾檔就是平的。</li><li>產業條件是這五年的週期,每年重選。</li><li>規則是 40+ 變體裡挑的,p 值是挑完才算;要三個月 out-of-sample。</li><li>只有一段週期,真正熊市未知。</li><li>書的一半(盤中判斷、賣進強勢、類股領先、財報迴避、催化劑)沒模擬。</li><li>財報層只做事後切片(時點財報),沒進回放的檔位定義;L2 過的樣本少且逐年不穩。</li><li><b>台股未證明能贏 0050</b>:單筆 R 更好但帳戶層打平指數,2024 輸 40 點;台股沒做產業切片、漲跌停讓隔日開盤常跳空。</li>
+  <ol><li><b>基本面四條是真 edge、產業篩選不是</b>:十年四條全過前後五年 +0.29R / +0.19R;產業 Tech / Materials 前五年 −0.02R。但四條全過一年約 70 筆,單獨跑帳戶年化 8–11% 輸 SPY,適合當衛星部位選股。</li><li><b>十年時點驗證推翻了五年的強度</b>:含下市股、2016 起重跑,建議規則 +0.11R、帳戶年化 5.8% 輸 SPY 15.0%;2016–2021 無 edge(-0.02R)。FMP 下市名單 2021 前缺漏,前段真實值只會更差。</li><li>倖存者偏差沒修:所有期望值當上限,真實前瞻估 +0.10~+0.30R。</li><li>去前 2% 大贏家只剩 +0.06R:任何一年沒抓到那幾檔就是平的。</li><li>產業條件是這五年的週期,每年重選。</li><li>規則是 40+ 變體裡挑的,p 值是挑完才算;要三個月 out-of-sample。</li><li>只有一段週期,真正熊市未知。</li><li>書的一半(盤中判斷、賣進強勢、類股領先、財報迴避、催化劑)沒模擬。</li><li>財報層只做事後切片(時點財報),沒進回放的檔位定義;L2 過的樣本少且逐年不穩。</li><li><b>台股未證明能贏 0050</b>:單筆 R 更好但帳戶層打平指數,2024 輸 40 點;台股沒做產業切片、漲跌停讓隔日開盤常跳空。</li>
     <li>賺的可能不是 VCP:A 檔(不要求 VCP)一樣好,財報跳空日 +1.45R。</li></ol>
 
   <h2 id="process">測試與修正過程(收起)</h2>
