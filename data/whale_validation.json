@@ -1,84 +1,21 @@
 {
   "as_of": "2026-08-14",
   "n_whales": 19,
-  "generated_at": "2026-09-11T00:05:07+00:00",
+  "generated_at": "2026-09-14T00:06:24+00:00",
   "stocks": [
     {
-      "symbol": "HAL",
-      "name": "Halliburton Company",
-      "theme": "Energy / Oil & Gas",
-      "signal": "buy",
-      "holders": 2,
-      "increased": 1,
-      "reduced": 0,
-      "new_pos": 1,
-      "closed_pos": 0,
-      "total_held_usd": 115490176,
-      "total_held_fmt": "$115M",
-      "whales_fmt": "大空頭 Burry $62M 新進 · 達利歐 Dalio $54M 加碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "大空頭 Burry",
-          "value_usd": 61500000,
-          "action": "new"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 53990176,
-          "action": "add"
-        }
-      ]
-    },
-    {
-      "symbol": "NOW",
-      "name": "ServiceNow",
-      "theme": "AI Software",
+      "symbol": "EA",
+      "name": "Electronic Arts Inc.",
+      "theme": "Gaming",
       "signal": "sell",
-      "holders": 3,
-      "increased": 0,
-      "reduced": 2,
-      "new_pos": 1,
-      "closed_pos": 0,
-      "total_held_usd": 154622247,
-      "total_held_fmt": "$155M",
-      "whales_fmt": "Chase Coleman $87M 減碼 · 達利歐 Dalio $63M 新進 · 索羅斯 Soros $5M 減碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "Chase Coleman",
-          "value_usd": 86719591,
-          "action": "trim"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 63080626,
-          "action": "new"
-        },
-        {
-          "name": "索羅斯 Soros",
-          "value_usd": 4822030,
-          "action": "trim"
-        }
-      ]
-    },
-    {
-      "symbol": "CSCO",
-      "name": "Cisco Systems, Inc.",
-      "theme": "Cloud Infrastructure",
-      "signal": "sell",
-      "holders": 0,
+      "holders": 1,
       "increased": 0,
       "reduced": 0,
       "new_pos": 0,
       "closed_pos": 1,
-      "total_held_usd": 0,
-      "total_held_fmt": "—",
-      "whales_fmt": "達利歐 Dalio — 清倉",
+      "total_held_usd": 199091790,
+      "total_held_fmt": "$199M",
+      "whales_fmt": "達利歐 Dalio — 清倉 · 索羅斯 Soros $199M 持有",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
@@ -87,63 +24,216 @@
           "name": "達利歐 Dalio",
           "value_usd": 0,
           "action": "exit"
+        },
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 199091790,
+          "action": "hold"
         }
       ]
     },
     {
-      "symbol": "DIS",
-      "name": "Walt Disney Company (The)",
-      "theme": "Streaming / Media",
-      "signal": "split",
-      "holders": 0,
-      "increased": 0,
-      "reduced": 0,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 0,
-      "total_held_fmt": "—",
-      "whales_fmt": "",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": []
-    },
-    {
-      "symbol": "ROK",
-      "name": "羅克韋爾自動化",
-      "theme": "Industrial Automation",
-      "signal": "split",
-      "holders": 4,
-      "increased": 2,
-      "reduced": 2,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 264635527,
-      "total_held_fmt": "$265M",
-      "whales_fmt": "Andreas Halvorsen $227M 減碼 · 達利歐 Dalio $23M 加碼 · 索羅斯 Soros $14M 加碼 · 木頭姐 Cathie Wood <$1M 減碼",
+      "symbol": "LRCX",
+      "name": "科林研發",
+      "theme": "AI CapEx",
+      "signal": "sell",
+      "holders": 9,
+      "increased": 1,
+      "reduced": 5,
+      "new_pos": 2,
+      "closed_pos": 1,
+      "total_held_usd": 6811182621,
+      "total_held_fmt": "$6.8B",
+      "whales_fmt": "Dan Loeb — 清倉 · Philippe Laffont $4.1B 減碼 · Chase Coleman $1.4B 減碼 · Andreas Halvorsen $543M 加碼 · 達利歐 Dalio $407M 減碼 · Brad Gerstner $171M 新進",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "Andreas Halvorsen",
-          "value_usd": 227429748,
+          "name": "Dan Loeb",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "Philippe Laffont",
+          "value_usd": 4091329827,
           "action": "trim"
         },
         {
-          "name": "達利歐 Dalio",
-          "value_usd": 22654674,
+          "name": "Chase Coleman",
+          "value_usd": 1370837288,
+          "action": "trim"
+        },
+        {
+          "name": "Andreas Halvorsen",
+          "value_usd": 543344313,
           "action": "add"
         },
         {
-          "name": "索羅斯 Soros",
-          "value_usd": 14455117,
+          "name": "達利歐 Dalio",
+          "value_usd": 406560606,
+          "action": "trim"
+        },
+        {
+          "name": "Brad Gerstner",
+          "value_usd": 170766686,
+          "action": "new"
+        },
+        {
+          "name": "泰珀 Tepper",
+          "value_usd": 165748725,
+          "action": "hold"
+        },
+        {
+          "name": "Stephen Mandel",
+          "value_usd": 47395697,
+          "action": "new"
+        }
+      ]
+    },
+    {
+      "symbol": "ARM",
+      "name": "安謀",
+      "theme": "AI Compute",
+      "signal": "sell",
+      "holders": 8,
+      "increased": 2,
+      "reduced": 4,
+      "new_pos": 1,
+      "closed_pos": 1,
+      "total_held_usd": 1054285502,
+      "total_held_fmt": "$1.1B",
+      "whales_fmt": "大空頭 Burry — 清倉 · Brad Gerstner $582M 減碼 · Andreas Halvorsen $436M 加碼 · 木頭姐 Cathie Wood $24M 加碼 · Dan Loeb $8M 持有 · David Einhorn $3M 新進",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "大空頭 Burry",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "Brad Gerstner",
+          "value_usd": 582194012,
+          "action": "trim"
+        },
+        {
+          "name": "Andreas Halvorsen",
+          "value_usd": 435819735,
           "action": "add"
         },
         {
           "name": "木頭姐 Cathie Wood",
-          "value_usd": 95988,
+          "value_usd": 23848064,
+          "action": "add"
+        },
+        {
+          "name": "Dan Loeb",
+          "value_usd": 8010000,
+          "action": "hold"
+        },
+        {
+          "name": "David Einhorn",
+          "value_usd": 2802826,
+          "action": "new"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 1271705,
           "action": "trim"
+        },
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 329200,
+          "action": "trim"
+        }
+      ]
+    },
+    {
+      "symbol": "CRM",
+      "name": "Salesforce, Inc.",
+      "theme": "AI Software",
+      "signal": "sell",
+      "holders": 0,
+      "increased": 0,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 2,
+      "total_held_usd": 0,
+      "total_held_fmt": "—",
+      "whales_fmt": "索羅斯 Soros — 清倉 · 木頭姐 Cathie Wood — 清倉",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 0,
+          "action": "exit"
+        }
+      ]
+    },
+    {
+      "symbol": "ESTC",
+      "name": "Elastic N.V.",
+      "theme": "AI Software",
+      "signal": "buy",
+      "holders": 2,
+      "increased": 2,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 58176023,
+      "total_held_fmt": "$58M",
+      "whales_fmt": "索羅斯 Soros $57M 加碼 · 達利歐 Dalio $1M 加碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 56888854,
+          "action": "add"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 1287169,
+          "action": "add"
+        }
+      ]
+    },
+    {
+      "symbol": "ADBE",
+      "name": "Adobe Inc.",
+      "theme": "AI Software",
+      "signal": "buy",
+      "holders": 2,
+      "increased": 1,
+      "reduced": 0,
+      "new_pos": 1,
+      "closed_pos": 0,
+      "total_held_usd": 22997093,
+      "total_held_fmt": "$23M",
+      "whales_fmt": "達利歐 Dalio $18M 加碼 · 索羅斯 Soros $5M 新進",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 18195730,
+          "action": "add"
+        },
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 4801363,
+          "action": "new"
         }
       ]
     }
