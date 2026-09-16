@@ -72,7 +72,7 @@
 <a href="#exit" class="h">6. 出場:四條線先到先出</a>
 <a href="#size" class="h">7. 部位與資金</a>
 <a href="#calc" class="h">8. 計算方式</a><a href="#calc-r" class="sub">R、期望值、獲利因子</a><a href="#calc-acct" class="sub">帳戶層怎麼算</a><a href="#calc-test" class="sub">怎樣才算通過驗證</a>
-<a href="#evidence" class="h">9. 回測證據</a><a href="#ev-year" class="sub">逐年</a><a href="#ev-size" class="sub">配資</a><a href="#ev-cmp" class="sub">三組對照</a>
+<a href="#evidence" class="h">9. 回測證據</a><a href="#ev-year" class="sub">逐年</a><a href="#ev-size" class="sub">配資</a><a href="#ev-cmp" class="sub">三組對照</a><a href="#ev-tw" class="sub">台股</a>
 <a href="#expect" class="h">10. 預期的長相</a>
 <a href="#human" class="h">11. 人要看的</a>
 <a href="#daily" class="h">12. 每天怎麼做</a>
@@ -164,6 +164,12 @@
 <tr><td class="note">觀察版</td><td>2664</td><td>24%</td><td><span class="neg">-0.04R</span></td><td><span class="neg">-0.27R</span></td><td>0.94</td></tr>
 <tr><td class="note">書的原值</td><td>153</td><td>16%</td><td><span class="neg">-0.16R</span></td><td><span class="neg">-0.45R</span></td><td>0.79</td></tr>
 </tbody></table></div><p>觀察版和書的原值都是負的。觀察版名單寬七倍,但每筆平均賠;它的用途是給人挑,不是照做。書的原值最嚴、樣本最少,也最差:基本面四條硬擋把名單縮到一年十幾筆,而「加速」這條在十年裡是反向的。</p>
+<h3 id="ev-tw">台股</h3><p>同一套程式、同樣兩組 preset,換成台股 723 檔、2021-09 到 2026-09 的日 K,大盤用 0050。<b>證據比美股弱三件事</b>:只有五年而且是超級多頭(0050 同期年化 44.5%);宇宙只有現在還掛牌的股票(沒補下市股);台股沒有時點財報,成長條件用的是現在的財報。數字當上限看。</p>
+<div class="tbl"><table><thead><tr><th class="note">規則</th><th>筆數</th><th>勝率</th><th>期望值</th><th>去前 2%</th><th>前半段</th><th>後半段</th><th>6 檔 · 閒錢放 0050</th><th>回撤</th></tr></thead><tbody>
+<tr class="hl"><td class="note">執行版</td><td>101</td><td>28%</td><td><span class="pos">+0.82R</span></td><td><span class="pos">+0.44R</span></td><td><span class="pos">+1.05R</span></td><td><span class="pos">+0.64R</span></td><td><span class="pos">+61.3</span>%</td><td>-33.8%</td></tr>
+<tr><td class="note">執行版,不擋大盤</td><td>124</td><td>29%</td><td><span class="pos">+1.17R</span></td><td><span class="pos">+0.79R</span></td><td><span class="pos">+1.36R</span></td><td><span class="pos">+1.01R</span></td><td><span class="pos">+64.5</span>%</td><td>-33.8%</td></tr>
+<tr><td class="note">觀察版</td><td>555</td><td>26%</td><td><span class="pos">+0.70R</span></td><td><span class="pos">+0.28R</span></td><td><span class="pos">+1.04R</span></td><td><span class="pos">+0.44R</span></td><td><span class="pos">+57.5</span>%</td><td>-41.1%</td></tr>
+</tbody></table></div><p>執行版在台股前後半段都為正,去掉前 2% 大贏家仍為正,帳戶年化 61.3% 高於 0050 的 44.5%(回撤 -33.8% 對 -27.5%),所以台股也預設執行版。兩個要知道的:① 台股這五年拿掉大盤門檻反而更好,因為 0050 幾乎沒有轉弱過、被擋掉的多是好交易;但門檻是為空頭年準備的,五年多頭樣本量不到,所以兩個市場用同一套規則。② 台股有漲跌停,「隔日開盤買」在漲停鎖死時買不到,回測沒有模擬這件事,實際成交筆數會比回測少。</p>
 <p class="cap">更完整的推導與主題分析在<a href="backtest.html">回測手冊</a>。</p>
 <h2 id="expect">10. 預期的長相</h2>
 <div class="tbl"><table><thead><tr><th class="note">項目</th><th>十年回測</th></tr></thead><tbody>
@@ -184,7 +190,7 @@
 <li><b>864 條規則裡只有 14 條通過兩段驗證。</b>執行版的超額報酬應該當「有機會」,不是保證;前五年只有打平。</li>
 <li><b>下市股名單 2021 年以前明顯缺漏</b>(資料商 2019 年只有 45 檔,實際每年約 600–800 檔),所以 2017–2021 仍殘留倖存者偏差,真實值只會更差。</li>
 <li><b>市值門檻只有線上有</b>,回測用價格與成交量代替;財報申報日在 2018 年以前部分公司是估計值。</li>
-<li><b>台股未驗證</b>:執行版是用美股挑的,台股沒有時點財報,而且漲跌停制度讓「隔日開盤買」常常買不到。台股預設觀察版。</li>
+<li><b>台股證據較弱</b>:五年、單一多頭、只有活股、財報用現值;漲停鎖死買不到的情況回測沒有模擬。執行版在台股成立,但數字當上限。</li>
 <li><b>去前 2% 大贏家是 <span class="neg">-0.15R</span>。</b>任何一年沒抓到那幾檔,那一年就是平的或賠的。這是動能策略的本質,不是缺陷,但要知道。</li>
 <li>回測不構成投資建議。</li></ol>
 <p class="cap" style="margin-top:40px">數字來源:backtest/v5_final.json、radar_grid.json;程式:agents/radar_backtest.py、agents/minervini.py(evaluate、ticket_sim)。2026-09-16。</p>

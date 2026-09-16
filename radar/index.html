@@ -716,7 +716,7 @@
   function updateVsub() {
     const v = VSUB[ver]; const el = $('#vsub'); if (!el) return;
     if (!v) { el.hidden = true; return; }
-    const tw = MKT !== 'us' && ver === 'exec' ? ' <span class="wn">· 台股未驗證(這組是用美股十年回測挑的)</span>' : '';
+    const tw = MKT !== 'us' && ver === 'exec' ? ' <span class="wn">· 台股證據較弱:五年、只有活股、財報用現值(見 Playbook 第 9 節)</span>' : '';
     el.innerHTML = `<b>${esc((VLABEL[ver] || ver).split(' ')[0])} ${esc(v[0])}</b> — ${esc(v[1])}${tw}`;
     el.hidden = false;
   }
@@ -762,7 +762,7 @@
       $('#list').innerHTML = `<div class="lst-empty"><b>今天沒有通過 ${esc(vn)} 的標的。</b><br>`
         + (ver === 'exec'
             ? `執行版的門檻最嚴(RS 90、營收或 EPS 任一成長、現價貼著 pivot ±5%),常常整天 0 檔 —— <b>空手是正常結果,不是資料壞掉</b>。`
-              + (MKT !== 'us' ? `台股又比美股更常 0 檔,而且執行版只在美股驗證過。` : '')
+              + (MKT !== 'us' ? `台股又比美股更常 0 檔(一年約 20 筆)。` : '')
             : `觀察版今天也沒有股票走到第四關。`)
         + (ver === 'exec' ? `<br>想看寬一點的候選池,切到觀察版;或看左邊漏斗哪一層卡住最多。` : `<br>看左邊漏斗哪一層卡住最多。`)
         + (ver === 'exec' ? `<div><button class="btn" id="lst-sw">切到觀察版</button></div>` : '') + `</div>`;
