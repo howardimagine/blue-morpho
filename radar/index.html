@@ -391,13 +391,13 @@
   <div id="qbanner" hidden></div>
   <div id="app" class="loading">RADAR INITIALIZING…</div>
 
-  <a class="bt-fab" href="backtest.html" title="回測手冊:v5 一致回測 / 十年時點驗證 / Playbook">回測報告 ↗</a>
+  <a class="bt-fab" href="playbook.html" title="Playbook:原理、規則、計算方式、回測證據">Playbook ↗</a>
   <dialog id="rules">
     <div class="rl">
-      <div class="rl-h"><b id="rl-title">停損停利守則</b><span id="rl-sub">v5 · 十年時點回測(與雷達同一套程式)</span><button class="btn ghost" id="rules-x">關閉</button></div>
-      <div class="rl-tabs"><button class="btn on" data-p="rules">守則</button><button class="btn" data-p="vers">版本差異</button></div>
+      <div class="rl-h"><b id="rl-title">停損停利守則</b><span id="rl-sub">執行版 · 十年時點回測(與雷達同一套程式)</span><button class="btn ghost" id="rules-x">關閉</button></div>
+      <div class="rl-tabs"><button class="btn on" data-p="rules">守則</button><button class="btn" data-p="vers">兩組 preset</button></div>
       <div class="rl-p" data-p="rules"><ol>
-        <li><b>選股 = v5 名單</b>:趨勢樣板 8 條、RS ≥ 90、距 52 週高 25% 內、營收或 EPS 任一成長達標、VCP 且現價在 pivot ±5% 內、價 ≥ $5 且 50 日均量 ≥ 20 萬。產業不挑。</li>
+        <li><b>選股 = 執行版名單</b>:趨勢樣板 8 條、RS ≥ 90、距 52 週高 25% 內、營收或 EPS 任一成長達標、VCP 且現價在 pivot ±5% 內、價 ≥ $5 且 50 日均量 ≥ 20 萬。產業不挑。</li>
         <li><b>觀察票只給 10 個交易日</b>:過四關後 10 天內沒突破就過期;跌破最後一腿低點作廢。晚突破在回測裡是虧的。</li>
         <li><b>只在新鮮突破進場</b>:前一天收盤仍在 pivot 下、當天收盤站上 pivot × 1.005 且量 ≥ 50 日均量 × 1.5 → <b>隔日開盤買</b>。</li>
         <li><b>大盤</b>:觸發日 SPY 20 日報酬 &lt; 0 → 不買(觀察池標「大盤擋」);SPY 高於 200 日線 &gt; 10% → 部位減半。</li>
@@ -407,12 +407,10 @@
       </ol>
       <div class="rl-f">這套規則是 864 條裡挑的,前後五年都為正的只有 14 條;超額報酬要當「有機會」而不是「保證」。回測與雷達用同一份 evaluate 與觀察票程式,差異只剩市值門檻。</div></div>
       <div class="rl-p" data-p="vers" hidden><dl class="rl-v">
-        <dt>v1.0 原版</dt><dd>照書逐字:趨勢樣板 8 條全過、基本面(盈餘 / 營收成長、毛利)是硬門檻、RS ≥ 70、VCP 收縮要乾淨。最嚴,名單最少。</dd>
-        <dt>v2.0 強力拉升直通</dt><dd>v1 + 「強力拉升」(8 週漲 ≥ 100% 且回檔淺)可跳過 VCP 直接進候選。其餘同 v1。</dd>
-        <dt>v3.0 寬(照書放寬上游)</dt><dd>基本面改成任一成長指標過即可、毛利不擋;距高 25%、RS 70 回到書的原值;觀察票作廢改成跌破最後一腿低點。名單變多,給人挑。</dd>
-        <dt>v5.0 一致版(建議)</dt><dd>十年時點回測(含下市股)用雷達同一套程式挑出:RS 90、營收或 EPS 任一成長、pivot ±5%、觀察票 10 天、大盤弱不買 / 過熱減半、產業不挑、流動性門檻;6 檔 × 16%,閒錢放 SPY。回測年化 19.4%(SPY 15.2%)。</dd>
-        <dt>v4.0 回測版</dt><dd>依五年回測手冊定:上游同 v3,基本面只標記不擋;加大盤狀態(SPY 20 日 &lt; 0 不開新倉、過熱減半)、產業標記(Tech / Materials 偏多,Energy 偏空);觀察池照策略結算 —— 新鮮突破、隔日開盤、−6% 停損、5 / 20 / 60 根出場。</dd>
-      </dl><div class="rl-f">五版共用同一份掃描資料,切換只是換規則重算,不用重掃。詳細參數與回測數字見回測報告。</div></div>
+        <dt>執行版(機械)</dt><dd>給「照規則做」的人。RS ≥ 90、營收或 EPS 任一成長、VCP 且現價貼著 pivot ±5%、價 ≥ $5、50 日均量 ≥ 20 萬;觀察票 10 天;觸發日大盤轉弱不買、過熱減半;6 檔 × 16%,閒錢放 SPY。十年時點回測 864 條規則裡唯一前後五年都為正的一組,年化 19.4%(SPY 15.2%)。</dd>
+        <dt>觀察版(自己挑)</dt><dd>給「自己判斷」的人。RS ≥ 70、距高 25%,基本面、大盤狀態只標記不擋,名單寬很多。這套規則本身在十年回測是賠的(−0.04R),它不是策略,是候選池:產業是否同步、第幾個底、突破頭三天走勢,都要自己看。</dd>
+        <dt>書的原值</dt><dd>想看 Minervini 書上逐字的門檻(基本面四條硬擋、RS 80、距高 15%、VCP 品質分 50),到參數面板按「回到書的原值」。十年回測 −0.16R,只作對照,不作策略。</dd>
+      </dl><div class="rl-f">兩組共用同一份掃描資料,切換只是換規則重算,不用重掃。完整原理與計算方式見 Playbook。</div></div></div>
     </div>
   </dialog>
   <nav class="mnav" id="mnav" aria-label="手機分頁">
@@ -476,7 +474,7 @@
   addEventListener('bm-theme', () => { if (curSym && !$('#pg-detail').hidden) renderDetail(curSym, true); });
   // 版本:v1.0 / v2.0 各有一套參數(伺服器 profiles);頁面只是換基準再重算,不用重掃
   const VERS = Object.keys(data.profiles || { v1: data.params });
-  let ver = (() => { try { return localStorage.getItem('radar.ver5') || data.profile || 'v1'; } catch { return data.profile || 'v1'; } })();
+  let ver = (() => { try { return localStorage.getItem('radar.preset') || data.profile || 'exec'; } catch { return data.profile || 'exec'; } })();
   if (!VERS.includes(ver)) ver = VERS[0];
   const baseParams = () => clone((data.profiles && data.profiles[ver]) || data.params);
   // 深合併:瀏覽器存的舊參數只覆蓋「它有的鍵」,新版新增的鍵(如 power_play)不會被整組蓋掉
@@ -485,7 +483,7 @@
     else base[k] = over[k]; } return base; };
   P = baseParams();
   try { const o = JSON.parse(localStorage.getItem('radar.params.' + ver) || 'null'); if (o && o.date === data.date) dmerge(P, o.P); } catch (_) {}
-  const persist = () => { try { localStorage.setItem('radar.params.' + ver, JSON.stringify({ date: data.date, P })); localStorage.setItem('radar.ver5', ver); } catch (_) {} };
+  const persist = () => { try { localStorage.setItem('radar.params.' + ver, JSON.stringify({ date: data.date, P })); localStorage.setItem('radar.preset', ver); } catch (_) {} };
   const get = path => path.split('.').reduce((o, k) => (o == null ? undefined : o[k]), P);
   const set = (path, v) => { const ks = path.split('.'); ks.slice(0, -1).reduce((o, k) => o[k], P)[ks.at(-1)] = v; };
   const N = data.level_names, sp = data.params, vp = sp.vcp, u = sp.universe;
@@ -539,7 +537,7 @@
           <div class="fn-hint">點任一層 → 右側名單 · 每層可「啟用/略過」、門檻可拖 · <b>L4 常態是 0 檔</b> —— 不硬湊</div>
         </section>
         <section class="card pm-card">
-          <div class="pm-top"><span class="pm-title">Parameters · 即時可調</span><button class="pm-reset" id="reset">↺ 重設預設</button></div>
+          <div class="pm-top"><span class="pm-title">Parameters · 即時可調</span><button class="pm-reset" id="reset">↺ 回到 preset</button><button class="pm-reset" id="reset-book" title="Minervini 書上逐字的門檻(= 設定檔 base)">書的原值</button></div>
           <div id="params"></div>
           <div class="pm-srv" id="srv"></div>
           <div class="breadth"><div class="t"><span>Breadth · L1 通過家數</span><span id="brv"></span></div><svg id="breadth" viewBox="0 0 300 44" preserveAspectRatio="none"></svg></div>
@@ -584,17 +582,15 @@
     document.querySelectorAll('details.pg').forEach(d => d.classList.toggle('off', get(d.dataset.g + '.enabled') === false));
   }
   $('#reset').onclick = () => { P = baseParams(); persist(); syncControls(); recompute(); };
+  $('#reset-book').onclick = () => { P = clone(data.params_base || data.params); persist(); syncControls(); recompute(); };   // 設定檔 base = 書的原值
   // 版本切換鈕(header)
   const VSUB = {
-    v1: ['照書逐字', '趨勢樣板 8 條全過、基本面(成長 + 毛利)當硬門檻、VCP 要乾淨。最嚴,名單最少。'],
-    v2: ['原版 + 強力拉升直通', 'v1 再加一條捷徑:8 週內漲一倍後緊縮整理的,可以不等 VCP 直接進候選。'],
-    v3: ['照書精神放寬', '成長只要營收或 EPS 其中一個達標、毛利不擋,RS 70、距高 25% 回到書上的原值。名單多,給人挑。'],
-    v4: ['五年回測版', '基本面只標記不擋、加上大盤與產業標記。名單最多,適合看全貌;但十年回測顯示這套規則本身不賺錢。'],
-    v5: ['十年回測的執行版(建議)', 'RS 90 + 營收或 EPS 任一成長 + 貼著 pivot(±5%),觀察票只給 10 天,大盤轉弱不買。名單最少,只挑最強的。']
+    exec: ['機械執行', '訊號少而精:RS 90、營收或 EPS 任一成長、現價貼著 pivot ±5%,觀察票只給 10 天,大盤轉弱不買、過熱減半。其餘資金放指數。十年回測(含下市股)唯一前後五年都賺的一組。'],
+    watch: ['自己挑', '寬名單、只標記不擋:RS 70、距高 25%、基本面與大盤狀態只做標記。這套規則本身在十年回測是賠的(−0.04R),它的用途是給人為判斷一個夠寬的候選池。']
   };
-  const VLABEL = { v1: 'v1.0 原版', v2: 'v2.0 強力拉升直通', v3: 'v3.0 寬(照書放寬上游)', v4: 'v4.0 回測版', v5: 'v5.0 一致版(建議)' };
+  const VLABEL = { exec: '執行版(機械)', watch: '觀察版(自己挑)' };
   const vwrap = document.createElement('select'); vwrap.id = 'versel'; vwrap.className = 'hdr-sel';
-  vwrap.title = '切換規則版本(v1.0 = 趨勢樣板 8 條 + VCP;v2.0 = 加上強力拉升直通)';
+  vwrap.title = '兩組 preset:執行版 = 機械執行;觀察版 = 寬名單給人為判斷';
   vwrap.innerHTML = VERS.map(v => `<option value="${v}" ${v === ver ? 'selected' : ''}>${matchMedia('(max-width: 768px)').matches ? (VLABEL[v] || v).split(' ')[0] : (VLABEL[v] || v)}</option>`).join('');
   $('#hdr-tools').insertBefore(vwrap, $('#refresh'));
   const mwrap = document.createElement('select'); mwrap.id = 'mktsel'; mwrap.className = 'hdr-sel';
@@ -720,7 +716,7 @@
   function updateVsub() {
     const v = VSUB[ver]; const el = $('#vsub'); if (!el) return;
     if (!v) { el.hidden = true; return; }
-    const tw = MKT !== 'us' && ver === 'v5' ? ' <span class="wn">· 台股未驗證(這套是用美股十年回測挑的)</span>' : '';
+    const tw = MKT !== 'us' && ver === 'exec' ? ' <span class="wn">· 台股未驗證(這組是用美股十年回測挑的)</span>' : '';
     el.innerHTML = `<b>${esc((VLABEL[ver] || ver).split(' ')[0])} ${esc(v[0])}</b> — ${esc(v[1])}${tw}`;
     el.hidden = false;
   }
@@ -762,16 +758,16 @@
     $('#sblv').innerHTML = `<span><b>${esc(N[sel])}</b> · ≥ 本層</span><span>${rs.length > MAX ? `顯示前 ${MAX} / ` : ''}${rs.length} 檔</span>`;
     if (!rs.length) {
       const vn = (VLABEL[ver] || ver).split(' ')[0];
-      const other = ver === 'v4' ? 'v3.0' : 'v4.0';   // v4 名單最寬,當「再寬一點」的去處
+      const other = ver === 'exec' ? 'watch' : 'exec';
       $('#list').innerHTML = `<div class="lst-empty"><b>今天沒有通過 ${esc(vn)} 的標的。</b><br>`
-        + (ver === 'v5'
-            ? `v5 的門檻最嚴(RS 90、營收或 EPS 任一成長、現價貼著 pivot ±5%),常常整天 0 檔 —— <b>空手是正常結果,不是資料壞掉</b>。`
-              + (MKT !== 'us' ? `台股又比美股更常 0 檔,而且 v5 只在美股驗證過。` : '')
-            : `這個版本今天沒有股票走到第四關。`)
-        + `<br>想看寬一點的名單,把上面的版本切到 ${esc(other)};或看左邊漏斗哪一層卡住最多。`
-        + `<div><button class="btn" id="lst-sw">切到 ${esc(other)}</button></div></div>`;
+        + (ver === 'exec'
+            ? `執行版的門檻最嚴(RS 90、營收或 EPS 任一成長、現價貼著 pivot ±5%),常常整天 0 檔 —— <b>空手是正常結果,不是資料壞掉</b>。`
+              + (MKT !== 'us' ? `台股又比美股更常 0 檔,而且執行版只在美股驗證過。` : '')
+            : `觀察版今天也沒有股票走到第四關。`)
+        + (ver === 'exec' ? `<br>想看寬一點的候選池,切到觀察版;或看左邊漏斗哪一層卡住最多。` : `<br>看左邊漏斗哪一層卡住最多。`)
+        + (ver === 'exec' ? `<div><button class="btn" id="lst-sw">切到觀察版</button></div>` : '') + `</div>`;
       const b = $('#lst-sw');
-      if (b) b.onclick = () => { const vs = $('#versel'); vs.value = other.replace('.0', ''); vs.dispatchEvent(new Event('change')); };
+      if (b) b.onclick = () => { const vs = $('#versel'); vs.value = other; vs.dispatchEvent(new Event('change')); };
       return;
     }
     $('#list').innerHTML = rs.slice(0, MAX).map(m => {
@@ -816,7 +812,7 @@
     const nz = (x, f) => x == null ? '—' : f(x);
     const chip = (k, n_) => `<button class="lv-tab ${tkF === k ? 'on' : ''}" data-f="${k}">${n_}<b>${k === 'all' ? all.length : k === 'dead' ? cnt('void') + cnt('expired') + cnt('blocked') : cnt(k)}</b></button>`;
     pg.innerHTML = `<div class="dt-h tk-h"><button class="back" id="back-tk">← 返回名單</button><div class="tk-title">觀察池<small>${VLABEL[ver] || ver}</small></div>
-      <div class="tk-desc">${V4 ? `<b>v4 照回測策略結算</b>:新鮮突破(前一天收盤仍在 pivot 下、收盤站上 pivot 且放量)→ 隔日開盤進場 → −${P.vcp.stop_pct}% 停損 / ${P.vcp.pivot_fail_bars} 根內收破 pivot 帶量 / ${P.vcp.no_progress_bars} 根未達 +1R / ${P.vcp.hold_max_bars} 根到期;不追蹤、不保本。R = 賺賠 ÷ 初始風險,已扣 0.2% 成本。<button class="btn" id="rules-btn2" style="margin-left:8px">守則</button> · ` : ''}過四關 = 拿到一張觀察票(記下當天的 pivot),之後不論還在不在 L4 都盯著:收盤站上 pivot 且放量 = <b>觸發</b>(書的進場點);失效 = ${P.vcp.void_mode === 'last_low' ? '跌破最後一腿低點' : '跌到 pivot −' + P.vcp.max_below_pivot_pct + '%'}(作廢)或 ${P.vcp.watch_expire_bars || 40} 個交易日沒觸發(過期) · 資料到 ${track && track.date || '—'}</div></div>
+      <div class="tk-desc">${V4 ? `<b>照策略結算</b>:新鮮突破(前一天收盤仍在 pivot 下、收盤站上 pivot 且放量)→ 隔日開盤進場 → −${P.vcp.stop_pct}% 停損 / ${P.vcp.pivot_fail_bars} 根內收破 pivot 帶量 / ${P.vcp.no_progress_bars} 根未達 +1R / ${P.vcp.hold_max_bars} 根到期;不追蹤、不保本。R = 賺賠 ÷ 初始風險,已扣 0.2% 成本。<button class="btn" id="rules-btn2" style="margin-left:8px">守則</button> · ` : ''}過四關 = 拿到一張觀察票(記下當天的 pivot),之後不論還在不在 L4 都盯著:收盤站上 pivot 且放量 = <b>觸發</b>(書的進場點);失效 = ${P.vcp.void_mode === 'last_low' ? '跌破最後一腿低點' : '跌到 pivot −' + P.vcp.max_below_pivot_pct + '%'}(作廢)或 ${P.vcp.watch_expire_bars || 40} 個交易日沒觸發(過期) · 資料到 ${track && track.date || '—'}</div></div>
       <div class="tk-bar"><div class="lv-tabs">${chip('all', '全部')}${chip('wait', '等待')}${V4 ? chip('open', '觸發') + chip('exit', '已出場') : chip('trig', '已觸發')}${chip('dead', '失效')}</div>
         <div class="lv-tabs"><span class="tk-lab">報酬基準</span><button class="lv-tab ${tkB === 'entry' ? 'on' : ''}" data-b="entry">過關日</button><button class="lv-tab ${tkB === 'trig' ? 'on' : ''}" data-b="trig">突破日</button></div></div>
       <div class="tk-sum"><div><div class="k">${tkB === 'trig' ? '已觸發筆數' : '筆數'}</div><div class="v">${n}</div></div><div><div class="k">勝率(現在 > 進場)</div><div class="v ${n && win / n >= .5 ? 'pos' : ''}">${n ? Math.round(win / n * 100) + '%' : '—'}<small>${win}/${n}</small></div></div><div><div class="k">平均報酬 / 中位</div><div class="v">${n ? pc(rs.reduce((a, b) => a + b, 0) / n) : '—'}<small>中位 ${n ? (rs[n >> 1] > 0 ? '+' : '') + rs[n >> 1] + '%' : '—'}</small></div></div><div><div class="k">平均最佳</div><div class="v">${bestAvg == null ? '—' : pc(bestAvg)}<small>曾達 +10%:${es.filter(e => (B_(e) ?? 0) >= 10).length} 筆</small></div></div></div>
@@ -914,7 +910,7 @@
   const api = async (m, args = []) => { const r = await fetch(API + m, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(args) }); if (!r.ok) throw new Error(r.status); return r.json(); };
   $('#rules-btn').onclick = () => $('#rules').showModal(); $('#rules-x').onclick = () => $('#rules').close();
   document.querySelectorAll('.rl-tabs .btn').forEach(b => b.onclick = () => { const p = b.dataset.p; document.querySelectorAll('.rl-tabs .btn').forEach(x => x.classList.toggle('on', x === b)); document.querySelectorAll('.rl-p').forEach(x => x.hidden = x.dataset.p !== p);
-    $('#rl-title').textContent = p === 'vers' ? '五個版本差異' : '停損停利守則'; $('#rl-sub').textContent = p === 'vers' ? 'v1 → v5 · 同一份掃描,換規則重算' : 'v5 · 十年時點回測(與雷達同一套程式)'; });
+    $('#rl-title').textContent = p === 'vers' ? '兩組 preset' : '停損停利守則'; $('#rl-sub').textContent = p === 'vers' ? '執行版 / 觀察版 · 同一份掃描,換規則重算' : '執行版 · 十年時點回測(與雷達同一套程式)'; });
   const btn = $('#refresh'); let pollT = null;   // 預設 hidden;探測到本機後台才顯示
   const setBtn = (t, busy) => { btn.textContent = t; btn.disabled = !!busy; btn.style.opacity = busy ? .6 : 1; };
   async function pollStatus() {

@@ -1,0 +1,193 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="robots" content="noindex, nofollow, noarchive">
+<script src="../theme.js"></script>
+<title>SEPA Playbook · Blue Morpho</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&display=swap"><style>
+  :root { --paper:#F7F8F6; --ink:#14181C; --ink-2:#4A5561; --mute:#7C8792; --line:#D9DEE3; --panel:#EEF1F0; --accent:#0E7490; --accent-ink:#0B5C73; --warm:#C2410C; --good:#1F7A4D; --bad:#B3261E; --good-bg:#E3F1E8; --bad-bg:#F6E1DF; --neutral-bg:#ECEFF2; --side:#F0F2F1;
+    --serif:"IBM Plex Serif","Noto Serif TC",Georgia,serif; --sans:"Noto Sans TC","PingFang TC",system-ui,sans-serif; --mono:"IBM Plex Mono","SF Mono",Menlo,monospace; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --paper:#0F1316; --ink:#E8ECEF; --ink-2:#B7C0C8; --mute:#7F8A94; --line:#26303A; --panel:#161C21; --accent:#38B6D3; --accent-ink:#7ED3E6; --warm:#F0844A; --good:#5CC08A; --bad:#F08A80; --good-bg:#16342A; --bad-bg:#3B1F1D; --neutral-bg:#1C2329; --side:#12171B; } }
+  :root[data-theme="dark"] { --paper:#0F1316; --ink:#E8ECEF; --ink-2:#B7C0C8; --mute:#7F8A94; --line:#26303A; --panel:#161C21; --accent:#38B6D3; --accent-ink:#7ED3E6; --warm:#F0844A; --good:#5CC08A; --bad:#F08A80; --good-bg:#16342A; --bad-bg:#3B1F1D; --neutral-bg:#1C2329; --side:#12171B; }
+  * { box-sizing:border-box; } body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans); font-size:15.5px; line-height:1.8; }
+  .layout { display:grid; grid-template-columns:240px 1fr; min-height:100vh; }
+  nav { position:sticky; top:0; height:100vh; overflow-y:auto; background:var(--side); border-right:1px solid var(--line); padding:28px 18px; }
+  nav .brand { font-family:var(--mono); font-size:11px; letter-spacing:.14em; color:var(--accent-ink); text-transform:uppercase; margin-bottom:14px; }
+  nav a { display:block; color:var(--ink-2); text-decoration:none; font-size:14px; padding:6px 10px; border-radius:4px; } nav a:hover { background:var(--panel); color:var(--ink); }
+  nav a.h { font-weight:700; color:var(--ink); margin-top:10px; } nav a.sub { padding-left:22px; font-size:13px; }
+  nav .foot { margin-top:24px; font-family:var(--mono); font-size:11px; color:var(--mute); line-height:1.6; }
+  main { padding:48px 56px 96px; max-width:980px; }
+  h1 { font-family:var(--serif); font-weight:600; font-size:32px; line-height:1.25; margin:0 0 10px; text-wrap:balance; }
+  .lede { font-size:17px; color:var(--ink-2); max-width:66ch; }
+  h2 { font-family:var(--serif); font-weight:600; font-size:25px; margin:64px 0 12px; padding-top:16px; border-top:1px solid var(--line); scroll-margin-top:20px; }
+  h3 { font-size:17px; font-weight:700; margin:30px 0 8px; scroll-margin-top:20px; } h4 { font-size:15px; margin:20px 0 6px; }
+  p { max-width:70ch; margin:0 0 12px; }
+  .verdict { border-top:3px solid var(--accent); background:var(--panel); padding:20px 22px; margin:24px 0; } .verdict p { max-width:none; margin:0 0 8px; } .verdict p:last-child { margin:0; }
+  .kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin:18px 0; }
+  .kpi { background:var(--paper); padding:12px 14px; } .kpi .k { font-family:var(--mono); font-size:11px; letter-spacing:.08em; color:var(--mute); text-transform:uppercase; } .kpi .v { font-family:var(--mono); font-size:22px; margin-top:2px; font-variant-numeric:tabular-nums; } .kpi .v small { font-size:12px; color:var(--mute); margin-left:6px; }
+  .pos { color:var(--good); } .neg { color:var(--bad); } .mute { color:var(--mute); }
+  table { border-collapse:collapse; width:100%; font-family:var(--mono); font-size:12.5px; font-variant-numeric:tabular-nums; } .tbl { overflow-x:auto; margin:10px 0 4px; }
+  th { text-align:right; font-weight:500; color:var(--mute); font-size:11px; letter-spacing:.05em; padding:7px 8px; border-bottom:1px solid var(--ink); white-space:nowrap; vertical-align:bottom; }
+  td { text-align:right; padding:8px 8px; border-bottom:1px solid var(--line); white-space:nowrap; vertical-align:top; } th:first-child, td:first-child { text-align:left; } td.name { font-family:var(--sans); font-weight:500; white-space:normal; min-width:150px; } tr.hl td { background:var(--panel); }
+  td.note, th.note { white-space:normal; text-align:left; font-family:var(--sans); font-size:12.5px; color:var(--ink-2); min-width:160px; }
+  .cap { font-size:13px; color:var(--mute); margin:4px 0 0; max-width:none; }
+  .book { border-left:3px solid var(--accent); padding:8px 14px; background:var(--panel); margin:12px 0; font-size:14.5px; } .book p { margin:0 0 4px; max-width:none; } .book .src { font-family:var(--mono); font-size:11.5px; color:var(--mute); }
+  .warn { border-left:3px solid var(--warm); padding:8px 14px; background:var(--panel); margin:14px 0; } .warn p { margin:0; max-width:none; }
+  details { border:1px solid var(--line); border-radius:4px; padding:10px 16px; margin:14px 0; background:var(--panel); } summary { cursor:pointer; font-weight:700; } details[open] summary { margin-bottom:10px; }
+  ul, ol { padding-left:22px; max-width:70ch; } li { margin:5px 0; } code { font-family:var(--mono); font-size:12.5px; background:var(--panel); padding:1px 5px; border-radius:3px; }
+  @media (max-width:900px) { .layout { grid-template-columns:1fr; } nav { position:static; height:auto; border-right:0; border-bottom:1px solid var(--line); } nav a { display:inline-block; } nav a.h { display:block; } main { padding:28px 18px 64px; } .kpis { grid-template-columns:repeat(2,1fr); } }
+
+  /* 手機:表格改成一列一張卡片,整頁不左右滑(2026-09-15) */
+  .layout > * { min-width:0; }
+  @media (max-width:640px) {
+    html, body { overflow-x:hidden; }
+    .layout { grid-template-columns:minmax(0,1fr); }
+    main { padding:22px 14px 56px; }
+    p, li, dd, .cap, .verdict, summary { overflow-wrap:anywhere; }
+    code { white-space:normal; overflow-wrap:anywhere; }
+    .vt { display:flex; flex-wrap:wrap; gap:6px; }
+    .tbl { overflow-x:visible; }
+    .tbl table, .tbl tbody, .tbl tr, .tbl td { display:block; width:auto !important; }
+    .tbl thead { display:none; }
+    .tbl tr { border:1px solid var(--line); border-radius:6px; padding:8px 12px; margin:0 0 8px; background:var(--paper); }
+    .tbl tr.hl { border-color:var(--accent); background:var(--panel); }
+    .tbl td { padding:3px 0 !important; border:0 !important; text-align:right; white-space:normal !important; min-width:0; overflow-wrap:anywhere; }
+    .tbl td::after { content:""; display:block; clear:both; }
+    .tbl td::before { content:attr(data-l); float:left; max-width:45%; margin-right:12px; text-align:left; color:var(--mute); font-family:var(--sans); font-size:12px; }
+    .tbl td:not([data-l])::before, .tbl td[data-l=""]::before { display:none; }
+    .tbl td:not([data-l]), .tbl td[data-l=""] { text-align:left; }
+    .tbl td:first-child { font-weight:700; border-bottom:1px solid var(--line) !important; padding-bottom:6px !important; margin-bottom:4px; }
+    .tbl td[hidden], .tbl tr[hidden] { display:none !important; }
+    .kpis { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  }
+
+  .rule { border-left:3px solid var(--accent); padding:4px 14px; margin:10px 0 14px; } .rule b { font-family:var(--mono); }
+  .formula { font-family:var(--mono); font-size:13px; background:var(--panel); padding:10px 14px; border-radius:4px; margin:8px 0 12px; overflow-wrap:anywhere; }
+  .two { display:grid; grid-template-columns:1fr 1fr; gap:14px; } @media (max-width:640px) { .two { grid-template-columns:1fr; } }
+  .card { border:1px solid var(--line); border-radius:6px; padding:14px 16px; } .card h4 { margin:0 0 6px; }
+</style></head><body><div class="layout"><nav><div class="brand">Blue Morpho · SEPA</div>
+<a href="./" style="font-family:var(--mono);font-size:12px;color:var(--accent)">← 回雷達</a>
+<a href="#top" class="h">Playbook</a>
+<a href="#why" class="h">1. 為什麼是這套</a>
+<a href="#who" class="h">2. 兩組 preset:你是哪一種</a>
+<a href="#screen" class="h">3. 選股:五層漏斗</a><a href="#screen-u" class="sub">可交易宇宙</a><a href="#screen-t" class="sub">趨勢樣板與 RS</a><a href="#screen-f" class="sub">基本面</a><a href="#screen-c" class="sub">催化與距高</a><a href="#screen-v" class="sub">VCP 與 pivot</a>
+<a href="#ticket" class="h">4. 觀察票:從過關到進場</a>
+<a href="#market" class="h">5. 大盤狀態</a>
+<a href="#exit" class="h">6. 出場:四條線先到先出</a>
+<a href="#size" class="h">7. 部位與資金</a>
+<a href="#calc" class="h">8. 計算方式</a><a href="#calc-r" class="sub">R、期望值、獲利因子</a><a href="#calc-acct" class="sub">帳戶層怎麼算</a><a href="#calc-test" class="sub">怎樣才算通過驗證</a>
+<a href="#evidence" class="h">9. 回測證據</a><a href="#ev-year" class="sub">逐年</a><a href="#ev-size" class="sub">配資</a><a href="#ev-cmp" class="sub">三組對照</a>
+<a href="#expect" class="h">10. 預期的長相</a>
+<a href="#human" class="h">11. 人要看的</a>
+<a href="#daily" class="h">12. 每天怎麼做</a>
+<a href="#limits" class="h">13. 限制與誠實聲明</a>
+<div class="foot">回測 2017-01 → 2026-09<br>7,708 檔含下市 · 基準 SPY<br>2026-09-16</div></nav><main><div id="top"></div>
+<div class="brand" style="font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--accent-ink)">MINERVINI SEPA · PLAYBOOK</div><h1>從原理到執行:SEPA 狙擊雷達怎麼用</h1>
+<p class="lede">這份文件從頭講一遍:這套方法在賭什麼、兩組 preset 分別給誰、每一條規則怎麼定義、每個數字怎麼算出來、回測證據是什麼、以及它做不到什麼。看完應該能不靠別人解釋就照著做。</p>
+<div class="verdict"><p><b>一句話。</b>只買第二階段(上漲趨勢中)的強勢股,在它整理收縮後剛突破的那一天買,虧了照規則小賠出場,賺了讓它跑到 60 天到期。贏的不是勝率,是少數幾筆大贏家撐起的賺賠比:十年回測勝率只有 19%,但每冒 1 元風險平均賺 0.13 元。</p><p><b>兩組 preset。</b>「執行版」給照規則做的人,訊號少而精,回測年化 19.4%(同期 SPY 15.2%);「觀察版」給自己挑的人,名單寬三到五倍,規則本身不賺錢,價值在候選池。雷達預設執行版。</p></div>
+<h2 id="why">1. 為什麼是這套</h2>
+<p>Mark Minervini 的方法叫 SEPA(Specific Entry Point Analysis)。它的骨架只有五件事:<b>趨勢</b>(只在上漲階段買)、<b>基本面</b>(成長在加速)、<b>催化劑</b>(有理由漲)、<b>進場點</b>(整理收縮後的突破)、<b>出場</b>(小賠快砍、大賺留著)。書上把最後一項講得最重:報酬 = 勝率 × 賺賠比 × 換手 × 曝險,而勝率是最不重要的那個。</p>
+<p>我們把能寫成規則的部分寫成規則(趨勢、進場點、出場、基本面的門檻),把寫不成規則的部分留給人(催化劑、市場廣度、第幾個底)。這份 Playbook 第 3 到 7 節是規則,第 11 節是留給人的部分。</p>
+<p><b>為什麼相信它。</b>不是因為書,是因為十年、含下市股、和線上雷達同一份程式的回測。這點在第 8、9 節說清楚;先講規則,再講證據。</p>
+<h2 id="who">2. 兩組 preset:你是哪一種</h2>
+<div class="two"><div class="card"><h4>執行版(機械)</h4><p>你想照規則做,不想每天判斷。名單很少(一年約 37 筆交易),常常整天 0 檔,空手是正常結果。所有規則都經過回測,雷達的觀察池會照這套規則自動結算每一張票的進出場與 R。</p></div><div class="card"><h4>觀察版(自己挑)</h4><p>你想自己判斷產業、題材、第幾個底,只要一個夠寬的候選池。名單多三到五倍,基本面與大盤狀態只做標記不擋。<b>這套規則本身在回測裡是賠的</b>,不要把它當策略跑;它的價值是把「不該看的」先濾掉。</p></div></div>
+<div class="tbl"><table><thead><tr><th class="note">規則</th><th class="note">執行版</th><th class="note">觀察版</th></tr></thead><tbody>
+<tr><td class="note">趨勢樣板 8 條</td><td class="note">全過</td><td class="note">全過</td></tr>
+<tr><td class="note">RS 百分位</td><td class="note">≥ 90</td><td class="note">≥ 70</td></tr>
+<tr><td class="note">距 52 週高</td><td class="note">≤ 25%</td><td class="note">≤ 25%</td></tr>
+<tr><td class="note">基本面</td><td class="note">營收或 EPS 任一成長達標,不過不進</td><td class="note">只標記</td></tr>
+<tr><td class="note">VCP 與 pivot</td><td class="note">有 VCP,現價在 pivot ±5%</td><td class="note">同左</td></tr>
+<tr><td class="note">流動性</td><td class="note">價 ≥ $5、50 日均量 ≥ 20 萬</td><td class="note">同左</td></tr>
+<tr><td class="note">觀察票有效期</td><td class="note">10 個交易日</td><td class="note">40 個交易日</td></tr>
+<tr><td class="note">大盤轉弱</td><td class="note">不買</td><td class="note">只標記</td></tr>
+<tr><td class="note">大盤過熱</td><td class="note">部位減半</td><td class="note">只標記</td></tr>
+<tr><td class="note">出場</td><td class="note">四條線(第 6 節)</td><td class="note">同左</td></tr>
+<tr><td class="note">十年回測期望值</td><td class="note"><span class="pos">+0.13R</span></td><td class="note"><span class="neg">-0.04R</span></td></tr>
+<tr><td class="note">用途</td><td class="note">照做</td><td class="note">候選池</td></tr>
+</tbody></table></div><p class="cap">「書的原值」(Minervini 書上逐字的門檻:基本面四條硬擋、RS 80、距高 15%、VCP 品質分 50)不是 preset,在雷達參數面板按「書的原值」可以看。十年回測 <span class="neg">-0.16R</span>,只作對照。</p>
+<h2 id="screen">3. 選股:五層漏斗</h2><p>每天收盤後,全市場依序過五關。每一關只用當天為止的資料;回測也是同一個函數、同一個順序。</p>
+<h3 id="screen-u">L0 可交易宇宙</h3><div class="rule">美股 NASDAQ / NYSE / AMEX,市值 ≥ 3 億美元;<b>價 ≥ $5</b>;<b>50 日平均成交量 ≥ 20 萬股</b>。</div>
+<p>價格和成交量門檻用當天的 K 線算,所以回測和線上一致。市值門檻只有線上有(回測沒有歷史市值),這是兩者唯一的差異。低價股和冷門股的突破常常是假的,而且滑價吃掉 R,所以先擋。</p>
+<h3 id="screen-t">L1 趨勢樣板與 RS</h3><div class="rule">價 &gt; MA150 &gt; MA200;MA200 比 20 天前高;MA50 &gt; MA150 &gt; MA200;價 &gt; MA50;價 ≥ 52 週低 × 1.25;價 ≥ 52 週高 × 0.75;<b>RS 百分位 ≥ 70</b>。</div>
+<p>這八條就是書上的「趨勢樣板」,定義第二階段。前七條全是均線與高低點的關係,第八條是相對強度。<b>RS 怎麼算</b>:先算每檔的四段報酬,加權成一個分數,再看它在全宇宙裡贏過幾檔。</p>
+<div class="formula">RS_raw = 0.4 × r(63 日) + 0.2 × r(126 日) + 0.2 × r(189 日) + 0.2 × r(252 日)<br>RS = (在宇宙裡贏過的檔數 + 1) ÷ 宇宙檔數 × 98 + 1  → 1 到 99</div>
+<p>三個月報酬權重最大,是書的做法(近期動能最重要)。RS 90 代表贏過 90% 的股票。執行版要求 90,觀察版 70;十年回測裡 70 和 80 在後五年都轉負,只有 90 兩段都正。</p>
+<p><b>強力拉升直通</b>:8 週內漲一倍以上、之後整理回檔不超過 20% 的股票,可以略過均線排列的幾條(它太新,均線還沒排好),其餘照走。這是書上的 Power Play。</p>
+<h3 id="screen-f">L2 基本面</h3><div class="rule">最新一季 <b>營收年增 ≥ 20%</b> 或 <b>EPS 年增 ≥ 25%</b>(去年同季虧損、今年轉正也算)其中一條成立。執行版:不成立不進。觀察版:只標記。</div>
+<p>年增率 = 本季 ÷ 去年同季 − 1,只用申報日已經公布的季報。書上還要求成長「加速」(本季年增高於上季)和毛利率 ≥ 30%;回測裡四條都要求時樣本剩十分之一、逐年不穩,而「加速」單獨看反而是反向的,所以執行版只要求成長本身。營收年增超過 1000% 的(基期趨近零)不算真成長。</p>
+<h3 id="screen-c">L3 催化與距高</h3><div class="rule">距 52 週高 ≤ 25%;RS 門檻(執行版 90 / 觀察版 70)在這關套用;單一產業佔名單 ≤ 30%。</div>
+<p>書上的催化劑(新產品、新管理層、產業週期)沒有可量化的規則,這一關只做兩件事:離高點太遠的不看(還沒證明自己),單一產業不要塞滿名單。近 60 日單日漲幅超過 25% 的股票會標「事件股」,但不擋。</p>
+<h3 id="screen-v">L4 VCP 與 pivot</h3><div class="rule">65 個交易日內找到 ≥ 2 次收縮,每次深度 ≤ 前一次 × 0.75,第一次 ≤ 35%;<b>pivot</b> = 最後一次收縮的高點;<b>現價在 pivot −5% 到 +5% 之間</b>。</div>
+<p><b>VCP(Volatility Contraction Pattern)</b>是書的進場型態:股價每次回檔幅度越來越小,像彈簧壓緊。演算法用左右各 3 根確認的擺動高低點,把回檔切成一段段,檢查深度是否遞減。同時記下「最後一腿的低點」,之後當作廢線用。</p>
+<p>兩個常見的誤會:① 收縮次數、最後一腿多淺、量有沒有縮、品質分數,這些細節在回測裡都是雜訊,所以只顯示不擋;② 「現價在 pivot 附近」是為了只買剛要突破的,已經站上 pivot 超過 5% 的是追高,回測裡追高的期望值不到新鮮突破的三分之一。</p>
+<h2 id="ticket">4. 觀察票:從過關到進場</h2><p>過了四關不是買點,是拿到一張觀察票。票上記著那天的 pivot 和最後一腿低點,之後不論還在不在名單上,都照票上的價位盯。</p>
+<div class="rule"><b>觸發</b> = 收盤 &gt; pivot × 1.005,且當天成交量 ≥ 50 日均量 × 1.5,<b>且前一天收盤還在 pivot 之下</b>(新鮮突破)。<br><b>進場</b> = 觸發日的<b>隔日開盤價</b>。<br><b>作廢</b> = 收盤跌破最後一腿低點(型態壞了)。<br><b>過期</b> = 執行版 10 個交易日、觀察版 40 個交易日內沒觸發。<br><b>大盤擋</b> = 觸發那天大盤轉弱(第 5 節),這筆不進。</div>
+<p>為什麼隔日開盤:收盤後才看得到訊號,當天收盤價買不到;用盤中價會偷看。為什麼要新鮮:已經站上兩天以上的突破,回測期望值只有新鮮突破的三分之一。為什麼 10 天:過關後拖越久才突破的,期望值越差,40 天版本的晚突破整體是負的。</p>
+<p>雷達的觀察池就是這些票的即時狀態:等待、觸發、已出場、作廢、過期、大盤擋。每一張已出場的票都用第 6 節的規則結算 R,所以觀察池的成績單和回測是同一套算法。</p>
+<h2 id="market">5. 大盤狀態</h2><div class="rule"><b>轉弱</b>:SPY 最近 20 個交易日報酬 &lt; 0 → 執行版不開新倉。<br><b>過熱</b>:SPY 高於自己的 200 日均線 10% 以上 → 執行版部位減半。<br>其餘為正常。</div>
+<p>只看兩個數字,不預測。轉弱時不買,是因為突破在盤整轉弱的市場裡失敗率最高;過熱減半,是因為那時候的突破常常是行情尾端。這兩條在回測裡把執行版的期望值從 +0.10R 提到 +0.13R,並且是「前後五年都為正」的 14 條規則裡多數共有的條件。已經持有的部位不受大盤狀態影響,照第 6 節出場。</p>
+<h2 id="exit">6. 出場:四條線先到先出</h2><div class="rule">① <b>停損 −6%</b>:任何一天最低價碰到進場價 × 0.94 就出;跳空開低於停損則用開盤價。<br>② <b>突破失敗</b>:進場後 5 根內收盤跌回 pivot 以下且量 ≥ 50 日均量 → 隔日開盤出。<br>③ <b>時間停損</b>:20 根仍未曾漲到 +1R(最高價沒到進場價 + 6%)→ 隔日開盤出。<br>④ <b>到期</b>:第 60 根收盤出。</div>
+<p><b>不做的事</b>:不追蹤均線、不移動停損到成本、不賣一半、不設獲利目標、不賣進強勢。這五種鎖利在回測裡每一種都比「什麼都不做、60 根到期」差。原因在獲利結構:賺的錢來自約 8% 的大贏家,任何在 +2R 到 +5R 出場的規則都把它們切掉了。</p>
+<p><b>為什麼是 60 根到期</b>:到期不是保護獲利,是把資金還給下一個訊號。單筆 R 隨持有時間單調上升,但帳戶層需要換手;60 根是兩者的平衡點。停損放寬到 8–10% 只換勝率不換報酬,縮到 4% 錯殺太多。</p>
+<h2 id="size">7. 部位與資金</h2><div class="rule"><b>同時最多 6 檔,每檔帳戶的 16%</b>;沒用到的錢<b>全部放 SPY</b>,買股時從 SPY 撥出,賣股後放回。大盤過熱時新倉減半(8%)。不加碼、不因連敗縮曝險。</div>
+<p>單筆風險 = 16% × 6% ≈ 帳戶的 1%。為什麼閒錢要放 SPY:執行版訊號少,個股平均只佔帳戶 41%,其餘時間空手;閒錢放現金年化只有 8.2%,放 SPY 是 19.4%。這套策略的正確理解是「平常持有指數,只在少數強勢突破時換成個股」。為什麼不是 12 檔:訊號不夠多,分散只是降低曝險;為什麼不是 4 檔:開始錯過訊號、單筆波動太大。</p>
+<h2 id="calc">8. 計算方式</h2><p>後面所有數字都用這一節的定義。先看定義,再看數字。</p>
+<h3 id="calc-r">R、期望值、獲利因子</h3>
+<div class="formula">風險 = 進場價 × 6%(停損距離)<br>R = (出場價 − 進場價) ÷ 風險 − 成本<br>成本 = 來回手續費 0.2% ÷ 6% ≈ 0.03R,再扣單邊滑價 0.3% ≈ 0.05R;報告裡的 R 都已扣<br>期望值 = 所有交易 R 的平均<br>獲利因子 PF = 賺的 R 總和 ÷ 賠的 R 總和<br>去前 2% = 拿掉最大的 2% 贏家後的期望值</div>
+<p>R 是「每冒 1 元風險賺賠多少」。停損 −6% 的交易 R ≈ −1;漲 12% 出場 R ≈ +2。用 R 而不用百分比,是因為它把每筆交易放在同一個尺度上,直接對應部位大小。<b>期望值 +0.13R</b> 的意思是:每冒 1 元風險,平均回收 1.13 元。「去前 2%」是穩健度檢查:如果拿掉幾筆大贏家就變負,代表 edge 全靠運氣抓到它們。</p>
+<h3 id="calc-acct">帳戶層怎麼算</h3>
+<div class="formula">每天:先處理出場(收回現金)→ 再開新倉(依 RS 高到低,最多 6 檔,每檔 = 當時帳戶淨值 × 16%)→ 收盤估值<br>進場價 × 1.003、出場價 × 0.997(滑價)<br>閒置現金按 SPY 當日報酬滾動<br>年化 = (期末 ÷ 期初)^(252 ÷ 交易日數) − 1<br>最大回撤 = 淨值距歷史高點的最大跌幅</div>
+<p>帳戶層和單筆 R 的差別:單筆 R 假設每筆都能買到,帳戶層要排隊(同一天多個訊號依 RS 高到低挑,滿 6 檔就不買)、要付滑價、閒錢有沒有生息。所以帳戶年化比「期望值 × 筆數」小很多,這才是你會拿到的數字。</p>
+<h3 id="calc-test">怎樣才算通過驗證</h3>
+<p>回測用 2017-01 到 2026-09 的日 K,宇宙 7,708 檔,其中約 5,400 檔已經下市或被併購。下市股的價格一起回放,持有中下市的以最後收盤出場;不補回下市股的回測會高估兩三倍。每個交易日只用當天以前的 K 線和申報日以前的財報。</p>
+<p><b>切成兩段</b>:2016-09 到 2021-09 挑規則,2021-09 到 2026-09 驗證。挑規則時把雷達設定檔的六個選股鍵(RS、距高、事件股、基本面、距 pivot、品質分)各種組合,乘上觀察票有效期三種、大盤門檻開關,共 864 條規則全部跑一遍。<b>通過的標準</b>:兩段期望值都為正、兩段樣本都 ≥ 60 筆。結果只有 14 條通過,執行版是其中全期期望值最高的一條。前段最好的 25 條到後段全部虧損,兩段的相關係數是 −0.52;這代表大部分「好看的規則」是配合那五年挑出來的,換一段就沒了。</p>
+<p><b>回測和雷達是同一份程式</b>:選股呼叫雷達的漏斗函數,觀察票、觸發、出場呼叫雷達觀察池的函數。用執行版設定檔重跑十年,和挑選時的數字逐位相同。這是這份 Playbook 能當執行參考的前提。</p>
+<h2 id="evidence">9. 回測證據</h2>
+<div class="kpis"><div class="kpi"><div class="k">期望值</div><div class="v pos">+0.13R<small>361 筆</small></div></div><div class="kpi"><div class="k">勝率</div><div class="v">19%<small>PF 1.21</small></div></div><div class="kpi"><div class="k">帳戶年化</div><div class="v pos">19.4%<small>SPY 15.2%</small></div></div><div class="kpi"><div class="k">最大回撤</div><div class="v neg">-35.0%<small>SPY -33.7%</small></div></div></div>
+<h3 id="ev-year">逐年(執行版,6 檔 × 16%,閒錢放 SPY)</h3><div class="tbl"><table><thead><tr><th>年</th><th>筆</th><th>勝率</th><th>期望值</th><th>帳戶</th><th>SPY</th><th>超額</th><th>年內回撤</th></tr></thead><tbody>
+<tr><td class="name">2017</td><td>11</td><td>27%</td><td><span class="neg">-0.05R</span></td><td><span class="pos">+16.8</span>%</td><td><span class="pos">+20.8</span>%</td><td><span class="neg">-4.0</span></td><td>-4.7%</td></tr>
+<tr><td class="name">2018</td><td>55</td><td>18%</td><td><span class="neg">-0.18R</span></td><td><span class="neg">-13.0</span>%</td><td><span class="neg">-5.2</span>%</td><td><span class="neg">-7.8</span></td><td>-26.1%</td></tr>
+<tr><td class="name">2019</td><td>38</td><td>18%</td><td><span class="neg">-0.25R</span></td><td><span class="pos">+20.2</span>%</td><td><span class="pos">+31.1</span>%</td><td><span class="neg">-10.9</span></td><td>-11.4%</td></tr>
+<tr><td class="name">2020</td><td>29</td><td>31%</td><td><span class="pos">+0.84R</span></td><td><span class="pos">+26.7</span>%</td><td><span class="pos">+17.2</span>%</td><td><span class="pos">+9.5</span></td><td>-34.8%</td></tr>
+<tr><td class="name">2021</td><td>51</td><td>14%</td><td><span class="neg">-0.34R</span></td><td><span class="pos">+27.0</span>%</td><td><span class="pos">+30.5</span>%</td><td><span class="neg">-3.5</span></td><td>-14.7%</td></tr>
+<tr><td class="name">2022</td><td>29</td><td>10%</td><td><span class="neg">-0.34R</span></td><td><span class="neg">-18.0</span>%</td><td><span class="neg">-18.6</span>%</td><td><span class="pos">+0.6</span></td><td>-21.2%</td></tr>
+<tr><td class="name">2023</td><td>38</td><td>26%</td><td><span class="pos">+0.30R</span></td><td><span class="pos">+31.3</span>%</td><td><span class="pos">+26.7</span>%</td><td><span class="pos">+4.6</span></td><td>-8.7%</td></tr>
+<tr><td class="name">2024</td><td>56</td><td>16%</td><td><span class="pos">+0.39R</span></td><td><span class="pos">+57.4</span>%</td><td><span class="pos">+25.6</span>%</td><td><span class="pos">+31.8</span></td><td>-18.5%</td></tr>
+<tr><td class="name">2025</td><td>41</td><td>22%</td><td><span class="pos">+1.07R</span></td><td><span class="pos">+39.3</span>%</td><td><span class="pos">+18.0</span>%</td><td><span class="pos">+21.3</span></td><td>-23.9%</td></tr>
+<tr><td class="name">2026(到 9 月)</td><td>13</td><td>8%</td><td><span class="neg">-0.43R</span></td><td><span class="pos">+27.9</span>%</td><td><span class="pos">+12.5</span>%</td><td><span class="pos">+15.4</span></td><td>-14.8%</td></tr>
+<tr class="hl"><td class="name">全期</td><td>361</td><td>19%</td><td><span class="pos">+0.13R</span></td><td><span class="pos">+19.4</span>%</td><td><span class="pos">+15.2</span>%</td><td><span class="pos">+4.2</span></td><td>-35.0%</td></tr></tbody></table></div>
+<p>讀法:前五年(2017–2021)單筆期望值 <span class="pos">+0.01R</span>,幾乎打平;後五年 <span class="pos">+0.24R</span>。帳戶贏 SPY 的年份集中在 2020、2023–2026;2018、2019、2021 落後。這不是穩定的 alpha,是「在動能延續的年份放大、在輪動的年份拖累」的特性。下市股上的 78 筆交易 <span class="neg">-0.10R</span>,活股 <span class="pos">+0.20R</span>:下市股拖累約 0.1R,已含在全期數字裡。</p>
+<h3 id="ev-size">配資</h3><div class="tbl"><table><thead><tr><th class="note">同時持有</th><th>閒錢放 SPY 年化</th><th>回撤</th><th>閒錢不動 年化</th><th>個股平均曝險</th></tr></thead><tbody>
+<tr><td class="note">12 檔 × 8%</td><td><span class="pos">+16.6</span>%</td><td>-34.3%</td><td><span class="pos">+3.8</span>%</td><td>24%</td></tr>
+<tr><td class="note">8 檔 × 12.5%</td><td><span class="pos">+17.7</span>%</td><td>-35.8%</td><td><span class="pos">+5.8</span>%</td><td>35%</td></tr>
+<tr class="hl"><td class="note">6 檔 × 16%(採用)</td><td><span class="pos">+19.4</span>%</td><td>-35.0%</td><td><span class="pos">+8.2</span>%</td><td>41%</td></tr>
+<tr><td class="note">4 檔 × 25%</td><td><span class="pos">+16.2</span>%</td><td>-36.9%</td><td><span class="pos">+6.0</span>%</td><td>48%</td></tr>
+</tbody></table></div><p class="cap">SPY 買進持有同期年化 15.2%、最大回撤 -33.7%。</p>
+<h3 id="ev-cmp">三組對照(同一套回測、同樣的出場)</h3><div class="tbl"><table><thead><tr><th class="note">規則</th><th>筆數</th><th>勝率</th><th>期望值</th><th>去前 2%</th><th>PF</th></tr></thead><tbody>
+<tr class="hl"><td class="note">執行版</td><td>361</td><td>19%</td><td><span class="pos">+0.13R</span></td><td><span class="neg">-0.15R</span></td><td>1.21</td></tr>
+<tr><td class="note">觀察版</td><td>2664</td><td>24%</td><td><span class="neg">-0.04R</span></td><td><span class="neg">-0.27R</span></td><td>0.94</td></tr>
+<tr><td class="note">書的原值</td><td>153</td><td>16%</td><td><span class="neg">-0.16R</span></td><td><span class="neg">-0.45R</span></td><td>0.79</td></tr>
+</tbody></table></div><p>觀察版和書的原值都是負的。觀察版名單寬七倍,但每筆平均賠;它的用途是給人挑,不是照做。書的原值最嚴、樣本最少,也最差:基本面四條硬擋把名單縮到一年十幾筆,而「加速」這條在十年裡是反向的。</p>
+<p class="cap">更完整的推導與主題分析在<a href="backtest.html">回測手冊</a>。</p>
+<h2 id="expect">10. 預期的長相</h2>
+<div class="tbl"><table><thead><tr><th class="note">項目</th><th>十年回測</th></tr></thead><tbody>
+<tr><td class="note">一年交易筆數</td><td>約 37 筆</td></tr>
+<tr><td class="note">勝率</td><td>19%</td></tr>
+<tr><td class="note">中位數交易</td><td>-0.57R(大多數交易是小賠)</td></tr>
+<tr><td class="note">最長連虧</td><td>27 筆</td></tr>
+<tr><td class="note">停損出場佔比</td><td>64%</td></tr>
+<tr><td class="note">到期出場佔比</td><td>17%</td></tr>
+<tr><td class="note">觀察票走到成交的比例</td><td>8%(其餘作廢或過期)</td></tr>
+<tr><td class="note">最差年份</td><td>2018:帳戶 −13%、單筆 −0.18R</td></tr>
+<tr><td class="note">落後 SPY 的年份</td><td>十年裡四年</td></tr>
+</tbody></table></div><p>心理上要準備的:五筆裡四筆賠,連賠二十幾筆是正常的;一年的獲利常常集中在兩三個月裡的幾筆;可能連續兩三年落後指數。如果做不到在連虧 20 筆之後照樣下第 21 筆,這套不適合機械執行,請用觀察版。</p>
+<h2 id="human">11. 人要看的</h2><p>作者在書裡留了幾件事給判斷,規則寫不進去,但會影響結果。執行版不擋這些,是因為回測量不到;不代表不重要。</p>
+<ol><li><b>市場廣度</b>:大盤狀態只看 SPY;若指數靠少數權值股撐著、多數股票在跌,突破的失敗率會高於回測。</li><li><b>類股是否同步</b>:同產業有兩三檔同時出現在名單上,比單獨一檔可靠。</li><li><b>這是第幾個底</b>:同一波趨勢裡的第三、第四個整理底,失敗率明顯高於第一、第二個。</li><li><b>突破頭三天的走勢</b>:突破後立刻回到 pivot 之下、量縮,是最早的警訊;規則要等第 5 根才砍,人可以更早。</li><li><b>財報日</b>:財報前一兩天的突破,賭的是財報不是型態;規則不擋,人要看。</li><li><b>題材</b>:催化劑沒有規則。有明確理由的漲(新產品、產業週期)比沒理由的漲可靠。</li></ol>
+<h2 id="daily">12. 每天怎麼做</h2><ol><li><b>收盤後</b>:打開雷達,確認大盤狀態(正常 / 轉弱 / 過熱)。看執行版名單(新的觀察票)與觀察池(今天有沒有觸發)。</li><li><b>觸發的票</b>:大盤轉弱就不買。正常就準備隔日開盤買,金額 = 帳戶 × 16%(過熱 8%),同時算好停損價 = 進場價 × 0.94。</li><li><b>隔日開盤</b>:市價買,從 SPY 撥錢。</li><li><b>持有中</b>:每天收盤檢查四條線:最低價碰停損?5 根內收破 pivot 帶量?20 根還沒到 +1R?第 60 根?任一成立,隔日開盤出(停損當天出),錢放回 SPY。</li><li><b>週末</b>:對照觀察池的結算和自己的實際成交,差異超過滑價的要找原因。</li></ol>
+<h2 id="limits">13. 限制與誠實聲明</h2><ol>
+<li><b>864 條規則裡只有 14 條通過兩段驗證。</b>執行版的超額報酬應該當「有機會」,不是保證;前五年只有打平。</li>
+<li><b>下市股名單 2021 年以前明顯缺漏</b>(資料商 2019 年只有 45 檔,實際每年約 600–800 檔),所以 2017–2021 仍殘留倖存者偏差,真實值只會更差。</li>
+<li><b>市值門檻只有線上有</b>,回測用價格與成交量代替;財報申報日在 2018 年以前部分公司是估計值。</li>
+<li><b>台股未驗證</b>:執行版是用美股挑的,台股沒有時點財報,而且漲跌停制度讓「隔日開盤買」常常買不到。台股預設觀察版。</li>
+<li><b>去前 2% 大贏家是 <span class="neg">-0.15R</span>。</b>任何一年沒抓到那幾檔,那一年就是平的或賠的。這是動能策略的本質,不是缺陷,但要知道。</li>
+<li>回測不構成投資建議。</li></ol>
+<p class="cap" style="margin-top:40px">數字來源:backtest/v5_final.json、radar_grid.json;程式:agents/radar_backtest.py、agents/minervini.py(evaluate、ticket_sim)。2026-09-16。</p>
+</main></div>
+<script>(function(){document.querySelectorAll('table').forEach(function(t){var hr=t.tHead&&t.tHead.rows.length?t.tHead.rows[t.tHead.rows.length-1]:null;if(!hr)return;var names=[];[].forEach.call(hr.cells,function(c){var n=+(c.getAttribute('colspan')||1);for(var i=0;i<n;i++)names.push(c.textContent.trim());});
+[].forEach.call(t.tBodies,function(b){[].forEach.call(b.rows,function(r){var k=0;[].forEach.call(r.cells,function(c){var n=+(c.getAttribute('colspan')||1);if(n===1&&names[k]!=null)c.setAttribute('data-l',names[k]);k+=n;});});});});})();</script></body></html>
