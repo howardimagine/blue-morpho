@@ -42,33 +42,36 @@
 
   td.r { font-weight:500; } .sticky th { position:sticky; top:0; background:var(--paper); z-index:1; }
 
-  /* 手機:表格改成一列一張卡片,整頁不左右滑(2026-09-15) */
+/* mobile-nav-patch v1 */
   .layout > * { min-width:0; }
-  @media (max-width:640px) {
+  .menu-btn { display:none; } .nav-mask { display:none; } main h2, main h3, main h4 { scroll-margin-top:56px; }
+  @media (max-width:900px) {
     html, body { overflow-x:hidden; }
-    .layout { grid-template-columns:minmax(0,1fr); }
-    main { padding:22px 14px 56px; }
-    p, li, dd, .cap, .verdict, summary { overflow-wrap:anywhere; }
-    code { white-space:normal; overflow-wrap:anywhere; }
-    .vt { display:flex; flex-wrap:wrap; gap:6px; }
-    .tbl { overflow-x:visible; }
-    .tbl table, .tbl tbody, .tbl tr, .tbl td { display:block; width:auto !important; }
-    .tbl thead { display:none; }
-    .tbl tr { border:1px solid var(--line); border-radius:6px; padding:8px 12px; margin:0 0 8px; background:var(--paper); }
-    .tbl tr.hl { border-color:var(--accent); background:var(--panel); }
-    .tbl td { padding:3px 0 !important; border:0 !important; text-align:right; white-space:normal !important; min-width:0; overflow-wrap:anywhere; }
-    .tbl td::after { content:""; display:block; clear:both; }
-    .tbl td::before { content:attr(data-l); float:left; max-width:45%; margin-right:12px; text-align:left; color:var(--mute); font-family:var(--sans); font-size:12px; }
-    .tbl td:not([data-l])::before, .tbl td[data-l=""]::before { display:none; }
-    .tbl td:not([data-l]), .tbl td[data-l=""] { text-align:left; }
-    .tbl td:first-child { font-weight:700; border-bottom:1px solid var(--line) !important; padding-bottom:6px !important; margin-bottom:4px; }
-    .tbl td[hidden], .tbl tr[hidden] { display:none !important; }
-    .kpis { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .layout { display:block; }
+    .layout nav { position:fixed; top:0; left:0; bottom:0; height:100vh; width:min(82vw,320px); z-index:40; transform:translateX(-102%); transition:transform .22s ease; border-right:1px solid var(--line); border-bottom:0; overflow-y:auto; padding:22px 16px 40px; box-shadow:none; }
+    .layout nav.open { transform:none; box-shadow:0 0 40px rgba(0,0,0,.25); }
+    nav a { display:block !important; padding:9px 10px; font-size:15px; } nav a.sub { font-size:14px; padding:7px 10px 7px 24px; }
+    .nav-mask.show { display:block; position:fixed; inset:0; background:rgba(0,0,0,.35); z-index:35; }
+    .menu-btn { display:flex; position:fixed; right:16px; bottom:18px; z-index:45; align-items:center; gap:4px; flex-direction:column; justify-content:center; width:58px; height:58px; border-radius:29px; border:0; background:var(--accent); color:#fff; box-shadow:0 4px 16px rgba(0,0,0,.25); cursor:pointer; }
+    .menu-btn span { display:block; width:20px; height:2px; background:#fff; border-radius:1px; } .menu-btn em { font-style:normal; font-size:10px; margin-top:2px; font-family:var(--sans); }
+    .menu-btn.open span:nth-child(1) { transform:translateY(6px) rotate(45deg); } .menu-btn.open span:nth-child(2) { opacity:0; } .menu-btn.open span:nth-child(3) { transform:translateY(-6px) rotate(-45deg); }
+    main { padding:20px 14px 96px; max-width:100%; }
+    h1 { font-size:25px; } h2 { font-size:21px; margin-top:44px; } .lede { font-size:15.5px; }
+    p, li, dd, .cap, .verdict, summary { overflow-wrap:anywhere; } code { white-space:normal; overflow-wrap:anywhere; }
+    .vt { display:flex; flex-wrap:wrap; gap:6px; } .vt button { padding:7px 12px; }
+    table { font-size:12px; } th { font-size:10.5px; padding:6px; } td { padding:6px; }
+    .tbl { overflow-x:auto; -webkit-overflow-scrolling:touch; position:relative; }
+    .tbl th:first-child, .tbl td:first-child { position:sticky; left:0; background:var(--paper); z-index:1; }
+    .tbl tr.hl td:first-child { background:var(--panel); }
+    .tbl td.note, .tbl th.note { white-space:normal; min-width:140px; }
+    .tbl.can-scroll::after { content:""; position:absolute; top:0; right:0; bottom:0; width:36px; background:linear-gradient(90deg,transparent,var(--paper)); pointer-events:none; }
+    .tbl.can-scroll.at-end::after { display:none; }
+    .kpis { grid-template-columns:1fr 1fr; } .kpi .v { font-size:19px; }
   }
 </style>
 </head>
 <body>
-<div class="layout"><nav><div class="brand">Blue Morpho · SEPA</div><a href="backtest.html" style="font-family:var(--mono);font-size:12px;color:var(--accent)">← 回手冊</a><a href="#top" class="h">總覽</a><a href="#yearly-exp" class="sub">每年預期績效</a>
+<div class="layout"><button class="menu-btn" aria-label="開啟目錄" aria-expanded="false" onclick="toggleNav()"><span></span><span></span><span></span><em>目錄</em></button><div class="nav-mask" onclick="toggleNav(false)"></div><nav id="toc"><div class="brand">Blue Morpho · SEPA</div><a href="backtest.html" style="font-family:var(--mono);font-size:12px;color:var(--accent)">← 回手冊</a><a href="#top" class="h">總覽</a><a href="#yearly-exp" class="sub">每年預期績效</a>
 <a href="#y2022" class="sub">2022</a>
 <a href="#y2023" class="sub">2023</a>
 <a href="#y2024" class="sub">2024</a>
@@ -675,5 +678,7 @@
 <script>/* 手機卡片表格:把欄名寫進每格 data-l */
 (function(){document.querySelectorAll('table').forEach(function(t){var hr=t.tHead&&t.tHead.rows.length?t.tHead.rows[t.tHead.rows.length-1]:null;if(!hr)return;var names=[];[].forEach.call(hr.cells,function(c){var n=+(c.getAttribute('colspan')||1);for(var i=0;i<n;i++)names.push(c.textContent.trim());});
 [].forEach.call(t.tBodies,function(b){[].forEach.call(b.rows,function(r){var k=0;[].forEach.call(r.cells,function(c){var n=+(c.getAttribute('colspan')||1);if(n===1&&names[k]!=null)c.setAttribute('data-l',names[k]);k+=n;});});});});})();</script>
-</body>
+<script>(function(){function chk(w){w.classList.toggle('can-scroll',w.scrollWidth>w.clientWidth+2);w.classList.toggle('at-end',w.scrollLeft+w.clientWidth>=w.scrollWidth-2)}var all=function(){document.querySelectorAll('.tbl').forEach(chk)};document.querySelectorAll('.tbl').forEach(function(w){chk(w);w.addEventListener('scroll',function(){chk(w)},{passive:true})});addEventListener('resize',all);document.querySelectorAll('details').forEach(function(d){d.addEventListener('toggle',all)});document.querySelectorAll('.vt button').forEach(function(b){b.addEventListener('click',function(){setTimeout(all,0)})})})();
+function toggleNav(f){var n=document.getElementById('toc'),b=document.querySelector('.menu-btn'),k=document.querySelector('.nav-mask');var o=f===undefined?!n.classList.contains('open'):f;n.classList.toggle('open',o);b.classList.toggle('open',o);k.classList.toggle('show',o);b.setAttribute('aria-expanded',o)}
+document.querySelectorAll('nav a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){toggleNav(false)})});</script></body>
 </html>
