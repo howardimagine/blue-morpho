@@ -287,6 +287,10 @@
     .rl ol { padding-left: 20px; margin: 0; font-size: var(--fs-md); line-height: 1.7; } .rl li { margin: 6px 0; } .rl-f { margin-top: 12px; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--dim); line-height: 1.6; }
     .rl-tabs { display: flex; gap: 6px; margin-bottom: 12px; } .rl-tabs .btn.on { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
     .rl-p[hidden] { display: none; } .rl-v { font-size: var(--fs-md); line-height: 1.7; } .rl-v dt { font-family: var(--font-mono); color: var(--accent); margin-top: 8px; } .rl-v dd { margin: 0 0 4px; } .rl-v dt:first-child { margin-top: 0; }
+    .vsub { padding: 8px 18px; border-bottom: 1px solid var(--border); background: var(--bg-card); font-size: var(--fs-sm); color: var(--sec); line-height: 1.6; }
+    .vsub b { color: var(--text-primary); font-weight: 700; } .vsub .wn { color: var(--warning); }
+    .lst-empty { padding: 28px 20px; color: var(--sec); font-size: var(--fs-md); line-height: 1.8; }
+    .lst-empty b { color: var(--text-primary); } .lst-empty .btn { margin-top: 12px; }
     .mnav { display: none; }
     @media (max-width: 768px) {
       :root { --sw-h: 26px; --sw-w: 46px; --hdr: 54px; --nav: calc(56px + env(safe-area-inset-bottom)); --ctl-sm: 36px; --ctl-md: 42px; --tag-h: 20px; --fs-xs: 12.5px; --fs-sm: 14px; --fs-md: 16px; --fs-lg: 19px; }
@@ -383,6 +387,7 @@
     </div>
   </header>
 
+  <div class="vsub" id="vsub" hidden></div>
   <div id="qbanner" hidden></div>
   <div id="app" class="loading">RADAR INITIALIZING…</div>
 
@@ -580,6 +585,13 @@
   }
   $('#reset').onclick = () => { P = baseParams(); persist(); syncControls(); recompute(); };
   // 版本切換鈕(header)
+  const VSUB = {
+    v1: ['照書逐字', '趨勢樣板 8 條全過、基本面(成長 + 毛利)當硬門檻、VCP 要乾淨。最嚴,名單最少。'],
+    v2: ['原版 + 強力拉升直通', 'v1 再加一條捷徑:8 週內漲一倍後緊縮整理的,可以不等 VCP 直接進候選。'],
+    v3: ['照書精神放寬', '成長只要營收或 EPS 其中一個達標、毛利不擋,RS 70、距高 25% 回到書上的原值。名單多,給人挑。'],
+    v4: ['五年回測版', '基本面只標記不擋、加上大盤與產業標記。名單最多,適合看全貌;但十年回測顯示這套規則本身不賺錢。'],
+    v5: ['十年回測的執行版(建議)', 'RS 90 + 營收或 EPS 任一成長 + 貼著 pivot(±5%),觀察票只給 10 天,大盤轉弱不買。名單最少,只挑最強的。']
+  };
   const VLABEL = { v1: 'v1.0 原版', v2: 'v2.0 強力拉升直通', v3: 'v3.0 寬(照書放寬上游)', v4: 'v4.0 回測版', v5: 'v5.0 一致版(建議)' };
   const vwrap = document.createElement('select'); vwrap.id = 'versel'; vwrap.className = 'hdr-sel';
   vwrap.title = '切換規則版本(v1.0 = 趨勢樣板 8 條 + VCP;v2.0 = 加上強力拉升直通)';
@@ -705,7 +717,15 @@
   }
   $('#lvtabs').addEventListener('click', e => { const b = e.target.closest('.lv-tab'); if (!b) return; b.dataset.lv === 'track' ? showTrack() : selectLevel(+b.dataset.lv); });
   const COV = { missing: 0, have: 0, total: 0 };
+  function updateVsub() {
+    const v = VSUB[ver]; const el = $('#vsub'); if (!el) return;
+    if (!v) { el.hidden = true; return; }
+    const tw = MKT !== 'us' && ver === 'v5' ? ' <span class="wn">· 台股未驗證(這套是用美股十年回測挑的)</span>' : '';
+    el.innerHTML = `<b>${esc((VLABEL[ver] || ver).split(' ')[0])} ${esc(v[0])}</b> — ${esc(v[1])}${tw}`;
+    el.hidden = false;
+  }
   function recompute(first) {
+    updateVsub();
     R = RadarFunnel.evaluate(data.symbols, P, data.date);
     // 進入 L2 閘門的檔數 vs 其中真的有財報的 —— 關掉 L1 時分母會變成整個 L0,失真程度一目了然
     const intoL2 = data.symbols.filter(m => (R.levels[m.s] ?? -1) >= 1);
@@ -740,6 +760,20 @@
   function renderList() {
     const rs = rows(), MAX = 300;
     $('#sblv').innerHTML = `<span><b>${esc(N[sel])}</b> · ≥ 本層</span><span>${rs.length > MAX ? `顯示前 ${MAX} / ` : ''}${rs.length} 檔</span>`;
+    if (!rs.length) {
+      const vn = (VLABEL[ver] || ver).split(' ')[0];
+      const other = ver === 'v4' ? 'v3.0' : 'v4.0';   // v4 名單最寬,當「再寬一點」的去處
+      $('#list').innerHTML = `<div class="lst-empty"><b>今天沒有通過 ${esc(vn)} 的標的。</b><br>`
+        + (ver === 'v5'
+            ? `v5 的門檻最嚴(RS 90、營收或 EPS 任一成長、現價貼著 pivot ±5%),常常整天 0 檔 —— <b>空手是正常結果,不是資料壞掉</b>。`
+              + (MKT !== 'us' ? `台股又比美股更常 0 檔,而且 v5 只在美股驗證過。` : '')
+            : `這個版本今天沒有股票走到第四關。`)
+        + `<br>想看寬一點的名單,把上面的版本切到 ${esc(other)};或看左邊漏斗哪一層卡住最多。`
+        + `<div><button class="btn" id="lst-sw">切到 ${esc(other)}</button></div></div>`;
+      const b = $('#lst-sw');
+      if (b) b.onclick = () => { const vs = $('#versel'); vs.value = other.replace('.0', ''); vs.dispatchEvent(new Event('change')); };
+      return;
+    }
     $('#list').innerHTML = rs.slice(0, MAX).map(m => {
       const v = m.v, lv = R.levels[m.s] ?? 0, dh = val(m, 'dh');
       const dEarn = m.e && m.e.next ? (Date.parse(m.e.next) - Date.parse(data.date)) / 864e5 : null;
@@ -766,7 +800,7 @@
   // ── Sidebar 第 3 頁:觀察池(過四關的票 + 突破追蹤 + 成功率)──────────
   function showTrack() { $('#pg-list').hidden = true; $('#pg-detail').hidden = true; $('#pg-track').hidden = false; if (chart) { chart.remove(); chart = null; } curSym = null; setWide(true); renderTrack(); }
   let tkSort = { k: 'date', d: -1 }, tkF = 'all', tkB = 'entry';   // 觀察池:排序 / 狀態篩選 / 報酬基準(過關日 or 突破日)
-  const ST = { wait: ['等待', ''], trig: ['已觸發', 'pos'], open: ['持有中', 'pos'], exit: ['已出場', ''], void: ['作廢', 'neg'], expired: ['過期', ''], blocked: ['大盤擋', 'neg'] };
+  const ST = { wait: ['等待', ''], trig: ['觸發(等隔日開盤)', 'pos'], open: ['觸發', 'pos'], exit: ['已出場', ''], void: ['作廢', 'neg'], expired: ['過期', ''], blocked: ['大盤擋', 'neg'] };
   const XR = { stop: '停損', pivot_fail: '突破失敗', no_progress: '時間停損', time: '到期', delist: '下市' };
   function renderTrack() {
     const pg = $('#pg-track'), all = (track && track.entries || []).filter(e => e.p === ver), sm = (track && track.summary || {})[ver];
@@ -783,12 +817,12 @@
     const chip = (k, n_) => `<button class="lv-tab ${tkF === k ? 'on' : ''}" data-f="${k}">${n_}<b>${k === 'all' ? all.length : k === 'dead' ? cnt('void') + cnt('expired') + cnt('blocked') : cnt(k)}</b></button>`;
     pg.innerHTML = `<div class="dt-h tk-h"><button class="back" id="back-tk">← 返回名單</button><div class="tk-title">觀察池<small>${VLABEL[ver] || ver}</small></div>
       <div class="tk-desc">${V4 ? `<b>v4 照回測策略結算</b>:新鮮突破(前一天收盤仍在 pivot 下、收盤站上 pivot 且放量)→ 隔日開盤進場 → −${P.vcp.stop_pct}% 停損 / ${P.vcp.pivot_fail_bars} 根內收破 pivot 帶量 / ${P.vcp.no_progress_bars} 根未達 +1R / ${P.vcp.hold_max_bars} 根到期;不追蹤、不保本。R = 賺賠 ÷ 初始風險,已扣 0.2% 成本。<button class="btn" id="rules-btn2" style="margin-left:8px">守則</button> · ` : ''}過四關 = 拿到一張觀察票(記下當天的 pivot),之後不論還在不在 L4 都盯著:收盤站上 pivot 且放量 = <b>觸發</b>(書的進場點);失效 = ${P.vcp.void_mode === 'last_low' ? '跌破最後一腿低點' : '跌到 pivot −' + P.vcp.max_below_pivot_pct + '%'}(作廢)或 ${P.vcp.watch_expire_bars || 40} 個交易日沒觸發(過期) · 資料到 ${track && track.date || '—'}</div></div>
-      <div class="tk-bar"><div class="lv-tabs">${chip('all', '全部')}${chip('wait', '等待')}${V4 ? chip('open', '持有中') + chip('exit', '已出場') : chip('trig', '已觸發')}${chip('dead', '失效')}</div>
+      <div class="tk-bar"><div class="lv-tabs">${chip('all', '全部')}${chip('wait', '等待')}${V4 ? chip('open', '觸發') + chip('exit', '已出場') : chip('trig', '已觸發')}${chip('dead', '失效')}</div>
         <div class="lv-tabs"><span class="tk-lab">報酬基準</span><button class="lv-tab ${tkB === 'entry' ? 'on' : ''}" data-b="entry">過關日</button><button class="lv-tab ${tkB === 'trig' ? 'on' : ''}" data-b="trig">突破日</button></div></div>
       <div class="tk-sum"><div><div class="k">${tkB === 'trig' ? '已觸發筆數' : '筆數'}</div><div class="v">${n}</div></div><div><div class="k">勝率(現在 > 進場)</div><div class="v ${n && win / n >= .5 ? 'pos' : ''}">${n ? Math.round(win / n * 100) + '%' : '—'}<small>${win}/${n}</small></div></div><div><div class="k">平均報酬 / 中位</div><div class="v">${n ? pc(rs.reduce((a, b) => a + b, 0) / n) : '—'}<small>中位 ${n ? (rs[n >> 1] > 0 ? '+' : '') + rs[n >> 1] + '%' : '—'}</small></div></div><div><div class="k">平均最佳</div><div class="v">${bestAvg == null ? '—' : pc(bestAvg)}<small>曾達 +10%:${es.filter(e => (B_(e) ?? 0) >= 10).length} 筆</small></div></div></div>
-      ${V4 && sm && sm.closed && sm.closed.n ? `<div class="tk-sum"><div><div class="k">已出場</div><div class="v">${sm.closed.n}<small>持有中 ${(sm.status || {}).open || 0}</small></div></div><div><div class="k">勝率</div><div class="v ${sm.closed.win / sm.closed.n >= .5 ? 'pos' : ''}">${Math.round(sm.closed.win / sm.closed.n * 100)}%<small>${sm.closed.win}/${sm.closed.n}</small></div></div><div><div class="k">期望值</div><div class="v ${sm.closed.exp_r > 0 ? 'pos' : 'neg'}">${sm.closed.exp_r > 0 ? '+' : ''}${sm.closed.exp_r}R</div></div><div><div class="k">獲利因子</div><div class="v">${sm.closed.pf ?? '—'}</div></div></div>` : ''}
+      ${V4 && sm && sm.closed && sm.closed.n ? `<div class="tk-sum"><div><div class="k">已出場</div><div class="v">${sm.closed.n}<small>觸發中 ${(sm.status || {}).open || 0}</small></div></div><div><div class="k">勝率</div><div class="v ${sm.closed.win / sm.closed.n >= .5 ? 'pos' : ''}">${Math.round(sm.closed.win / sm.closed.n * 100)}%<small>${sm.closed.win}/${sm.closed.n}</small></div></div><div><div class="k">期望值</div><div class="v ${sm.closed.exp_r > 0 ? 'pos' : 'neg'}">${sm.closed.exp_r > 0 ? '+' : ''}${sm.closed.exp_r}R</div></div><div><div class="k">獲利因子</div><div class="v">${sm.closed.pf ?? '—'}</div></div></div>` : ''}
       <div class="dt-body">${es.length ? `<table class="tk"><thead><tr>${[['s', '代號'], ['status', '狀態'], ['date', '過關日'], ['piv', 'Pivot'], ['trig_date', '觸發日'], [tkB === 'trig' ? 'ret_t' : 'ret', '報酬'], [tkB === 'trig' ? 'best_t' : 'best', '最佳'], [tkB === 'trig' ? 'days_t' : 'days', '天數'], ...(V4 ? [['exit_d', '出場'], ['r', 'R']] : [])].map(([k, n_]) => `<th data-k="${k}" class="${tkSort.k === k ? 'on' : ''}">${n_}<i>${tkSort.k === k ? (tkSort.d < 0 ? '▼' : '▲') : '▽'}</i></th>`).join('')}</tr></thead><tbody>
-      ${es.sort((a, b) => { const x = a[tkSort.k], y = b[tkSort.k]; return (typeof x === 'string' || typeof y === 'string' ? String(x ?? '') < String(y ?? '') ? -1 : String(x ?? '') > String(y ?? '') ? 1 : 0 : (x ?? -1e9) - (y ?? -1e9)) * tkSort.d; }).map(e => `<tr data-s="${e.s}"><td><b>${e.s}</b><span class="nm">${esc(e.name || '')}</span></td><td><span class="lv ${ST[e.status][1]}" style="border-color:currentColor">${ST[e.status][0]}</span></td><td>${e.date}<span class="nm">${e.px == null ? '等隔日開盤' : CUR + fmt(e.px, 2)}</span></td><td>${e.piv == null ? '—' : CUR + fmt(e.piv, 2)}</td><td>${e.trig_date ? e.trig_date + `<span class="nm">${e.trig_px == null ? '等隔日開盤' : CUR + fmt(e.trig_px, 2)}</span>` : e.void_date ? `<span class="nm">作廢 ${e.void_date}</span>` : '—'}</td><td>${pc(R_(e))}</td><td>${pc(B_(e))}</td><td>${tkB === 'trig' ? (e.days_t ?? '—') : e.days}</td>${V4 ? `<td>${e.exit_d ? e.exit_d.slice(5) + `<span class="nm">${XR[e.exit_reason] || ''} ${CUR}${fmt(e.exit_px, 2)}</span>` : e.status === 'open' ? `<span class="nm">持有中(高點 +${e.hi_r ?? 0}R)</span>` : '—'}</td><td class="${(e.r ?? 0) > 0 ? 'up' : (e.r ?? 0) < 0 ? 'dn' : ''}">${e.r == null ? '—' : (e.r > 0 ? '+' : '') + e.r.toFixed(2)}</td>` : ''}</tr>`).join('')}</tbody></table>`
+      ${es.sort((a, b) => { const x = a[tkSort.k], y = b[tkSort.k]; return (typeof x === 'string' || typeof y === 'string' ? String(x ?? '') < String(y ?? '') ? -1 : String(x ?? '') > String(y ?? '') ? 1 : 0 : (x ?? -1e9) - (y ?? -1e9)) * tkSort.d; }).map(e => `<tr data-s="${e.s}"><td><b>${e.s}</b><span class="nm">${esc(e.name || '')}</span></td><td><span class="lv ${ST[e.status][1]}" style="border-color:currentColor">${ST[e.status][0]}</span></td><td>${e.date}<span class="nm">${e.px == null ? '等隔日開盤' : CUR + fmt(e.px, 2)}</span></td><td>${e.piv == null ? '—' : CUR + fmt(e.piv, 2)}</td><td>${e.trig_date ? e.trig_date + `<span class="nm">${e.trig_px == null ? '等隔日開盤' : CUR + fmt(e.trig_px, 2)}</span>` : e.void_date ? `<span class="nm">作廢 ${e.void_date}</span>` : '—'}</td><td>${pc(R_(e))}</td><td>${pc(B_(e))}</td><td>${tkB === 'trig' ? (e.days_t ?? '—') : e.days}</td>${V4 ? `<td>${e.exit_d ? e.exit_d.slice(5) + `<span class="nm">${XR[e.exit_reason] || ''} ${CUR}${fmt(e.exit_px, 2)}</span>` : e.status === 'open' ? `<span class="nm">觸發中(高點 +${e.hi_r ?? 0}R)</span>` : '—'}</td><td class="${(e.r ?? 0) > 0 ? 'up' : (e.r ?? 0) < 0 ? 'dn' : ''}">${e.r == null ? '—' : (e.r > 0 ? '+' : '') + e.r.toFixed(2)}</td>` : ''}</tr>`).join('')}</tbody></table>`
       : '<div class="empty">此篩選下沒有紀錄</div>'}
       <div class="tk-note">進場價一律用<b>隔日開盤</b>(收盤後才看到訊號,當天收盤價買不到;隔日還沒開盤的顯示「等隔日開盤」,不計入統計)。報酬 = 現在收盤 ÷ 進場價 − 1(裸報酬,<b>未套用書中停損 / 分批停利</b>);最佳 = 進場後任一日最高價 ÷ 進場價 − 1。「過關日」基準 = 型態成形隔天就進場(偷跑);「突破日」基準 = 只算已觸發者、從觸發隔日開盤起算(書的規則)。點列開個股。</div></div>`;
     $('#back-tk').onclick = showList; const rb2 = $('#rules-btn2'); if (rb2) rb2.onclick = () => $('#rules').showModal();
