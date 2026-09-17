@@ -77,7 +77,7 @@
 <a href="playbook.html" style="font-family:var(--mono);font-size:12px;color:var(--accent)">Playbook:規則怎麼做</a>
   <a href="./" style="font-family:var(--mono);font-size:12px;color:var(--accent)">← 回雷達</a>
   <a href="#top" class="h">結果</a>
-  <a href="#res" class="h">執行版的數字</a><a href="#perf-v5" class="sub">十年逐年 · 配資</a><a href="#res-tw" class="sub">台股</a><a href="#perf-v5-ledger" class="sub">逐筆紀錄</a>
+  <a href="#res" class="h">執行版的數字</a><a href="#perf-v5" class="sub">十年逐年 · 配資</a><a href="#res-watch" class="sub">觀察版(對照)</a><a href="#res-tw" class="sub">台股</a><a href="#perf-v5-ledger" class="sub">逐筆紀錄</a>
   <a href="#trust" class="h">可信度</a>
   <a href="#howto" class="h">怎麼讀這些數字</a>
   <a href="#archive" class="h">研究過程(收起)</a><a href="#ar-pit" class="sub">十年檔位版 · 基本面切片</a><a href="#ar-5y" class="sub">五年版(美股 / 台股)</a><a href="#ar-topics" class="sub">主題分析</a><a href="#ar-ref" class="sub">舊版篩選 / 計算說明</a><a href="#ar-log" class="sub">修正紀錄</a>
@@ -119,6 +119,34 @@
 <tr class="hl"><td class="note">執行版</td><td>361</td><td><span class="pos">+0.13R</span></td><td><span class="pos">+0.01R</span></td><td><span class="pos">+0.24R</span></td></tr></tbody></table></div>
 <p class="cap">R 扣成本 0.2% 與滑價(−0.05R);帳戶層進出各 0.3% 滑價、同時最多 N 檔、每檔帳戶 1/N、大盤過熱部位減半、閒錢按 SPY 日報酬滾。觀察票 4422 張:過期 1989、作廢 1961、大盤擋 81、成交 361。下市股上的交易 <span class="neg">-0.10R</span>(78 筆)。程式:<code>agents/radar_backtest.py</code>、<code>scripts/radar_grid.py</code>、<code>scripts/v5_backtest.py</code>。</p>
 
+<h3 id="res-watch">觀察版的數字(對照)</h3>
+<div class="verdict"><p><b>觀察版當成機械策略跑,十年是賠的。</b>同一套程式、同一種出場,只把選股放寬(RS 70、基本面不擋、觀察票 40 天、不擋大盤):2,664 筆、勝率 24%、<span class="neg">-0.04R</span>、PF 0.94;前五年 <span class="pos">+0.03R</span>、後五年 <span class="neg">-0.11R</span>。12 檔 × 8%、閒錢放 SPY 年化 3.2%、最大回撤 -39.7%;閒錢不動 -2.3%。SPY 同期 15.2%。</p><p>它的用途是候選池:一年約 275 筆訊號、觀察票走到成交的只有 13%。要靠人挑掉不該買的,才有機會贏過執行版。與執行版並排看:執行版每年 37 筆、<span class="pos">+0.13R</span>;觀察版是它的七倍筆數、期望值為負。差別不是出場,是「RS 90 + 基本面 + 10 天內突破」這三條。</p></div>
+<div class="tbl"><table><thead><tr><th>年</th><th>筆</th><th>勝率</th><th>期望值</th><th>帳戶(12 檔,閒錢 SPY)</th><th>SPY</th><th>超額</th><th>年內回撤</th></tr></thead><tbody>
+<tr><td class="name">2017</td><td>191</td><td>33%</td><td><span class="pos">+0.15R</span></td><td><span class="pos">+7.8</span>%</td><td><span class="pos">+20.8</span>%</td><td><span class="neg">-13.0</span></td><td>-10.9%</td></tr>
+<tr><td class="name">2018</td><td>272</td><td>22%</td><td><span class="neg">-0.22R</span></td><td><span class="neg">-18.2</span>%</td><td><span class="neg">-5.2</span>%</td><td><span class="neg">-13.0</span></td><td>-31.0%</td></tr>
+<tr><td class="name">2019</td><td>264</td><td>32%</td><td><span class="neg">-0.03R</span></td><td><span class="pos">+13.7</span>%</td><td><span class="pos">+31.1</span>%</td><td><span class="neg">-17.4</span></td><td>-7.3%</td></tr>
+<tr><td class="name">2020</td><td>221</td><td>28%</td><td><span class="pos">+0.58R</span></td><td><span class="pos">+28.9</span>%</td><td><span class="pos">+17.2</span>%</td><td><span class="pos">+11.7</span></td><td>-31.4%</td></tr>
+<tr><td class="name">2021</td><td>356</td><td>18%</td><td><span class="neg">-0.29R</span></td><td><span class="pos">+22.8</span>%</td><td><span class="pos">+30.5</span>%</td><td><span class="neg">-7.7</span></td><td>-11.9%</td></tr>
+<tr><td class="name">2022</td><td>184</td><td>14%</td><td><span class="neg">-0.35R</span></td><td><span class="neg">-27.9</span>%</td><td><span class="neg">-18.6</span>%</td><td><span class="neg">-9.3</span></td><td>-29.4%</td></tr>
+<tr><td class="name">2023</td><td>297</td><td>27%</td><td><span class="neg">-0.02R</span></td><td><span class="pos">+4.7</span>%</td><td><span class="pos">+26.7</span>%</td><td><span class="neg">-22.0</span></td><td>-18.4%</td></tr>
+<tr><td class="name">2024</td><td>402</td><td>29%</td><td><span class="pos">+0.07R</span></td><td><span class="pos">+11.7</span>%</td><td><span class="pos">+25.6</span>%</td><td><span class="neg">-13.9</span></td><td>-12.6%</td></tr>
+<tr><td class="name">2025</td><td>282</td><td>20%</td><td><span class="pos">+0.08R</span></td><td><span class="neg">-4.7</span>%</td><td><span class="pos">+18.0</span>%</td><td><span class="neg">-22.7</span></td><td>-27.2%</td></tr>
+<tr><td class="name">2026(到 9 月)</td><td>195</td><td>13%</td><td><span class="neg">-0.43R</span></td><td><span class="pos">+9.6</span>%</td><td><span class="pos">+12.5</span>%</td><td><span class="neg">-2.9</span></td><td>-13.0%</td></tr>
+<tr class="hl"><td class="name">全期</td><td>2664</td><td>24%</td><td><span class="neg">-0.04R</span></td><td><span class="pos">+3.2</span>%</td><td><span class="pos">+15.2</span>%</td><td><span class="neg">-12.0</span></td><td>-39.7%</td></tr></tbody></table></div>
+<div class="tbl"><table><thead><tr><th class="note">切片</th><th>筆數</th><th>勝率</th><th>期望值</th><th>去前 2%</th><th>PF</th></tr></thead><tbody>
+<tr><td class="note">全期</td><td>2664</td><td>24%</td><td><span class="neg">-0.04R</span></td><td><span class="neg">-0.27R</span></td><td>0.94</td></tr>
+<tr><td class="note">前五年 2016-09 → 2021-09</td><td>1197</td><td>26%</td><td><span class="pos">+0.03R</span></td><td><span class="neg">-0.19R</span></td><td>1.05</td></tr>
+<tr><td class="note">後五年 2021-09 → 2026-09</td><td>1467</td><td>22%</td><td><span class="neg">-0.11R</span></td><td><span class="neg">-0.33R</span></td><td>0.85</td></tr>
+<tr><td class="note">標的後來下市</td><td>567</td><td>20%</td><td><span class="neg">-0.10R</span></td><td><span class="neg">-0.39R</span></td><td>0.86</td></tr>
+<tr><td class="note">標的仍在交易</td><td>2097</td><td>25%</td><td><span class="neg">-0.03R</span></td><td><span class="neg">-0.24R</span></td><td>0.96</td></tr>
+</tbody></table></div>
+<div class="tbl"><table><thead><tr><th class="note">同時持有</th><th>閒錢放 SPY 年化</th><th>回撤</th><th>閒錢不動 年化</th><th>個股平均曝險</th></tr></thead><tbody>
+<tr><td class="note">12 檔 × 8%</td><td><span class="pos">+3.2</span>%</td><td>-39.7%</td><td><span class="neg">-2.3</span>%</td><td>83%</td></tr>
+<tr><td class="note">8 檔 × 12.5%</td><td><span class="pos">+0.7</span>%</td><td>-47.0%</td><td><span class="neg">-4.4</span>%</td><td>88%</td></tr>
+<tr><td class="note">6 檔 × 16%</td><td><span class="neg">-3.5</span>%</td><td>-61.2%</td><td><span class="neg">-8.3</span>%</td><td>89%</td></tr>
+<tr><td class="note">4 檔 × 25%</td><td><span class="neg">-1.7</span>%</td><td>-57.6%</td><td><span class="neg">-4.6</span>%</td><td>92%</td></tr>
+</tbody></table></div>
+<p class="cap">出場原因:停損 53%、60 根到期 18%、突破失敗 16%、時間停損 12%、下市 1%。期望值 95% 信賴區間 -0.13 到 +0.05R;前 2% 大贏家(53 筆)合計 +579R,全部交易合計 -116R。台股觀察版五年:555 筆、+0.70R、後半段去前 2% -0.04R(見下方台股表)。</p>
 <h3 id="res-tw">台股(五年,證據較弱)</h3>
 <p>同一套程式換成台股 723 檔、2021-09 到 2026-09,大盤用 0050。比美股弱三件事:只有五年而且是超級多頭;宇宙只有現在還掛牌的股票;台股沒有時點財報,成長條件用的是今天的財報,這是直接的未來資訊。數字當上限看。</p>
 <div class="tbl"><table><thead><tr><th class="note">規則</th><th>筆數</th><th>勝率</th><th>期望值</th><th>去前 2%</th><th>前半段</th><th>後半段</th><th>6 檔 · 閒錢放 0050</th><th>回撤</th></tr></thead><tbody>
