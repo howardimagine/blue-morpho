@@ -34,10 +34,7 @@
   @media (max-width:900px) { .layout { grid-template-columns:1fr; } nav { position:static; height:auto; border-right:0; border-bottom:1px solid var(--line); } nav a { display:inline-block; } nav a.h { display:block; } main { padding:28px 18px 64px; } .kpis { grid-template-columns:repeat(2,1fr); } }
 
 
-  .rule { border-left:3px solid var(--accent); padding:4px 14px; margin:10px 0 14px; } .rule b { font-family:var(--mono); }
-  .formula { font-family:var(--mono); font-size:13px; background:var(--panel); padding:10px 14px; border-radius:4px; margin:8px 0 12px; overflow-wrap:anywhere; }
-  .two { display:grid; grid-template-columns:1fr 1fr; gap:14px; } @media (max-width:640px) { .two { grid-template-columns:1fr; } }
-  .card { border:1px solid var(--line); border-radius:6px; padding:14px 16px; } .card h4 { margin:0 0 6px; }
+  details h2 { font-size:19px; margin:24px 0 8px; border:0; padding:0; } details h3 { font-size:16px; } details .kpis { margin:12px 0; }
 /* mobile-nav-patch v1 */
   .layout > * { min-width:0; }
   .menu-btn { display:none; } .nav-mask { display:none; } main h2, main h3, main h4 { scroll-margin-top:56px; }
@@ -64,6 +61,11 @@
     .tbl.can-scroll.at-end::after { display:none; }
     .kpis { grid-template-columns:1fr 1fr; } .kpi .v { font-size:19px; }
   }
+
+  .rule { border-left:3px solid var(--accent); padding:4px 14px; margin:10px 0 14px; } .rule b { font-family:var(--mono); }
+  .formula { font-family:var(--mono); font-size:13px; background:var(--panel); padding:10px 14px; border-radius:4px; margin:8px 0 12px; overflow-wrap:anywhere; }
+  .two { display:grid; grid-template-columns:1fr 1fr; gap:14px; } @media (max-width:640px) { .two { grid-template-columns:1fr; } }
+  .card { border:1px solid var(--line); border-radius:6px; padding:14px 16px; } .card h4 { margin:0 0 6px; }
 </style></head><body><div class="layout"><button class="menu-btn" aria-label="開啟目錄" aria-expanded="false" onclick="toggleNav()"><span></span><span></span><span></span><em>目錄</em></button><div class="nav-mask" onclick="toggleNav(false)"></div><nav id="toc"><div class="brand">Blue Morpho · SEPA</div>
 <a href="./" style="font-family:var(--mono);font-size:12px;color:var(--accent)">← 回雷達</a>
 <a href="#top" class="h">Playbook</a>
@@ -75,7 +77,7 @@
 <a href="#exit" class="h">6. 出場:四條線先到先出</a>
 <a href="#size" class="h">7. 部位與資金</a>
 <a href="#calc" class="h">8. 計算方式</a><a href="#calc-r" class="sub">R、期望值、獲利因子</a><a href="#calc-acct" class="sub">帳戶層怎麼算</a><a href="#calc-test" class="sub">怎樣才算通過驗證</a>
-<a href="#evidence" class="h">9. 回測證據</a><a href="#ev-year" class="sub">逐年</a><a href="#ev-size" class="sub">配資</a><a href="#ev-cmp" class="sub">三組對照</a><a href="#ev-tw" class="sub">台股</a>
+<a href="#evidence" class="h">9. 回測證據</a><a href="#ev-year" class="sub">逐年</a><a href="#ev-size" class="sub">配資</a><a href="#ev-cmp" class="sub">三組對照</a><a href="#ev-tw" class="sub">台股</a><a href="#ev-trust" class="sub">可信度</a>
 <a href="#expect" class="h">10. 預期的長相</a>
 <a href="#human" class="h">11. 人要看的</a>
 <a href="#daily" class="h">12. 每天怎麼做</a>
@@ -102,6 +104,7 @@
 <tr><td class="note">大盤過熱</td><td class="note">部位減半</td><td class="note">只標記</td></tr>
 <tr><td class="note">出場</td><td class="note">四條線(第 6 節)</td><td class="note">同左</td></tr>
 <tr><td class="note">十年回測期望值</td><td class="note"><span class="pos">+0.13R</span></td><td class="note"><span class="neg">-0.04R</span></td></tr>
+<tr><td class="note">帳戶年化(閒錢放 SPY)</td><td class="note">19.4%(6 檔)</td><td class="note">3.2%(12 檔)</td></tr>
 <tr><td class="note">用途</td><td class="note">照做</td><td class="note">候選池</td></tr>
 </tbody></table></div><p class="cap">「書的原值」(Minervini 書上逐字的門檻:基本面四條硬擋、RS 80、距高 15%、VCP 品質分 50)不是 preset,在雷達參數面板按「書的原值」可以看。十年回測 <span class="neg">-0.16R</span>,只作對照。</p>
 <h2 id="screen">3. 選股:五層漏斗</h2><p>每天收盤後,全市場依序過五關。每一關只用當天為止的資料;回測也是同一個函數、同一個順序。</p>
@@ -122,14 +125,17 @@
 <h2 id="ticket">4. 觀察票:從過關到進場</h2><p>過了四關不是買點,是拿到一張觀察票。票上記著那天的 pivot 和最後一腿低點,之後不論還在不在名單上,都照票上的價位盯。</p>
 <div class="rule"><b>觸發</b> = 收盤 &gt; pivot × 1.005,且當天成交量 ≥ 50 日均量 × 1.5,<b>且前一天收盤還在 pivot 之下</b>(新鮮突破)。<br><b>進場</b> = 觸發日的<b>隔日開盤價</b>。<br><b>作廢</b> = 收盤跌破最後一腿低點(型態壞了)。<br><b>過期</b> = 執行版 10 個交易日、觀察版 40 個交易日內沒觸發。<br><b>大盤擋</b> = 觸發那天大盤轉弱(第 5 節),這筆不進。</div>
 <p>為什麼隔日開盤:收盤後才看得到訊號,當天收盤價買不到;用盤中價會偷看。為什麼要新鮮:已經站上兩天以上的突破,回測期望值只有新鮮突破的三分之一。為什麼 10 天:過關後拖越久才突破的,期望值越差,40 天版本的晚突破整體是負的。</p>
+<p><b>一個要知道的特性</b>:過四關時現價可以高於 pivot 最多 5%,這種票(約五分之一)要先回到 pivot 之下、再重新站上才算新鮮突破;沒回落的就等到期。回測與線上都是這樣算,不是漏掉。</p>
 <p>雷達的觀察池就是這些票的即時狀態:等待、觸發、已出場、作廢、過期、大盤擋。每一張已出場的票都用第 6 節的規則結算 R,所以觀察池的成績單和回測是同一套算法。</p>
 <h2 id="market">5. 大盤狀態</h2><div class="rule"><b>轉弱</b>:SPY 最近 20 個交易日報酬 &lt; 0 → 執行版不開新倉。<br><b>過熱</b>:SPY 高於自己的 200 日均線 10% 以上 → 執行版部位減半。<br>其餘為正常。</div>
 <p>只看兩個數字,不預測。轉弱時不買,是因為突破在盤整轉弱的市場裡失敗率最高;過熱減半,是因為那時候的突破常常是行情尾端。這兩條在回測裡把執行版的期望值從 +0.10R 提到 +0.13R,並且是「前後五年都為正」的 14 條規則裡多數共有的條件。已經持有的部位不受大盤狀態影響,照第 6 節出場。</p>
+<p><b>代價</b>:轉弱不買會擋掉一些事後證明是好的突破。十年回測擋掉 81 張觸發的票,期望值只從 +0.10R 提到 +0.13R;2026 年 9 月 SPY 的 20 日報酬幾乎整月為負,當月三檔真正突破的股票全部被擋、事後都漲。這條門檻是拿少賺換低回撤,不是免費的。</p>
 <h2 id="exit">6. 出場:四條線先到先出</h2><div class="rule">① <b>停損 −6%</b>:任何一天最低價碰到進場價 × 0.94 就出;跳空開低於停損則用開盤價。<br>② <b>突破失敗</b>:進場後 5 根內收盤跌回 pivot 以下且量 ≥ 50 日均量 → 隔日開盤出。<br>③ <b>時間停損</b>:20 根仍未曾漲到 +1R(最高價沒到進場價 + 6%)→ 隔日開盤出。<br>④ <b>到期</b>:第 60 根收盤出。</div>
 <p><b>不做的事</b>:不追蹤均線、不移動停損到成本、不賣一半、不設獲利目標、不賣進強勢。這五種鎖利在回測裡每一種都比「什麼都不做、60 根到期」差。原因在獲利結構:賺的錢來自約 8% 的大贏家,任何在 +2R 到 +5R 出場的規則都把它們切掉了。</p>
 <p><b>為什麼是 60 根到期</b>:到期不是保護獲利,是把資金還給下一個訊號。單筆 R 隨持有時間單調上升,但帳戶層需要換手;60 根是兩者的平衡點。停損放寬到 8–10% 只換勝率不換報酬,縮到 4% 錯殺太多。</p>
 <h2 id="size">7. 部位與資金</h2><div class="rule"><b>同時最多 6 檔,每檔帳戶的 16%</b>;沒用到的錢<b>全部放 SPY</b>,買股時從 SPY 撥出,賣股後放回。大盤過熱時新倉減半(8%)。不加碼、不因連敗縮曝險。</div>
 <p>單筆風險 = 16% × 6% ≈ 帳戶的 1%。為什麼閒錢要放 SPY:執行版訊號少,個股平均只佔帳戶 41%,其餘時間空手;閒錢放現金年化只有 8.2%,放 SPY 是 19.4%。這套策略的正確理解是「平常持有指數,只在少數強勢突破時換成個股」。為什麼不是 12 檔:訊號不夠多,分散只是降低曝險;為什麼不是 4 檔:開始錯過訊號、單筆波動太大。</p>
+<p><b>這組設定經過對抗檢查</b>:6 檔比 12 檔年化多約 3 個百分點,整年重抽 96% 的情況下 6 檔較好,但差距的信賴區間含零,所以「傾向 6 檔、不必堅持」。風險調整後策略的 Sharpe 0.84 和 SPY 的 0.87 幾乎一樣、MAR 0.55 對 0.42 略好:用年化看贏 4 點,用 Sharpe 看是平手。閒錢改成「大盤轉弱時放現金」在 SPY 三十年歷史裡每一段都輸買進持有,所以閒錢一直放 SPY,不擇時。</p>
 <h2 id="calc">8. 計算方式</h2><p>後面所有數字都用這一節的定義。先看定義,再看數字。</p>
 <h3 id="calc-r">R、期望值、獲利因子</h3>
 <div class="formula">風險 = 進場價 × 6%(停損距離)<br>R = (出場價 − 進場價) ÷ 風險 − 成本<br>成本 = 來回手續費 0.2% ÷ 6% ≈ 0.03R,再扣單邊滑價 0.3% ≈ 0.05R;報告裡的 R 都已扣<br>期望值 = 所有交易 R 的平均<br>獲利因子 PF = 賺的 R 總和 ÷ 賠的 R 總和<br>去前 2% = 拿掉最大的 2% 贏家後的期望值</div>
@@ -139,7 +145,7 @@
 <p>帳戶層和單筆 R 的差別:單筆 R 假設每筆都能買到,帳戶層要排隊(同一天多個訊號依 RS 高到低挑,滿 6 檔就不買)、要付滑價、閒錢有沒有生息。所以帳戶年化比「期望值 × 筆數」小很多,這才是你會拿到的數字。</p>
 <h3 id="calc-test">怎樣才算通過驗證</h3>
 <p>回測用 2017-01 到 2026-09 的日 K,宇宙 7,708 檔,其中約 5,400 檔已經下市或被併購。下市股的價格一起回放,持有中下市的以最後收盤出場;不補回下市股的回測會高估兩三倍。每個交易日只用當天以前的 K 線和申報日以前的財報。</p>
-<p><b>切成兩段</b>:2016-09 到 2021-09 挑規則,2021-09 到 2026-09 驗證。挑規則時把雷達設定檔的六個選股鍵(RS、距高、事件股、基本面、距 pivot、品質分)各種組合,乘上觀察票有效期三種、大盤門檻開關,共 864 條規則全部跑一遍。<b>通過的標準</b>:兩段期望值都為正、兩段樣本都 ≥ 60 筆。結果只有 14 條通過,執行版是其中全期期望值最高的一條。前段最好的 25 條到後段全部虧損,兩段的相關係數是 −0.52;這代表大部分「好看的規則」是配合那五年挑出來的,換一段就沒了。</p>
+<p><b>切成兩段,但後半段不是樣本外。</b>把雷達設定檔的六個選股鍵(RS、距高、事件股、基本面、距 pivot、品質分)各種組合,乘上觀察票有效期三種、大盤門檻開關,共 864 條規則全部跑 2016-09 到 2026-09,再切成前後五年。<b>挑選的標準</b>是兩段期望值都為正、兩段樣本都 ≥ 60 筆,只有 14 條通過,執行版是其中全期期望值最高的一條。因為挑選用到了後半段,後半段的 +0.24R 是挑出來的結果,不是驗證。只用前半段挑的話,前五名到後半段平均 −0.24R;864 條裡後半段為正的只有 8%;執行版在前半段只有 +0.01R,在 576 條裡排第 340。真正的樣本外只有從現在開始的實盤。</p>
 <p><b>回測和雷達是同一份程式</b>:選股呼叫雷達的漏斗函數,觀察票、觸發、出場呼叫雷達觀察池的函數。用執行版設定檔重跑十年,和挑選時的數字逐位相同。這是這份 Playbook 能當執行參考的前提。</p>
 <h2 id="evidence">9. 回測證據</h2>
 <div class="kpis"><div class="kpi"><div class="k">期望值</div><div class="v pos">+0.13R<small>361 筆</small></div></div><div class="kpi"><div class="k">勝率</div><div class="v">19%<small>PF 1.21</small></div></div><div class="kpi"><div class="k">帳戶年化</div><div class="v pos">19.4%<small>SPY 15.2%</small></div></div><div class="kpi"><div class="k">最大回撤</div><div class="v neg">-35.0%<small>SPY -33.7%</small></div></div></div>
@@ -166,13 +172,14 @@
 <tr class="hl"><td class="note">執行版</td><td>361</td><td>19%</td><td><span class="pos">+0.13R</span></td><td><span class="neg">-0.15R</span></td><td>1.21</td></tr>
 <tr><td class="note">觀察版</td><td>2664</td><td>24%</td><td><span class="neg">-0.04R</span></td><td><span class="neg">-0.27R</span></td><td>0.94</td></tr>
 <tr><td class="note">書的原值</td><td>153</td><td>16%</td><td><span class="neg">-0.16R</span></td><td><span class="neg">-0.45R</span></td><td>0.79</td></tr>
-</tbody></table></div><p>觀察版和書的原值都是負的。觀察版名單寬七倍,但每筆平均賠;它的用途是給人挑,不是照做。書的原值最嚴、樣本最少,也最差:基本面四條硬擋把名單縮到一年十幾筆,而「加速」這條在十年裡是反向的。</p>
+</tbody></table></div><p>觀察版和書的原值都是負的。觀察版完整跑十年:2,664 筆、勝率 24%、12 檔閒錢放 SPY 年化 3.2%(閒錢不動 -2.3%),十年只有四年為正。它名單寬七倍,但每筆平均賠;用途是給人挑,不是照做。書的原值最嚴、樣本最少,也最差:基本面四條硬擋把名單縮到一年十幾筆,而「加速」這條在十年裡是反向的。</p>
 <h3 id="ev-tw">台股</h3><p>同一套程式、同樣兩組 preset,換成台股 723 檔、2021-09 到 2026-09 的日 K,大盤用 0050。<b>證據比美股弱三件事</b>:只有五年而且是超級多頭(0050 同期年化 44.5%);宇宙只有現在還掛牌的股票(沒補下市股);台股沒有時點財報,成長條件用的是現在的財報。數字當上限看。</p>
 <div class="tbl"><table><thead><tr><th class="note">規則</th><th>筆數</th><th>勝率</th><th>期望值</th><th>去前 2%</th><th>前半段</th><th>後半段</th><th>6 檔 · 閒錢放 0050</th><th>回撤</th></tr></thead><tbody>
 <tr class="hl"><td class="note">執行版</td><td>101</td><td>28%</td><td><span class="pos">+0.82R</span></td><td><span class="pos">+0.44R</span></td><td><span class="pos">+1.05R</span></td><td><span class="pos">+0.64R</span></td><td><span class="pos">+61.3</span>%</td><td>-33.8%</td></tr>
 <tr><td class="note">執行版,不擋大盤</td><td>124</td><td>29%</td><td><span class="pos">+1.17R</span></td><td><span class="pos">+0.79R</span></td><td><span class="pos">+1.36R</span></td><td><span class="pos">+1.01R</span></td><td><span class="pos">+64.5</span>%</td><td>-33.8%</td></tr>
 <tr><td class="note">觀察版</td><td>555</td><td>26%</td><td><span class="pos">+0.70R</span></td><td><span class="pos">+0.28R</span></td><td><span class="pos">+1.04R</span></td><td><span class="pos">+0.44R</span></td><td><span class="pos">+57.5</span>%</td><td>-41.1%</td></tr>
 </tbody></table></div><p>執行版在台股前後半段都為正,去掉前 2% 大贏家仍為正,帳戶年化 61.3% 高於 0050 的 44.5%(回撤 -33.8% 對 -27.5%),所以台股也預設執行版。兩個要知道的:① 台股這五年拿掉大盤門檻反而更好,因為 0050 幾乎沒有轉弱過、被擋掉的多是好交易;但門檻是為空頭年準備的,五年多頭樣本量不到,所以兩個市場用同一套規則。② 台股有漲跌停,「隔日開盤買」在漲停鎖死時買不到,回測沒有模擬這件事,實際成交筆數會比回測少。</p>
+<h3 id="ev-trust">可信度</h3><ol><li><b>靠幾筆大贏家</b>:拿掉最大的 7 筆交易,十年期望值從 +0.13R 變 -0.13R;期望值 95% 信賴區間 -0.12 到 +0.42R,不大於零的機率約 16%。帳戶年化 19.4% 裡約 9 個百分點來自閒錢放 SPY。</li><li><b>活股那一半仍有倖存者偏差</b>:活股名單是今天市值 ≥ 3 億的公司,十年來縮水但沒下市的整段缺席;下市股上的交易 -0.10R、活股 +0.20R。</li><li><b>財報申報日有 16% 是佔位值</b>(等於季末日),那些季報在回測裡提早五到七週可見,執行版 18 筆用到。</li><li>影響小的:下市股價格沒做分割調整但執行版交易期間沒有撞到;回測宇宙多了下市股,RS 百分位與線上相關 0.999。</li></ol><p class="cap">完整的對抗檢查與控制實驗在回測結果頁「可信度」。</p>
 <p class="cap">更完整的推導與主題分析在<a href="backtest.html">回測手冊</a>。</p>
 <h2 id="expect">10. 預期的長相</h2>
 <div class="tbl"><table><thead><tr><th class="note">項目</th><th>十年回測</th></tr></thead><tbody>
@@ -185,12 +192,14 @@
 <tr><td class="note">觀察票走到成交的比例</td><td>8%(其餘作廢或過期)</td></tr>
 <tr><td class="note">最差年份</td><td>2018:帳戶 −13%、單筆 −0.18R</td></tr>
 <tr><td class="note">落後 SPY 的年份</td><td>十年裡四年</td></tr>
-</tbody></table></div><p>心理上要準備的:五筆裡四筆賠,連賠二十幾筆是正常的;一年的獲利常常集中在兩三個月裡的幾筆;可能連續兩三年落後指數。如果做不到在連虧 20 筆之後照樣下第 21 筆,這套不適合機械執行,請用觀察版。</p>
+</tbody></table></div><p><b>勝率為什麼只有兩成</b>:出場裡停損佔 64%。這套規則沒有追蹤線,不會把小賺鎖住算成勝;賺的交易只有兩種,到期抱滿 60 根(九成五賺)或極少數大贏家。控制實驗顯示,選股條件裡只有 RS 會動停損比例(70 → 90 是 57% → 64%),其餘都不是原因。</p>
+<p>心理上要準備的:五筆裡四筆賠,連賠二十幾筆是正常的;一年的獲利常常集中在兩三個月裡的幾筆;可能連續兩三年落後指數。如果做不到在連虧 20 筆之後照樣下第 21 筆,這套不適合機械執行,請用觀察版。</p>
 <h2 id="human">11. 人要看的</h2><p>作者在書裡留了幾件事給判斷,規則寫不進去,但會影響結果。執行版不擋這些,是因為回測量不到;不代表不重要。</p>
 <ol><li><b>市場廣度</b>:大盤狀態只看 SPY;若指數靠少數權值股撐著、多數股票在跌,突破的失敗率會高於回測。</li><li><b>類股是否同步</b>:同產業有兩三檔同時出現在名單上,比單獨一檔可靠。</li><li><b>這是第幾個底</b>:同一波趨勢裡的第三、第四個整理底,失敗率明顯高於第一、第二個。</li><li><b>突破頭三天的走勢</b>:突破後立刻回到 pivot 之下、量縮,是最早的警訊;規則要等第 5 根才砍,人可以更早。</li><li><b>財報日</b>:財報前一兩天的突破,賭的是財報不是型態;規則不擋,人要看。</li><li><b>題材</b>:催化劑沒有規則。有明確理由的漲(新產品、產業週期)比沒理由的漲可靠。</li></ol>
 <h2 id="daily">12. 每天怎麼做</h2><ol><li><b>收盤後</b>:打開雷達,確認大盤狀態(正常 / 轉弱 / 過熱)。看執行版名單(新的觀察票)與觀察池(今天有沒有觸發)。</li><li><b>觸發的票</b>:大盤轉弱就不買。正常就準備隔日開盤買,金額 = 帳戶 × 16%(過熱 8%),同時算好停損價 = 進場價 × 0.94。</li><li><b>隔日開盤</b>:市價買,從 SPY 撥錢。</li><li><b>持有中</b>:每天收盤檢查四條線:最低價碰停損?5 根內收破 pivot 帶量?20 根還沒到 +1R?第 60 根?任一成立,隔日開盤出(停損當天出),錢放回 SPY。</li><li><b>週末</b>:對照觀察池的結算和自己的實際成交,差異超過滑價的要找原因。</li></ol>
 <h2 id="limits">13. 限制與誠實聲明</h2><ol>
-<li><b>864 條規則裡只有 14 條通過兩段驗證。</b>執行版的超額報酬應該當「有機會」,不是保證;前五年只有打平。</li>
+<li><b>後半段參與了挑選,不是樣本外。</b>864 條規則裡兩段皆正的只有 14 條,執行版前半段只有 +0.01R;拿掉 7 筆大贏家就轉負。超額報酬應該當「有機會」,不是保證。</li>
+<li><b>財報申報日 16%% 是佔位值</b>,那些季報在回測裡提早五到七週可見;修正後數字只會更保守。</li>
 <li><b>下市股名單 2021 年以前明顯缺漏</b>(資料商 2019 年只有 45 檔,實際每年約 600–800 檔),所以 2017–2021 仍殘留倖存者偏差,真實值只會更差。</li>
 <li><b>市值門檻只有線上有</b>,回測用價格與成交量代替;財報申報日在 2018 年以前部分公司是估計值。</li>
 <li><b>台股證據較弱</b>:五年、單一多頭、只有活股、財報用現值;漲停鎖死買不到的情況回測沒有模擬。執行版在台股成立,但數字當上限。</li>
