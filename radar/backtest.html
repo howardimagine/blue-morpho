@@ -77,7 +77,7 @@
 <a href="playbook.html" style="font-family:var(--mono);font-size:12px;color:var(--accent)">Playbook:規則怎麼做</a>
   <a href="./" style="font-family:var(--mono);font-size:12px;color:var(--accent)">← 回雷達</a>
   <a href="#top" class="h">結果</a>
-  <a href="#res" class="h">執行版的數字</a><a href="#perf-v5" class="sub">十年逐年 · 配資</a><a href="#res-watch" class="sub">觀察版(對照)</a><a href="#res-tw" class="sub">台股</a><a href="#perf-v5-ledger" class="sub">逐筆紀錄</a>
+  <a href="#res" class="h">執行版的數字</a><a href="#perf-v5" class="sub">十年逐年 · 配資</a><a href="#res-watch" class="sub">觀察版(對照)</a><a href="#res-tw" class="sub">台股(切換)</a><a href="#perf-v5-ledger" class="sub">逐筆紀錄</a>
   <a href="#trust" class="h">可信度</a>
   <a href="#howto" class="h">怎麼讀這些數字</a>
   <a href="#archive" class="h">研究過程(收起)</a><a href="#ar-pit" class="sub">十年檔位版 · 基本面切片</a><a href="#ar-5y" class="sub">五年版(美股 / 台股)</a><a href="#ar-topics" class="sub">主題分析</a><a href="#ar-ref" class="sub">舊版篩選 / 計算說明</a><a href="#ar-log" class="sub">修正紀錄</a>
@@ -89,6 +89,8 @@
 <div class="verdict"><p><b>結果。</b>2017 到 2026 年共 361 筆交易,勝率 19%,每冒 1 元風險平均賺 0.13 元(+0.13R)。同時最多 6 檔、每檔 16%、閒錢放 SPY:<b>年化 19.4%、最大回撤 -35.0%;同期 SPY 買進持有 15.2% / -33.7%</b>。台股五年:101 筆、+0.82R,年化 61.3%(0050 44.5%)。</p><p><b>可信度。</b>贏 SPY 的差距靠少數幾筆大贏家:拿掉最大的 7 筆,期望值變成 −0.13R;期望值的 95% 信賴區間是 −0.12 到 +0.41,包含零。這條規則是從 864 條裡挑出「前後五年都不賠」的一條,後半段參與了挑選,所以不是樣本外。<b>正確的讀法:這是十年裡唯一沒有賠錢的規則,不是穩定贏大盤的規則。</b>其他四組規則(觀察版、書的原值等)十年都是負的。</p></div>
 <div class="kpis"><div class="kpi"><div class="k">期望值</div><div class="v pos">+0.13R<small>361 筆</small></div></div><div class="kpi"><div class="k">勝率</div><div class="v">19%<small>PF 1.21</small></div></div><div class="kpi"><div class="k">帳戶年化</div><div class="v pos">19.4%<small>SPY 15.2%</small></div></div><div class="kpi"><div class="k">拿掉前 7 筆</div><div class="v neg">−0.13R<small>賠</small></div></div></div>
 <h2 id="res">執行版的數字</h2>
+<div id="res-mkt"><div class="vt mkt" data-mkt><span class="lab">市場:</span><button data-m="us" class="on">美股</button><button data-m="tw">台股</button></div></div>
+<div class="mk-us" id="res-us">
 <h3 id="perf-v5">執行版:十年時點回測</h3>
 <div class="verdict"><p><b>這一節的數字與線上雷達執行版 逐行一致。</b>回測直接呼叫雷達的 <code>evaluate</code>(選股)與 <code>ticket_sim</code>(觀察票、觸發、出場),每天只看當天以前的 K 線與申報日以前的財報,宇宙含約 5,400 檔下市股;唯一差異是沒有時點市值,用價 ≥ $5、50 日均量 ≥ 20 萬代替。先前各節的檔位回測與雷達是兩套程式,數字不能直接拿來執行。</p>
 <p><b>結果</b>:2017–2026 共 361 筆、勝率 19%、<span class="pos">+0.13R</span>、PF 1.21,去前 2% 大贏家 <span class="neg">-0.15R</span>。前五年 <span class="pos">+0.01R</span>、後五年 <span class="pos">+0.24R</span>。<b>6 檔 × 16%、閒錢放 SPY:年化 19.4%、最大回撤 -35.0%;SPY 買進持有 15.2% / -33.7%。</b>閒錢不放 SPY 只有 8.2%。</p>
@@ -147,13 +149,6 @@
 <tr><td class="note">4 檔 × 25%</td><td><span class="neg">-1.7</span>%</td><td>-57.6%</td><td><span class="neg">-4.6</span>%</td><td>92%</td></tr>
 </tbody></table></div>
 <p class="cap">出場原因:停損 53%、60 根到期 18%、突破失敗 16%、時間停損 12%、下市 1%。期望值 95% 信賴區間 -0.13 到 +0.05R;前 2% 大贏家(53 筆)合計 +579R,全部交易合計 -116R。台股觀察版五年:555 筆、+0.70R、後半段去前 2% -0.04R(見下方台股表)。</p>
-<h3 id="res-tw">台股(五年,證據較弱)</h3>
-<p>同一套程式換成台股 723 檔、2021-09 到 2026-09,大盤用 0050。比美股弱三件事:只有五年而且是超級多頭;宇宙只有現在還掛牌的股票;台股沒有時點財報,成長條件用的是今天的財報,這是直接的未來資訊。數字當上限看。</p>
-<div class="tbl"><table><thead><tr><th class="note">規則</th><th>筆數</th><th>勝率</th><th>期望值</th><th>去前 2%</th><th>前半段</th><th>後半段</th><th>6 檔 · 閒錢放 0050</th><th>回撤</th></tr></thead><tbody>
-<tr class="hl"><td class="note">執行版</td><td>101</td><td>28%</td><td><span class="pos">+0.82R</span></td><td><span class="pos">+0.44R</span></td><td><span class="pos">+1.05R</span></td><td><span class="pos">+0.64R</span></td><td><span class="pos">+61.3</span>%</td><td>-33.8%</td></tr>
-<tr><td class="note">執行版,不擋大盤</td><td>124</td><td>29%</td><td><span class="pos">+1.17R</span></td><td><span class="pos">+0.79R</span></td><td><span class="pos">+1.36R</span></td><td><span class="pos">+1.01R</span></td><td><span class="pos">+64.5</span>%</td><td>-33.8%</td></tr>
-<tr><td class="note">觀察版</td><td>555</td><td>26%</td><td><span class="pos">+0.70R</span></td><td><span class="pos">+0.28R</span></td><td><span class="pos">+1.04R</span></td><td><span class="pos">+0.44R</span></td><td><span class="pos">+57.5</span>%</td><td>-41.1%</td></tr>
-</tbody></table></div><p class="cap">0050 買進持有同期年化 44.5%、最大回撤 -27.5%。</p>
 <details><summary>執行版逐筆紀錄(美股,逐年,標注下市)</summary><h3 id="perf-v5-ledger">執行版逐筆紀錄(標注下市)</h3>
 <details><summary>2017 · 11 筆 · 平均 <span class="neg">-0.05R</span> · 下市股 8 筆</summary><div class="tbl"><table><thead><tr><th>代號</th><th class="note">名稱 · 產業</th><th>過四關</th><th>觸發</th><th>進場</th><th>出場日</th><th>出場</th><th>原因</th><th>R</th><th class="note">下市</th></tr></thead><tbody>
 <tr><td class="name">IVAC</td><td class="note">Intevac, Inc. · Industrials</td><td>2017-04-17</td><td>2017-04-24</td><td>14.00</td><td>2017-04-25</td><td>13.16</td><td>停損</td><td class="neg">-1.08</td><td class="note"><b class="neg">下市 2025-04</b></td></tr>
@@ -539,6 +534,141 @@
 <tr><td class="name">TH</td><td class="note">Target Hospitality Corp. · Industrials</td><td>2026-08-17</td><td>2026-08-27</td><td>19.00</td><td>2026-09-01</td><td>17.86</td><td>停損</td><td class="neg">-1.08</td><td class="note"></td></tr>
 </tbody></table></div></details>
 </details>
+</div><!--/res-us-->
+<div class="mk-tw" id="res-tw" hidden>
+<h3 id="tw-exec">執行版:台股五年回測(2021-09 → 2026-09)</h3>
+<div class="verdict"><p><b>同一套程式換成台股 723 檔,大盤用 0050。</b>執行版 101 筆、勝率 28%、<span class="pos">+0.82R</span>、PF 2.50,去前 2% 大贏家 <span class="pos">+0.44R</span>;前半段 <span class="pos">+1.05R</span>、後半段 <span class="pos">+0.64R</span>。<b>6 檔 × 16%、閒錢放 0050:年化 61.3%、最大回撤 -33.8%;0050 買進持有 44.5% / -27.5%。</b></p><p><b>證據比美股弱三件事</b>:只有五年而且是超級多頭;宇宙只有現在還掛牌的股票;台股沒有時點財報,成長條件用的是今天的財報,這是直接的未來資訊。另外台股有漲跌停,「隔日開盤買」在漲停鎖死時買不到,回測沒有模擬。數字當上限看。</p></div>
+<div class="tbl"><table><thead><tr><th>年</th><th>筆</th><th>勝率</th><th>期望值</th><th>帳戶(6 檔,閒錢 0050)</th><th>0050</th><th>超額</th></tr></thead><tbody>
+<tr><td class="name">2022</td><td>&lt;5</td><td>—</td><td>—</td><td><span class="neg">-22</span>%</td><td><span class="neg">-22</span>%</td><td><span class="neg">-0</span></td></tr>
+<tr><td class="name">2023</td><td>31</td><td>29%</td><td><span class="pos">+1.49R</span></td><td><span class="pos">+68</span>%</td><td><span class="pos">+27</span>%</td><td><span class="pos">+41</span></td></tr>
+<tr><td class="name">2024</td><td>34</td><td>18%</td><td><span class="neg">-0.04R</span></td><td><span class="pos">+30</span>%</td><td><span class="pos">+49</span>%</td><td><span class="neg">-19</span></td></tr>
+<tr><td class="name">2025</td><td>24</td><td>46%</td><td><span class="pos">+1.53R</span></td><td><span class="pos">+79</span>%</td><td><span class="pos">+38</span>%</td><td><span class="pos">+41</span></td></tr>
+<tr><td class="name">2026(到 9 月)</td><td>9</td><td>22%</td><td><span class="pos">+0.49R</span></td><td><span class="pos">+55</span>%</td><td><span class="pos">+64</span>%</td><td><span class="neg">-9</span></td></tr>
+<tr class="hl"><td class="name">全期年化</td><td>101</td><td>28%</td><td><span class="pos">+0.82R</span></td><td><span class="pos">+61.3</span>%</td><td><span class="pos">+44.5</span>%</td><td><span class="pos">+16.8</span></td></tr></tbody></table></div>
+<div class="tbl"><table><thead><tr><th class="note">配資</th><th>閒錢放 0050 年化</th><th>回撤</th><th>閒錢不動 年化</th><th>個股平均曝險</th></tr></thead><tbody>
+<tr><td class="note">12 檔 × 8%</td><td><span class="pos">+55.1</span>%</td><td>-33.8%</td><td><span class="pos">+14.4</span>%</td><td>22%</td></tr>
+<tr class="hl"><td class="note">6 檔 × 16%(採用)</td><td><span class="pos">+61.3</span>%</td><td>-33.8%</td><td><span class="pos">+24.9</span>%</td><td>35%</td></tr>
+</tbody></table></div>
+<h3 id="tw-cmp">三組對照(台股)</h3><div class="tbl"><table><thead><tr><th class="note">規則</th><th>筆數</th><th>勝率</th><th>期望值</th><th>去前 2%</th><th>前半段</th><th>後半段</th><th>6 檔 · 閒錢放 0050</th><th>回撤</th></tr></thead><tbody>
+<tr class="hl"><td class="note">執行版</td><td>101</td><td>28%</td><td><span class="pos">+0.82R</span></td><td><span class="pos">+0.44R</span></td><td><span class="pos">+1.05R</span></td><td><span class="pos">+0.64R</span></td><td><span class="pos">+61.3</span>%</td><td>-33.8%</td></tr>
+<tr><td class="note">執行版,不擋大盤</td><td>124</td><td>29%</td><td><span class="pos">+1.17R</span></td><td><span class="pos">+0.79R</span></td><td><span class="pos">+1.36R</span></td><td><span class="pos">+1.01R</span></td><td><span class="pos">+64.5</span>%</td><td>-33.8%</td></tr>
+<tr><td class="note">觀察版</td><td>555</td><td>26%</td><td><span class="pos">+0.70R</span></td><td><span class="pos">+0.28R</span></td><td><span class="pos">+1.04R</span></td><td><span class="pos">+0.44R</span></td><td><span class="pos">+57.5</span>%</td><td>-41.1%</td></tr>
+</tbody></table></div><p>台股這五年拿掉大盤門檻反而更好,因為 0050 幾乎沒有轉弱過、被擋掉的多是好交易;但門檻是為空頭年準備的,五年多頭樣本量不到,所以兩個市場用同一套規則。觀察版後半段去前 2% 是 <span class="neg">-0.04R</span>,同樣不能當策略。</p>
+<details><summary>執行版逐筆紀錄(台股,逐年)</summary>
+<details><summary>2022 · 3 筆 · —</summary><div class="tbl"><table><thead><tr><th>代號</th><th class="note">名稱 · 產業</th><th>過四關</th><th>觸發</th><th>進場</th><th>出場日</th><th>出場</th><th>原因</th><th>報酬</th><th>R</th></tr></thead><tbody>
+<tr><td class="name">8050</td><td class="note">廣積 · 電腦及週邊設備業</td><td>2022-11-16</td><td>2022-11-17</td><td>62.7</td><td>2023-01-13</td><td>59.0</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+<tr><td class="name">3617</td><td class="note">碩天 · 其他電子業</td><td>2022-11-28</td><td>2022-12-01</td><td>95.0</td><td>2022-12-07</td><td>89.3</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+<tr><td class="name">6285</td><td class="note">啟碁 · 通信網路業</td><td>2022-11-29</td><td>2022-12-01</td><td>78.9</td><td>2022-12-09</td><td>74.2</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+</tbody></table></div></details>
+<details><summary>2023 · 31 筆 · 勝率 29% · 期望 <span class="pos">+1.49R</span> · PF 3.12</summary><div class="tbl"><table><thead><tr><th>代號</th><th class="note">名稱 · 產業</th><th>過四關</th><th>觸發</th><th>進場</th><th>出場日</th><th>出場</th><th>原因</th><th>報酬</th><th>R</th></tr></thead><tbody>
+<tr><td class="name">6782</td><td class="note">視陽 · 生技醫療業</td><td>2023-01-09</td><td>2023-01-16</td><td>287.4</td><td>2023-03-10</td><td>270.2</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+<tr><td class="name">8996</td><td class="note">高力 · 電機機械</td><td>2023-01-11</td><td>2023-01-17</td><td>203.0</td><td>2023-01-30</td><td>190.8</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+<tr><td class="name">3013</td><td class="note">晟銘電 · 電子工業</td><td>2023-01-13</td><td>2023-01-31</td><td>18.5</td><td>2023-05-04</td><td>22.1</td><td>到期</td><td class="pos">+19.3%</td><td class="pos">+3.19</td></tr>
+<tr><td class="name">2413</td><td class="note">環科 · 電子工業</td><td>2023-02-01</td><td>2023-02-02</td><td>28.0</td><td>2023-05-08</td><td>35.1</td><td>到期</td><td class="pos">+25.1%</td><td class="pos">+4.16</td></tr>
+<tr><td class="name">6245</td><td class="note">立端 · 通信網路業</td><td>2023-01-11</td><td>2023-02-03</td><td>78.5</td><td>2023-05-09</td><td>89.9</td><td>到期</td><td class="pos">+14.3%</td><td class="pos">+2.35</td></tr>
+<tr><td class="name">8227</td><td class="note">巨有科技 · 半導體業</td><td>2023-02-02</td><td>2023-02-06</td><td>97.3</td><td>2023-05-10</td><td>170.5</td><td>到期</td><td class="pos">+74.9%</td><td class="pos">+12.46</td></tr>
+<tr><td class="name">3022</td><td class="note">威強電 · 電腦及週邊設備業</td><td>2023-01-17</td><td>2023-02-07</td><td>67.7</td><td>2023-03-13</td><td>63.6</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+<tr><td class="name">3479</td><td class="note">安勤 · 電腦及週邊設備業</td><td>2023-02-07</td><td>2023-02-09</td><td>78.1</td><td>2023-02-10</td><td>73.4</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+<tr><td class="name">3617</td><td class="note">碩天 · 其他電子業</td><td>2023-02-01</td><td>2023-02-10</td><td>92.1</td><td>2023-03-13</td><td>86.6</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+<tr><td class="name">8222</td><td class="note">寶一 · 電機機械</td><td>2023-02-09</td><td>2023-02-10</td><td>31.1</td><td>2023-05-16</td><td>51.4</td><td>到期</td><td class="pos">+65.3%</td><td class="pos">+10.85</td></tr>
+<tr><td class="name">2723</td><td class="note">美食-KY · 觀光事業</td><td>2023-02-06</td><td>2023-02-14</td><td>154.3</td><td>2023-02-15</td><td>145.0</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+<tr><td class="name">8050</td><td class="note">廣積 · 電腦及週邊設備業</td><td>2023-02-06</td><td>2023-02-17</td><td>68.1</td><td>2023-03-16</td><td>64.0</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+<tr><td class="name">8222</td><td class="note">寶一 · 電機機械</td><td>2023-03-23</td><td>2023-03-27</td><td>40.2</td><td>2023-03-28</td><td>37.8</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+<tr><td class="name">1513</td><td class="note">中興電 · 電機機械</td><td>2023-04-07</td><td>2023-04-11</td><td>98.8</td><td>2023-04-21</td><td>92.8</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+<tr><td class="name">3617</td><td class="note">碩天 · 其他電子業</td><td>2023-04-11</td><td>2023-04-12</td><td>110.5</td><td>2023-04-20</td><td>103.8</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+<tr><td class="name">2236</td><td class="note">百達-KY · 汽車工業</td><td>2023-03-29</td><td>2023-04-13</td><td>38.5</td><td>2023-05-05</td><td>36.2</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+<tr><td class="name">1513</td><td class="note">中興電 · 電機機械</td><td>2023-05-18</td><td>2023-05-22</td><td>105.9</td><td>2023-05-24</td><td>99.6</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+<tr><td class="name">3017</td><td class="note">奇鋐 · 電子工業</td><td>2023-05-23</td><td>2023-05-25</td><td>192.3</td><td>2023-08-23</td><td>342.3</td><td>到期</td><td class="pos">+77.7%</td><td class="pos">+12.92</td></tr>
+<tr><td class="name">4129</td><td class="note">聯合 · 生技醫療業</td><td>2023-05-23</td><td>2023-05-31</td><td>57.3</td><td>2023-08-29</td><td>56.7</td><td>到期·½</td><td class="neg">-1.3%</td><td class="neg">-0.15</td></tr>
+<tr><td class="name">2236</td><td class="note">百達-KY · 汽車工業</td><td>2023-05-30</td><td>2023-05-31</td><td>41.7</td><td>2023-08-29</td><td>60.8</td><td>到期·½</td><td class="pos">+45.5%</td><td class="pos">+3.75</td></tr>
+<tr><td class="name">1514</td><td class="note">亞力 · 電機機械</td><td>2023-05-31</td><td>2023-06-02</td><td>50.8</td><td>2023-06-12</td><td>47.7</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">5009</td><td class="note">榮剛 · 鋼鐵工業</td><td>2023-05-31</td><td>2023-06-05</td><td>49.4</td><td>2023-06-12</td><td>46.4</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">6139</td><td class="note">亞翔 · 電子工業</td><td>2023-07-10</td><td>2023-07-11</td><td>64.2</td><td>2023-10-06</td><td>95.1</td><td>到期·½</td><td class="pos">+47.9%</td><td class="pos">+3.95</td></tr>
+<tr><td class="name">6187</td><td class="note">萬潤 · 其他電子類</td><td>2023-11-13</td><td>2023-11-14</td><td>133.1</td><td>2023-11-15</td><td>125.1</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+<tr><td class="name">3035</td><td class="note">智原 · 半導體業</td><td>2023-11-06</td><td>2023-11-17</td><td>347.0</td><td>2023-11-23</td><td>326.2</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+<tr><td class="name">6291</td><td class="note">沛亨 · 半導體業</td><td>2023-11-14</td><td>2023-11-17</td><td>233.2</td><td>2023-11-20</td><td>219.2</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+<tr><td class="name">5432</td><td class="note">新門 · 光電業</td><td>2023-11-21</td><td>2023-11-27</td><td>85.7</td><td>2024-03-04</td><td>160.7</td><td>到期</td><td class="pos">+87.3%</td><td class="pos">+14.51</td></tr>
+<tr><td class="name">5439</td><td class="note">高技 · 電子零組件業</td><td>2023-11-28</td><td>2023-11-30</td><td>123.8</td><td>2023-12-15</td><td>116.4</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+<tr><td class="name">4967</td><td class="note">十銓 · 電子工業</td><td>2023-12-07</td><td>2023-12-11</td><td>87.3</td><td>2023-12-15</td><td>82.0</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+<tr><td class="name">4979</td><td class="note">華星光 · 通信網路業</td><td>2023-12-07</td><td>2023-12-11</td><td>173.2</td><td>2023-12-13</td><td>162.8</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+<tr><td class="name">2449</td><td class="note">京元電子 · 半導體業</td><td>2023-12-06</td><td>2023-12-14</td><td>84.0</td><td>2023-12-18</td><td>79.0</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+</tbody></table></div></details>
+<details><summary>2024 · 34 筆 · 勝率 18% · 期望 <span class="neg">-0.04R</span> · PF 0.92</summary><div class="tbl"><table><thead><tr><th>代號</th><th class="note">名稱 · 產業</th><th>過四關</th><th>觸發</th><th>進場</th><th>出場日</th><th>出場</th><th>原因</th><th>報酬</th><th>R</th></tr></thead><tbody>
+<tr><td class="name">6531</td><td class="note">愛普* · 半導體業</td><td>2023-12-27</td><td>2024-01-05</td><td>472.7</td><td>2024-02-19</td><td>444.4</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+<tr><td class="name">6412</td><td class="note">群電 · 電子工業</td><td>2024-01-09</td><td>2024-01-10</td><td>136.6</td><td>2024-01-18</td><td>128.4</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+<tr><td class="name">2059</td><td class="note">川湖 · 電子工業</td><td>2024-01-12</td><td>2024-01-19</td><td>1003.7</td><td>2024-04-29</td><td>1159.6</td><td>到期</td><td class="pos">+15.2%</td><td class="pos">+2.51</td></tr>
+<tr><td class="name">8054</td><td class="note">安國 · 半導體業</td><td>2024-01-19</td><td>2024-01-22</td><td>146.5</td><td>2024-01-26</td><td>137.6</td><td>停損</td><td class="neg">-6.4%</td><td class="neg">-1.10</td></tr>
+<tr><td class="name">6805</td><td class="note">富世達 · 電子工業</td><td>2024-01-30</td><td>2024-01-31</td><td>535.1</td><td>2024-05-10</td><td>641.7</td><td>到期</td><td class="pos">+19.6%</td><td class="pos">+3.24</td></tr>
+<tr><td class="name">3583</td><td class="note">辛耘 · 半導體業</td><td>2024-02-05</td><td>2024-02-15</td><td>237.4</td><td>2024-05-16</td><td>321.6</td><td>到期·½</td><td class="pos">+35.1%</td><td class="pos">+2.89</td></tr>
+<tr><td class="name">3265</td><td class="note">台星科 · 半導體業</td><td>2024-02-16</td><td>2024-02-22</td><td>118.5</td><td>2024-02-27</td><td>111.4</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">5432</td><td class="note">新門 · 光電業</td><td>2024-02-16</td><td>2024-02-23</td><td>164.1</td><td>2024-02-26</td><td>154.3</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">3354</td><td class="note">律勝 · 電子零組件業</td><td>2024-02-21</td><td>2024-02-23</td><td>30.7</td><td>2024-02-27</td><td>28.9</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">6139</td><td class="note">亞翔 · 電子工業</td><td>2024-02-21</td><td>2024-03-01</td><td>160.9</td><td>2024-03-11</td><td>153.3</td><td>突破失敗·½</td><td class="neg">-5.0%</td><td class="neg">-0.46</td></tr>
+<tr><td class="name">2382</td><td class="note">廣達 · 電子工業</td><td>2024-03-13</td><td>2024-03-15</td><td>234.9</td><td>2024-03-20</td><td>220.8</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">6944</td><td class="note">兆聯實業 · 綠能環保</td><td>2024-03-21</td><td>2024-03-22</td><td>195.3</td><td>2024-06-07</td><td>183.6</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">6274</td><td class="note">台燿 · 電子零組件業</td><td>2024-03-22</td><td>2024-03-27</td><td>168.0</td><td>2024-04-16</td><td>157.9</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">5443</td><td class="note">均豪 · 光電業</td><td>2024-03-27</td><td>2024-04-01</td><td>58.2</td><td>2024-04-19</td><td>54.7</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">6187</td><td class="note">萬潤 · 其他電子類</td><td>2024-03-29</td><td>2024-04-01</td><td>258.6</td><td>2024-04-16</td><td>242.3</td><td>停損·½</td><td class="neg">-6.6%</td><td class="neg">-0.59</td></tr>
+<tr><td class="name">2211</td><td class="note">長榮鋼 · 鋼鐵工業</td><td>2024-03-27</td><td>2024-04-03</td><td>108.4</td><td>2024-07-03</td><td>114.2</td><td>到期·½</td><td class="pos">+5.1%</td><td class="pos">+0.38</td></tr>
+<tr><td class="name">6223</td><td class="note">旺矽 · 半導體業</td><td>2024-04-01</td><td>2024-04-10</td><td>325.7</td><td>2024-07-08</td><td>532.2</td><td>到期·½</td><td class="pos">+63.1%</td><td class="pos">+5.22</td></tr>
+<tr><td class="name">2539</td><td class="note">櫻花建 · 建材營造</td><td>2024-04-01</td><td>2024-04-17</td><td>42.8</td><td>2024-05-07</td><td>40.2</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">6584</td><td class="note">南俊國際 · 電子零組件業</td><td>2024-06-20</td><td>2024-06-24</td><td>208.8</td><td>2024-07-22</td><td>196.2</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">2476</td><td class="note">鉅祥 · 電子零組件業</td><td>2024-07-03</td><td>2024-07-05</td><td>108.1</td><td>2024-07-09</td><td>100.7</td><td>停損·½</td><td class="neg">-7.1%</td><td class="neg">-0.63</td></tr>
+<tr><td class="name">2363</td><td class="note">矽統 · 半導體業</td><td>2024-07-04</td><td>2024-07-05</td><td>93.4</td><td>2024-07-09</td><td>87.8</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">2374</td><td class="note">佳能 · 光電業</td><td>2024-07-04</td><td>2024-07-05</td><td>49.6</td><td>2024-07-09</td><td>46.6</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">3013</td><td class="note">晟銘電 · 電子工業</td><td>2024-07-08</td><td>2024-07-10</td><td>90.2</td><td>2024-08-06</td><td>84.8</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">6419</td><td class="note">京晨科 · 光電業</td><td>2024-07-05</td><td>2024-07-15</td><td>143.9</td><td>2024-07-29</td><td>135.3</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">8103</td><td class="note">瀚荃 · 電子工業</td><td>2024-08-15</td><td>2024-08-21</td><td>79.7</td><td>2024-08-23</td><td>74.3</td><td>停損·½</td><td class="neg">-7.1%</td><td class="neg">-0.64</td></tr>
+<tr><td class="name">6187</td><td class="note">萬潤 · 其他電子類</td><td>2024-08-27</td><td>2024-09-03</td><td>346.7</td><td>2024-09-06</td><td>343.8</td><td>突破失敗·½</td><td class="neg">-1.1%</td><td class="neg">-0.14</td></tr>
+<tr><td class="name">3583</td><td class="note">辛耘 · 半導體業</td><td>2024-10-04</td><td>2024-10-07</td><td>484.2</td><td>2024-10-24</td><td>455.2</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">3167</td><td class="note">大量 · 電機機械</td><td>2024-10-08</td><td>2024-10-23</td><td>160.5</td><td>2024-10-24</td><td>150.8</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">8043</td><td class="note">蜜望實 · 電子零組件業</td><td>2024-10-22</td><td>2024-10-25</td><td>44.3</td><td>2024-10-28</td><td>41.7</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">2615</td><td class="note">萬海 · 航運業</td><td>2024-10-28</td><td>2024-11-01</td><td>88.9</td><td>2024-11-04</td><td>83.6</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">6944</td><td class="note">兆聯實業 · 綠能環保</td><td>2024-12-12</td><td>2024-12-13</td><td>282.5</td><td>2025-03-21</td><td>317.3</td><td>到期·½</td><td class="pos">+12.0%</td><td class="pos">+0.96</td></tr>
+<tr><td class="name">8374</td><td class="note">羅昇 · 電機機械</td><td>2024-12-11</td><td>2024-12-17</td><td>145.9</td><td>2024-12-30</td><td>137.2</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">6223</td><td class="note">旺矽 · 半導體業</td><td>2024-12-12</td><td>2024-12-17</td><td>883.4</td><td>2024-12-26</td><td>883.4</td><td>突破失敗·½</td><td class="neg">-0.3%</td><td class="neg">-0.07</td></tr>
+<tr><td class="name">6199</td><td class="note">天品 · 其他</td><td>2024-12-24</td><td>2024-12-27</td><td>129.0</td><td>2025-02-14</td><td>121.3</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+</tbody></table></div></details>
+<details><summary>2025 · 24 筆 · 勝率 46% · 期望 <span class="pos">+1.53R</span> · PF 4.71</summary><div class="tbl"><table><thead><tr><th>代號</th><th class="note">名稱 · 產業</th><th>過四關</th><th>觸發</th><th>進場</th><th>出場日</th><th>出場</th><th>原因</th><th>報酬</th><th>R</th></tr></thead><tbody>
+<tr><td class="name">3088</td><td class="note">艾訊 · 電腦及週邊設備業</td><td>2025-02-04</td><td>2025-02-05</td><td>136.7</td><td>2025-02-27</td><td>128.5</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+<tr><td class="name">1815</td><td class="note">富喬 · 電子零組件業</td><td>2025-01-20</td><td>2025-02-06</td><td>30.1</td><td>2025-04-01</td><td>28.3</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+<tr><td class="name">4540</td><td class="note">全球傳動 · 電機機械</td><td>2025-02-05</td><td>2025-02-06</td><td>55.6</td><td>2025-03-07</td><td>52.3</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+<tr><td class="name">2359</td><td class="note">所羅門 · 其他電子業</td><td>2025-02-19</td><td>2025-02-21</td><td>156.2</td><td>2025-03-03</td><td>152.7</td><td>突破失敗</td><td class="neg">-2.5%</td><td class="neg">-0.45</td></tr>
+<tr><td class="name">8234</td><td class="note">新漢 · 電腦及週邊設備業</td><td>2025-06-10</td><td>2025-06-12</td><td>82.5</td><td>2025-06-19</td><td>77.5</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+<tr><td class="name">2368</td><td class="note">金像電 · 電子零組件業</td><td>2025-07-07</td><td>2025-07-08</td><td>312.8</td><td>2025-10-03</td><td>438.4</td><td>到期</td><td class="pos">+39.9%</td><td class="pos">+6.61</td></tr>
+<tr><td class="name">3661</td><td class="note">世芯-KY · 半導體業</td><td>2025-07-15</td><td>2025-07-16</td><td>3587.7</td><td>2025-09-24</td><td>3372.5</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+<tr><td class="name">2345</td><td class="note">智邦 · 通信網路業</td><td>2025-07-18</td><td>2025-07-28</td><td>835.4</td><td>2025-10-28</td><td>957.4</td><td>到期</td><td class="pos">+14.3%</td><td class="pos">+2.35</td></tr>
+<tr><td class="name">6274</td><td class="note">台燿 · 電子零組件業</td><td>2025-07-21</td><td>2025-07-31</td><td>264.4</td><td>2025-10-31</td><td>382.4</td><td>到期·½</td><td class="pos">+44.4%</td><td class="pos">+3.65</td></tr>
+<tr><td class="name">4931</td><td class="note">新盛力 · 電腦及週邊設備業</td><td>2025-08-05</td><td>2025-08-06</td><td>130.6</td><td>2025-10-16</td><td>122.8</td><td>停損</td><td class="neg">-6.3%</td><td class="neg">-1.08</td></tr>
+<tr><td class="name">4722</td><td class="note">國精化 · 化學生技醫療</td><td>2025-08-04</td><td>2025-08-11</td><td>81.3</td><td>2025-11-10</td><td>160.4</td><td>到期·½</td><td class="pos">+97.0%</td><td class="pos">+8.04</td></tr>
+<tr><td class="name">6831</td><td class="note">邁科 · 電子工業</td><td>2025-08-07</td><td>2025-08-14</td><td>184.6</td><td>2025-08-19</td><td>173.6</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">7610</td><td class="note">聯友金屬-創 · 創新板股票</td><td>2025-08-04</td><td>2025-08-18</td><td>73.1</td><td>2025-11-17</td><td>85.0</td><td>到期·½</td><td class="pos">+15.9%</td><td class="pos">+1.28</td></tr>
+<tr><td class="name">5314</td><td class="note">世紀* · 半導體業</td><td>2025-09-02</td><td>2025-09-03</td><td>23.2</td><td>2025-11-21</td><td>21.8</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">2308</td><td class="note">台達電 · 電子工業</td><td>2025-09-05</td><td>2025-09-09</td><td>802.8</td><td>2025-12-09</td><td>965.9</td><td>到期·½</td><td class="pos">+20.0%</td><td class="pos">+1.63</td></tr>
+<tr><td class="name">2360</td><td class="note">致茂 · 其他電子業</td><td>2025-09-17</td><td>2025-09-18</td><td>608.9</td><td>2025-09-26</td><td>572.3</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">5284</td><td class="note">jpp-KY · 其他</td><td>2025-09-30</td><td>2025-10-02</td><td>301.1</td><td>2025-10-09</td><td>283.0</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">3706</td><td class="note">神達 · 電子工業</td><td>2025-10-08</td><td>2025-10-09</td><td>80.2</td><td>2025-10-15</td><td>81.0</td><td>突破失敗·½</td><td class="pos">+0.7%</td><td class="pos">+0.02</td></tr>
+<tr><td class="name">7769</td><td class="note">鴻勁 · 半導體業</td><td>2025-10-13</td><td>2025-10-21</td><td>1984.8</td><td>2026-01-19</td><td>3456.0</td><td>到期·½</td><td class="pos">+73.8%</td><td class="pos">+6.11</td></tr>
+<tr><td class="name">5289</td><td class="note">宜鼎 · 電腦及週邊設備業</td><td>2025-11-05</td><td>2025-11-11</td><td>468.1</td><td>2025-12-02</td><td>440.1</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">6209</td><td class="note">今國光 · 光電業</td><td>2025-10-31</td><td>2025-11-12</td><td>47.9</td><td>2026-02-09</td><td>58.9</td><td>到期·½</td><td class="pos">+22.7%</td><td class="pos">+1.85</td></tr>
+<tr><td class="name">8021</td><td class="note">尖點 · 其他電子業</td><td>2025-12-05</td><td>2025-12-10</td><td>155.4</td><td>2026-03-19</td><td>258.9</td><td>到期·½</td><td class="pos">+66.4%</td><td class="pos">+5.49</td></tr>
+<tr><td class="name">5498</td><td class="note">凱崴 · 電子零組件業</td><td>2025-12-10</td><td>2025-12-11</td><td>28.8</td><td>2026-03-20</td><td>61.8</td><td>到期·½</td><td class="pos">+114.7%</td><td class="pos">+9.51</td></tr>
+<tr><td class="name">8996</td><td class="note">高力 · 電機機械</td><td>2025-12-22</td><td>2025-12-29</td><td>570.9</td><td>2026-01-08</td><td>567.9</td><td>突破失敗·½</td><td class="neg">-0.8%</td><td class="neg">-0.11</td></tr>
+</tbody></table></div></details>
+<details><summary>2026 · 10 筆 · 勝率 22% · 期望 <span class="pos">+0.49R</span> · PF 2.21</summary><div class="tbl"><table><thead><tr><th>代號</th><th class="note">名稱 · 產業</th><th>過四關</th><th>觸發</th><th>進場</th><th>出場日</th><th>出場</th><th>原因</th><th>報酬</th><th>R</th></tr></thead><tbody>
+<tr><td class="name">2308</td><td class="note">台達電 · 電子工業</td><td>2026-01-14</td><td>2026-01-16</td><td>1139.0</td><td>2026-04-27</td><td>2009.5</td><td>到期·½</td><td class="pos">+76.1%</td><td class="pos">+6.30</td></tr>
+<tr><td class="name">3260</td><td class="note">威剛 · 半導體業</td><td>2026-01-16</td><td>2026-01-23</td><td>333.8</td><td>2026-02-03</td><td>313.8</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">2485</td><td class="note">兆赫 · 通信網路業</td><td>2026-01-26</td><td>2026-02-03</td><td>41.1</td><td>2026-02-10</td><td>38.7</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">4768</td><td class="note">晶呈科技 · 化學工業</td><td>2026-02-04</td><td>2026-02-25</td><td>407.3</td><td>2026-05-27</td><td>495.2</td><td>到期·½</td><td class="pos">+21.3%</td><td class="pos">+1.73</td></tr>
+<tr><td class="name">6223</td><td class="note">旺矽 · 半導體業</td><td>2026-02-11</td><td>2026-02-26</td><td>2820.4</td><td>2026-03-04</td><td>2760.6</td><td>突破失敗·½</td><td class="neg">-2.4%</td><td class="neg">-0.24</td></tr>
+<tr><td class="name">6770</td><td class="note">力積電 · 半導體業</td><td>2026-03-16</td><td>2026-03-17</td><td>75.8</td><td>2026-03-18</td><td>71.2</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">3105</td><td class="note">穩懋 · 半導體業</td><td>2026-03-18</td><td>2026-03-19</td><td>370.4</td><td>2026-03-20</td><td>348.2</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">6715</td><td class="note">嘉基 · 電子工業</td><td>2026-04-01</td><td>2026-04-08</td><td>398.3</td><td>2026-04-27</td><td>374.4</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">6658</td><td class="note">聯策 · 其他電子業</td><td>2026-06-25</td><td>2026-06-26</td><td>209.5</td><td>2026-07-07</td><td>196.9</td><td>停損·½</td><td class="neg">-6.3%</td><td class="neg">-0.57</td></tr>
+<tr><td class="name">3441</td><td class="note">聯一光 · 光電業</td><td>2026-09-04</td><td>2026-09-09</td><td>141.5</td><td>2026-09-11</td><td>166.0</td><td>持有中·½</td><td class="pos">+17.0%</td><td class="pos">+1.39</td></tr>
+</tbody></table></div></details>
+</details>
+</div>
 <h2 id="trust">可信度:哪些地方會讓數字偏高</h2><p>做完回測後請了獨立審查員逐行比對,加上自己的驗算。程式層面的一致性成立(每天只用當天以前的資料;觀察票、觸發、出場與線上同一個函數),但下面這些會讓數字偏高,按嚴重度排:</p>
 <ol><li><b>後半段不是樣本外。</b>規則是從 864 條裡挑「前後五年都為正」的,後半段參與了挑選。只用前五年挑的話,前五名到後五年平均 −0.24R;864 條裡後五年為正的只有 8%。執行版在前五年只有 +0.01R,在 576 條裡排第 340。</li><li><b>靠 7 筆。</b>拿掉最大的 7 筆交易,十年期望值從 +0.13R 變 −0.13R;95% 信賴區間 −0.12 到 +0.41,期望值不大於零的機率約兩成。帳戶年化 19.4% 裡約 9 個百分點來自閒錢放 SPY。</li><li><b>活股那一半仍有倖存者偏差。</b>活股名單是今天市值 ≥ 3 億的公司,十年來縮水但沒下市的整段缺席;2018 年中的樣本池有 72% 是 2026 年的倖存者。下市股上的交易 −0.10R、活股 +0.20R。</li><li><b>財報申報日有 16% 是佔位值</b>(等於季末日),那些季報在回測裡提早五到七週可見;執行版 363 筆裡 18 筆用到,5 筆在現實中不可能看到。</li><li><b>台股用的是今天的財報。</b>台股沒有時點財報,成長條件對五年前的交易也用 2026 年的數字;宇宙沒補下市股。</li><li><b>部位數與閒錢的設定經過對抗檢查</b>(2026-09-17):6 檔比 12 檔年化多 2.9 點,整年重抽 96% 的情況下 6 檔較好,但差距的信賴區間含零;風險調整後策略的 Sharpe 0.84 和 SPY 的 0.87 幾乎一樣,MAR 0.55 對 0.42 略好。閒錢「大盤轉弱時改放現金」曾算出年化 29.5%,查證後是狀態沒延後一天的偷看未來;修正後 15.8%,比一直放 SPY 差,SPY 擇時規則三十年來每一段都輸買進持有。<b>閒錢一直放 SPY 是目前最好的做法,任何加在閒錢上的擇時都要先在指數本身三十年驗過。</b></li>
 <li><b>勝率 19% 的控制實驗</b>:選股六個鍵裡只有 RS 會動停損比例(70 → 90:55% → 64%);VCP 只要一次收縮、加產業篩選、避免同檔重複進場都壓不回舊檔位引擎的 42%。差別在兩個引擎的訊號構造(檔位訊號 + 60 根冷卻 vs 雷達漏斗 + 10 天內突破的觀察票),不是單一門檻。</li>
@@ -4704,7 +4834,8 @@
   <p class="cap" style="margin-top:40px">參考:Minervini (2013) Trade Like a Stock Market Wizard;(2017) Think &amp; Trade Like a Champion;(2015) Momentum Masters。章節對照可能有一兩章誤差。回測不構成投資建議。2026-09-13。</p>
 <style>.vt{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:10px 0}.vt .lab{font-family:var(--mono);font-size:12px;color:var(--mute)}.vt button{font-family:var(--mono);font-size:12.5px;padding:5px 10px;border:1px solid var(--line);background:transparent;color:var(--ink-2);border-radius:4px;cursor:pointer}.vt button.on{background:var(--accent);border-color:var(--accent);color:#fff}</style>
 </details>
-<script>document.querySelectorAll('.vt').forEach(bar=>{const scope=bar.dataset.for;bar.querySelectorAll('button').forEach(b=>b.onclick=()=>{bar.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));const v=b.dataset.v;const root=bar.parentElement;root.querySelectorAll('.vblk').forEach(el=>{el.hidden=!(el.classList.contains('v-'+v))});root.querySelectorAll('.vc').forEach(el=>{el.hidden=!(v==='all'||el.classList.contains('vc-'+v))});});});</script><script>document.querySelectorAll('.vt.mkt').forEach(bar=>{bar.querySelectorAll('button').forEach(b=>b.onclick=()=>{bar.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));const m=b.dataset.m;document.querySelectorAll('.mk-us').forEach(el=>el.hidden=(m!=='us'));document.querySelectorAll('.mk-tw').forEach(el=>el.hidden=(m!=='tw'));});});</script></main>
+<script>document.querySelectorAll('.vt').forEach(bar=>{const scope=bar.dataset.for;bar.querySelectorAll('button').forEach(b=>b.onclick=()=>{bar.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));const v=b.dataset.v;const root=bar.parentElement;root.querySelectorAll('.vblk').forEach(el=>{el.hidden=!(el.classList.contains('v-'+v))});root.querySelectorAll('.vc').forEach(el=>{el.hidden=!(v==='all'||el.classList.contains('vc-'+v))});});});</script><script>document.querySelectorAll('.vt.mkt button').forEach(b=>b.onclick=()=>{const m=b.dataset.m;document.querySelectorAll('.vt.mkt button').forEach(x=>x.classList.toggle('on',x.dataset.m===m));document.querySelectorAll('.mk-us').forEach(el=>el.hidden=(m!=='us'));document.querySelectorAll('.mk-tw').forEach(el=>el.hidden=(m!=='tw'));document.querySelectorAll('.tbl').forEach(w=>{w.classList.toggle('can-scroll',w.scrollWidth>w.clientWidth+2)});});</script>
+</main>
 </div>
 <script>/* 手機卡片表格:把欄名寫進每格 data-l */
 (function(){document.querySelectorAll('table').forEach(function(t){var hr=t.tHead&&t.tHead.rows.length?t.tHead.rows[t.tHead.rows.length-1]:null;if(!hr)return;var names=[];[].forEach.call(hr.cells,function(c){var n=+(c.getAttribute('colspan')||1);for(var i=0;i<n;i++)names.push(c.textContent.trim());});
