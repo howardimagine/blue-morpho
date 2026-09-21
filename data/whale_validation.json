@@ -1,167 +1,174 @@
 {
   "as_of": "2026-08-14",
   "n_whales": 19,
-  "generated_at": "2026-09-18T00:07:23+00:00",
+  "generated_at": "2026-09-21T00:06:41+00:00",
   "stocks": [
     {
-      "symbol": "CRWD",
-      "name": "CrowdStrike",
-      "theme": "Cybersecurity",
-      "signal": "split",
-      "holders": 2,
-      "increased": 1,
-      "reduced": 1,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 36989396,
-      "total_held_fmt": "$37M",
-      "whales_fmt": "達利歐 Dalio $19M 加碼 · 木頭姐 Cathie Wood $18M 減碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 18960213,
-          "action": "add"
-        },
-        {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 18029183,
-          "action": "trim"
-        }
-      ]
-    },
-    {
-      "symbol": "EQIX",
-      "name": "Equinix, Inc.",
+      "symbol": "CSCO",
+      "name": "Cisco Systems, Inc.",
       "theme": "Cloud Infrastructure",
-      "signal": "buy",
-      "holders": 3,
-      "increased": 1,
-      "reduced": 1,
-      "new_pos": 1,
-      "closed_pos": 0,
-      "total_held_usd": 1337909078,
-      "total_held_fmt": "$1.3B",
-      "whales_fmt": "Philippe Laffont $1.3B 加碼 · 達利歐 Dalio $10M 減碼 · 德魯肯米勒 Druckenmiller <$1M 新進",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "Philippe Laffont",
-          "value_usd": 1327501387,
-          "action": "add"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 10388459,
-          "action": "trim"
-        },
-        {
-          "name": "德魯肯米勒 Druckenmiller",
-          "value_usd": 19232,
-          "action": "new"
-        }
-      ]
-    },
-    {
-      "symbol": "ISRG",
-      "name": "Intuitive Surgical",
-      "theme": "Healthcare AI",
-      "signal": "split",
-      "holders": 3,
-      "increased": 2,
-      "reduced": 1,
+      "signal": "sell",
+      "holders": 0,
+      "increased": 0,
+      "reduced": 0,
       "new_pos": 0,
       "closed_pos": 1,
-      "total_held_usd": 351311704,
-      "total_held_fmt": "$351M",
-      "whales_fmt": "Terry Smith — 清倉 · Philippe Laffont $316M 減碼 · 木頭姐 Cathie Wood $28M 加碼 · 達利歐 Dalio $8M 加碼",
+      "total_held_usd": 0,
+      "total_held_fmt": "—",
+      "whales_fmt": "達利歐 Dalio — 清倉",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "Terry Smith",
+          "name": "達利歐 Dalio",
           "value_usd": 0,
           "action": "exit"
-        },
+        }
+      ]
+    },
+    {
+      "symbol": "ROK",
+      "name": "羅克韋爾自動化",
+      "theme": "Industrial Automation",
+      "signal": "split",
+      "holders": 4,
+      "increased": 2,
+      "reduced": 2,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 264635527,
+      "total_held_fmt": "$265M",
+      "whales_fmt": "Andreas Halvorsen $227M 減碼 · 達利歐 Dalio $23M 加碼 · 索羅斯 Soros $14M 加碼 · 木頭姐 Cathie Wood <$1M 減碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
         {
-          "name": "Philippe Laffont",
-          "value_usd": 315640206,
+          "name": "Andreas Halvorsen",
+          "value_usd": 227429748,
           "action": "trim"
         },
         {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 27986730,
+          "name": "達利歐 Dalio",
+          "value_usd": 22654674,
           "action": "add"
         },
         {
+          "name": "索羅斯 Soros",
+          "value_usd": 14455117,
+          "action": "add"
+        },
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 95988,
+          "action": "trim"
+        }
+      ]
+    },
+    {
+      "symbol": "CLSK",
+      "name": "CleanSpark, Inc.",
+      "theme": "Crypto Infrastructure",
+      "signal": "sell",
+      "holders": 0,
+      "increased": 0,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 1,
+      "total_held_usd": 0,
+      "total_held_fmt": "—",
+      "whales_fmt": "達利歐 Dalio — 清倉",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
           "name": "達利歐 Dalio",
-          "value_usd": 7684768,
+          "value_usd": 0,
+          "action": "exit"
+        }
+      ]
+    },
+    {
+      "symbol": "COIN",
+      "name": "Coinbase Global, Inc.",
+      "theme": "Crypto Infrastructure",
+      "signal": "buy",
+      "holders": 1,
+      "increased": 1,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 367129713,
+      "total_held_fmt": "$367M",
+      "whales_fmt": "木頭姐 Cathie Wood $367M 加碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 367129713,
           "action": "add"
         }
       ]
     },
     {
-      "symbol": "DLR",
-      "name": "Digital Realty Trust, Inc.",
-      "theme": "Cloud Infrastructure",
-      "signal": "split",
-      "holders": 0,
+      "symbol": "VRT",
+      "name": "Vertiv",
+      "theme": "Data Center",
+      "signal": "sell",
+      "holders": 2,
       "increased": 0,
-      "reduced": 0,
+      "reduced": 2,
       "new_pos": 0,
       "closed_pos": 0,
-      "total_held_usd": 0,
-      "total_held_fmt": "—",
-      "whales_fmt": "",
+      "total_held_usd": 293862139,
+      "total_held_fmt": "$294M",
+      "whales_fmt": "Philippe Laffont $270M 減碼 · 達利歐 Dalio $24M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
-      "whales": []
+      "whales": [
+        {
+          "name": "Philippe Laffont",
+          "value_usd": 270063803,
+          "action": "trim"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 23798336,
+          "action": "trim"
+        }
+      ]
     },
     {
-      "symbol": "AI",
-      "name": "C3.ai, Inc.",
-      "theme": "AI Software",
-      "signal": "split",
-      "holders": 0,
+      "symbol": "ABBNY",
+      "name": "ABB",
+      "theme": "Electrification / Power",
+      "signal": "sell",
+      "holders": 2,
       "increased": 0,
-      "reduced": 0,
+      "reduced": 1,
       "new_pos": 0,
       "closed_pos": 0,
-      "total_held_usd": 0,
-      "total_held_fmt": "—",
-      "whales_fmt": "",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": []
-    },
-    {
-      "symbol": "VEEV",
-      "name": "Veeva Systems Inc.",
-      "theme": "Healthcare AI",
-      "signal": "buy",
-      "holders": 1,
-      "increased": 0,
-      "reduced": 0,
-      "new_pos": 1,
-      "closed_pos": 0,
-      "total_held_usd": 5449926,
-      "total_held_fmt": "$5M",
-      "whales_fmt": "達利歐 Dalio $5M 新進",
+      "total_held_usd": 9484598,
+      "total_held_fmt": "$9M",
+      "whales_fmt": "達利歐 Dalio $5M 減碼 · 索羅斯 Soros $4M 持有",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
           "name": "達利歐 Dalio",
-          "value_usd": 5449926,
-          "action": "new"
+          "value_usd": 5423983,
+          "action": "trim"
+        },
+        {
+          "name": "索羅斯 Soros",
+          "value_usd": 4060615,
+          "action": "hold"
         }
       ]
     }
