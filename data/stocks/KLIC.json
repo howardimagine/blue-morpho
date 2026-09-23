@@ -98,13 +98,13 @@
       "tier": "ready"
     },
     {
-      "symbol": "AEHR",
-      "name": "Aehr Test",
+      "symbol": "KLAC",
+      "name": "科磊",
       "tier": "ready"
     },
     {
-      "symbol": "KLAC",
-      "name": "科磊",
+      "symbol": "AEIS",
+      "name": "先進能源",
       "tier": "ready"
     }
   ],
