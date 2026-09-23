@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<script src="theme.js"></script>
+<meta charset="utf-8"><meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0F1316">
+<title>加密貨幣輪動</title>
+<style>
+  :root { --paper:#FFFFFF; --ink:#14181C; --ink-2:#4A5561; --mute:#7C8792; --line:#D9DEE3; --panel:#F3F5F6; --accent:#0E7490; --accent-ink:#0B5C73;
+    --good:#EA580C; --bad:#4F46E5; --good-bg:#FDEBDD; --bad-bg:#E6E5FB; --neutral-bg:#ECEFF2;
+    --serif:"IBM Plex Serif","Noto Serif TC",Georgia,serif; --sans:"Noto Sans TC","PingFang TC",system-ui,sans-serif; --mono:"IBM Plex Mono","SF Mono",Menlo,monospace; }
+  :root[data-theme="dark"] { --paper:#0F1316; --ink:#E8ECEF; --ink-2:#B7C0C8; --mute:#7F8A94; --line:#26303A; --panel:#161C21; --accent:#38B6D3; --accent-ink:#7ED3E6;
+    --good:#5CC08A; --bad:#F08A80; --good-bg:#16342A; --bad-bg:#3B1F1D; --neutral-bg:#1C2329; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--sans); font-size:15px; line-height:1.7; }
+  .topbar { position:sticky; top:0; z-index:5; display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 24px; background:var(--paper); border-bottom:1px solid var(--line); }
+  .brand { font-family:var(--mono); font-size:12px; letter-spacing:.14em; color:var(--accent-ink); text-transform:uppercase; text-decoration:none; }
+  #hdr-tools { display:flex; align-items:center; gap:10px; font-family:var(--mono); font-size:12px; color:var(--mute); }
+  .theme-btn, .tab { height:30px; padding:0 12px; border:1px solid var(--line); border-radius:4px; background:transparent; color:var(--ink-2); font:12px var(--mono); cursor:pointer; }
+  .tab[aria-pressed="true"] { background:var(--accent); border-color:var(--accent); color:var(--paper); }
+  main { max-width:1080px; margin:0 auto; padding:36px 24px 96px; }
+  h1 { font-family:var(--serif); font-weight:600; font-size:30px; line-height:1.25; margin:0 0 8px; text-wrap:balance; }
+  .lede { color:var(--ink-2); max-width:70ch; margin:0 0 28px; }
+  h2 { font-family:var(--serif); font-weight:600; font-size:22px; margin:48px 0 12px; padding-top:14px; border-top:1px solid var(--line); }
+  p { max-width:72ch; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:14px; }
+  .card { border:1px solid var(--line); border-radius:6px; padding:18px; background:var(--panel); }
+  .card.off { opacity:.72; }
+  .card .hd { display:flex; justify-content:space-between; align-items:baseline; gap:8px; }
+  .sym { font-family:var(--mono); font-weight:700; font-size:15px; letter-spacing:.06em; }
+  .px { font-family:var(--mono); font-size:24px; font-variant-numeric:tabular-nums; margin:4px 0 10px; }
+  .chg { font-size:13px; margin-left:6px; }
+  .pill { display:inline-block; font:700 12px var(--mono); padding:3px 10px; border-radius:999px; letter-spacing:.04em; }
+  .pill.in { background:var(--good-bg); color:var(--good); } .pill.out { background:var(--bad-bg); color:var(--bad); } .pill.na { background:var(--neutral-bg); color:var(--mute); }
+  .up { color:var(--good); } .dn { color:var(--bad); }
+  dl { display:grid; grid-template-columns:auto 1fr; gap:2px 12px; margin:10px 0 0; font-size:13px; }
+  dt { color:var(--mute); } dd { margin:0; font-family:var(--mono); font-variant-numeric:tabular-nums; text-align:right; }
+  .note { font-size:12.5px; color:var(--mute); margin-top:10px; line-height:1.55; }
+  .preview { margin-top:10px; padding-top:8px; border-top:1px dashed var(--line); font-size:13px; color:var(--ink-2); }
+  .tabs { display:flex; gap:6px; margin:0 0 10px; flex-wrap:wrap; }
+  .chart { height:340px; border:1px solid var(--line); border-radius:6px; }
+  .legend { display:flex; gap:16px; flex-wrap:wrap; font-size:12.5px; color:var(--ink-2); margin:6px 0 18px; }
+  .legend i { display:inline-block; width:14px; height:3px; vertical-align:middle; margin-right:6px; }
+  .tblwrap { overflow-x:auto; }
+  table { border-collapse:collapse; width:100%; font-size:13.5px; }
+  th, td { padding:7px 10px; border-bottom:1px solid var(--line); text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums; }
+  th:first-child, td:first-child { text-align:left; } th { color:var(--mute); font-weight:600; font-size:12.5px; }
+  tr.hl td { background:var(--panel); font-weight:700; }
+  .rule { border-top:3px solid var(--accent); background:var(--panel); padding:16px 20px; margin:14px 0; }
+  .rule ol, .rule ul { margin:6px 0; padding-left:20px; }
+  ul.tight li { margin-bottom:6px; max-width:72ch; }
+  #err { display:none; color:var(--bad); font-size:13.5px; margin:10px 0; }
+  @media (max-width:640px) { .topbar { padding:10px 16px; } main { padding:24px 16px 72px; } h1 { font-size:24px; } #upd { display:none; } .chart { height:280px; } }
+</style>
+</head>
+<body>
+<div class="topbar"><a class="brand" href="/">Blue Morpho · Crypto</a><div id="hdr-tools"><span id="upd">載入中…</span></div></div>
+<main>
+  <h1>加密貨幣輪動：日 K 50 日線 + 波動濾網</h1>
+  <p class="lede">BTC、ETH 只做 1x 現貨，不開槓桿。站上 50 日線 +3% 且 20 日年化波動 ≤ 80% 就持有，否則換回 USDT。訊號看幣安日 K 收盤（台北 08:00），資料直接從幣安公開 API 即時計算，每 5 分鐘更新。</p>
+  <div id="err"></div>
+
+  <h2 style="margin-top:8px;border-top:0;padding-top:0">現在該持有什麼</h2>
+  <div class="cards" id="cards"></div>
+
+  <h2>價格與均線</h2>
+  <div class="tabs" id="tabs1"></div>
+  <div class="chart" id="c1"></div>
+  <div class="legend"><span><i style="background:var(--ink)"></i>收盤</span><span><i style="background:var(--accent)"></i>50 日線</span><span><i style="background:var(--mute)"></i>±3% 進出場帶</span><span><i style="background:var(--good);opacity:.35;height:10px"></i>持有現貨</span></div>
+
+  <h2>回測：規則 vs 買進持有（幣安，即時重算）</h2>
+  <div class="tabs" id="tabs2"></div>
+  <div class="chart" id="c2"></div>
+  <div class="legend"><span><i style="background:var(--good)"></i>規則（1x / 現金）</span><span><i style="background:var(--mute)"></i>買進持有</span><span>對數刻度 · 每次換倉扣 0.15% · 現金不計利息</span></div>
+  <div class="tblwrap"><table id="bt"></table></div>
+
+  <h2>樣本外驗證（Bitstamp BTC，2013–2017）</h2>
+  <p>規則在 2018 年以後的幣安資料上挑出，再拿完全不重疊的 2013–17 年檢驗。每格是年化報酬 / 最大回撤。</p>
+  <div class="tblwrap"><table>
+    <tr><th>規則</th><th>BTC 13–17 樣本外</th><th>BTC 13–26</th><th>BTC 幣安 18–26</th><th>ETH 18–26</th><th>SOL 20–26</th></tr>
+    <tr><td>買進持有</td><td>+302% / −85%</td><td>+90% / −85%</td><td>+27% / −77%</td><td>+15% / −90%</td><td>+48% / −96%</td></tr>
+    <tr><td>100 日線 ±3%（純均線）</td><td>+308% / −70%</td><td>+109% / −70%</td><td>+48% / −43%</td><td>+30% / −75%</td><td>+32% / −87%</td></tr>
+    <tr class="hl"><td>50 日線 ±3% + 波動 ≤ 80%</td><td>+91% / −42%</td><td>+53% / −42%</td><td>+36% / −42%</td><td>+42% / −48%</td><td>+17% / −52%</td></tr>
+    <tr><td>4h 100 日線 + 波動 ≤ 120%</td><td>+190% / −43%</td><td>+90% / −43%</td><td>+51% / −42%</td><td>+31% / −62%</td><td>+12% / −85%</td></tr>
+  </table></div>
+  <p class="note">純均線版本在 2013-04 泡沫一週崩 70% 時還在均線之上，來不及出場。波動濾網在拋物線上漲時已先退到現金，這是它撐住的原因。</p>
+
+  <h2>規則與執行</h2>
+  <div class="rule">
+    <ol>
+      <li>每天台北 08:00 幣安日 K 收盤後看一次。</li>
+      <li><b>進場</b>：收盤 &gt; 50 日均線 × 1.03，且 20 日年化波動 ≤ 80%。</li>
+      <li><b>出場</b>：收盤 &lt; 50 日均線 × 0.97，或 20 日年化波動 &gt; 80%。</li>
+      <li>在 ±3% 帶內維持原狀態，避免來回洗。</li>
+      <li>在 MAX 台幣現貨或幣安現貨執行，只買賣 1x，不借貸、不開合約。</li>
+    </ol>
+  </div>
+
+  <h2>研究結論</h2>
+  <ul class="tight">
+    <li><b>槓桿不成立。</b>BTC 年化波動約 53%、ETH 約 72%，1x 現貨已等於 SPY 3x 的波動。3x 買進持有在 2020-03-12 爆倉；加趨勢濾網的 2x / 3x 沒有一組把回撤守在 −50% 內。</li>
+    <li><b>縮短 K 線沒有幫助。</b>均線天數固定時，日 K、4h、1h 結果幾乎一樣；沒有緩衝帶時，K 線越短換手越多、報酬越低。</li>
+    <li><b>MAX 就夠用。</b>只做 1x 時，幣安與 MAX 只差手續費，年約 1 個百分點；MAX 是台灣合規業者。MAX 借貸加槓桿在資產/負債比 1.2 就強平，3x 跌 20% 即爆。</li>
+    <li><b>SOL 不採用。</b>歷史只有 6 年，沒有一條規則能乾淨過關，卡片僅供參考。</li>
+    <li><b>限制。</b>以 USDT 計價，MAX 台幣另有匯率；參數仍在有限歷史上挑選，預期實際回撤可能再深 5–10 點。</li>
+  </ul>
+  <p class="note">本頁為個人研究紀錄，不構成投資建議。</p>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
+<script>
+const COINS = [
+  { sym: 'BTC', pair: 'BTCUSDT', start: 1502928000000, use: true },
+  { sym: 'ETH', pair: 'ETHUSDT', start: 1502928000000, use: true },
+  { sym: 'SOL', pair: 'SOLUSDT', start: 1597104000000, use: false },
+];
+const MA = 50, BUF = 0.03, VOLN = 20, TGT = 0.40, COST = 0.0015, WARM_DAYS = 200;
+const API = 'https://data-api.binance.vision/api/v3/klines';
+const DATA = {};
+let sel1 = 'BTC', sel2 = 'BTC';
+
+async function klines(pair, start) {
+  let rows = [], t = start;
+  for (;;) {
+    const r = await fetch(`${API}?symbol=${pair}&interval=1d&startTime=${t}&limit=1000`);
+    if (!r.ok) throw new Error(pair + ' HTTP ' + r.status);
+    const b = await r.json(); rows = rows.concat(b);
+    if (b.length < 1000) break;
+    t = b[b.length - 1][0] + 1;
+  }
+  return rows.map(k => ({ t: k[0], c: +k[4], closeT: k[6] }));
+}
+
+// 與 agents/crypto_rotation.py 的 exposure("V40", L=1, ma=50) 同邏輯
+function signal(c) {
+  const n = c.length, ma = new Array(n).fill(NaN), vol = new Array(n).fill(NaN), on = new Array(n).fill(0), x = new Array(n).fill(0);
+  const r = c.map((v, i) => i ? v / c[i - 1] - 1 : 0);
+  let sum = 0;
+  for (let i = 0; i < n; i++) { sum += c[i]; if (i >= MA) sum -= c[i - MA]; if (i >= MA - 1) ma[i] = sum / MA; }
+  for (let i = VOLN - 1; i < n; i++) {
+    const w = r.slice(i - VOLN + 1, i + 1), m = w.reduce((a, b) => a + b) / VOLN;
+    vol[i] = Math.sqrt(w.reduce((a, b) => a + (b - m) ** 2, 0) / (VOLN - 1) * 365);
+  }
+  let s = 0;
+  for (let i = 0; i < n; i++) {
+    if (!isNaN(ma[i])) s = c[i] > ma[i] * (1 + BUF) ? 1 : c[i] < ma[i] * (1 - BUF) ? 0 : s;
+    on[i] = isNaN(ma[i]) ? 0 : s;
+    const v = isNaN(vol[i]) ? 0 : Math.min(TGT / vol[i], 1);
+    x[i] = on[i] * (v > 0.5 ? 1 : 0);            // pandas round(0.5)=0
+  }
+  return { ma, vol, on, x, r };
+}
+
+function backtest(d, rule) {
+  const first = d.t[0] + WARM_DAYS * 864e5, n = d.c.length;
+  const live = d.t.map(t => t >= first), k0 = live.indexOf(true);
+  const xs = d.t.map((_, i) => live[i] ? (rule ? d.sig.x[i] : 1) : 0);
+  const eq = [], held = []; let e = 1, prev = 0;
+  for (let i = 0; i < n; i++) {
+    const h = i ? xs[i - 1] : 0;
+    const ret = h * d.sig.r[i] - Math.abs(h - prev) * COST; prev = h;
+    if (i >= k0) { e *= 1 + ret; eq.push({ time: d.t[i] / 1000, value: e }); held.push(h); }
+  }
+  const yrs = (d.t[n - 1] - d.t[k0]) / 864e5 / 365.25;
+  let pk = 0, dd = 0; eq.forEach(p => { pk = Math.max(pk, p.value); dd = Math.min(dd, p.value / pk - 1); });
+  let sw = 0; for (let i = 1; i < held.length; i++) if (held[i] !== held[i - 1]) sw++;
+  const yearly = {}; let base = 1;
+  eq.forEach((p, i) => { const y = new Date(p.time * 1000).getUTCFullYear(); if (!(y in yearly)) yearly[y] = { s: i ? eq[i - 1].value : 1 }; yearly[y].e = p.value; });
+  return { eq, cagr: e ** (1 / yrs) - 1, dd, inMkt: held.filter(h => h > 0).length / held.length, sw: sw / yrs,
+           worst: Math.min(...Object.values(yearly).map(o => o.e / o.s - 1)), from: new Date(d.t[k0]).toISOString().slice(0, 10) };
+}
+
+const f$ = v => v >= 1000 ? v.toLocaleString('en-US', { maximumFractionDigits: 0 }) : v.toLocaleString('en-US', { maximumFractionDigits: 2 });
+const pc = (v, d = 0) => (v >= 0 ? '+' : '−') + Math.abs(v * 100).toFixed(d) + '%';
+const cls = v => v >= 0 ? 'up' : 'dn';
+
+function card(co) {
+  const d = DATA[co.sym], i = d.c.length - 1, s = d.sig;
+  const inPos = s.x[i] > 0, ma = s.ma[i], vol = s.vol[i], live = d.live;
+  const why = inPos ? `站上 50 日線 +3% 且波動 ${Math.round(vol * 100)}% ≤ 80%`
+    : s.on[i] ? `趨勢向上，但 20 日波動 ${Math.round(vol * 100)}% > 80%，暫避現金`
+    : `未站上 50 日線 +3%（或已跌破 −3%）`;
+  const flip = inPos ? `出場：收盤 < ${f$(ma * (1 - BUF))} 或波動 > 80%` : `進場：收盤 > ${f$(ma * (1 + BUF))} 且波動 ≤ 80%`;
+  // 盤中試算:把現價當成今日收盤
+  const pv = signal(d.c.concat(live.c));
+  const pvx = pv.x[pv.x.length - 1];
+  const chg = live.c / d.c[i] - 1;
+  return `<div class="card ${co.use ? '' : 'off'}">
+    <div class="hd"><span class="sym">${co.sym}/USDT</span>${co.use ? `<span class="pill ${inPos ? 'in' : 'out'}">${inPos ? '持有 1x 現貨' : '現金 USDT'}</span>` : `<span class="pill na">不採用 · 參考 ${inPos ? '持有' : '現金'}</span>`}</div>
+    <div class="px">${f$(live.c)}<span class="chg ${cls(chg)}">${pc(chg, 1)}</span></div>
+    <dl>
+      <dt>昨日收盤</dt><dd>${f$(d.c[i])}</dd>
+      <dt>50 日線</dt><dd>${f$(ma)}（${pc(d.c[i] / ma - 1, 1)}）</dd>
+      <dt>進出場帶</dt><dd>${f$(ma * (1 - BUF))} – ${f$(ma * (1 + BUF))}</dd>
+      <dt>20 日年化波動</dt><dd class="${vol > 0.8 ? 'dn' : ''}">${Math.round(vol * 100)}%</dd>
+    </dl>
+    <div class="note">${why}。<br>下一個翻轉條件 · ${flip}</div>
+    <div class="preview">若今日以現價收盤：${pvx > 0 ? '持有' : '現金'}${pvx !== s.x[i] ? ' <b class="dn">· 將翻轉</b>' : '（不變）'}</div>
+  </div>`;
+}
+
+function css(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+function mix(hex, a) { return css(hex).startsWith('#') ? css(hex) + Math.round(a * 255).toString(16).padStart(2, '0') : css(hex); }
+let charts = [];
+
+function mkChart(el, log) {
+  const c = LightweightCharts.createChart(el, {
+    autoSize: true, layout: { background: { color: 'transparent' }, textColor: css('--mute'), fontFamily: css('--mono') || 'monospace' },
+    grid: { vertLines: { visible: false }, horzLines: { color: mix('--line', .6) } },
+    rightPriceScale: { borderColor: css('--line'), mode: log ? 1 : 0 }, timeScale: { borderColor: css('--line') },
+    crosshair: { mode: 0 },
+  });
+  charts.push(c); return c;
+}
+
+function draw() {
+  charts.forEach(c => c.remove()); charts = [];
+  // 價格圖:最近 400 天
+  const d = DATA[sel1]; if (!d) return;
+  const n = d.c.length, k = Math.max(0, n - 400), T = i => d.t[i] / 1000;
+  const c1 = mkChart(document.getElementById('c1'), false);
+  const bg = c1.addHistogramSeries({ priceScaleId: 'bg', color: mix('--good', .3), priceLineVisible: false, lastValueVisible: false });
+  c1.priceScale('bg').applyOptions({ scaleMargins: { top: 0, bottom: 0 }, visible: false });
+  bg.setData(d.t.slice(k).map((_, j) => ({ time: T(k + j), value: d.sig.x[k + j] > 0 ? 1 : 0 })));
+  const line = (arr, color, style, w) => { const s = c1.addLineSeries({ color, lineWidth: w, lineStyle: style, priceLineVisible: false, lastValueVisible: false });
+    s.setData(arr.slice(k).map((v, j) => ({ time: T(k + j), value: v })).filter(p => !isNaN(p.value))); return s; };
+  line(d.sig.ma.map(v => v * (1 + BUF)), css('--mute'), 2, 1);
+  line(d.sig.ma.map(v => v * (1 - BUF)), css('--mute'), 2, 1);
+  line(d.sig.ma, css('--accent'), 0, 2);
+  const px = c1.addLineSeries({ color: css('--ink'), lineWidth: 2, priceLineVisible: false });
+  px.setData(d.c.slice(k).map((v, j) => ({ time: T(k + j), value: v })));
+  c1.timeScale().fitContent();
+  // 淨值圖
+  const b = DATA[sel2]; if (!b) return;
+  const c2 = mkChart(document.getElementById('c2'), true);
+  c2.addLineSeries({ color: css('--mute'), lineWidth: 1, priceLineVisible: false }).setData(b.hold.eq);
+  c2.addLineSeries({ color: css('--good'), lineWidth: 2, priceLineVisible: false }).setData(b.rule.eq);
+  c2.timeScale().fitContent();
+}
+
+function tabs(id, get, set) {
+  const el = document.getElementById(id);
+  el.innerHTML = COINS.map(c => `<button class="tab" data-s="${c.sym}" aria-pressed="${c.sym === get()}">${c.sym}</button>`).join('');
+  el.onclick = e => { const s = e.target.dataset.s; if (!s) return; set(s); el.querySelectorAll('.tab').forEach(b => b.setAttribute('aria-pressed', b.dataset.s === s)); draw(); };
+}
+
+function table() {
+  const row = (lab, m, hl) => `<tr${hl ? ' class="hl"' : ''}><td>${lab}</td><td>${pc(m.cagr)}</td><td>${pc(m.dd)}</td><td>${pc(m.worst)}</td><td>${Math.round(m.inMkt * 100)}%</td><td>${m.sw.toFixed(1)}</td></tr>`;
+  document.getElementById('bt').innerHTML = '<tr><th>幣種 · 策略</th><th>年化</th><th>最大回撤</th><th>最差年</th><th>在場</th><th>換手/年</th></tr>' +
+    COINS.filter(c => DATA[c.sym]).map(c => { const d = DATA[c.sym];
+      return row(`${c.sym} 買進持有（${d.hold.from} 起）`, d.hold) + row(`${c.sym} 規則${c.use ? '' : '（不採用）'}`, d.rule, c.use); }).join('');
+}
+
+async function load() {
+  try {
+    await Promise.all(COINS.map(async co => {
+      const all = await klines(co.pair, co.start), now = Date.now();
+      const closed = all.filter(k => k.closeT < now), live = all[all.length - 1];
+      const d = { t: closed.map(k => k.t), c: closed.map(k => k.c), live };
+      d.sig = signal(d.c); d.rule = backtest(d, true); d.hold = backtest(d, false);
+      DATA[co.sym] = d;
+    }));
+    document.getElementById('cards').innerHTML = COINS.map(card).join('');
+    table(); draw();
+    const last = new Date(DATA.BTC.t[DATA.BTC.t.length - 1] + 864e5);
+    document.getElementById('upd').textContent = `日 K 至 ${last.toLocaleDateString('zh-TW', { timeZone: 'Asia/Taipei' })} 08:00 · 更新 ${new Date().toLocaleTimeString('zh-TW', { hour: '2-digit', minute: '2-digit' })}`;
+    document.getElementById('err').style.display = 'none';
+  } catch (e) {
+    const el = document.getElementById('err'); el.style.display = 'block'; el.textContent = '無法連到幣安公開 API：' + e.message + '（稍後自動重試）';
+  }
+}
+
+tabs('tabs1', () => sel1, s => sel1 = s);
+tabs('tabs2', () => sel2, s => sel2 = s);
+window.addEventListener('bm-theme', draw);
+load(); setInterval(load, 5 * 60 * 1000);
+</script>
+</body>
+</html>
