@@ -1,199 +1,92 @@
 {
   "as_of": "2026-08-14",
   "n_whales": 19,
-  "generated_at": "2026-09-23T00:07:44+00:00",
+  "generated_at": "2026-09-24T00:07:12+00:00",
   "stocks": [
     {
-      "symbol": "ANET",
-      "name": "Arista Networks, Inc.",
-      "theme": "Cloud Infrastructure",
-      "signal": "sell",
-      "holders": 1,
-      "increased": 0,
-      "reduced": 1,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 43196237,
-      "total_held_fmt": "$43M",
-      "whales_fmt": "達利歐 Dalio $43M 減碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 43196237,
-          "action": "trim"
-        }
-      ]
-    },
-    {
-      "symbol": "ENTG",
-      "name": "英特格",
+      "symbol": "MRVL",
+      "name": "美滿科技",
       "theme": "AI Compute",
-      "signal": "sell",
+      "signal": "split",
       "holders": 2,
       "increased": 0,
       "reduced": 1,
       "new_pos": 1,
-      "closed_pos": 1,
-      "total_held_usd": 2220245,
-      "total_held_fmt": "$2M",
-      "whales_fmt": "Stephen Mandel — 清倉 · 達利歐 Dalio $2M 減碼 · 德魯肯米勒 Druckenmiller <$1M 新進",
+      "closed_pos": 0,
+      "total_held_usd": 70045259,
+      "total_held_fmt": "$70M",
+      "whales_fmt": "達利歐 Dalio $54M 減碼 · 索羅斯 Soros $16M 新進",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "Stephen Mandel",
-          "value_usd": 0,
-          "action": "exit"
-        },
-        {
           "name": "達利歐 Dalio",
-          "value_usd": 2198968,
+          "value_usd": 53970519,
           "action": "trim"
         },
         {
-          "name": "德魯肯米勒 Druckenmiller",
-          "value_usd": 21277,
+          "name": "索羅斯 Soros",
+          "value_usd": 16074740,
           "action": "new"
         }
       ]
     },
     {
-      "symbol": "AMZN",
-      "name": "亞馬遜",
-      "theme": "Cloud Infrastructure",
-      "signal": "buy",
-      "holders": 12,
-      "increased": 8,
-      "reduced": 4,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 11727675001,
-      "total_held_fmt": "$11.7B",
-      "whales_fmt": "Philippe Laffont $2.8B 加碼 · 艾克曼 Ackman $2.4B 加碼 · Chase Coleman $2.3B 減碼 · 泰珀 Tepper $1.2B 加碼 · Andreas Halvorsen $882M 加碼 · Brad Gerstner $578M 加碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "Philippe Laffont",
-          "value_usd": 2820705995,
-          "action": "add"
-        },
-        {
-          "name": "艾克曼 Ackman",
-          "value_usd": 2385104083,
-          "action": "add"
-        },
-        {
-          "name": "Chase Coleman",
-          "value_usd": 2307979214,
-          "action": "trim"
-        },
-        {
-          "name": "泰珀 Tepper",
-          "value_usd": 1191700000,
-          "action": "add"
-        },
-        {
-          "name": "Andreas Halvorsen",
-          "value_usd": 882063449,
-          "action": "add"
-        },
-        {
-          "name": "Brad Gerstner",
-          "value_usd": 578058158,
-          "action": "add"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 482753142,
-          "action": "trim"
-        },
-        {
-          "name": "Dan Loeb",
-          "value_usd": 417095000,
-          "action": "trim"
-        }
-      ]
-    },
-    {
-      "symbol": "AEHR",
-      "name": "Aehr Test",
+      "symbol": "WDC",
+      "name": "威騰電子",
       "theme": "AI Compute",
       "signal": "sell",
-      "holders": 0,
+      "holders": 1,
       "increased": 0,
-      "reduced": 0,
+      "reduced": 1,
       "new_pos": 0,
-      "closed_pos": 1,
-      "total_held_usd": 0,
-      "total_held_fmt": "—",
-      "whales_fmt": "達利歐 Dalio — 清倉",
+      "closed_pos": 0,
+      "total_held_usd": 110124909,
+      "total_held_fmt": "$110M",
+      "whales_fmt": "達利歐 Dalio $110M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
           "name": "達利歐 Dalio",
-          "value_usd": 0,
-          "action": "exit"
+          "value_usd": 110124909,
+          "action": "trim"
         }
       ]
     },
     {
-      "symbol": "CVX",
-      "name": "Chevron Corporation",
-      "theme": "Energy / Oil & Gas",
-      "signal": "buy",
-      "holders": 2,
-      "increased": 1,
-      "reduced": 0,
-      "new_pos": 0,
+      "symbol": "NOW",
+      "name": "ServiceNow",
+      "theme": "AI Software",
+      "signal": "sell",
+      "holders": 3,
+      "increased": 0,
+      "reduced": 2,
+      "new_pos": 1,
       "closed_pos": 0,
-      "total_held_usd": 14011793747,
-      "total_held_fmt": "$14.0B",
-      "whales_fmt": "巴菲特 Buffett $14.0B 持有 · 達利歐 Dalio $26M 加碼",
+      "total_held_usd": 154622247,
+      "total_held_fmt": "$155M",
+      "whales_fmt": "Chase Coleman $87M 減碼 · 達利歐 Dalio $63M 新進 · 索羅斯 Soros $5M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "巴菲特 Buffett",
-          "value_usd": 13986141890,
-          "action": "hold"
+          "name": "Chase Coleman",
+          "value_usd": 86719591,
+          "action": "trim"
         },
         {
           "name": "達利歐 Dalio",
-          "value_usd": 25651857,
-          "action": "add"
-        }
-      ]
-    },
-    {
-      "symbol": "EOG",
-      "name": "EOG Resources, Inc.",
-      "theme": "Energy / Oil & Gas",
-      "signal": "buy",
-      "holders": 1,
-      "increased": 1,
-      "reduced": 0,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 69980124,
-      "total_held_fmt": "$70M",
-      "whales_fmt": "達利歐 Dalio $70M 加碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
+          "value_usd": 63080626,
+          "action": "new"
+        },
         {
-          "name": "達利歐 Dalio",
-          "value_usd": 69980124,
-          "action": "add"
+          "name": "索羅斯 Soros",
+          "value_usd": 4822030,
+          "action": "trim"
         }
       ]
     }

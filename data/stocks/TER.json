@@ -122,14 +122,14 @@
       "tier": "ready"
     },
     {
+      "symbol": "MRVL",
+      "name": "美滿科技",
+      "tier": "ready"
+    },
+    {
       "symbol": "AMD",
       "name": "超微",
       "tier": "enter"
-    },
-    {
-      "symbol": "ENTG",
-      "name": "英特格",
-      "tier": "ready"
     }
   ],
   "price": 403.2,

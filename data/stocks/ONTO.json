@@ -90,14 +90,14 @@
       "tier": "ready"
     },
     {
+      "symbol": "MRVL",
+      "name": "美滿科技",
+      "tier": "ready"
+    },
+    {
       "symbol": "AMD",
       "name": "超微",
       "tier": "enter"
-    },
-    {
-      "symbol": "TER",
-      "name": "泰瑞達",
-      "tier": "ready"
     }
   ],
   "price": 323.88,
