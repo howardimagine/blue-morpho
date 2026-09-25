@@ -1,4 +1,4 @@
-<meta charset="utf-8"><meta name="robots" content="noindex, nofollow, noarchive"><meta name="viewport" content="width=device-width,initial-scale=1"><title>槓桿 ETF 輪動回測手冊</title>
+<meta charset="utf-8"><meta name="robots" content="noindex, nofollow, noarchive"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>槓桿 ETF 輪動回測手冊</title>
 <style>
   :root { --paper:#F7F8F6; --ink:#14181C; --ink-2:#4A5561; --mute:#7C8792; --line:#D9DEE3; --panel:#EEF1F0; --accent:#0E7490; --accent-ink:#0B5C73; --warm:#C2410C; --good:#1F7A4D; --bad:#B3261E; --good-bg:#E3F1E8; --bad-bg:#F6E1DF; --neutral-bg:#ECEFF2; --side:#F0F2F1;
     --serif:"IBM Plex Serif","Noto Serif TC",Georgia,serif; --sans:"Noto Sans TC","PingFang TC",system-ui,sans-serif; --mono:"IBM Plex Mono","SF Mono",Menlo,monospace; }
@@ -117,7 +117,9 @@ nav .grp{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var
 }
 </style>
 <style>
-.layout{display:block}main{max-width:960px;margin:0 auto;padding:0 28px 120px}
+.layout{display:block}main{max-width:960px;margin:0 auto;padding:0 28px calc(120px + env(safe-area-inset-bottom,0px))}
+main a{color:var(--accent-ink);text-decoration-color:color-mix(in srgb,var(--accent-ink) 45%,transparent);text-underline-offset:3px}main a:hover{text-decoration-color:var(--accent-ink)}
+html{scroll-snap-type:y mandatory}.scene{scroll-snap-align:start}#s-today,#s-rules,#s-race{scroll-snap-stop:always;min-height:100svh;box-sizing:border-box}
 nav.pill{position:sticky;top:12px;z-index:30;display:flex;gap:2px;width:max-content;max-width:calc(100% - 32px);height:auto;margin:14px auto 0;padding:4px;border-radius:999px;border:1px solid color-mix(in srgb,var(--ink) 10%,transparent);background:color-mix(in srgb,var(--paper) 72%,transparent);-webkit-backdrop-filter:blur(16px) saturate(150%);backdrop-filter:blur(16px) saturate(150%);overflow-x:auto;overflow-y:hidden;box-shadow:0 6px 20px rgba(0,0,0,.08)}
 .pill a{font-family:var(--mono);font-size:12.5px;padding:7px 14px;border-radius:999px;color:var(--ink-2);text-decoration:none;white-space:nowrap}.pill a.on{background:var(--accent);color:#fff}
 .scene{padding:96px 0 32px}.scene h2{border-top:0;padding:0;margin:0 0 10px;font-family:var(--sans);font-weight:700;font-size:44px;line-height:1.15;letter-spacing:-.015em;scroll-margin-top:72px;text-wrap:balance}
@@ -142,8 +144,8 @@ html.js .scene>*{opacity:0;transform:translateY(14px);transition:opacity .55s ea
 @media (prefers-reduced-motion:reduce){html.js .scene>*{opacity:1;transform:none;transition:none}}
 @media (max-width:900px){main{padding:0 16px 110px;max-width:100%}.scene{padding:64px 0 20px}.scene h2{font-size:32px;scroll-margin-top:16px}.scene .sub{font-size:15.5px}
 .hold,.qs,.rcards,.pcards{grid-template-columns:1fr}.hold{gap:8px}.hrow{grid-template-columns:60px 1fr;padding:10px 14px 9px}.hx{font-size:40px}.hp{font-size:14px;margin-top:4px}.hm{font-size:16px;margin-top:5px}.pk{gap:6px}.pk .v{font-size:21px;white-space:nowrap}
-nav.pill{position:fixed;top:auto;bottom:14px;left:50%;transform:translateX(-50%);margin:0;max-width:calc(100% - 24px);border-bottom:1px solid color-mix(in srgb,var(--ink) 10%,transparent)}.pill a{padding:8px 11px;font-size:12px}
-html{scroll-snap-type:y proximity}#s-today,#s-rules,#s-race{scroll-snap-align:start}#s-today{min-height:100svh}}
+nav.pill{position:fixed;top:auto;bottom:calc(12px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);margin:0;max-width:calc(100% - 24px);border-bottom:1px solid color-mix(in srgb,var(--ink) 10%,transparent)}.pill a{padding:8px 11px;font-size:12px}
+main{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}}
 </style>
 <nav class="pill" id="pill"><a href="#today">今天</a><a href="#rules">規則</a><a href="#race">回放</a><a href="#perf">成績</a><a href="#research">研究</a><a href="#method">方法</a></nav>
 <main><section class="scene" id="s-today"><h2 id="today">現在該持有什麼</h2>
