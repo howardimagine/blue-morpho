@@ -220,7 +220,7 @@ nav .grp{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var
 <div class="warn"><p><b>不是每年都贏</b>:標普積極版 2015 輸 1x 35 個百分點,那斯達克積極版 2015、2016、2025 也輸。贏在長期和大崩盤。回測不保證未來,非投資建議。</p></div>
 
 <h2 id="race">看它怎麼贏:動態回放</h2>
-<p>同一筆錢從 1 元開始,照規則操作 vs 一直抱 1x vs 一直抱 3x。按播放看它怎麼在崩盤時下車、在多頭時開滿(「現在持有」那格會跟著變)。對數座標,含費用與換手成本。近 15 年是大多頭,一直抱 3x 會贏;切到全期看 2000、2008 發生什麼事。</p>
+<p>同一筆錢從 1 元開始,照規則操作 vs 一直抱 1x vs 一直抱 3x。按播放看它怎麼在崩盤時下車、在多頭時開滿(「現在持有」那格會跟著變)。對數座標,含費用與換手成本。<b>拉「進場年」</b>看不同時間進場的結果:槓桿最怕進在崩盤前,近 15 年是大多頭,一直抱 3x 會贏;從 2000 或 2007 進場就是另一回事。</p>
 <style>
 .rt{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:10px 0}.rt .lab{font-family:var(--mono);font-size:12px;color:var(--mute)}.rt button{font-family:var(--mono);font-size:12.5px;padding:5px 10px;border:1px solid var(--line);background:transparent;color:var(--ink-2);border-radius:4px;cursor:pointer}.rt button.on{background:var(--accent);border-color:var(--accent);color:#fff}
 .race-stats{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:10px 0}.rs{padding:10px 12px;min-width:0}.rs .k{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--mute)}.rs .v{font-family:var(--mono);font-size:20px;font-weight:600;margin-top:2px;white-space:nowrap}.rs .d{font-size:11.5px;color:var(--ink-2);margin-top:1px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -228,7 +228,8 @@ nav .grp{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var
 .race-leg div{display:flex;gap:12px;flex-wrap:wrap;align-items:center;font-family:var(--mono);font-size:11.5px;color:var(--mute);margin:6px 0}.race-leg b{color:var(--ink-2);font-weight:600;margin-right:2px}.race-leg i{display:inline-block;width:18px;height:3px;vertical-align:middle;margin-right:5px;border-radius:2px}
 @media (max-width:900px){.race-stats{grid-template-columns:repeat(3,1fr)}.rs .v{font-size:17px}#race-chart{height:300px}}
 </style>
-<div class="rt"><span class="lab">指數:</span><button data-m="QQQ" class="on">QQQ</button><button data-m="SPY" class="">SPY</button><button data-m="SOX" class="">SOX</button><span class="lab" style="margin-left:10px">期間:</span><button data-w="15" class="on wbtn">近 15 年</button><button data-w="0" class="wbtn">全期</button></div>
+<div class="rt"><span class="lab">指數:</span><button data-m="QQQ" class="on">QQQ</button><button data-m="SPY" class="">SPY</button><button data-m="SOX" class="">SOX</button></div>
+<div class="rt"><span class="lab">進場年:</span><input type="range" id="race-y0" min="2000" max="2025" value="2011" style="width:min(220px,45vw);accent-color:var(--accent);vertical-align:middle"><b id="race-y0v" style="font-family:var(--mono);font-size:15px;min-width:3em">2011</b><button class="wbtn" data-w="15">近 15 年</button><button class="wbtn" data-w="0">全期</button></div>
 <div class="race-stats">
 <div class="rs glass"><div class="k">日期</div><div class="v" id="rs-date">—</div><div class="d" id="rs-year"></div></div>
 <div class="rs glass"><div class="k">策略</div><div class="v" id="rs-s">—</div><div class="d" id="rs-lead"></div></div>
@@ -251,13 +252,14 @@ function fail(msg){el.innerHTML='<p class="cap" style="padding:24px 0">圖表沒
 if(!window.echarts){fail('繪圖程式庫(ECharts)被擋或沒下載');return}
 try{
 var D=JSON.parse(document.getElementById('race-data').textContent);
-var cs,P,chart,m=Object.keys(D.markets)[0],W=15,M,N,pos,timer=null,S,B,T,dates,crash;
+var cs,P,chart,m=Object.keys(D.markets)[0],Y0=null,M,N,pos,timer=null,S,B,T,dates,crash,y0=document.getElementById('race-y0'),y0v=document.getElementById('race-y0v');
 var v=function(n){return cs.getPropertyValue(n).trim()};
 function rgb(h){h=h.replace('#','');if(h.length===3)h=h.split('').map(function(c){return c+c}).join('');var n=parseInt(h,16);return[n>>16&255,n>>8&255,n&255]}
 function mix(a,b,t){var A=rgb(a),Bc=rgb(b);return'rgb('+A.map(function(x,i){return Math.round(x*t+Bc[i]*(1-t))}).join(',')+')'}
 function pal(){cs=getComputedStyle(document.documentElement);var paper=v('--paper')||'#ffffff',acc=v('--accent');P={paper:paper,ink:v('--ink'),ink2:v('--ink-2'),mute:v('--mute'),line:v('--line'),acc:acc,bad:v('--bad'),s:acc,b:v('--ink-2'),t:mix(v('--bad'),paper,.75)}}
 function load(){var F=D.markets[m],b0=new Date(F.d0+'T00:00:00Z'),all=F.d.map(function(o){return new Date(b0.getTime()+o*864e5).toISOString().slice(0,10)});
-var i0=0;if(W){var last=F.d[F.d.length-1]-Math.round(W*365.25);i0=F.d.findIndex(function(o){return o>=last})}
+var i0=0;if(Y0===null){var last=F.d[F.d.length-1]-Math.round(15*365.25);i0=F.d.findIndex(function(o){return o>=last})}else{i0=all.findIndex(function(d){return d>=Y0+'-01-01'});if(i0<0)i0=0}
+y0.min=all[0].slice(0,4);y0.max=+all[all.length-1].slice(0,4)-1;y0.value=all[i0].slice(0,4);y0v.textContent=y0.value;
 var nz=function(a){var k=i0?a[i0-1]:1;return a.slice(i0).map(function(y){return +(y/k).toFixed(4)})};
 M={s:nz(F.s),b:nz(F.b),t:nz(F.t),x:F.x.slice(i0),d:F.d.slice(i0).map(function(o){return o-F.d[i0]}),prods:F.prods,one:F.one,top:F.top};dates=all.slice(i0);N=M.s.length;
 S=M.s.map(function(y,i){return[i,y]});B=M.b.map(function(y,i){return[i,y]});T=M.t.map(function(y,i){return[i,y]});
@@ -269,7 +271,7 @@ function init(){pal();if(chart)chart.dispose();chart=echarts.init(el,null,{rende
 var lo=Math.max(1e-3,Math.min.apply(null,M.s.concat(M.b,M.t))),hi=Math.max.apply(null,M.s.concat(M.b,M.t));
 chart.setOption({animation:false,backgroundColor:'transparent',grid:{left:52,right:14,top:20,bottom:34},
 tooltip:{trigger:'axis',backgroundColor:P.paper,borderColor:P.line,textStyle:{color:P.ink,fontSize:12},formatter:function(ps){var i=ps[0].dataIndex;return dates[i]+'<br>策略 <b>'+M.s[i].toFixed(2)+'×</b> · 持有 '+(M.x[i]===0?'現金':M.x[i]+'x')+'<br>1x '+M.b[i].toFixed(2)+'× · 3x '+M.t[i].toFixed(2)+'×'}},
-xAxis:{type:'category',data:dates,boundaryGap:false,axisLabel:{color:P.mute,fontSize:11,formatter:function(d){return d.slice(0,4)},interval:function(i,d){var y=+d.slice(0,4),step=el.clientWidth<560?(W?3:5):(W?1:2);return i===0||(dates[i-1].slice(0,4)!==d.slice(0,4)&&y%step===0)}},axisLine:{lineStyle:{color:P.line}},axisTick:{show:false}},
+xAxis:{type:'category',data:dates,boundaryGap:false,axisLabel:{color:P.mute,fontSize:11,formatter:function(d){return d.slice(0,4)},interval:function(i,d){var y=+d.slice(0,4),yrs=N/252,step=el.clientWidth<560?(yrs>18?5:yrs>8?3:1):(yrs>18?2:1);return i===0||(dates[i-1].slice(0,4)!==d.slice(0,4)&&y%step===0)}},axisLine:{lineStyle:{color:P.line}},axisTick:{show:false}},
 yAxis:{type:'log',min:Math.pow(10,Math.floor(Math.log10(lo))),max:Math.pow(10,Math.ceil(Math.log10(hi))),axisLabel:{color:P.mute,fontSize:11,formatter:function(x){return x+'×'}},splitLine:{lineStyle:{color:P.line}},axisLine:{show:false}},
 series:[{name:'策略',type:'line',data:[],showSymbol:false,lineStyle:{width:2.6,color:P.s},itemStyle:{color:P.s},z:3},
 {name:'1x',type:'line',data:[],showSymbol:false,lineStyle:{width:1.6,color:P.b},itemStyle:{color:P.b},z:2,markArea:{silent:true,itemStyle:{color:mix(P.bad,P.paper,.10)},data:crash.map(function(c){return[{xAxis:c[0]},{xAxis:c[1]}]})}},
@@ -285,10 +287,13 @@ g('rs-dd').textContent=(100*(s/mx-1)).toFixed(0)+'%';g('rs-bdd').textContent='1x
 var play=document.getElementById('race-play');
 function stop(){if(timer)cancelAnimationFrame(timer);timer=null;play.textContent='▶ 播放'}
 function tick(){var sp=+document.getElementById('race-speed').value;pos=Math.min(N,pos+Math.ceil(N/900)*sp);apply();if(pos>=N){stop();return}timer=requestAnimationFrame(tick)}
-play.onclick=function(){if(timer){stop();return}if(pos>=N)pos=1;play.textContent='❚❚ 暫停';timer=requestAnimationFrame(tick)};
+function start(){if(pos>=N)pos=1;play.textContent='❚❚ 暫停';timer=requestAnimationFrame(tick)}
+play.onclick=function(){if(timer){stop();return}start()};
+y0.oninput=function(){y0v.textContent=this.value};
+y0.onchange=function(){stop();Y0=+this.value;init();start()};
 document.getElementById('race-pos').oninput=function(){stop();pos=+this.value;apply()};
 document.querySelectorAll('.rt button[data-m]').forEach(function(b){b.onclick=function(){stop();document.querySelectorAll('.rt button[data-m]').forEach(function(x){x.classList.toggle('on',x===b)});m=b.dataset.m;init()}});
-document.querySelectorAll('.rt button.wbtn').forEach(function(b){b.onclick=function(){stop();document.querySelectorAll('.rt button.wbtn').forEach(function(x){x.classList.toggle('on',x===b)});W=+b.dataset.w;init()}});
+document.querySelectorAll('.rt button.wbtn').forEach(function(b){b.onclick=function(){stop();Y0=+b.dataset.w?null:+y0.min;init();start()}});
 var retheme=function(){var p=pos;stop();init();pos=p;apply()};window.addEventListener('bm-theme',retheme);
 try{window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',retheme)}catch(e){}
 window.addEventListener('resize',function(){if(chart)chart.resize()});
