@@ -168,23 +168,23 @@
   ],
   "peers": [
     {
+      "symbol": "MU",
+      "name": "美光",
+      "tier": "ready"
+    },
+    {
       "symbol": "AVGO",
       "name": "博通",
       "tier": "ready"
     },
     {
-      "symbol": "MRVL",
-      "name": "美滿科技",
+      "symbol": "AMAT",
+      "name": "應用材料",
       "tier": "ready"
     },
     {
-      "symbol": "AMD",
-      "name": "超微",
-      "tier": "enter"
-    },
-    {
-      "symbol": "TER",
-      "name": "泰瑞達",
+      "symbol": "MRVL",
+      "name": "美滿科技",
       "tier": "ready"
     }
   ],

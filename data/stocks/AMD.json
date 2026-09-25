@@ -128,6 +128,11 @@
   ],
   "peers": [
     {
+      "symbol": "MU",
+      "name": "美光",
+      "tier": "ready"
+    },
+    {
       "symbol": "ARM",
       "name": "安謀",
       "tier": "ready"
@@ -138,13 +143,8 @@
       "tier": "ready"
     },
     {
-      "symbol": "MRVL",
-      "name": "美滿科技",
-      "tier": "ready"
-    },
-    {
-      "symbol": "TER",
-      "name": "泰瑞達",
+      "symbol": "AMAT",
+      "name": "應用材料",
       "tier": "ready"
     }
   ],
