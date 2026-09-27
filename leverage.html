@@ -196,18 +196,18 @@ main{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}}
 #race-chart{height:clamp(190px,30svh,340px);width:100%}#s-race .sub{margin-bottom:8px}
 @media (min-width:901px){#s-race{display:grid!important;grid-template-columns:minmax(300px,.9fr) 1.4fr;grid-template-areas:"h h" "sub sub" "big chart" "stats chart" "bar chart" "bar leg" "dn dn";column-gap:36px;align-content:center}#s-race>h2{grid-area:h}#s-race>.sub{grid-area:sub;margin-bottom:12px}#s-race .race-big{grid-area:big;grid-template-columns:1fr;gap:10px;margin:0}#s-race .race-stats{grid-area:stats;align-self:start}#s-race .race-bar{grid-area:bar;align-self:end;margin:0}#race-chart{grid-area:chart;height:clamp(200px,33svh,380px)!important}#s-race .race-bar{padding:10px 16px 6px}#s-race .rb .v{font-size:46px}#s-race{padding:50px 0 20px}#s-race>.sub{margin-bottom:6px}#s-race .race-stats{margin:4px 0 0;padding-top:6px}#s-race .race-leg{grid-area:leg}#s-race>.down{grid-area:dn}}
 .race-bar{padding:14px 18px 10px;margin:0 0 12px;display:grid;gap:4px}
-.pb-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}.pb-title{font-size:22px;font-weight:700;letter-spacing:-.01em;line-height:1.1}.pb-sub{font-size:12px;color:var(--mute);margin-top:3px;font-family:var(--mono)}.pb-head .rt{margin:0}
+.race-bar .rt{margin:0}
 #race-pos{width:100%;accent-color:var(--accent);height:28px;margin:6px 0 0}.pb-time{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--mute);margin-top:-4px}
-.pb-ctl{display:grid;grid-template-columns:1fr 1fr auto 1fr 1fr;align-items:center;justify-items:center;gap:6px;margin-top:4px}.pb-ctl button{border:0;background:transparent;color:var(--ink);cursor:pointer;font-family:var(--mono);font-size:22px;min-height:44px;min-width:44px;padding:0;line-height:1}#race-speed-btn,#pb-year{font-size:13px;color:var(--ink-2);letter-spacing:.04em;border:1px solid var(--line);border-radius:999px;padding:0 12px;min-height:32px}
-#race-play{width:60px;height:60px;border-radius:50%;background:var(--accent);color:#fff;font-size:22px;box-shadow:0 6px 18px color-mix(in srgb,var(--accent) 40%,transparent)}#race-play:active{transform:scale(.95)}
+.pb-ctl{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:6px;margin-top:4px}.pb-l{display:flex;gap:10px;align-items:center;justify-self:start}.pb-ctl button{border:0;background:transparent;color:var(--ink-2);cursor:pointer;font-family:var(--mono);min-height:44px;min-width:44px;padding:0;line-height:1;display:inline-flex;align-items:center;justify-content:center}#race-speed-btn{font-size:13px;letter-spacing:.04em;border:1px solid var(--line);border-radius:999px;padding:0 12px;min-height:32px;min-width:0}
+#race-play{width:60px;height:60px;border-radius:50%;background:var(--accent);color:#fff;box-shadow:0 6px 18px color-mix(in srgb,var(--accent) 40%,transparent)}#race-play:active{transform:scale(.95)}#race-play .ic-play{margin-left:3px}
 .rt button{min-height:36px}
 .race-leg div{display:flex;gap:12px;flex-wrap:wrap;align-items:center;font-family:var(--mono);font-size:11.5px;color:var(--mute);margin:6px 0}.race-leg b{color:var(--ink-2);font-weight:600;margin-right:2px}.race-leg i{display:inline-block;width:18px;height:3px;vertical-align:middle;margin-right:5px;border-radius:2px}
-@media (max-width:900px){.race-big{gap:12px}.rb .v{font-size:34px;letter-spacing:-.03em}.rb .d{font-size:11px}.race-stats{gap:8px 16px;padding-top:6px}.rs .v{font-size:14px}.rs .d{display:none}#race-chart{height:clamp(140px,18svh,210px)}#s-race .sub{font-size:13.5px;line-height:1.55;margin-bottom:6px}#s-race{display:flex;flex-direction:column}#s-race .race-bar{order:9;margin:6px 0 0;padding:8px 14px 4px}.pb-sub{font-size:11px}#race-pos{height:24px;margin-top:2px}.pb-ctl{margin-top:0}.pb-title{font-size:18px}.rt button{min-height:30px;padding:3px 8px;font-size:11.5px}#race-play{width:52px;height:52px;font-size:19px}.pb-ctl button{min-height:40px}.race-leg div{margin:4px 0}.race-big{margin:6px 0 2px}}
+@media (max-width:900px){.race-big{gap:12px}.rb .v{font-size:34px;letter-spacing:-.03em}.rb .d{font-size:11px}.race-stats{gap:8px 16px;padding-top:6px}.rs .v{font-size:14px}.rs .d{display:none}#race-chart{height:clamp(140px,18svh,210px)}#s-race .sub{font-size:13.5px;line-height:1.55;margin-bottom:6px}#s-race{display:flex;flex-direction:column}#s-race .race-bar{order:9;margin:6px 0 0;padding:8px 14px 4px}#race-pos{height:24px;margin-top:2px}.pb-ctl{margin-top:0}.pb-title{font-size:18px}.rt button{min-height:30px;padding:3px 8px;font-size:11.5px}#race-play{width:52px;height:52px}.pb-ctl button{min-height:40px}.race-leg div{margin:4px 0}.race-big{margin:6px 0 2px}}
 </style>
 <div class="race-bar glass">
-<div class="pb-head"><div class="pb-txt"><div class="pb-title" id="pb-title">QQQ</div><div class="pb-sub" id="pb-sub"></div></div><div class="rt"><button data-m="QQQ" class="on">QQQ</button><button data-m="SPY" class="">SPY</button><button data-m="SOX" class="">SOX</button></div></div>
+<div class="rt"><button data-m="QQQ" class="on">QQQ</button><button data-m="SPY" class="">SPY</button><button data-m="SOX" class="">SOX</button></div>
 <input type="range" id="race-pos" min="1" value="1"><div class="pb-time"><span id="pb-t0">—</span><span id="pb-t1">—</span></div>
-<div class="pb-ctl"><button id="race-speed-btn" type="button" title="播放速度,點一下切換">1×</button><button id="pb-prev" type="button" title="進場年往前一年">&#9198;</button><button id="race-play" type="button" aria-label="播放">&#9654;</button><button id="pb-next" type="button" title="進場年往後一年">&#9197;</button><button id="pb-year" type="button" title="回到近 15 年">2011</button></div>
+<div class="pb-ctl"><div class="pb-l"><button id="race-speed-btn" type="button" title="播放速度,點一下切換">1×</button><button id="pb-prev" type="button" title="回到起點" aria-label="回到起點"><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><rect x="3" y="3" width="2.4" height="14" rx="1"/><path d="M17 3.8v12.4a1 1 0 0 1-1.55.83L7.3 10.83a1 1 0 0 1 0-1.66l8.15-6.2A1 1 0 0 1 17 3.8z"/></svg></button></div><button id="race-play" type="button" aria-label="播放"><svg class="ic-play" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.8v14.4a1 1 0 0 0 1.53.85l11.2-7.2a1 1 0 0 0 0-1.7L8.53 3.95A1 1 0 0 0 7 4.8z"/></svg><svg class="ic-pause" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" hidden><rect x="5.5" y="4" width="4.5" height="16" rx="1.2"/><rect x="14" y="4" width="4.5" height="16" rx="1.2"/></svg></button><div class="pb-r"></div></div>
 <input type="range" id="race-y0" min="2000" max="2025" value="2011" hidden><select id="race-speed" hidden><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select>
 </div>
 <div class="race-big">
@@ -232,14 +232,14 @@ function fail(msg){el.innerHTML='<p class="cap" style="padding:24px 0">圖表沒
 if(!window.echarts){fail('繪圖程式庫(ECharts)被擋或沒下載');return}
 try{
 var D=JSON.parse(document.getElementById('race-data').textContent);
-var cs,P,chart,m=Object.keys(D.markets)[0],Y0=null,M,N,pos,timer=null,S,B,T,dates,crash,y0=document.getElementById('race-y0'),yb=document.getElementById('pb-year');
+var cs,P,chart,m=Object.keys(D.markets)[0],Y0=null,M,N,pos,timer=null,S,B,T,dates,crash,y0=document.getElementById('race-y0');
 var v=function(n){return cs.getPropertyValue(n).trim()};
 function rgb(h){h=h.replace('#','');if(h.length===3)h=h.split('').map(function(c){return c+c}).join('');var n=parseInt(h,16);return[n>>16&255,n>>8&255,n&255]}
 function mix(a,b,t){var A=rgb(a),Bc=rgb(b);return'rgb('+A.map(function(x,i){return Math.round(x*t+Bc[i]*(1-t))}).join(',')+')'}
 function pal(){cs=getComputedStyle(document.documentElement);var paper=v('--paper')||'#ffffff',acc=v('--accent');P={paper:paper,ink:v('--ink'),ink2:v('--ink-2'),mute:v('--mute'),line:v('--line'),acc:acc,bad:v('--bad'),s:acc,b:v('--ink-2'),t:mix(v('--bad'),paper,.75)}}
 function load(){var F=D.markets[m],b0=new Date(F.d0+'T00:00:00Z'),all=F.d.map(function(o){return new Date(b0.getTime()+o*864e5).toISOString().slice(0,10)});
 var i0=0;if(Y0===null){var last=F.d[F.d.length-1]-Math.round(15*365.25);i0=F.d.findIndex(function(o){return o>=last})}else{i0=all.findIndex(function(d){return d>=Y0+'-01-01'});if(i0<0)i0=0}
-y0.min=all[0].slice(0,4);y0.max=+all[all.length-1].slice(0,4)-1;y0.value=all[i0].slice(0,4);yb.textContent='進場 '+y0.value;document.getElementById('pb-title').textContent=m;document.getElementById('pb-sub').textContent=F.name+' · 從 '+all[i0]+' 起算';document.getElementById('pb-t1').textContent=all[all.length-1];
+y0.min=all[0].slice(0,4);y0.max=+all[all.length-1].slice(0,4)-1;y0.value=all[i0].slice(0,4);document.getElementById('pb-t1').textContent=all[all.length-1];
 var nz=function(a){var k=i0?a[i0-1]:1;return a.slice(i0).map(function(y){return +(y/k).toPrecision(5)})};
 M={s:nz(F.s),b:nz(F.b),t:nz(F.t),x:F.x.slice(i0),d:F.d.slice(i0).map(function(o){return o-F.d[i0]}),prods:F.prods,one:F.one,top:F.top,name:F.name};dates=all.slice(i0);N=M.s.length;
 S=M.s.map(function(y,i){return[i,y]});B=M.b.map(function(y,i){return[i,y]});T=M.t.map(function(y,i){return[i,y]});
@@ -265,14 +265,13 @@ g('rs-s').textContent=f(s);g('rs-lead').textContent='是 1x 的 '+(s/b).toFixed(
 var x=M.x[i];g('rs-x').textContent=x===0?'現金':x+'x';g('rs-x').style.color=x<.5?P.mute:P.s;g('rs-prod').textContent=M.prods[String(x)]||'';
 g('rs-dd').textContent=(100*(s/mx-1)).toFixed(0)+'%';g('rs-bdd').textContent='1x 同期 '+(100*(b/mb-1)).toFixed(0)+'%'}
 var play=document.getElementById('race-play');
-function stop(){if(timer)cancelAnimationFrame(timer);timer=null;play.innerHTML='&#9654;';if(window.bgmPause)window.bgmPause()}
+function glyph(on){play.querySelector('.ic-play').hidden=on;play.querySelector('.ic-pause').hidden=!on}
+function stop(){if(timer)cancelAnimationFrame(timer);timer=null;glyph(false);if(window.bgmPause)window.bgmPause()}
 function tick(){var sp=+document.getElementById('race-speed').value;pos=Math.min(N,pos+Math.ceil(N/900)*sp);apply();if(pos>=N){stop();return}timer=requestAnimationFrame(tick)}
-function start(){if(pos>=N)pos=1;play.innerHTML='&#10074;&#10074;';timer=requestAnimationFrame(tick);if(window.bgmPlay)window.bgmPlay()}
+function start(){if(pos>=N)pos=1;glyph(true);timer=requestAnimationFrame(tick);if(window.bgmPlay)window.bgmPlay()}
 play.onclick=function(){if(timer){stop();return}start()};
 var sb=document.getElementById('race-speed-btn'),ss=document.getElementById('race-speed');sb.onclick=function(){ss.value={1:'2',2:'4',4:'1'}[+ss.value];sb.textContent=ss.value+'×'};
-document.getElementById('pb-prev').onclick=function(){stop();Y0=Math.max(+y0.min,(+y0.value)-1);init();start()};
-document.getElementById('pb-next').onclick=function(){stop();Y0=Math.min(+y0.max,(+y0.value)+1);init();start()};
-yb.onclick=function(){stop();Y0=null;init();start()};
+document.getElementById('pb-prev').onclick=function(){stop();pos=1;apply()};
 document.getElementById('race-pos').oninput=function(){stop();pos=+this.value;apply()};
 document.querySelectorAll('.rt button[data-m]').forEach(function(b){b.onclick=function(){stop();document.querySelectorAll('.rt button[data-m]').forEach(function(x){x.classList.toggle('on',x===b)});m=b.dataset.m;init()}});
 
