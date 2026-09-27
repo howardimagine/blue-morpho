@@ -238,7 +238,7 @@ function mix(a,b,t){var A=rgb(a),Bc=rgb(b);return'rgb('+A.map(function(x,i){retu
 function pal(){cs=getComputedStyle(document.documentElement);var paper=v('--paper')||'#ffffff',acc=v('--accent');P={paper:paper,ink:v('--ink'),ink2:v('--ink-2'),mute:v('--mute'),line:v('--line'),acc:acc,bad:v('--bad'),s:acc,b:v('--ink-2'),t:mix(v('--bad'),paper,.75)}}
 function load(){var F=D.markets[m],b0=new Date(F.d0+'T00:00:00Z'),all=F.d.map(function(o){return new Date(b0.getTime()+o*864e5).toISOString().slice(0,10)});
 var i0=0;if(Y0===null){var last=F.d[F.d.length-1]-Math.round(15*365.25);i0=F.d.findIndex(function(o){return o>=last})}else{i0=all.findIndex(function(d){return d>=Y0+'-01-01'});if(i0<0)i0=0}
-y0.min=all[0].slice(0,4);y0.max=+all[all.length-1].slice(0,4)-1;y0.value=all[i0].slice(0,4);yb.textContent='進場 '+y0.value;document.getElementById('pb-title').textContent=m;document.getElementById('pb-sub').textContent=F.name+' · 從 '+dates[0]+' 起算';document.getElementById('pb-t1').textContent=all[all.length-1];
+y0.min=all[0].slice(0,4);y0.max=+all[all.length-1].slice(0,4)-1;y0.value=all[i0].slice(0,4);yb.textContent='進場 '+y0.value;document.getElementById('pb-title').textContent=m;document.getElementById('pb-sub').textContent=F.name+' · 從 '+all[i0]+' 起算';document.getElementById('pb-t1').textContent=all[all.length-1];
 var nz=function(a){var k=i0?a[i0-1]:1;return a.slice(i0).map(function(y){return +(y/k).toPrecision(5)})};
 M={s:nz(F.s),b:nz(F.b),t:nz(F.t),x:F.x.slice(i0),d:F.d.slice(i0).map(function(o){return o-F.d[i0]}),prods:F.prods,one:F.one,top:F.top,name:F.name};dates=all.slice(i0);N=M.s.length;
 S=M.s.map(function(y,i){return[i,y]});B=M.b.map(function(y,i){return[i,y]});T=M.t.map(function(y,i){return[i,y]});
