@@ -194,17 +194,20 @@ main{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}}
 .race-big{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:10px 0 4px}.rb .k{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--mute)}.rb .v{font-family:var(--mono);font-size:52px;line-height:1;font-weight:700;letter-spacing:-.04em;margin:4px 0 2px;font-variant-numeric:tabular-nums}.rb .v.acc{color:var(--accent)}.rb .d{font-size:13px;color:var(--ink-2)}
 .race-stats{display:flex;gap:26px;flex-wrap:wrap;margin:8px 0 6px;padding-top:10px;border-top:1px solid var(--line)}.rs{min-width:0}.rs .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--mute)}.rs .v{font-family:var(--mono);font-size:17px;font-weight:600;white-space:nowrap}.rs .d{font-size:11px;color:var(--mute);white-space:nowrap}
 #race-chart{height:clamp(190px,30svh,340px);width:100%}#s-race .sub{margin-bottom:8px}
-.race-bar{padding:10px 14px;margin:0 0 12px;display:grid;gap:6px}.rb-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.rb-row .rt{margin:0}.rb-row .lab{font-family:var(--mono);font-size:12px;color:var(--mute);white-space:nowrap}.rb-row input[type=range]{flex:1;min-width:120px;accent-color:var(--accent);height:40px;margin:0}#race-y0v{font-family:var(--mono);font-size:15px;min-width:3em}
-.race-ctl select{font-family:var(--mono);font-size:14px;min-height:44px;padding:0 10px;border:1px solid var(--line);border-radius:10px;background:transparent;color:var(--ink)}
-#race-play{min-height:44px;min-width:104px;padding:0 18px;border:0;border-radius:12px;background:var(--accent);color:#fff;font-family:var(--mono);font-size:15px;font-weight:600;cursor:pointer;box-shadow:0 4px 14px color-mix(in srgb,var(--accent) 35%,transparent)}#race-play:active{transform:scale(.97)}
+.race-bar{padding:14px 18px 10px;margin:0 0 12px;display:grid;gap:4px}
+.pb-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}.pb-title{font-size:22px;font-weight:700;letter-spacing:-.01em;line-height:1.1}.pb-sub{font-size:12px;color:var(--mute);margin-top:3px;font-family:var(--mono)}.pb-head .rt{margin:0}
+#race-pos{width:100%;accent-color:var(--accent);height:28px;margin:6px 0 0}.pb-time{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;color:var(--mute);margin-top:-4px}
+.pb-ctl{display:grid;grid-template-columns:1fr 1fr auto 1fr 1fr;align-items:center;justify-items:center;gap:6px;margin-top:4px}.pb-ctl button{border:0;background:transparent;color:var(--ink);cursor:pointer;font-family:var(--mono);font-size:22px;min-height:44px;min-width:44px;padding:0;line-height:1}#race-speed-btn,#pb-year{font-size:13px;color:var(--ink-2);letter-spacing:.04em;border:1px solid var(--line);border-radius:999px;padding:0 12px;min-height:32px}
+#race-play{width:60px;height:60px;border-radius:50%;background:var(--accent);color:#fff;font-size:22px;box-shadow:0 6px 18px color-mix(in srgb,var(--accent) 40%,transparent)}#race-play:active{transform:scale(.95)}
 .rt button{min-height:36px}
 .race-leg div{display:flex;gap:12px;flex-wrap:wrap;align-items:center;font-family:var(--mono);font-size:11.5px;color:var(--mute);margin:6px 0}.race-leg b{color:var(--ink-2);font-weight:600;margin-right:2px}.race-leg i{display:inline-block;width:18px;height:3px;vertical-align:middle;margin-right:5px;border-radius:2px}
-@media (max-width:900px){.race-big{gap:12px}.rb .v{font-size:34px;letter-spacing:-.03em}.rb .d{font-size:11px}.race-stats{gap:8px 16px;padding-top:6px}.rs .v{font-size:14px}.rs .d{display:none}#race-chart{height:clamp(160px,22svh,240px)}#s-race .sub{font-size:13.5px;line-height:1.55;margin-bottom:6px}.race-bar{padding:6px 10px;gap:2px;margin-bottom:6px}.rb-row{gap:6px}.rb-row .rt{gap:4px}.rb-row .rt:last-child{margin-left:auto}.rt button{min-height:30px;padding:3px 8px;font-size:11.5px}.rb-row .lab{font-size:11px}.rb-row input[type=range]{height:36px}#race-play{min-height:40px;min-width:88px;font-size:14px}.race-ctl select{min-height:40px}.race-leg div{margin:4px 0}.race-big{margin:6px 0 2px}}
+@media (max-width:900px){.race-big{gap:12px}.rb .v{font-size:34px;letter-spacing:-.03em}.rb .d{font-size:11px}.race-stats{gap:8px 16px;padding-top:6px}.rs .v{font-size:14px}.rs .d{display:none}#race-chart{height:clamp(150px,21svh,230px)}#s-race .sub{font-size:13.5px;line-height:1.55;margin-bottom:6px}#s-race{display:flex;flex-direction:column}#s-race .race-bar{order:9;margin:8px 0 0;padding:10px 14px 6px}.pb-title{font-size:18px}.rt button{min-height:30px;padding:3px 8px;font-size:11.5px}#race-play{width:52px;height:52px;font-size:19px}.pb-ctl button{min-height:40px}.race-leg div{margin:4px 0}.race-big{margin:6px 0 2px}}
 </style>
 <div class="race-bar glass">
-<div class="rb-row"><div class="rt"><span class="lab">指數</span><button data-m="QQQ" class="on">QQQ</button><button data-m="SPY" class="">SPY</button><button data-m="SOX" class="">SOX</button></div><div class="rt"><span class="lab">期間</span><button class="wbtn" data-w="15">15 年</button><button class="wbtn" data-w="0">全期</button></div></div>
-<div class="rb-row"><span class="lab">進場年</span><input type="range" id="race-y0" min="2000" max="2025" value="2011"><b id="race-y0v">2011</b></div>
-<div class="rb-row race-ctl"><button id="race-play" type="button">▶ 播放</button><input type="range" id="race-pos" min="1" value="1"><select id="race-speed"><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select></div>
+<div class="pb-head"><div class="pb-txt"><div class="pb-title" id="pb-title">QQQ</div><div class="pb-sub" id="pb-sub"></div></div><div class="rt"><button data-m="QQQ" class="on">QQQ</button><button data-m="SPY" class="">SPY</button><button data-m="SOX" class="">SOX</button></div></div>
+<input type="range" id="race-pos" min="1" value="1"><div class="pb-time"><span id="pb-t0">—</span><span id="pb-t1">—</span></div>
+<div class="pb-ctl"><button id="race-speed-btn" type="button" title="播放速度,點一下切換">1×</button><button id="pb-prev" type="button" title="進場年往前一年">&#9198;</button><button id="race-play" type="button" aria-label="播放">&#9654;</button><button id="pb-next" type="button" title="進場年往後一年">&#9197;</button><button id="pb-year" type="button" title="回到近 15 年">2011</button></div>
+<input type="range" id="race-y0" min="2000" max="2025" value="2011" hidden><select id="race-speed" hidden><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select>
 </div>
 <div class="race-big">
 <div class="rb"><div class="k">照規則操作</div><div class="v acc" id="rs-s">—</div><div class="d" id="rs-lead"></div></div>
@@ -228,16 +231,16 @@ function fail(msg){el.innerHTML='<p class="cap" style="padding:24px 0">圖表沒
 if(!window.echarts){fail('繪圖程式庫(ECharts)被擋或沒下載');return}
 try{
 var D=JSON.parse(document.getElementById('race-data').textContent);
-var cs,P,chart,m=Object.keys(D.markets)[0],Y0=null,M,N,pos,timer=null,S,B,T,dates,crash,y0=document.getElementById('race-y0'),y0v=document.getElementById('race-y0v');
+var cs,P,chart,m=Object.keys(D.markets)[0],Y0=null,M,N,pos,timer=null,S,B,T,dates,crash,y0=document.getElementById('race-y0'),yb=document.getElementById('pb-year');
 var v=function(n){return cs.getPropertyValue(n).trim()};
 function rgb(h){h=h.replace('#','');if(h.length===3)h=h.split('').map(function(c){return c+c}).join('');var n=parseInt(h,16);return[n>>16&255,n>>8&255,n&255]}
 function mix(a,b,t){var A=rgb(a),Bc=rgb(b);return'rgb('+A.map(function(x,i){return Math.round(x*t+Bc[i]*(1-t))}).join(',')+')'}
 function pal(){cs=getComputedStyle(document.documentElement);var paper=v('--paper')||'#ffffff',acc=v('--accent');P={paper:paper,ink:v('--ink'),ink2:v('--ink-2'),mute:v('--mute'),line:v('--line'),acc:acc,bad:v('--bad'),s:acc,b:v('--ink-2'),t:mix(v('--bad'),paper,.75)}}
 function load(){var F=D.markets[m],b0=new Date(F.d0+'T00:00:00Z'),all=F.d.map(function(o){return new Date(b0.getTime()+o*864e5).toISOString().slice(0,10)});
 var i0=0;if(Y0===null){var last=F.d[F.d.length-1]-Math.round(15*365.25);i0=F.d.findIndex(function(o){return o>=last})}else{i0=all.findIndex(function(d){return d>=Y0+'-01-01'});if(i0<0)i0=0}
-y0.min=all[0].slice(0,4);y0.max=+all[all.length-1].slice(0,4)-1;y0.value=all[i0].slice(0,4);y0v.textContent=y0.value;
+y0.min=all[0].slice(0,4);y0.max=+all[all.length-1].slice(0,4)-1;y0.value=all[i0].slice(0,4);yb.textContent='進場 '+y0.value;document.getElementById('pb-title').textContent=m;document.getElementById('pb-sub').textContent=F.name+' · 從 '+dates[0]+' 起算';document.getElementById('pb-t1').textContent=all[all.length-1];
 var nz=function(a){var k=i0?a[i0-1]:1;return a.slice(i0).map(function(y){return +(y/k).toPrecision(5)})};
-M={s:nz(F.s),b:nz(F.b),t:nz(F.t),x:F.x.slice(i0),d:F.d.slice(i0).map(function(o){return o-F.d[i0]}),prods:F.prods,one:F.one,top:F.top};dates=all.slice(i0);N=M.s.length;
+M={s:nz(F.s),b:nz(F.b),t:nz(F.t),x:F.x.slice(i0),d:F.d.slice(i0).map(function(o){return o-F.d[i0]}),prods:F.prods,one:F.one,top:F.top,name:F.name};dates=all.slice(i0);N=M.s.length;
 S=M.s.map(function(y,i){return[i,y]});B=M.b.map(function(y,i){return[i,y]});T=M.t.map(function(y,i){return[i,y]});
 crash=D.crashes.map(function(c){var a=dates.findIndex(function(d){return d>=c[0]}),b=dates.findIndex(function(d){return d>=c[1]});return a<0?null:[a,b<0?N-1:b]}).filter(Boolean);
 document.getElementById('race-pos').max=N;
@@ -253,7 +256,7 @@ series:[{name:'策略',type:'line',data:[],showSymbol:false,lineStyle:{width:2.6
 {name:'1x',type:'line',data:[],showSymbol:false,lineStyle:{width:1.6,color:P.b},itemStyle:{color:P.b},z:2,markArea:{silent:true,itemStyle:{color:mix(P.bad,P.paper,.10)},data:crash.map(function(c){return[{xAxis:c[0]},{xAxis:c[1]}]})}},
 {name:'3x',type:'line',data:[],showSymbol:false,lineStyle:{width:1.6,color:P.t},itemStyle:{color:P.t},z:1,markLine:zi<0?undefined:{silent:true,symbol:['none','none'],lineStyle:{color:P.t,type:'dotted',width:1.2},label:{show:true,position:'insideEndTop',rotate:0,distance:[6,4],align:'left',formatter:'3x 在此歸零(剩 '+(M.t[zi]*100).toFixed(1)+'%)',color:P.t,fontSize:11,fontFamily:'IBM Plex Mono, Menlo, monospace',backgroundColor:P.paper,padding:[2,5],borderRadius:3},data:[{xAxis:zi}]}}]});
 pos=N;apply()}
-function apply(){chart.setOption({series:[{data:S.slice(0,pos)},{data:B.slice(0,pos)},{data:T.slice(0,pos)}]});document.getElementById('race-pos').value=pos;stats(pos-1)}
+function apply(){chart.setOption({series:[{data:S.slice(0,pos)},{data:B.slice(0,pos)},{data:T.slice(0,pos)}]});document.getElementById('race-pos').value=pos;document.getElementById('pb-t0').textContent=dates[pos-1];stats(pos-1)}
 function f(x){return x<.01?x.toPrecision(2)+'×':x.toFixed(2)+'×'}
 function stats(i){var s=M.s[i],b=M.b[i],t=M.t[i],mx=0,mb=0;for(var k=0;k<=i;k++){if(M.s[k]>mx)mx=M.s[k];if(M.b[k]>mb)mb=M.b[k]}
 var g=function(id){return document.getElementById(id)};g('rs-date').textContent=dates[i];g('rs-year').textContent='第 '+(Math.floor(M.d[i]/365.25)+1)+' 年';
@@ -261,15 +264,17 @@ g('rs-s').textContent=f(s);g('rs-lead').textContent='是 1x 的 '+(s/b).toFixed(
 var x=M.x[i];g('rs-x').textContent=x===0?'現金':x+'x';g('rs-x').style.color=x<.5?P.mute:P.s;g('rs-prod').textContent=M.prods[String(x)]||'';
 g('rs-dd').textContent=(100*(s/mx-1)).toFixed(0)+'%';g('rs-bdd').textContent='1x 同期 '+(100*(b/mb-1)).toFixed(0)+'%'}
 var play=document.getElementById('race-play');
-function stop(){if(timer)cancelAnimationFrame(timer);timer=null;play.textContent='▶ 播放';if(window.bgmPause)window.bgmPause()}
+function stop(){if(timer)cancelAnimationFrame(timer);timer=null;play.innerHTML='&#9654;';if(window.bgmPause)window.bgmPause()}
 function tick(){var sp=+document.getElementById('race-speed').value;pos=Math.min(N,pos+Math.ceil(N/900)*sp);apply();if(pos>=N){stop();return}timer=requestAnimationFrame(tick)}
-function start(){if(pos>=N)pos=1;play.textContent='❚❚ 暫停';timer=requestAnimationFrame(tick);if(window.bgmPlay)window.bgmPlay()}
+function start(){if(pos>=N)pos=1;play.innerHTML='&#10074;&#10074;';timer=requestAnimationFrame(tick);if(window.bgmPlay)window.bgmPlay()}
 play.onclick=function(){if(timer){stop();return}start()};
-y0.oninput=function(){y0v.textContent=this.value};
-y0.onchange=function(){stop();Y0=+this.value;init();start()};
+var sb=document.getElementById('race-speed-btn'),ss=document.getElementById('race-speed');sb.onclick=function(){ss.value={1:'2',2:'4',4:'1'}[+ss.value];sb.textContent=ss.value+'×'};
+document.getElementById('pb-prev').onclick=function(){stop();Y0=Math.max(+y0.min,(+y0.value)-1);init();start()};
+document.getElementById('pb-next').onclick=function(){stop();Y0=Math.min(+y0.max,(+y0.value)+1);init();start()};
+yb.onclick=function(){stop();Y0=null;init();start()};
 document.getElementById('race-pos').oninput=function(){stop();pos=+this.value;apply()};
 document.querySelectorAll('.rt button[data-m]').forEach(function(b){b.onclick=function(){stop();document.querySelectorAll('.rt button[data-m]').forEach(function(x){x.classList.toggle('on',x===b)});m=b.dataset.m;init()}});
-document.querySelectorAll('.rt button.wbtn').forEach(function(b){b.onclick=function(){stop();Y0=+b.dataset.w?null:+y0.min;init();start()}});
+
 var retheme=function(){var p=pos;stop();init();pos=p;apply()};window.addEventListener('bm-theme',retheme);
 try{window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',retheme)}catch(e){}
 window.addEventListener('resize',function(){if(chart)chart.resize()});
