@@ -244,14 +244,14 @@ document.getElementById('race-pos').max=N;
 var leg=document.getElementById('race-leg');
 leg.innerHTML='<div><span><i style="background:'+P.s+'"></i>照規則操作</span><span><i style="background:'+P.b+'"></i>一直抱 1x '+M.one+'</span><span><i style="background:'+P.t+'"></i>一直抱 3x '+M.top+'</span></div>'}
 function init(){pal();if(chart)chart.dispose();chart=echarts.init(el,null,{renderer:'canvas'});load();
-var lo=Math.max(1e-6,Math.min.apply(null,M.s.concat(M.b,M.t))),hi=Math.max.apply(null,M.s.concat(M.b,M.t));
+var lo=Math.max(.01,Math.min.apply(null,M.s.concat(M.b,M.t))),hi=Math.max.apply(null,M.s.concat(M.b,M.t));var zi=M.t.findIndex(function(v){return v<.01});
 chart.setOption({animation:false,backgroundColor:'transparent',grid:{left:52,right:14,top:20,bottom:34},
 tooltip:{trigger:'axis',backgroundColor:P.paper,borderColor:P.line,textStyle:{color:P.ink,fontSize:12},formatter:function(ps){var i=ps[0].dataIndex;return dates[i]+'<br>策略 <b>'+M.s[i].toFixed(2)+'×</b> · 持有 '+(M.x[i]===0?'現金':M.x[i]+'x')+'<br>1x '+M.b[i].toFixed(2)+'× · 3x '+M.t[i].toFixed(2)+'×'}},
 xAxis:{type:'category',data:dates,boundaryGap:false,axisLabel:{color:P.mute,fontSize:11,formatter:function(d){return d.slice(0,4)},interval:function(i,d){var y=+d.slice(0,4),yrs=N/252,step=el.clientWidth<560?(yrs>18?5:yrs>8?3:1):(yrs>18?2:1);return i===0||(dates[i-1].slice(0,4)!==d.slice(0,4)&&y%step===0)}},axisLine:{lineStyle:{color:P.line}},axisTick:{show:false}},
 yAxis:{type:'log',min:Math.pow(10,Math.floor(Math.log10(lo))),max:Math.pow(10,Math.ceil(Math.log10(hi))),axisLabel:{color:P.mute,fontSize:11,formatter:function(x){return x+'×'}},splitLine:{lineStyle:{color:P.line}},axisLine:{show:false}},
 series:[{name:'策略',type:'line',data:[],showSymbol:false,lineStyle:{width:2.6,color:P.s},itemStyle:{color:P.s},z:3},
 {name:'1x',type:'line',data:[],showSymbol:false,lineStyle:{width:1.6,color:P.b},itemStyle:{color:P.b},z:2,markArea:{silent:true,itemStyle:{color:mix(P.bad,P.paper,.10)},data:crash.map(function(c){return[{xAxis:c[0]},{xAxis:c[1]}]})}},
-{name:'3x',type:'line',data:[],showSymbol:false,lineStyle:{width:1.6,color:P.t},itemStyle:{color:P.t},z:1}]});
+{name:'3x',type:'line',data:[],showSymbol:false,lineStyle:{width:1.6,color:P.t},itemStyle:{color:P.t},z:1,markLine:zi<0?undefined:{silent:true,symbol:['none','none'],lineStyle:{color:P.t,type:'dotted',width:1.2},label:{show:true,position:'insideEndTop',formatter:'3x 在此歸零(剩 '+(M.t[zi]*100).toFixed(1)+'%)',color:P.t,fontSize:11,fontFamily:'IBM Plex Mono, Menlo, monospace'},data:[{xAxis:zi}]}}]});
 pos=N;apply()}
 function apply(){chart.setOption({series:[{data:S.slice(0,pos)},{data:B.slice(0,pos)},{data:T.slice(0,pos)}]});document.getElementById('race-pos').value=pos;stats(pos-1)}
 function f(x){return x<.01?x.toPrecision(2)+'×':x.toFixed(2)+'×'}
