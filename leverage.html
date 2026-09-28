@@ -294,7 +294,7 @@ var ST=JSON.parse(document.getElementById('story-data').textContent),SK=Object.k
 function showStory(y){cur=y;var t=ST[y],el=document.getElementById('st-tx');box.hidden=false;document.getElementById('st-eye').textContent='ARCHIVE · '+y;document.getElementById('st-idx').textContent=(SK.indexOf(y)+1)+' / '+SK.length;
 if(typer)clearInterval(typer);if(matchMedia('(prefers-reduced-motion: reduce)').matches){el.textContent=t;return}var i=0;el.textContent='';typer=setInterval(function(){i+=2;el.textContent=t.slice(0,i);if(i>=t.length){clearInterval(typer);typer=null}},28)}
 function hideStory(){box.hidden=true;if(typer){clearInterval(typer);typer=null}}
-var sr=document.getElementById('s-race'),mr=document.querySelector('main');new IntersectionObserver(function(es){es.forEach(function(x){if(!x.isIntersecting||x.intersectionRatio<.5)hideStory()})},{root:getComputedStyle(mr).overflowY==='auto'?mr:null,threshold:[0,.5]}).observe(sr);
+var sr=document.getElementById('s-race');function chkLeave(){if(box.hidden)return;var r=sr.getBoundingClientRect();if(r.bottom<innerHeight*.5||r.top>innerHeight*.5)hideStory()}addEventListener('scroll',chkLeave,{passive:true});document.querySelector('main').addEventListener('scroll',chkLeave,{passive:true});
 function step(d){var i=SK.indexOf(cur);showStory(SK[(i+d+SK.length)%SK.length])}
 document.getElementById('st-x').onclick=hideStory;document.getElementById('st-prev').onclick=function(){step(-1)};document.getElementById('st-next').onclick=function(){step(1)};
 addEventListener('keydown',function(e){if(box.hidden)return;if(e.key==='Escape'){hideStory()}else if(e.key==='ArrowLeft'){e.preventDefault();step(-1)}else if(e.key==='ArrowRight'){e.preventDefault();step(1)}});
