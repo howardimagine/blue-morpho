@@ -13,12 +13,12 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": null
+      "score": 6.4
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 5.6
+      "score": 6.8
     },
     {
       "key": "macro_context",
@@ -28,7 +28,7 @@
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 6.5
+      "score": 7.3
     },
     {
       "key": "news_catalyst",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-09-28",
+      "theme": "AI Compute",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-09-22",
       "theme": "AI Compute",
@@ -168,6 +176,11 @@
   ],
   "peers": [
     {
+      "symbol": "LRCX",
+      "name": "科林研發",
+      "tier": "ready"
+    },
+    {
       "symbol": "MU",
       "name": "美光",
       "tier": "ready"
@@ -180,11 +193,6 @@
     {
       "symbol": "AMAT",
       "name": "應用材料",
-      "tier": "ready"
-    },
-    {
-      "symbol": "MRVL",
-      "name": "美滿科技",
       "tier": "ready"
     }
   ],

@@ -128,6 +128,11 @@
   ],
   "peers": [
     {
+      "symbol": "LRCX",
+      "name": "科林研發",
+      "tier": "ready"
+    },
+    {
       "symbol": "MU",
       "name": "美光",
       "tier": "ready"
@@ -140,11 +145,6 @@
     {
       "symbol": "AVGO",
       "name": "博通",
-      "tier": "ready"
-    },
-    {
-      "symbol": "AMAT",
-      "name": "應用材料",
       "tier": "ready"
     }
   ],

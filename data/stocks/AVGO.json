@@ -200,6 +200,11 @@
   ],
   "peers": [
     {
+      "symbol": "LRCX",
+      "name": "科林研發",
+      "tier": "ready"
+    },
+    {
       "symbol": "MU",
       "name": "美光",
       "tier": "ready"
@@ -212,11 +217,6 @@
     {
       "symbol": "AMAT",
       "name": "應用材料",
-      "tier": "ready"
-    },
-    {
-      "symbol": "MRVL",
-      "name": "美滿科技",
       "tier": "ready"
     }
   ],
