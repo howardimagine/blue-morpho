@@ -1,0 +1,308 @@
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>看路開研究報告</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{color-scheme:light;--paper:#F5F4EF;--sheet:#FFFFFF;--ink:#1B1F24;--ink2:#4A5460;--mute:#7A8490;--line:#D6DAD8;--accent:#0E7490;--accent-soft:#E3F1F4;--warn:#9A4A12;--warn-soft:#FBEFE4;--serif:"Source Serif 4","Noto Serif TC","PingFang TC",Georgia,serif;--mono:"IBM Plex Mono","SF Mono",Menlo,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--paper:#0F1316;--sheet:#171C21;--ink:#E8ECEF;--ink2:#B7C0C8;--mute:#8A94A0;--line:#2A333C;--accent:#38B6D3;--accent-soft:#12303A;--warn:#F0A060;--warn-soft:#2E2016}}
+:root[data-theme="dark"]{color-scheme:dark;--paper:#0F1316;--sheet:#171C21;--ink:#E8ECEF;--ink2:#B7C0C8;--mute:#8A94A0;--line:#2A333C;--accent:#38B6D3;--accent-soft:#12303A;--warn:#F0A060;--warn-soft:#2E2016}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:10.5pt;line-height:1.65;padding:24px 16px}
+.sheet{background:var(--sheet);max-width:210mm;margin:0 auto 18px;padding:20mm 19mm 22mm;box-shadow:0 2px 14px rgba(0,0,0,.08);box-sizing:border-box;position:relative}
+h1{font-size:19pt;line-height:1.3;margin:0 0 6px;font-weight:700;text-wrap:balance}
+h2{font-size:12.5pt;margin:20px 0 8px;font-weight:700;border-bottom:1px solid var(--line);padding-bottom:4px;break-after:avoid}
+h3{font-size:10.8pt;margin:14px 0 5px;font-weight:600;break-after:avoid}
+p{margin:0 0 9px;text-align:justify;hyphens:auto}
+.meta{font-size:9.5pt;color:var(--ink2);margin-bottom:12px}
+.box{background:var(--accent-soft);padding:11px 15px;border-left:3px solid var(--accent);font-size:9.8pt;margin:12px 0}
+.box p{margin:0 0 6px}.box ul{margin:4px 0 4px 18px}
+.warnbox{background:var(--warn-soft);border-left:3px solid var(--warn);padding:10px 14px;font-size:9.6pt;margin:12px 0}
+.kw{font-size:9pt;color:var(--ink2)}
+table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:8.2pt;font-variant-numeric:tabular-nums;margin:6px 0 4px}
+th{text-align:right;font-weight:500;color:var(--ink2);border-bottom:1px solid var(--ink);padding:3px 5px;white-space:nowrap;font-size:7.9pt;vertical-align:bottom}
+td{text-align:right;padding:3px 5px;border-bottom:1px solid var(--line);white-space:nowrap}
+th:first-child,td:first-child,.l{text-align:left}
+tr.sep td{border-top:1px solid var(--ink2)}
+.tbl{overflow-x:auto;break-inside:avoid}
+.cap{font-size:8.8pt;color:var(--ink2);margin:0 0 12px}
+.cap b{color:var(--ink)}
+.eq{font-family:var(--mono);font-size:9.5pt;margin:8px 0 10px 16px;color:var(--ink);white-space:pre-wrap;line-height:1.6}
+ol.refs{font-size:9pt;padding-left:22px;color:var(--ink2)}ol.refs li{margin-bottom:4px}
+.note{font-size:9pt;color:var(--ink2)}
+ul{margin:0 0 9px 20px;padding:0}li{margin-bottom:3px}
+.num{font-family:var(--mono)}
+@media (max-width:700px){.sheet{padding:18px 16px}}
+@media print{body{background:#fff;padding:0;font-size:10pt}.sheet{box-shadow:none;margin:0;max-width:none;padding:0}.sheet+.sheet{break-before:page}@page{size:A4;margin:18mm 16mm}}
+</style>
+
+<main><article class="sheet">
+<h1>條件式槓桿輪動:以趨勢與已實現波動決定美國股票指數槓桿曝險的規則、推論與實作邊界</h1>
+<p class="meta">Blue Morpho 研究報告(「看路開 Ridewell」專案)· 第二版 · 2026 年 9 月 28 日<br>資料期間 2000-03-08 至 2026-09-25(日頻)· 樣本外補充 1966–1999 · 程式 <span class="num">stock-radar/agents/lev_rotation.py</span>(版本 <span class="num">ed91e33</span> 起)</p>
+
+<div class="box">
+<p><b>執行摘要</b></p>
+<ul>
+<li><b>策略。</b>以 1x ETF 收盤價計算訊號,次一交易日開盤調整至 {現金, 1x, 2x, 3x} 的真實槓桿 ETF 曝險。三條腿:那斯達克 100(QQQ,最多 3x,波動目標)、標普 500(SPY,最多 3x,200 日均線加 CPI 上限)、費城半導體(SOXX,最多 2x,波動門檻、10 日冷卻、30% 常駐 1x)。建議三腿等權、每月調回。</li>
+<li><b>績效(2000-03 至 2026-09,淨費用與成本,現金零利息)。</b>三腿等權年化 19.2%、年化波動 28.3%、Sharpe 0.70、最大回撤 −36.5%;同期三腿 1x 等權年化 9.8%、Sharpe 0.42、最大回撤 −73.6%。近 15 年:31.1% 對 21.7%。</li>
+<li><b>推論強度中等。</b>三腿等權月超額報酬 t 值 2.18(全期)、1.60(近 15 年);單腿中 SPY 全期 2.13,QQQ 1.63,SOXX 1.33,近 15 年 SOXX 僅 0.34。1 年區塊自助法下,年化對數超額 90% 信賴區間為 [+3.7%, +13.2%]。去膨脹 Sharpe(試驗數 127)98–100%。</li>
+<li><b>超額來源集中。</b>超額主要來自 2000–02、2008、2022 三次熊市的退場與 2013、2017、2019–21、2023 的滿倉;非熊市、低趨勢年份(2004–06、2011、2015)系統性落後。規則本質上是做多「趨勢延續且慢跌」的市場結構。</li>
+<li><b>外部效度有限。</b>同一規則在 38 個有槓桿產品的市場中,僅科技類股與標普、那斯達克通過;日經 225 在 1990 年後(含 2011–2026 多頭)持續落後 1x。結構改變前無可靠領先訊號。</li>
+<li><b>前瞻。</b>1 年區塊自助 4,000 條十年路徑,對回測超額取 50% 信心時,三腿等權十年年化中位 15.2%(5% 分位 1.1%,95% 分位 31.0%),十年期虧損機率約 4%;同條件下一直持有三腿 1x 中位 10.6%、虧損機率 11%。</li>
+<li><b>實作。</b>年換手約 15.7 次(三腿合計)、集中於開盤;TQQQ 與 SOXL 日均成交額中位數約 48 億與 58 億美元,UPRO 約 3.9 億美元,個人至中型帳戶的容量不構成約束。主要實作風險為產品清算、監管限制與 2026-12 起 23 小時交易對「次日開盤」假設的影響。</li>
+</ul>
+</div>
+<p class="kw"><b>關鍵詞</b> 槓桿 ETF;時間序列動能;波動管理;回測過擬合;去膨脹 Sharpe;區塊自助法;外部效度;部位規模</p>
+
+</article><article class="sheet"><h2>1. 研究問題與貢獻</h2>
+<p>每日再平衡之 L 倍槓桿 ETF 的長期報酬受已實現變異侵蝕。以本研究的資料,自 2000 年 3 月起一直持有合成 3 倍那斯達克 100 之終值為本金的 0.45 倍,合成 3 倍費城半導體低於 0.02 倍,而 1x 分別為 7.9 倍與 13.7 倍。既有文獻指出,若槓桿僅在低波動、趨勢向上時使用,期望報酬可轉正 [4–8]。本研究檢驗此命題在下列實盤約束下是否成立:(i)只能持有真實存在的產品倍數;(ii)訊號於收盤計算、次日開盤成交,隔夜跳空由舊曝險承擔;(iii)槓桿 ETF 上市後使用其真實價格;(iv)現金不計利息,融資成本照扣。</p>
+<p>本研究的貢獻不在規則元件(皆見於文獻),而在於:以實盤約束重建回測;在統計、執行、結構三個層次進行對抗驗證,並明確報告不支持的結果;提出十年期的前瞻分布,並將「對回測的信心」參數化;以情境法列舉失靈模式並檢驗早期訊號的領先性。</p>
+
+</article><article class="sheet"><h2>2. 文獻定位</h2>
+<p><b>時間序列動能與趨勢濾網。</b>Faber [1] 以 10 個月均線濾網證明報酬近似買進持有而回撤大幅降低;Moskowitz、Ooi、Pedersen [2] 在 58 個期貨市場記錄時間序列動能及其危機期正報酬;Hurst、Ooi、Pedersen [3] 延伸至 1880 年,並指出單一市場、單一十年可能整段失效——此點在本研究第 7.4 節直接得到驗證。</p>
+<p><b>槓桿 ETF 的路徑相依。</b>Cheng 與 Madhavan [4]、Avellaneda 與 Zhang [5] 給出每日再平衡產品的長期報酬近似 g(L) ≈ L·μ − ½·L²·σ² − (L−1)·r<sub>f</sub> − 費用,最適槓桿 L* ≈ (μ − r<sub>f</sub>)/σ²。以 QQQ 全期估計(μ ≈ 10%,σ ≈ 23%)L* ≈ 1.9,即無條件 3x 超過最適值。規則的經濟功能是讓 σ 成為條件變數:在 20 日已實現波動 17% 時,相同 μ 下 L* 接近 3.5。</p>
+<p><b>波動管理。</b>Moreira 與 Muir [6] 證明曝險與前期已實現變異成反比可提高 Sharpe,機制為高波動期風險溢酬未等比例上升;Harvey 等 [7] 發現效果在股票與信用顯著、在債券與商品微弱,與本研究第 7.3 節跨市場結果一致。Gayed [8] 以 200 日均線結合槓桿於標普 500 之回測為本專案規則骨架。</p>
+<p><b>回測可信度。</b>本研究使用 Bailey 與 López de Prado 的去膨脹 Sharpe [9]、Bailey 等的回測過擬合機率(CSCV)[10],並參照 Harvey、Liu、Zhu [11] 對多重檢定門檻的主張,以及 McLean 與 Pontiff [12] 對發表後報酬衰退約一半的估計。<b>部位規模</b>參照 Kelly [13]、Thorp [14]、MacLean、Thorp、Ziemba [15]。</p>
+
+</article><article class="sheet"><h2>3. 資料與報酬建構</h2>
+<h3>3.1 資料來源</h3>
+<div class="tbl"><table>
+<tr><th class="l">市場</th><th class="l">訊號與 1x 報酬</th><th class="l">真實 2x / 3x(上市)</th><th class="l">上市前</th><th>年費用</th><th>單邊成本</th></tr>
+<tr><td class="l">那斯達克 100</td><td class="l">QQQ(1999-03)</td><td class="l">QLD / TQQQ(2006 / 2010)</td><td class="l">合成</td><td>0.95%</td><td>0.10%</td></tr>
+<tr><td class="l">標普 500</td><td class="l">SPY</td><td class="l">SSO / UPRO(2006 / 2009)</td><td class="l">合成</td><td>0.95%</td><td>0.10%</td></tr>
+<tr><td class="l">費城半導體</td><td class="l">SOXX(2001-07);之前 ^SOX + 0.8%/年</td><td class="l">50% SOXX + 50% SOXL / SOXL(2010)</td><td class="l">合成</td><td>0.95%</td><td>0.10%</td></tr>
+<tr><td class="l">台灣 50</td><td class="l">0050.TW(2009);之前 ^TWII + 3.5%/年</td><td class="l">00631L(2x,2014)</td><td class="l">合成</td><td>1.00%</td><td>0.20%</td></tr>
+</table></div>
+<p class="cap"><b>表 1</b> 資料。價格:Yahoo Finance 還原日線(開高低收量);利率:3 個月國庫券 ^IRX;CPI、BAA 利差:FRED。ProShares USD 追蹤道瓊美國半導體指數而非 SOXX 所追蹤之指數,故 SOXX 的 2x 以 SOXX 與 SOXL 每日等權近似。合成與真實產品重疊期年化差 −1.2% 至 +1.6%。</p>
+
+<h3>3.2 報酬建構</h3>
+<p>令 r<sub>t</sub> 為 1x 標的第 t 日收盤對收盤報酬,g<sub>t</sub> 為第 t 日開盤相對前一日收盤之跳空,r<sub>f,t</sub> 為日化短率,f 為年費用,c 為單邊成本。合成 L 倍日報酬:</p>
+<p class="eq">R(L)_t = L·r_t − (L−1)·r_f,t − 𝟙[L&gt;1]·f/252          (L ≥ 1)
+R(L)_t = L·r_t                                          (L &lt; 1,餘額為零利息現金)</p>
+<p>訊號 x<sub>t</sub> 於第 t 日收盤後決定;第 t+1 日的帳戶報酬拆為隔夜段(舊曝險)與日內段(新曝險),並扣除換手成本:</p>
+<p class="eq">1 + R_t+1 = [1 + G(x_t−1)_t+1] · [1 + R(x_t)_t+1] / [1 + G(x_t)_t+1] − c·|x_t − x_t−1|</p>
+<p>其中 G(L) 為 L 倍產品之隔夜跳空(上市後以真實開盤價計)。分數曝險(如 SOXX 的 0.3 或 1.7)以 1x 與 L 倍產品之現金加權組合實現。年化報酬以日曆年數計算(不以交易日 ÷ 252,後者使 245 日的台股高估約 0.6 點)。</p>
+<h3>3.3 前視偏誤控制</h3>
+<p>自檢(<span class="num">tests/test_lev_rotation.py</span>)對每一規則執行三項對抗測試:(a)將第 K 日之後的價格以隨機序列替換,驗證第 K 日以前的曝險完全不變;(b)驗證第 K+1 日報酬只依賴第 K 日以前決定的曝險;(c)植入已知的「訊號日收盤成交」偷跑並確認可被偵測。總經資料依發布延遲對齊(CPI +45 日;VIX、利差延後一日)。盤中抓取之未完成 K 棒於計算前移除。</p>
+
+</article><article class="sheet"><h2>4. 策略規格</h2>
+<div class="tbl"><table>
+<tr><th class="l">腿</th><th class="l">在場條件</th><th class="l">倍數</th><th class="l">附加規則</th><th>上限</th></tr>
+<tr><td class="l">QQQ(V2_50)</td><td class="l">收盤 &gt; MA50 且 &gt; MA200;跌破 MA200 × 0.97 出場</td><td class="l">round(0.50 / σ̂<sub>20</sub>)</td><td class="l">—</td><td>3</td></tr>
+<tr><td class="l">SPY(T3 + CPI)</td><td class="l">收盤 &gt; MA200 × 1.03 進場;&lt; MA200 × 0.97 出場</td><td class="l">固定 3</td><td class="l">CPI 年增率高於 126 交易日前(延遲 45 日)→ 上限 1</td><td>3</td></tr>
+<tr><td class="l">SOXX(TV35~H10~C30)</td><td class="l">同 T3</td><td class="l">固定 2;σ̂<sub>20</sub> &gt; 35% → 0</td><td class="l">換手後 10 日不換;曝險 = 0.7·x + 0.3</td><td>2</td></tr>
+<tr><td class="l">0050</td><td class="l" colspan="3">未通過穩定性判準(2010–19 十年落後 1x;均線長度敏感),持有 1x</td><td>1</td></tr>
+</table></div>
+<p class="cap"><b>表 2</b> 規則。σ̂<sub>20</sub> 為 20 日年化已實現波動;MA 為收盤價簡單移動平均。採用判準:全期最大回撤 ≥ −65%;近 15 年年化 &gt; 1x;2000–09、2010–19、2020– 三段中至少兩段勝 1x;MA 150/200/250 結果同向。SPY 的 CPI 上限與 SOXX 的冷卻、核心部位經過獨立的對抗驗證後才加入(見附錄 B,主題 ⑧、⑬、⑭)。</p>
+
+</article><article class="sheet"><h2>5. 績效</h2>
+<h3>5.1 風險調整後報酬</h3>
+<div class="tbl"><table>
+<tr><th class="l">全期 2000-03 至 2026-09</th><th>年化</th><th>波動</th><th>Sharpe</th><th>Sortino</th><th>MaxDD</th><th>Calmar</th><th>Ulcer</th><th>β</th><th>上行捕獲</th><th>下行捕獲</th><th>最差 1 月</th><th>最差 12 月</th><th>最長水下</th></tr>
+<tr><td class="l">QQQ 規則</td><td>19.0%</td><td>39.8%</td><td>0.59</td><td>0.75</td><td>−64.9%</td><td>0.29</td><td>0.32</td><td>0.91</td><td>1.50</td><td>1.44</td><td>−38.0%</td><td>−49.7%</td><td>10.0 年</td></tr>
+<tr><td class="l">SPY 規則</td><td>17.0%</td><td>24.2%</td><td>0.70</td><td>0.86</td><td>−33.3%</td><td>0.51</td><td>0.11</td><td>0.68</td><td>1.11</td><td>1.03</td><td>−18.9%</td><td>−20.6%</td><td>3.2 年</td></tr>
+<tr><td class="l">SOXX 規則</td><td>17.1%</td><td>31.7%</td><td>0.60</td><td>0.79</td><td>−53.3%</td><td>0.32</td><td>0.24</td><td>0.63</td><td>0.84</td><td>0.81</td><td>−27.0%</td><td>−31.7%</td><td>7.1 年</td></tr>
+<tr class="sep"><td class="l"><b>三腿等權</b></td><td><b>19.2%</b></td><td>28.3%</td><td><b>0.70</b></td><td>0.88</td><td><b>−36.5%</b></td><td>0.53</td><td>0.18</td><td>0.74</td><td>1.10</td><td>1.05</td><td>−23.3%</td><td>−28.1%</td><td>3.5 年</td></tr>
+<tr class="sep"><td class="l">QQQ 1x</td><td>8.1%</td><td>26.4%</td><td>0.36</td><td>0.47</td><td>−83.0%</td><td>0.10</td><td>0.44</td><td>1</td><td>1</td><td>1</td><td>−26.2%</td><td>−67.3%</td><td>14.9 年</td></tr>
+<tr><td class="l">SPY 1x</td><td>8.6%</td><td>19.2%</td><td>0.43</td><td>0.55</td><td>−55.2%</td><td>0.16</td><td>0.16</td><td>1</td><td>1</td><td>1</td><td>−16.5%</td><td>−43.4%</td><td>6.6 年</td></tr>
+<tr><td class="l">SOXX 1x</td><td>10.4%</td><td>36.8%</td><td>0.40</td><td>0.58</td><td>−85.4%</td><td>0.12</td><td>0.49</td><td>1</td><td>1</td><td>1</td><td>−30.3%</td><td>−56.9%</td><td>17.1 年</td></tr>
+<tr><td class="l">三腿 1x 等權</td><td>9.8%</td><td>25.8%</td><td>0.42</td><td>0.57</td><td>−73.6%</td><td>0.13</td><td>0.33</td><td>1</td><td>1</td><td>1</td><td>−20.8%</td><td>−50.0%</td><td>13.9 年</td></tr>
+</table></div>
+<div class="tbl"><table>
+<tr><th class="l">近 15 年 2011-09 至 2026-09</th><th>年化</th><th>波動</th><th>Sharpe</th><th>Sortino</th><th>MaxDD</th><th>Calmar</th><th>β</th><th>上行捕獲</th><th>下行捕獲</th><th>最長水下</th></tr>
+<tr><td class="l">QQQ 規則</td><td>37.0%</td><td>41.9%</td><td>0.93</td><td>1.16</td><td>−49.4%</td><td>0.75</td><td>1.55</td><td>2.00</td><td>2.01</td><td>1.8 年</td></tr>
+<tr><td class="l">SPY 規則</td><td>21.2%</td><td>26.5%</td><td>0.80</td><td>0.97</td><td>−33.3%</td><td>0.64</td><td>1.02</td><td>1.43</td><td>1.43</td><td>2.4 年</td></tr>
+<tr><td class="l">SOXX 規則</td><td>30.4%</td><td>34.0%</td><td>0.91</td><td>1.15</td><td>−40.9%</td><td>0.74</td><td>0.85</td><td>1.04</td><td>1.03</td><td>1.5 年</td></tr>
+<tr class="sep"><td class="l"><b>三腿等權</b></td><td><b>31.1%</b></td><td>30.6%</td><td><b>0.99</b></td><td>1.25</td><td>−32.6%</td><td>0.96</td><td>1.09</td><td>1.41</td><td>1.41</td><td>1.7 年</td></tr>
+<tr class="sep"><td class="l">三腿 1x 等權</td><td>21.7%</td><td>21.7%</td><td>0.94</td><td>1.23</td><td>−35.3%</td><td>0.62</td><td>1</td><td>1</td><td>1</td><td>1.9 年</td></tr>
+</table></div>
+<p class="cap"><b>表 3</b> 風險調整後指標。Sharpe、Sortino 以日超額報酬(減 ^IRX)年化;Ulcer 為回撤平方均值之根;β 與捕獲率相對同腿 1x;最長水下為淨值創新高之最長間隔。<b>重點:</b>全期三腿等權的 Sharpe 由 0.42 升至 0.70,最大回撤由 −73.6% 縮至 −36.5%;但近 15 年 Sharpe 僅 0.99 對 0.94,即在無熊市的樣本中,規則的主要作用是放大 β(1.09)而非改善風險調整後報酬。</p>
+
+<h3>5.2 曝險與換手</h3>
+<div class="tbl"><table>
+<tr><th class="l">腿</th><th>平均曝險</th><th>槓桿(&gt;1.5x)時間占比</th><th>現金(&lt;0.5x)時間占比</th><th>換手次數/年</th><th>曝險總變動/年</th><th>月度勝率(vs 1x)</th></tr>
+<tr><td class="l">QQQ</td><td>2.05x</td><td>73%</td><td>24%</td><td>8.2</td><td>10.5x</td><td>55%</td></tr>
+<tr><td class="l">SPY</td><td>1.41x</td><td>34%</td><td>27%</td><td>3.0</td><td>5.6x</td><td>39%</td></tr>
+<tr><td class="l">SOXX</td><td>1.05x</td><td>53%</td><td>47%</td><td>3.6</td><td>5.1x</td><td>55%</td></tr>
+</table></div>
+<p class="cap"><b>表 4</b> 全期曝險統計。三腿合計年換手約 15.7 次(約 14.7 個交易日有動作)。SPY 的月度勝率 39% 反映 CPI 上限在上漲月份壓低曝險的代價;其超額幾乎全數來自下跌月份的迴避。</p>
+
+<h3>5.3 逐年報酬與超額來源</h3>
+<div class="tbl"><table>
+<tr><th class="l">年</th><th>三腿規則</th><th>三腿 1x</th><th>超額</th><th class="l"></th><th class="l">年</th><th>三腿規則</th><th>三腿 1x</th><th>超額</th></tr>
+<tr><td class="l">2000*</td><td>−19.9</td><td>−36.3</td><td>+16.4</td><td></td><td class="l">2013</td><td>89.9</td><td>37.0</td><td>+52.9</td></tr>
+<tr><td class="l">2001</td><td>−2.4</td><td>−15.2</td><td>+12.8</td><td></td><td class="l">2014</td><td>28.2</td><td>20.9</td><td>+7.3</td></tr>
+<tr><td class="l">2002</td><td>−7.2</td><td>−35.4</td><td>+28.2</td><td></td><td class="l">2015</td><td>−8.8</td><td>3.0</td><td>−11.8</td></tr>
+<tr><td class="l">2003</td><td>63.0</td><td>52.5</td><td>+10.5</td><td></td><td class="l">2016</td><td>14.8</td><td>18.7</td><td>−3.9</td></tr>
+<tr><td class="l">2004</td><td>−5.0</td><td>2.2</td><td>−7.2</td><td></td><td class="l">2017</td><td>75.6</td><td>31.4</td><td>+44.2</td></tr>
+<tr><td class="l">2005</td><td>−4.0</td><td>6.7</td><td>−10.7</td><td></td><td class="l">2018</td><td>0.6</td><td>−3.5</td><td>+4.1</td></tr>
+<tr><td class="l">2006</td><td>−2.2</td><td>7.9</td><td>−10.1</td><td></td><td class="l">2019</td><td>62.0</td><td>44.1</td><td>+17.9</td></tr>
+<tr><td class="l">2007</td><td>18.2</td><td>7.2</td><td>+11.0</td><td></td><td class="l">2020</td><td>69.2</td><td>39.7</td><td>+29.5</td></tr>
+<tr><td class="l">2008</td><td>−20.5</td><td>−43.3</td><td>+22.8</td><td></td><td class="l">2021</td><td>45.2</td><td>33.8</td><td>+11.4</td></tr>
+<tr><td class="l">2009</td><td>76.4</td><td>51.5</td><td>+24.9</td><td></td><td class="l">2022</td><td>−27.2</td><td>−28.6</td><td>+1.4</td></tr>
+<tr><td class="l">2010</td><td>10.2</td><td>16.6</td><td>−6.4</td><td></td><td class="l">2023</td><td>77.8</td><td>49.0</td><td>+28.8</td></tr>
+<tr><td class="l">2011</td><td>−8.4</td><td>−1.7</td><td>−6.7</td><td></td><td class="l">2024</td><td>39.3</td><td>21.8</td><td>+17.5</td></tr>
+<tr><td class="l">2012</td><td>13.8</td><td>13.7</td><td>+0.1</td><td></td><td class="l">2025 / 2026*</td><td>23.3 / 33.1</td><td>26.8 / 39.9</td><td>−3.5 / −6.8</td></tr>
+</table></div>
+<p class="cap"><b>表 5</b> 三腿等權逐年報酬(%)。* 為不完整年度。27 個年度中 18 年勝 1x;9 個落後年份集中於低趨勢、區間震盪的 2004–06、2010–11、2015–16 與 2025–26,平均落後 7.4 點;超額最大的年份為 2002、2008(熊市退場)與 2013、2017、2020、2023(低波動多頭滿倉)。</p>
+<h3>5.4 分散</h3>
+<p>三腿規則日報酬相關係數:QQQ–SPY 0.74、QQQ–SOXX 0.70、SPY–SOXX 0.56。三腿等權的最大回撤(−36.5%)低於任一單腿,Ulcer 指數 0.18 介於 SPY(0.11)與 SOXX(0.24)之間,而年化報酬高於任一單腿;分散效益主要來自三腿出場時點不同(QQQ 依波動、SPY 依趨勢與通膨、SOXX 依半導體專屬的波動門檻)。第 8 節的貝氏分析顯示,分散同時降低「規則超額被高估」的模型風險。</p>
+
+</article><article class="sheet"><h2>6. 統計推論</h2>
+<h3>6.1 超額報酬的顯著性</h3>
+<div class="tbl"><table>
+<tr><th class="l">月對數超額報酬(規則 − 同腿 1x)</th><th>全期 t 值</th><th>近 15 年 t 值</th><th class="l">解讀</th></tr>
+<tr><td class="l">QQQ</td><td>1.63</td><td>1.76</td><td class="l">邊際</td></tr>
+<tr><td class="l">SPY</td><td>2.13</td><td>1.00</td><td class="l">全期顯著,近期不顯著(CPI 上限在 2021、2026 壓低曝險)</td></tr>
+<tr><td class="l">SOXX</td><td>1.33</td><td>0.34</td><td class="l">不顯著;近代超額幾乎為零</td></tr>
+<tr><td class="l"><b>三腿等權</b></td><td><b>2.18</b></td><td>1.60</td><td class="l">全期顯著(未經多重檢定修正)</td></tr>
+</table></div>
+<p class="cap"><b>表 6</b> 月超額報酬 t 值(樣本 319 個月,未調整自相關)。依 Harvey、Liu、Zhu [11] 的多重檢定門檻(t &gt; 3),<b>沒有一條腿、也沒有組合在傳統意義上達到「顯著」</b>。超額的證據主要來自下列不依賴 t 值的檢驗,讀者應據此調整信心。</p>
+<h3>6.2 區塊自助信賴區間</h3>
+<p>以 1 年區塊重抽整段日報酬 3,000 次,三腿等權年化對數超額的 5%、50%、95% 分位為 +3.7%、+8.5%、+13.2%;QQQ 單腿為 +3.1%、+10.2%、+17.4%。區間下界為正,與 t 值給出的「邊際顯著」一致:超額方向可信,大小的不確定性高。</p>
+<h3>6.3 選擇偏誤</h3>
+<p><b>去膨脹 Sharpe。</b>以每市場全部組合數加 60 個測試過的疊加規則,試驗數 N = 127;在偏態(−0.18 至 −0.57)與峰態(6.1 至 12.3)修正後,運氣門檻 SR₀ 約 0.15–0.19(年化),三條腿之 DSR 為 98–100%。<b>回測過擬合機率(CSCV,10 區塊)</b>與 walk-forward(2008、2012、2016 切點)結果見附錄 B 主題 ①:QQQ V2_50 在近 10、15、20 年與全期的年化排名均為前二;SPY T3+CPI 於近 10、15 年排第 5–6、20 年與全期第 1,與同族冠軍差距在 1 點內。<b>參數雲。</b>同時隨機擾動均線長度(160–240)、緩衝(2–4%)、波動窗(15–25 日)、目標波動(40–60%)或門檻(30–40%)、快線(40–60)共 300 組:QQQ 與 SPY 採用參數位於雲的第 49 與第 32 百分位,雲內 100% 勝過 1x;SOXX 位於第 65 百分位(回撤第 92 百分位),雲內僅 52% 勝過 1x,顯示 SOXX 腿存在實質挑選成分。</p>
+
+</article><article class="sheet"><h2>7. 穩健性</h2>
+<h3>7.1 執行壓力</h3>
+<div class="tbl"><table>
+<tr><th class="l">近 15 年年化 / 全期 MaxDD / 3 年勝率</th><th>QQQ</th><th>SPY</th><th>SOXX</th></tr>
+<tr><td class="l">基準</td><td>36.9% / −65% / 80%</td><td>21.2% / −33% / 80%</td><td>30.4% / −53% / 69%</td></tr>
+<tr><td class="l">滑價 ×3(單邊 0.30%)</td><td>34.1% / −67% / 72%</td><td>19.7% / −34% / 76%</td><td>28.8% / −55% / 65%</td></tr>
+<tr><td class="l">訊號延遲一日</td><td>36.3% / −60% / 79%</td><td>21.7% / −30% / 77%</td><td>26.3% / −52% / 53%</td></tr>
+<tr><td class="l">隨機漏執行 10% 換手</td><td>36.9% / −65% / 79%</td><td>21.2% / −33% / 80%</td><td>29.8% / −53% / 67%</td></tr>
+<tr><td class="l">以上全部 + 費用 ×2</td><td>33.8% / −62% / 72%</td><td>20.1% / −30% / 74%</td><td>23.8% / −55% / 42%</td></tr>
+</table></div>
+<p class="cap"><b>表 7</b> 執行壓力。QQQ 與 SPY 對成本與延遲不敏感;SOXX 腿約一半優勢依賴準時執行。另以日線高低價代理盤中價、於觸發當日收盤成交之「盤中執行」版本,年化多 1–1.5 點但回撤更深(SOXX 近 15 年 −44% → −60%),未採用。</p>
+<h3>7.2 樣本外:1966–1999</h3>
+<p>以 ^GSPC(1966 起)、^IXIC(1972 起)、^NDX(1986 起)價格指數加固定股息(3%、1%、1%)與 ^IRX 融資成本重建合成序列,規則參數不變。標普 T3 3x 年化 15.7%(1x 11.5%),1973–74 期間 −44%(3x 持有 −86%),1987 年 −33%(−70%),全期回撤 −53%;那斯達克 V2_50 3x 年化 26.4%(1x 15.1%)。然而 NDX 1986–2000 單邊多頭中,V2_50 年化 29.1% 低於 1x 的 30.6% 且回撤更深;標普 1966–82 橫盤十六年,3 倍規則年化 4.4–6.3% 與 1x 的 5.6% 相當。</p>
+<h3>7.3 跨市場移植</h3>
+<p>將五條規則不作調整套用至 38 個具槓桿產品的美國產業、國家、區域、商品與債券 ETF。通過(近 15 年年化勝 1x 且全期回撤不比 1x 深 5 點以上)四條以上者僅 XLK、SPY、QQQ;XLI 三條;XLF、SMH、SOXX 兩條;其餘 31 個(含 IWM、DIA、MDY、XLV、EFA、EEM、FXI、EWJ、EWY、GLD、TLT、XLE)一條以下。通過組的共同特徵:僅用 MA200 濾網之 1x 版本幾乎不輸買進持有(−2.6 對 −4.2 點);20 日波動對次 20 日波動之相關較高(0.70 對 0.65);隔夜跳空占日變異比例較低(35% 對 42%;新興市場與單一國家 50–70%);長期年化較高(10.4% 對 7.9%)。</p>
+<h3>7.4 對照國:日經 225</h3>
+<p>V2_50 3x 於 1971–89 年化 24.9%(1x 18.1%);1990–2010 為 −7.8%(1x −5.2%,3x 持有 −34.6%);2011–26 為 −2.5%(1x +12.3%)。1989 年的日本具備與今日美國科技相似的結構論點(成分股汰換、全球第二大市場、技術領先),規則在當時會通過本文全部判準;結構改變後,即使在其後的多頭期,規則仍持續落後 1x。<b>這是本研究認定最重要、且無法以回測消除的風險。</b></p>
+<h3>7.5 單日跳空植入</h3>
+<p>於近 15 年任一滿倉 3x 的交易日植入 −20% 隔夜跳空(3x 承受 −60%),取最壞時點:QQQ 近 15 年年化 37.0% → 28.9%,回撤 −63%,仍高於 1x 的 20.1%。單次 1987 型事件不致毀滅規則;連續兩次則會。</p>
+
+</article><article class="sheet"><h2>8. 前瞻分布:十年期</h2>
+<p>以全期日報酬 1 年區塊自助 4,000 條十年路徑,取年化報酬分布。自助法處理的是「同一套規則、不同運氣」;它不處理選擇偏誤——規則是從 127 個組合中挑出,回測平均本身可能偏高。故引入信心參數 c ∈ [0, 1],將每條路徑之對數年化報酬平移 −(1 − c)·ε̂,ε̂ 為樣本對數年化超額(三腿等權 8.2 點)。c = 0 等同假設規則無超額;c = 0.5 對應文獻常見的發表後衰退幅度 [12] 與多重檢定折扣 [11]。</p>
+<div class="tbl"><table>
+<tr><th class="l">十年年化(三腿等權)</th><th>5% 分位</th><th>中位</th><th>95% 分位</th><th>十年虧損機率</th><th>對應十年倍數(中位)</th></tr>
+<tr><td class="l">c = 1.0(完全依回測)</td><td>+5.3%</td><td>+20.0%</td><td>+36.5%</td><td>1%</td><td>6.2×</td></tr>
+<tr><td class="l">c = 0.7</td><td>+2.8%</td><td>+17.1%</td><td>+33.1%</td><td>2%</td><td>4.9×</td></tr>
+<tr><td class="l"><b>c = 0.5(建議規劃值)</b></td><td><b>+1.1%</b></td><td><b>+15.2%</b></td><td><b>+31.0%</b></td><td><b>4%</b></td><td><b>4.1×</b></td></tr>
+<tr><td class="l">c = 0(無超額)</td><td>−3.0%</td><td>+10.5%</td><td>+25.7%</td><td>11%</td><td>2.7×</td></tr>
+<tr class="sep"><td class="l">三腿 1x 等權</td><td>−3.7%</td><td>+10.6%</td><td>+23.8%</td><td>11%</td><td>2.7×</td></tr>
+</table></div>
+<div class="tbl"><table>
+<tr><th class="l">c = 0.5,單腿</th><th>5% 分位</th><th>中位</th><th>95% 分位</th><th>十年虧損機率</th><th class="l">同腿 1x 中位 / 虧損機率</th></tr>
+<tr><td class="l">QQQ</td><td>−3.3%</td><td>+15.3%</td><td>+36.6%</td><td>10%</td><td class="l">+10.1% / 16%</td></tr>
+<tr><td class="l">SPY</td><td>+2.9%</td><td>+13.3%</td><td>+24.7%</td><td>2%</td><td class="l">+8.9% / 8%</td></tr>
+<tr><td class="l">SOXX</td><td>−2.5%</td><td>+13.3%</td><td>+33.0%</td><td>10%</td><td class="l">+11.0% / 17%</td></tr>
+</table></div>
+<p class="cap"><b>表 8</b> 十年期年化報酬分布。三點值得注意:(1)即使 c = 0,規則分布與 1x 分布相近而非更差,即規則的下檔近似被動持有;(2)QQQ 單腿對 c 敏感(中位 21.0% → 10.0%),三腿等權較不敏感,分散同時降低模型風險;(3)自助法只能重組已發生的年份,1966–82 或日本 1990 後那類結構性情境不在分布內,實際左尾較表列為厚。月報酬套常態分布會高估左尾(QQQ 十年輸給 1x 的機率 22% 對自助法 7%),因規則報酬右偏。</p>
+
+</article><article class="sheet"><h2>9. 實作考量</h2>
+<h3>9.1 容量與流動性</h3>
+<p>最近 252 個交易日日均成交額中位數:TQQQ 約 48 億美元(最低 14 億)、SOXL 約 58 億(最低 14 億)、SOXX 約 28 億(最低 5 億)、UPRO 約 3.9 億(最低 1.7 億)。以單次換手不超過日均成交額 1% 為上限,UPRO 腿約可容納 400 萬美元、TQQQ 與 SOXL 腿約 4,800–5,800 萬美元。換手集中於開盤競價與開盤後 30 分鐘;同類趨勢規則(MA200 為最普遍使用的訊號)可能同日出場,實際滑價在壓力日可能高於 7.1 節之 ×3 情境。</p>
+<h3>9.2 稅務與成本(台灣居住者)</h3>
+<p>美國 ETF 資本利得對台灣居住者不課美國稅,海外所得併入基本所得額(年 750 萬新台幣免稅額);股息預扣 30%,槓桿 ETF 配息低,影響小於 0.1 點/年,本研究未計入。複委託手續費與最低收費可能使小額帳戶的實際單邊成本高於 0.10%。</p>
+<h3>9.3 產品與監管風險</h3>
+<p>發行商可在極端事件後清算槓桿產品(2020 年多檔原油與波動率產品之先例),持倉中清算等於被迫於最差時點出場;SEC 於 2020 年曾提案限制零售投資人取得槓桿與反向基金(後撤回);複委託券商可能下架特定產品。上述風險無法由規則緩解,僅能以部位規模管理。</p>
+<h3>9.4 市場結構:23 小時交易</h3>
+<p>Nasdaq 目標於 2026-12-06 起實施週日 21:00 至週五 20:00(美東)連續交易,每日僅停 20:00–21:00;NYSE Arca 已獲准 22 小時 [18]。16:00 正規收盤與收盤競價保留,訊號計算不受影響;但「次日開盤」成交可能提前至當晚 21:00 夜盤。夜盤流動性預期為日盤數個百分點,且槓桿 ETF 夜間報價可能偏離淨值。建議上線後先記錄三個月夜盤價差與成交量,以實測成本回測「16:00 訊號 → 21:00 執行」,再決定是否調整。</p>
+<h3>9.5 營運</h3>
+<p>訊號每日收盤後由排程計算,收盤一小時後推送收盤確認,開盤前三十分鐘推送執行提醒,每週一推送當週曝險。系統狀態、秘密與資料已建立版本控制、異地與離線封存及換機程序(附錄 C)。自有成交滑價目前未系統性記錄,建議每次換手記錄開盤參考價與實際成交價。</p>
+
+</article><article class="sheet"><h2>10. 失靈模式與監控</h2>
+<p>規則依賴五項假設:A 標的呈長趨勢、慢跌;B 波動群聚且可由 20 日窗預測;C 產品存在、流動、追蹤準確;D 長期漂移不低於約 10% 且融資成本合理;E 每日一次收盤訊號足夠。以 STEEP 驅動力展開六個情境,並對可量化的早期訊號檢驗領先性(訊號亮起後 12 個月三腿等權超額中位 vs 未亮時)。</p>
+<div class="tbl"><table>
+<tr><th class="l">情境</th><th class="l">破壞假設</th><th class="l">規則表現</th><th class="l">早期訊號</th></tr>
+<tr><td class="l">1 AI 資本支出週期反轉</td><td class="l">A、E</td><td class="l">存活;其後數年低報酬</td><td class="l">資本支出展望下修、NFCI 轉正</td></tr>
+<tr><td class="l">2 多頭延續但路徑震盪</td><td class="l">B</td><td class="l">不虧損,顯著落後 1x</td><td class="l">波動可預測性 &lt; 0.5</td></tr>
+<tr><td class="l">3 結構性高利率與通膨反覆</td><td class="l">D、A</td><td class="l">SPY 長期 1x;QQQ 超額減半</td><td class="l">短率 &gt; 4%;CPI 上限觸發 &gt; 50%</td></tr>
+<tr><td class="l">4 監管與產品清算</td><td class="l">C</td><td class="l">規則正確但無法執行</td><td class="l">無領先訊號</td></tr>
+<tr><td class="l">5 地緣跳空</td><td class="l">A、E</td><td class="l">SOXX 腿可能一次歸零</td><td class="l">無領先訊號</td></tr>
+<tr><td class="l">6 市場結構質變</td><td class="l">E、B</td><td class="l">成交假設失真,年少 2–5 點</td><td class="l">自有滑價紀錄</td></tr>
+</table></div>
+<div class="tbl"><table>
+<tr><th class="l">訊號(月頻)</th><th>亮燈條件</th><th>歷史亮燈比例</th><th>亮後 12 月超額中位</th><th>未亮時</th><th>2026-09 現值</th></tr>
+<tr><td class="l">波動可預測性(2 年相關)</td><td>&lt; 0.5</td><td>60%</td><td>+4.6 點</td><td>+9.2 點</td><td>0.28(亮)</td></tr>
+<tr><td class="l">滾動 3 年策略 − 1x</td><td>&lt; 0</td><td>18%</td><td>+12.2 點</td><td>+5.1 點</td><td>+5.1</td></tr>
+<tr><td class="l">跳空占比(1 年)</td><td>&gt; 45%</td><td>8%</td><td>+11.9 點</td><td>+6.2 點</td><td>44%</td></tr>
+<tr><td class="l">短率</td><td>&gt; 4%</td><td>21%</td><td>+8.2 點</td><td>+7.3 點</td><td>4.1%(亮)</td></tr>
+<tr><td class="l">SPY CPI 上限觸發比例</td><td>&gt; 50%</td><td>52%</td><td>+6.3 點</td><td>+7.0 點</td><td>92%(亮)</td></tr>
+<tr><td class="l">TQQQ 追蹤誤差 / 成交金額</td><td>—</td><td>0%</td><td>—</td><td>—</td><td>正常</td></tr>
+</table></div>
+<p class="cap"><b>表 9–10</b> 失靈情境與早期訊號。僅波動可預測性呈現亮燈後績效轉差,且目前正在亮起;「近三年落後 1x」與「跳空占比高」為反向訊號(多在崩盤期間亮起、規則已在現金,其後一年為相對強勢期),因此規則近期落後不構成停用理由。產品類訊號歷史上從未觸發,無法評估;情境 4、5 無領先訊號,唯一可用工具為部位規模。</p>
+
+</article><article class="sheet"><h2>11. 限制</h2>
+<ul>
+<li><b>合成資料。</b>2000–02 與 2008 兩次崩盤期間之 2–3 倍報酬為合成,未納入極端期融資成本上升、折溢價與流動性斷裂。規則「躲過崩盤」的結論主要建立在合成序列上。</li>
+<li><b>獨立樣本少。</b>26 年僅含兩至三個完整循環;十年滾動窗口高度重疊,實際獨立十年樣本約兩個。所有勝率與分布應視為量級。</li>
+<li><b>樣本內設計。</b>規則元件來自 1990 年代後的文獻;1999–2016 不能視為真正樣本外。真正樣本外僅 1966–99(無真實產品)與 2017 年後。</li>
+<li><b>顯著性。</b>月超額 t 值 1.3–2.2,未達多重檢定門檻;DSR 與自助區間支持方向,但不支持精確的超額大小。</li>
+<li><b>集中。</b>三條腿皆為美國大型科技相關指數,彼此相關 0.56–0.74;與文獻中跨數十市場之分散不可比。</li>
+<li><b>SOXX 腿。</b>參數雲、執行壓力與近代 t 值(0.34)一致顯示此腿邊際最薄;保留槓桿為投資人偏好,規模應為三腿中最小。</li>
+<li><b>行為成本。</b>規則要求於 2009 年 3 月、2020 年 4 月、2023 年 1 月等恐懼高點買回槓桿;最差的三年期落後 1x 約 15 點。回測無此成本。</li>
+</ul>
+
+</article><article class="sheet"><h2>12. 結論</h2>
+<p>在實盤約束下,以趨勢決定在場、以已實現波動決定倍數的槓桿輪動,於 2000 年以來的美國大型科技指數產生了方向可信、大小不確定的超額報酬:三腿等權 Sharpe 0.70 對 0.42,最大回撤減半,年化對數超額 90% 區間 [+3.7%, +13.2%]。然而,月超額 t 值未達多重檢定門檻,近 15 年風險調整後報酬與被動持有相近,且規則在 38 個市場中僅於高漂移、趨勢延續、慢跌型的美國大型科技通過,在日本 1990 年後持續失效。</p>
+<p>我們因此將本策略定位為「美國大型科技持續多頭」此一結構的條件式槓桿,而非獨立於市場結構的 alpha。對十年期配置者的建議是:以三腿等權而非單押;以 c = 0.5 的前瞻分布(十年年化中位約 15%、5% 分位約 1%)為規劃基準,而非回測數字;將槓桿層規模限制在能承受單日 −50% 與連續三年落後 1x 的範圍;持續監控波動可預測性與產品風險。部位規模比規則參數重要。</p>
+
+</article><article class="sheet"><h2>揭露</h2>
+<p class="note">本報告為研究用途,不構成投資建議、要約或招攬。所有結果為歷史回測與模擬,未反映實際交易;過去績效不代表未來結果。作者本人以本策略管理部分個人資產。槓桿 ETF 可能在短期內損失大部分價值,並可能被發行商清算。數字對應 2026-09-25 收盤之資料版本;因研究快取按日更新,網頁數字可能與本文有小數位差異。完整程式、自檢與逐主題原始結果可再現(bluemorpho.art/leverage;附錄 B)。</p>
+
+</article><article class="sheet"><h2>參考文獻</h2>
+<ol class="refs">
+<li>Faber, M. T. (2007). A Quantitative Approach to Tactical Asset Allocation. <i>Journal of Wealth Management</i>, 9(4), 69–79.</li>
+<li>Moskowitz, T. J., Ooi, Y. H., &amp; Pedersen, L. H. (2012). Time Series Momentum. <i>Journal of Financial Economics</i>, 104(2), 228–250.</li>
+<li>Hurst, B., Ooi, Y. H., &amp; Pedersen, L. H. (2017). A Century of Evidence on Trend-Following Investing. <i>Journal of Portfolio Management</i>, 44(1), 15–29.</li>
+<li>Cheng, M., &amp; Madhavan, A. (2009). The Dynamics of Leveraged and Inverse Exchange-Traded Funds. <i>Journal of Investment Management</i>, 7(4), 43–62.</li>
+<li>Avellaneda, M., &amp; Zhang, S. (2010). Path-Dependence of Leveraged ETF Returns. <i>SIAM Journal on Financial Mathematics</i>, 1(1), 586–603.</li>
+<li>Moreira, A., &amp; Muir, T. (2017). Volatility-Managed Portfolios. <i>Journal of Finance</i>, 72(4), 1611–1644.</li>
+<li>Harvey, C. R., Hoyle, E., Korgaonkar, R., Rattray, S., Sargaison, M., &amp; van Hemert, O. (2018). The Impact of Volatility Targeting. <i>Journal of Portfolio Management</i>, 45(1), 14–33.</li>
+<li>Gayed, M. A. (2016). Leverage for the Long Run. Charles H. Dow Award, Market Technicians Association.</li>
+<li>Bailey, D. H., &amp; López de Prado, M. (2014). The Deflated Sharpe Ratio. <i>Journal of Portfolio Management</i>, 40(5), 94–107.</li>
+<li>Bailey, D. H., Borwein, J. M., López de Prado, M., &amp; Zhu, Q. J. (2014). Pseudo-Mathematics and Financial Charlatanism. <i>Notices of the AMS</i>, 61(5), 458–471.</li>
+<li>Harvey, C. R., Liu, Y., &amp; Zhu, H. (2016). … and the Cross-Section of Expected Returns. <i>Review of Financial Studies</i>, 29(1), 5–68.</li>
+<li>McLean, R. D., &amp; Pontiff, J. (2016). Does Academic Research Destroy Stock Return Predictability? <i>Journal of Finance</i>, 71(1), 5–32.</li>
+<li>Kelly, J. L. (1956). A New Interpretation of Information Rate. <i>Bell System Technical Journal</i>, 35(4), 917–926.</li>
+<li>Thorp, E. O. (2006). The Kelly Criterion in Blackjack, Sports Betting, and the Stock Market. In <i>Handbook of Asset and Liability Management</i>, Vol. 1. Elsevier.</li>
+<li>MacLean, L. C., Thorp, E. O., &amp; Ziemba, W. T. (Eds.) (2011). <i>The Kelly Capital Growth Investment Criterion</i>. World Scientific.</li>
+<li>Harvey, C. R., &amp; Liu, Y. (2015). Backtesting. <i>Journal of Portfolio Management</i>, 42(1), 13–28.</li>
+<li>Hamilton, J. D. (1989). A New Approach to the Economic Analysis of Nonstationary Time Series and the Business Cycle. <i>Econometrica</i>, 57(2), 357–384.</li>
+<li>Nasdaq (2026). The Road to 24-Hour Trading(新聞稿與常見問題);Markets Media (2026). Nasdaq Aims to Debut 23/5 Trading on 6 December 2026.</li>
+</ol>
+
+</article><article class="sheet"><h2>附錄 A 參數一覽</h2>
+<div class="tbl"><table>
+<tr><th class="l">參數</th><th class="l">值</th><th class="l">來源 / 敏感度</th></tr>
+<tr><td class="l">趨勢均線</td><td class="l">MA200;QQQ 回場另需 MA50</td><td class="l">150/200/250 同向(主題 ⑨)</td></tr>
+<tr><td class="l">均線緩衝</td><td class="l">±3%</td><td class="l">參數雲 2–4%</td></tr>
+<tr><td class="l">波動窗</td><td class="l">20 日</td><td class="l">參數雲 15–25 日</td></tr>
+<tr><td class="l">QQQ 目標波動</td><td class="l">50%</td><td class="l">40% / 50% 皆過;參數雲 40–60%</td></tr>
+<tr><td class="l">SOXX 波動門檻</td><td class="l">35%</td><td class="l">參數雲 30–40%;相對門檻較差(主題 ⑥)</td></tr>
+<tr><td class="l">SOXX 冷卻 / 核心</td><td class="l">10 日 / 30%</td><td class="l">5–20 日互有勝負,屬雜訊(主題 ⑯);核心 30% 免費(主題 ⑬)</td></tr>
+<tr><td class="l">CPI 上限</td><td class="l">年增率高於 126 交易日前,延遲 45 日 → 上限 1x</td><td class="l">僅 SPY 通過(主題 ⑧)</td></tr>
+<tr><td class="l">成本</td><td class="l">費用 0.95%/年;單邊 0.10%;現金 0%</td><td class="l">滑價 ×3、費用 ×2 見表 7</td></tr>
+</table></div>
+</article><article class="sheet"><h2>附錄 B 研究檔案索引</h2>
+<p class="note">網頁版(bluemorpho.art/leverage,「試過的路」)依問題分組:A 訊號選擇(主題 ③④⑤⑧⑨⑩⑫)、B 降低鞭打(⑥⑦⑭⑯、② D)、C 勝率(⑬⑭)、D 進場與配置(②⑪)、E 可信度(①⑮⑰、成交時點、合成校驗、參數敏感度)、F 失靈情境(⑱)。每項實驗的原始表格、對抗驗證與參數均可展開;共 17 個主題、80 餘項實驗,其中 60 餘個疊加規則僅 SPY 的 CPI 上限被採用。</p>
+</article><article class="sheet"><h2>附錄 C 營運連續性</h2>
+<p class="note">程式與研究以版本控制保存於私人遠端儲存庫;網站與通知端點部署於 Cloudflare Pages;每週自動將三個儲存庫之完整歷史、全部資料(含回測資料庫)與還原說明封存至離線硬碟;金鑰以 AES-256 加密另存。換機程序:還原金鑰 → 自動化安裝(環境、依賴、自檢、排程)→ 兩項手動授權。</p>
+</article></main>
+<style>
+:root,:root[data-theme="dark"]{color-scheme:light!important;--paper:#F5F4EF!important;--sheet:#FFFFFF!important;--ink:#1B1F24!important;--ink2:#4A5460!important;--mute:#7A8490!important;--line:#D6DAD8!important;--accent:#0E7490!important;--accent-soft:#E3F1F4!important;--warn:#9A4A12!important;--warn-soft:#FBEFE4!important}
+html,body{height:100%;overflow:hidden}body{padding:0}
+main{height:100dvh;overflow-y:auto;scroll-snap-type:y mandatory;padding:0 16px;box-sizing:border-box}
+main>.sheet{scroll-snap-align:start;min-height:100dvh;margin:0 auto;padding-top:72px;box-shadow:none;border-bottom:1px solid var(--line)}
+#back{position:fixed;left:16px;top:calc(14px + env(safe-area-inset-top,0px));z-index:10;height:36px;padding:0 14px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.85);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:var(--ink2);font:500 11px var(--mono);letter-spacing:.14em;display:flex;align-items:center;text-decoration:none}
+#pg{position:fixed;right:16px;top:calc(14px + env(safe-area-inset-top,0px));z-index:10;height:36px;padding:0 12px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.85);color:var(--mute);font:11px var(--mono);letter-spacing:.1em;display:flex;align-items:center}
+@media (max-width:700px){main{padding:0}main>.sheet{padding:68px 16px 28px}}
+@media print{#back,#pg{display:none}html,body,main{height:auto;overflow:visible}}
+</style>
+<a id="back" href="leverage#rules" aria-label="返回看路開">‹ 看路開</a><div id="pg" aria-live="polite"></div>
+<script>(function(){var m=document.querySelector('main'),S=[].slice.call(m.children),pg=document.getElementById('pg');
+function idx(){var t=m.scrollTop+innerHeight*.4,i=0;S.forEach(function(s,k){if(s.offsetTop<=t)i=k});return i}
+function paint(){pg.textContent=(idx()+1)+' / '+S.length}m.addEventListener('scroll',paint,{passive:true});paint();
+addEventListener('keydown',function(e){var d={ArrowDown:1,ArrowRight:1,PageDown:1,ArrowUp:-1,ArrowLeft:-1,PageUp:-1}[e.key];if(!d)return;
+var i=idx(),s=S[i],b=s.offsetTop+s.offsetHeight-m.scrollTop-innerHeight;
+if(d>0&&b>8&&(e.key==='ArrowDown'))return;  /* ponytail: 長章節先讓下鍵在頁內捲,捲到底才翻頁 */
+e.preventDefault();S[Math.max(0,Math.min(S.length-1,i+d))].scrollIntoView({behavior:'smooth'})})})();</script>
