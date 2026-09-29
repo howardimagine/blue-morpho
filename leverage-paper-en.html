@@ -1,0 +1,364 @@
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Ridewell Research Report</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{color-scheme:light;--paper:#F5F4EF;--sheet:#FFFFFF;--ink:#1B1F24;--ink2:#4A5460;--mute:#7A8490;--line:#D6DAD8;--accent:#0E7490;--accent-soft:#E3F1F4;--warn:#9A4A12;--warn-soft:#FBEFE4;--serif:"Source Serif 4","Noto Serif TC","PingFang TC",Georgia,serif;--mono:"IBM Plex Mono","SF Mono",Menlo,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--paper:#0F1316;--sheet:#171C21;--ink:#E8ECEF;--ink2:#B7C0C8;--mute:#8A94A0;--line:#2A333C;--accent:#38B6D3;--accent-soft:#12303A;--warn:#F0A060;--warn-soft:#2E2016}}
+:root[data-theme="dark"]{color-scheme:dark;--paper:#0F1316;--sheet:#171C21;--ink:#E8ECEF;--ink2:#B7C0C8;--mute:#8A94A0;--line:#2A333C;--accent:#38B6D3;--accent-soft:#12303A;--warn:#F0A060;--warn-soft:#2E2016}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:10.5pt;line-height:1.65;padding:24px 16px}
+.sheet{background:var(--sheet);max-width:210mm;margin:0 auto 18px;padding:20mm 19mm 22mm;box-shadow:0 2px 14px rgba(0,0,0,.08);box-sizing:border-box;position:relative}
+h1{font-size:19pt;line-height:1.3;margin:0 0 6px;font-weight:700;text-wrap:balance}
+h2{font-size:12.5pt;margin:20px 0 8px;font-weight:700;border-bottom:1px solid var(--line);padding-bottom:4px;break-after:avoid}
+h3{font-size:10.8pt;margin:14px 0 5px;font-weight:600;break-after:avoid}
+p{margin:0 0 9px;text-align:justify;hyphens:auto}
+.meta{font-size:9.5pt;color:var(--ink2);margin-bottom:12px}
+.box{background:var(--accent-soft);padding:11px 15px;border-left:3px solid var(--accent);font-size:9.8pt;margin:12px 0}
+.box p{margin:0 0 6px}.box ul{margin:4px 0 4px 18px}
+.warnbox{background:var(--warn-soft);border-left:3px solid var(--warn);padding:10px 14px;font-size:9.6pt;margin:12px 0}
+.kw{font-size:9pt;color:var(--ink2)}
+table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:8.2pt;font-variant-numeric:tabular-nums;margin:6px 0 4px}
+th{text-align:right;font-weight:500;color:var(--ink2);border-bottom:1px solid var(--ink);padding:3px 5px;white-space:nowrap;font-size:7.9pt;vertical-align:bottom}
+td{text-align:right;padding:3px 5px;border-bottom:1px solid var(--line);white-space:nowrap}
+th:first-child,td:first-child,.l{text-align:left}
+tr.sep td{border-top:1px solid var(--ink2)}
+.tbl{overflow-x:auto;break-inside:avoid}
+.cap{font-size:8.8pt;color:var(--ink2);margin:0 0 12px}
+.cap b{color:var(--ink)}
+.eq{font-family:var(--mono);font-size:9.5pt;margin:8px 0 10px 16px;color:var(--ink);white-space:pre-wrap;line-height:1.6}
+ol.refs{font-size:9pt;padding-left:22px;color:var(--ink2)}ol.refs li{margin-bottom:4px}
+.note{font-size:9pt;color:var(--ink2)}
+ul{margin:0 0 9px 20px;padding:0}li{margin-bottom:3px}
+.num{font-family:var(--mono)}
+@media (max-width:700px){.sheet{padding:18px 16px}}
+@media print{body{background:#fff;padding:0;font-size:10pt}.sheet{box-shadow:none;margin:0;max-width:none;padding:0}.sheet+.sheet{break-before:page}@page{size:A4;margin:18mm 16mm}}
+</style>
+
+<main><article class="sheet">
+<h1>Conditional Leverage Rotation: Rules, Inference, and Implementation Boundaries for Using Trend and Realized Volatility to Determine Leveraged Exposure to US Stock Indices</h1>
+<p class="meta">Blue Morpho Research Report ("Ridewell" Project) · 2nd Edition · September 28, 2026<br>Data period 2000-03-08 to 2026-09-25 (daily) · Out-of-sample supplement 1966–1999 · Code <span class="num">stock-radar/agents/lev_rotation.py</span>(Version <span class="num">ed91e33</span> onward)</p>
+
+<div class="box">
+<p><b>Executive Summary</b></p>
+<ul>
+<li><b>Strategy.</b>Signals computed from 1x ETF close prices, with next-day open adjustment to {cash, 1x, 2x, 3x} real leveraged ETF exposure. Three legs: Nasdaq 100 (QQQ, up to 3x, volatility target), S&amp;P 500 (SPY, up to 3x, 200-day MA plus CPI cap), Philadelphia Semiconductor (SOXX, up to 2x, volatility threshold, 10-day cooldown, 30% permanent 1x). Recommended equal-weight three legs, monthly rebalance.</li>
+<li><b>Performance (2000-03 to 2026-09, net of fees and costs, zero interest on cash).</b>Three-leg equal weight: annualized 19.2%, annualized volatility 28.3%, Sharpe 0.70, max drawdown −36.5%; over the same period, three-leg 1x equal weight: annualized 9.8%, Sharpe 0.42, max drawdown −73.6%. Last 15 years: 31.1% vs 21.7%.</li>
+<li><b>Inference strength: evidence for returns, not for efficiency.</b>After correcting for autocorrelation and fat tails (Newey-West HAC, stationary block bootstrap), the three-leg equal-weight average excess return is significant both for the full period and the last 15 years (bootstrap p = 0.001, 0.008); the SOX single leg is not significant. But the 90% interval for the Sharpe difference includes 0, and is slightly negative for the last 15 years — the excess return mainly comes from taking on more leverage. The probability of a shallower drawdown is 0.94 (median 21 points shallower), which is the most reliable effect of the rule. Deflated Sharpe (127 trials): 98–100%.</li>
+<li><b>Excess return sources are concentrated.</b>Excess return mainly comes from exiting during the three bear markets of 2000–02, 2008, 2022, and being fully invested during 2013, 2017, 2019–21, 2023; the strategy systematically lags in non-bear, low-trend years (2004–06, 2011, 2015). The rule is essentially long "trend continuation with slow declines" market structure.</li>
+<li><b>External validity is limited.</b>Applying the same rule across 38 markets with leveraged products, only tech stocks, S&amp;P, and Nasdaq pass; Nikkei 225 has consistently lagged 1x since 1990 (including the 2011–2026 bull market). There is no reliable leading signal before structural changes.</li>
+<li><b>Forward-looking.</b>Using 1-year block bootstrap with 4,000 ten-year paths, at 50% confidence in backtested excess returns, the three-leg equal-weight ten-year annualized median is 15.2% (5th percentile 1.1%, 95th percentile 31.0%), with about a 4% probability of a ten-year loss; under the same conditions, holding three-leg 1x continuously gives a median of 10.6%, with an 11% loss probability.</li>
+<li><b>Implementation.</b>Annual turnover is about 15.7 times (combined across three legs), concentrated at the open; TQQQ and SOXL median daily trading volumes are about $4.8 billion and $5.8 billion respectively, UPRO about $390 million — capacity is not a constraint for individual to mid-size accounts. Main implementation risks are product liquidation, regulatory restrictions, and the impact of 23-hour trading starting 2026-12 on the "next-day open" assumption.</li>
+</ul>
+</div>
+<p class="kw"><b>Keywords</b> Leveraged ETFs; time-series momentum; volatility management; backtest overfitting; deflated Sharpe; block bootstrap; external validity; position sizing</p>
+
+</article><article class="sheet"><h2>1. Research Question and Contribution</h2>
+<p>The long-term returns of daily-rebalanced L-times leveraged ETFs are eroded by realized variance. Using this study's data, holding synthetic 3x Nasdaq 100 continuously since March 2000 results in a terminal value of 0.45x principal, synthetic 3x Philadelphia Semiconductor falls below 0.02x, while 1x versions are 7.9x and 13.7x respectively. Existing literature suggests that if leverage is used only during low volatility, upward-trending periods, expected returns can turn positive [4–8]. This study examines whether this proposition holds under the following live-trading constraints: (i) only actually available product multiples can be held; (ii) signals are computed at close and executed at the next day's open, with overnight gaps borne by the old exposure; (iii) leveraged ETFs use their actual prices after listing; (iv) cash earns no interest, while financing costs are fully deducted.</p>
+<p>This study's contribution lies not in the rule components (all found in the literature), but in: reconstructing the backtest under live-trading constraints; conducting adversarial validation at the statistical, execution, and structural levels, with unsupported results explicitly reported; proposing a ten-year forward-looking distribution and parameterizing "confidence in the backtest"; and enumerating failure modes via scenario analysis while testing the leading nature of early signals.</p>
+
+</article><article class="sheet"><h2>2. Literature Positioning</h2>
+<p><b>Time-series momentum and trend filters.</b>Faber [1] showed that a 10-month moving average filter produces returns close to buy-and-hold while greatly reducing drawdowns; Moskowitz, Ooi, and Pedersen [2] documented time-series momentum and its positive returns during crises across 58 futures markets; Hurst, Ooi, and Pedersen [3] extended the analysis back to 1880, noting that a single market or single decade may fail entirely — a point directly validated in Section 7.4 of this study.</p>
+<p><b>Path dependency of leveraged ETFs.</b>Cheng and Madhavan [4], Avellaneda and Zhang [5] give the approximate long-term return of daily-rebalanced products as g(L) ≈ L·μ − ½·L²·σ² − (L−1)·r<sub>f</sub> − fees, with optimal leverage L* ≈ (μ − r<sub>f</sub>)/σ². Using full-period QQQ estimates (μ ≈ 10%, σ ≈ 23%), L* ≈ 1.9, meaning unconditional 3x exceeds the optimal value. The economic function of the rule is to make σ a conditional variable: at 20-day realized volatility of 17%, with the same μ, L* approaches 3.5.</p>
+<p><b>Volatility management.</b>Moreira and Muir [6] proved that scaling exposure inversely with prior realized variance improves Sharpe ratio, because risk premiums do not rise proportionally during high-volatility periods; Harvey et al. [7] found the effect significant in equities and credit but weak in bonds and commodities, consistent with the cross-market results in Section 7.3 of this study. Gayed [8]'s backtest combining a 200-day MA with leverage on the S&amp;P 500 forms the rule skeleton of this project.</p>
+<p><b>Backtest credibility.</b>This study uses Bailey and López de Prado's deflated Sharpe ratio [9], Bailey et al.'s Combinatorially Symmetric Cross-Validation (CSCV) for backtest overfitting probability [10], referencing Harvey, Liu, and Zhu [11]'s argument on multiple-testing thresholds, as well as McLean and Pontiff [12]'s estimate of about half the return decay after publication.<b>Position Sizing</b>Referencing Kelly [13], Thorp [14], MacLean, Thorp, and Ziemba [15].</p>
+
+</article><article class="sheet"><h2>3. Data and Return Construction</h2>
+<h3>3.1 Data Sources</h3>
+<div class="tbl"><table>
+<tr><th class="l">Market</th><th class="l">Signal and 1x returns</th><th class="l">Real 2x / 3x (listed)</th><th class="l">Pre-listing</th><th>Annual fee</th><th>One-way cost</th></tr>
+<tr><td class="l">Nasdaq 100</td><td class="l">QQQ(1999-03)</td><td class="l">QLD / TQQQ(2006 / 2010)</td><td class="l">Synthetic</td><td>0.95%</td><td>0.10%</td></tr>
+<tr><td class="l">S&amp;P 500</td><td class="l">SPY</td><td class="l">SSO / UPRO(2006 / 2009)</td><td class="l">Synthetic</td><td>0.95%</td><td>0.10%</td></tr>
+<tr><td class="l">Philadelphia Semiconductor</td><td class="l">SOXX (2001-07); before that ^SOX + 0.8%/year</td><td class="l">50% SOXX + 50% SOXL / SOXL(2010)</td><td class="l">Synthetic</td><td>0.95%</td><td>0.10%</td></tr>
+<tr><td class="l">Taiwan 50</td><td class="l">0050.TW (2009); before that ^TWII + 3.5%/year</td><td class="l">00631L(2x,2014)</td><td class="l">Synthetic</td><td>1.00%</td><td>0.20%</td></tr>
+</table></div>
+<p class="cap"><b>Table 1</b> Data. Prices: Yahoo Finance adjusted daily bars (OHLCV); rates: 3-month Treasury bill ^IRX; CPI, BAA spread: FRED. ProShares USD tracks the Dow Jones U.S. Semiconductor Index rather than the index tracked by SOXX, so SOXX's 2x is approximated by daily equal-weighting SOXX and SOXL. The annualized difference between synthetic and real products during overlapping periods is −1.2% to +1.6%.</p>
+
+<h3>3.2 Return Construction</h3>
+<p>Let r<sub>t</sub> be the close-to-close return of the 1x underlying on day t, g<sub>t</sub> be the gap of day t's open relative to the previous day's close, r<sub>f,t</sub> be the daily short rate, f be the annual fee, and c be the one-way cost. Synthetic L-times daily return:</p>
+<p class="eq">R(L)_t = L·r_t − (L−1)·r_f,t − 𝟙[L&gt;1]·f/252          (L ≥ 1)
+R(L)_t = L·r_t                                          (L &lt; 1, remaining balance is zero-interest cash)</p>
+<p>Signal x<sub>t</sub> is determined after the close on day t; day t+1's account return is split into an overnight segment (old exposure) and an intraday segment (new exposure), net of turnover costs:</p>
+<p class="eq">1 + R_t+1 = [1 + G(x_t−1)_t+1] · [1 + R(x_t)_t+1] / [1 + G(x_t)_t+1] − c·|x_t − x_t−1|</p>
+<p>where G(L) is the overnight gap of the L-times product (using actual open prices after listing). Fractional exposures (such as 0.3 or 1.7 for SOXX) are achieved via cash-weighted combinations of 1x and L-times products. Annualized returns are calculated by calendar years (not trading days ÷ 252, as the latter overstates Taiwan stocks with 245 days by about 0.6 points).</p>
+<h3>3.3 Look-Ahead Bias Control</h3>
+<p>Self-check (<span class="num">tests/test_lev_rotation.py</span>) runs three adversarial tests for each rule: (a) replace prices after day K with a random sequence, verifying that exposure before day K is completely unchanged; (b) verify that day K+1's return depends only on exposure determined before day K; (c) plant a known "signal-day close execution" cheat and confirm it can be detected. Macro data is aligned by publication delay (CPI +45 days; VIX and spreads delayed by one day). Incomplete intraday-captured K bars are removed before calculation.</p>
+
+</article><article class="sheet"><h2>4. Strategy Specification</h2>
+<div class="tbl"><table>
+<tr><th class="l">Leg</th><th class="l">Entry conditions</th><th class="l">Multiplier</th><th class="l">Additional rules</th><th>Cap</th></tr>
+<tr><td class="l">QQQ(V2_50)</td><td class="l">Close &gt; MA50 and &gt; MA200; exit if it falls below MA200 × 0.97</td><td class="l">round(0.50 / σ̂<sub>20</sub>)</td><td class="l">—</td><td>3</td></tr>
+<tr><td class="l">SPY(T3 + CPI)</td><td class="l">Enter if close &gt; MA200 × 1.03; exit if &lt; MA200 × 0.97</td><td class="l">Fixed 3</td><td class="l">CPI YoY higher than 126 trading days prior (45-day delay) → cap 1</td><td>3</td></tr>
+<tr><td class="l">SOXX(TV35~H10~C30)</td><td class="l">Same as T3</td><td class="l">Fixed 2; σ̂<sub>20</sub> &gt; 35% → 0</td><td class="l">No change for 10 days after a change; exposure = 0.7·x + 0.3</td><td>2</td></tr>
+<tr><td class="l">0050</td><td class="l" colspan="3">Failed stability criteria (lagged 1x in 2010–19 decade; sensitive to MA length), holds 1x</td><td>1</td></tr>
+</table></div>
+<p class="cap"><b>Table 2</b> Rules. σ̂<sub>20</sub> is 20-day annualized realized volatility; MA is simple moving average of close price. Selection criteria: full-period max drawdown ≥ −65%; last 15-year annualized &gt; 1x; wins vs 1x in at least two of the three sub-periods 2000–09, 2010–19, 2020–; MA 150/200/250 results directionally consistent. SPY's CPI cap and SOXX's cooldown and core position were added only after independent adversarial validation (see Appendix B, topics ⑧, ⑬, ⑭).</p>
+
+</article><article class="sheet"><h2>5. Performance</h2>
+<h3>5.1 Risk-Adjusted Returns</h3>
+<div class="tbl"><table>
+<tr><th class="l">Full period 2000-03 to 2026-09</th><th>Annualized</th><th>Volatility</th><th>Sharpe</th><th>Sortino</th><th>MaxDD</th><th>Calmar</th><th>Ulcer</th><th>β</th><th>Upside capture</th><th>Downside capture</th><th>Worst 1-month</th><th>Worst 12-month</th><th>Longest underwater</th></tr>
+<tr><td class="l">QQQ rule</td><td>19.0%</td><td>39.8%</td><td>0.59</td><td>0.75</td><td>−64.9%</td><td>0.29</td><td>0.32</td><td>0.91</td><td>1.50</td><td>1.44</td><td>−38.0%</td><td>−49.7%</td><td>10.0 years</td></tr>
+<tr><td class="l">SPY rule</td><td>17.0%</td><td>24.2%</td><td>0.70</td><td>0.86</td><td>−33.3%</td><td>0.51</td><td>0.11</td><td>0.68</td><td>1.11</td><td>1.03</td><td>−18.9%</td><td>−20.6%</td><td>3.2 years</td></tr>
+<tr><td class="l">SOXX rule</td><td>17.1%</td><td>31.7%</td><td>0.60</td><td>0.79</td><td>−53.3%</td><td>0.32</td><td>0.24</td><td>0.63</td><td>0.84</td><td>0.81</td><td>−27.0%</td><td>−31.7%</td><td>7.1 years</td></tr>
+<tr class="sep"><td class="l"><b>Three-leg equal weight</b></td><td><b>19.2%</b></td><td>28.3%</td><td><b>0.70</b></td><td>0.88</td><td><b>−36.5%</b></td><td>0.53</td><td>0.18</td><td>0.74</td><td>1.10</td><td>1.05</td><td>−23.3%</td><td>−28.1%</td><td>3.5 years</td></tr>
+<tr class="sep"><td class="l">QQQ 1x</td><td>8.1%</td><td>26.4%</td><td>0.36</td><td>0.47</td><td>−83.0%</td><td>0.10</td><td>0.44</td><td>1</td><td>1</td><td>1</td><td>−26.2%</td><td>−67.3%</td><td>14.9 years</td></tr>
+<tr><td class="l">SPY 1x</td><td>8.6%</td><td>19.2%</td><td>0.43</td><td>0.55</td><td>−55.2%</td><td>0.16</td><td>0.16</td><td>1</td><td>1</td><td>1</td><td>−16.5%</td><td>−43.4%</td><td>6.6 years</td></tr>
+<tr><td class="l">SOXX 1x</td><td>10.4%</td><td>36.8%</td><td>0.40</td><td>0.58</td><td>−85.4%</td><td>0.12</td><td>0.49</td><td>1</td><td>1</td><td>1</td><td>−30.3%</td><td>−56.9%</td><td>17.1 years</td></tr>
+<tr><td class="l">Three-leg 1x equal weight</td><td>9.8%</td><td>25.8%</td><td>0.42</td><td>0.57</td><td>−73.6%</td><td>0.13</td><td>0.33</td><td>1</td><td>1</td><td>1</td><td>−20.8%</td><td>−50.0%</td><td>13.9 years</td></tr>
+</table></div>
+<div class="tbl"><table>
+<tr><th class="l">Last 15 years 2011-09 to 2026-09</th><th>Annualized</th><th>Volatility</th><th>Sharpe</th><th>Sortino</th><th>MaxDD</th><th>Calmar</th><th>β</th><th>Upside capture</th><th>Downside capture</th><th>Longest underwater</th></tr>
+<tr><td class="l">QQQ rule</td><td>37.0%</td><td>41.9%</td><td>0.93</td><td>1.16</td><td>−49.4%</td><td>0.75</td><td>1.55</td><td>2.00</td><td>2.01</td><td>1.8 years</td></tr>
+<tr><td class="l">SPY rule</td><td>21.2%</td><td>26.5%</td><td>0.80</td><td>0.97</td><td>−33.3%</td><td>0.64</td><td>1.02</td><td>1.43</td><td>1.43</td><td>2.4 years</td></tr>
+<tr><td class="l">SOXX rule</td><td>30.4%</td><td>34.0%</td><td>0.91</td><td>1.15</td><td>−40.9%</td><td>0.74</td><td>0.85</td><td>1.04</td><td>1.03</td><td>1.5 years</td></tr>
+<tr class="sep"><td class="l"><b>Three-leg equal weight</b></td><td><b>31.1%</b></td><td>30.6%</td><td><b>0.99</b></td><td>1.25</td><td>−32.6%</td><td>0.96</td><td>1.09</td><td>1.41</td><td>1.41</td><td>1.7 years</td></tr>
+<tr class="sep"><td class="l">Three-leg 1x equal weight</td><td>21.7%</td><td>21.7%</td><td>0.94</td><td>1.23</td><td>−35.3%</td><td>0.62</td><td>1</td><td>1</td><td>1</td><td>1.9 years</td></tr>
+</table></div>
+<p class="cap"><b>Table 3</b> Risk-adjusted metrics. Sharpe and Sortino are annualized from daily excess returns (minus ^IRX); Ulcer is the root mean square of drawdowns; β and capture ratio are relative to the same leg's 1x; longest underwater is the longest interval between new equity highs.<b>Highlights:</b>Over the full period, the three-leg equal-weight Sharpe rose from 0.42 to 0.70, and max drawdown narrowed from −73.6% to −36.5%; but over the last 15 years, Sharpe is only 0.99 vs 0.94 — meaning that in a sample without bear markets, the rule's main effect is amplifying β (1.09) rather than improving risk-adjusted returns.</p>
+
+<h3>5.2 Exposure and Turnover</h3>
+<div class="tbl"><table>
+<tr><th class="l">Leg</th><th>Average exposure</th><th>% of time leveraged (&gt;1.5x)</th><th>% of time in cash (&lt;0.5x)</th><th>Turnover events/year</th><th>Total exposure change/year</th><th>Monthly win rate (vs 1x)</th></tr>
+<tr><td class="l">QQQ</td><td>2.05x</td><td>73%</td><td>24%</td><td>8.2</td><td>10.5x</td><td>55%</td></tr>
+<tr><td class="l">SPY</td><td>1.41x</td><td>34%</td><td>27%</td><td>3.0</td><td>5.6x</td><td>39%</td></tr>
+<tr><td class="l">SOXX</td><td>1.05x</td><td>53%</td><td>47%</td><td>3.6</td><td>5.1x</td><td>55%</td></tr>
+</table></div>
+<p class="cap"><b>Table 4</b> Full-period exposure statistics. Combined annual turnover across three legs is about 15.7 times (about 14.7 trading days with action). SPY's 39% monthly win rate reflects the cost of the CPI cap suppressing exposure during up months; its excess return comes almost entirely from avoiding down months.</p>
+
+<h3>5.3 Year-by-Year Returns and Sources of Excess Return</h3>
+<div class="tbl"><table>
+<tr><th class="l">remaining</th><th>Three-leg rule</th><th>Three-leg 1x</th><th>Excess return</th><th class="l"></th><th class="l">remaining</th><th>Three-leg rule</th><th>Three-leg 1x</th><th>Excess return</th></tr>
+<tr><td class="l">2000*</td><td>−19.9</td><td>−36.3</td><td>+16.4</td><td></td><td class="l">2013</td><td>89.9</td><td>37.0</td><td>+52.9</td></tr>
+<tr><td class="l">2001</td><td>−2.4</td><td>−15.2</td><td>+12.8</td><td></td><td class="l">2014</td><td>28.2</td><td>20.9</td><td>+7.3</td></tr>
+<tr><td class="l">2002</td><td>−7.2</td><td>−35.4</td><td>+28.2</td><td></td><td class="l">2015</td><td>−8.8</td><td>3.0</td><td>−11.8</td></tr>
+<tr><td class="l">2003</td><td>63.0</td><td>52.5</td><td>+10.5</td><td></td><td class="l">2016</td><td>14.8</td><td>18.7</td><td>−3.9</td></tr>
+<tr><td class="l">2004</td><td>−5.0</td><td>2.2</td><td>−7.2</td><td></td><td class="l">2017</td><td>75.6</td><td>31.4</td><td>+44.2</td></tr>
+<tr><td class="l">2005</td><td>−4.0</td><td>6.7</td><td>−10.7</td><td></td><td class="l">2018</td><td>0.6</td><td>−3.5</td><td>+4.1</td></tr>
+<tr><td class="l">2006</td><td>−2.2</td><td>7.9</td><td>−10.1</td><td></td><td class="l">2019</td><td>62.0</td><td>44.1</td><td>+17.9</td></tr>
+<tr><td class="l">2007</td><td>18.2</td><td>7.2</td><td>+11.0</td><td></td><td class="l">2020</td><td>69.2</td><td>39.7</td><td>+29.5</td></tr>
+<tr><td class="l">2008</td><td>−20.5</td><td>−43.3</td><td>+22.8</td><td></td><td class="l">2021</td><td>45.2</td><td>33.8</td><td>+11.4</td></tr>
+<tr><td class="l">2009</td><td>76.4</td><td>51.5</td><td>+24.9</td><td></td><td class="l">2022</td><td>−27.2</td><td>−28.6</td><td>+1.4</td></tr>
+<tr><td class="l">2010</td><td>10.2</td><td>16.6</td><td>−6.4</td><td></td><td class="l">2023</td><td>77.8</td><td>49.0</td><td>+28.8</td></tr>
+<tr><td class="l">2011</td><td>−8.4</td><td>−1.7</td><td>−6.7</td><td></td><td class="l">2024</td><td>39.3</td><td>21.8</td><td>+17.5</td></tr>
+<tr><td class="l">2012</td><td>13.8</td><td>13.7</td><td>+0.1</td><td></td><td class="l">2025 / 2026*</td><td>23.3 / 33.1</td><td>26.8 / 39.9</td><td>−3.5 / −6.8</td></tr>
+</table></div>
+<p class="cap"><b>Table 5</b> Three-leg equal-weight year-by-year returns (%). * indicates incomplete year. Of 27 years, 18 beat 1x; the 9 lagging years are concentrated in the low-trend, range-bound periods of 2004–06, 2010–11, 2015–16, and 2025–26, lagging by an average of 7.4 points; the years with the largest excess returns were 2002, 2008 (bear market exits) and 2013, 2017, 2020, 2023 (fully invested during low-volatility bull markets).</p>
+<h3>5.4 Diversification</h3>
+<p>Daily return correlations across the three legs: QQQ–SPY 0.74, QQQ–SOXX 0.70, SPY–SOXX 0.56. The three-leg equal-weight maximum drawdown (−36.5%) is lower than any single leg, its Ulcer Index of 0.18 sits between SPY (0.11) and SOXX (0.24), and its annualized return exceeds any single leg; the diversification benefit mainly comes from the three legs exiting at different times (QQQ by volatility, SPY by trend and inflation, SOXX by a semiconductor-specific volatility threshold). The Bayesian analysis in Section 8 shows diversification also reduces the model risk of 'overestimating rule excess return'.</p>
+
+</article><article class="sheet"><h2>6. Statistical Inference</h2>
+<h3>6.1 Why an ordinary t-test doesn't fit</h3>
+<p>The most common approach is a one-sample t-test on monthly excess return (rule − same-leg 1x). For this study, it fails in four ways, and the direction of the failure is inconsistent, so simply 'raising the threshold' won't fix it:</p>
+<ul>
+<li><b>i.i.d. does not hold.</b>The excess return from leverage rotation comes from position state, and state persists for months; the first-order autocorrelation of monthly excess return is −0.05 to −0.20, and volatility also clusters with market conditions. The standard error of the ordinary t-test is therefore biased (in this sample, negative autocorrelation actually<i>overstates</i>the standard error, understating t).</li>
+<li><b>Fat tails and skew.</b>Monthly excess return kurtosis is 2.9–5.7, skew is −1.0 to +0.3; 319 months is not enough for the central limit theorem to fully smooth out the tails.</li>
+<li><b>Excess return is concentrated in a few episodes.</b>The 3 years with the largest excess return contribute 45–58% of full-period excess (99% for the SOX leg). The effective independent observations are 'a handful of bear markets,' not 319 months, so the nominal sample size of a mean test overstates the information content.</li>
+<li><b>Asking the wrong question.</b>The strategy's claim isn't just 'earns more on average,' but 'earns more while suffering less severe damage.' A mean test can't answer whether risk-adjusted performance is better or whether drawdown is shallower. Also, the rule was selected from 127 candidates, and a single test's p-value doesn't account for that selection.</li>
+</ul>
+<h3>6.2 Test design: a fitting test for each claim</h3>
+<div class="tbl"><table>
+<tr><th class="l">Claim to test</th><th class="l">Test</th><th class="l">Why it fits</th><th class="l">What it can't answer</th></tr>
+<tr><td class="l">H1: Average excess &gt; 0</td><td class="l">Newey-West HAC t [19]; stationary block bootstrap p-value [20] (mean block 12 months, 5,000 draws)</td><td class="l">HAC corrects for autocorrelation and heteroskedasticity; the bootstrap doesn't assume normality and preserves state persistence and volatility clustering</td><td class="l">Doesn't address selection bias; still assumes stationarity within blocks</td></tr>
+<tr><td class="l">H2: Better after risk adjustment</td><td class="l">Block bootstrap test of Sharpe difference (Ledoit-Wolf [21] framework)</td><td class="l">Directly compares the Sharpe ratios of two return series, accounting for their correlation and time dependence</td><td class="l">Low power: a Sharpe difference of 0.2 needs decades to distinguish</td></tr>
+<tr><td class="l">H3: Shallower drawdown</td><td class="l">Stationary bootstrap of daily returns (mean block 1 year, 1,000 draws) to recompute the maximum drawdown difference</td><td class="l">Maximum drawdown is a path statistic with no closed-form distribution, so only resampled paths can estimate it</td><td class="l">Can only recombine episodes that already occurred; can't generate new out-of-sample crash types</td></tr>
+<tr><td class="l">H4: Not driven by a few years</td><td class="l">Year-by-year sign test (binomial, one-tailed) + top-3-year contribution share</td><td class="l">Doesn't depend on the size or distribution of returns, only asks 'do winning years outnumber a coin flip'</td><td class="l">Equal weight per year, ignoring the magnitude of wins and losses</td></tr>
+<tr><td class="l">H5: Not selected-for luck</td><td class="l">Deflated Sharpe [9], CSCV overfitting probability [10], parameter cloud</td><td class="l">Accounts for the number of trials, skew, and kurtosis in the threshold</td><td class="l">Number of trials N is an estimate; no Reality Check / SPA [22][23] performed</td></tr>
+</table></div>
+<p class="cap"><b>Table 6a</b> Claims vs. tests. Code:<span class="num">scripts/paper_tests.py</span>, results saved <span class="num">data/lev_rotation/paper_tests.json</span>.</p>
+<h3>6.3 Results</h3>
+<div class="tbl"><table>
+<tr><th class="l">Series</th><th class="l">Period</th><th>Annualized log excess return</th><th>Ordinary t</th><th>HAC t</th><th>Bootstrap p</th><th>Sharpe rule / 1x</th><th>90% Sharpe difference interval</th><th>Winning years</th><th>Sign-test p</th></tr>
+<tr><td class="l">Three-leg equal weight</td><td class="l">Full period</td><td>+8.3%</td><td>2.20</td><td>2.57</td><td>0.001</td><td>0.66 / 0.41</td><td>[−0.03, +0.48]</td><td>18 / 26</td><td>0.038</td></tr>
+<tr><td class="l"></td><td class="l">Last 15 years</td><td>+7.6%</td><td>1.64</td><td>2.11</td><td>0.008</td><td>0.93 / 1.05</td><td>[−0.29, +0.14]</td><td>11 / 14</td><td>0.029</td></tr>
+<tr class="sep"><td class="l">QQQ</td><td class="l">Full period</td><td>+9.4%</td><td>1.61</td><td>1.85</td><td>0.011</td><td>0.45 / 0.34</td><td>[−0.16, +0.44]</td><td>18 / 26</td><td>0.038</td></tr>
+<tr><td class="l"></td><td class="l">Last 15 years</td><td>+13.1%</td><td>1.76</td><td>2.22</td><td>0.003</td><td>0.76 / 1.04</td><td>[−0.41, +0.12]</td><td>11 / 14</td><td>0.029</td></tr>
+<tr class="sep"><td class="l">SPY</td><td class="l">Full period</td><td>+7.4%</td><td>2.14</td><td>2.53</td><td>0.008</td><td>0.72 / 0.54</td><td>[−0.16, +0.49]</td><td>19 / 26</td><td>0.014</td></tr>
+<tr><td class="l"></td><td class="l">Last 15 years</td><td>+4.9%</td><td>1.04</td><td>1.52</td><td>0.042</td><td>0.77 / 1.01</td><td>[−0.48, −0.01]</td><td>10 / 14</td><td>0.090</td></tr>
+<tr class="sep"><td class="l">SOX</td><td class="l">Full period</td><td>+6.0%</td><td>1.35</td><td>1.54</td><td>0.061</td><td>0.53 / 0.30</td><td>[−0.03, +0.40]</td><td>16 / 26</td><td>0.163</td></tr>
+<tr><td class="l"></td><td class="l">Last 15 years</td><td>+1.9%</td><td>0.37</td><td>0.47</td><td>0.313</td><td>0.83 / 0.92</td><td>[−0.26, +0.13]</td><td>8 / 14</td><td>0.395</td></tr>
+</table></div>
+<p class="cap"><b>Table 6b</b> Monthly log excess return (319 months; last 15 years 181 months). Bootstrap p is one-tailed (H0: mean excess ≤ 0). Sharpe is annualized from monthly returns without deducting the risk-free rate, and differs slightly from the daily-frequency Sharpe in Table 5.</p>
+<div class="tbl"><table>
+<tr><th class="l">Maximum drawdown (full period)</th><th>Rule</th><th>1x</th><th>Bootstrap: probability rule is shallower</th><th>Drawdown difference 5% / median / 95%</th></tr>
+<tr><td class="l">Three-leg equal weight</td><td>−37%</td><td>−74%</td><td>0.94</td><td>−1 / +21 / +39 points</td></tr>
+<tr><td class="l">QQQ</td><td>−65%</td><td>−83%</td><td>0.66</td><td>−18 / +6 / +25 points</td></tr>
+<tr><td class="l">SPY</td><td>−33%</td><td>−55%</td><td>0.89</td><td>−5 / +17 / +36 points</td></tr>
+<tr><td class="l">SOX</td><td>−53%</td><td>−85%</td><td>0.95</td><td>0 / +22 / +40 points</td></tr>
+</table></div>
+<p class="cap"><b>Table 6c</b> Drawdown difference = rule drawdown − 1x drawdown; positive means the rule is shallower.</p>
+<div class="box">
+<p><b>What was tested.</b></p>
+<ul>
+<li><b>H1 holds (combined, QQQ, SPY); SOX does not.</b>After correcting for autocorrelation and fat tails, the three-leg combination's average excess return is significant both full-period and over the last 15 years (bootstrap p ≤ 0.008); QQQ and SPY are significant full-period; SOX is marginal full-period (p = 0.06) with no evidence over the last 15 years. The ordinary t-test is<i>leans conservative</i>on this data.</li>
+<li><b>H2 does not hold.</b>The 90% interval for the Sharpe difference includes 0 for every series, and is even skewed negative over the last 15 years (SPY's interval lies entirely below 0). The excess return is mainly<b>the payoff for taking on more leverage risk</b>, not an improvement in risk-adjusted efficiency. This is the most important — and most easily misread — conclusion of this study.</li>
+<li><b>H3 largely holds.</b>The three-leg combination and SOX show a shallower drawdown in 94–95% of resampled paths, with a median shallowing of about 20 points; QQQ only 66%, so the protection of a single leg isn't reliable. The rule's value is concentrated in the tail, not the average.</li>
+<li><b>H4 partially holds.</b>The combination won 18 out of 26 years (p = 0.038), and 11/14 over the last 15 years; but the top three years still contribute 46–63% of excess return, so the effective sample size is far smaller than the number of months.</li>
+<li><b>H5 see 6.4.</b>The direction still holds after deflation; the SOX leg shows the most evident selection component.</li>
+</ul>
+<p>Combined, the claim should read:<b>On U.S. large-cap tech indices, this set of rules lets an investor hold higher average leverage at a drawdown tolerance close to 1x; it increases returns, but there's no evidence it increases Sharpe.</b></p>
+</div>
+<div class="warnbox">
+<p><b>Limits of the tests.</b></p>
+<ul>
+<li><b>Stationarity assumption.</b>The bootstrap can only reshuffle episodes that already happened. A regime like Japan's post-1990 'long-term failure to return above the moving average' — if it never appeared in the sample — cannot be produced by any resampling (see §7 adversarial validation).</li>
+<li><b>Parameter choice.</b>Block length (12 months, 1 year) and the HAC lag (Bartlett, 4–5 periods) affect the p-values; rerunning with 6- or 24-month blocks keeps the combination's and QQQ's p-values below 0.03, so the conclusion is unchanged; marginal series shift: SPY's last-15-years p is 0.056 / 0.038 / 0.021 (6 / 12 / 24-month blocks), SOX's full-period p is 0.067 / 0.064 / 0.052, never passing 0.05.</li>
+<li><b>Multiple comparisons not fully addressed.</b>Table 6b's p-values are for a single already-selected rule; the selection effect is only approximated via DSR, without a full White Reality Check or Hansen SPA across the whole candidate set. Under the Harvey, Liu &amp; Zhu [11] t &gt; 3 threshold, none of the rows pass.</li>
+<li><b>Statistical power.</b>The intervals for both the Sharpe difference and drawdown difference are wide; 'not rejected' doesn't mean 'no difference' — it means 26 years of data isn't enough to distinguish.</li>
+<li><b>In-sample.</b>All tests are run on the same historical period used to design the rule; true out-of-sample data is limited to 1966–99 (no actual product existed) and the period since launch.</li>
+</ul>
+</div>
+<p>Resampling the entire daily return series 3,000 times with 1-year blocks gives a 90% interval of [+3.7%, +13.2%] for the three-leg equal-weight annualized log excess return (QQQ [+3.1%, +17.4%]), consistent with Table 6b: the direction is credible, the magnitude is uncertain.</p>
+<h3>6.4 Selection bias: how much is left after 127 selections</h3>
+<p><b>Deflated Sharpe.</b>Using the total combinations per market plus 60 tested overlay rules, the number of trials N = 127; after adjusting for skew (−0.18 to −0.57) and kurtosis (6.1 to 12.3), the luck threshold SR₀ is about 0.15–0.19 (annualized), and the DSR for the three legs is 98–100%.<b>Backtest overfitting probability (CSCV, 10 blocks)</b>and walk-forward results (2008, 2012, 2016 cutoffs) are in Appendix B, Topic ①: QQQ V2_50 ranks in the top two by annualized return over the last 10, 15, 20 years and full period; SPY T3+CPI ranks 5th–6th over the last 10 and 15 years, and 1st over 20 years and full period, within 1 point of the top performer in its family.<b>Parameter cloud.</b>Simultaneously perturbing moving-average length (160–240), buffer (2–4%), volatility window (15–25 days), target volatility (40–60%) or threshold (30–40%), fast line (40–60), across 300 combinations: QQQ and SPY use parameters at the 49th and 32nd percentile of the cloud, with 100% of the cloud beating 1x; SOXX sits at the 65th percentile (92nd percentile for drawdown), with only 52% of the cloud beating 1x, indicating a substantial selection component in the SOXX leg.</p>
+
+</article><article class="sheet"><h2>7. Robustness</h2>
+<h3>7.1 Execution stress</h3>
+<div class="tbl"><table>
+<tr><th class="l">Last-15-years annualized / full-period MaxDD / 3-year win rate</th><th>QQQ</th><th>SPY</th><th>SOXX</th></tr>
+<tr><td class="l">Baseline</td><td>36.9% / −65% / 80%</td><td>21.2% / −33% / 80%</td><td>30.4% / −53% / 69%</td></tr>
+<tr><td class="l">Slippage ×3 (one-way 0.30%)</td><td>34.1% / −67% / 72%</td><td>19.7% / −34% / 76%</td><td>28.8% / −55% / 65%</td></tr>
+<tr><td class="l">Signal delayed by one day</td><td>36.3% / −60% / 79%</td><td>21.7% / −30% / 77%</td><td>26.3% / −52% / 53%</td></tr>
+<tr><td class="l">Randomly missed 10% of turnover</td><td>36.9% / −65% / 79%</td><td>21.2% / −33% / 80%</td><td>29.8% / −53% / 67%</td></tr>
+<tr><td class="l">All of the above + fees ×2</td><td>33.8% / −62% / 72%</td><td>20.1% / −30% / 74%</td><td>23.8% / −55% / 42%</td></tr>
+</table></div>
+<p class="cap"><b>Table 7</b> Execution stress. QQQ and SPY are insensitive to cost and delay; about half of SOXX leg's edge depends on timely execution. An alternative 'intraday execution' version, using daily high/low as an intraday price proxy and filling at the close on the trigger day, adds 1–1.5 points of annualized return but with deeper drawdown (SOXX last 15 years −44% → −60%); this version was not adopted.</p>
+<h3>7.2 Out-of-sample: 1966–1999</h3>
+<p>A synthetic series was reconstructed using ^GSPC (from 1966), ^IXIC (from 1972), ^NDX (from 1986) price indices plus a fixed dividend (3%, 1%, 1%) and ^IRX financing cost, with rule parameters unchanged. S&amp;P T3 3x annualized 15.7% (1x 11.5%); −44% during 1973–74 (3x buy-and-hold −86%); −33% in 1987 (−70%); full-period drawdown −53%. Nasdaq V2_50 3x annualized 26.4% (1x 15.1%). However, during NDX's 1986–2000 one-sided bull market, V2_50 3x annualized 29.1% is lower than 1x's 30.6% and has a deeper drawdown; during the S&amp;P's 1966–82 sixteen-year sideways period, the 3x rule annualized 4.4–6.3%, comparable to 1x's 5.6%.</p>
+<h3>7.3 Cross-market transplant</h3>
+<p>The five rules were applied unadjusted to 38 leveraged-product U.S. sector, country, region, commodity, and bond ETFs. Only XLK, SPY, and QQQ pass four or more criteria (last-15-years annualized beats 1x, and full-period drawdown no more than 5 points deeper than 1x); XLI passes three; XLF, SMH, SOXX pass two; the remaining 31 (including IWM, DIA, MDY, XLV, EFA, EEM, FXI, EWJ, EWY, GLD, TLT, XLE) pass one or fewer. Common traits of the passing group: the 1x version using only the MA200 filter nearly matches buy-and-hold (−2.6 vs. −4.2 points); 20-day volatility correlates more strongly with the next 20-day volatility (0.70 vs. 0.65); overnight gap accounts for a smaller share of daily variance (35% vs. 42%; 50–70% for emerging markets and single countries); long-term annualized return is higher (10.4% vs. 7.9%).</p>
+<h3>7.4 Control country: Nikkei 225</h3>
+<p>V2_50 3x annualized 24.9% in 1971–89 (1x 18.1%); −7.8% in 1990–2010 (1x −5.2%, 3x buy-and-hold −34.6%); −2.5% in 2011–26 (1x +12.3%). In 1989, Japan had a structural narrative similar to today's U.S. tech sector (index constituent turnover, world's second-largest market, technological leadership), and the rule would have passed every criterion in this paper at that time; after the structural shift, the rule kept lagging 1x even during subsequent bull periods.<b>This is the most important risk identified in this study, and one that cannot be eliminated by backtesting.</b></p>
+<h3>7.5 Single-day gap injection</h3>
+<p>A −20% overnight gap was injected on any fully-invested 3x trading day over the last 15 years (3x would suffer −60%), taking the worst-case timing: QQQ's last-15-years annualized return goes from 37.0% → 28.9%, drawdown −63%, still above 1x's 20.1%. A single 1987-type event does not destroy the rule; two in a row would.</p>
+
+</article><article class="sheet"><h2>8. Forward-looking distribution: ten-year horizon</h2>
+<p>Using 1-year-block bootstrap of full-period daily returns, 4,000 ten-year paths were generated to obtain the annualized return distribution. The bootstrap addresses 'the same rule, different luck'; it does not address selection bias — the rule was chosen from 127 combinations, so the backtest average itself may be biased upward. A confidence parameter c ∈ [0, 1] is therefore introduced, shifting each path's log annualized return by −(1 − c)·ε̂, where ε̂ is the sample log annualized excess return (8.2 points for the three-leg equal weight). c = 0 is equivalent to assuming the rule has no excess return; c = 0.5 corresponds to the commonly cited post-publication decay [12] and multiple-testing discount [11] in the literature.</p>
+<div class="tbl"><table>
+<tr><th class="l">Ten-year annualized return (three-leg equal weight)</th><th>5th percentile</th><th>Median</th><th>95th percentile</th><th>10-Year Loss Probability</th><th>Corresponding 10-Year Multiple (Median)</th></tr>
+<tr><td class="l">c = 1.0 (fully backtest-based)</td><td>+5.3%</td><td>+20.0%</td><td>+36.5%</td><td>1%</td><td>6.2×</td></tr>
+<tr><td class="l">c = 0.7</td><td>+2.8%</td><td>+17.1%</td><td>+33.1%</td><td>2%</td><td>4.9×</td></tr>
+<tr><td class="l"><b>c = 0.5 (recommended planning value)</b></td><td><b>+1.1%</b></td><td><b>+15.2%</b></td><td><b>+31.0%</b></td><td><b>4%</b></td><td><b>4.1×</b></td></tr>
+<tr><td class="l">c = 0 (no excess return)</td><td>−3.0%</td><td>+10.5%</td><td>+25.7%</td><td>11%</td><td>2.7×</td></tr>
+<tr class="sep"><td class="l">Three-leg 1x equal weight</td><td>−3.7%</td><td>+10.6%</td><td>+23.8%</td><td>11%</td><td>2.7×</td></tr>
+</table></div>
+<div class="tbl"><table>
+<tr><th class="l">c = 0.5, single leg</th><th>5th percentile</th><th>Median</th><th>95th percentile</th><th>10-Year Loss Probability</th><th class="l">Same-leg 1x median / loss probability</th></tr>
+<tr><td class="l">QQQ</td><td>−3.3%</td><td>+15.3%</td><td>+36.6%</td><td>10%</td><td class="l">+10.1% / 16%</td></tr>
+<tr><td class="l">SPY</td><td>+2.9%</td><td>+13.3%</td><td>+24.7%</td><td>2%</td><td class="l">+8.9% / 8%</td></tr>
+<tr><td class="l">SOXX</td><td>−2.5%</td><td>+13.3%</td><td>+33.0%</td><td>10%</td><td class="l">+11.0% / 17%</td></tr>
+</table></div>
+<p class="cap"><b>Table 8</b> Distribution of 10-year annualized returns. Three points are worth noting: (1) even at c = 0, the rule's distribution is close to the 1x distribution rather than worse, i.e. the rule's downside approximates passive holding; (2) the QQQ single-leg is sensitive to c (median 21.0% → 10.0%), while the three-leg equal-weight is less sensitive—diversification also reduces model risk; (3) the bootstrap method can only recombine years that have already occurred, so structural scenarios like 1966–82 or Japan post-1990 are not included in the distribution, meaning the actual left tail is fatter than shown in the table. Fitting monthly returns to a normal distribution overstates the left tail (QQQ's 10-year probability of underperforming 1x is 22% vs. 7% under the bootstrap method), because the rule's returns are right-skewed.</p>
+
+</article><article class="sheet"><h2>9. Implementation Considerations</h2>
+<h3>9.1 Capacity and Liquidity</h3>
+<p>Median daily trading value over the trailing 252 trading days: TQQQ ~US$4.8 billion (minimum US$1.4 billion), SOXL ~US$5.8 billion (minimum US$1.4 billion), SOXX ~US$2.8 billion (minimum US$500 million), UPRO ~US$390 million (minimum US$170 million). Capping single-turnover at no more than 1% of average daily volume, the UPRO leg can accommodate roughly US$4 million, while the TQQQ and SOXL legs can accommodate roughly US$48–58 million. Turnover concentrates at the opening auction and the first 30 minutes after open; similar trend-following rules (MA200 being the most common signal) may exit on the same day, so actual slippage on stress days may exceed the ×3 scenario in Section 7.1.</p>
+<h3>9.2 Taxes and Costs (Taiwan Residents)</h3>
+<p>Capital gains on U.S. ETFs are not subject to U.S. tax for Taiwan residents; overseas income is included in the Basic Income Amount (with an annual exemption of NT$7.5 million). Dividends are subject to 30% withholding, but leveraged ETF distributions are low, adding less than 0.1 point/year of impact, which this study does not account for. Brokerage fees and minimum charges for sub-brokered accounts may push the effective one-way cost above 0.10% for small accounts.</p>
+<h3>9.3 Product and Regulatory Risk</h3>
+<p>Issuers may liquidate leveraged products after extreme events (as with several oil and volatility products in 2020); being liquidated while holding a position forces an exit at the worst possible time. The SEC proposed restricting retail access to leveraged and inverse funds in 2020 (later withdrawn); sub-brokerage firms may delist specific products. These risks cannot be mitigated by rules — only managed through position sizing.</p>
+<h3>9.4 Market Structure: 23-Hour Trading</h3>
+<p>Nasdaq targets continuous trading from Sunday 21:00 to Friday 20:00 (ET) starting 2026-12-06, with only a 20:00–21:00 daily pause; NYSE Arca has already been approved for 22-hour trading [18]. The regular 16:00 close and closing auction remain unchanged, so signal calculation is unaffected; however, "next-day open" execution may shift earlier to that evening's 21:00 overnight session. Overnight liquidity is expected to be only a few percent of daytime volume, and leveraged ETF overnight quotes may deviate from NAV. We recommend tracking overnight spreads and volume for three months after go-live, backtesting the actual cost of "16:00 signal → 21:00 execution," before deciding whether to adjust.</p>
+<h3>9.5 Operations</h3>
+<p>Signals are computed on a schedule after each daily close; close confirmations are pushed one hour after close, execution reminders are pushed thirty minutes before open, and weekly exposure is pushed every Monday. System state, secrets, and data have established version control, off-site/offline archiving, and machine-migration procedures (Appendix C). In-house execution slippage is not currently tracked systematically; we recommend recording the opening reference price and actual execution price at every turnover.</p>
+
+</article><article class="sheet"><h2>10. Failure Modes &amp; Monitoring</h2>
+<p>The rule depends on five assumptions: A) the underlying follows a long trend with slow declines; B) volatility clusters and is predictable from a 20-day window; C) the product exists, is liquid, and tracks accurately; D) long-term drift is no less than roughly 10% and financing costs remain reasonable; E) a single daily close signal is sufficient. Six scenarios are laid out using STEEP drivers, and quantifiable early signals are tested for lead time (median three-leg equal-weight excess return over the 12 months after a signal fires vs. when it doesn't).</p>
+<div class="tbl"><table>
+<tr><th class="l">Scenario</th><th class="l">Assumption Broken</th><th class="l">Rule Performance</th><th class="l">Early Signal</th></tr>
+<tr><td class="l">1. AI capex cycle reversal</td><td class="l">A, E</td><td class="l">Survives; low returns for several years after</td><td class="l">Capex outlook cut, NFCI turns positive</td></tr>
+<tr><td class="l">2. Bull market continues but with volatile path</td><td class="l">B</td><td class="l">No loss, but significantly lags 1x</td><td class="l">Volatility predictability &lt; 0.5</td></tr>
+<tr><td class="l">3. Structurally high rates and recurring inflation</td><td class="l">D, A</td><td class="l">SPY long-term 1x; QQQ excess return halved</td><td class="l">Short-term rate &gt; 4%; CPI ceiling trigger &gt; 50%</td></tr>
+<tr><td class="l">4. Regulatory and product liquidation</td><td class="l">C</td><td class="l">Rule correct but unexecutable</td><td class="l">No leading signal</td></tr>
+<tr><td class="l">5. Geopolitical gap risk</td><td class="l">A, E</td><td class="l">SOXX leg could go to zero in one event</td><td class="l">No leading signal</td></tr>
+<tr><td class="l">6. Structural market shift</td><td class="l">E, B</td><td class="l">Execution assumptions invalid, annualized shortfall of 2–5 points</td><td class="l">Proprietary slippage record</td></tr>
+</table></div>
+<div class="tbl"><table>
+<tr><th class="l">Signal (monthly frequency)</th><th>Light-on condition</th><th>Historical light-on ratio</th><th>Median excess return 12 months after light-on</th><th>When not lit</th><th>Current value (2026-09)</th></tr>
+<tr><td class="l">Volatility predictability (2-year correlation)</td><td>&lt; 0.5</td><td>60%</td><td>+4.6 points</td><td>+9.2 points</td><td>0.28 (lit)</td></tr>
+<tr><td class="l">Rolling 3-year strategy − 1x</td><td>&lt; 0</td><td>18%</td><td>+12.2 points</td><td>+5.1 points</td><td>+5.1</td></tr>
+<tr><td class="l">Gap-event share (1-year)</td><td>&gt; 45%</td><td>8%</td><td>+11.9 points</td><td>+6.2 points</td><td>44%</td></tr>
+<tr><td class="l">Short-term rate</td><td>&gt; 4%</td><td>21%</td><td>+8.2 points</td><td>+7.3 points</td><td>4.1% (lit)</td></tr>
+<tr><td class="l">SPY CPI cap trigger ratio</td><td>&gt; 50%</td><td>52%</td><td>+6.3 points</td><td>+7.0 points</td><td>92% (lit)</td></tr>
+<tr><td class="l">TQQQ tracking error / trading volume</td><td>—</td><td>0%</td><td>—</td><td>—</td><td>Normal</td></tr>
+</table></div>
+<p class="cap"><b>Tables 9–10</b> Failure scenarios and early signals. Only volatility predictability shows deteriorating performance after lighting up, and it is currently lit; "trailing 1x over the past three years" and "high gap-open share" are contrarian signals (typically lighting up during crashes, when the rule is already in cash, followed by a relatively strong year), so the rule's recent underperformance is not grounds for discontinuation. Product-related signals have historically never triggered and cannot be evaluated; scenarios 4 and 5 have no leading signal, leaving position sizing as the only available tool.</p>
+
+</article><article class="sheet"><h2>11. Limitations</h2>
+<ul>
+<li><b>Synthetic data.</b>The 2–3x returns during the 2000–02 and 2008 crashes are synthetic and do not incorporate rising financing costs, premium/discount effects, or liquidity breakdowns during extreme periods. The rule's conclusion of "avoiding the crash" rests mainly on synthetic series.</li>
+<li><b>Few independent samples.</b>26 years contain only two to three complete cycles; rolling ten-year windows overlap heavily, leaving roughly two truly independent ten-year samples. All win rates and distributions should be treated as order-of-magnitude estimates.</li>
+<li><b>In-sample design.</b>The rule's components are drawn from post-1990s literature; 1999–2016 cannot be regarded as true out-of-sample. Genuine out-of-sample periods are only 1966–99 (no actual product) and post-2017.</li>
+<li><b>Significance.</b>The average excess return is significant at the portfolio level (HAC, bootstrap), but does not meet the t &gt; 3 multiple-testing threshold, and no SPA test was performed; the Sharpe difference is not significant, and the drawdown improvement is the strongest evidence.</li>
+<li><b>Concentration.</b>All three legs are US large-cap tech-related indices, correlated at 0.56–0.74; not comparable to the cross-market diversification found in the literature spanning dozens of markets.</li>
+<li><b>SOXX leg.</b>Parameter cloud, execution stress, and the recent t-value (0.34) all indicate this leg has the thinnest margin; leverage is retained per investor preference, and its size should be the smallest of the three legs.</li>
+<li><b>Behavioral cost.</b>The rule calls for buying back leverage at fear peaks such as March 2009, April 2020, and January 2023; the worst three-year period trailed 1x by about 15 points. The backtest does not account for this cost.</li>
+</ul>
+
+</article><article class="sheet"><h2>12. Conclusion</h2>
+<p>Under live-trading constraints, leverage rotation—using trend to decide market presence and realized volatility to decide the multiplier—has produced excess returns since 2000 on US large-cap tech indices that are directionally credible but uncertain in magnitude: the three-leg equal-weight portfolio achieves Sharpe 0.70 vs. 0.42, halves the maximum drawdown, and shows an annualized log excess return with a 90% interval of [+3.7%, +13.2%]. However, the excess return mainly comes from taking on more leverage rather than a higher Sharpe ratio; the average excess return does not meet the multiple-testing threshold; over the past 15 years risk-adjusted returns are similar to passive holding; and the rule passes in only high-drift, trend-persistent, slow-decline US large-cap tech among 38 markets, while continuing to fail in Japan since 1990.</p>
+<p>We therefore position this strategy as conditional leverage on the structural pattern of "sustained US large-cap tech bull markets," rather than as alpha independent of market structure. Our recommendation for ten-year allocators is: use the three-leg equal-weight approach rather than a single bet; use the forward-looking distribution at c = 0.5 (ten-year annualized median around 15%, 5th percentile around 1%) as the planning baseline rather than backtest figures; limit the leverage layer's size to a range that can withstand a single-day −50% drop and three consecutive years of trailing 1x; and continue monitoring volatility predictability and product risk. Position sizing matters more than rule parameters.</p>
+
+</article><article class="sheet"><h2>Disclosure</h2>
+<p class="note">This report is for research purposes only and does not constitute investment advice, an offer, or a solicitation. All results are historical backtests and simulations that do not reflect actual trading; past performance does not represent future results. The author manages part of his personal assets using this strategy. Leveraged ETFs can lose most of their value in a short period and may be liquidated by the issuer. Figures correspond to the data version as of the 2026-09-25 close; since the research cache updates daily, numbers on the website may differ slightly from those in this document in decimal places. Full code, self-checks, and topic-by-topic raw results are reproducible (bluemorpho.art/leverage; Appendix B).</p>
+
+</article><article class="sheet"><h2>References</h2>
+<ol class="refs">
+<li>Faber, M. T. (2007). A Quantitative Approach to Tactical Asset Allocation. <i>Journal of Wealth Management</i>, 9(4), 69–79.</li>
+<li>Moskowitz, T. J., Ooi, Y. H., &amp; Pedersen, L. H. (2012). Time Series Momentum. <i>Journal of Financial Economics</i>, 104(2), 228–250.</li>
+<li>Hurst, B., Ooi, Y. H., &amp; Pedersen, L. H. (2017). A Century of Evidence on Trend-Following Investing. <i>Journal of Portfolio Management</i>, 44(1), 15–29.</li>
+<li>Cheng, M., &amp; Madhavan, A. (2009). The Dynamics of Leveraged and Inverse Exchange-Traded Funds. <i>Journal of Investment Management</i>, 7(4), 43–62.</li>
+<li>Avellaneda, M., &amp; Zhang, S. (2010). Path-Dependence of Leveraged ETF Returns. <i>SIAM Journal on Financial Mathematics</i>, 1(1), 586–603.</li>
+<li>Moreira, A., &amp; Muir, T. (2017). Volatility-Managed Portfolios. <i>Journal of Finance</i>, 72(4), 1611–1644.</li>
+<li>Harvey, C. R., Hoyle, E., Korgaonkar, R., Rattray, S., Sargaison, M., &amp; van Hemert, O. (2018). The Impact of Volatility Targeting. <i>Journal of Portfolio Management</i>, 45(1), 14–33.</li>
+<li>Gayed, M. A. (2016). Leverage for the Long Run. Charles H. Dow Award, Market Technicians Association.</li>
+<li>Bailey, D. H., &amp; López de Prado, M. (2014). The Deflated Sharpe Ratio. <i>Journal of Portfolio Management</i>, 40(5), 94–107.</li>
+<li>Bailey, D. H., Borwein, J. M., López de Prado, M., &amp; Zhu, Q. J. (2014). Pseudo-Mathematics and Financial Charlatanism. <i>Notices of the AMS</i>, 61(5), 458–471.</li>
+<li>Harvey, C. R., Liu, Y., &amp; Zhu, H. (2016). … and the Cross-Section of Expected Returns. <i>Review of Financial Studies</i>, 29(1), 5–68.</li>
+<li>McLean, R. D., &amp; Pontiff, J. (2016). Does Academic Research Destroy Stock Return Predictability? <i>Journal of Finance</i>, 71(1), 5–32.</li>
+<li>Kelly, J. L. (1956). A New Interpretation of Information Rate. <i>Bell System Technical Journal</i>, 35(4), 917–926.</li>
+<li>Thorp, E. O. (2006). The Kelly Criterion in Blackjack, Sports Betting, and the Stock Market. In <i>Handbook of Asset and Liability Management</i>, Vol. 1. Elsevier.</li>
+<li>MacLean, L. C., Thorp, E. O., &amp; Ziemba, W. T. (Eds.) (2011). <i>The Kelly Capital Growth Investment Criterion</i>. World Scientific.</li>
+<li>Harvey, C. R., &amp; Liu, Y. (2015). Backtesting. <i>Journal of Portfolio Management</i>, 42(1), 13–28.</li>
+<li>Hamilton, J. D. (1989). A New Approach to the Economic Analysis of Nonstationary Time Series and the Business Cycle. <i>Econometrica</i>, 57(2), 357–384.</li>
+<li>Nasdaq (2026). The Road to 24-Hour Trading (press release and FAQ); Markets Media (2026). Nasdaq Aims to Debut 23/5 Trading on 6 December 2026.</li>
+<li>Newey, W. K., &amp; West, K. D. (1987). A Simple, Positive Semi-Definite, Heteroskedasticity and Autocorrelation Consistent Covariance Matrix. <i>Econometrica</i>, 55(3), 703–708.</li>
+<li>Politis, D. N., &amp; Romano, J. P. (1994). The Stationary Bootstrap. <i>Journal of the American Statistical Association</i>, 89(428), 1303–1313.</li>
+<li>Ledoit, O., &amp; Wolf, M. (2008). Robust Performance Hypothesis Testing with the Sharpe Ratio. <i>Journal of Empirical Finance</i>, 15(5), 850–859.</li>
+<li>White, H. (2000). A Reality Check for Data Snooping. <i>Econometrica</i>, 68(5), 1097–1126.</li>
+<li>Hansen, P. R. (2005). A Test for Superior Predictive Ability. <i>Journal of Business &amp; Economic Statistics</i>, 23(4), 365–380.</li>
+</ol>
+
+</article><article class="sheet"><h2>Appendix A: Parameter Overview</h2>
+<div class="tbl"><table>
+<tr><th class="l">Parameter</th><th class="l">Value</th><th class="l">Source / Sensitivity</th></tr>
+<tr><td class="l">Trend Moving Average</td><td class="l">MA200; QQQ re-entry also requires MA50</td><td class="l">150/200/250 aligned (Topic ⑨)</td></tr>
+<tr><td class="l">MA Buffer</td><td class="l">±3%</td><td class="l">Parameter cloud 2–4%</td></tr>
+<tr><td class="l">Volatility Window</td><td class="l">20 days</td><td class="l">Parameter cloud 15–25 days</td></tr>
+<tr><td class="l">QQQ Target Volatility</td><td class="l">50%</td><td class="l">Both 40% / 50% pass; parameter cloud 40–60%</td></tr>
+<tr><td class="l">SOXX Volatility Threshold</td><td class="l">35%</td><td class="l">Parameter cloud 30–40%; relative threshold performs worse (Topic ⑥)</td></tr>
+<tr><td class="l">SOXX Cooldown / Core</td><td class="l">10 days / 30%</td><td class="l">5–20 days show mixed results, considered noise (Topic ⑯); 30% core is free (Topic ⑬)</td></tr>
+<tr><td class="l">CPI Cap</td><td class="l">YoY rate higher than 126 trading days ago, delayed 45 days → cap at 1x</td><td class="l">Only SPY passes (Topic ⑧)</td></tr>
+<tr><td class="l">Costs</td><td class="l">Fee 0.95%/year; one-way 0.10%; cash 0%</td><td class="l">Slippage ×3, fees ×2, see Table 7</td></tr>
+</table></div>
+</article><article class="sheet"><h2>Appendix B: Research File Index</h2>
+<p class="note">The web version (bluemorpho.art/leverage, "Roads Tried") is grouped by question: A Signal Selection (Topics ③④⑤⑧⑨⑩⑫), B Whipsaw Reduction (⑥⑦⑭⑯, ② D), C Win Rate (⑬⑭), D Entry and Allocation (②⑪), E Credibility (①⑮⑰, execution timing, synthetic validation, parameter sensitivity), F Failure Scenarios (⑱). Raw tables, adversarial validation, and parameters for each experiment can be expanded; in total 17 topics and 80+ experiments, of which only the SPY-only CPI cap among 60+ overlay rules was adopted.</p>
+</article><article class="sheet"><h2>Appendix C: Operational Continuity</h2>
+<p class="note">Code and research are version-controlled in a private remote repository; the website and notification endpoints are deployed on Cloudflare Pages; each week, the complete history of all three repositories, all data (including the backtest database), and restoration instructions are automatically archived to an offline hard drive; keys are separately stored with AES-256 encryption. Machine replacement procedure: restore keys → automated setup (environment, dependencies, self-check, scheduling) → two manual authorizations.</p>
+</article></main>
+<style>
+:root,:root[data-theme="dark"]{color-scheme:light!important;--paper:#F5F4EF!important;--sheet:#FFFFFF!important;--ink:#1B1F24!important;--ink2:#4A5460!important;--mute:#7A8490!important;--line:#D6DAD8!important;--accent:#0E7490!important;--accent-soft:#E3F1F4!important;--warn:#9A4A12!important;--warn-soft:#FBEFE4!important}
+html,body{height:100%;overflow:hidden}body{padding:0}
+main{height:100dvh;overflow-y:auto;scroll-snap-type:y mandatory;padding:0 16px;box-sizing:border-box}
+main>.sheet{scroll-snap-align:start;min-height:100dvh;margin:0 auto;padding-top:72px;box-shadow:none;border-bottom:1px solid var(--line)}
+#back{position:fixed;left:16px;top:calc(14px + env(safe-area-inset-top,0px));z-index:10;height:36px;padding:0 14px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.85);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:var(--ink2);font:500 11px var(--mono);letter-spacing:.14em;display:flex;align-items:center;text-decoration:none}
+#pg{position:fixed;right:16px;top:calc(14px + env(safe-area-inset-top,0px));z-index:10;height:36px;padding:0 12px;border-radius:18px;border:1px solid var(--line);background:rgba(255,255,255,.85);color:var(--mute);font:11px var(--mono);letter-spacing:.1em;display:flex;align-items:center}
+@media (max-width:700px){main{padding:0}main>.sheet{padding:68px 16px 28px}}
+@media print{#back,#pg{display:none}html,body,main{height:auto;overflow:visible}}
+</style>
+<a id="back" href="leverage-en#rules" aria-label="Back to Ridewell">‹ Ridewell</a><div id="pg" aria-live="polite"></div>
+<script>(function(){var m=document.querySelector('main'),S=[].slice.call(m.children),pg=document.getElementById('pg');
+function idx(){var t=m.scrollTop+innerHeight*.4,i=0;S.forEach(function(s,k){if(s.offsetTop<=t)i=k});return i}
+function paint(){pg.textContent=(idx()+1)+' / '+S.length}m.addEventListener('scroll',paint,{passive:true});paint();
+addEventListener('keydown',function(e){var d={ArrowDown:1,ArrowRight:1,PageDown:1,ArrowUp:-1,ArrowLeft:-1,PageUp:-1}[e.key];if(!d)return;
+var i=idx(),s=S[i],b=s.offsetTop+s.offsetHeight-m.scrollTop-innerHeight;
+if(d>0&&b>8&&(e.key==='ArrowDown'))return;  /* ponytail: 長章節先讓下鍵在頁內捲,捲到底才翻頁 */
+e.preventDefault();S[Math.max(0,Math.min(S.length-1,i+d))].scrollIntoView({behavior:'smooth'})})})();</script>
+<style>#lang-btn{left:auto!important;right:16px}#pg{right:84px!important}</style><style>#lang-btn{left:auto!important;right:16px}#pg{right:84px!important}</style><style>#lang-btn{left:auto!important;right:16px}#pg{right:84px!important}</style><style>#lang-btn{left:auto!important;right:16px}#pg{right:84px!important}</style><style>#lang-btn{left:auto!important;right:16px}#pg{right:84px!important}</style><style>#lang-btn{left:auto!important;right:16px}#pg{right:84px!important}</style><style id="lang-css">#lang-btn{position:fixed;left:16px;top:calc(14px + env(safe-area-inset-top,0px));z-index:40;height:36px;padding:0 12px;border-radius:18px;border:1px solid color-mix(in srgb,var(--ink) 12%,transparent);background:color-mix(in srgb,var(--paper,#fff) 72%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);color:var(--mute);font-family:var(--mono);font-size:11px;letter-spacing:.14em;display:inline-flex;align-items:center;text-decoration:none}</style><style>#lang-btn{left:auto!important;right:16px}#pg{right:84px!important}</style><a id="lang-btn" href="leverage-paper" onclick="this.href='leverage-paper'+location.hash" aria-label="切換成中文">中文</a>
