@@ -98,7 +98,7 @@
     .sb-tools select { font-family: var(--font-mono); font-size: .62rem; background: var(--bg); border: 1px solid var(--border); color: var(--text-secondary); border-radius: 4px; padding: 5px 6px; }
     .btn { font-family: var(--font-mono); font-size: .6rem; letter-spacing: .06em; color: var(--accent); background: rgba(0,243,255,.06); border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); border-radius: 4px; padding: 5px 8px; cursor: pointer; text-decoration: none; white-space: nowrap; }
     .btn:hover { background: rgba(0,243,255,.14); } .btn.ghost { color: var(--text-secondary); border-color: var(--border); background: transparent; }
-    .sb-lv { font-family: var(--font-mono); font-size: .62rem; color: var(--text-dim); display: flex; justify-content: space-between; }
+    .sb-lv { font-family: var(--font-mono); font-size: .62rem; color: var(--text-dim); display: flex; flex-wrap: wrap; justify-content: space-between; }
     .sb-lv b { color: var(--accent); font-weight: 600; }
     .sb-list { overflow-y: auto; flex: 1; min-height: 0; }
     .row { padding: 8px 12px; border-bottom: 1px solid var(--border); cursor: pointer; }
@@ -287,6 +287,9 @@
     .rl ol { padding-left: 20px; margin: 0; font-size: var(--fs-md); line-height: 1.7; } .rl li { margin: 6px 0; } .rl-f { margin-top: 12px; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--dim); line-height: 1.6; }
     .rl-tabs { display: flex; gap: 6px; margin-bottom: 12px; } .rl-tabs .btn.on { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
     .rl-p[hidden] { display: none; } .rl-v { font-size: var(--fs-md); line-height: 1.7; } .rl-v dt { font-family: var(--font-mono); color: var(--accent); margin-top: 8px; } .rl-v dd { margin: 0 0 4px; } .rl-v dt:first-child { margin-top: 0; }
+    .upd-line { flex-basis: 100%; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--dim); margin-top: 2px; } .upd-line b { color: var(--text-primary); font-weight: 500; } .upd-line .stale { color: var(--negative); } .upd-line .warn { color: var(--warning); }
+    .upd { display: none; padding: 6px 18px; border-bottom: 1px solid var(--border); background: var(--bg-card); font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--dim); line-height: 1.5; } .upd b { color: var(--text-primary); font-weight: 500; } .upd .warn { color: var(--warning); } .upd .stale { color: var(--negative); }
+    @media (max-width: 768px) { .upd { display: block; } }
     .vsub { padding: 8px 18px; border-bottom: 1px solid var(--border); background: var(--bg-card); font-size: var(--fs-sm); color: var(--sec); line-height: 1.6; }
     .vsub b { color: var(--text-primary); font-weight: 700; } .vsub .wn { color: var(--warning); }
     .lst-empty { padding: 28px 20px; color: var(--sec); font-size: var(--fs-md); line-height: 1.8; }
@@ -387,6 +390,7 @@
     </div>
   </header>
 
+  <div class="upd" id="upd" hidden></div>
   <div class="vsub" id="vsub" hidden></div>
   <div id="qbanner" hidden></div>
   <div id="app" class="loading">RADAR INITIALIZING…</div>
@@ -455,7 +459,7 @@
     'L4:extended':'已突破 pivot 太多(追高)', 'L4:no_dryup':'量沒縮(不符 VCP)', 'L2:rev_base':'基期極低的假成長' };
   const KEYS = ['', 'trend', 'fundamental', 'catalyst', 'vcp'];
 
-  let data, hist = [], track = null, P, sel = 3, sortKey = 'rs', q = '', R;
+  let data, hist = [], track = null, P, sel = 3, sortKey = 'rs', q = '', R, UPD_TXT = '';
   try {
     // 市場:?m=tw 或 localStorage;美股 = data/,其他 = data/<m>/
     var MKT = (new URLSearchParams(location.search).get('m') || (() => { try { return localStorage.getItem('radar.mkt'); } catch { return null; } })() || 'us');
@@ -607,6 +611,7 @@
     VCP 回看 ${vp.lookback_days} 日 · 擺動強度 ${vp.swing_strength} · 收縮衰減 ≤ ×${vp.contraction_decay} · 首次收縮 ≤ ${Math.round(vp.max_first_depth*100)}% · 量縮 ≥ ${vp.volume_dryup_pct}% · 突破 = 收盤 > pivot +${vp.pivot_buffer_pct}% 且量 ≥ ${vp.breakout_volume_mult}× 均量`;
 
   const gen = new Date(data.generated_at), ageH = Math.max(0, (Date.now() - gen) / 36e5);
+  { const u = $('#upd'); UPD_TXT = ''; if (u) { const ageTxt = ageH < 1 ? '剛剛' : ageH < 48 ? Math.round(ageH) + ' 小時前' : Math.round(ageH / 24) + ' 天前'; const stale = ageH > 30; UPD_TXT = `更新 <b>${data.date}</b>${data.session === 'open' ? ' <span class="warn">盤中</span>' : ' 收盤'} · 掃描 <span class="${stale ? 'stale' : ''}">${ageTxt}${stale ? '(資料可能沒更新)' : ''}</span>`; u.innerHTML = UPD_TXT; u.hidden = false; } }
   $('#meta').innerHTML = `<span>資料日 <b>${data.date}</b>${data.session === 'open' ? ` <span class="warn">盤中快照 · 今日量推估 ×${data.vol_scale}</span>` : ''} · 掃描 ${ageH < 1 ? '剛剛' : ageH < 48 ? Math.round(ageH) + ' 小時前' : Math.round(ageH / 24) + ' 天前'}</span> · <span>宇宙 <b>${data.universe_n.toLocaleString()}</b>${(data.symbols[0] || {}).usrc ? ` <span class="warn">(沿用 ${data.symbols[0].usrc.replace('cache:', '')} 快取)</span>` : ''} · K 線 ${data.bars_ok_n.toLocaleString()}${data.fund_missing_n ? ` · <span class="warn">無財報 ${data.fund_missing_n}</span>` : ''}</span>`;
 
   // 資料品質:誠實攤開。degraded = yfinance 限流,名單不完整;任何落後的股票在列與個股頁都標 K 線日期
@@ -755,7 +760,7 @@
   }
   function renderList() {
     const rs = rows(), MAX = 300;
-    $('#sblv').innerHTML = `<span><b>${esc(N[sel])}</b> · ≥ 本層</span><span>${rs.length > MAX ? `顯示前 ${MAX} / ` : ''}${rs.length} 檔</span>`;
+    $('#sblv').innerHTML = `<span><b>${esc(N[sel])}</b> · ≥ 本層</span><span>${rs.length > MAX ? `顯示前 ${MAX} / ` : ''}${rs.length} 檔</span>${isMobile() && UPD_TXT ? `<span class="upd-line">${UPD_TXT}</span>` : ''}`;
     if (!rs.length) {
       const vn = (VLABEL[ver] || ver).split(' ')[0];
       const other = ver === 'exec' ? 'watch' : 'exec';
