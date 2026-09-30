@@ -285,7 +285,7 @@ var play=document.getElementById('race-play');
 function glyph(on){play.querySelector('.ic-play').classList.toggle('off',on);play.querySelector('.ic-pause').classList.toggle('off',!on);document.getElementById('pb-wave').classList.toggle('on',on)}
 function stop(){if(timer)cancelAnimationFrame(timer);timer=null;glyph(false);if(window.bgmPause)window.bgmPause()}
 function tick(){var sp=+document.getElementById('race-speed').value;pos=Math.min(N,pos+Math.ceil(N/900)*sp);apply();if(pos>=N){stop();return}timer=requestAnimationFrame(tick)}
-function start(){if(pos>=N)pos=1;glyph(true);timer=requestAnimationFrame(tick);if(window.bgmPlay)window.bgmPlay()}
+function start(){if(pos>=N)pos=1;if(window.storyOnPlay)window.storyOnPlay();glyph(true);timer=requestAnimationFrame(tick);if(window.bgmPlay)window.bgmPlay()}
 play.onclick=function(){if(timer){stop();return}start()};
 var sb=document.getElementById('race-speed-btn'),ss=document.getElementById('race-speed');sb.onclick=function(){ss.value={1:'2',2:'4',4:'1'}[+ss.value];sb.textContent=ss.value+'×'};
 document.getElementById('pb-prev').onclick=function(){stop();pos=1;apply()};
@@ -296,6 +296,7 @@ function showStory(y){cur=y;var t=ST[y],el=document.getElementById('st-tx');box.
 if(typer)clearInterval(typer);if(matchMedia('(prefers-reduced-motion: reduce)').matches){el.textContent=t;return}var i=0;el.textContent='';typer=setInterval(function(){i+=2;el.textContent=t.slice(0,i);if(i>=t.length){clearInterval(typer);typer=null}},28)}
 function hideStory(){box.hidden=true;document.documentElement.classList.remove('st-on');if(typer){clearInterval(typer);typer=null}}
 var sr=document.getElementById('s-race');function chkLeave(){if(box.hidden)return;var r=sr.getBoundingClientRect();if(r.bottom<innerHeight*.5||r.top>innerHeight*.5)hideStory()}addEventListener('scroll',chkLeave,{passive:true});document.querySelector('main').addEventListener('scroll',chkLeave,{passive:true});setInterval(chkLeave,400);
+window.storyOnPlay=function(){if(box.hidden&&pos<=5){var y=Y0!==null?Y0:+String(dates[0]).slice(0,4);if(ST[y])showStory(y)}};  /* 從頭播放時跳出進場年的故事 */
 function step(d){var i=SK.indexOf(cur),y=SK[(i+d+SK.length)%SK.length],j=dates.findIndex(function(t){return String(t)>=String(y)});if(y>cur&&j>0){pos=j+1;apply();showStory(y);return}var ys=document.getElementById('race-y0sel');ys.value=String(y);ys.onchange()}
 document.getElementById('st-x').onclick=hideStory;document.getElementById('st-prev').onclick=function(){step(-1)};document.getElementById('st-next').onclick=function(){step(1)};
 addEventListener('keydown',function(e){if(box.hidden)return;if(e.key==='Escape'){hideStory()}else if(e.key==='ArrowLeft'){e.preventDefault();step(-1)}else if(e.key==='ArrowRight'){e.preventDefault();step(1)}});
