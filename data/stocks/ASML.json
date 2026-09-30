@@ -1,11 +1,11 @@
 {
   "symbol": "ASML",
   "name": "艾司摩爾",
-  "tier": "enter",
+  "tier": "ready",
   "regime": "neutral",
   "theme": "AI Compute",
   "business": "EUV 微影設備獨家供應商;3nm 以下節點必經;荷蘭出口管制為主要變數。",
-  "why": "NEWS_CATALYST",
+  "why": "WATCHLIST_CONVICTION",
   "rsi": null,
   "sma50": null,
   "sma200": null,
@@ -13,35 +13,43 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 8.5
+      "score": 7.0
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 9.4
+      "score": 5.6
     },
     {
       "key": "macro_context",
       "label": "總經環境",
-      "score": null
+      "score": 5.2
     },
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 5.5
+      "score": 6.9
     },
     {
       "key": "news_catalyst",
       "label": "新聞催化",
-      "score": 8.8
+      "score": 7.5
     },
     {
       "key": "risk_reward",
       "label": "風險回報",
-      "score": 5.0
+      "score": null
     }
   ],
   "tracking": [
+    {
+      "date": "2026-09-30",
+      "theme": "AI Compute",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-05-28",
       "theme": "Semiconductor Equipment (WFE)",

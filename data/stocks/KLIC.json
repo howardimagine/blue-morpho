@@ -88,11 +88,6 @@
   ],
   "peers": [
     {
-      "symbol": "ASML",
-      "name": "艾司摩爾",
-      "tier": "enter"
-    },
-    {
       "symbol": "ACLS",
       "name": "艾克塞利",
       "tier": "ready"
