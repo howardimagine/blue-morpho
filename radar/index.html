@@ -287,6 +287,11 @@
     .rl ol { padding-left: 20px; margin: 0; font-size: var(--fs-md); line-height: 1.7; } .rl li { margin: 6px 0; } .rl-f { margin-top: 12px; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--dim); line-height: 1.6; }
     .rl-tabs { display: flex; gap: 6px; margin-bottom: 12px; } .rl-tabs .btn.on { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
     .rl-p[hidden] { display: none; } .rl-v { font-size: var(--fs-md); line-height: 1.7; } .rl-v dt { font-family: var(--font-mono); color: var(--accent); margin-top: 8px; } .rl-v dd { margin: 0 0 4px; } .rl-v dt:first-child { margin-top: 0; }
+    .qcard { margin: 8px 12px 4px; padding: 10px 12px; border: 1px solid var(--accent); border-radius: 6px; background: var(--bg-card); font-size: var(--fs-sm); }
+    .qcard .qh { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; } .qcard .qh b { font-size: var(--fs-lg); color: var(--accent); } .qcard .qh .nm { color: var(--dim); font-size: var(--fs-xs); }
+    .qcard .qrow { display: grid; grid-template-columns: 5.5em 1fr; gap: 2px 8px; margin-top: 6px; font-family: var(--font-mono); font-size: var(--fs-xs); } .qcard .qrow .ok { color: var(--positive); } .qcard .qrow .no { color: var(--negative); } .qcard .qrow .na { color: var(--dim); }
+    .qcard .qp { margin-top: 8px; padding-top: 6px; border-top: 1px dashed var(--border); } .qcard .qp:first-of-type { border-top: 0; padding-top: 0; }
+    .qcard .qt { margin-top: 6px; font-size: var(--fs-xs); color: var(--sec); } .qcard .qmiss { color: var(--dim); }
     .upd-line { flex-basis: 100%; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--dim); margin-top: 2px; } .upd-line b { color: var(--text-primary); font-weight: 500; } .upd-line .stale { color: var(--negative); } .upd-line .warn { color: var(--warning); }
     .upd { display: none; padding: 6px 18px; border-bottom: 1px solid var(--border); background: var(--bg-card); font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--dim); line-height: 1.5; } .upd b { color: var(--text-primary); font-weight: 500; } .upd .warn { color: var(--warning); } .upd .stale { color: var(--negative); }
     @media (max-width: 768px) { .upd { display: block; } }
@@ -552,7 +557,7 @@
           <div class="sb-bar">
             <div class="lv-tabs" id="lvtabs"></div>
             <div class="sb-tools">
-              <input type="search" id="q" placeholder="搜尋代號 / 名稱 / 產業" aria-label="搜尋">
+              <input type="search" id="q" placeholder="輸入代號看過關狀況(如 NVDA / 2330)" aria-label="搜尋">
               <select id="sort" aria-label="排序"><option value="rs">RS ↓</option><option value="dh">距高 ↓</option><option value="px">價格 ↓</option><option value="td">趨勢天 ↓</option><option value="age">在層 ↓</option><option value="rev_g">營收 YoY ↓</option><option value="eps_g">EPS YoY ↓</option><option value="gm">毛利 ↓</option><option value="vq">VCP 品質 ↓</option><option value="dp">離 pivot ↓</option><option value="s">代號 A–Z</option></select>
             </div>
             <div class="sb-lv" id="sblv"></div>
@@ -758,9 +763,33 @@
     return data.symbols.filter(m => (R.levels[m.s] ?? (sel === 0 ? 0 : -1)) >= sel && (!qq || m.s.includes(qq) || (m.name || '').toUpperCase().includes(qq) || (m.ind || '').toUpperCase().includes(qq)))
       .sort((a, b) => { if (sortKey === 's') return a.s < b.s ? -1 : 1; const x = val(a, sortKey), y = val(b, sortKey); if (x == null && y == null) return 0; if (x == null) return 1; if (y == null) return -1; return y - x; });
   }
+  const EVC = {};   // 各 preset 的 evaluate 快取(依 data.date + preset)
+  function evalFor(pid) {
+    if (pid === ver) return R;
+    const k = pid + '|' + data.date; if (!EVC[k]) EVC[k] = RadarFunnel.evaluate(data.symbols, clone((data.profiles && data.profiles[pid]) || data.params), data.date); return EVC[k];
+  }
+  function tickerCard(sym) {
+    const m = data.symbols.find(x => x.s === sym); if (!m) return '';
+    const LV = ['L0 宇宙', 'L1 趨勢', 'L2 基本面', 'L3 催化', 'L4 VCP'];
+    const stage = code => !code ? 5 : code === 'stale' || code === 'hist' || code.startsWith('data:') || code.startsWith('L0') ? 0 : code.startsWith('c') || code === 'trend_days' ? 1 : code.startsWith('L2') ? 2 : code.startsWith('L3') ? 3 : 4;
+    const presets = Object.keys(data.profiles || { [ver]: 1 });
+    const blocks = presets.map(pid => {
+      const E = evalFor(pid); const lv = E.levels[m.s]; const code = E.fail[m.s]; const st = lv == null ? stage(code) : (lv >= 4 ? 5 : lv + 1);
+      const rows = LV.map((n, i) => { const passed = lv != null ? i <= lv : false; const here = (lv == null ? stage(code) : lv + 1) === i && lv !== 4;
+        return `<span>${n}</span><span class="${passed && !(here) ? 'ok' : here ? 'no' : (passed ? 'ok' : 'na')}">${passed && !here ? '通過' : here ? '卡在:' + esc(WHY[code] || code || '') : '—'}</span>`; }).join('');
+      const tk = (track && track.entries || []).filter(e => e.p === pid && e.s === m.s).sort((a, b) => b.date < a.date ? -1 : 1)[0];
+      const tt = tk ? `<div class="qt">觀察票 ${tk.date} · pivot ${CUR}${fmt(tk.piv, 2)} · ${(ST[tk.status] || [tk.status])[0]}${tk.trig_date ? ' · 觸發 ' + tk.trig_date : ''}${tk.r != null ? ' · R ' + (tk.r > 0 ? '+' : '') + tk.r.toFixed(2) : ''}</div>` : `<div class="qt qmiss">沒有觀察票</div>`;
+      return `<div class="qp"><div class="qh"><span class="nm">${esc((VLABEL[pid] || pid).split(' ')[0])}</span>${lv === 4 ? '<span class="lv on" style="border-color:currentColor">L4 狙擊候選</span>' : ''}</div><div class="qrow">${rows}</div>${tt}</div>`;
+    }).join('');
+    const dh = m.hi ? ((m.px / m.hi - 1) * 100).toFixed(1) : null;
+    return `<div class="qcard" data-s="${m.s}"><div class="qh"><b>${m.s}</b><span class="nm">${esc(m.name || '')} · ${esc(m.sec || '')}</span><span class="nm">${CUR}${fmt(m.px, 2)} · RS ${m.rs ?? '—'} · 距高 ${dh == null ? '—' : dh + '%'}${m.st ? ` · <span class="warn">K 線落後 ${m.st} 日</span>` : ''}</span></div>${blocks}<div class="qt qmiss">點卡片看個股頁 · 這張卡不受左邊層級篩選影響</div></div>`;
+  }
   function renderList() {
     const rs = rows(), MAX = 300;
     $('#sblv').innerHTML = `<span><b>${esc(N[sel])}</b> · ≥ 本層</span><span>${rs.length > MAX ? `顯示前 ${MAX} / ` : ''}${rs.length} 檔</span>${isMobile() && UPD_TXT ? `<span class="upd-line">${UPD_TXT}</span>` : ''}`;
+    const qq = q.trim().toUpperCase(); const exact = qq && data.symbols.some(x => x.s === qq) ? qq : (qq && rs.length === 1 ? rs[0].s : null);
+    const card = exact ? tickerCard(exact) : (qq && !rs.length ? `<div class="qcard"><div class="qh"><b>${esc(qq)}</b><span class="nm">不在今天的宇宙裡(市值 / 價格 / 成交量門檻,或代號打錯)</span></div></div>` : '');
+    if (!rs.length && card) { $('#list').innerHTML = card; const c = $('#list .qcard[data-s]'); if (c) c.onclick = () => showDetail(c.dataset.s); return; }
     if (!rs.length) {
       const vn = (VLABEL[ver] || ver).split(' ')[0];
       const other = ver === 'exec' ? 'watch' : 'exec';
@@ -775,7 +804,7 @@
       if (b) b.onclick = () => { const vs = $('#versel'); vs.value = other; vs.dispatchEvent(new Event('change')); };
       return;
     }
-    $('#list').innerHTML = rs.slice(0, MAX).map(m => {
+    $('#list').innerHTML = card + rs.slice(0, MAX).map(m => {
       const v = m.v, lv = R.levels[m.s] ?? 0, dh = val(m, 'dh');
       const dEarn = m.e && m.e.next ? (Date.parse(m.e.next) - Date.parse(data.date)) / 864e5 : null;
       const flags = [R.tag && R.tag[m.s] === 'pp' ? '<span class="flag pp" title="強力拉升直通:8 週內翻倍後緊整理,略過 c2/c3/c4 與連續天數">PP 直通</span>' : '',
@@ -792,7 +821,7 @@
   }
   $('#q').addEventListener('input', e => { q = e.target.value; renderList(); });
   $('#sort').addEventListener('change', e => { sortKey = e.target.value; renderList(); });
-  $('#list').addEventListener('click', e => { const s = e.target.closest('.row')?.dataset.s; if (s) showDetail(s); });
+  $('#list').addEventListener('click', e => { const s = e.target.closest('.row, .qcard[data-s]')?.dataset.s; if (s) showDetail(s); });
 
   // ── Sidebar 第 2 頁:個股(有返回)───────────────────────
   let chart = null, curSym = null;
