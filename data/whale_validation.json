@@ -1,109 +1,123 @@
 {
   "as_of": "2026-08-14",
   "n_whales": 19,
-  "generated_at": "2026-10-02T00:06:52+00:00",
+  "generated_at": "2026-10-05T00:05:34+00:00",
   "stocks": [
     {
-      "symbol": "ROK",
-      "name": "羅克韋爾自動化",
-      "theme": "Industrial Automation",
-      "signal": "split",
-      "holders": 4,
-      "increased": 2,
-      "reduced": 2,
+      "symbol": "ALAB",
+      "name": "Astera Labs, Inc.",
+      "theme": "Optical / AI Interconnect",
+      "signal": "sell",
+      "holders": 1,
+      "increased": 0,
+      "reduced": 1,
       "new_pos": 0,
       "closed_pos": 0,
-      "total_held_usd": 264635527,
-      "total_held_fmt": "$265M",
-      "whales_fmt": "Andreas Halvorsen $227M 減碼 · 達利歐 Dalio $23M 加碼 · 索羅斯 Soros $14M 加碼 · 木頭姐 Cathie Wood <$1M 減碼",
+      "total_held_usd": 479156,
+      "total_held_fmt": "<$1M",
+      "whales_fmt": "達利歐 Dalio <$1M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "Andreas Halvorsen",
-          "value_usd": 227429748,
+          "name": "達利歐 Dalio",
+          "value_usd": 479156,
           "action": "trim"
+        }
+      ]
+    },
+    {
+      "symbol": "CRDO",
+      "name": "Credo Technology Group Holding ",
+      "theme": "Optical / AI Interconnect",
+      "signal": "sell",
+      "holders": 1,
+      "increased": 0,
+      "reduced": 1,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 48677962,
+      "total_held_fmt": "$49M",
+      "whales_fmt": "達利歐 Dalio $49M 減碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 48677962,
+          "action": "trim"
+        }
+      ]
+    },
+    {
+      "symbol": "COHR",
+      "name": "Coherent Corp.",
+      "theme": "Optical / AI Interconnect",
+      "signal": "sell",
+      "holders": 1,
+      "increased": 0,
+      "reduced": 1,
+      "new_pos": 0,
+      "closed_pos": 1,
+      "total_held_usd": 5998311,
+      "total_held_fmt": "$6M",
+      "whales_fmt": "德魯肯米勒 Druckenmiller — 清倉 · 達利歐 Dalio $6M 減碼",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "德魯肯米勒 Druckenmiller",
+          "value_usd": 0,
+          "action": "exit"
         },
         {
           "name": "達利歐 Dalio",
-          "value_usd": 22654674,
-          "action": "add"
-        },
-        {
-          "name": "索羅斯 Soros",
-          "value_usd": 14455117,
-          "action": "add"
-        },
-        {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 95988,
+          "value_usd": 5998311,
           "action": "trim"
         }
       ]
     },
     {
-      "symbol": "VRT",
-      "name": "Vertiv",
-      "theme": "Data Center",
+      "symbol": "CIEN",
+      "name": "Ciena Corporation",
+      "theme": "Optical / AI Interconnect",
       "signal": "sell",
       "holders": 2,
       "increased": 0,
-      "reduced": 2,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 293862139,
-      "total_held_fmt": "$294M",
-      "whales_fmt": "Philippe Laffont $270M 減碼 · 達利歐 Dalio $24M 減碼",
+      "reduced": 1,
+      "new_pos": 1,
+      "closed_pos": 1,
+      "total_held_usd": 49565201,
+      "total_held_fmt": "$50M",
+      "whales_fmt": "Stephen Mandel — 清倉 · 達利歐 Dalio $50M 減碼 · Terry Smith — 新進",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "Philippe Laffont",
-          "value_usd": 270063803,
-          "action": "trim"
+          "name": "Stephen Mandel",
+          "value_usd": 0,
+          "action": "exit"
         },
         {
           "name": "達利歐 Dalio",
-          "value_usd": 23798336,
-          "action": "trim"
-        }
-      ]
-    },
-    {
-      "symbol": "DDOG",
-      "name": "Datadog, Inc.",
-      "theme": "AI Software",
-      "signal": "sell",
-      "holders": 2,
-      "increased": 0,
-      "reduced": 2,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 57229731,
-      "total_held_fmt": "$57M",
-      "whales_fmt": "木頭姐 Cathie Wood $55M 減碼 · 索羅斯 Soros $3M 減碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 54714133,
+          "value_usd": 49565201,
           "action": "trim"
         },
         {
-          "name": "索羅斯 Soros",
-          "value_usd": 2515598,
-          "action": "trim"
+          "name": "Terry Smith",
+          "value_usd": 0,
+          "action": "new"
         }
       ]
     },
     {
-      "symbol": "CSCO",
-      "name": "Cisco Systems, Inc.",
-      "theme": "Cloud Infrastructure",
+      "symbol": "AEHR",
+      "name": "Aehr Test",
+      "theme": "Semiconductor Equipment (WFE)",
       "signal": "sell",
       "holders": 0,
       "increased": 0,
@@ -125,60 +139,26 @@
       ]
     },
     {
-      "symbol": "ADBE",
-      "name": "Adobe Inc.",
-      "theme": "AI Software",
+      "symbol": "VEEV",
+      "name": "Veeva Systems Inc.",
+      "theme": "Healthcare AI",
       "signal": "buy",
-      "holders": 2,
-      "increased": 1,
+      "holders": 1,
+      "increased": 0,
       "reduced": 0,
       "new_pos": 1,
       "closed_pos": 0,
-      "total_held_usd": 22997093,
-      "total_held_fmt": "$23M",
-      "whales_fmt": "達利歐 Dalio $18M 加碼 · 索羅斯 Soros $5M 新進",
+      "total_held_usd": 5449926,
+      "total_held_fmt": "$5M",
+      "whales_fmt": "達利歐 Dalio $5M 新進",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
           "name": "達利歐 Dalio",
-          "value_usd": 18195730,
-          "action": "add"
-        },
-        {
-          "name": "索羅斯 Soros",
-          "value_usd": 4801363,
+          "value_usd": 5449926,
           "action": "new"
-        }
-      ]
-    },
-    {
-      "symbol": "ABBNY",
-      "name": "ABB",
-      "theme": "Electrification / Power",
-      "signal": "sell",
-      "holders": 2,
-      "increased": 0,
-      "reduced": 1,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 9484598,
-      "total_held_fmt": "$9M",
-      "whales_fmt": "達利歐 Dalio $5M 減碼 · 索羅斯 Soros $4M 持有",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 5423983,
-          "action": "trim"
-        },
-        {
-          "name": "索羅斯 Soros",
-          "value_usd": 4060615,
-          "action": "hold"
         }
       ]
     }

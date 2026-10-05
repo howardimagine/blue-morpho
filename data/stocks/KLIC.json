@@ -93,6 +93,11 @@
       "tier": "ready"
     },
     {
+      "symbol": "AEHR",
+      "name": "Aehr Test",
+      "tier": "ready"
+    },
+    {
       "symbol": "KLAC",
       "name": "科磊",
       "tier": "ready"
