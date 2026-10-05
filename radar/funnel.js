@@ -87,6 +87,9 @@
         }
         if (fu.require_acceleration && !accel) { fail[s] = 'L2:accel'; continue; }
         if ((fu.gm_gate !== false) && !gmOk) { fail[s] = f.gm != null ? 'L2:gm' : 'L2:gm_na'; continue; }
+        // CAN SLIM 的 A(其他 preset 沒這兩個鍵 → 恆不觸發)—— 與 Python 一致
+        if (fu.annual_years_up && (f.a_up || 0) < fu.annual_years_up) { fail[s] = f.ay ? 'L2:a_years' : 'L2:a_na'; continue; }
+        if (fu.annual_cagr_min != null && (f.a_cagr == null || f.a_cagr < fu.annual_cagr_min)) { fail[s] = f.a_cagr != null ? 'L2:a_cagr' : 'L2:a_na'; continue; }
       }
       levels[s] = 2;
       if (on.catalyst) {

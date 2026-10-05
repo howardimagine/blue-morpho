@@ -49,6 +49,20 @@
     .fl.off .nm, .fl.off .ct { fill: var(--dim); }
     .fn-hint { font-family: var(--font-mono); font-size: .6rem; color: var(--text-dim); padding: 0 14px 6px; letter-spacing: .04em; position: relative; }
     .fn-hint b { color: var(--positive); font-weight: 500; }
+    /* CAN SLIM 七字母條:每個字母對應漏斗哪一層、通過幾檔;M 是漏斗外的大盤閘門,I 沒資料 */
+    .cs7 { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 6px; padding: 4px 14px 10px; position: relative; }
+    .cs7 button { all: unset; cursor: pointer; border: 1px solid var(--border); border-radius: 6px; padding: 6px 4px 5px; text-align: center; background: var(--bg); min-width: 0; }
+    .cs7 button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+    .cs7 .lt { display: block; font-family: var(--font-mono); font-size: 1.15rem; font-weight: 700; line-height: 1.1; color: var(--accent); }
+    .cs7 .nm { display: block; font-size: .62rem; color: var(--sec); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .cs7 .vl { display: block; font-family: var(--font-mono); font-size: .66rem; color: var(--text-primary); margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .cs7 .vl i { font-style: normal; }
+    .cs7 .ly { display: block; font-family: var(--font-mono); font-size: .56rem; color: var(--text-dim); }
+    .cs7 .sel { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+    .cs7 .warn { border-color: var(--warning); } .cs7 .warn .lt, .cs7 .warn .vl { color: var(--warning); }
+    .cs7 .na { cursor: default; opacity: .5; } .cs7 .na .lt { color: var(--dim); }
+    .cs7 .off .lt { color: var(--dim); } .cs7 .off .vl { color: var(--dim); }
+    @media (max-width: 768px) { .cs7 { gap: 4px; padding: 4px 10px 8px; } .cs7 .nm, .cs7 .ly, .cs7 .vl i { display: none; } .cs7 .lt { font-size: 1rem; } }
 
     /* 參數(緊湊:標籤 | 拉桿 | 值 同一列) */
     .pm-card { padding: 0 14px 10px; }
@@ -404,7 +418,7 @@
   <dialog id="rules">
     <div class="rl">
       <div class="rl-h"><b id="rl-title">停損停利守則</b><span id="rl-sub">執行版 · 十年時點回測(與雷達同一套程式)</span><button class="btn ghost" id="rules-x">關閉</button></div>
-      <div class="rl-tabs"><button class="btn on" data-p="rules">守則</button><button class="btn" data-p="vers">兩組 preset</button></div>
+      <div class="rl-tabs"><button class="btn on" data-p="rules">守則</button><button class="btn" data-p="vers">三組 preset</button></div>
       <div class="rl-p" data-p="rules"><ol>
         <li><b>選股 = 執行版名單</b>:趨勢樣板 8 條、RS ≥ 90、距 52 週高 25% 內、營收或 EPS 任一成長達標、VCP 且現價在 pivot ±5% 內、價 ≥ $5 且 50 日均量 ≥ 20 萬。產業不挑。</li>
         <li><b>觀察票只給 10 個交易日</b>:過四關後 10 天內沒突破就過期;跌破最後一腿低點作廢。晚突破在回測裡是虧的。</li>
@@ -418,8 +432,9 @@
       <div class="rl-p" data-p="vers" hidden><dl class="rl-v">
         <dt>執行版(機械)</dt><dd>給「照規則做」的人。RS ≥ 90、營收或 EPS 任一成長、VCP 且現價貼著 pivot ±5%、價 ≥ $5、50 日均量 ≥ 20 萬;觀察票 10 天;觸發日大盤轉弱不買、過熱減半;6 檔 × 16%,閒錢放 SPY。十年時點回測 (含下市股、ADR)全期 +0.16R,6 檔閒錢放 SPY 年化 16.8%(SPY 15.2%);前五年打平、後五年為正。</dd>
         <dt>觀察版(自己挑)</dt><dd>給「自己判斷」的人。RS ≥ 70、距高 25%,基本面、大盤狀態只標記不擋,名單寬很多。這套規則本身在十年回測是賠的(−0.04R),它不是策略,是候選池:產業是否同步、第幾個底、突破頭三天走勢,都要自己看。</dd>
+        <dt>CAN SLIM 版(笑傲股市)</dt><dd>O'Neil《How to Make Money in Stocks》七個字母套在同一支雷達上:C 當季營收與 EPS 都 ≥ 25%;A 年度 EPS(滾動四季)連 3 年成長且 3 年 CAGR ≥ 25%;N 距 52 週高 15% 內、離 pivot 5% 內;S 突破量 ≥ 50 日均量 1.4×;L RS ≥ 80、價 ≥ $15;M 大盤進入「修正」(25 天內出貨日 ≥ 5 且 SPY 跌破 50 日線,直到跟進日)不買;停損 −8%。I(機構持股)沒有資料,未納入。僅美股,<b>尚未回測</b>,名單只當另一個角度的候選池。</dd>
         <dt>書的原值</dt><dd>想看 Minervini 書上逐字的門檻(基本面四條硬擋、RS 80、距高 15%、VCP 品質分 50),到參數面板按「回到書的原值」。十年回測 −0.16R,只作對照,不作策略。</dd>
-      </dl><div class="rl-f">兩組共用同一份掃描資料,切換只是換規則重算,不用重掃。完整原理與計算方式見 Playbook。</div></div></div>
+      </dl><div class="rl-f">三組共用同一份掃描資料,切換只是換規則重算,不用重掃。完整原理與計算方式見 Playbook。</div></div></div>
     </div>
   </dialog>
   <nav class="mnav" id="mnav" aria-label="手機分頁">
@@ -445,7 +460,7 @@
   </footer>
 </div>
 
-<script src="funnel.js?v=20260915a"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
+<script src="funnel.js?v=20261006a"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 (async function () {
@@ -458,7 +473,7 @@
   const TVEX = { NASDAQ: 'NASDAQ', NYSE: 'NYSE', AMEX: 'AMEX', TWSE: 'TWSE', TPEX: 'TPEX' };
   const tvUrl = m => `https://www.tradingview.com/chart/?symbol=${encodeURIComponent((TVEX[m.ex] || m.ex || '') + ':' + m.s)}`;
   const WHY = { c1:'c1 價 < 150/200MA', c2:'c2 150MA < 200MA', c3:'c3 200MA 未上彎', c4:'c4 50MA 排列', c5:'c5 價 < 50MA', c6:'c6 離低點 < 門檻', c7:'c7 離高點 > 門檻', c8:'c8 RS 不足',
-    trend_days:'連續天數不足', stale:'K 線落後(無當日收盤)', hist:'歷史不足 200/252 根', 'data:corrupt':'資料異常(拆股混雜),已排除', 'L2:no_data':'無財報資料', 'L2:growth':'營收與 EPS 都不足', 'L2:rev':'營收成長不足', 'L2:rev_na':'無營收(pre-revenue)', 'L2:eps':'EPS 成長不足', 'L2:eps_na':'去年同季 EPS ≤ 0', 'L2:accel':'未加速', 'L2:gm':'毛利不足', 'L2:gm_na':'無毛利資料',
+    trend_days:'連續天數不足', stale:'K 線落後(無當日收盤)', hist:'歷史不足 200/252 根', 'data:corrupt':'資料異常(拆股混雜),已排除', 'L2:no_data':'無財報資料', 'L2:growth':'營收與 EPS 都不足', 'L2:rev':'營收成長不足', 'L2:rev_na':'無營收(pre-revenue)', 'L2:eps':'EPS 成長不足', 'L2:eps_na':'去年同季 EPS ≤ 0', 'L2:accel':'未加速', 'L2:gm':'毛利不足', 'L2:a_years':'年度 EPS 未連 3 年成長', 'L2:a_cagr':'年度 EPS 3 年 CAGR 不足', 'L2:a_na':'年度 EPS 歷史不足 / 有虧損年', 'L2:gm_na':'無毛利資料',
     'L3:rs':'RS < 門檻', 'L3:dist':'離 52W 高太遠', 'L3:adr':'ADR 不足', 'L3:event':'事件驅動(單日大漲 >門檻)', 'L3:earnings':'財報窗', 'L3:sector_cap':'產業上限',
     'L0:liq':'流動性不足(價 < $5 或 50 日均量 < 20 萬)', 'L4:no_vcp':'未見 VCP', 'L4:n':'收縮次數不足', 'L4:quality':'VCP 品質不足', 'L4:below_pivot':'離 pivot 太遠',
     'L4:extended':'已突破 pivot 太多(追高)', 'L4:no_dryup':'量沒縮(不符 VCP)', 'L2:rev_base':'基期極低的假成長' };
@@ -495,7 +510,12 @@
   const persist = () => { try { localStorage.setItem('radar.params.' + ver, JSON.stringify({ date: data.date, P })); localStorage.setItem('radar.preset', ver); } catch (_) {} };
   const get = path => path.split('.').reduce((o, k) => (o == null ? undefined : o[k]), P);
   const set = (path, v) => { const ks = path.split('.'); ks.slice(0, -1).reduce((o, k) => o[k], P)[ks.at(-1)] = v; };
-  const N = data.level_names, sp = data.params, vp = sp.vcp, u = sp.universe;
+  const N0 = data.level_names, sp = data.params, vp = sp.vcp, u = sp.universe;
+  // 同一套五層漏斗;CAN SLIM 版只換每層的名字,讓人看得出哪個字母在哪一層擋
+  const LVN = { canslim: ['L0 宇宙 · L 價 ≥ $15', 'L1 趨勢 · L 領導 RS', 'L2 C 當季 + A 年度', 'L3 N 新高 · 距高', 'L4 S 放量突破 · pivot'] };
+  const LVS = { canslim: ['宇宙', 'L 領導', 'C+A', 'N 新高', 'S 突破'] };
+  const PGN = { canslim: { trend: 'L1 趨勢樣板 · L 領導(RS)', fundamental: 'L2 基本面 · C 當季 + A 年度', catalyst: 'L3 催化 · N 新高(距 52 週高)', vcp: 'L4 VCP · S 放量突破 + N pivot' } };
+  const NN = () => LVN[ver] || N0;
   const bySym = Object.fromEntries(data.symbols.map(m => [m.s, m]));
 
   const PARAMS = [
@@ -517,7 +537,9 @@
       ['fundamental.require_acceleration', '需要加速(本季 YoY > 上季)', 'bool'],
       ['fundamental.growth_any', '營收或 EPS 任一達標即可', 'bool'],
       ['fundamental.gm_gate', '毛利率當閘門(關 = 只標不擋)', 'bool'],
-      ['fundamental.accept_turnaround', '轉虧為盈視為 EPS 通過', 'bool'] ]},
+      ['fundamental.accept_turnaround', '轉虧為盈視為 EPS 通過', 'bool'],
+      ['fundamental.annual_years_up', 'A:年度 EPS 連續成長 ≥', 0, 3, 1, v => v ? v + ' 年' : '關'],
+      ['fundamental.annual_cagr_min', 'A:年度 EPS 3 年 CAGR ≥', 0, 1, .05, v => v == null ? '關' : pct(v)] ]},
     { g: 'L3 催化劑 · 極強勢', k: 3, key: 'catalyst', items: [
       ['catalyst.rs_min', 'RS 評級 ≥', 1, 99, 1, v => v],
       ['catalyst.max_dist_from_high_pct', '距 52W 高 ≤', 0, 50, 1, v => v + '%'],
@@ -542,6 +564,7 @@
         <section class="card fn-card">
           <div class="fn-meta" id="fn-meta"></div>
           <div class="card-t"><span>Filter Funnel</span><span class="sub" id="fnsub"></span></div>
+          <div class="cs7" id="cs7" hidden role="group" aria-label="CAN SLIM 七字母"></div>
           <svg id="funnel" viewBox="0 0 640 300" preserveAspectRatio="xMidYMid meet" role="img" aria-label="篩選漏斗"></svg>
           <div class="fn-hint">點任一層 → 右側名單 · 每層可「啟用/略過」、門檻可拖 · <b>L4 常態是 0 檔</b> —— 不硬湊</div>
         </section>
@@ -595,11 +618,12 @@
   // 版本切換鈕(header)
   const VSUB = {
     exec: ['機械執行', '訊號少而精:RS 90、營收或 EPS 任一成長、現價貼著 pivot ±5%,觀察票只給 10 天,大盤轉弱不買、過熱減半。其餘資金放指數。十年回測(含下市股、ADR)全期為正的一組;前五年打平,後五年為正。'],
-    watch: ['自己挑', '寬名單、只標記不擋:RS 70、距高 25%、基本面與大盤狀態只做標記。這套規則本身在十年回測是賠的(−0.04R),它的用途是給人為判斷一個夠寬的候選池。']
+    watch: ['自己挑', '寬名單、只標記不擋:RS 70、距高 25%、基本面與大盤狀態只做標記。這套規則本身在十年回測是賠的(−0.04R),它的用途是給人為判斷一個夠寬的候選池。'],
+    canslim: ['O\'Neil 笑傲股市', 'C 營收與 EPS 都 ≥ 25%、A 年度 EPS 連 3 年成長且 3 年 CAGR ≥ 25%、N 距 52 週高 15% 內、S 突破量 1.4×、L RS 80 且價 ≥ $15、M 大盤「修正」(出貨日 ≥ 5 且跌破 50 日線、還沒跟進日)不買;停損 −8%。僅美股。尚未回測,不是機械執行建議。']
   };
-  const VLABEL = { exec: '執行版(機械)', watch: '觀察版(自己挑)' };
+  const VLABEL = { exec: '執行版(機械)', watch: '觀察版(自己挑)', canslim: 'CAN\u00a0SLIM\u00a0版(笑傲股市)' };   // 不換行空白:VLABEL 會用第一個空白切短標籤
   const vwrap = document.createElement('select'); vwrap.id = 'versel'; vwrap.className = 'hdr-sel';
-  vwrap.title = '兩組 preset:執行版 = 機械執行;觀察版 = 寬名單給人為判斷';
+  vwrap.title = 'Preset:執行版 = 機械執行;觀察版 = 寬名單給人為判斷;CAN SLIM 版 = O\'Neil 七字母(美股)';
   vwrap.innerHTML = VERS.map(v => `<option value="${v}" ${v === ver ? 'selected' : ''}>${matchMedia('(max-width: 768px)').matches ? (VLABEL[v] || v).split(' ')[0] : (VLABEL[v] || v)}</option>`).join('');
   $('#hdr-tools').insertBefore(vwrap, $('#refresh'));
   const mwrap = document.createElement('select'); mwrap.id = 'mktsel'; mwrap.className = 'hdr-sel';
@@ -607,11 +631,13 @@
   mwrap.innerHTML = [['us', '美股'], ['tw', '台股']].map(([k, n]) => `<option value="${k}" ${k === MKT ? 'selected' : ''}>${n}</option>`).join('');
   mwrap.addEventListener('change', () => { location.search = '?m=' + mwrap.value; });
   $('#hdr-tools').insertBefore(mwrap, vwrap);
+  const setH1 = () => { document.querySelector('.rd-h1').firstChild.textContent = ver === 'canslim' ? "O'Neil CAN SLIM 漏斗 " : 'Minervini 趨勢樣板漏斗 '; };
+  setH1();
   document.querySelector('.rd-h1 span').textContent = ` · ${data.market_name || '全美股'} · 收盤後 + 開盤後 1h`;
   vwrap.addEventListener('change', () => {
     ver = vwrap.value; P = baseParams();
     try { const o = JSON.parse(localStorage.getItem('radar.params.' + ver) || 'null'); if (o && o.date === data.date) dmerge(P, o.P); } catch (_) {}
-    persist(); syncControls(); recompute(); if (!$('#pg-track').hidden) renderTrack(); });
+    persist(); setH1(); syncControls(); recompute(); if (!$('#pg-track').hidden) renderTrack(); });
   $('#srv').innerHTML = `${data.rs_meta && data.rs_meta.n ? `<b>RS 基準</b>:${data.rs_meta.n} 檔 · 基準日 3M ${data.rs_meta.dates['63']} / 6M ${data.rs_meta.dates['126']} / 9M ${data.rs_meta.dates['189']} / 12M ${data.rs_meta.dates['252']}${data.rs_meta.spy ? ` · SPY 相當 RS <b>${data.rs_meta.spy.rating}</b>` : ''}<br>` : ''}<b>伺服器參數</b>(掃描時固定):宇宙 mcap ≥ ${(u.min_mcap/1e6).toFixed(0)}M · 價 ≥ $${u.min_price} · 均量 ≥ ${(u.min_avg_volume/1e3).toFixed(0)}K · 200MA 斜率窗 ${sp.trend.ma_slope_lookback} 日 ·
     VCP 回看 ${vp.lookback_days} 日 · 擺動強度 ${vp.swing_strength} · 收縮衰減 ≤ ×${vp.contraction_decay} · 首次收縮 ≤ ${Math.round(vp.max_first_depth*100)}% · 量縮 ≥ ${vp.volume_dryup_pct}% · 突破 = 收盤 > pivot +${vp.pivot_buffer_pct}% 且量 ≥ ${vp.breakout_volume_mult}× 均量`;
 
@@ -628,7 +654,9 @@
     const qtxt = v === 'ok' ? '資料品質 OK' : v === 'warn' ? `資料品質 <span class="warn">${why || '部分落後'}</span>` : '<span class="warn">資料品質 DEGRADED</span>';
     const mk = data.market;
     const mtxt = !mk ? '' : mk.state === 'weak' ? `<span class="warn">大盤 盤整轉弱(20 日 ${mk.r20 > 0 ? '+' : ''}${mk.r20}%)— 不進新倉</span>` : mk.state === 'hot' ? `<span class="warn">大盤 過熱(高於 200 日線 +${mk.above200}%)— 部位減半</span>` : `大盤 OK(20 日 ${mk.r20 > 0 ? '+' : ''}${mk.r20}% · 高於 200 日線 ${mk.above200 > 0 ? '+' : ''}${mk.above200}%)`;
-    $('#meta').insertAdjacentHTML('beforeend', ' · ' + qtxt + (mtxt ? ' · ' + mtxt : ''));
+    const RG = { uptrend: ['確認上漲', ''], pressure: ['漲勢受壓', 'warn'], correction: ['修正中 — CAN SLIM 版不進新倉', 'warn'] };
+    const rtxt = mk && mk.regime && VERS.includes('canslim') ? ` · <span class="${RG[mk.regime][1]}" title="O'Neil 大盤狀態(SPY):25 天內出貨日(收跌 ≥ 0.2% 且量增)≥ 5 且跌破 50 日線 = 修正;修正後要等跟進日(第 4 天起漲 ≥ 1.25% 且量增)或站回 50 日線且出貨日 ≤ 3 才回到上漲">M ${RG[mk.regime][0]} · 出貨日 ${mk.dd}</span>` : '';
+    $('#meta').insertAdjacentHTML('beforeend', ' · ' + qtxt + (mtxt ? ' · ' + mtxt : '') + rtxt);
     $('#fn-meta').innerHTML = $('#meta').innerHTML;
     if (v === 'degraded') { b.hidden = false; b.classList.add('bad'); b.innerHTML = `<b>DEGRADED</b> —— yfinance 限流,${q.universe - q.fresh} 檔沒有當日收盤,不進 L1、不排 RS;名單不完整`; }
   })();
@@ -652,7 +680,7 @@
     <ellipse id="mouthEl" fill="url(#mouth)" stroke="var(--lv2c)" stroke-width="1"/>
     <g id="layers"></g>`;
   const layers = $('#layers');
-  N.forEach((_, i) => {
+  N0.forEach((_, i) => {
     const g = document.createElementNS(NS, 'g'); g.setAttribute('class', 'fl'); g.dataset.i = i;
     g.innerHTML = `<path class="band" fill="url(#g${i})" stroke="${LV_COL[i]}" stroke-width="1"/><path class="ring" fill="none" stroke="${LV_COL[i]}" stroke-opacity=".35" stroke-width=".8"/>
       <line class="lead" stroke="${LV_COL[i]}" stroke-opacity=".55" stroke-width="1" stroke-dasharray="2 3"/>
@@ -683,7 +711,7 @@
         const off = KEYS[i] && P[KEYS[i]].enabled === false;
         g.classList.toggle('off', !!off);
         g.querySelector('.band').setAttribute('stroke-dasharray', off ? '6 4' : ''); g.querySelector('.band').setAttribute('opacity', off ? .4 : 1);
-        nm.textContent = N[i]; ct.textContent = counts[i].toLocaleString();
+        nm.textContent = NN()[i]; ct.textContent = counts[i].toLocaleString();
         pr.textContent = off ? '整層略過 · 上一層全部放行' : i === 0 ? '可交易宇宙' : `${(counts[i] / Math.max(1, counts[i - 1]) * 100).toFixed(1)}% 通過上一層` + (i === 4 && counts[4] === 0 ? ' · 耐心等待' : '');
         // L2 財報沒抓滿 → 這個數字是低估,直接標在漏斗上;只在「有意義」時才警告(≥5 檔或 ≥2%),不然一兩檔會變雜訊
         if (i === 2 && !off && COV.missing >= Math.max(5, COV.total * 0.02)) {
@@ -715,10 +743,11 @@
   function mnav(m) { document.body.dataset.m = m; document.querySelectorAll('#mnav button').forEach(b => b.classList.toggle('on', b.dataset.m === m)); }
   $('#mnav').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; const m = b.dataset.m; mnav(m); if (m === 'list') showList(); else if (m === 'track') showTrack(); else window.scrollTo(0, 0); });
   mnav('list');
-  function selectLevel(i) { sel = i; showList(); renderList(); highlight(); renderTabs(); if (isMobile()) mnav('list'); }
+  function selectLevel(i) { sel = i; showList(); renderList(); highlight(); renderTabs(); renderCs7(); if (isMobile()) mnav('list'); }
   const SHORT = ['宇宙', '趨勢', '基本面', '催化', 'VCP'];
   function renderTabs() {
-    $('#lvtabs').innerHTML = N.map((n, i) => `<button class="lv-tab ${i === sel ? 'on' : ''} ${KEYS[i] && P[KEYS[i]].enabled === false ? 'off' : ''}" data-lv="${i}">L${i} ${SHORT[i]}<b>${R.counts[i].toLocaleString()}</b></button>`).join('')
+    const SH = LVS[ver] || SHORT;
+    $('#lvtabs').innerHTML = NN().map((n, i) => `<button class="lv-tab ${i === sel ? 'on' : ''} ${KEYS[i] && P[KEYS[i]].enabled === false ? 'off' : ''}" data-lv="${i}">L${i} ${SH[i]}<b>${R.counts[i].toLocaleString()}</b></button>`).join('')
       + `<button class="lv-tab tk" data-lv="track" title="過四關的觀察票:等待 / 觸發 / 作廢,含成功率">觀察池<b>${(track && track.summary && track.summary[ver] || {}).n || 0}</b></button>`;
   }
   $('#lvtabs').addEventListener('click', e => { const b = e.target.closest('.lv-tab'); if (!b) return; b.dataset.lv === 'track' ? showTrack() : selectLevel(+b.dataset.lv); });
@@ -730,6 +759,27 @@
     el.innerHTML = `<b>${esc((VLABEL[ver] || ver).split(' ')[0])} ${esc(v[0])}</b> — ${esc(v[1])}${tw}`;
     el.hidden = false;
   }
+  // CAN SLIM 七字母條:字母 → 漏斗層;數字 = 走到這個字母還剩幾檔(同漏斗一樣是累進的)
+  function renderCs7() {
+    const el = $('#cs7'); if (!el) return;
+    if (ver !== 'canslim') { el.hidden = true; return; }
+    const c = R.counts, fu = P.fundamental, ca = P.catalyst, vp_ = P.vcp, mk = data.market || {};
+    const off = k => P[k] && P[k].enabled === false;
+    const cPass = c[2] + Object.values(R.fail).filter(x => x && x.startsWith('L2:a_')).length;   // 過了 C、卡在 A 的也算過 C
+    const RGN = { uptrend: '上漲<i>確認</i>', pressure: '受壓', correction: '修正<i> · 不進</i>' };
+    const cell = (lt, nm, vl, ly, lv, cls, tip) => `<button type="button" class="${cls}${lv === sel ? ' sel' : ''}" ${lv == null ? 'tabindex="-1"' : `data-lv="${lv}"`} title="${esc(tip)}"><span class="lt">${lt}</span><span class="nm">${nm}</span><span class="vl">${vl}</span><span class="ly">${ly}</span></button>`;
+    el.innerHTML = [
+      cell('C', '當季成長', off('fundamental') ? '略過' : cPass.toLocaleString() + '<i> 檔</i>', 'L2', 2, off('fundamental') ? 'off' : '', `當季營收 YoY ≥ ${pct(fu.rev_growth_min)}${fu.growth_any ? ' 或' : ' 且'} EPS YoY ≥ ${pct(fu.eps_growth_min)}`),
+      cell('A', '年度成長', off('fundamental') ? '略過' : c[2].toLocaleString() + '<i> 檔</i>', 'L2', 2, off('fundamental') || !fu.annual_years_up && fu.annual_cagr_min == null ? 'off' : '', `年度 EPS(滾動四季)連 ${fu.annual_years_up || 0} 年成長、3 年 CAGR ≥ ${fu.annual_cagr_min == null ? '—' : pct(fu.annual_cagr_min)}`),
+      cell('N', '新高', off('catalyst') ? '略過' : c[3].toLocaleString() + '<i> 檔</i>', 'L3', 3, off('catalyst') ? 'off' : '', `距 52 週高 ≤ ${ca.max_dist_from_high_pct}%;L4 另要求離 pivot ≤ ${vp_.max_above_pivot_pct ?? '—'}%`),
+      cell('S', '放量突破', off('vcp') ? '略過' : c[4].toLocaleString() + '<i> 檔</i>', 'L4', 4, off('vcp') ? 'off' : '', `VCP 收縮 + 突破量 ≥ 50 日均量 ${vp_.breakout_volume_mult}×(觸發時判定)`),
+      cell('L', '領導股', c[1].toLocaleString() + '<i> 檔</i>', 'L0–1', 1, '', `RS ≥ ${P.trend.rs_min}(L1)/ ${ca.rs_min}(L3)、價 ≥ $${P.universe.min_price}`),
+      cell('I', '法人', '無<i>資料</i>', '未納入', null, 'na', '機構持股家數需 FMP Premium,尚未納入'),
+      cell('M', '大盤', mk.regime ? RGN[mk.regime] : '—', mk.dd != null ? '出貨日 ' + mk.dd : '觸發時', null, mk.regime === 'correction' ? 'warn' : mk.regime === 'pressure' ? 'warn' : '', `SPY 25 天出貨日 ≥ 5 且跌破 50 日線 = 修正 → 觀察票觸發也不進場;要等跟進日或站回 50 日線且出貨日 ≤ 3`),
+    ].join('');
+    el.hidden = false;
+  }
+  $('#cs7').addEventListener('click', e => { const b = e.target.closest('button[data-lv]'); if (b) selectLevel(+b.dataset.lv); });
   function recompute(first) {
     updateVsub();
     R = RadarFunnel.evaluate(data.symbols, P, data.date);
@@ -741,6 +791,8 @@
     if (first) { let i = 4; while (i > 0 && R.counts[i] === 0) i--; sel = i; }
     drawFunnel(R.counts, !first);
     renderTabs();
+    renderCs7();
+    document.querySelectorAll('#params details.pg').forEach(d => { const sp_ = d.querySelector('summary > span'); if (!sp_.dataset.g0) sp_.dataset.g0 = sp_.textContent; sp_.textContent = (PGN[ver] || {})[d.dataset.g] || sp_.dataset.g0; });
     document.querySelectorAll('[data-cnt]').forEach(el => { el.textContent = R.counts[+el.dataset.cnt]; });
     $('#mn-l4').textContent = R.counts[4] || ''; $('#mn-l4').hidden = !R.counts[4];
     $('#fnsub').textContent = `${R.counts[0].toLocaleString()} → ${R.counts[1]} → ${R.counts[2]} → ${R.counts[3]} → ${R.counts[4]}`;
@@ -770,12 +822,12 @@
   }
   function tickerCard(sym) {
     const m = data.symbols.find(x => x.s === sym); if (!m) return '';
-    const LV = ['L0 宇宙', 'L1 趨勢', 'L2 基本面', 'L3 催化', 'L4 VCP'];
+    const LV0 = ['L0 宇宙', 'L1 趨勢', 'L2 基本面', 'L3 催化', 'L4 VCP'], LVC = { canslim: ['L0 宇宙', 'L1 L 領導', 'L2 C + A', 'L3 N 新高', 'L4 S 突破'] };
     const stage = code => !code ? 5 : code === 'stale' || code === 'hist' || code.startsWith('data:') || code.startsWith('L0') ? 0 : code.startsWith('c') || code === 'trend_days' ? 1 : code.startsWith('L2') ? 2 : code.startsWith('L3') ? 3 : 4;
     const presets = Object.keys(data.profiles || { [ver]: 1 });
     const blocks = presets.map(pid => {
       const E = evalFor(pid); const lv = E.levels[m.s]; const code = E.fail[m.s]; const st = lv == null ? stage(code) : (lv >= 4 ? 5 : lv + 1);
-      const rows = LV.map((n, i) => { const passed = lv != null ? i <= lv : false; const here = (lv == null ? stage(code) : lv + 1) === i && lv !== 4;
+      const rows = (LVC[pid] || LV0).map((n, i) => { const passed = lv != null ? i <= lv : false; const here = (lv == null ? stage(code) : lv + 1) === i && lv !== 4;
         return `<span>${n}</span><span class="${passed && !(here) ? 'ok' : here ? 'no' : (passed ? 'ok' : 'na')}">${passed && !here ? '通過' : here ? '卡在:' + esc(WHY[code] || code || '') : '—'}</span>`; }).join('');
       const tk = (track && track.entries || []).filter(e => e.p === pid && e.s === m.s).sort((a, b) => b.date < a.date ? -1 : 1)[0];
       const tt = tk ? `<div class="qt">觀察票 ${tk.date} · pivot ${CUR}${fmt(tk.piv, 2)} · ${(ST[tk.status] || [tk.status])[0]}${tk.trig_date ? ' · 觸發 ' + tk.trig_date : ''}${tk.r != null ? ' · R ' + (tk.r > 0 ? '+' : '') + tk.r.toFixed(2) : ''}</div>` : `<div class="qt qmiss">沒有觀察票</div>`;
@@ -786,7 +838,7 @@
   }
   function renderList() {
     const rs = rows(), MAX = 300;
-    $('#sblv').innerHTML = `<span><b>${esc(N[sel])}</b> · ≥ 本層</span><span>${rs.length > MAX ? `顯示前 ${MAX} / ` : ''}${rs.length} 檔</span>${isMobile() && UPD_TXT ? `<span class="upd-line">${UPD_TXT}</span>` : ''}`;
+    $('#sblv').innerHTML = `<span><b>${esc(NN()[sel])}</b> · ≥ 本層</span><span>${rs.length > MAX ? `顯示前 ${MAX} / ` : ''}${rs.length} 檔</span>${isMobile() && UPD_TXT ? `<span class="upd-line">${UPD_TXT}</span>` : ''}`;
     const qq = q.trim().toUpperCase(); const exact = qq && data.symbols.some(x => x.s === qq) ? qq : (qq && rs.length === 1 ? rs[0].s : null);
     const card = exact ? tickerCard(exact) : (qq && !rs.length ? `<div class="qcard"><div class="qh"><b>${esc(qq)}</b><span class="nm">不在今天的宇宙裡(市值 / 價格 / 成交量門檻,或代號打錯)</span></div></div>` : '');
     if (!rs.length && card) { $('#list').innerHTML = card; const c = $('#list .qcard[data-s]'); if (c) c.onclick = () => showDetail(c.dataset.s); return; }
@@ -797,7 +849,7 @@
         + (ver === 'exec'
             ? `執行版的門檻最嚴(RS 90、營收或 EPS 任一成長、現價貼著 pivot ±5%),常常整天 0 檔 —— <b>空手是正常結果,不是資料壞掉</b>。`
               + (MKT !== 'us' ? `台股又比美股更常 0 檔(一年約 20 筆)。` : '')
-            : `觀察版今天也沒有股票走到第四關。`)
+            : ver === 'canslim' ? `CAN SLIM 版要當季、年度成長都過 25%,加上 RS 80、距高 15%,常常 0 檔;大盤在「修正」時也不會有觸發。` : `觀察版今天也沒有股票走到第四關。`)
         + (ver === 'exec' ? `<br>想看寬一點的候選池,切到觀察版;或看左邊漏斗哪一層卡住最多。` : `<br>看左邊漏斗哪一層卡住最多。`)
         + (ver === 'exec' ? `<div><button class="btn" id="lst-sw">切到觀察版</button></div>` : '') + `</div>`;
       const b = $('#lst-sw');
@@ -892,6 +944,8 @@
         ${f.ok ? `<div class="kv"><div><div class="k">營收 YoY</div><div class="v ${f.rev_g >= P.fundamental.rev_growth_min ? 'pos' : ''}">${pct(f.rev_g)} <small style="color:var(--text-dim)">上季 ${pct(f.rev_g_prev)}</small></div></div>
           <div><div class="k">EPS YoY</div><div class="v ${f.eps_g >= P.fundamental.eps_growth_min || f.turn ? 'pos' : ''}">${f.turn ? '轉虧為盈' : pct(f.eps_g)} <small style="color:var(--text-dim)">上季 ${pct(f.eps_g_prev)}</small></div></div>
           <div><div class="k">毛利率</div><div class="v">${pct(f.gm)}</div></div><div><div class="k">EPS</div><div class="v">${f.eps ?? '—'}</div></div>
+          <div><div class="k">年度 EPS(近 4 年)</div><div class="v ${f.a_up >= 3 ? 'pos' : ''}">${f.ay ? f.ay.slice().reverse().map(x => x.toFixed(2)).join(' → ') : '—'}</div></div>
+          <div><div class="k">年度 EPS 3 年 CAGR</div><div class="v ${f.a_cagr >= 0.25 ? 'pos' : ''}">${f.a_cagr != null ? pct(f.a_cagr) : '—'} <small style="color:var(--text-dim)">${f.a_up != null ? '連 ' + f.a_up + ' 年成長' : ''}</small></div></div>
           <div><div class="k">營收</div><div class="v">${f.rev ? '$' + (f.rev / 1e6).toFixed(0) + 'M' : '—'}</div></div><div><div class="k">下次財報</div><div class="v ${m.e && m.e.next ? 'wn' : ''}">${m.e && m.e.next ? m.e.next : '—'}</div></div></div>`
         : `<div style="font-family:var(--font-mono);font-size:.64rem;color:var(--text-dim)">${m.f == null ? (lv >= 1 ? '財報尚未抓到(FMP 逾時 / 預算用完)—— 下次掃描補' : '不在財報抓取範圍(c1–c7 通過或 RS ≥ 60 才抓)') : 'FMP 無此檔季度財報'}</div>`}</div>
       ${m.pp ? `<div class="sec"><h4>Power Play · 強力拉升${R.tag && R.tag[s] === 'pp' ? '(本檔以 PP 直通進 L1)' : ''}</h4>
@@ -944,7 +998,7 @@
   const api = async (m, args = []) => { const r = await fetch(API + m, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(args) }); if (!r.ok) throw new Error(r.status); return r.json(); };
   $('#rules-btn').onclick = () => $('#rules').showModal(); $('#rules-x').onclick = () => $('#rules').close();
   document.querySelectorAll('.rl-tabs .btn').forEach(b => b.onclick = () => { const p = b.dataset.p; document.querySelectorAll('.rl-tabs .btn').forEach(x => x.classList.toggle('on', x === b)); document.querySelectorAll('.rl-p').forEach(x => x.hidden = x.dataset.p !== p);
-    $('#rl-title').textContent = p === 'vers' ? '兩組 preset' : '停損停利守則'; $('#rl-sub').textContent = p === 'vers' ? '執行版 / 觀察版 · 同一份掃描,換規則重算' : '執行版 · 十年時點回測(與雷達同一套程式)'; });
+    $('#rl-title').textContent = p === 'vers' ? '三組 preset' : '停損停利守則'; $('#rl-sub').textContent = p === 'vers' ? '執行版 / 觀察版 / CAN SLIM 版 · 同一份掃描,換規則重算' : '執行版 · 十年時點回測(與雷達同一套程式)'; });
   const btn = $('#refresh'); let pollT = null;   // 預設 hidden;探測到本機後台才顯示
   const setBtn = (t, busy) => { btn.textContent = t; btn.disabled = !!busy; btn.style.opacity = busy ? .6 : 1; };
   async function pollStatus() {
