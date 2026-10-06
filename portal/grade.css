@@ -63,8 +63,8 @@ tr.x td { white-space: normal; color: var(--text-secondary); font-size: 12px; }
 .r1 .num { color: var(--text-secondary); font-size: 13px; display: flex; gap: 10px; white-space: nowrap; flex-basis: 100%; } .r1 .num b { color: var(--text-primary); font-weight: 600; }
 .r2 { display: flex; gap: 8px; margin-top: 3px; font-size: 14px; color: var(--text-primary); min-width: 0; }
 .r2 .name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .r2 .name small { color: var(--text-dim); font-family: var(--font-mono); font-size: 11px; margin-left: 6px; }
-.r3 { display: none; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px 10px; margin-top: 10px; font-family: var(--font-mono); }
-.row.open .r3 { display: grid; }
+.r3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px 10px; margin-top: 10px; font-family: var(--font-mono); }
+.row.open .r3 { display: none; }   /* 預設展開因子(Howard 10-07);點一下收合 */
 .r3 i { display: block; font-style: normal; font-size: 10px; letter-spacing: .06em; color: var(--text-dim); white-space: nowrap; }
 .r3 b { display: block; font-size: 14px; font-weight: 600; color: var(--text-secondary); white-space: nowrap; } .r3 b.ok { color: var(--positive); } .r3 b small { color: var(--text-dim); font-weight: 400; font-size: 11px; margin-left: 4px; }
 .mnav { display: none; }

@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#02020A">
 <title>BLUE MORPHO · GRADER</title>
 <script src="../../theme.js"></script>
-<link rel="stylesheet" href="../grade.css?v=20261007b">
+<link rel="stylesheet" href="../grade.css?v=20261007c">
 <style>
   .meta { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; padding: 14px 0; color: var(--text-secondary); font: 12px/1.6 var(--font-mono); }
   .tools { display: flex; gap: 8px; margin-left: auto; }
@@ -90,7 +90,7 @@
   fetch('../data/latest.json?' + Date.now()).then(function (r) { return r.json(); }).then(function (d) {
     D = d; rows = d.rows;
     var lead = '<b>這檔公司現在值不值得繼續拿?</b> 全宇宙 ' + d.universe + ' 檔(美股、非金融 / 地產、價 ≥ $5)每天收盤後重排一次。七成是對 SPY 的風險調整動能,三成是五個基本面因子。等級掉到 D / F 不是賣出指令,是「今天還會買它嗎?」的提醒。';
-    document.getElementById('lead').innerHTML = lead; document.getElementById('about').innerHTML = lead + '<br><br>點等級籤只看該級;點一列展開五個因子(綠 = 達到稿的基本門檻,P = 全宇宙百分位)。';
+    document.getElementById('lead').innerHTML = lead; document.getElementById('about').innerHTML = lead + '<br><br>點等級籤只看該級;點一列可收合五個因子(綠 = 達到稿的基本門檻,P = 全宇宙百分位)。';
     document.getElementById('asof').textContent = '評分日 ' + d.date + ' · 評級 ' + d.n + ' 檔';
     document.getElementById('dist').innerHTML = ['A', 'B', 'C', 'D', 'F'].map(function (g) { return '<span class="tag ' + g.toLowerCase() + '" data-g="' + g + '">' + g + ' ' + d.dist[g] + '</span>'; }).join('');
     render();
