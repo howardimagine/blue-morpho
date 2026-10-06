@@ -88,6 +88,11 @@
   ],
   "peers": [
     {
+      "symbol": "ASML",
+      "name": "艾司摩爾",
+      "tier": "ready"
+    },
+    {
       "symbol": "ACLS",
       "name": "艾克塞利",
       "tier": "ready"
@@ -100,11 +105,6 @@
     {
       "symbol": "KLAC",
       "name": "科磊",
-      "tier": "ready"
-    },
-    {
-      "symbol": "AEIS",
-      "name": "先進能源",
       "tier": "ready"
     }
   ],

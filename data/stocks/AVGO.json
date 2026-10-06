@@ -213,11 +213,6 @@
       "tier": "ready"
     },
     {
-      "symbol": "ASML",
-      "name": "艾司摩爾",
-      "tier": "ready"
-    },
-    {
       "symbol": "MU",
       "name": "美光",
       "tier": "ready"
@@ -225,6 +220,11 @@
     {
       "symbol": "ARM",
       "name": "安謀",
+      "tier": "ready"
+    },
+    {
+      "symbol": "AMAT",
+      "name": "應用材料",
       "tier": "ready"
     }
   ],

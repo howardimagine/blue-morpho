@@ -5,7 +5,7 @@
   "regime": "neutral",
   "theme": "AI Compute",
   "business": "EUV 微影設備獨家供應商;3nm 以下節點必經;荷蘭出口管制為主要變數。",
-  "why": "WATCHLIST_CONVICTION",
+  "why": "THEME_TAILWIND",
   "rsi": null,
   "sma50": null,
   "sma200": null,
@@ -13,12 +13,12 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 7.0
+      "score": 8.5
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 5.6
+      "score": 7.9
     },
     {
       "key": "macro_context",
@@ -28,12 +28,12 @@
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 6.9
+      "score": 6.6
     },
     {
       "key": "news_catalyst",
       "label": "新聞催化",
-      "score": 7.5
+      "score": null
     },
     {
       "key": "risk_reward",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-10-06",
+      "theme": "Semiconductor Equipment (WFE)",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-09-30",
       "theme": "AI Compute",

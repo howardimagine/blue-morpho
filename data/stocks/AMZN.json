@@ -13,12 +13,12 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 5.2
+      "score": 6.3
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 4.2
+      "score": 5.5
     },
     {
       "key": "macro_context",
@@ -28,7 +28,7 @@
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 7.6
+      "score": 8.1
     },
     {
       "key": "news_catalyst",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-10-06",
+      "theme": "AI Compute",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-09-30",
       "theme": "Cloud Infrastructure",
@@ -205,11 +213,6 @@
       "tier": "ready"
     },
     {
-      "symbol": "ASML",
-      "name": "艾司摩爾",
-      "tier": "ready"
-    },
-    {
       "symbol": "MU",
       "name": "美光",
       "tier": "ready"
@@ -217,6 +220,11 @@
     {
       "symbol": "ARM",
       "name": "安謀",
+      "tier": "ready"
+    },
+    {
+      "symbol": "AVGO",
+      "name": "博通",
       "tier": "ready"
     }
   ],
