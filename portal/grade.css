@@ -1,0 +1,53 @@
+/* grade.css — 從 blue-morpho/style.css 減出來:只有變數(名字、值照抄)、控件 token、表格與標籤。改了要換 ?v= 版號 */
+:root {
+  --bg: #02020A; --bg-card: #0B0B1A; --bg-hover: #0F0F22; --border: #1A2238;
+  --text-primary: #E0F7FA; --text-secondary: #94A3B8; --text-dim: #4A5568;
+  --accent: #00F3FF; --accent-dim: #00F3FF18; --on-accent: #02020A;
+  --positive: #00FF9D; --warning: #FFD000; --negative: #FF3B6B;
+  --positive-dim: #00FF9D18; --warning-dim: #FFD00018; --negative-dim: #FF3B6B18;
+  --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+  --font-text: -apple-system, 'PingFang TC', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif;
+  --ctl-sm: 28px; --ctl-md: 34px; --tag-h: 18px; --r: 4px; --container: 1200px;
+}
+:root:not([data-theme="dark"]) {
+  --bg: #FFFFFF; --bg-card: #F6F8FB; --bg-hover: #EDF1F6; --border: #DCE3EC;
+  --text-primary: #0B1220; --text-secondary: #46566A; --text-dim: #8391A3;
+  --accent: #0891B2; --accent-dim: #0891B214; --on-accent: #FFFFFF;
+  --positive: #EA580C; --warning: #F59E0B; --negative: #1D4ED8;
+  --positive-dim: #EA580C14; --warning-dim: #F59E0B14; --negative-dim: #1D4ED814;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--text-primary); font-family: var(--font-text); -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+.wrap { max-width: var(--container); margin: 0 auto; padding: 0 16px; }
+header { display: flex; align-items: center; justify-content: space-between; height: 56px; border-bottom: 1px solid var(--border); }
+header h1 { margin: 0; font: 700 13px/1 var(--font-mono); letter-spacing: .14em; }
+header h1 span { color: var(--text-dim); font-weight: 400; margin-left: 10px; }
+#hdr-tools { display: flex; gap: 8px; }
+.theme-btn, .btn, input[type=search] { display: inline-flex; align-items: center; height: var(--ctl-md); padding: 0 12px; font: 12px/1 var(--font-mono); letter-spacing: .04em;
+  border: 1px solid var(--border); border-radius: var(--r); background: transparent; color: var(--text-secondary); cursor: pointer; }
+.theme-btn:hover, .btn:hover { border-color: var(--accent); color: var(--accent); }
+input[type=search] { cursor: text; color: var(--text-primary); min-width: 200px; } input[type=search]:focus { outline: 0; border-color: var(--accent); }
+.tag { display: inline-flex; align-items: center; height: var(--tag-h); padding: 0 6px; font: 700 10px/1 var(--font-mono); letter-spacing: .05em; border-radius: 3px; border: 1px solid var(--border); color: var(--text-dim); white-space: nowrap; }
+.tag.a, .tag.b { color: var(--positive); border-color: color-mix(in srgb, var(--positive) 45%, transparent); background: var(--positive-dim); }
+.tag.c { color: var(--warning); border-color: color-mix(in srgb, var(--warning) 45%, transparent); background: var(--warning-dim); }
+.tag.d, .tag.f { color: var(--negative); border-color: color-mix(in srgb, var(--negative) 45%, transparent); background: var(--negative-dim); }
+.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+/* Portal:四格 */
+.tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 24px 0; }
+@media (max-width: 720px) { .tiles { grid-template-columns: 1fr; } }
+.tile { display: block; padding: 20px; border: 1px solid var(--border); border-radius: var(--r); background: var(--bg-card); }
+.tile:hover { border-color: var(--accent); background: var(--bg-hover); }
+.tile b { display: block; font: 700 15px/1.3 var(--font-mono); letter-spacing: .06em; }
+.tile b small { color: var(--text-dim); font-weight: 400; margin-left: 8px; font-size: 11px; }
+.tile p { margin: 8px 0 0; color: var(--text-secondary); font-size: 14px; }
+.tile .st { margin-top: 14px; color: var(--text-dim); font: 12px/1.6 var(--font-mono); white-space: pre-line; min-height: 1.6em; }
+.tile .st.on { color: var(--text-secondary); }
+footer { padding: 24px 0 40px; color: var(--text-dim); font: 11px/1.6 var(--font-mono); }
+/* 評級表 */
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { padding: 8px 10px; border-bottom: 1px solid var(--border); text-align: left; white-space: nowrap; }
+th { font: 600 11px/1 var(--font-mono); letter-spacing: .06em; color: var(--text-dim); cursor: pointer; user-select: none; position: sticky; top: 0; background: var(--bg); }
+th.on { color: var(--accent); }
+tbody tr { content-visibility: auto; contain-intrinsic-size: 37px; } tbody tr:hover { background: var(--bg-hover); }
+tr.x td { white-space: normal; color: var(--text-secondary); font-size: 12px; }
