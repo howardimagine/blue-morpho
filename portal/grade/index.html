@@ -6,11 +6,19 @@
 <meta name="theme-color" content="#02020A">
 <title>BLUE MORPHO · GRADER</title>
 <script src="../../theme.js"></script>
-<link rel="stylesheet" href="../grade.css?v=20261007c">
+<link rel="stylesheet" href="../grade.css?v=20261007d">
 <style>
   .meta { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; padding: 14px 0; color: var(--text-secondary); font: 12px/1.6 var(--font-mono); }
   .tools { display: flex; gap: 8px; margin-left: auto; }
   .tbl { overflow-x: auto; }
+  .seg { display: inline-flex; border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; height: var(--ctl-md); }
+  .seg button { background: transparent; border: 0; color: var(--text-secondary); font: 12px/1 var(--font-mono); letter-spacing: .04em; padding: 0 12px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+  .seg button.on { background: var(--accent); color: var(--on-accent); } .seg button b { font-size: 10px; }
+  .hold { display: none; gap: 10px; align-items: center; flex-wrap: wrap; padding: 0 0 12px; }
+  .hold input { min-width: 320px; } .hold .tag { cursor: pointer; } .hold .tag i { font-style: normal; margin-left: 6px; opacity: .6; }
+  body[data-m="hold"] .hold { display: flex; }
+  tr.x[hidden] { display: none; }
+  @media (max-width: 768px) { .seg { display: none; } .hold input { min-width: 0; width: 100%; } .hold { padding: 0 0 10px; } body[data-m="hold"] .meta .chips, body[data-m="hold"] .meta .tools { display: none; } }
   td.ok { color: var(--positive); } td.no { color: var(--text-dim); }
   tr.x td { padding: 6px 10px 12px; } tr.x td div { display: flex; flex-wrap: wrap; gap: 4px 18px; }
   tbody tr.r { cursor: pointer; }
@@ -23,9 +31,14 @@
   <div class="meta">
     <span id="asof"></span><div class="chips" id="dist"></div>
     <div class="tools">
+      <div class="seg" id="seg"><button data-m="list" class="on">名單</button><button data-m="hold">持股 <b id="hold-n"></b></button></div>
       <select class="hdr-sel" id="sort"><option value="tot">總分</option><option value="qp">Q 動能</option><option value="f">F 基本面</option><option value="ok">達標數</option><option value="s">代號</option></select>
       <input type="search" id="q" placeholder="代號 / 名稱" autocomplete="off">
     </div>
+  </div>
+  <div class="hold" id="hold">
+    <input type="search" id="hold-in" placeholder="輸入代號加入,Enter 確認(只存在這支手機 / 瀏覽器)" autocomplete="off" autocapitalize="characters">
+    <div class="chips" id="hold-chips"></div>
   </div>
   <div class="tbl"><table>
     <thead><tr>
@@ -41,11 +54,15 @@
 </div>
 <nav class="mnav" aria-label="手機分頁">
   <button data-m="list" class="on">名單<b id="mn-n"></b></button>
+  <button data-m="hold">持股</button>
   <button data-m="about">說明</button>
 </nav>
 <script>
 (function () {
-  var D, rows, key = 'tot', asc = false, filt = '', gsel = { A: 1, B: 1, C: 1, D: 1, F: 1 };
+  var D, rows, key = 'tot', asc = false, filt = '', gsel = { A: 1, B: 1, C: 1, D: 1, F: 1 }, mode = 'list';
+  var HK = 'bm.grade.hold', hold = [];
+  try { hold = JSON.parse(localStorage.getItem(HK) || '[]'); } catch (e) {}
+  function saveHold() { try { localStorage.setItem(HK, JSON.stringify(hold)); } catch (e) {} }
   var FK = ['f_rev', 'f_opm', 'f_fcf', 'f_roe', 'f_surp'], FN = { f_rev: '營收 YoY', f_opm: '營益率 Δ', f_fcf: 'FCF / 淨利', f_roe: 'ROE', f_surp: '驚喜' };
   var pct = function (x, d) { return x == null ? '—' : (x * 100).toFixed(d == null ? 1 : d) + '%'; };
   var fmt = { f_rev: pct, f_opm: function (x) { return x == null ? '—' : (x * 100 >= 0 ? '+' : '') + (x * 100).toFixed(1) + ' pt'; }, f_fcf: function (x) { return x == null ? '—' : x.toFixed(2) + '×'; }, f_roe: pct, f_surp: pct };
@@ -53,7 +70,7 @@
   var tag = function (g) { return '<span class="tag ' + g.toLowerCase() + '">' + g + '</span>'; };
   function visible() {
     var f = filt.toUpperCase();
-    var rs = rows.filter(function (r) { return gsel[r.g] && (!f || r.s.indexOf(f) >= 0 || (r.n || '').toUpperCase().indexOf(f) >= 0); });
+    var rs = rows.filter(function (r) { return (mode !== 'hold' || hold.indexOf(r.s) >= 0) && gsel[r.g] && (!f || r.s.indexOf(f) >= 0 || (r.n || '').toUpperCase().indexOf(f) >= 0); });
     rs.sort(function (a, b) { var x = get(a, key), y = get(b, key); if (x == null) return 1; if (y == null) return -1; if (typeof x === 'string') return asc ? x.localeCompare(y) : y.localeCompare(x); return asc ? x - y : y - x; });
     return rs;
   }
@@ -61,22 +78,31 @@
     var rs = visible(), tb = [], ls = [];
     rs.forEach(function (r) {
       var cells = FK.map(function (k) { var v = r.fv[k], ok = v != null && v >= D.pass[k]; return '<td class="num ' + (v == null ? '' : ok ? 'ok' : 'no') + '">' + fmt[k](v) + '</td>'; }).join('');
-      tb.push('<tr class="r" data-s="' + r.s + '"><td class="num"><b>' + r.s + '</b></td><td>' + (r.n || '') + '</td><td>' + tag(r.g) + '</td><td class="num">' + r.tot + '</td><td class="num">' + r.qp + '</td><td class="num">' + r.f + '</td>' + cells + '<td class="num">' + r.ok + '/5</td></tr>');
+      var parts = ['收盤 $' + r.px, r.sec || '', 'alpha/σ ' + r.q, '最新季 ' + (r.qd || '—')].concat(FK.map(function (k) { return FN[k] + ' 百分位 ' + (r.fp[k] == null ? '—' : r.fp[k]); }));
+      tb.push('<tr class="r" data-s="' + r.s + '"><td class="num"><b>' + r.s + '</b></td><td>' + (r.n || '') + '</td><td>' + tag(r.g) + '</td><td class="num">' + r.tot + '</td><td class="num">' + r.qp + '</td><td class="num">' + r.f + '</td>' + cells + '<td class="num">' + r.ok + '/5</td></tr>'
+        + '<tr class="x"><td colspan="12"><div>' + parts.map(function (p) { return '<span>' + p + '</span>'; }).join('') + '</div></td></tr>');
       var r3 = FK.map(function (k) { var v = r.fv[k], ok = v != null && v >= D.pass[k]; return '<div><i>' + FN[k] + '</i><b class="' + (ok ? 'ok' : '') + '">' + fmt[k](v) + '<small>' + (r.fp[k] == null ? '' : 'P' + r.fp[k]) + '</small></b></div>'; }).join('') + '<div><i>達標</i><b>' + r.ok + '/5</b></div>';
       ls.push('<div class="row" data-s="' + r.s + '"><div class="r1"><span class="sym">' + r.s + '</span>' + tag(r.g) + '<span class="num"><span>總分 <b>' + r.tot + '</b></span><span>Q <b>' + r.qp + '</b></span><span>F <b>' + r.f + '</b></span><span>$' + r.px + '</span></span></div><div class="r2"><span class="name">' + (r.n || '') + '<small>' + (r.sec || '') + '</small></span></div><div class="r3">' + r3 + '</div></div>');
     });
-    document.getElementById('tb').innerHTML = tb.join('');
-    document.getElementById('list').innerHTML = ls.join('') || '<div class="row">沒有符合的</div>';
-    document.getElementById('mn-n').textContent = rs.length;
+    var empty = mode === 'hold' && !hold.length ? '還沒有持股。在上面輸入代號,Enter 加入;名單只存在這個瀏覽器,不會上傳。' : '沒有符合的';
+    document.getElementById('tb').innerHTML = tb.join('') || '<tr><td colspan="12">' + empty + '</td></tr>';
+    document.getElementById('list').innerHTML = ls.join('') || '<div class="row">' + empty + '</div>';
+    document.getElementById('mn-n').textContent = mode === 'hold' ? rows.length : rs.length;
+    document.getElementById('hold-n').textContent = hold.length || '';
+    document.getElementById('hold-chips').innerHTML = hold.map(function (s) { var r = rows.filter(function (x) { return x.s === s; })[0]; return '<span class="tag ' + (r ? r.g.toLowerCase() : '') + '" data-s="' + s + '">' + s + (r ? ' ' + r.g : ' 未評級') + '<i>×</i></span>'; }).join('');
   }
   document.getElementById('list').addEventListener('click', function (e) { var row = e.target.closest('.row'); if (row) row.classList.toggle('open'); });
-  document.getElementById('tb').addEventListener('click', function (e) {
+  document.getElementById('tb').addEventListener('click', function (e) {          // 桌機:明細列預設展開,點一下收合
     var tr = e.target.closest('tr.r'); if (!tr) return;
-    var nx = tr.nextElementSibling; if (nx && nx.classList.contains('x')) { nx.remove(); return; }
-    var r = rows.filter(function (x) { return x.s === tr.dataset.s; })[0];
-    var parts = ['收盤 $' + r.px, r.sec || '', 'alpha/σ ' + r.q, '最新季 ' + (r.qd || '—')].concat(FK.map(function (k) { return FN[k] + ' 百分位 ' + (r.fp[k] == null ? '—' : r.fp[k]); }));
-    var x = document.createElement('tr'); x.className = 'x'; x.innerHTML = '<td colspan="12"><div>' + parts.map(function (p) { return '<span>' + p + '</span>'; }).join('') + '</div></td>'; tr.after(x);
+    var nx = tr.nextElementSibling; if (nx && nx.classList.contains('x')) nx.hidden = !nx.hidden;
   });
+  function setMode(m) { mode = m; document.body.dataset.m = m; document.querySelectorAll('.mnav button, .seg button').forEach(function (x) { x.classList.toggle('on', x.dataset.m === m); }); window.scrollTo(0, 0); render(); }
+  document.querySelectorAll('.seg button').forEach(function (b) { b.onclick = function () { setMode(b.dataset.m); }; });
+  document.getElementById('hold-in').addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter') return; var v = e.target.value.trim().toUpperCase(); e.target.value = ''; if (!v) return;
+    v.split(/[\s,]+/).forEach(function (s) { if (s && hold.indexOf(s) < 0) hold.push(s); }); saveHold(); render();
+  });
+  document.getElementById('hold-chips').addEventListener('click', function (e) { var t = e.target.closest('.tag'); if (!t) return; hold = hold.filter(function (s) { return s !== t.dataset.s; }); saveHold(); render(); });
   document.querySelectorAll('th').forEach(function (th) { th.onclick = function () { var k = th.dataset.k; if (key === k) asc = !asc; else { key = k; asc = (k === 's' || k === 'n'); } document.querySelectorAll('th').forEach(function (t) { t.classList.toggle('on', t === th); }); render(); }; });
   document.getElementById('sort').onchange = function (e) { key = e.target.value; asc = key === 's'; render(); };
   document.getElementById('q').oninput = function (e) { filt = e.target.value.trim(); render(); };
@@ -86,11 +112,11 @@
     if (only.length === 1 && only[0] === g) { Object.keys(gsel).forEach(function (k) { gsel[k] = 1; }); } else { Object.keys(gsel).forEach(function (k) { gsel[k] = k === g ? 1 : 0; }); }
     document.querySelectorAll('#dist .tag').forEach(function (x) { x.classList.toggle('off', !gsel[x.dataset.g]); }); render();
   });
-  document.querySelectorAll('.mnav button').forEach(function (b) { b.onclick = function () { document.body.dataset.m = b.dataset.m; document.querySelectorAll('.mnav button').forEach(function (x) { x.classList.toggle('on', x === b); }); window.scrollTo(0, 0); }; });
+  document.querySelectorAll('.mnav button').forEach(function (b) { b.onclick = function () { setMode(b.dataset.m); }; });
   fetch('../data/latest.json?' + Date.now()).then(function (r) { return r.json(); }).then(function (d) {
     D = d; rows = d.rows;
     var lead = '<b>這檔公司現在值不值得繼續拿?</b> 全宇宙 ' + d.universe + ' 檔(美股、非金融 / 地產、價 ≥ $5)每天收盤後重排一次。七成是對 SPY 的風險調整動能,三成是五個基本面因子。等級掉到 D / F 不是賣出指令,是「今天還會買它嗎?」的提醒。';
-    document.getElementById('lead').innerHTML = lead; document.getElementById('about').innerHTML = lead + '<br><br>點等級籤只看該級;點一列可收合五個因子(綠 = 達到稿的基本門檻,P = 全宇宙百分位)。';
+    document.getElementById('lead').innerHTML = lead; document.getElementById('about').innerHTML = lead + '<br><br>點等級籤只看該級;點一列可收合五個因子(綠 = 達到稿的基本門檻,P = 全宇宙百分位)。「持股」分頁:自己輸入代號,只存在這支手機 / 瀏覽器,不會上傳。';
     document.getElementById('asof').textContent = '評分日 ' + d.date + ' · 評級 ' + d.n + ' 檔';
     document.getElementById('dist').innerHTML = ['A', 'B', 'C', 'D', 'F'].map(function (g) { return '<span class="tag ' + g.toLowerCase() + '" data-g="' + g + '">' + g + ' ' + d.dist[g] + '</span>'; }).join('');
     render();
