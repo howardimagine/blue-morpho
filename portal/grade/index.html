@@ -6,12 +6,71 @@
 <meta name="theme-color" content="#02020A">
 <title>BLUE MORPHO · GRADER</title>
 <script src="../../theme.js"></script>
-<link rel="stylesheet" href="../grade.css?v=20261006">
+<link rel="stylesheet" href="../grade.css?v=20261007">
+<style>
+  .meta { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; padding: 14px 0; color: var(--text-secondary); font: 12px/1.6 var(--font-mono); }
+  .meta .dist span { margin-right: 6px; }
+  .tools { display: flex; gap: 8px; margin-left: auto; }
+  .tbl { overflow-x: auto; }
+  td.ok { color: var(--positive); } td.no { color: var(--text-dim); }
+  tr.x td { padding: 6px 10px 12px; } tr.x td div { display: flex; flex-wrap: wrap; gap: 4px 18px; }
+  .lead { color: var(--text-secondary); font-size: 13px; line-height: 1.7; margin: 0 0 6px; }
+  .lead b { color: var(--text-primary); font-weight: 600; }
+  tbody tr.r { cursor: pointer; }
+</style>
 </head>
 <body>
 <div class="wrap">
   <header><h1><a href="../">BLUE MORPHO</a><span>GRADER</span></h1><div id="hdr-tools"></div></header>
-  <footer>建置中。評級機先在回測裡過關(規格 §6 H1–H3),名單才會出現在這裡。</footer>
+  <p class="lead" id="lead">載入中…</p>
+  <div class="meta">
+    <span id="asof"></span><span class="dist" id="dist"></span>
+    <div class="tools"><input type="search" id="q" placeholder="代號 / 名稱" autocomplete="off"></div>
+  </div>
+  <div class="tbl"><table>
+    <thead><tr>
+      <th data-k="s">代號</th><th data-k="n">名稱</th><th data-k="g">等級</th><th data-k="tot" class="on">總分</th><th data-k="qp">Q 動能</th><th data-k="f">F 基本面</th>
+      <th data-k="fv.f_rev">營收 YoY</th><th data-k="fv.f_opm">營益率 Δ</th><th data-k="fv.f_fcf">FCF / 淨利</th><th data-k="fv.f_roe">ROE</th><th data-k="fv.f_surp">驚喜</th><th data-k="ok">達標</th>
+    </tr></thead>
+    <tbody id="tb"></tbody>
+  </table></div>
+  <footer id="foot">等級 = 全宇宙百分位(A ≥ 80、B ≥ 60、C ≥ 40、D ≥ 20、F)。Q = 近 252 個交易日對 SPY 的年化 alpha ÷ 殘差波動;F = 五個基本面因子百分位平均,只用已申報的季報。
+  分析師上修因子要累積 90 天共識快照才會加入。十年回測:A−F 之後 63 根超額 +1.7 / +2.2%,其中基本面只多出 +0.15 / +0.04 —— 這張表七成是風險調整動能。不是投資建議。</footer>
 </div>
+<script>
+(function () {
+  var D, rows, key = 'tot', asc = false, filt = '';
+  var FK = ['f_rev', 'f_opm', 'f_fcf', 'f_roe', 'f_surp'], FN = { f_rev: '營收 YoY', f_opm: '營益率 Δ', f_fcf: 'FCF / 淨利', f_roe: 'ROE', f_surp: '驚喜' };
+  var pct = function (x, d) { return x == null ? '—' : (x * 100).toFixed(d == null ? 1 : d) + '%'; };
+  var fmt = { f_rev: pct, f_opm: function (x) { return x == null ? '—' : (x * 100 >= 0 ? '+' : '') + (x * 100).toFixed(1) + ' pt'; }, f_fcf: function (x) { return x == null ? '—' : x.toFixed(2) + '×'; }, f_roe: pct, f_surp: pct };
+  var get = function (r, k) { return k.indexOf('.') < 0 ? r[k] : r[k.split('.')[0]][k.split('.')[1]]; };
+  function render() {
+    var f = filt.toUpperCase(), out = [];
+    var rs = rows.filter(function (r) { return !f || r.s.indexOf(f) >= 0 || (r.n || '').toUpperCase().indexOf(f) >= 0; });
+    rs.sort(function (a, b) { var x = get(a, key), y = get(b, key); if (x == null) return 1; if (y == null) return -1; if (typeof x === 'string') return asc ? x.localeCompare(y) : y.localeCompare(x); return asc ? x - y : y - x; });
+    rs.forEach(function (r) {
+      var cells = FK.map(function (k) { var v = r.fv[k], ok = v != null && v >= D.pass[k]; return '<td class="num ' + (v == null ? '' : ok ? 'ok' : 'no') + '">' + fmt[k](v) + '</td>'; }).join('');
+      out.push('<tr class="r" data-s="' + r.s + '"><td class="num"><b>' + r.s + '</b></td><td>' + (r.n || '') + '</td><td><span class="tag ' + r.g.toLowerCase() + '">' + r.g + '</span></td><td class="num">' + r.tot + '</td><td class="num">' + r.qp + '</td><td class="num">' + r.f + '</td>' + cells + '<td class="num">' + r.ok + '/5</td></tr>');
+    });
+    document.getElementById('tb').innerHTML = out.join('');
+  }
+  document.getElementById('tb').addEventListener('click', function (e) {
+    var tr = e.target.closest('tr.r'); if (!tr) return;
+    var nx = tr.nextElementSibling; if (nx && nx.classList.contains('x')) { nx.remove(); return; }
+    var r = rows.filter(function (x) { return x.s === tr.dataset.s; })[0];
+    var parts = ['收盤 $' + r.px, r.sec || '', 'alpha/σ ' + r.q, '最新季 ' + (r.qd || '—')].concat(FK.map(function (k) { return FN[k] + ' 百分位 ' + (r.fp[k] == null ? '—' : r.fp[k]); }));
+    var x = document.createElement('tr'); x.className = 'x'; x.innerHTML = '<td colspan="12"><div>' + parts.map(function (p) { return '<span>' + p + '</span>'; }).join('') + '</div></td>'; tr.after(x);
+  });
+  document.querySelectorAll('th').forEach(function (th) { th.onclick = function () { var k = th.dataset.k; if (key === k) asc = !asc; else { key = k; asc = (k === 's' || k === 'n'); } document.querySelectorAll('th').forEach(function (t) { t.classList.toggle('on', t === th); }); render(); }; });
+  document.getElementById('q').oninput = function (e) { filt = e.target.value.trim(); render(); };
+  fetch('../data/latest.json?' + Date.now()).then(function (r) { return r.json(); }).then(function (d) {
+    D = d; rows = d.rows;
+    document.getElementById('lead').innerHTML = '<b>這檔公司現在值不值得繼續拿?</b> 全宇宙 ' + d.universe + ' 檔(美股、非金融 / 地產、價 ≥ $5)每天收盤後重排一次。七成是對 SPY 的風險調整動能,三成是五個基本面因子。等級掉到 D / F 不是賣出指令,是「今天還會買它嗎?」的提醒。';
+    document.getElementById('asof').textContent = '評分日 ' + d.date + ' · 評級 ' + d.n + ' 檔';
+    document.getElementById('dist').innerHTML = ['A', 'B', 'C', 'D', 'F'].map(function (g) { return '<span class="tag ' + g.toLowerCase() + '">' + g + ' ' + d.dist[g] + '</span>'; }).join('');
+    render();
+  }).catch(function () { document.getElementById('lead').textContent = '資料還沒產生。'; });
+})();
+</script>
 </body>
 </html>
