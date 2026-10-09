@@ -62,7 +62,34 @@
     .cs7 .warn { border-color: var(--warning); } .cs7 .warn .lt, .cs7 .warn .vl { color: var(--warning); }
     .cs7 .na { cursor: default; opacity: .5; } .cs7 .na .lt { color: var(--dim); }
     .cs7 .off .lt { color: var(--dim); } .cs7 .off .vl { color: var(--dim); }
-    @media (max-width: 768px) { .cs7 { gap: 4px; padding: 4px 10px 8px; } .cs7 .nm, .cs7 .ly, .cs7 .vl i { display: none; } .cs7 .lt { font-size: 1rem; } }
+    .cs7 .crl { display: none; }
+    /* 手機:七格太擠 → 改成直式清單,每列 字母 | 名稱 + 規則 | 剩幾檔 */
+    @media (max-width: 768px) {
+      .cs7 { grid-template-columns: 1fr; gap: 0; padding: 2px 12px 10px; }
+      .cs7 button { display: grid; grid-template-columns: 30px 1fr auto; grid-template-rows: auto auto; column-gap: 10px; align-items: center;
+        text-align: left; border: 0; border-bottom: 1px solid var(--border); border-radius: 0; padding: 9px 2px; background: transparent; }
+      .cs7 button:last-child { border-bottom: 0; }
+      .cs7 .lt { grid-row: 1 / 3; font-size: 1.35rem; text-align: center; }
+      .cs7 .nm { grid-column: 2; grid-row: 1; font-size: 14px; color: var(--text-primary); font-weight: 600; }
+      .cs7 .crl { display: block; grid-column: 2; grid-row: 2; font-size: 12px; color: var(--sec); line-height: 1.45; white-space: normal; }
+      .cs7 .vl { grid-column: 3; grid-row: 1 / 3; font-size: 15px; font-weight: 700; margin: 0; text-align: right; }
+      .cs7 .vl i { font-size: 11px; font-weight: 400; color: var(--text-dim); }
+      .cs7 .ly { display: none; }
+      .cs7 .sel { box-shadow: inset 3px 0 0 var(--accent); }
+      .cs7 .warn { border-color: var(--border); box-shadow: inset 3px 0 0 var(--warning); }
+      .cs7 .warn .crl { color: var(--warning); }
+      .cs7 .bar { display: block; grid-column: 2 / 4; grid-row: 3; height: 4px; margin-top: 6px; background: var(--border); border-radius: 2px; overflow: hidden; }
+      .cs7 .bar b { display: block; height: 100%; background: var(--accent); }
+      .cs7 .warn .bar, .cs7 .na .bar { display: none; }
+      .cs7 button { grid-template-rows: auto auto auto; order: var(--o); }
+      /* CAN SLIM 版手機:清單本身就是漏斗(依篩選順序、帶寬度條),3D 漏斗在這個寬度擠不下 → 藏起來 */
+      body.cs-on #funnel, body.cs-on .fn-hint { display: none; }
+      body.cs-on[data-m="funnel"] .fn-card { overflow-y: auto; -webkit-overflow-scrolling: touch; padding-bottom: 72px; }
+      body.cs-on[data-m="funnel"] .fn-card > * { flex-shrink: 0; }
+      body.cs-on .cs7 { margin-bottom: 64px; }   /* flex 容器的 padding-bottom 不算進捲動範圍 → 用 margin 讓 M 列捲得出 Playbook 浮鈕 */   /* 版面是固定高度 → 清單在卡片內捲動;底部留給 Playbook 浮鈕 */
+      .vsub.clamp { max-height: calc(1.6em * 2 + 8px); padding-bottom: 0; overflow: hidden; cursor: pointer; position: relative; }
+      .vsub.clamp::after { content: "展開 ▾"; position: absolute; right: 18px; bottom: 8px; padding-left: 28px; color: var(--accent); background: linear-gradient(90deg, transparent, var(--bg-card) 24px); }
+    }
 
     /* 參數(緊湊:標籤 | 拉桿 | 值 同一列) */
     .pm-card { padding: 0 14px 10px; }
@@ -758,16 +785,22 @@
     const tw = MKT !== 'us' && ver === 'exec' ? ' <span class="wn">· 台股證據較弱:五年、只有活股、財報用現值(見 Playbook 第 9 節)</span>' : '';
     el.innerHTML = `<b>${esc((VLABEL[ver] || ver).split(' ')[0])} ${esc(v[0])}</b> — ${esc(v[1])}${tw}`;
     el.hidden = false;
+    el.classList.toggle('clamp', isMobile());                 // 手機:說明先收成兩行,點一下展開
+    el.onclick = () => el.classList.remove('clamp');
   }
   // CAN SLIM 七字母條:字母 → 漏斗層;數字 = 走到這個字母還剩幾檔(同漏斗一樣是累進的)
   function renderCs7() {
     const el = $('#cs7'); if (!el) return;
+    document.body.classList.toggle('cs-on', ver === 'canslim');
     if (ver !== 'canslim') { el.hidden = true; return; }
     const c = R.counts, fu = P.fundamental, ca = P.catalyst, vp_ = P.vcp, mk = data.market || {};
     const off = k => P[k] && P[k].enabled === false;
     const cPass = c[2] + Object.values(R.fail).filter(x => x && x.startsWith('L2:a_')).length;   // 過了 C、卡在 A 的也算過 C
     const RGN = { uptrend: '上漲<i>確認</i>', pressure: '受壓', correction: '修正<i> · 不進</i>' };
-    const cell = (lt, nm, vl, ly, lv, cls, tip) => `<button type="button" class="${cls}${lv === sel ? ' sel' : ''}" ${lv == null ? 'tabindex="-1"' : `data-lv="${lv}"`} title="${esc(tip)}"><span class="lt">${lt}</span><span class="nm">${nm}</span><span class="vl">${vl}</span><span class="ly">${ly}</span></button>`;
+    const ORD = { L: 1, C: 2, A: 3, N: 4, S: 5, I: 6, M: 7 };          // 手機依篩選先後排(數字由大到小)
+    const W = { L: c[1], C: cPass, A: c[2], N: c[3], S: c[4] };
+    const bar = lt => W[lt] == null ? '' : `<span class="bar"><b style="width:${(Math.sqrt(W[lt] / Math.max(1, c[0])) * 100).toFixed(1)}%"></b></span>`;
+    const cell = (lt, nm, vl, ly, lv, cls, tip) => `<button type="button" style="--o:${ORD[lt]}" class="${cls}${lv === sel ? ' sel' : ''}" ${lv == null ? 'tabindex="-1"' : `data-lv="${lv}"`} title="${esc(tip)}"><span class="lt">${lt}</span><span class="nm">${nm}</span><span class="vl">${vl}</span><span class="ly">${ly}</span><span class="crl">${esc(tip)}</span>${bar(lt)}</button>`;
     el.innerHTML = [
       cell('C', '當季成長', off('fundamental') ? '略過' : cPass.toLocaleString() + '<i> 檔</i>', 'L2', 2, off('fundamental') ? 'off' : '', `當季營收 YoY ≥ ${pct(fu.rev_growth_min)}${fu.growth_any ? ' 或' : ' 且'} EPS YoY ≥ ${pct(fu.eps_growth_min)}`),
       cell('A', '年度成長', off('fundamental') ? '略過' : c[2].toLocaleString() + '<i> 檔</i>', 'L2', 2, off('fundamental') || !fu.annual_years_up && fu.annual_cagr_min == null ? 'off' : '', `年度 EPS(滾動四季)連 ${fu.annual_years_up || 0} 年成長、3 年 CAGR ≥ ${fu.annual_cagr_min == null ? '—' : pct(fu.annual_cagr_min)}`),
@@ -775,7 +808,7 @@
       cell('S', '放量突破', off('vcp') ? '略過' : c[4].toLocaleString() + '<i> 檔</i>', 'L4', 4, off('vcp') ? 'off' : '', `VCP 收縮 + 突破量 ≥ 50 日均量 ${vp_.breakout_volume_mult}×(觸發時判定)`),
       cell('L', '領導股', c[1].toLocaleString() + '<i> 檔</i>', 'L0–1', 1, '', `RS ≥ ${P.trend.rs_min}(L1)/ ${ca.rs_min}(L3)、價 ≥ $${P.universe.min_price}`),
       cell('I', '法人', '無<i>資料</i>', '未納入', null, 'na', '機構持股家數需 FMP Premium,尚未納入'),
-      cell('M', '大盤', mk.regime ? RGN[mk.regime] : '—', mk.dd != null ? '出貨日 ' + mk.dd : '觸發時', null, mk.regime === 'correction' ? 'warn' : mk.regime === 'pressure' ? 'warn' : '', `SPY 25 天出貨日 ≥ 5 且跌破 50 日線 = 修正 → 觀察票觸發也不進場;要等跟進日或站回 50 日線且出貨日 ≤ 3`),
+      cell('M', '大盤', mk.regime ? RGN[mk.regime] : '—', mk.dd != null ? '出貨日 ' + mk.dd : '觸發時', null, mk.regime === 'correction' ? 'warn' : mk.regime === 'pressure' ? 'warn' : '', (mk.regime === 'correction' ? `修正中(出貨日 ${mk.dd}):觀察票觸發也不進場。等跟進日,或站回 50 日線且出貨日 ≤ 3` : `SPY 25 天出貨日 ≥ 5 且跌破 50 日線 = 修正;修正時觸發不進場`)),
     ].join('');
     el.hidden = false;
   }
@@ -868,7 +901,7 @@
         <div class="r1"><span class="sym">${m.s}</span><span class="lv lv${lv}">L${lv}</span>${m.st > 0 ? `<span class="kd" title="沒有 ${data.date} 的收盤,最後 K 線 ${m.d}">K線 ${m.d.slice(5)}</span>` : ''}${flags}
           <span class="num"><span>RS <b class="${m.rs >= 90 ? 'pos' : ''}">${fmt(m.rs, 0)}</b></span><span>距高 <b class="${dh != null && dh > -5 ? 'pos' : ''}">${sgn(dh)}</b></span><span>VCP <b class="${v && v.q >= P.vcp.min_quality ? 'pos' : ''}">${v ? `${v.n}次·Q${v.q}` : '—'}</b></span></span></div>
         <div class="r2"><span class="name">${esc(m.name)}<small>${esc(m.sec || '')}${m.ind ? ' · ' + esc(m.ind) : ''}</small></span></div>
-        <div class="r4">${lv < 4 ? '卡在:' + esc(WHY[R.fail[m.s]] || R.fail[m.s] || '') : '<span class="tgt">狙擊候選</span>'}</div>
+        <div class="r4">${lv < 4 ? '卡在:' + esc(WHY[R.fail[m.s]] || R.fail[m.s] || '') : (ver === 'canslim' ? `<span class="tgt">等觸發</span> 收盤站上 ${CUR}${fmt(v && v.piv, 2)} 且量 ≥ ${P.vcp.breakout_volume_mult}× 均量 → 隔日開盤買${(data.market || {}).regime === 'correction' ? '<br><span class="warn">大盤修正中,觸發也不買</span>' : ''}` : '<span class="tgt">狙擊候選</span>')}</div>
       </div>`; }).join('') || `<div class="empty">此層無標的<br>這是漏斗的正常狀態</div>`;
   }
   $('#q').addEventListener('input', e => { q = e.target.value; renderList(); });
