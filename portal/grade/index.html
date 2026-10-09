@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#02020A">
 <title>BLUE MORPHO · GRADER</title>
 <script src="../../theme.js"></script>
-<link rel="stylesheet" href="../grade.css?v=20261007d">
+<link rel="stylesheet" href="../grade.css?v=20261009">
 <style>
   .meta { display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; padding: 14px 0; color: var(--text-secondary); font: 12px/1.6 var(--font-mono); }
   .tools { display: flex; gap: 8px; margin-left: auto; }
@@ -18,6 +18,7 @@
   .hold input { min-width: 320px; } .hold .tag { cursor: pointer; } .hold .tag i { font-style: normal; margin-left: 6px; opacity: .6; }
   body[data-m="hold"] .hold { display: flex; }
   tr.x[hidden] { display: none; }
+  #mkt { display: inline-flex !important; }
   @media (max-width: 768px) { .seg { display: none; } .hold input { min-width: 0; width: 100%; } .hold { padding: 0 0 10px; } body[data-m="hold"] .meta .chips, body[data-m="hold"] .meta .tools { display: none; } }
   td.ok { color: var(--positive); } td.no { color: var(--text-dim); }
   tr.x td { padding: 6px 10px 12px; } tr.x td div { display: flex; flex-wrap: wrap; gap: 4px 18px; }
@@ -29,6 +30,7 @@
   <header><h1><a href="../">BLUE MORPHO</a><span>GRADER</span></h1><div id="hdr-tools"></div></header>
   <p class="lead" id="lead">載入中…</p>
   <div class="meta">
+    <div class="seg" id="mkt"><button data-mkt="us">美股</button><button data-mkt="tw">台股</button></div>
     <span id="asof"></span><div class="chips" id="dist"></div>
     <div class="tools">
       <div class="seg" id="seg"><button data-m="list" class="on">名單</button><button data-m="hold">持股 <b id="hold-n"></b></button></div>
@@ -43,14 +45,14 @@
   <div class="tbl"><table>
     <thead><tr>
       <th data-k="s">代號</th><th data-k="n">名稱</th><th data-k="g">等級</th><th data-k="tot" class="on">動能</th><th data-k="f">基本面</th>
-      <th data-k="fv.f_rev">營收 YoY</th><th data-k="fv.f_opm">營益率 Δ</th><th data-k="fv.f_fcf">FCF / 淨利</th><th data-k="fv.f_roe">ROE</th><th data-k="fv.f_surp">驚喜</th><th data-k="ok">達標</th>
+      <th id="th-f"></th><th data-k="ok">達標</th>
     </tr></thead>
     <tbody id="tb"></tbody>
   </table></div>
   <div class="list" id="list"></div>
   <p class="about" id="about"></p>
-  <footer id="foot">等級 = 全宇宙百分位,鐘形切點:A = 前 10%、B = 70–90、C = 30–70、D = 10–30、F = 後 10%。動能 = 近 252 個交易日對 SPY 的年化 alpha ÷ 殘差波動的百分位;基本面 = 五個因子百分位平均(只用已申報的季報),只顯示不計分。
-  分析師上修因子要累積 90 天共識快照才會加入。十年回測(前後五年):A−F 之後 63 根超額 +1.8 / +3.8%;A 級月換股贏宇宙等權 +0.25 / +0.69% 月;A/B 降到 D/F 後 63 根 −8.4 / −5.2%。曾試過加三成基本面,兩段都比純動能差,所以拿掉。不是投資建議。</footer>
+  <footer id="foot">等級 = 全宇宙百分位,鐘形切點:A = 前 10%、B = 70–90、C = 30–70、D = 10–30、F = 後 10%。動能 = 近 252 個交易日對大盤(美股 SPY、台股 0050)的年化 alpha ÷ 殘差波動的百分位;基本面 = 因子百分位平均(美股五個、台股兩個),只顯示不計分。
+  分析師上修因子要累積 90 天共識快照才會加入。美股十年回測(前後五年):A−F 之後 63 根超額 +1.8 / +3.8%;A 級月換股贏宇宙等權 +0.25 / +0.69% 月;A/B 降到 D/F 後 63 根 −8.4 / −5.2%。曾試過加三成基本面,兩段都比純動能差,所以拿掉。不是投資建議。</footer>
 </div>
 <nav class="mnav" aria-label="手機分頁">
   <button data-m="list" class="on">名單<b id="mn-n"></b></button>
@@ -60,12 +62,14 @@
 <script>
 (function () {
   var D, rows, key = 'tot', asc = false, filt = '', gsel = { A: 1, B: 1, C: 1, D: 1, F: 1 }, mode = 'list';
-  var HK = 'bm.grade.hold', hold = [];
+  var MKT = (new URLSearchParams(location.search).get('m') || (function () { try { return localStorage.getItem('grade.mkt'); } catch (e) { return null; } })() || 'us');
+  if (MKT !== 'tw') MKT = 'us'; try { localStorage.setItem('grade.mkt', MKT); } catch (e) {}
+  document.querySelectorAll('#mkt button').forEach(function (b) { b.classList.toggle('on', b.dataset.mkt === MKT); b.onclick = function () { location.search = '?m=' + b.dataset.mkt; }; });
+  var HK = 'bm.grade.hold' + (MKT === 'us' ? '' : '.' + MKT), hold = [], FK = [], FN = {}, CUR = '$';
   try { hold = JSON.parse(localStorage.getItem(HK) || '[]'); } catch (e) {}
   function saveHold() { try { localStorage.setItem(HK, JSON.stringify(hold)); } catch (e) {} }
-  var FK = ['f_rev', 'f_opm', 'f_fcf', 'f_roe', 'f_surp'], FN = { f_rev: '營收 YoY', f_opm: '營益率 Δ', f_fcf: 'FCF / 淨利', f_roe: 'ROE', f_surp: '驚喜' };
   var pct = function (x, d) { return x == null ? '—' : (x * 100).toFixed(d == null ? 1 : d) + '%'; };
-  var fmt = { f_rev: pct, f_opm: function (x) { return x == null ? '—' : (x * 100 >= 0 ? '+' : '') + (x * 100).toFixed(1) + ' pt'; }, f_fcf: function (x) { return x == null ? '—' : x.toFixed(2) + '×'; }, f_roe: pct, f_surp: pct };
+  var fmt = { f_rev: pct, f_eps: pct, f_opm: function (x) { return x == null ? '—' : (x * 100 >= 0 ? '+' : '') + (x * 100).toFixed(1) + ' pt'; }, f_fcf: function (x) { return x == null ? '—' : x.toFixed(2) + '×'; }, f_roe: pct, f_surp: pct };
   var get = function (r, k) { return k.indexOf('.') < 0 ? r[k] : r[k.split('.')[0]][k.split('.')[1]]; };
   var tag = function (g) { return '<span class="tag ' + g.toLowerCase() + '">' + g + '</span>'; };
   function visible() {
@@ -78,14 +82,14 @@
     var rs = visible(), tb = [], ls = [];
     rs.forEach(function (r) {
       var cells = FK.map(function (k) { var v = r.fv[k], ok = v != null && v >= D.pass[k]; return '<td class="num ' + (v == null ? '' : ok ? 'ok' : 'no') + '">' + fmt[k](v) + '</td>'; }).join('');
-      var parts = ['收盤 $' + r.px, r.sec || '', 'alpha/σ ' + r.q, '最新季 ' + (r.qd || '—')].concat(FK.map(function (k) { return FN[k] + ' 百分位 ' + (r.fp[k] == null ? '—' : r.fp[k]); }));
-      tb.push('<tr class="r" data-s="' + r.s + '"><td class="num"><b>' + r.s + '</b></td><td>' + (r.n || '') + '</td><td>' + tag(r.g) + '</td><td class="num">' + r.tot + '</td><td class="num">' + (r.f == null ? '—' : r.f) + '</td>' + cells + '<td class="num">' + r.ok + '/5</td></tr>'
+      var parts = ['收盤 ' + CUR + r.px, r.sec || '', 'alpha/σ ' + r.q, '最新季 ' + (r.qd || '—')].concat(FK.map(function (k) { return FN[k] + ' 百分位 ' + (r.fp[k] == null ? '—' : r.fp[k]); }));
+      tb.push('<tr class="r" data-s="' + r.s + '"><td class="num"><b>' + r.s + '</b></td><td>' + (r.n || '') + '</td><td>' + tag(r.g) + '</td><td class="num">' + r.tot + '</td><td class="num">' + (r.f == null ? '—' : r.f) + '</td>' + cells + '<td class="num">' + r.ok + '/' + FK.length + '</td></tr>'
         + '<tr class="x"><td colspan="11"><div>' + parts.map(function (p) { return '<span>' + p + '</span>'; }).join('') + '</div></td></tr>');
-      var r3 = FK.map(function (k) { var v = r.fv[k], ok = v != null && v >= D.pass[k]; return '<div><i>' + FN[k] + '</i><b class="' + (ok ? 'ok' : '') + '">' + fmt[k](v) + '<small>' + (r.fp[k] == null ? '' : 'P' + r.fp[k]) + '</small></b></div>'; }).join('') + '<div><i>達標</i><b>' + r.ok + '/5</b></div>';
-      ls.push('<div class="row" data-s="' + r.s + '"><div class="r1"><span class="sym">' + r.s + '</span>' + tag(r.g) + '<span class="num"><span>動能 <b>' + r.tot + '</b></span><span>基本面 <b>' + (r.f == null ? '—' : r.f) + '</b></span><span>$' + r.px + '</span></span></div><div class="r2"><span class="name">' + (r.n || '') + '<small>' + (r.sec || '') + '</small></span></div><div class="r3">' + r3 + '</div></div>');
+      var r3 = FK.map(function (k) { var v = r.fv[k], ok = v != null && v >= D.pass[k]; return '<div><i>' + FN[k] + '</i><b class="' + (ok ? 'ok' : '') + '">' + fmt[k](v) + '<small>' + (r.fp[k] == null ? '' : 'P' + r.fp[k]) + '</small></b></div>'; }).join('') + '<div><i>達標</i><b>' + r.ok + '/' + FK.length + '</b></div>';
+      ls.push('<div class="row" data-s="' + r.s + '"><div class="r1"><span class="sym">' + r.s + '</span>' + tag(r.g) + '<span class="num"><span>動能 <b>' + r.tot + '</b></span><span>基本面 <b>' + (r.f == null ? '—' : r.f) + '</b></span><span>' + CUR + r.px + '</span></span></div><div class="r2"><span class="name">' + (r.n || '') + '<small>' + (r.sec || '') + '</small></span></div><div class="r3">' + r3 + '</div></div>');
     });
     var empty = mode === 'hold' && !hold.length ? '還沒有持股。在上面輸入代號,Enter 加入;名單只存在這個瀏覽器,不會上傳。' : '沒有符合的';
-    document.getElementById('tb').innerHTML = tb.join('') || '<tr><td colspan="11">' + empty + '</td></tr>';
+    document.getElementById('tb').innerHTML = tb.join('') || '<tr><td colspan="' + (6 + FK.length) + '">' + empty + '</td></tr>';
     document.getElementById('list').innerHTML = ls.join('') || '<div class="row">' + empty + '</div>';
     document.getElementById('mn-n').textContent = mode === 'hold' ? rows.length : rs.length;
     document.getElementById('hold-n').textContent = hold.length || '';
@@ -103,7 +107,6 @@
     v.split(/[\s,]+/).forEach(function (s) { if (s && hold.indexOf(s) < 0) hold.push(s); }); saveHold(); render();
   });
   document.getElementById('hold-chips').addEventListener('click', function (e) { var t = e.target.closest('.tag'); if (!t) return; hold = hold.filter(function (s) { return s !== t.dataset.s; }); saveHold(); render(); });
-  document.querySelectorAll('th').forEach(function (th) { th.onclick = function () { var k = th.dataset.k; if (key === k) asc = !asc; else { key = k; asc = (k === 's' || k === 'n'); } document.querySelectorAll('th').forEach(function (t) { t.classList.toggle('on', t === th); }); render(); }; });
   document.getElementById('sort').onchange = function (e) { key = e.target.value; asc = key === 's'; render(); };
   document.getElementById('q').oninput = function (e) { filt = e.target.value.trim(); render(); };
   document.getElementById('dist').addEventListener('click', function (e) {
@@ -113,9 +116,12 @@
     document.querySelectorAll('#dist .tag').forEach(function (x) { x.classList.toggle('off', !gsel[x.dataset.g]); }); render();
   });
   document.querySelectorAll('.mnav button').forEach(function (b) { b.onclick = function () { setMode(b.dataset.m); }; });
-  fetch('../data/latest.json?' + Date.now()).then(function (r) { return r.json(); }).then(function (d) {
-    D = d; rows = d.rows;
-    var lead = '<b>這檔公司現在值不值得繼續拿?</b> 全宇宙 ' + d.universe + ' 檔(美股、非金融 / 地產、價 ≥ $5)每天收盤後重排一次。等級只看對 SPY 的風險調整動能;五個基本面因子照算、只顯示不計分。等級掉到 D / F 不是賣出指令,是「今天還會買它嗎?」的提醒。';
+  fetch('../data/' + (MKT === 'us' ? '' : MKT + '/') + 'latest.json?' + Date.now()).then(function (r) { return r.json(); }).then(function (d) {
+    D = d; rows = d.rows; CUR = d.cur || '$'; FK = d.factors.map(function (f) { return f.k; }); d.factors.forEach(function (f) { FN[f.k] = f.l; });
+    var thf = document.getElementById('th-f'); thf.outerHTML = d.factors.map(function (f) { return '<th data-k="fv.' + f.k + '">' + f.l + '</th>'; }).join('');
+    document.querySelectorAll('th').forEach(function (th) { th.onclick = function () { var k = th.dataset.k; if (key === k) asc = !asc; else { key = k; asc = (k === 's' || k === 'n'); } document.querySelectorAll('th').forEach(function (t) { t.classList.toggle('on', t === th); }); render(); }; });
+    document.title = 'BLUE MORPHO · GRADER' + (MKT === 'tw' ? ' · 台股' : '');
+    var lead = '<b>這檔公司現在值不值得繼續拿?</b> 全宇宙 ' + d.universe + ' 檔(' + (MKT === 'tw' ? '台股、非金融、價 ≥ NT$10、日成交額 ≥ 3,000 萬' : '美股、非金融 / 地產、價 ≥ $5') + ')每天收盤後重排一次。等級只看對 ' + (d.bench || 'SPY') + ' 的風險調整動能;' + (MKT === 'tw' ? '月營收 / EPS 年增' : '五個基本面因子') + '照算、只顯示不計分。等級掉到 D / F 不是賣出指令,是「今天還會買它嗎?」的提醒。';
     document.getElementById('lead').innerHTML = lead; document.getElementById('about').innerHTML = lead + '<br><br>點等級籤只看該級;點一列可收合五個因子(綠 = 達到稿的基本門檻,P = 全宇宙百分位)。「持股」分頁:自己輸入代號,只存在這支手機 / 瀏覽器,不會上傳。';
     document.getElementById('asof').textContent = '評分日 ' + d.date + ' · 評級 ' + d.n + ' 檔';
     document.getElementById('dist').innerHTML = ['A', 'B', 'C', 'D', 'F'].map(function (g) { return '<span class="tag ' + g.toLowerCase() + '" data-g="' + g + '">' + g + ' ' + d.dist[g] + '</span>'; }).join('');
