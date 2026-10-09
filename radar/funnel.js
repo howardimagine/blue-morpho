@@ -99,6 +99,13 @@
         const ev_ = ca.event_consecutive_days ? ((m.lu || 0) >= ca.event_consecutive_days) : ((m.gap || 0) > ca.max_single_day_gap_pct);   // 台股:連續漲停 ≥ N 天;美股:單日 > N%
         if (ca.exclude_event_driven && ev_) { fail[s] = 'L3:event'; continue; }
         if (ca.exclude_earnings_window && earnWithin(m, ca.earnings_within_days, today)) { fail[s] = 'L3:earnings'; continue; }
+        // CAN SLIM 的 I(其他 preset 沒這兩個鍵 → 恆不觸發)—— 與 Python 一致
+        if (ca.inst_min_holders || ca.inst_min_up_q) {
+          const ins = m.i;
+          if (!ins) { fail[s] = 'L3:inst_na'; continue; }
+          if ((ins.n || 0) < (ca.inst_min_holders || 0)) { fail[s] = 'L3:inst_n'; continue; }
+          if ((ins.up || 0) < (ca.inst_min_up_q || 0)) { fail[s] = 'L3:inst_up'; continue; }
+        }
       }
       pool.push(m);
     }

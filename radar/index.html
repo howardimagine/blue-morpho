@@ -108,6 +108,7 @@
     .pg-on input { accent-color: var(--positive); width: 12px; height: 12px; margin: 0; }
     details.pg.off summary { color: var(--text-dim); } details.pg.off .pr-row { opacity: .35; pointer-events: none; }
     details.pg.off summary .cnt::after { content: " 略過"; color: var(--warning); font-size: .56rem; }
+    .pr-row[hidden], .mreg[hidden], .cs7[hidden] { display: none !important; }   /* 這些元素自己設了 display,hidden 屬性會被蓋掉 → 切回別組時 CAN SLIM 清單殘留(10-09 bug) */
     .pr-row { display: grid; grid-template-columns: 150px 1fr 72px; gap: 8px; align-items: center; padding: 2px 0; }
     .pr-lab { font-size: .68rem; color: var(--text-secondary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .pr-val { font-family: var(--font-mono); font-size: .68rem; color: var(--accent); text-align: right; font-weight: 600; }
@@ -507,7 +508,7 @@
   </footer>
 </div>
 
-<script src="funnel.js?v=20261006a"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
+<script src="funnel.js?v=20261009a"></script>  <!-- 改 funnel.js 時記得換版本號,不然合夥人瀏覽器吃舊快取 -->
 <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4/dist/lightweight-charts.standalone.production.js"></script>
 <script>
 (async function () {
@@ -555,7 +556,10 @@
   P = baseParams();
   try { const o = JSON.parse(localStorage.getItem('radar.params.' + ver) || 'null'); if (o && o.date === data.date) dmerge(P, o.P); } catch (_) {}
   const persist = () => { try { localStorage.setItem('radar.params.' + ver, JSON.stringify({ date: data.date, P })); localStorage.setItem('radar.preset', ver); } catch (_) {} };
-  const get = path => path.split('.').reduce((o, k) => (o == null ? undefined : o[k]), P);
+  const getIn = (o, path) => path.split('.').reduce((x, k) => (x == null ? undefined : x[k]), o);
+  const get = path => getIn(P, path);
+  // 面板列出「任一組 preset 有」的參數;目前這組沒有的(例如 CAN SLIM 的 A)由 syncControls 藏起來 —— 切版本才不會殘留或缺列
+  const ANY = path => [P, ...Object.values(data.profiles || {})].some(o => getIn(o, path) !== undefined);
   const set = (path, v) => { const ks = path.split('.'); ks.slice(0, -1).reduce((o, k) => o[k], P)[ks.at(-1)] = v; };
   const N0 = data.level_names, sp = data.params, vp = sp.vcp, u = sp.universe;
   // 同一套五層漏斗;CAN SLIM 版只換每層的名字,讓人看得出哪個字母在哪一層擋
@@ -642,7 +646,7 @@
   // 參數面板
   const pm = $('#params');
   pm.innerHTML = PARAMS.map(g => `<details class="pg ${get(g.key + '.enabled') === false ? 'off' : ''}" data-g="${g.key}" open><summary><span>${g.g}</span><span style="display:flex;gap:10px;align-items:center"><span class="cnt" data-cnt="${g.k}"></span><label class="pg-on" onclick="event.stopPropagation()" title="關掉 = 整層略過,上一層通過的全部放行"><input type="checkbox" data-p="${g.key}.enabled" ${get(g.key + '.enabled') !== false ? 'checked' : ''}>啟用</label></span></summary>
-    ${g.items.filter(it => it[0] === '_note' || get(it[0]) !== undefined).map(it => it[0] === '_note' ? `<div class="pm-note" id="${it[1]}"></div>` : it[2] === 'bool'
+    ${g.items.filter(it => it[0] === '_note' || ANY(it[0])).map(it => it[0] === '_note' ? `<div class="pm-note" id="${it[1]}"></div>` : it[2] === 'bool'
       ? `<label class="pr-row bool"><span class="pr-lab">${it[1]}</span><input type="checkbox" data-p="${it[0]}" ${get(it[0]) ? 'checked' : ''}></label>`
       : `<div class="pr-row"><span class="pr-lab" title="${it[1]}">${it[1]}</span><input type="range" data-p="${it[0]}" min="${it[2]}" max="${it[3]}" step="${it[4]}" value="${get(it[0])}"><span class="pr-val" data-v="${it[0]}">${it[5](get(it[0]))}</span></div>`).join('')}
   </details>`).join('');
@@ -656,6 +660,8 @@
   });
   function syncControls() {
     document.querySelectorAll('[data-p]').forEach(el => { const k = el.dataset.p, v = get(k);
+      const row = el.closest('.pr-row'); if (row) row.hidden = v === undefined && !k.endsWith('.enabled');
+      if (v === undefined && !k.endsWith('.enabled')) return;
       if (el.type === 'checkbox') el.checked = k.endsWith('.enabled') ? v !== false : !!v;
       else { el.value = v; const d = $(`[data-v="${k}"]`); if (d && fmtOf[k]) d.textContent = fmtOf[k](v); } });
     document.querySelectorAll('details.pg').forEach(d => d.classList.toggle('off', get(d.dataset.g + '.enabled') === false));
@@ -684,6 +690,7 @@
   vwrap.addEventListener('change', () => {
     ver = vwrap.value; P = baseParams();
     try { const o = JSON.parse(localStorage.getItem('radar.params.' + ver) || 'null'); if (o && o.date === data.date) dmerge(P, o.P); } catch (_) {}
+    const fc = $('.fn-card'); if (fc) fc.scrollTop = 0;      // 手機 CAN SLIM 清單在卡片內捲動過 → 切回別組要歸零,不然 3D 漏斗被捲掉一截
     persist(); setH1(); syncControls(); recompute(); if (!$('#pg-track').hidden) renderTrack(); });
   $('#srv').innerHTML = `${data.rs_meta && data.rs_meta.n ? `<b>RS 基準</b>:${data.rs_meta.n} 檔 · 基準日 3M ${data.rs_meta.dates['63']} / 6M ${data.rs_meta.dates['126']} / 9M ${data.rs_meta.dates['189']} / 12M ${data.rs_meta.dates['252']}${data.rs_meta.spy ? ` · SPY 相當 RS <b>${data.rs_meta.spy.rating}</b>` : ''}<br>` : ''}<b>伺服器參數</b>(掃描時固定):宇宙 mcap ≥ ${(u.min_mcap/1e6).toFixed(0)}M · 價 ≥ $${u.min_price} · 均量 ≥ ${(u.min_avg_volume/1e3).toFixed(0)}K · 200MA 斜率窗 ${sp.trend.ma_slope_lookback} 日 ·
     VCP 回看 ${vp.lookback_days} 日 · 擺動強度 ${vp.swing_strength} · 收縮衰減 ≤ ×${vp.contraction_decay} · 首次收縮 ≤ ${Math.round(vp.max_first_depth*100)}% · 量縮 ≥ ${vp.volume_dryup_pct}% · 突破 = 收盤 > pivot +${vp.pivot_buffer_pct}% 且量 ≥ ${vp.breakout_volume_mult}× 均量`;
@@ -702,7 +709,7 @@
     const mk = data.market;
     const mtxt = !mk ? '' : mk.state === 'weak' ? `<span class="warn">大盤 盤整轉弱(20 日 ${mk.r20 > 0 ? '+' : ''}${mk.r20}%)— 不進新倉</span>` : mk.state === 'hot' ? `<span class="warn">大盤 過熱(高於 200 日線 +${mk.above200}%)— 部位減半</span>` : `大盤 OK(20 日 ${mk.r20 > 0 ? '+' : ''}${mk.r20}% · 高於 200 日線 ${mk.above200 > 0 ? '+' : ''}${mk.above200}%)`;
     const RG = { uptrend: ['確認上漲', ''], pressure: ['漲勢受壓', 'warn'], correction: ['修正中 — CAN SLIM 版不進新倉', 'warn'] };
-    const rtxt = mk && mk.regime && VERS.includes('canslim') ? ` · <span class="${RG[mk.regime][1]}" title="O'Neil 大盤狀態(SPY):25 天內出貨日(收跌 ≥ 0.2% 且量增)≥ 5 且跌破 50 日線 = 修正;修正後要等跟進日(第 4 天起漲 ≥ 1.25% 且量增)或站回 50 日線且出貨日 ≤ 3 才回到上漲">M ${RG[mk.regime][0]} · 出貨日 ${mk.dd}</span>` : '';
+    const rtxt = mk && mk.regime && VERS.includes('canslim') ? `<span class="mreg"> · <span class="${RG[mk.regime][1]}" title="O'Neil 大盤狀態(SPY):25 天內出貨日(收跌 ≥ 0.2% 且量增)≥ 5 且跌破 50 日線 = 修正;修正後要等跟進日(第 4 天起漲 ≥ 1.25% 且量增)或站回 50 日線且出貨日 ≤ 3 才回到上漲">M ${RG[mk.regime][0]} · 出貨日 ${mk.dd}</span></span>` : '';   // 只在 CAN SLIM 版顯示(renderCs7 切換)
     $('#meta').insertAdjacentHTML('beforeend', ' · ' + qtxt + (mtxt ? ' · ' + mtxt : '') + rtxt);
     $('#fn-meta').innerHTML = $('#meta').innerHTML;
     if (v === 'degraded') { b.hidden = false; b.classList.add('bad'); b.innerHTML = `<b>DEGRADED</b> —— yfinance 限流,${q.universe - q.fresh} 檔沒有當日收盤,不進 L1、不排 RS;名單不完整`; }
@@ -813,6 +820,7 @@
   function renderCs7() {
     const el = $('#cs7'); if (!el) return;
     document.body.classList.toggle('cs-on', ver === 'canslim');
+    document.querySelectorAll('.mreg').forEach(e => e.hidden = ver !== 'canslim');
     if (ver !== 'canslim') { el.hidden = true; return; }
     const c = R.counts, fu = P.fundamental, ca = P.catalyst, vp_ = P.vcp, mk = data.market || {};
     const off = k => P[k] && P[k].enabled === false;
