@@ -326,7 +326,25 @@
     dialog#rules::backdrop { background: rgba(0,0,0,.55); }
     .rl { padding: 18px 20px 16px; } .rl-h { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; } .rl-h b { font-size: var(--fs-lg); } .rl-h span { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--dim); flex: 1; }
     .rl ol { padding-left: 20px; margin: 0; font-size: var(--fs-md); line-height: 1.7; } .rl li { margin: 6px 0; } .rl-f { margin-top: 12px; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--dim); line-height: 1.6; }
-    .rl-tabs { display: flex; gap: 6px; margin-bottom: 12px; } .rl-tabs .btn.on { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+    dialog#rules.wide { max-width: 820px; }
+    .cmp-w { overflow-x: auto; max-height: 64vh; overflow-y: auto; border: 1px solid var(--border); border-radius: 6px; }
+    .cmp { width: 100%; border-collapse: collapse; font-size: var(--fs-sm); line-height: 1.5; min-width: 520px; }
+    .cmp th, .cmp td { padding: 6px 10px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+    .cmp thead th { position: sticky; top: 0; background: var(--bg-card); color: var(--accent); font-family: var(--font-mono); z-index: 1; }
+    .cmp thead small { display: block; color: var(--text-dim); font-size: var(--fs-xs); font-weight: 400; }
+    .cmp tbody th { color: var(--sec); font-weight: 500; white-space: nowrap; width: 1%; }
+    .cmp tr.cg th { color: var(--text-primary); font-family: var(--font-mono); font-size: var(--fs-xs); letter-spacing: .08em; background: var(--bg); }
+    .cmp b { color: var(--text-primary); }
+    @media (max-width: 768px) {   /* 手機:改成每列上下堆疊(項目 / SEPA / CAN SLIM),不橫向捲 */
+      .cmp { min-width: 0; } .cmp thead { display: none; }
+      .cmp tr { display: block; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+      .cmp th, .cmp td { display: block; padding: 2px 0; border: 0; }
+      .cmp tbody th { white-space: normal; width: auto; color: var(--text-primary); font-weight: 600; margin-bottom: 2px; }
+      .cmp td::before { content: attr(data-h); display: inline-block; min-width: 68px; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--accent); }
+      .cmp tr.cg { padding: 6px 10px; background: var(--bg); }
+      .rl-h span { display: none; } .cmp-w { max-height: 68vh; }
+    }
+    .rl-tabs { display: flex; gap: 6px; margin-bottom: 12px; flex-wrap: wrap; } .rl-tabs .btn.on { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
     .rl-p[hidden] { display: none; } .rl-v { font-size: var(--fs-md); line-height: 1.7; } .rl-v dt { font-family: var(--font-mono); color: var(--accent); margin-top: 8px; } .rl-v dd { margin: 0 0 4px; } .rl-v dt:first-child { margin-top: 0; }
     .qcard { margin: 8px 12px 4px; padding: 10px 12px; border: 1px solid var(--accent); border-radius: 6px; background: var(--bg-card); font-size: var(--fs-sm); }
     .qcard .qh { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; } .qcard .qh b { font-size: var(--fs-lg); color: var(--accent); } .qcard .qh .nm { color: var(--dim); font-size: var(--fs-xs); }
@@ -337,7 +355,7 @@
     .upd { display: none; padding: 6px 18px; border-bottom: 1px solid var(--border); background: var(--bg-card); font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--dim); line-height: 1.5; } .upd b { color: var(--text-primary); font-weight: 500; } .upd .warn { color: var(--warning); } .upd .stale { color: var(--negative); }
     @media (max-width: 768px) { .upd { display: block; } }
     .vsub { padding: 8px 18px; border-bottom: 1px solid var(--border); background: var(--bg-card); font-size: var(--fs-sm); color: var(--sec); line-height: 1.6; }
-    .vsub b { color: var(--text-primary); font-weight: 700; } .vsub .wn { color: var(--warning); }
+    .vsub b { color: var(--text-primary); font-weight: 700; } .vsub .cmp-lnk { color: var(--accent); white-space: nowrap; } .vsub .wn { color: var(--warning); }
     .lst-empty { padding: 28px 20px; color: var(--sec); font-size: var(--fs-md); line-height: 1.8; }
     .lst-empty b { color: var(--text-primary); } .lst-empty .btn { margin-top: 12px; }
     .mnav { display: none; }
@@ -445,7 +463,7 @@
   <dialog id="rules">
     <div class="rl">
       <div class="rl-h"><b id="rl-title">停損停利守則</b><span id="rl-sub">執行版 · 十年時點回測(與雷達同一套程式)</span><button class="btn ghost" id="rules-x">關閉</button></div>
-      <div class="rl-tabs"><button class="btn on" data-p="rules">守則</button><button class="btn" data-p="vers">三組 preset</button></div>
+      <div class="rl-tabs"><button class="btn on" data-p="rules">守則</button><button class="btn" data-p="vers">三組 preset</button><button class="btn" data-p="cmp">SEPA vs CAN SLIM</button></div>
       <div class="rl-p" data-p="rules"><ol>
         <li><b>選股 = 執行版名單</b>:趨勢樣板 8 條、RS ≥ 90、距 52 週高 25% 內、營收或 EPS 任一成長達標、VCP 且現價在 pivot ±5% 內、價 ≥ $5 且 50 日均量 ≥ 20 萬。產業不挑。</li>
         <li><b>觀察票只給 10 個交易日</b>:過四關後 10 天內沒突破就過期;跌破最後一腿低點作廢。晚突破在回測裡是虧的。</li>
@@ -456,6 +474,8 @@
         <li><b>預期的長相</b>(2017–2026,含下市股):一年約 45 筆、勝率 19%、中位 −0.57R、最長連虧 27 筆、期望值 +0.16R;帳戶年化 16.8% / 最大回撤 −37.5%,SPY 15.2% / −34%。超額幾乎都來自 2023–2025,2017–2021 大多落後 SPY。</li>
       </ol>
       <div class="rl-f">這套規則是 864 條裡挑的,前後五年都為正的只有 14 條;超額報酬要當「有機會」而不是「保證」。回測與雷達用同一份 evaluate 與觀察票程式,差異只剩市值門檻。</div></div>
+      <div class="rl-p" data-p="cmp" hidden><div class="cmp-w"><table class="cmp"><thead><tr><th></th><th>SEPA 執行版<small>Minervini</small></th><th>CAN SLIM 版<small>O'Neil</small></th></tr></thead><tbody><tr class="cg"><th colspan="3">選股</th></tr><tr><th>市場</th><td data-h="SEPA">美股、台股</td><td data-h="CAN SLIM">只有美股</td></tr><tr><th>股價下限</th><td data-h="SEPA">$5</td><td data-h="CAN SLIM"><b>$15</b></td></tr><tr><th>趨勢樣板(均線 8 條)</th><td data-h="SEPA">要</td><td data-h="CAN SLIM">要(同一套)</td></tr><tr><th>強力拉升直通</th><td data-h="SEPA">開:8 週漲 ≥ 100% 可跳過部分均線條件</td><td data-h="CAN SLIM">關</td></tr><tr><th>RS(1–99)</th><td data-h="SEPA">第一關 ≥ 70、第三關 <b>≥ 90</b></td><td data-h="CAN SLIM">兩關都 ≥ 80</td></tr><tr><th>當季營收 / EPS 年增</th><td data-h="SEPA">營收 ≥ 20% <b>或</b> EPS ≥ 25%;轉虧為盈算過</td><td data-h="CAN SLIM">營收 ≥ 25% <b>且</b> EPS ≥ 25%;轉虧為盈不算</td></tr><tr><th>年度 EPS(A)</th><td data-h="SEPA">不看</td><td data-h="CAN SLIM">四季加總算一年:連 3 年成長、3 年複合成長 ≥ 25%</td></tr><tr><th>距 52 週高點</th><td data-h="SEPA">25% 內</td><td data-h="CAN SLIM"><b>15% 內</b></td></tr><tr><th>VCP、離 pivot</th><td data-h="SEPA">要 VCP;pivot ±5%</td><td data-h="CAN SLIM">同左</td></tr><tr><th>突破成交量</th><td data-h="SEPA">≥ 50 日均量 1.5×</td><td data-h="CAN SLIM">≥ 1.4×</td></tr><tr><th>法人持股(I)</th><td data-h="SEPA">不看</td><td data-h="CAN SLIM">沒資料,未納入</td></tr><tr class="cg"><th colspan="3">大盤(M)</th></tr><tr><th>依據</th><td data-h="SEPA">SPY 20 日報酬、與 200 日線距離</td><td data-h="CAN SLIM">SPY 出貨日 + 跟進日</td></tr><tr><th>不進場</th><td data-h="SEPA">觸發日 SPY 20 日報酬 &lt; 0</td><td data-h="CAN SLIM">「修正」:25 天出貨日 ≥ 5 且跌破 50 日線,直到跟進日(或站回 50 日線且出貨日 ≤ 3)</td></tr><tr><th>部位減半</th><td data-h="SEPA">SPY 高於 200 日線 &gt; 10%</td><td data-h="CAN SLIM">不減半</td></tr><tr><th>今天</th><td data-h="SEPA"><span id="cmp-m-exec">—</span></td><td data-h="CAN SLIM"><span id="cmp-m-cs">—</span></td></tr><tr class="cg"><th colspan="3">進出場</th></tr><tr><th>觀察票 / 觸發 / 作廢</th><td data-h="SEPA">10 天內收盤站上 pivot 且放量 → 隔日開盤買;跌破最後一腿低點作廢</td><td data-h="CAN SLIM">同左</td></tr><tr><th>停損</th><td data-h="SEPA"><b>−6%</b></td><td data-h="CAN SLIM"><b>−8%</b>(書:7–8%)</td></tr><tr><th>其他出場</th><td data-h="SEPA">5 天內帶量收破 pivot;20 天未達 +1R;60 天到期</td><td data-h="CAN SLIM">同左</td></tr><tr><th>停利</th><td data-h="SEPA">不停利、不保本</td><td data-h="CAN SLIM">同左(書的 +20% 分批、8 週法則未做)</td></tr><tr class="cg"><th colspan="3">結果與證據</th></tr><tr><th>今天漏斗</th><td data-h="SEPA"><span id="cmp-f-exec">—</span></td><td data-h="CAN SLIM"><span id="cmp-f-cs">—</span></td></tr><tr><th>十年回測</th><td data-h="SEPA">有:全期 +0.16R,前五年約打平、後五年為正</td><td data-h="CAN SLIM"><b>還沒跑</b></td></tr><tr><th>定位</th><td data-h="SEPA">照規則機械執行</td><td data-h="CAN SLIM">另一角度的候選池;回測前不當執行依據</td></tr></tbody></table></div>
+        <div class="rl-f">一句話:SEPA 挑「現在最強」(RS 90、距高可到 25%、基本面一項即可),名單多;CAN SLIM 挑「成長有連續紀錄、貼近新高」(當季與年度都 25%、距高 15%、大盤更保守),名單很少。兩邊重疊的就是兩種標準都過的股票。五層漏斗、觀察票與出場用同一套程式。</div></div>
       <div class="rl-p" data-p="vers" hidden><dl class="rl-v">
         <dt>執行版(機械)</dt><dd>給「照規則做」的人。RS ≥ 90、營收或 EPS 任一成長、VCP 且現價貼著 pivot ±5%、價 ≥ $5、50 日均量 ≥ 20 萬;觀察票 10 天;觸發日大盤轉弱不買、過熱減半;6 檔 × 16%,閒錢放 SPY。十年時點回測 (含下市股、ADR)全期 +0.16R,6 檔閒錢放 SPY 年化 16.8%(SPY 15.2%);前五年打平、後五年為正。</dd>
         <dt>觀察版(自己挑)</dt><dd>給「自己判斷」的人。RS ≥ 70、距高 25%,基本面、大盤狀態只標記不擋,名單寬很多。這套規則本身在十年回測是賠的(−0.04R),它不是策略,是候選池:產業是否同步、第幾個底、突破頭三天走勢,都要自己看。</dd>
@@ -783,7 +803,8 @@
     const v = VSUB[ver]; const el = $('#vsub'); if (!el) return;
     if (!v) { el.hidden = true; return; }
     const tw = MKT !== 'us' && ver === 'exec' ? ' <span class="wn">· 台股證據較弱:五年、只有活股、財報用現值(見 Playbook 第 9 節)</span>' : '';
-    el.innerHTML = `<b>${esc((VLABEL[ver] || ver).split(' ')[0])} ${esc(v[0])}</b> — ${esc(v[1])}${tw}`;
+    const lnk = ver === 'canslim' || ver === 'exec' && data.profiles && data.profiles.canslim ? ` <a href="#" class="cmp-lnk" onclick="event.preventDefault();event.stopPropagation();openCmp()">SEPA vs CAN SLIM 對照 ↗</a>` : '';
+    el.innerHTML = `<b>${esc((VLABEL[ver] || ver).split(' ')[0])} ${esc(v[0])}</b>${lnk} — ${esc(v[1])}${tw}`;   // 對照連結放前面:手機說明收成兩行時也看得到
     el.hidden = false;
     el.classList.toggle('clamp', isMobile());                 // 手機:說明先收成兩行,點一下展開
     el.onclick = () => el.classList.remove('clamp');
@@ -1031,7 +1052,17 @@
   const api = async (m, args = []) => { const r = await fetch(API + m, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(args) }); if (!r.ok) throw new Error(r.status); return r.json(); };
   $('#rules-btn').onclick = () => $('#rules').showModal(); $('#rules-x').onclick = () => $('#rules').close();
   document.querySelectorAll('.rl-tabs .btn').forEach(b => b.onclick = () => { const p = b.dataset.p; document.querySelectorAll('.rl-tabs .btn').forEach(x => x.classList.toggle('on', x === b)); document.querySelectorAll('.rl-p').forEach(x => x.hidden = x.dataset.p !== p);
-    $('#rl-title').textContent = p === 'vers' ? '三組 preset' : '停損停利守則'; $('#rl-sub').textContent = p === 'vers' ? '執行版 / 觀察版 / CAN SLIM 版 · 同一份掃描,換規則重算' : '執行版 · 十年時點回測(與雷達同一套程式)'; });
+    $('#rules').classList.toggle('wide', p === 'cmp');
+    $('#rl-title').textContent = p === 'cmp' ? 'SEPA vs CAN SLIM' : p === 'vers' ? '三組 preset' : '停損停利守則'; $('#rl-sub').textContent = p === 'cmp' ? '雷達上兩組 preset 的實際門檻 · 不是兩本書的全部' : p === 'vers' ? '執行版 / 觀察版 / CAN SLIM 版 · 同一份掃描,換規則重算' : '執行版 · 十年時點回測(與雷達同一套程式)'; if (p === 'cmp') fillCmp(); });
+  // 比較表的「今天」兩列:用前台同一支 evaluate 算,跟漏斗一致
+  function fillCmp() {
+    const mk = data.market || {}, f = pid => { const c = evalFor(pid).counts; return c.map(x => x.toLocaleString()).join(' → ') + ` · 第四關 ${c[4]} 檔`; };
+    $('#cmp-m-exec').textContent = mk.state ? (mk.state === 'weak' ? `20 日 ${mk.r20}% → 不進` : `20 日 ${mk.r20 > 0 ? '+' : ''}${mk.r20}% → 可進${mk.state === 'hot' ? '(減半)' : ''}`) : '—';
+    $('#cmp-m-cs').textContent = mk.regime ? `${{ uptrend: '確認上漲 → 可進', pressure: '漲勢受壓 → 可進', correction: '修正 → 不進' }[mk.regime]} · 出貨日 ${mk.dd}` : '—';
+    if (data.profiles && data.profiles.exec) $('#cmp-f-exec').textContent = f('exec');
+    if (data.profiles && data.profiles.canslim) $('#cmp-f-cs').textContent = f('canslim');
+  }
+  window.openCmp = () => { $('#rules').showModal(); document.querySelector('.rl-tabs .btn[data-p="cmp"]').click(); };
   const btn = $('#refresh'); let pollT = null;   // 預設 hidden;探測到本機後台才顯示
   const setBtn = (t, busy) => { btn.textContent = t; btn.disabled = !!busy; btn.style.opacity = busy ? .6 : 1; };
   async function pollStatus() {
