@@ -32,7 +32,7 @@
     <span id="asof"></span><div class="chips" id="dist"></div>
     <div class="tools">
       <div class="seg" id="seg"><button data-m="list" class="on">名單</button><button data-m="hold">持股 <b id="hold-n"></b></button></div>
-      <select class="hdr-sel" id="sort"><option value="tot">總分</option><option value="qp">Q 動能</option><option value="f">F 基本面</option><option value="ok">達標數</option><option value="s">代號</option></select>
+      <select class="hdr-sel" id="sort"><option value="tot">動能</option><option value="f">基本面</option><option value="ok">達標數</option><option value="s">代號</option></select>
       <input type="search" id="q" placeholder="代號 / 名稱" autocomplete="off">
     </div>
   </div>
@@ -42,15 +42,15 @@
   </div>
   <div class="tbl"><table>
     <thead><tr>
-      <th data-k="s">代號</th><th data-k="n">名稱</th><th data-k="g">等級</th><th data-k="tot" class="on">總分</th><th data-k="qp">Q 動能</th><th data-k="f">F 基本面</th>
+      <th data-k="s">代號</th><th data-k="n">名稱</th><th data-k="g">等級</th><th data-k="tot" class="on">動能</th><th data-k="f">基本面</th>
       <th data-k="fv.f_rev">營收 YoY</th><th data-k="fv.f_opm">營益率 Δ</th><th data-k="fv.f_fcf">FCF / 淨利</th><th data-k="fv.f_roe">ROE</th><th data-k="fv.f_surp">驚喜</th><th data-k="ok">達標</th>
     </tr></thead>
     <tbody id="tb"></tbody>
   </table></div>
   <div class="list" id="list"></div>
   <p class="about" id="about"></p>
-  <footer id="foot">等級 = 全宇宙百分位,鐘形切點:A = 前 10%、B = 70–90、C = 30–70、D = 10–30、F = 後 10%。Q = 近 252 個交易日對 SPY 的年化 alpha ÷ 殘差波動;F = 五個基本面因子百分位平均,只用已申報的季報。
-  分析師上修因子要累積 90 天共識快照才會加入。十年回測(前後五年):A−F 之後 63 根超額 +1.6 / +3.2%;A 級月換股贏宇宙等權 +0.11 / +0.67% 月;只用動能的 A−F 是 +1.8 / +3.8% —— 基本面在這組切點下沒有加分,這張表實質是風險調整動能。不是投資建議。</footer>
+  <footer id="foot">等級 = 全宇宙百分位,鐘形切點:A = 前 10%、B = 70–90、C = 30–70、D = 10–30、F = 後 10%。動能 = 近 252 個交易日對 SPY 的年化 alpha ÷ 殘差波動的百分位;基本面 = 五個因子百分位平均(只用已申報的季報),只顯示不計分。
+  分析師上修因子要累積 90 天共識快照才會加入。十年回測(前後五年):A−F 之後 63 根超額 +1.8 / +3.8%;A 級月換股贏宇宙等權 +0.25 / +0.69% 月;A/B 降到 D/F 後 63 根 −8.4 / −5.2%。曾試過加三成基本面,兩段都比純動能差,所以拿掉。不是投資建議。</footer>
 </div>
 <nav class="mnav" aria-label="手機分頁">
   <button data-m="list" class="on">名單<b id="mn-n"></b></button>
@@ -79,13 +79,13 @@
     rs.forEach(function (r) {
       var cells = FK.map(function (k) { var v = r.fv[k], ok = v != null && v >= D.pass[k]; return '<td class="num ' + (v == null ? '' : ok ? 'ok' : 'no') + '">' + fmt[k](v) + '</td>'; }).join('');
       var parts = ['收盤 $' + r.px, r.sec || '', 'alpha/σ ' + r.q, '最新季 ' + (r.qd || '—')].concat(FK.map(function (k) { return FN[k] + ' 百分位 ' + (r.fp[k] == null ? '—' : r.fp[k]); }));
-      tb.push('<tr class="r" data-s="' + r.s + '"><td class="num"><b>' + r.s + '</b></td><td>' + (r.n || '') + '</td><td>' + tag(r.g) + '</td><td class="num">' + r.tot + '</td><td class="num">' + r.qp + '</td><td class="num">' + r.f + '</td>' + cells + '<td class="num">' + r.ok + '/5</td></tr>'
-        + '<tr class="x"><td colspan="12"><div>' + parts.map(function (p) { return '<span>' + p + '</span>'; }).join('') + '</div></td></tr>');
+      tb.push('<tr class="r" data-s="' + r.s + '"><td class="num"><b>' + r.s + '</b></td><td>' + (r.n || '') + '</td><td>' + tag(r.g) + '</td><td class="num">' + r.tot + '</td><td class="num">' + (r.f == null ? '—' : r.f) + '</td>' + cells + '<td class="num">' + r.ok + '/5</td></tr>'
+        + '<tr class="x"><td colspan="11"><div>' + parts.map(function (p) { return '<span>' + p + '</span>'; }).join('') + '</div></td></tr>');
       var r3 = FK.map(function (k) { var v = r.fv[k], ok = v != null && v >= D.pass[k]; return '<div><i>' + FN[k] + '</i><b class="' + (ok ? 'ok' : '') + '">' + fmt[k](v) + '<small>' + (r.fp[k] == null ? '' : 'P' + r.fp[k]) + '</small></b></div>'; }).join('') + '<div><i>達標</i><b>' + r.ok + '/5</b></div>';
-      ls.push('<div class="row" data-s="' + r.s + '"><div class="r1"><span class="sym">' + r.s + '</span>' + tag(r.g) + '<span class="num"><span>總分 <b>' + r.tot + '</b></span><span>Q <b>' + r.qp + '</b></span><span>F <b>' + r.f + '</b></span><span>$' + r.px + '</span></span></div><div class="r2"><span class="name">' + (r.n || '') + '<small>' + (r.sec || '') + '</small></span></div><div class="r3">' + r3 + '</div></div>');
+      ls.push('<div class="row" data-s="' + r.s + '"><div class="r1"><span class="sym">' + r.s + '</span>' + tag(r.g) + '<span class="num"><span>動能 <b>' + r.tot + '</b></span><span>基本面 <b>' + (r.f == null ? '—' : r.f) + '</b></span><span>$' + r.px + '</span></span></div><div class="r2"><span class="name">' + (r.n || '') + '<small>' + (r.sec || '') + '</small></span></div><div class="r3">' + r3 + '</div></div>');
     });
     var empty = mode === 'hold' && !hold.length ? '還沒有持股。在上面輸入代號,Enter 加入;名單只存在這個瀏覽器,不會上傳。' : '沒有符合的';
-    document.getElementById('tb').innerHTML = tb.join('') || '<tr><td colspan="12">' + empty + '</td></tr>';
+    document.getElementById('tb').innerHTML = tb.join('') || '<tr><td colspan="11">' + empty + '</td></tr>';
     document.getElementById('list').innerHTML = ls.join('') || '<div class="row">' + empty + '</div>';
     document.getElementById('mn-n').textContent = mode === 'hold' ? rows.length : rs.length;
     document.getElementById('hold-n').textContent = hold.length || '';
@@ -115,7 +115,7 @@
   document.querySelectorAll('.mnav button').forEach(function (b) { b.onclick = function () { setMode(b.dataset.m); }; });
   fetch('../data/latest.json?' + Date.now()).then(function (r) { return r.json(); }).then(function (d) {
     D = d; rows = d.rows;
-    var lead = '<b>這檔公司現在值不值得繼續拿?</b> 全宇宙 ' + d.universe + ' 檔(美股、非金融 / 地產、價 ≥ $5)每天收盤後重排一次。七成是對 SPY 的風險調整動能,三成是五個基本面因子。等級掉到 D / F 不是賣出指令,是「今天還會買它嗎?」的提醒。';
+    var lead = '<b>這檔公司現在值不值得繼續拿?</b> 全宇宙 ' + d.universe + ' 檔(美股、非金融 / 地產、價 ≥ $5)每天收盤後重排一次。等級只看對 SPY 的風險調整動能;五個基本面因子照算、只顯示不計分。等級掉到 D / F 不是賣出指令,是「今天還會買它嗎?」的提醒。';
     document.getElementById('lead').innerHTML = lead; document.getElementById('about').innerHTML = lead + '<br><br>點等級籤只看該級;點一列可收合五個因子(綠 = 達到稿的基本門檻,P = 全宇宙百分位)。「持股」分頁:自己輸入代號,只存在這支手機 / 瀏覽器,不會上傳。';
     document.getElementById('asof').textContent = '評分日 ' + d.date + ' · 評級 ' + d.n + ' 檔';
     document.getElementById('dist').innerHTML = ['A', 'B', 'C', 'D', 'F'].map(function (g) { return '<span class="tag ' + g.toLowerCase() + '" data-g="' + g + '">' + g + ' ' + d.dist[g] + '</span>'; }).join('');
