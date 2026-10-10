@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#02020A">
 <title>BLUE MORPHO · PORTAL</title>
 <script src="../theme.js"></script>
-<link rel="stylesheet" href="grade.css?v=20261006">
+<link rel="stylesheet" href="grade.css?v=20261010">
 </head>
 <body>
 <div class="wrap">
@@ -17,6 +17,7 @@
     <a class="tile" href="https://bluemorpho.art/radar/" data-k="radar"><b>SEPA RADAR<small>狙擊雷達</small></b><p>今天有沒有可出手的突破</p><div class="st"></div></a>
     <a class="tile" href="grade/" data-k="grade"><b>GRADER<small>評級機</small></b><p>這檔公司現在值不值得繼續拿</p><div class="st"></div></a>
   </nav>
+  <div class="svc" id="svc"><span class="svc-t">系統狀態</span></div>
   <footer>四個入口各自回答一個問題。現況一行來自各應用最近一次更新,抓不到就只顯示名字。</footer>
 </div>
 <script>
@@ -25,6 +26,13 @@ fetch('data/portal.json?' + Date.now()).then(function (r) { return r.json(); }).
     var s = d[t.dataset.k], el = t.querySelector('.st');
     if (s) { el.textContent = s; el.classList.add('on'); }
   });
+  var sv = document.getElementById('svc');
+  (d.services || []).forEach(function (x) {
+    var e = document.createElement('span'); e.className = 'svc-i ' + (x.ok ? 'ok' : 'bad');
+    e.innerHTML = '<i></i>' + x.name + (x.last ? ' <small>' + x.last + '</small>' : ' <small>常駐</small>');
+    sv.appendChild(e);
+  });
+  if (d.services) sv.classList.add('on');
 }).catch(function () {});
 </script>
 </body>

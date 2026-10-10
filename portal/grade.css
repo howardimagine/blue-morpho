@@ -43,6 +43,13 @@ input[type=search] { cursor: text; color: var(--text-primary); min-width: 200px;
 .tile p { margin: 8px 0 0; color: var(--text-secondary); font-size: 14px; }
 .tile .st { margin-top: 14px; color: var(--text-dim); font: 12px/1.6 var(--font-mono); white-space: pre-line; min-height: 1.6em; }
 .tile .st.on { color: var(--text-secondary); }
+.svc { display: none; flex-wrap: wrap; align-items: center; gap: 8px 18px; padding: 12px 16px; border: 1px solid var(--border); border-radius: var(--r); background: var(--bg-card); font: 12px/1.4 var(--font-mono); }
+.svc.on { display: flex; }
+.svc-t { color: var(--text-dim); letter-spacing: .08em; font-size: 11px; }
+.svc-i { display: inline-flex; align-items: center; gap: 6px; color: var(--text-secondary); }
+.svc-i small { color: var(--text-dim); font-size: 11px; }
+.svc-i i { width: 7px; height: 7px; border-radius: 50%; background: var(--positive); box-shadow: 0 0 6px var(--positive); }
+.svc-i.bad i { background: var(--negative); box-shadow: 0 0 6px var(--negative); }
 footer { padding: 24px 0 40px; color: var(--text-dim); font: 11px/1.6 var(--font-mono); }
 /* 評級表 */
 table { width: 100%; border-collapse: collapse; font-size: 13px; }
