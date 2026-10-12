@@ -1,67 +1,79 @@
 {
-  "date": "2026-10-09",
-  "headline": "科林研發財報將至,AI 算力鏈現在是搶先進場還是等數字",
-  "theme": "Optical / AI Interconnect",
+  "date": "2026-10-12",
+  "headline": "醫療資安法案重回國會,資安支出的受益順位輪到平台廠",
+  "theme": "Cloud Infrastructure",
   "regime": "neutral",
   "picks": [
     {
-      "symbol": "CRM",
-      "name": "Salesforce, Inc.",
-      "tier": "ready",
-      "theme": "AI Software",
-      "rsi": 46.8,
+      "symbol": "CRWD",
+      "name": "CrowdStrike",
+      "tier": "enter",
+      "theme": "Cybersecurity",
+      "rsi": 64.9,
       "ma_stack": "bullish",
       "price": null,
-      "business": "Salesforce, Inc. provides customer relationship management technology services that connect companies and customers together in the United States, Europe, and the Asia Pacific. The company offers Agentforce, which enables customers to buil…",
-      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
+      "business": "雲原生端點防護(Falcon)龍頭;AI 驅動威脅偵測。",
+      "why": "主題面，Cloud Infrastructure 本週相對 SPY 的 1 個月強度排名靠前，市場資金持續流入。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面呈現「uptrend, near highs」，MA 結構為 <strong>bullish</strong>，RSI 66.4。",
       "rr": null
     },
     {
-      "symbol": "CDNS",
-      "name": "Cadence Design Systems, Inc.",
+      "symbol": "DDOG",
+      "name": "Datadog, Inc.",
       "tier": "ready",
       "theme": "AI Software",
-      "rsi": 70.5,
-      "ma_stack": "mixed",
+      "rsi": 73.4,
+      "ma_stack": "bullish",
       "price": null,
-      "business": "Cadence Design Systems, Inc. develops computational, AI-driven software, hardware, and silicon intellectual property products and solutions. The company offers functional verification services, such as Jasper, a formal verification platfor…",
-      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
+      "business": "Datadog, Inc. operates an observability and security platform for cloud applications in the United States and internationally. The company's products comprise infrastructure and application performance monitoring, log management, observabi…",
+      "why": "主題面，Cloud Infrastructure 本週相對 SPY 的 1 個月強度排名靠前，市場資金持續流入。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面 MA 結構為 <strong>bullish</strong>，整體偏多。",
       "rr": null
     },
     {
-      "symbol": "LRCX",
-      "name": "科林研發",
+      "symbol": "MRVL",
+      "name": "美滿科技",
+      "tier": "ready",
+      "theme": "Optical / AI Interconnect",
+      "rsi": 61.5,
+      "ma_stack": "bullish",
+      "price": null,
+      "business": "客製化 AI 矽智財(AWS Trainium、Microsoft Maia)+ 資料中心連網/儲存晶片。",
+      "why": "主題面，Cloud Infrastructure 本週相對 SPY 的 1 個月強度排名靠前，市場資金持續流入。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面 MA 結構為 <strong>bullish</strong>，整體偏多。",
+      "rr": null
+    },
+    {
+      "symbol": "ASML",
+      "name": "艾司摩爾",
       "tier": "ready",
       "theme": "AI Compute",
-      "rsi": 52.1,
+      "rsi": 52.4,
       "ma_stack": "bullish",
       "price": null,
-      "business": "WFE 蝕刻/沉積龍頭,3D NAND 主力,HBM 擴產直接受惠。",
+      "business": "EUV 微影設備獨家供應商;3nm 以下節點必經;荷蘭出口管制為主要變數。",
+      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面 MA 結構為 <strong>bullish</strong>，整體偏多。",
+      "rr": null
+    },
+    {
+      "symbol": "EA",
+      "name": "Electronic Arts Inc.",
+      "tier": "ready",
+      "theme": "Gaming",
+      "rsi": 75.6,
+      "ma_stack": "bullish",
+      "price": null,
+      "business": "Electronic Arts Inc. develops, markets, publishes, and delivers games, content, and services for game consoles, PCs, and mobile phones worldwide. It develops and publishes games and experiences across diverse genres, such as sports, racing…",
       "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
       "rr": null
     },
     {
-      "symbol": "ARM",
-      "name": "安謀",
+      "symbol": "NOW",
+      "name": "ServiceNow",
       "tier": "ready",
-      "theme": "AI Compute",
-      "rsi": 53.4,
+      "theme": "AI Software",
+      "rsi": 57.6,
       "ma_stack": "bullish",
       "price": null,
-      "business": "處理器 IP 授權(行動/PC/AI 邊緣);軟銀控股,授權費滲透率上升。",
-      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
-      "rr": null
-    },
-    {
-      "symbol": "DLR",
-      "name": "Digital Realty Trust, Inc.",
-      "tier": "ready",
-      "theme": "Cloud Infrastructure",
-      "rsi": 47.4,
-      "ma_stack": "mixed",
-      "price": null,
-      "business": "Digital Realty Trust, Inc. owns, acquires, develops, and operates data centers through its operating partnership subsidiary, Digital Realty Trust, L.P. The company is focused on providing data center, colocation, and interconnection soluti…",
-      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過半數以上 Screener 條件。",
+      "business": "企業工作流(IT/HR)SaaS;agentic AI(Now Assist)變現加速中。",
+      "why": "主題面，Cloud Infrastructure 本週相對 SPY 的 1 個月強度排名靠前，市場資金持續流入。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
       "rr": null
     }
   ],
@@ -69,22 +81,34 @@
   "policy": [
     {
       "topic": "川普 × 個股機會",
-      "title": "U.S. suspends Microsoft, Adobe from green card labor program in foreign worker crackdown",
-      "summary_zh": "美方以外籍勞工審查為由,暫停微軟與 Adobe 參與綠卡相關勞工計畫,被視為對科技業用人政策的再收緊。對倚賴外籍工程人力的軟體與設計工具公司而言,是中期的人才成本與排程變數。",
-      "source": "CNBC"
+      "title": "Trump: People Who Still Say ‘AI’ Are ‘The Enemy’",
+      "summary_zh": "川普公開表示仍把 AI 掛在嘴邊的人是敵人,語氣上帶有對 AI 熱潮的嘲諷。政策語氣本身就是高評價 AI 族群的波動來源,但目前沒有具體法規跟進。",
+      "source": "Forbes"
     },
     {
       "topic": "川普 × 個股機會",
-      "title": "Trump discloses $25 million Meta stake, multimillion-dollar SpaceX investment",
-      "summary_zh": "川普個人財產揭露顯示持有 Meta 股票及對 SpaceX 的投資。屬於政治人物持股揭露範疇,市場容易當成題材解讀,與企業基本面沒有直接因果。",
-      "source": "Yahoo Finance Singapore"
+      "title": "Partnership Ensures Affordable Energy, Powers AI Future at Portsmouth Site",
+      "summary_zh": "能源部宣布在 Portsmouth 廠址的合作案,目標是提供可負擔的電力並支撐 AI 運算需求。電力供給是雲端擴張的實體瓶頸,對自建資料中心的業者屬中期利多。",
+      "source": "Department of Energy (.gov)"
+    },
+    {
+      "topic": "政策 / 立法",
+      "title": "Congressional Action on Health Care Cybersecurity: HISAA is Re-Introduced and the Health Care Cybersecurity and Resiliency Act Moves Forward",
+      "summary_zh": "國會重新提出 HISAA,醫療資安與韌性法案也往前推進,將醫療機構的資安投入朝法定義務方向推。平台型資安與合規流程軟體是最直接的受惠層。",
+      "source": "Epstein Becker Green"
+    },
+    {
+      "topic": "政策 / 立法",
+      "title": "Litigation Tracker: Legal Challenges to Trump Administration Actions",
+      "summary_zh": "訴訟追蹤整理針對本屆政府各項行政行動的法律挑戰。對投資人的意義是政策落地時程可能被司法程序拉長,相關題材的兌現速度不宜高估。",
+      "source": "Just Security"
     }
   ],
   "themes": [],
   "stats": {
-    "n_picks": 5,
+    "n_picks": 6,
     "n_themes": 0,
-    "journal_total": 594
+    "journal_total": 600
   },
   "_note": "命中率/超額待回測樣本成熟;entry/alpha/vol 未提供(歷史不足)。"
 }

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../theme.js"></script>
+<title>每多一塊營收留下兩毛四:CRWD 的槓桿追得上 51 倍營收嗎 — Blue Morpho 財報深研</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<style>
+  :root{ --bg:#02020a; --panel:#0b0b1a; --panel2:#0a0e17; --line:#1a2238;
+    --cy:#00f3ff; --gr:#00ff9d; --rd:#ff5d5d; --am:#ffd000; --pp:#7a5cff;
+    --tx:#e0f7fa; --tx2:#cfe3ee; --mut:#8895a8;
+    --mono:"JetBrains Mono","SF Mono","Menlo","Consolas",monospace;
+    --sans:-apple-system,"PingFang TC","Noto Sans TC",sans-serif; }
+  *{box-sizing:border-box}
+  html,body{margin:0;overflow-x:hidden;max-width:100%}
+  body{background:var(--bg);color:var(--tx2);font-family:var(--sans);line-height:1.8;
+    background-image:radial-gradient(1200px 600px at 70% -10%,rgba(0,243,255,.06),transparent 60%);}
+  .wrap{max-width:860px;margin:0 auto;padding:32px 20px 80px}
+  .kick{font-family:var(--mono);font-size:12px;letter-spacing:.22em;color:var(--cy);text-transform:uppercase}
+  h1{font-family:var(--mono);font-size:clamp(1.5rem,4.5vw,2.2rem);line-height:1.25;color:var(--tx);
+    font-weight:700;margin:6px 0 14px;letter-spacing:.01em}
+  h2{font-family:var(--mono);font-size:1.05rem;color:var(--cy);margin:36px 0 10px;letter-spacing:.04em}
+  h2::before{content:"▎ ";color:var(--cy)}
+  h3{font-size:1rem;color:var(--tx);margin:20px 0 6px}
+  p{margin:10px 0}
+  b,strong{color:var(--tx)}
+  a{color:var(--cy);text-decoration:none;border-bottom:1px solid rgba(0,243,255,.3)}
+  .tldr{background:linear-gradient(180deg,rgba(0,243,255,.06),transparent);border:1px solid var(--line);
+    border-radius:8px;padding:16px 18px;margin:14px 0;font-size:.95rem}
+  .warn{background:rgba(255,208,0,.05);border:1px solid rgba(255,208,0,.3);
+    border-radius:8px;padding:14px 16px;margin:14px 0;font-size:.9rem;color:var(--am)}
+  .steel{background:rgba(122,92,255,.06);border:1px solid rgba(122,92,255,.4);
+    border-radius:8px;padding:16px 18px;margin:16px 0}
+  .steel h3{color:var(--pp);margin-top:0}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;margin:14px 0}
+  .cardhd{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--cy);margin-bottom:6px;text-transform:uppercase}
+  .chart{width:100%;height:420px}
+  .chart.sm{height:340px}
+  .leg{display:flex;gap:16px;justify-content:center;margin-top:8px;font-size:11px;font-family:var(--mono)}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.86rem}
+  th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:right}
+  th:first-child,td:first-child{text-align:left}
+  thead th{color:var(--cy);font-family:var(--mono);font-size:11px;letter-spacing:.06em;
+    text-transform:uppercase;border-bottom:1px solid var(--cy)}
+  tbody tr:hover{background:rgba(0,243,255,.03)}
+  .pos{color:var(--gr)} .neg{color:var(--rd)} .mut{color:var(--mut)}
+  .pill{display:inline-block;font-family:var(--mono);font-size:10px;padding:2px 8px;border-radius:4px;
+    border:1px solid var(--line);color:var(--mut)}
+  hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+  .foot{color:var(--mut);font-size:.78rem;margin-top:30px;line-height:1.7}
+  ul{padding-left:20px} li{margin:6px 0}
+  .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;
+    font-family:var(--mono);font-size:12px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+  .topbar a{border:0}
+  .topbar .brand{color:var(--cy);letter-spacing:.2em;font-weight:700}
+  .topbar .nav a{color:var(--mut);margin-left:16px}
+  .topbar .nav a:hover{color:var(--cy)}
+
+  :root:not([data-theme="dark"]){ --bg:#ffffff; --panel:#f6f8fb; --panel2:#edf1f6; --line:#dce3ec;
+    --cy:#0891b2; --gr:#ea580c; --rd:#1d4ed8; --am:#f59e0b; --pp:#0ea5e9; --tx:#0b1220; --tx2:#334155; --mut:#64748b; }
+  .theme-btn{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;color:var(--mut);background:transparent;border:1px solid var(--line);border-radius:4px;padding:4px 8px;cursor:pointer;margin-left:10px}
+</style>
+</head><body><div class="wrap">
+  <div class="topbar"><a href="/" class="brand">◆ BLUE MORPHO</a>
+    <div class="nav"><a href="/industries.html">產業</a><a href="/stocks.html">個股</a><a href="/weekly.html">週報</a></div></div>
+  <div class="kick">Blue Morpho · 財報深研 · CRWD · 資料截至 2026-10-12</div>
+  <h1>每多一塊營收留下兩毛四:CRWD 的槓桿追得上 51 倍營收嗎</h1>
+  <div class="tldr"><b>一句話論點</b>:我們不主張 CRWD 貴或便宜,我們主張一個可對帳的落差:近四季的增量營益率約 24%(每多一塊營收留下約 0.24 元 GAAP 營業利潤),而 51 倍 EV/Sales 隱含的是遠比這更快的槓桿兌現。12/1 要看的是這個數字有沒有往 30% 以上走,而不是 EPS 超標幾趴。<br><br><span class="pill">切角</span> 市場現在爭的是「漲了 140% 之後還值不值這個溢價」,用的素材是 ARR、AI 題材與非 GAAP EPS。我們想換一個比較難被口徑修飾的問題:CRWD 每多賺一塊錢營收,最後留下多少營業利潤?把近四季對前四季相比,營收多了約 $10.6 億、GAAP 營業虧損縮小約 $2.6 億,增量營益率約 24%——方向是對的,但對一家毛利率 75% 的訂閱軟體、而且股價掛著 51 倍 EV/Sales 的公司來說,這個水準偏低。我們認為 12/1 這份財報的定價變數,是這條增量曲線往上走多快,而不是 0.31 的 EPS 有沒有過。</div>
+  <div class="warn"><b>時效</b>:這是 2026-10-12 的快照,下次財報 2026-12-01(共識 EPS 0.31)。情境 EPS 為本文估算(base = 賣方下一財年共識),假設列於表內;不是公司或賣方數字。</div>
+
+  <h2>公司在做什麼</h2>
+  <p>CrowdStrike 賣的是雲端原生資安平台 Falcon:在客戶的筆電、伺服器、雲端工作負載與身分帳號上裝一個輕量代理程式,再用訂閱制賣上面的各種模組(端點防護、身分保護、雲端安全、日誌管理、威脅情報與託管偵測服務)。客戶是全球企業與政府單位,透過自家業務團隊加通路夥伴銷售。收入幾乎全是訂閱制,模組賣得愈多、單一客戶的年費就愈高,這是它的主要成長引擎。公司 2011 年成立,總部在德州奧斯汀。</p>
+  <div class="card"><div class="cardhd">近 8 季 · 營收 $B 與毛利率</div><div id="qchart" class="chart sm"></div></div>
+  <table><thead><tr><th>季</th><th>營收</th><th>毛利率</th><th>營益率</th><th>稀釋 EPS</th><th>營收 YoY</th></tr></thead><tbody><tr><td>2025Q3<span class='mut'> 2024-10</span></td><td>$1.01B</td><td>74.7%</td><td>-5.5%</td><td>-0.0175</td><td class='neg'>—</td></tr><tr><td>2025Q4<span class='mut'> 2025-01</span></td><td>$1.06B</td><td>74.1%</td><td>-8.1%</td><td>-0.0925</td><td class='neg'>—</td></tr><tr><td>2026Q1<span class='mut'> 2025-04</span></td><td>$1.10B</td><td>73.8%</td><td>-11.3%</td><td>-0.11</td><td class='neg'>—</td></tr><tr><td>2026Q2<span class='mut'> 2025-07</span></td><td>$1.17B</td><td>73.5%</td><td>-9.7%</td><td>-0.0775</td><td class='neg'>—</td></tr><tr><td>2026Q3<span class='mut'> 2025-10</span></td><td>$1.23B</td><td>75.1%</td><td>-5.6%</td><td>-0.035</td><td class='pos'>+22%</td></tr><tr><td>2026Q4<span class='mut'> 2026-01</span></td><td>$1.31B</td><td>76.1%</td><td>1.1%</td><td>0.0375</td><td class='pos'>+23%</td></tr><tr><td>2027Q1<span class='mut'> 2026-04</span></td><td>$1.39B</td><td>75.3%</td><td>-2.2%</td><td>0.0275</td><td class='pos'>+26%</td></tr><tr><td>2027Q2<span class='mut'> 2026-07</span></td><td>$1.47B</td><td>74.6%</td><td>-2.3%</td><td>0.0051</td><td class='pos'>+26%</td></tr></tbody></table>
+  <p class="mut" style="font-size:.85rem">TTM:EPS 0.04 · 本益比 7813.6× · EV/Sales 51.1× · FCF 殖利率 0.6% · ROIC -2% · 近 4 季 FCF $1.6B、回購 $0.2B、股利 $0.0B</p>
+
+  <h2>一、市場在用什麼口徑定價</h2><p>先把 EPS 這題結掉:近四季非 GAAP 超標幅度是 +2.2%、+2.8%、+3.7%、+6.3%(更早的八季裡曾出現 +20.2% 與 −9.7%),連四季過關但幅度大致收斂在個位數,代表「小幅超標」已經是基準預期,不太可能自己改變定價。12/1 公布的這一季(會計期間至 2026-10-31)共識是 EPS 0.31、營收 $1.53B;$1.53B 對去年同期的 $1.23B 約 +24%,比最近兩季的 +26% 已經隱含減速——共識自己先降了速。</p><p>這裡有一個值得先攤開的口徑落差。共識與「實際 EPS」都是非 GAAP:截至 2026-07-31 那一季,GAAP 稀釋 EPS 是 0.0051,同一季非 GAAP 實際是 0.31。再往前看,近四季 GAAP 稀釋 EPS 分別相當於同期非 GAAP 的約 −15%、14%、10%、2%。我們沒有費用明細,不知道調整項的組成(可能包含股權薪酬、無形資產攤銷或一次性項目),所以不評論它合不合理;但這說明:用非 GAAP 追蹤這門生意,等於把 EPS 的絕大部分交給調整項決定。</p><p>所以我們把對帳重心放在 GAAP 損益表,尤其是「增量」那一塊。理由很簡單:51 倍 EV/Sales 買的不是明年的 EPS,是「這門生意最終長成高營業利益率平台」這個假設,而增量營益率是最直接檢驗它的一條線。</p><h2>二、增量營益率:每多一塊營收,留下多少</h2><p>用對公司最友善的年對年口徑算一次。近四季(2026Q3 至 2027Q2)營收 $5.40B、GAAP 營益率 −2.2%,約當營業虧損 $1.2 億;前四季營收 $4.34B、營益率約 −8.7%,約當虧損 $3.8 億。營收多了約 $10.6 億,虧損縮小約 $2.6 億,增量營益率約 24%。結論是:槓桿確實存在,只是速度不快。</p><p>24% 放在 75% 的毛利率旁邊才看得出意思:每一塊新營收帶進約 0.75 元毛利,其中大約三分之二被營業費用吃掉,只剩 0.24 元落到營業利益。這是一家「還在用毛利買成長」的公司的財務特徵,不是「規模槓桿正在兌現」的特徵。兩者對 51 倍營收的估值來說差別很大。</p><p>季度序列和年對年兩種看法講的話不一樣,我們兩邊都擺出來。序列上,2026Q4 的 +1.1% 是這八季唯一的正營益率,之後兩季是 −2.2%、−2.3%,毛利率也從 76.1% 退到 75.3%、74.6%;但年對年看,2027Q1 與 Q2 的增量營益率分別約 32% 與 27%,並沒有惡化。資料只有一個 1 月底季,我們無法把季節性拆乾淨。誠實的說法是:水準偏低可以確定,趨勢惡化則還沒成立。</p><h2>三、現金流 $1.6B 與回購 $0.2B</h2><p>現金流是這檔股票最硬的部分:近四季自由現金流 $1.6B,約當營收的 30%,在 GAAP 仍虧損的情況下是很強的數字,來源大致是訂閱預收(遞延收入)與非現金費用。但我們要誠實標註:FCF 與同期約 $1.2 億 GAAP 營業虧損之間有約 $1.7B 的差額,資料裡沒有拆解,我們無法說它多少來自股權薪酬、多少來自營運資金。</p><p>值得一提的是資金用途:同期回購只有 $0.2B,約 FCF 的 13%,股利為零。在非 GAAP 與 GAAP 每股盈餘差距這麼大的情況下,公司目前沒有用現金大規模中和每股口徑的稀釋效果。這不是對錯問題,是一個可以持續觀察的選擇。</p><p>最後是算術:以 $280B 市值,0.6% 的 FCF 殖利率意味著就算 FCF 三年翻倍也只有約 1.2%。這代表未來幾年的報酬幾乎全部要靠倍數維持或擴張,而不是現金回流——所以下一節的重點不是 EPS 區間有多寬,是倍數的耐受度。</p><h2>四、估值與情境:現價站在哪一種未來上</h2><p>先講相對位置。現價 $275.04 對下一財年共識 EPS 1.25275 約 220 倍,對再下一年 1.59777 約 172 倍。近兩週六家賣方評等全是 Buy 或 Outperform(Needham、BMO、StoneX、TD Cowen、Morgan Stanley、Stephens),但目標價中值只有 240,比現價低約 13%(反過來說現價比中值高約 15%),區間從 132 到 425。評等一面倒、目標價卻追不上股價,本身就是訊息:大家喜歡這家公司,但用自己的模型撐住現價的人不多。</p><p>市場隱含了什麼?這段的假設是我們挑的,請連假設一起看:EV 約 51.1 × $5.40B ≈ $276B;若未來某天市場願意給 25 倍營業利益,需要約 $11B 營業利益;在 30% 營益率的假設下,對應約 $37B 營收,約是目前 TTM 的 6.8 倍;以 25% 年複合成長推,大約要 8 到 9 年。換一組倍數或營益率就換一個答案,但量級說的是同一件事:現價定的不是明年,是 2030 年代中期。</p><p>情境以下一財年共識 EPS 1.25275 為 base。bear 設 −15%(EPS 約 1.06,前瞻約 258 倍),bull 設 +12%(EPS 約 1.40,前瞻約 196 倍),具體假設見情境欄。我們想強調的不是 32% 的 EPS 區間,而是倍數:就算 EPS 完全照共識走,倍數從 220 倍回到 150 倍(賣方中值隱含的水準),價格就是約 −32%。</p><h2>五、Steelman:對面最強的話</h2><p>多方最強的三層論點。第一,GAAP 營益率在這類公司身上不是定價變數,市場看 ARR、淨續約與 FCF;近四季 30% 的 FCF 利潤率配 26% 的營收成長,在基礎設施軟體裡是前段班。第二,毛利率的季度波動本來就有產品組合與雲端採購節奏:2026Q1 曾低到 73.8%,之後照樣修復到 76.1%,單季 1.5pp 不足以定調。第三,平台模組數持續擴張,加上新聞裡提到的 OpenAI Marketplace 這類新通路、以及把 CRWD 列入 AI 首選名單的市場敘事,成長的續航時間可能比我們模型裡假設的長。</p><p>我們的回應,先講打不倒的部分:第一與第二點部分成立,而且修正了我們的說法。用年對年口徑,最近兩季的增量營益率是 32% 與 27%,並沒有惡化,所以「成長正在變貴」這個講法過度依賴季度序列與一個無法拆解的季節性,我們收回。我們仍然站得住的是水準而不是方向:即使維持 30% 上下的增量營益率,要長到足以支撐 $276B 企業價值的營業利益,仍需要很多年——而這段時間裡倍數必須不往下掉。至於新通路,我們無法評估:資料只有一則標題,沒有條款、沒有分潤比例、沒有量,我們不把它放進任何情境。</p><p>空方最強的話也要擺上來:51 倍 EV/Sales 在歷史上幾乎都會回歸,何況現價已經比賣方目標價中值高約 15%。我們的回應是——這個論點在過去 140% 的漲幅裡一直「對」也一直輸錢,倍數可以維持很久、讓營收慢慢長進去。所以我們不主張純估值的空方部位,只主張條件式的判斷:倍數要維持,就得持續看到增量營益率往 30% 以上走;最近四季的 24% 還沒提供這個證據。</p><h2>六、我們可能錯在哪</h2><p>最可能錯的是口徑與季節性。我們手上只有季度彙總的毛利率與營益率,沒有費用明細;GAAP 營益率退回負值,可能來自無形資產攤銷、法務或重組等非經常項目,而不是經常性成本惡化。再加上八季裡只有一個 1 月底季,序列比較天生不乾淨。如果 Q3 的下滑被證明是組合或時點問題,我們的 bear 核心假設就垮掉一半。</p><p>第二是時間錯置。就算「槓桿比市場想的慢」判斷正確,市場也可能在未來四到六季繼續只交易 ARR 與 AI 敘事,期間股價和我們的論點完全脫鉤;在 0.6% FCF 殖利率的資產上,這種脫鉤可以持續很久。第三是通路量級:OpenAI Marketplace 這類分發管道若真的帶來階梯式擴張,營收年增可能衝破我們的 bull 上限,屆時就算毛利率因分潤稀釋 1–2pp,市場大概也會選擇原諒。</p><p>最後兩個保留。一是 pe_fair 的 150 倍是我們的主觀錨,它等於賣方中值 240 除以再下一年共識 1.598;若市場認定這類稀缺資產的合理倍數就是 200 倍,我們的算術全對、結論仍會錯。二是資訊環境:近兩週的新聞流其實很薄,六則裡有兩則只是選擇權報價頁面,我們是在素材稀疏的情況下做判斷,所以把主張寫成可對帳的條件式,而不是價格預測。</p>
+
+  <h2>情境 EPS 與對應本益比</h2>
+  <div class="card"><div class="cardhd">下一財年 EPS · bear / base / bull(本文估算)</div><div id="scen" class="chart sm"></div></div>
+  <table><thead><tr><th>情境</th><th>EPS</th><th>現價 $275.04 對應本益比</th><th>150× 合理價</th><th style="text-align:left">假設</th></tr></thead><tbody>
+    <tr><td>Bear</td><td>$1.06</td><td>258×</td><td>$160</td><td style="text-align:left">營收約 $5.85B(年增約 21–22%,較共識路徑少約 $1.5 億);毛利率從 TTM 的 75.2% 退到 74.0%(−1.2pp),延續 2027Q2 的方向;營業費用照既定計畫投放、不隨營收下修而縮,費用率因此再惡化約 1.5–1.8pp。合計非 GAAP 營益率比共識低約 3pp,營業利益約 −15%,利息等營業外項目假設不變,EPS 約 1.06,對應前瞻本益比約 258 倍。這不是崩潰情境,只是小幅減速加上毛利不回頭。</td></tr>
+    <tr><td><b>Base</b>(賣方共識)</td><td><b>$1.25</b></td><td>220×</td><td>$188</td><td style="text-align:left">下一財年共識 EPS</td></tr>
+    <tr><td>Bull</td><td>$1.40</td><td>196×</td><td>$210</td><td style="text-align:left">營收約 $6.12B(年增約 27%,比共識路徑高約 2pp);毛利率回到 2026Q4 的 76% 一帶(較 TTM +0.8pp),證明近兩季下滑是組合而非結構;營業費用年增落後營收約 4pp,費用率再降約 1.2pp。合計非 GAAP 營益率比共識高約 2pp,EPS 約 1.40,對應前瞻本益比仍有約 196 倍——這是我們想強調的:連 bull 都解決不了倍數問題。</td></tr>
+  </tbody></table>
+  <p class="mut" style="font-size:.85rem">合理本益比 150× 的理由:150 倍是我們的主觀錨,來自賣方目標價中值 240 除以再下一年共識 EPS 1.598;若套在下一財年共識 1.253 上,對應約 $188(較現價約 −32%)。理由是:EPS 從 1.253 到 1.598 約 +28% 成長、FCF 利潤率 30% 但 FCF 殖利率只有 0.6%、GAAP 營益率仍在零附近、近四季增量營益率約 24%。如果增量營益率能穩定站上 35% 以上,我們會把這個錨往上調。。賣方目標價 中值 $240(高 $425 / 低 $132)。</p>
+
+  <h2>財報 vs 共識(EPS)</h2>
+  <table><thead><tr><th>公布日</th><th>共識</th><th>實際</th><th>差距</th></tr></thead><tbody><tr><td>2026-08-26</td><td>0.2916</td><td>0.31</td><td class='pos'>+6.3%</td></tr><tr><td>2026-06-03</td><td>0.27</td><td>0.28</td><td class='pos'>+3.7%</td></tr><tr><td>2026-03-03</td><td>0.2675</td><td>0.275</td><td class='pos'>+2.8%</td></tr><tr><td>2025-12-02</td><td>0.2348</td><td>0.24</td><td class='pos'>+2.2%</td></tr><tr><td>2025-08-27</td><td>0.2081</td><td>0.2325</td><td class='pos'>+11.7%</td></tr><tr><td>2025-06-03</td><td>0.2022</td><td>0.1825</td><td class='neg'>-9.7%</td></tr><tr><td>2025-03-04</td><td>0.2142</td><td>0.2575</td><td class='pos'>+20.2%</td></tr><tr><td>2024-11-26</td><td>0.2025</td><td>0.23</td><td class='pos'>+13.6%</td></tr></tbody></table>
+
+  <h2>要盯什麼(可對帳)</h2>
+  <table><thead><tr><th>訊號</th><th>門檻</th><th style="text-align:left">意義</th></tr></thead><tbody><tr><td>Q3 營收(2026-12-01 公布)</td><td>共識 $1.53B(YoY 約 +24%);≥$1.55B 視為加速,≤$1.52B 視為減速確認</td><td style='text-align:left'>共識本身已經把成長從 +26% 下修到 +24%;若連這個下修過的門檻都守不住,51 倍營收的分母假設就要重算。</td></tr><tr><td>YoY 增量營益率(最關鍵的一條)</td><td>去年同期為營收 $1.23B、營益率 −5.6%(營業虧損約 $0.69 億)。若營收 $1.53B 且 GAAP 營益率 ≥+1.5%,增量營益率約 30%;若營益率仍 ≤−2%,增量營益率不到 15%</td><td style='text-align:left'>這是檢驗「規模槓桿」最難被口徑修飾的一條線。近四季平均約 24%,最近兩季年對年約 27–32%;要撐住現在的倍數,我們想看到它往 30% 以上站穩。</td></tr><tr><td>GAAP 毛利率</td><td>≥75.5% 視為修復;≤74.0% 視為連三季走弱</td><td style='text-align:left'>76.1%→75.3%→74.6% 已連兩季下滑。我們沒有費用明細,無法判斷原因;但若再掉一季,單位經濟被壓縮就從「可能」變成「需要解釋」。</td></tr><tr><td>GAAP 與非 GAAP EPS 的差距</td><td>GAAP 稀釋 EPS ≥0.05 視為改善(近四季為 −0.035、0.0375、0.0275、0.0051)</td><td style='text-align:left'>近四季 GAAP 只相當於非 GAAP 的 −15%~14%。差距縮小,代表調整項對每股盈餘的主導程度在下降,也是槓桿兌現的側面證據。</td></tr><tr><td>TTM 自由現金流與回購節奏</td><td>TTM FCF ≥$1.8B(現為 $1.6B);四季回購 ≥$0.4B(現為 $0.2B,約 FCF 的 13%)</td><td style='text-align:left'>FCF 是這個估值目前唯一的現金支撐。在沒有費用明細可查的情況下,回購佔 FCF 的比例是我們唯一能觀察「公司有沒有主動處理每股口徑」的公開數字。</td></tr></tbody></table>
+  <div class="steel"><h3>可證偽的論點</h3><p>我們的主張是:現價的 51 倍 EV/Sales 隱含的營運槓桿,比 CRWD 帳上目前展現的快——近四季每多一塊營收只留下約 0.24 元 GAAP 營業利潤。可證偽點很具體:若 12/1 的這一季營收 ≥$1.53B、GAAP 營益率 ≥+1.5%(等於對去年同期約 30% 的增量營益率)、且毛利率回到 ≥75.5%,我們的 bear 假設就被證偽,我們會把 pe_fair 的錨往上調並說明改了什麼。</p></div>
+
+  <div class="foot">資料來源:FMP(季報表、現金流、TTM 指標、共識目標價與評等、財報 vs 共識、年度 EPS 共識,2026-10-12);公司簡介 FMP profile;新聞 Google News(近 14 天):<a href='https://news.google.com/rss/articles/CBMiowFBVV95cUxQT1VzSk5waEJpd1FiWENuX25yVTg2M2Q4WTFZRWR1aGROb3ZZOTB3M1VQX1pSZTFlNTJpaWN6Q2JXb21iQnpyWkFvWW9YSHBIbllXY2pkTFE5VXo3LXFWanFyNWprOVloazNDck5idkhrZ21xQnFmV00zc0EtNWg1UXU3SG1WNVUtbHV5cUh3TE91c3kxWGY2RUVTcmcwODVYakJj?oc=5'>Is CrowdStrike (CRWD) Still Worth the Premium After 140% Sur</a>(Yahoo Finance 10-11) · <a href='https://news.google.com/rss/articles/CBMi2AFBVV95cUxPUG51bGV3YVFvWW1IdHJMTmpDdy1jd1pjRXcydXZEV0UycE56YkZKVEVQRTVscTlHVVpNWUtBLUJwSThoZFFhU2RwSVE4VFZ5c042MVRPS0YxanZPbW9CYmU2bTVfN2dha1JOQWIxeXFhdFVsa3pmb0dVT2I5ZXQ2eG1LTGpsOEwwb2xHNTBzdnhxLXNPQ0NOa0hvcXl0MFc2SXFNdlUyZm1aLTNGM01WZGx2eFpGeDV4XzdXTVI0dThLcjBsSzNwQXBvQURoYXVzeG5hZ2pfeUvSAd4BQVVfeXFMTm0yazJWLWVmZHpWTnJTbEJJS1NmRFJUWG5IVE4ydTJXdjE5eWNnNVBlY0tuR0tVRTAwb3JhT3BxcEUwejBKbUZ5UHdVWXE2cEpLZ0hfOVB2amtKRWw3YzRMNEpnSlIyOU1GTEJGRlY5SFFfQzJzTEhLb0J3ZUNtaEJBbDJ1UEo5TzJWNkJQQ2dhZGotSEQ2NjBOWEZxRlNpWHhJNHJBeVJkM3diZVZDUHVZOHhaM0J3SVpiQ21iV3c5ajQ4aHB2bjFZejdkRkwyOExhbnJzTnVOamt3M1RR?oc=5'>CrowdStrike Holdings (CRWD) Joins OpenAI Marketplace, Is The</a>(Simply Wall Street 10-11) · <a href='https://news.google.com/rss/articles/CBMibkFVX3lxTE56d3BCeTVMZ0JjaFR5SnBNNzBXME9aVFpIdkgwYkdWeWRySF9rcmNKSTZ0QXhBa25CRTMweGYwaERRRmdQYl9HMC05QjBaLU9IWG0wY21OUjZMZkFJVmZpbzF2YWJYRzczX3JseDR3?oc=5'>CRWD Nov 2026 205.000 put (CRWD261106P00205000) interactive </a>(Yahoo Finance UK 10-11) · <a href='https://news.google.com/rss/articles/CBMi9gFBVV95cUxNVkF5bk9JWmRJLWZ5R3l3azF3UWgwUjNKWWNHa01MZ0JoYWV1SzBHd3FhbHRIc01JRnJBNUZvQmROZS1MeFZQVFlxbHI0Q1NyNnMyRXBUS3dsVVVEVGRBMHBfZVRzeVZtSlpJcXdlNW14bDFTN2dNemhuRVB0bkl1blZHZjJnb3RkYmVUWXU1M0hMSDk3OWZadmxUbzJ6MmI2dVhBQWVfckU3UENTMldEWTlBWVE2aVdoZGYyRTZ4ZEJRb05md2dkWXM4THNqZHpZQ3FRU2Q5RDNNV2NfakVBc1VxOGQyOGNRQmlIMmNDOVpDdVZTS1E?oc=5'>Dan Ives Thinks AI Buildout Still In Early Stages, With NVDA</a>(Stocktwits 10-11) · <a href='https://news.google.com/rss/articles/CBMikAFBVV95cUxQWEs3a1hYbUV2N2c5cWc2d0NJalVJSkFWUmQ4ZDcxYW5jUXFzcXUtLVZRcTQ3RHM2R2U1Z25keEQ4TW9HY3lpLVM0X0twMWFIQXQ4djRWbTg5ekNyR2Z4LTlad0RVa1NLY2JmbnZwZEw0TllKRGFOTnZ3WWE4dU5QOVhjOEN5U3U2czVjOVJueGo?oc=5'>CrowdStrike Holdings, Inc. (CRWD) Stock forecasts</a>(Yahoo Finance Australia 10-10) · <a href='https://news.google.com/rss/articles/CBMiZkFVX3lxTE01REpQb3RDUHNNNlFsWG1yMHlqeExqRW9ERUZpX29KSXRsM0xsYmJEcXJBcjRsUjhQMkhCaE1pR1dHNm9rYzdfaHVNM2Jic0lab0cxcmIwdkprRHExTVpqS1JGLVgtQQ?oc=5'>CRWD Oct 2026 232.500 put (CRWD261009P00232500) stock price,</a>(Yahoo Finance UK 10-10)。
+    文字由 Blue Morpho 研究引擎(Claude)依上列資料撰寫,經第二輪對抗審稿(修正 12 處);情境與合理本益比為估計。非投資建議。</div>
+</div>
+<script>
+const V=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const MONO='"JetBrains Mono","SF Mono",monospace';
+const TIP={backgroundColor:V('--panel'),borderColor:V('--line'),textStyle:{color:V('--tx2'),fontFamily:MONO,fontSize:11}};
+function mk(id){const c=echarts.init(document.getElementById(id),null,{renderer:'canvas'});window.addEventListener('resize',()=>c.resize());return c;}
+mk('qchart').setOption({backgroundColor:'transparent',grid:{left:44,right:44,top:20,bottom:30},tooltip:Object.assign({trigger:'axis'},TIP),
+  xAxis:{type:'category',data:["2025Q3", "2025Q4", "2026Q1", "2026Q2", "2026Q3", "2026Q4", "2027Q1", "2027Q2"],axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:10},axisLine:{lineStyle:{color:V('--line')}}},
+  yAxis:[{type:'value',name:'$B',axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9},splitLine:{lineStyle:{color:V('--panel')}}},
+         {type:'value',name:'GM%',min:30,max:70,axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9,formatter:'{value}%'},splitLine:{show:false}}],
+  series:[{name:'營收 $B',type:'bar',data:[1.01, 1.06, 1.1, 1.17, 1.23, 1.31, 1.39, 1.47],itemStyle:{color:V('--cy'),borderRadius:[3,3,0,0]},barWidth:18},
+          {name:'毛利率',type:'line',yAxisIndex:1,data:[74.7, 74.1, 73.8, 73.5, 75.1, 76.1, 75.3, 74.6],itemStyle:{color:V('--gr')},lineStyle:{width:2},symbol:'circle'}]});
+mk('scen').setOption({backgroundColor:'transparent',grid:{left:44,right:14,top:16,bottom:28},tooltip:Object.assign({trigger:'axis',valueFormatter:v=>'$'+v},TIP),
+  xAxis:{type:'category',data:['Bear','Base','Bull'],axisLabel:{color:V('--tx2'),fontFamily:MONO,fontSize:11},axisLine:{lineStyle:{color:V('--line')}}},
+  yAxis:{type:'value',axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9,formatter:'${value}'},splitLine:{lineStyle:{color:V('--panel')}}},
+  series:[{type:'bar',data:[{value:1.06,itemStyle:{color:V('--rd')}},{value:1.25,itemStyle:{color:V('--cy')}},{value:1.40,itemStyle:{color:V('--gr')}}],
+           barWidth:36,itemStyle:{borderRadius:[3,3,0,0]},label:{show:true,position:'top',color:V('--tx2'),fontFamily:MONO,fontSize:11,formatter:p=>'$'+p.value}}]});
+</script></body></html>

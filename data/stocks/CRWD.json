@@ -1,7 +1,7 @@
 {
   "symbol": "CRWD",
   "name": "CrowdStrike",
-  "tier": "ready",
+  "tier": "enter",
   "regime": "neutral",
   "theme": "Cybersecurity",
   "business": "雲原生端點防護(Falcon)龍頭;AI 驅動威脅偵測。",
@@ -13,12 +13,12 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 6.4
+      "score": 7.6
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 9.2
+      "score": 10.0
     },
     {
       "key": "macro_context",
@@ -28,20 +28,28 @@
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 7.6
+      "score": 8.0
     },
     {
       "key": "news_catalyst",
       "label": "新聞催化",
-      "score": null
+      "score": 5.0
     },
     {
       "key": "risk_reward",
       "label": "風險回報",
-      "score": null
+      "score": 5.0
     }
   ],
   "tracking": [
+    {
+      "date": "2026-10-12",
+      "theme": "Cybersecurity",
+      "tier": "enter",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-10-06",
       "theme": "Cybersecurity",
