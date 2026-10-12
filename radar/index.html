@@ -351,6 +351,7 @@
     .qcard .qh { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; } .qcard .qh b { font-size: var(--fs-lg); color: var(--accent); } .qcard .qh .nm { color: var(--dim); font-size: var(--fs-xs); }
     .qcard .qrow { display: grid; grid-template-columns: 5.5em 1fr; gap: 2px 8px; margin-top: 6px; font-family: var(--font-mono); font-size: var(--fs-xs); } .qcard .qrow .ok { color: var(--positive); } .qcard .qrow .no { color: var(--negative); } .qcard .qrow .na { color: var(--dim); }
     .qcard .qp { margin-top: 8px; padding-top: 6px; border-top: 1px dashed var(--border); } .qcard .qp:first-of-type { border-top: 0; padding-top: 0; }
+    .qcard.trigbar { border-color: var(--positive); cursor: pointer; } .qcard.trigbar .qh b { color: var(--positive); }
     .qcard .qt { margin-top: 6px; font-size: var(--fs-xs); color: var(--sec); } .qcard .qmiss { color: var(--dim); }
     .upd-line { flex-basis: 100%; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--dim); margin-top: 2px; } .upd-line b { color: var(--text-primary); font-weight: 500; } .upd-line .stale { color: var(--negative); } .upd-line .warn { color: var(--warning); }
     .upd { display: none; padding: 6px 18px; border-bottom: 1px solid var(--border); background: var(--bg-card); font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--dim); line-height: 1.5; } .upd b { color: var(--text-primary); font-weight: 500; } .upd .warn { color: var(--warning); } .upd .stale { color: var(--negative); }
@@ -906,7 +907,9 @@
     const rs = rows(), MAX = 300;
     $('#sblv').innerHTML = `<span><b>${esc(NN()[sel])}</b> · ≥ 本層</span><span>${rs.length > MAX ? `顯示前 ${MAX} / ` : ''}${rs.length} 檔</span>${isMobile() && UPD_TXT ? `<span class="upd-line">${UPD_TXT}</span>` : ''}`;
     const qq = q.trim().toUpperCase(); const exact = qq && data.symbols.some(x => x.s === qq) ? qq : (qq && rs.length === 1 ? rs[0].s : null);
-    const card = exact ? tickerCard(exact) : (qq && !rs.length ? `<div class="qcard"><div class="qh"><b>${esc(qq)}</b><span class="nm">不在今天的宇宙裡(市值 / 價格 / 成交量門檻,或代號打錯)</span></div></div>` : '');
+    const todayTrig = (track && track.entries || []).filter(e => e.p === ver && (e.status === 'trig' || e.status === 'open') && e.trig_date === data.date);
+    const trigBar = todayTrig.length && !qq ? `<div class="qcard trigbar" data-track="1"><div class="qh"><b>今天觸發 ${todayTrig.length} 檔</b><span class="nm">${todayTrig.map(e => esc(e.name || e.s)).join('、')}</span></div><div class="qt">已經站上 pivot,所以不在這份名單裡。依規則:明天開盤用市價買,停損 = 開盤價 × 0.94。點這裡到「觀察池 → 觸發」看每一檔。</div></div>` : '';
+    const card = (trigBar) + (exact ? tickerCard(exact) : (qq && !rs.length ? `<div class="qcard"><div class="qh"><b>${esc(qq)}</b><span class="nm">不在今天的宇宙裡(市值 / 價格 / 成交量門檻,或代號打錯)</span></div></div>` : ''));
     if (!rs.length && card) { $('#list').innerHTML = card; const c = $('#list .qcard[data-s]'); if (c) c.onclick = () => showDetail(c.dataset.s); return; }
     if (!rs.length) {
       const vn = (VLABEL[ver] || ver).split(' ')[0];
@@ -939,7 +942,7 @@
   }
   $('#q').addEventListener('input', e => { q = e.target.value; renderList(); });
   $('#sort').addEventListener('change', e => { sortKey = e.target.value; renderList(); });
-  $('#list').addEventListener('click', e => { const s = e.target.closest('.row, .qcard[data-s]')?.dataset.s; if (s) showDetail(s); });
+  $('#list').addEventListener('click', e => { if (e.target.closest('.qcard[data-track]')) { tkF = 'open'; showTrack(); if (isMobile()) mnav('track'); return; } const s = e.target.closest('.row, .qcard[data-s]')?.dataset.s; if (s) showDetail(s); });
 
   // ── Sidebar 第 2 頁:個股(有返回)───────────────────────
   let chart = null, curSym = null;
@@ -947,7 +950,7 @@
   const setWide = _ => {};   // 固定寬度,不再縮放(Howard:一直縮放頭很暈)
   // ── Sidebar 第 3 頁:觀察池(過四關的票 + 突破追蹤 + 成功率)──────────
   function showTrack() { $('#pg-list').hidden = true; $('#pg-detail').hidden = true; $('#pg-track').hidden = false; if (chart) { chart.remove(); chart = null; } curSym = null; setWide(true); renderTrack(); }
-  let tkSort = { k: 'date', d: -1 }, tkF = 'all', tkB = 'entry';   // 觀察池:排序 / 狀態篩選 / 報酬基準(過關日 or 突破日)
+  let tkSort = { k: 'date', d: -1 }, tkF = (new URLSearchParams(location.search).get('f') || 'all'), tkB = 'entry';   // 觀察池:排序 / 狀態篩選 / 報酬基準(過關日 or 突破日)
   const ST = { wait: ['等待', ''], trig: ['觸發(等隔日開盤)', 'pos'], open: ['觸發', 'pos'], exit: ['已出場', ''], void: ['作廢', 'neg'], expired: ['過期', ''], blocked: ['大盤擋', 'neg'] };
   const XR = { stop: '停損', pivot_fail: '突破失敗', no_progress: '時間停損', time: '到期', delist: '下市' };
   function renderTrack() {
@@ -958,7 +961,9 @@
     if (tkB === 'trig') es = es.filter(e => ['trig', 'open', 'exit'].includes(e.status));
     const V4 = P.vcp.exit_mode === 'v4' || P.vcp.exit_mode === 'v5';
     // 成功率照目前篩選 + 基準算:基準=突破日時只算已觸發的(書的進場點),其餘是「沒扣扳機」不算輸
-    const R_ = e => tkB === 'trig' ? e.ret_t : e.ret, B_ = e => tkB === 'trig' ? e.best_t : e.best;
+    // 執行版 / 觀察版(策略結算模式):報酬只從「觸發後的隔日開盤」起算;還沒進場的票一律 —(過關日基準只給舊版)
+    const useTrig = tkB === 'trig' || V4;
+    const R_ = e => useTrig ? (e.trig_px != null ? e.ret_t : null) : e.ret, B_ = e => useTrig ? (e.trig_px != null ? e.best_t : null) : e.best;
     const rs = es.map(R_).filter(x => x != null).sort((a, b) => a - b), n = rs.length, win = rs.filter(x => x > 0).length;
     const bs = es.map(B_).filter(x => x != null), bestAvg = bs.length ? bs.reduce((a, b) => a + b, 0) / bs.length : null;
     const nz = (x, f) => x == null ? '—' : f(x);
@@ -966,7 +971,7 @@
     pg.innerHTML = `<div class="dt-h tk-h"><button class="back" id="back-tk">← 返回名單</button><div class="tk-title">觀察池<small>${VLABEL[ver] || ver}</small></div>
       <div class="tk-desc">${V4 ? `<b>照策略結算</b>:新鮮突破(前一天收盤仍在 pivot 下、收盤站上 pivot 且放量)→ 隔日開盤進場 → −${P.vcp.stop_pct}% 停損 / ${P.vcp.pivot_fail_bars} 根內收破 pivot 帶量 / ${P.vcp.no_progress_bars} 根未達 +1R / ${P.vcp.hold_max_bars} 根到期;不追蹤、不保本。R = 賺賠 ÷ 初始風險,已扣 0.2% 成本。<button class="btn" id="rules-btn2" style="margin-left:8px">守則</button> · ` : ''}過四關 = 拿到一張觀察票(記下當天的 pivot),之後不論還在不在 L4 都盯著:收盤站上 pivot 且放量 = <b>觸發</b>(書的進場點);失效 = ${P.vcp.void_mode === 'last_low' ? '跌破最後一腿低點' : '跌到 pivot −' + P.vcp.max_below_pivot_pct + '%'}(作廢)或 ${P.vcp.watch_expire_bars || 40} 個交易日沒觸發(過期) · 資料到 ${track && track.date || '—'}</div></div>
       <div class="tk-bar"><div class="lv-tabs">${chip('all', '全部')}${chip('wait', '等待')}${V4 ? chip('open', '觸發') + chip('exit', '已出場') : chip('trig', '已觸發')}${chip('dead', '失效')}</div>
-        <div class="lv-tabs"><span class="tk-lab">報酬基準</span><button class="lv-tab ${tkB === 'entry' ? 'on' : ''}" data-b="entry">過關日</button><button class="lv-tab ${tkB === 'trig' ? 'on' : ''}" data-b="trig">突破日</button></div></div>
+        ${V4 ? '' : `<div class="lv-tabs"><span class="tk-lab">報酬基準</span><button class="lv-tab ${tkB === 'entry' ? 'on' : ''}" data-b="entry">過關日</button><button class="lv-tab ${tkB === 'trig' ? 'on' : ''}" data-b="trig">突破日</button></div>`}</div>
       <div class="tk-sum"><div><div class="k">${tkB === 'trig' ? '已觸發筆數' : '筆數'}</div><div class="v">${n}</div></div><div><div class="k">勝率(現在 > 進場)</div><div class="v ${n && win / n >= .5 ? 'pos' : ''}">${n ? Math.round(win / n * 100) + '%' : '—'}<small>${win}/${n}</small></div></div><div><div class="k">平均報酬 / 中位</div><div class="v">${n ? pc(rs.reduce((a, b) => a + b, 0) / n) : '—'}<small>中位 ${n ? (rs[n >> 1] > 0 ? '+' : '') + rs[n >> 1] + '%' : '—'}</small></div></div><div><div class="k">平均最佳</div><div class="v">${bestAvg == null ? '—' : pc(bestAvg)}<small>曾達 +10%:${es.filter(e => (B_(e) ?? 0) >= 10).length} 筆</small></div></div></div>
       ${V4 && sm && sm.closed && sm.closed.n ? `<div class="tk-sum"><div><div class="k">已出場</div><div class="v">${sm.closed.n}<small>觸發中 ${(sm.status || {}).open || 0}</small></div></div><div><div class="k">勝率</div><div class="v ${sm.closed.win / sm.closed.n >= .5 ? 'pos' : ''}">${Math.round(sm.closed.win / sm.closed.n * 100)}%<small>${sm.closed.win}/${sm.closed.n}</small></div></div><div><div class="k">期望值</div><div class="v ${sm.closed.exp_r > 0 ? 'pos' : 'neg'}">${sm.closed.exp_r > 0 ? '+' : ''}${sm.closed.exp_r}R</div></div><div><div class="k">獲利因子</div><div class="v">${sm.closed.pf ?? '—'}</div></div></div>` : ''}
       <div class="dt-body">${es.length ? `<table class="tk"><thead><tr>${[['s', '代號'], ['status', '狀態'], ['date', '過關日'], ['piv', 'Pivot'], ['trig_date', '觸發日'], [tkB === 'trig' ? 'ret_t' : 'ret', '報酬'], [tkB === 'trig' ? 'best_t' : 'best', '最佳'], [tkB === 'trig' ? 'days_t' : 'days', '天數'], ...(V4 ? [['exit_d', '出場'], ['r', 'R']] : [])].map(([k, n_]) => `<th data-k="${k}" class="${tkSort.k === k ? 'on' : ''}">${n_}<i>${tkSort.k === k ? (tkSort.d < 0 ? '▼' : '▲') : '▽'}</i></th>`).join('')}</tr></thead><tbody>
@@ -1063,6 +1068,7 @@
   // ── ⟳ 更新資料:打本機後台 8765(只有在 Howard 的 Mac 上才連得到;其他人按會得到提示)────────
   const API = 'http://localhost:8765/api/';
   const api = async (m, args = []) => { const r = await fetch(API + m, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(args) }); if (!r.ok) throw new Error(r.status); return r.json(); };
+  if (new URLSearchParams(location.search).get('tab') === 'track') { showTrack(); if (isMobile()) mnav('track'); }
   $('#rules-btn').onclick = () => $('#rules').showModal(); $('#rules-x').onclick = () => $('#rules').close();
   document.querySelectorAll('.rl-tabs .btn').forEach(b => b.onclick = () => { const p = b.dataset.p; document.querySelectorAll('.rl-tabs .btn').forEach(x => x.classList.toggle('on', x === b)); document.querySelectorAll('.rl-p').forEach(x => x.hidden = x.dataset.p !== p);
     $('#rules').classList.toggle('wide', p === 'cmp');
