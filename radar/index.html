@@ -146,7 +146,7 @@
     .row { padding: 8px 12px; border-bottom: 1px solid var(--border); cursor: pointer; }
     .row:hover { background: var(--bg-hover); }
     .r1 { display: flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: .7rem; }
-    .r1 .sym { color: var(--accent); font-weight: 700; font-size: .82rem; width: 58px; }
+    .r1 .sym { color: var(--accent); font-weight: 700; font-size: .82rem; width: auto; max-width: 60%; display: inline-flex; align-items: baseline; gap: 6px; min-width: 0; } .r1 .sym .co { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; } .r1 .sym .tk { font-weight: 500; color: var(--dim); font-family: var(--font-mono); font-size: .62rem; }
     .r1 .num { color: var(--text-secondary); margin-left: auto; display: flex; gap: 10px; }
     .r1 .num b { color: var(--text-primary); font-weight: 600; }
     .r2 { display: flex; align-items: center; gap: 8px; margin-top: 3px; font-size: .68rem; color: var(--text-primary); min-width: 0; }
@@ -254,7 +254,7 @@
     .btn { font-size: var(--fs-xs); padding: 6px 9px; } .btn.ghost { color: var(--sec); }
     .sb-lv, .sb-foot, .r4 { font-size: var(--fs-xs); color: var(--dim); }
     .row { padding: 10px 12px; }
-    .r1 { font-size: var(--fs-sm); gap: 9px; } .r1 .sym { font-size: var(--fs-md); width: 64px; } .r1 .num { gap: 12px; color: var(--sec); }
+    .r1 { font-size: var(--fs-sm); gap: 9px; } .r1 .sym { font-size: var(--fs-md); } .r1 .sym .tk { font-size: var(--fs-xs); } .r1 .num { gap: 12px; color: var(--sec); }
     .r2 { font-size: var(--fs-sm); margin-top: 4px; } .r2 .name small { font-size: var(--fs-xs); color: var(--dim); }
     .r3 { gap: 5px; margin-top: 7px; } .r3 i { font-size: 10px; color: var(--dim); } .r3 b { font-size: var(--fs-sm); color: var(--sec); }
     .r4 { margin-top: 5px; }
@@ -362,7 +362,7 @@
     .mnav { display: none; }
     @media (max-width: 768px) {
       :root { --sw-h: 26px; --sw-w: 46px; --hdr: 54px; --nav: calc(56px + env(safe-area-inset-bottom)); --ctl-sm: 36px; --ctl-md: 42px; --tag-h: 20px; --fs-xs: 12.5px; --fs-sm: 14px; --fs-md: 16px; --fs-lg: 19px; }
-      .r1 { flex-wrap: wrap; row-gap: 6px; } .r1 .sym { font-size: 18px; width: auto; min-width: 58px; } .r2, .r4 { font-size: 14px; } .r1 .num { font-size: 13px; gap: 10px; white-space: nowrap; margin-left: 0; flex-basis: 100%; }   /* 手機:數字固定自成一列、靠左,不跟旗標搶位 */
+      .r1 { flex-wrap: wrap; row-gap: 6px; } .r1 .sym { font-size: 17px; max-width: 100%; } .r2, .r4 { font-size: 14px; } .r1 .num { font-size: 13px; gap: 10px; white-space: nowrap; margin-left: 0; flex-basis: 100%; }   /* 手機:數字固定自成一列、靠左,不跟旗標搶位 */
       .tk { font-size: 13px; } .tk-sum .v { font-size: 17px; } .dt-kpi .v { font-size: 20px; } .pr-lab, .pr-val { font-size: 14.5px; } .cond, .kv { font-size: 15px; }
       .rd-foot, .tk-note, .sb-foot, #l2note { font-size: 13px; }
       .rd-head { position: fixed; top: 0; left: 0; right: 0; height: var(--hdr); padding: 0 12px; flex-wrap: nowrap; gap: 8px; }
@@ -631,7 +631,7 @@
           <div class="sb-bar">
             <div class="lv-tabs" id="lvtabs"></div>
             <div class="sb-tools">
-              <input type="search" id="q" placeholder="輸入代號看過關狀況(如 NVDA / 2330)" aria-label="搜尋">
+              <input type="search" id="q" placeholder="公司名稱或代號" aria-label="搜尋">
               <select id="sort" aria-label="排序"><option value="rs">RS ↓</option><option value="dh">距高 ↓</option><option value="px">價格 ↓</option><option value="td">趨勢天 ↓</option><option value="age">在層 ↓</option><option value="rev_g">營收 YoY ↓</option><option value="eps_g">EPS YoY ↓</option><option value="gm">毛利 ↓</option><option value="vq">VCP 品質 ↓</option><option value="dp">離 pivot ↓</option><option value="s">代號 A–Z</option></select>
             </div>
             <div class="sb-lv" id="sblv"></div>
@@ -900,7 +900,7 @@
       return `<div class="qp"><div class="qh"><span class="nm">${esc((VLABEL[pid] || pid).split(' ')[0])}</span>${lv === 4 ? '<span class="lv on" style="border-color:currentColor">L4 狙擊候選</span>' : ''}</div><div class="qrow">${rows}</div>${tt}</div>`;
     }).join('');
     const dh = m.hi ? ((m.px / m.hi - 1) * 100).toFixed(1) : null;
-    return `<div class="qcard" data-s="${m.s}"><div class="qh"><b>${m.s}</b><span class="nm">${esc(m.name || '')} · ${esc(m.sec || '')}</span><span class="nm">${CUR}${fmt(m.px, 2)} · RS ${m.rs ?? '—'} · 距高 ${dh == null ? '—' : dh + '%'}${m.st ? ` · <span class="warn">K 線落後 ${m.st} 日</span>` : ''}</span></div>${blocks}<div class="qt qmiss">點卡片看個股頁 · 這張卡不受左邊層級篩選影響</div></div>`;
+    return `<div class="qcard" data-s="${m.s}"><div class="qh"><b>${esc(m.name || m.s)}</b><span class="nm">${m.s} · ${esc(m.sec || '')}</span><span class="nm">${CUR}${fmt(m.px, 2)} · RS ${m.rs ?? '—'} · 距高 ${dh == null ? '—' : dh + '%'}${m.st ? ` · <span class="warn">K 線落後 ${m.st} 日</span>` : ''}</span></div>${blocks}<div class="qt qmiss">點卡片看個股頁 · 這張卡不受左邊層級篩選影響</div></div>`;
   }
   function renderList() {
     const rs = rows(), MAX = 300;
@@ -931,9 +931,9 @@
         (P.catalyst.sector_fav || []).includes(m.sec) ? '<span class="flag bo" title="回測 2022–26 期望值為正的產業(每年重看)">產業有利</span>' : (P.catalyst.sector_unfav || []).includes(m.sec) ? '<span class="flag ev" title="回測期望值為負的產業">產業不利</span>' : '',
         P.fundamental.tag_only && m.f && m.f.ok ? ((m.f.rev_g >= P.fundamental.rev_growth_min && (m.f.eps_g >= P.fundamental.eps_growth_min || m.f.turn) && (m.f.gm ?? 1) >= P.fundamental.gross_margin_min) ? '<span class="flag pp" title="營收、EPS、毛利全過:回測期望值高一倍">強成長</span>' : (m.f.eps_g >= P.fundamental.eps_growth_min || m.f.turn) ? '<span class="flag" title="EPS YoY ≥ 25%(或轉正):回測單獨有效">盈餘</span>' : '') : ''].join('');
       return `<div class="row" data-s="${m.s}">
-        <div class="r1"><span class="sym">${m.s}</span><span class="lv lv${lv}">L${lv}</span>${m.st > 0 ? `<span class="kd" title="沒有 ${data.date} 的收盤,最後 K 線 ${m.d}">K線 ${m.d.slice(5)}</span>` : ''}${flags}
+        <div class="r1"><span class="sym"><span class="co">${esc(m.name || m.s)}</span><small class="tk">${m.s}</small></span><span class="lv lv${lv}">L${lv}</span>${m.st > 0 ? `<span class="kd" title="沒有 ${data.date} 的收盤,最後 K 線 ${m.d}">K線 ${m.d.slice(5)}</span>` : ''}${flags}
           <span class="num"><span>RS <b class="${m.rs >= 90 ? 'pos' : ''}">${fmt(m.rs, 0)}</b></span><span>距高 <b class="${dh != null && dh > -5 ? 'pos' : ''}">${sgn(dh)}</b></span><span>VCP <b class="${v && v.q >= P.vcp.min_quality ? 'pos' : ''}">${v ? `${v.n}次·Q${v.q}` : '—'}</b></span></span></div>
-        <div class="r2"><span class="name">${esc(m.name)}<small>${esc(m.sec || '')}${m.ind ? ' · ' + esc(m.ind) : ''}</small></span></div>
+        <div class="r2"><span class="name"><small>${esc(m.sec || '')}${m.ind ? ' · ' + esc(m.ind) : ''}</small></span></div>
         <div class="r4">${lv < 4 ? '卡在:' + esc(WHY[R.fail[m.s]] || R.fail[m.s] || '') : (ver === 'canslim' ? `<span class="tgt">等觸發</span> 收盤站上 ${CUR}${fmt(v && v.piv, 2)} 且量 ≥ ${P.vcp.breakout_volume_mult}× 均量 → 隔日開盤買${(data.market || {}).regime === 'correction' ? '<br><span class="warn">大盤修正中,觸發也不買</span>' : ''}` : '<span class="tgt">狙擊候選</span>')}</div>
       </div>`; }).join('') || `<div class="empty">此層無標的<br>這是漏斗的正常狀態</div>`;
   }
@@ -970,7 +970,7 @@
       <div class="tk-sum"><div><div class="k">${tkB === 'trig' ? '已觸發筆數' : '筆數'}</div><div class="v">${n}</div></div><div><div class="k">勝率(現在 > 進場)</div><div class="v ${n && win / n >= .5 ? 'pos' : ''}">${n ? Math.round(win / n * 100) + '%' : '—'}<small>${win}/${n}</small></div></div><div><div class="k">平均報酬 / 中位</div><div class="v">${n ? pc(rs.reduce((a, b) => a + b, 0) / n) : '—'}<small>中位 ${n ? (rs[n >> 1] > 0 ? '+' : '') + rs[n >> 1] + '%' : '—'}</small></div></div><div><div class="k">平均最佳</div><div class="v">${bestAvg == null ? '—' : pc(bestAvg)}<small>曾達 +10%:${es.filter(e => (B_(e) ?? 0) >= 10).length} 筆</small></div></div></div>
       ${V4 && sm && sm.closed && sm.closed.n ? `<div class="tk-sum"><div><div class="k">已出場</div><div class="v">${sm.closed.n}<small>觸發中 ${(sm.status || {}).open || 0}</small></div></div><div><div class="k">勝率</div><div class="v ${sm.closed.win / sm.closed.n >= .5 ? 'pos' : ''}">${Math.round(sm.closed.win / sm.closed.n * 100)}%<small>${sm.closed.win}/${sm.closed.n}</small></div></div><div><div class="k">期望值</div><div class="v ${sm.closed.exp_r > 0 ? 'pos' : 'neg'}">${sm.closed.exp_r > 0 ? '+' : ''}${sm.closed.exp_r}R</div></div><div><div class="k">獲利因子</div><div class="v">${sm.closed.pf ?? '—'}</div></div></div>` : ''}
       <div class="dt-body">${es.length ? `<table class="tk"><thead><tr>${[['s', '代號'], ['status', '狀態'], ['date', '過關日'], ['piv', 'Pivot'], ['trig_date', '觸發日'], [tkB === 'trig' ? 'ret_t' : 'ret', '報酬'], [tkB === 'trig' ? 'best_t' : 'best', '最佳'], [tkB === 'trig' ? 'days_t' : 'days', '天數'], ...(V4 ? [['exit_d', '出場'], ['r', 'R']] : [])].map(([k, n_]) => `<th data-k="${k}" class="${tkSort.k === k ? 'on' : ''}">${n_}<i>${tkSort.k === k ? (tkSort.d < 0 ? '▼' : '▲') : '▽'}</i></th>`).join('')}</tr></thead><tbody>
-      ${es.sort((a, b) => { const x = a[tkSort.k], y = b[tkSort.k]; return (typeof x === 'string' || typeof y === 'string' ? String(x ?? '') < String(y ?? '') ? -1 : String(x ?? '') > String(y ?? '') ? 1 : 0 : (x ?? -1e9) - (y ?? -1e9)) * tkSort.d; }).map(e => `<tr data-s="${e.s}"><td><b>${e.s}</b><span class="nm">${esc(e.name || '')}</span></td><td><span class="lv ${ST[e.status][1]}" style="border-color:currentColor">${ST[e.status][0]}</span></td><td>${e.date}<span class="nm">${e.px == null ? '等隔日開盤' : CUR + fmt(e.px, 2)}</span></td><td>${e.piv == null ? '—' : CUR + fmt(e.piv, 2)}</td><td>${e.trig_date ? e.trig_date + `<span class="nm">${e.trig_px == null ? '等隔日開盤' : CUR + fmt(e.trig_px, 2)}</span>` : e.void_date ? `<span class="nm">作廢 ${e.void_date}</span>` : '—'}</td><td>${pc(R_(e))}</td><td>${pc(B_(e))}</td><td>${tkB === 'trig' ? (e.days_t ?? '—') : e.days}</td>${V4 ? `<td>${e.exit_d ? e.exit_d.slice(5) + `<span class="nm">${XR[e.exit_reason] || ''} ${CUR}${fmt(e.exit_px, 2)}</span>` : e.status === 'open' ? `<span class="nm">觸發中(高點 +${e.hi_r ?? 0}R)</span>` : '—'}</td><td class="${(e.r ?? 0) > 0 ? 'up' : (e.r ?? 0) < 0 ? 'dn' : ''}">${e.r == null ? '—' : (e.r > 0 ? '+' : '') + e.r.toFixed(2)}</td>` : ''}</tr>`).join('')}</tbody></table>`
+      ${es.sort((a, b) => { const x = a[tkSort.k], y = b[tkSort.k]; return (typeof x === 'string' || typeof y === 'string' ? String(x ?? '') < String(y ?? '') ? -1 : String(x ?? '') > String(y ?? '') ? 1 : 0 : (x ?? -1e9) - (y ?? -1e9)) * tkSort.d; }).map(e => `<tr data-s="${e.s}"><td><b>${esc(e.name || e.s)}</b><span class="nm">${e.s}</span></td><td><span class="lv ${ST[e.status][1]}" style="border-color:currentColor">${ST[e.status][0]}</span></td><td>${e.date}<span class="nm">${e.px == null ? '等隔日開盤' : CUR + fmt(e.px, 2)}</span></td><td>${e.piv == null ? '—' : CUR + fmt(e.piv, 2)}</td><td>${e.trig_date ? e.trig_date + `<span class="nm">${e.trig_px == null ? '等隔日開盤' : CUR + fmt(e.trig_px, 2)}</span>` : e.void_date ? `<span class="nm">作廢 ${e.void_date}</span>` : '—'}</td><td>${pc(R_(e))}</td><td>${pc(B_(e))}</td><td>${tkB === 'trig' ? (e.days_t ?? '—') : e.days}</td>${V4 ? `<td>${e.exit_d ? e.exit_d.slice(5) + `<span class="nm">${XR[e.exit_reason] || ''} ${CUR}${fmt(e.exit_px, 2)}</span>` : e.status === 'open' ? `<span class="nm">觸發中(高點 +${e.hi_r ?? 0}R)</span>` : '—'}</td><td class="${(e.r ?? 0) > 0 ? 'up' : (e.r ?? 0) < 0 ? 'dn' : ''}">${e.r == null ? '—' : (e.r > 0 ? '+' : '') + e.r.toFixed(2)}</td>` : ''}</tr>`).join('')}</tbody></table>`
       : '<div class="empty">此篩選下沒有紀錄</div>'}
       <div class="tk-note">進場價一律用<b>隔日開盤</b>(收盤後才看到訊號,當天收盤價買不到;隔日還沒開盤的顯示「等隔日開盤」,不計入統計)。報酬 = 現在收盤 ÷ 進場價 − 1(裸報酬,<b>未套用書中停損 / 分批停利</b>);最佳 = 進場後任一日最高價 ÷ 進場價 − 1。「過關日」基準 = 型態成形隔天就進場(偷跑);「突破日」基準 = 只算已觸發者、從觸發隔日開盤起算(書的規則)。點列開個股。</div></div>`;
     $('#back-tk').onclick = showList; const rb2 = $('#rules-btn2'); if (rb2) rb2.onclick = () => $('#rules').showModal();
