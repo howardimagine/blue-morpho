@@ -954,7 +954,7 @@
     const pg = $('#pg-track'), all = (track && track.entries || []).filter(e => e.p === ver), sm = (track && track.summary || {})[ver];
     const pc = x => x == null ? '—' : `<span class="${x > 0 ? 'up' : x < 0 ? 'dn' : ''}">${x > 0 ? '+' : ''}${x.toFixed(1)}%</span>`;
     const cnt = k => all.filter(e => e.status === k).length;
-    let es = tkF === 'all' ? all.slice() : tkF === 'dead' ? all.filter(e => e.status === 'void' || e.status === 'expired' || e.status === 'blocked') : all.filter(e => e.status === tkF);
+    let es = tkF === 'all' ? all.slice() : tkF === 'dead' ? all.filter(e => e.status === 'void' || e.status === 'expired' || e.status === 'blocked') : tkF === 'open' ? all.filter(e => e.status === 'open' || e.status === 'trig') : all.filter(e => e.status === tkF);
     if (tkB === 'trig') es = es.filter(e => ['trig', 'open', 'exit'].includes(e.status));
     const V4 = P.vcp.exit_mode === 'v4' || P.vcp.exit_mode === 'v5';
     // 成功率照目前篩選 + 基準算:基準=突破日時只算已觸發的(書的進場點),其餘是「沒扣扳機」不算輸
@@ -962,7 +962,7 @@
     const rs = es.map(R_).filter(x => x != null).sort((a, b) => a - b), n = rs.length, win = rs.filter(x => x > 0).length;
     const bs = es.map(B_).filter(x => x != null), bestAvg = bs.length ? bs.reduce((a, b) => a + b, 0) / bs.length : null;
     const nz = (x, f) => x == null ? '—' : f(x);
-    const chip = (k, n_) => `<button class="lv-tab ${tkF === k ? 'on' : ''}" data-f="${k}">${n_}<b>${k === 'all' ? all.length : k === 'dead' ? cnt('void') + cnt('expired') + cnt('blocked') : cnt(k)}</b></button>`;
+    const chip = (k, n_) => `<button class="lv-tab ${tkF === k ? 'on' : ''}" data-f="${k}">${n_}<b>${k === 'all' ? all.length : k === 'dead' ? cnt('void') + cnt('expired') + cnt('blocked') : k === 'open' ? cnt('open') + cnt('trig') : cnt(k)}</b></button>`;
     pg.innerHTML = `<div class="dt-h tk-h"><button class="back" id="back-tk">← 返回名單</button><div class="tk-title">觀察池<small>${VLABEL[ver] || ver}</small></div>
       <div class="tk-desc">${V4 ? `<b>照策略結算</b>:新鮮突破(前一天收盤仍在 pivot 下、收盤站上 pivot 且放量)→ 隔日開盤進場 → −${P.vcp.stop_pct}% 停損 / ${P.vcp.pivot_fail_bars} 根內收破 pivot 帶量 / ${P.vcp.no_progress_bars} 根未達 +1R / ${P.vcp.hold_max_bars} 根到期;不追蹤、不保本。R = 賺賠 ÷ 初始風險,已扣 0.2% 成本。<button class="btn" id="rules-btn2" style="margin-left:8px">守則</button> · ` : ''}過四關 = 拿到一張觀察票(記下當天的 pivot),之後不論還在不在 L4 都盯著:收盤站上 pivot 且放量 = <b>觸發</b>(書的進場點);失效 = ${P.vcp.void_mode === 'last_low' ? '跌破最後一腿低點' : '跌到 pivot −' + P.vcp.max_below_pivot_pct + '%'}(作廢)或 ${P.vcp.watch_expire_bars || 40} 個交易日沒觸發(過期) · 資料到 ${track && track.date || '—'}</div></div>
       <div class="tk-bar"><div class="lv-tabs">${chip('all', '全部')}${chip('wait', '等待')}${V4 ? chip('open', '觸發') + chip('exit', '已出場') : chip('trig', '已觸發')}${chip('dead', '失效')}</div>
