@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../theme.js"></script>
+<title>MU:5.7 倍的前瞻本益比,是用一個還沒發生的營收算出來的 — Blue Morpho 財報深研</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<style>
+  :root{ --bg:#02020a; --panel:#0b0b1a; --panel2:#0a0e17; --line:#1a2238;
+    --cy:#00f3ff; --gr:#00ff9d; --rd:#ff5d5d; --am:#ffd000; --pp:#7a5cff;
+    --tx:#e0f7fa; --tx2:#cfe3ee; --mut:#8895a8;
+    --mono:"JetBrains Mono","SF Mono","Menlo","Consolas",monospace;
+    --sans:-apple-system,"PingFang TC","Noto Sans TC",sans-serif; }
+  *{box-sizing:border-box}
+  html,body{margin:0;overflow-x:hidden;max-width:100%}
+  body{background:var(--bg);color:var(--tx2);font-family:var(--sans);line-height:1.8;
+    background-image:radial-gradient(1200px 600px at 70% -10%,rgba(0,243,255,.06),transparent 60%);}
+  .wrap{max-width:860px;margin:0 auto;padding:32px 20px 80px}
+  .kick{font-family:var(--mono);font-size:12px;letter-spacing:.22em;color:var(--cy);text-transform:uppercase}
+  h1{font-family:var(--mono);font-size:clamp(1.5rem,4.5vw,2.2rem);line-height:1.25;color:var(--tx);
+    font-weight:700;margin:6px 0 14px;letter-spacing:.01em}
+  h2{font-family:var(--mono);font-size:1.05rem;color:var(--cy);margin:36px 0 10px;letter-spacing:.04em}
+  h2::before{content:"▎ ";color:var(--cy)}
+  h3{font-size:1rem;color:var(--tx);margin:20px 0 6px}
+  p{margin:10px 0}
+  b,strong{color:var(--tx)}
+  a{color:var(--cy);text-decoration:none;border-bottom:1px solid rgba(0,243,255,.3)}
+  .tldr{background:linear-gradient(180deg,rgba(0,243,255,.06),transparent);border:1px solid var(--line);
+    border-radius:8px;padding:16px 18px;margin:14px 0;font-size:.95rem}
+  .warn{background:rgba(255,208,0,.05);border:1px solid rgba(255,208,0,.3);
+    border-radius:8px;padding:14px 16px;margin:14px 0;font-size:.9rem;color:var(--am)}
+  .steel{background:rgba(122,92,255,.06);border:1px solid rgba(122,92,255,.4);
+    border-radius:8px;padding:16px 18px;margin:16px 0}
+  .steel h3{color:var(--pp);margin-top:0}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;margin:14px 0}
+  .cardhd{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--cy);margin-bottom:6px;text-transform:uppercase}
+  .chart{width:100%;height:420px}
+  .chart.sm{height:340px}
+  .leg{display:flex;gap:16px;justify-content:center;margin-top:8px;font-size:11px;font-family:var(--mono)}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.86rem}
+  th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:right}
+  th:first-child,td:first-child{text-align:left}
+  thead th{color:var(--cy);font-family:var(--mono);font-size:11px;letter-spacing:.06em;
+    text-transform:uppercase;border-bottom:1px solid var(--cy)}
+  tbody tr:hover{background:rgba(0,243,255,.03)}
+  .pos{color:var(--gr)} .neg{color:var(--rd)} .mut{color:var(--mut)}
+  .pill{display:inline-block;font-family:var(--mono);font-size:10px;padding:2px 8px;border-radius:4px;
+    border:1px solid var(--line);color:var(--mut)}
+  hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+  .foot{color:var(--mut);font-size:.78rem;margin-top:30px;line-height:1.7}
+  ul{padding-left:20px} li{margin:6px 0}
+  .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;
+    font-family:var(--mono);font-size:12px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+  .topbar a{border:0}
+  .topbar .brand{color:var(--cy);letter-spacing:.2em;font-weight:700}
+  .topbar .nav a{color:var(--mut);margin-left:16px}
+  .topbar .nav a:hover{color:var(--cy)}
+
+  :root:not([data-theme="dark"]){ --bg:#ffffff; --panel:#f6f8fb; --panel2:#edf1f6; --line:#dce3ec;
+    --cy:#0891b2; --gr:#ea580c; --rd:#1d4ed8; --am:#f59e0b; --pp:#0ea5e9; --tx:#0b1220; --tx2:#334155; --mut:#64748b; }
+  .theme-btn{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;color:var(--mut);background:transparent;border:1px solid var(--line);border-radius:4px;padding:4px 8px;cursor:pointer;margin-left:10px}
+</style>
+</head><body><div class="wrap">
+  <div class="topbar"><a href="/" class="brand">◆ BLUE MORPHO</a>
+    <div class="nav"><a href="/industries.html">產業</a><a href="/stocks.html">個股</a><a href="/weekly.html">週報</a></div></div>
+  <div class="kick">Blue Morpho · 財報深研 · MU · 資料截至 2026-10-13</div>
+  <h1>MU:5.7 倍的前瞻本益比,是用一個還沒發生的營收算出來的</h1>
+  <div class="tldr"><b>一句話論點</b>:我們認為「5.7 倍」被過度簡化了:它隱含 FY27 營收要從 133B 再翻一倍;若營收停在上季年化水準,現價是 7.5 倍;若用已到手的自由現金流算,是 21 倍。FY26Q4 的邊際毛利率約 94%,代表這一輪成長幾乎全由價格貢獻——12/23 要對帳的是毛利率與資本支出,不是 38.2 的 EPS。<br><br><span class="pill">切角</span> 市場現在的共識是「MU 很便宜」:TTM 本益比 13.1 倍,用 FY27 共識 EPS 174.31 只有 5.7 倍。我們想挑戰的不是便宜與否,而是這個分母的來源。用市值/股價回推約 11.3 億股、再用 TTM 的淨利對營業利益比(0.84)還原,174.31 的 EPS 大約需要 FY27 營收落在 270~290B——是 FY26 全年 133.19B 的兩倍。如果營收只是凍結在 FY26Q4 的年化水準(217B),EPS 約 131,現價其實是 7.5 倍。同時,公司已經實際收到的現金(近 4 季 FCF 52.9B)對應的是 21 倍市值,不是 5.7 倍。所以真正該問的是:這一輪利潤是價格給的還是量給的?現金有多少留得下來?12/23 的毛利率、資本支出與回購三欄會給答案。</div>
+  <div class="warn"><b>時效</b>:這是 2026-10-13 的快照,下次財報 2026-12-23(共識 EPS 38.2)。情境 EPS 為本文估算(base = 賣方下一財年共識),假設列於表內;不是公司或賣方數字。</div>
+
+  <h2>公司在做什麼</h2>
+  <p>Micron 做記憶體晶片:DRAM(伺服器與電腦的工作記憶)、NAND(SSD 這類儲存)與 NOR,分成運算與網通、行動、儲存、嵌入式四個部門。客戶是雲端資料中心、伺服器、手機、汽車與工業設備廠,零售端用 Crucial 品牌。它自建晶圓廠自己製造,是典型的重資本週期股:獲利隨記憶體報價擺動,擴產決策與景氣高低點往往錯開。</p>
+  <div class="card"><div class="cardhd">近 8 季 · 營收 $B 與毛利率</div><div id="qchart" class="chart sm"></div></div>
+  <table><thead><tr><th>季</th><th>營收</th><th>毛利率</th><th>營益率</th><th>稀釋 EPS</th><th>營收 YoY</th></tr></thead><tbody><tr><td>2025Q1<span class='mut'> 2024-11</span></td><td>$8.71B</td><td>38.4%</td><td>25.0%</td><td>1.67</td><td class='neg'>—</td></tr><tr><td>2025Q2<span class='mut'> 2025-02</span></td><td>$8.05B</td><td>36.8%</td><td>22.0%</td><td>1.41</td><td class='neg'>—</td></tr><tr><td>2025Q3<span class='mut'> 2025-05</span></td><td>$9.30B</td><td>37.7%</td><td>23.3%</td><td>1.68</td><td class='neg'>—</td></tr><tr><td>2025Q4<span class='mut'> 2025-08</span></td><td>$11.31B</td><td>44.7%</td><td>33.2%</td><td>2.83</td><td class='neg'>—</td></tr><tr><td>2026Q1<span class='mut'> 2025-11</span></td><td>$13.64B</td><td>56.0%</td><td>45.0%</td><td>4.6</td><td class='pos'>+57%</td></tr><tr><td>2026Q2<span class='mut'> 2026-02</span></td><td>$23.86B</td><td>74.4%</td><td>67.6%</td><td>12.08</td><td class='pos'>+196%</td></tr><tr><td>2026Q3<span class='mut'> 2026-05</span></td><td>$41.46B</td><td>84.6%</td><td>80.4%</td><td>24.67</td><td class='pos'>+346%</td></tr><tr><td>2026Q4<span class='mut'> 2026-09</span></td><td>$54.23B</td><td>86.8%</td><td>81.7%</td><td>32.87</td><td class='pos'>+379%</td></tr></tbody></table>
+  <p class="mut" style="font-size:.85rem">TTM:EPS 74.22 · 本益比 13.1× · EV/Sales 8.1× · FCF 殖利率 4.7% · ROIC 50% · 近 4 季 FCF $52.9B、回購 $1.0B、股利 $0.6B</p>
+
+  <h2>先拆分母:5.7 倍背後隱含營收再翻一倍</h2><p>低倍數的資訊量,取決於那個 EPS 要什麼條件才成立。用市值 1117B 除以股價 989.04,得到約 11.3 億股;TTM EPS 74.22 對應淨利約 83.8B,而 TTM 營益率 75.0% 對應營業利益約 99.9B,兩者的比值 0.84 可以當成稅與業外的粗估係數。把 FY27 共識 EPS 174.31 倒推回去,需要營業利益約 235B;在毛利率維持 86.8%、營業費用約每年 11~12B 的前提下,營收大約落在 270~290B。FY26 全年營收是 133.19B(四季相加)。也就是說,共識要的不是「守住現在」,是「再翻一倍」。</p><p>換個角度更直觀。如果把 FY26Q4 直接年化——營收 217B、毛利率 86.8%、營業費用不變——EPS 約 131,現價對應 7.5 倍。這是一個「什麼都不再變好」的錨:不漲價、不增量、也不衰退。市場看到的 5.7 倍與這個 7.5 倍之間的差距,就是共識替 FY27 額外加上去的那一段成長。我們不是說它做不到(連續四季的 YoY 是 +57%、+196%、+346%、+379%),而是說:買在 5.7 倍的人,其實是在買那段還沒發生的成長,而不是在買安全邊際。</p><p>這段推算有口徑風險,先講清楚:股數是用市值除以股價得到的近似值、0.84 的係數來自 TTM、共識 EPS 也可能是調整後口徑。所以 270~290B 應該當成數量級而非精算值。但即使把誤差放寬到 ±15%,結論的方向不變——FY27 共識不是延續,是再一次加速。</p><h2>這一輪的利潤是誰給的:邊際毛利率約 94%</h2><p>我們用季表自己算一次邊際毛利率。FY26Q3 營收 41.46B、毛利率 84.6%,毛利約 35.1B;FY26Q4 營收 54.23B、毛利率 86.8%,毛利約 47.1B。營收多了 12.8B,毛利多了 12.0B,新增營收有約 94% 直接變成毛利。這是價格驅動的特徵:出貨量增加通常要付出相應的材料與產能成本,邊際毛利率不會貼著 100% 跑。</p><p>價格給的利潤,和量給的利潤,反轉速度不一樣。同樣一塊錢的營收下滑,如果來自售價,成本幾乎不會跟著降;如果來自出貨量,成本至少部分會走。這就是為什麼我們把 12/23 的毛利率看得比 EPS 重:共識營收 61.54B 比上季多 7.31B,若毛利率維持 86.8%,邊際毛利率約 87%;要讓邊際毛利率掉到 70%,毛利率大約落在 84.8%。所以「毛利率 85%」是一個當場就能對帳的門檻——守住,價格動能還在;跌破,新增營收開始靠量。</p><p>順帶把「連 8 季超標」這條線關掉。超標幅度已經從 2026-03-18 的 +32.8%、2026-06-24 的 +19.7%,收斂到 2026-09-30 的 +5.2%,賣方大致追上了公司。另外要提醒:對帳表的 2026-09-30 實際值是 33.42,季表的稀釋 EPS 是 32.87,兩者口徑不同(本文模型一律用季表口徑)。意思是,下一季就算再超標 3~5%,也很難是股價的主要驅動力。</p><h2>現金那一欄:賺到的和收到的差了多少</h2><p>FY26Q4 的成本結構小得不成比例:營收 54.23B,毛利率 86.8% 代表銷貨成本約 7.2B,營益率 81.7% 代表營業費用約 2.8B,整季成本合計約 9.9B。對照 FY25Q2 的營收 8.05B、毛利率 36.8%,八季之內季營收成長約 6.7 倍、毛利率高了 50 個百分點。這個結構的另一面是:營收只要往回走,利潤的跌幅會被同一個槓桿放大。</p><p>淨利到現金之間有個落差值得盯。TTM 淨利約 83.8B,近 4 季自由現金流 52.9B,轉換率約 63%,差額大致進了資本支出。這不是壞消息——沒有擴產就沒有下一輪供給——但擴產同時是 18~24 個月後供給壓力的來源。也因為這樣,用已經到手的現金看估值,市值 1117B 對 52.9B 的 FCF 是約 21 倍(即資料給的 4.7% FCF 殖利率),這個數字和 5.7 倍的故事很不一樣。</p><p>股東回報的訊號更直接:近 4 季回購 1.0B、股利 0.6B,合計約佔自由現金流的 3%。在獲利最高的一年,管理層幾乎沒有買自家股票。可以讀成「現金要留給擴產與營運資金」,也可以讀成「管理層對這個獲利水準的持續性保留態度」。兩種讀法對估值的含意相反,而 12/23 的資本支出指引與回購節奏會分出是哪一種。</p><h2>情境與估值:倍數要修復,得先有人相信 EPS 能活多久</h2><p>先把參考點放好:現價 989.04 對 FY27 共識 174.31 是 5.67 倍,對再下一年的 208.63 是 4.74 倍,TTM 本益比 13.1 倍。賣方中值目標 1500(高 3000、低 1200)隱含 FY27 約 8.6 倍,近兩週 DA Davidson、Cantor Fitzgerald、Needham、Rosenblatt、TD Cowen 清一色 Buy/Overweight。倍數和目標價差這麼多,說明分歧不在今年的 EPS,而在 EPS 的壽命。10/12 Seeking Alpha 的標題「The Earnings Did The Work, The Multiple Did Not」大致就是這個狀態的描述。</p><p>Bear(-40%,EPS 約 105):價格在 FY27 上半年見頂回落,全年營收約 195B——比 FY26 的 133B 仍高約 46%,但比共識隱含的 270~290B 低約三成;位元出貨不減,銷貨成本維持在 40B 出頭,毛利率從 86.8% 降到約 78%,營業費用約 11.5B。這不是需求崩潰,是「價格回吐一段、量繼續出」。對應現價約 9.5 倍。</p><p>Bull(+17%,EPS 約 204):合約價撐到 FY27 年底且位元出貨續增,營收約 320~330B(比共識隱含高 15~18%),毛利率守在 88% 上下,營業費用持平,結果略低於再下一年共識的 208.63,等於提前一年達成,對應現價約 4.8 倍。我們取的合理前瞻本益比是 7~9 倍、中值 8 倍:套在 bear 約 840,base 約 1394,bull 約 1632。要注意的是,base 的上檔主要來自 EPS 兌現後倍數小幅修復,而不是倍數擴張——這檔股票的報酬來源偏向分子。</p><h2>Steelman:兩邊最強的反論</h2><p>多方最強的反論是:下檔比我們想的淺。成本基數太小了。假設售價腰斬、位元出貨不變,營收從 54.23B 掉到約 27B,銷貨成本仍是約 7.2B、營業費用約 2.8B,毛利率還有七成出頭,單季營業利益仍有十幾個 B——以 86.8% 毛利率起跳的公司,很難直接跌進虧損。我們部分接受:這也是我們的 bear 給 -40% 而不是 -80% 的原因。但要補一句:EPS 砍四成的同時,倍數也可能從 5.7 倍被壓到 4 倍,股價仍可腰斬。基本面有地板,價格不一定有。</p><p>空方最強的反論是:13.1 倍的 TTM 本益比,乘在一個可能是週期高點的 EPS 上,本質是貴而不是便宜;而供給正在來。10/12 Barron&#x27;s 與 Motley Fool 的報導都把當天的股價走弱歸因於中國對手 CXMT 推進新晶片(TradingKey 記的是當日開盤跌 3.56%);Benzinga 同日的標題也直說「看起來越來越便宜,但有個前提」。配上我們自己算出來的 94% 邊際毛利率,這組合在記憶體史上的結局通常不好。這個論點的核心我們打不倒——我們只能說:它的時點不可知,而 5.7 倍(或更誠實的 7.5 倍)已經先付了一部分門票錢。要爭的是「什麼時候」,不是「會不會」。</p><h2>我可能錯在哪</h2><p>第一,我們把「價格驅動」近似等同於「脆弱」。如果 HBM 的供給已經透過長約鎖到 2027,那這個價格就不是現貨價,反轉速度會比我們假設的慢得多,bear 的 -40% 會太重。我們無法從公開季表拆出 HBM 與傳統 DRAM 各自的貢獻,這是本文最大的資訊缺口。</p><p>第二,94% 的邊際毛利率是用兩季總數反推的,裡面混了產品組合、折舊節奏與存貨評價,不等於「純漲價」。如果 FY26Q4 有一大塊來自高毛利新品放量的結構性改善,那 85% 這條門檻就只是雜訊,我們會在 12/23 之後被修正。</p><p>第三,也是最可能的一種錯法:倍數不修復。週期股在獲利高點被長期給 5 倍並不罕見,我們的「8 倍合理」沒有嚴謹推導,比較接近區間判斷(下緣來自週期股常態,上緣參考賣方中值隱含的 8.6 倍)。如果倍數不動,就算 FY27 真做到 174,股價也可能原地踏步一年,報酬變得非常依賴耐心與進場時點。</p>
+
+  <h2>情境 EPS 與對應本益比</h2>
+  <div class="card"><div class="cardhd">下一財年 EPS · bear / base / bull(本文估算)</div><div id="scen" class="chart sm"></div></div>
+  <table><thead><tr><th>情境</th><th>EPS</th><th>現價 $989.04 對應本益比</th><th>8× 合理價</th><th style="text-align:left">假設</th></tr></thead><tbody>
+    <tr><td>Bear</td><td>$104.59</td><td>9×</td><td>$837</td><td style="text-align:left">價格在 FY27 上半年見頂回落,全年營收約 195B(比 FY26 的 133B 仍高約 46%,但比共識隱含的 270~290B 低約三成);位元出貨不減,銷貨成本維持 40B 出頭,毛利率由 86.8% 降至約 78%,營業費用約 11.5B。EPS 約 105,對應現價約 9.5 倍。</td></tr>
+    <tr><td><b>Base</b>(賣方共識)</td><td><b>$174.31</b></td><td>6×</td><td>$1395</td><td style="text-align:left">下一財年共識 EPS</td></tr>
+    <tr><td>Bull</td><td>$203.95</td><td>5×</td><td>$1632</td><td style="text-align:left">合約價撐到 FY27 年底且位元出貨續增,營收約 320~330B(比共識隱含高 15~18%),毛利率守在 88% 上下,營業費用持平。EPS 約 204,略低於再下一年共識 208.63、等於提前一年達成,對應現價約 4.8 倍。</td></tr>
+  </tbody></table>
+  <p class="mut" style="font-size:.85rem">合理本益比 8× 的理由:取 7~9 倍區間的中值,屬判斷而非推導:上緣參考賣方中值目標 1500 隱含的約 8.6 倍,ROIC 50%、FCF 殖利率 4.7% 支持偏上緣;下緣反映週期高點通常不給雙位數,且 94% 的邊際毛利率意味獲利幾乎全靠價格,CXMT 等新供給是壓抑因素。最大風險是倍數根本不修復。。賣方目標價 中值 $1500(高 $3000 / 低 $1200)。</p>
+
+  <h2>財報 vs 共識(EPS)</h2>
+  <table><thead><tr><th>公布日</th><th>共識</th><th>實際</th><th>差距</th></tr></thead><tbody><tr><td>2026-09-30</td><td>31.77</td><td>33.42</td><td class='pos'>+5.2%</td></tr><tr><td>2026-06-24</td><td>20.98</td><td>25.11</td><td class='pos'>+19.7%</td></tr><tr><td>2026-03-18</td><td>9.19</td><td>12.2</td><td class='pos'>+32.8%</td></tr><tr><td>2025-12-17</td><td>3.96</td><td>4.78</td><td class='pos'>+20.7%</td></tr><tr><td>2025-09-23</td><td>2.86</td><td>3.03</td><td class='pos'>+5.9%</td></tr><tr><td>2025-06-25</td><td>1.6</td><td>1.91</td><td class='pos'>+19.4%</td></tr><tr><td>2025-03-20</td><td>1.43</td><td>1.56</td><td class='pos'>+9.1%</td></tr><tr><td>2024-12-18</td><td>1.75</td><td>1.79</td><td class='pos'>+2.3%</td></tr></tbody></table>
+
+  <h2>要盯什麼(可對帳)</h2>
+  <table><thead><tr><th>訊號</th><th>門檻</th><th style="text-align:left">意義</th></tr></thead><tbody><tr><td>FY27Q1 毛利率(以共識營收 61.54B 回推邊際毛利率)</td><td>GM ≥ 85%</td><td style='text-align:left'>維持 86.8% 時邊際毛利率約 87%;掉到 84.8% 時邊際毛利率約 70%。守住代表成長仍由價格驅動;跌破代表新增營收開始靠量,通常是轉折的早期訊號之一。</td></tr><tr><td>資本支出指引(對應自由現金流/淨利轉換率,近 4 季約 63%)</td><td>轉換率降到 50% 以下</td><td style='text-align:left'>擴產加速。短期是需求強的證明,但同時是 18~24 個月後供給壓力的來源,會提高 bear 情境的權重。</td></tr><tr><td>單季回購金額(近 4 季合計僅 1.0B,約佔 FCF 3%)</td><td>單季 &gt; 3B</td><td style='text-align:left'>明顯加碼代表管理層相信這個現金流水準可持續;若繼續按兵不動,較偏向對週期位置保留態度。</td></tr><tr><td>FY27Q2 營收指引中值</td><td>≥ 68B(QoQ +10% 以上)</td><td style='text-align:left'>共識對 FY27Q1 的 QoQ 是 +13.5%;指引明顯低於此、又碰上毛利率同步走弱,就是價格見頂的雙重確認。</td></tr><tr><td>EPS 超越共識的幅度(共識 38.2)</td><td>超標 &lt; +3% 或不及</td><td style='text-align:left'>幅度已由 +32.8% 收斂到 +5.2%;再收斂代表共識完全追上公司,股價驅動力必須換成指引而非驚喜。</td></tr></tbody></table>
+  <div class="steel"><h3>可證偽的論點</h3><p>我們認為 5.7 倍不該被直接讀成便宜:它隱含 FY27 營收要從 133B 翻到 270~290B,而營收若只停在上季年化水準,現價是 7.5 倍、用已到手的自由現金流算則是 21 倍。12/23 的關鍵欄位因此是毛利率與資本支出指引,而非 38.2 的 EPS:若 GM 守住 85%、資本支出未暴衝,我們認為倍數有往 7~9 倍修復的空間;若 GM 跌破 85% 同時大幅上調資本支出,我們這個判斷就錯了。</p></div>
+
+  <div class="foot">資料來源:FMP(季報表、現金流、TTM 指標、共識目標價與評等、財報 vs 共識、年度 EPS 共識,2026-10-13);公司簡介 FMP profile;新聞 Google News(近 14 天):<a href='https://news.google.com/rss/articles/CBMisAFBVV95cUxQc1pKSGRJUHl1M1ktR1JsLXRHUFNCUkFUUnRPYXlVVVhJb2ZtZ1FUUk5ObWRSS0dEZTRBck5XaHI4UEFSX0lhOXlkNTl1MS1FWWdTOWVwWmRFbURwdWRnUVY4UVBBdXNXMzR0MFM2a2czQ0RiZDJsOUdpeURpamplZkFtNUI5OFZPQUxvenRVUi1XWmpiUUFzdjJRR2pVT0NGNnpmU0V1T25YcWVmSXN5VA?oc=5'>Micron Q4 FY2026 Review: The Earnings Did The Work, The Mult</a>(Seeking Alpha 10-12) · <a href='https://news.google.com/rss/articles/CBMipgFBVV95cUxQMGJsQURkVGtVRnh6Uk5OY25iWU01WFBxZW5wWEZTQms1S2dMMGFpVTBnU08wRW1tVnd0UjBQTHI4amxyNmVNUzNkUjVEemxZYVRKM29hYXJQQjlmbGJtNlF0a0d6WXpmb2Iyb2xsWlFlWXlfNTA5UmtmcGowRU4zLUNreEcwa2VCRlVzelp0WkVyUTVRcy15UF81TXhSUVBvM2JMXzFB?oc=5'>Micron, SanDisk Look Cheaper by the Day: Here’s the Catch</a>(Benzinga 10-12) · <a href='https://news.google.com/rss/articles/CBMiiAFBVV95cUxOSVZlaUtLb3JUMWx3NDVuVTlvZnFRNTJsNlU1Z2RoT1RUMERyVUloeWllcHE5WWxsUy1Pb2lTYUJTTmY2SWczNzJvNHo5bkNYWGxuSlUwLThlNHBaMXNoa2ttN2JqQ1ByS0MyMFc2RURhRWdabmRQaTM0ZXA3c0Jmd1VVckxXRGVm?oc=5'>Micron Technology Inc Stock (MU) Opened Down by 3.56% on Oct</a>(TradingKey 10-12) · <a href='https://news.google.com/rss/articles/CBMiywFBVV95cUxPMnVydzRyMFIzXzJnbDFNMkpDd2g3Q3BYQkFqNDBBYlJPbDRtQUZ4eUE4QXZ0X0hKZURCdC1pQkF4dDdRdno0RE53TmdzdUNWYjBqT2FTdFd2YW5mdTBNaU9xYnZoRDFCNHhFNm9YR3NZOHAxRmZIMG51ZjhxSGUxU2NxTWloZ05Sd0JyTUVUQklRZE52dkZDYkNYTmcyUTF6clpHSTcwWVlYVGpQbV9NdUYyNjRQQ2pTblBNbDBIVVpabDhGXzFERGlpaw?oc=5'>JPMorgan, Citigroup, Pepsi, Micron and Nike are part of Zack</a>(TradingView 10-12) · <a href='https://news.google.com/rss/articles/CBMihAFBVV95cUxPYjZjZW1lY0MxOFF6RHhzOTJqSTN4VzZIYlJIaXNsbVdZR2YxdjlaSVJOUjl2LTd3dHNyMW9HYVM1T2ZUM1duSFZiaVBfSmJmSlhwcjhzU0ZMaWxhUHhUY2FhZk4yMlVWOUZqMmZKU3JfYW5kajRHOHh4bzRFdk0xZElHeU0?oc=5'>Micron Stock Drops as Chinese Rival CXMT Advances New Chip</a>(Barron&#x27;s 10-12) · <a href='https://news.google.com/rss/articles/CBMigwFBVV95cUxNbzNuVVE5LW1yQ3NXSUZUUUpRZGR3cVpUV2ZDbEJuZEVXemxxTjRVTXlXR05rZHZmcUVLQ2NCNWRKekxmS0VQeW44Yk4tWThWbG14Sy1YbG16aW96S2FTMXFTN3FGTTRDZ2JJY0NUbTd6QjVta0oxamFodDhQOVZ0RGt6QQ?oc=5'>Why Micron Stock Dropped on Monday</a>(The Motley Fool 10-12)。
+    文字由 Blue Morpho 研究引擎(Claude)依上列資料撰寫,經第二輪對抗審稿(修正 11 處);情境與合理本益比為估計。非投資建議。</div>
+</div>
+<script>
+const V=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const MONO='"JetBrains Mono","SF Mono",monospace';
+const TIP={backgroundColor:V('--panel'),borderColor:V('--line'),textStyle:{color:V('--tx2'),fontFamily:MONO,fontSize:11}};
+function mk(id){const c=echarts.init(document.getElementById(id),null,{renderer:'canvas'});window.addEventListener('resize',()=>c.resize());return c;}
+mk('qchart').setOption({backgroundColor:'transparent',grid:{left:44,right:44,top:20,bottom:30},tooltip:Object.assign({trigger:'axis'},TIP),
+  xAxis:{type:'category',data:["2025Q1", "2025Q2", "2025Q3", "2025Q4", "2026Q1", "2026Q2", "2026Q3", "2026Q4"],axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:10},axisLine:{lineStyle:{color:V('--line')}}},
+  yAxis:[{type:'value',name:'$B',axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9},splitLine:{lineStyle:{color:V('--panel')}}},
+         {type:'value',name:'GM%',min:30,max:70,axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9,formatter:'{value}%'},splitLine:{show:false}}],
+  series:[{name:'營收 $B',type:'bar',data:[8.71, 8.05, 9.3, 11.31, 13.64, 23.86, 41.46, 54.23],itemStyle:{color:V('--cy'),borderRadius:[3,3,0,0]},barWidth:18},
+          {name:'毛利率',type:'line',yAxisIndex:1,data:[38.4, 36.8, 37.7, 44.7, 56.0, 74.4, 84.6, 86.8],itemStyle:{color:V('--gr')},lineStyle:{width:2},symbol:'circle'}]});
+mk('scen').setOption({backgroundColor:'transparent',grid:{left:44,right:14,top:16,bottom:28},tooltip:Object.assign({trigger:'axis',valueFormatter:v=>'$'+v},TIP),
+  xAxis:{type:'category',data:['Bear','Base','Bull'],axisLabel:{color:V('--tx2'),fontFamily:MONO,fontSize:11},axisLine:{lineStyle:{color:V('--line')}}},
+  yAxis:{type:'value',axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9,formatter:'${value}'},splitLine:{lineStyle:{color:V('--panel')}}},
+  series:[{type:'bar',data:[{value:104.59,itemStyle:{color:V('--rd')}},{value:174.31,itemStyle:{color:V('--cy')}},{value:203.95,itemStyle:{color:V('--gr')}}],
+           barWidth:36,itemStyle:{borderRadius:[3,3,0,0]},label:{show:true,position:'top',color:V('--tx2'),fontFamily:MONO,fontSize:11,formatter:p=>'$'+p.value}}]});
+</script></body></html>

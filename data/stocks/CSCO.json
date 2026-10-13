@@ -176,6 +176,11 @@
   ],
   "peers": [
     {
+      "symbol": "AMZN",
+      "name": "亞馬遜",
+      "tier": "ready"
+    },
+    {
       "symbol": "ANET",
       "name": "Arista Networks, Inc.",
       "tier": "ready"
