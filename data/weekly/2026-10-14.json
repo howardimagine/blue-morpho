@@ -1,0 +1,78 @@
+{
+  "date": "2026-10-14",
+  "headline": "OPEC 下修需求預估,油氣股卻還在走高,雪佛龍怎麼看",
+  "theme": "Optical / AI Interconnect",
+  "regime": "neutral",
+  "picks": [
+    {
+      "symbol": "CVX",
+      "name": "Chevron Corporation",
+      "tier": "ready",
+      "theme": "Energy / Oil & Gas",
+      "rsi": 66.9,
+      "ma_stack": "bullish",
+      "price": null,
+      "business": "Chevron Corporation, through its subsidiaries, engages in the integrated energy and chemicals operations in the United States and internationally. It operates through Upstream, Downstream, and All Other segments. The Upstream segment engag…",
+      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面 MA 結構為 <strong>bullish</strong>，整體偏多。",
+      "rr": null
+    },
+    {
+      "symbol": "COP",
+      "name": "ConocoPhillips",
+      "tier": "ready",
+      "theme": "Energy / Oil & Gas",
+      "rsi": 65.3,
+      "ma_stack": "bullish",
+      "price": null,
+      "business": "ConocoPhillips explores for, produces, transports, and markets crude oil, bitumen, natural gas, liquefied natural gas (LNG), and natural gas liquids. It operates in five segments: Alaska; Lower 48; Canada; Europe, Middle East and North Afr…",
+      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面 MA 結構為 <strong>mixed</strong>，整體偏多。",
+      "rr": null
+    },
+    {
+      "symbol": "TER",
+      "name": "泰瑞達",
+      "tier": "ready",
+      "theme": "Semiconductor Equipment (WFE)",
+      "rsi": 45.9,
+      "ma_stack": "mixed",
+      "price": null,
+      "business": "半導體測試設備 + 協作工業機器人(UR);AI 晶片測試需求上升。",
+      "why": "主題面，Optical / AI Interconnect 本週相對 SPY 的 1 個月強度排名靠前，市場資金持續流入。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
+      "rr": null
+    },
+    {
+      "symbol": "ONTO",
+      "name": "Onto Innovation",
+      "tier": "ready",
+      "theme": "Semiconductor Equipment (WFE)",
+      "rsi": 43.0,
+      "ma_stack": "mixed",
+      "price": null,
+      "business": "製程控制/檢測 WFE,先進封裝與 HBM 量測小型受惠者。",
+      "why": "主題面，Optical / AI Interconnect 本週相對 SPY 的 1 個月強度排名靠前，市場資金持續流入。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
+      "rr": null
+    }
+  ],
+  "sell_signals": {},
+  "policy": [
+    {
+      "topic": "川普 × 個股機會",
+      "title": "Governor Newsom announces results from California’s first-in-the-nation project to involve Californians in decisions about AI",
+      "summary_zh": "加州公布全美首個讓一般民眾參與 AI 政策決策的計畫結果。這類程序性試點短期不改變企業獲利,但會成為日後州級 AI 法規的模板。",
+      "source": "California State Portal | CA.gov"
+    },
+    {
+      "topic": "川普 × 個股機會",
+      "title": "The Many Open Questions About the Trump Administration’s New De Facto AI Model Licensing System",
+      "summary_zh": "有分析指出,川普政府的新規實際上形成了一套 AI 模型的事實授權制度,留下大量未解問題。若成形,合規成本會先落在模型與應用端。",
+      "source": "Lawfare"
+    }
+  ],
+  "themes": [],
+  "stats": {
+    "n_picks": 4,
+    "n_themes": 0,
+    "journal_total": 608
+  },
+  "_note": "命中率/超額待回測樣本成熟;entry/alpha/vol 未提供(歷史不足)。"
+}

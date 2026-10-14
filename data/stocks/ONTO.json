@@ -5,7 +5,7 @@
   "regime": "neutral",
   "theme": "AI Compute",
   "business": "製程控制/檢測 WFE,先進封裝與 HBM 量測小型受惠者。",
-  "why": "NEWS_CATALYST",
+  "why": "INDUSTRY_EXPANSION",
   "rsi": null,
   "sma50": null,
   "sma200": null,
@@ -13,12 +13,12 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 7.3
+      "score": 7.1
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 5.6
+      "score": 3.1
     },
     {
       "key": "macro_context",
@@ -28,12 +28,12 @@
     {
       "key": "business_quality",
       "label": "基本面品質",
-      "score": 7.8
+      "score": 7.5
     },
     {
       "key": "news_catalyst",
       "label": "新聞催化",
-      "score": 8.8
+      "score": null
     },
     {
       "key": "risk_reward",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-10-14",
+      "theme": "Semiconductor Equipment (WFE)",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-10-01",
       "theme": "AI Compute",

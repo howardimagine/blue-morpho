@@ -1,55 +1,55 @@
 {
-  "date": "2026-10-13",
-  "headline": "台積電法說與輝達市值創高之後,美光成了算力鏈最晚被重估的一層",
-  "theme": "Cloud Infrastructure",
+  "date": "2026-10-14",
+  "headline": "OPEC 下修需求預估,油氣股卻還在走高,雪佛龍怎麼看",
+  "theme": "Optical / AI Interconnect",
   "regime": "neutral",
   "picks": [
     {
-      "symbol": "MU",
-      "name": "美光",
+      "symbol": "CVX",
+      "name": "Chevron Corporation",
       "tier": "ready",
-      "theme": "AI Compute",
-      "rsi": 44.7,
+      "theme": "Energy / Oil & Gas",
+      "rsi": 66.9,
       "ma_stack": "bullish",
       "price": null,
-      "business": "DRAM/NAND 記憶體大廠;HBM3E 量產供應 NVDA,AI 記憶體實體瓶頸的關鍵受惠者。",
-      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
+      "business": "Chevron Corporation, through its subsidiaries, engages in the integrated energy and chemicals operations in the United States and internationally. It operates through Upstream, Downstream, and All Other segments. The Upstream segment engag…",
+      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面 MA 結構為 <strong>bullish</strong>，整體偏多。",
       "rr": null
     },
     {
-      "symbol": "AMZN",
-      "name": "亞馬遜",
+      "symbol": "COP",
+      "name": "ConocoPhillips",
       "tier": "ready",
-      "theme": "Cloud Infrastructure",
-      "rsi": 59.0,
+      "theme": "Energy / Oil & Gas",
+      "rsi": 65.3,
       "ma_stack": "bullish",
       "price": null,
-      "business": "電商 + AWS 雲服務;Trainium 自研 AI 晶片(透過 MRVL 代工)。",
-      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
+      "business": "ConocoPhillips explores for, produces, transports, and markets crude oil, bitumen, natural gas, liquefied natural gas (LNG), and natural gas liquids. It operates in five segments: Alaska; Lower 48; Canada; Europe, Middle East and North Afr…",
+      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面 MA 結構為 <strong>mixed</strong>，整體偏多。",
       "rr": null
     },
     {
-      "symbol": "AMAT",
-      "name": "應用材料",
+      "symbol": "TER",
+      "name": "泰瑞達",
       "tier": "ready",
-      "theme": "AI Compute",
-      "rsi": 50.9,
-      "ma_stack": "bullish",
-      "price": null,
-      "business": "WFE 半導體設備龍頭(沉積/蝕刻/CMP/離子植入);先進製程+先進封裝雙受惠。",
-      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
-      "rr": null
-    },
-    {
-      "symbol": "AAOI",
-      "name": "Applied Optoelectronics, Inc.",
-      "tier": "ready",
-      "theme": "Optical / AI Interconnect",
-      "rsi": 49.9,
+      "theme": "Semiconductor Equipment (WFE)",
+      "rsi": 45.9,
       "ma_stack": "mixed",
       "price": null,
-      "business": "Applied Optoelectronics, Inc. engages in the design, manufacture, and sale of fiber-optic networking products in the United States, Taiwan, and China. The company offers optical modules, optical filters, lasers, laser components, subassemb…",
-      "why": "主題面，Cloud Infrastructure 本週相對 SPY 的 1 個月強度排名靠前，市場資金持續流入。 基本面通過半數以上 Screener 條件。",
+      "business": "半導體測試設備 + 協作工業機器人(UR);AI 晶片測試需求上升。",
+      "why": "主題面，Optical / AI Interconnect 本週相對 SPY 的 1 個月強度排名靠前，市場資金持續流入。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
+      "rr": null
+    },
+    {
+      "symbol": "ONTO",
+      "name": "Onto Innovation",
+      "tier": "ready",
+      "theme": "Semiconductor Equipment (WFE)",
+      "rsi": 43.0,
+      "ma_stack": "mixed",
+      "price": null,
+      "business": "製程控制/檢測 WFE,先進封裝與 HBM 量測小型受惠者。",
+      "why": "主題面，Optical / AI Interconnect 本週相對 SPY 的 1 個月強度排名靠前，市場資金持續流入。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
       "rr": null
     }
   ],
@@ -57,22 +57,22 @@
   "policy": [
     {
       "topic": "川普 × 個股機會",
-      "title": "Trump administration freezes green cards for Microsoft, IT firms, probes universities",
-      "summary_zh": "行政部門凍結微軟等資訊服務業者的綠卡申請,並對相關大學展開調查。此舉直接提高科技業取得海外高階工程人才的難度,研發密集的軟體與雲端業者首當其衝。",
-      "source": "Reuters"
+      "title": "Governor Newsom announces results from California’s first-in-the-nation project to involve Californians in decisions about AI",
+      "summary_zh": "加州公布全美首個讓一般民眾參與 AI 政策決策的計畫結果。這類程序性試點短期不改變企業獲利,但會成為日後州級 AI 法規的模板。",
+      "source": "California State Portal | CA.gov"
     },
     {
       "topic": "川普 × 個股機會",
-      "title": "Why are US stocks rallying despite Fed rate shock? Aswath Damodaran explains in the context of AI",
-      "summary_zh": "面對聯準會的利率意外,美股仍然走強,Damodaran 以 AI 帶來的獲利重估來解釋這個背離。重點提醒是:估值的支撐來自盈餘預期,一旦 AI 需求證據轉弱,利率的保護傘就不存在。",
-      "source": "The Economic Times"
+      "title": "The Many Open Questions About the Trump Administration’s New De Facto AI Model Licensing System",
+      "summary_zh": "有分析指出,川普政府的新規實際上形成了一套 AI 模型的事實授權制度,留下大量未解問題。若成形,合規成本會先落在模型與應用端。",
+      "source": "Lawfare"
     }
   ],
   "themes": [],
   "stats": {
     "n_picks": 4,
     "n_themes": 0,
-    "journal_total": 604
+    "journal_total": 608
   },
   "_note": "命中率/超額待回測樣本成熟;entry/alpha/vol 未提供(歷史不足)。"
 }
