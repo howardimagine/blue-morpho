@@ -1,131 +1,93 @@
 {
   "as_of": "2026-08-14",
   "n_whales": 19,
-  "generated_at": "2026-10-14T00:13:34+00:00",
+  "generated_at": "2026-10-15T00:05:07+00:00",
   "stocks": [
     {
-      "symbol": "CVX",
-      "name": "Chevron Corporation",
-      "theme": "Energy / Oil & Gas",
-      "signal": "buy",
-      "holders": 2,
-      "increased": 1,
+      "symbol": "CRM",
+      "name": "Salesforce, Inc.",
+      "theme": "AI Software",
+      "signal": "sell",
+      "holders": 0,
+      "increased": 0,
       "reduced": 0,
       "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 14011793747,
-      "total_held_fmt": "$14.0B",
-      "whales_fmt": "巴菲特 Buffett $14.0B 持有 · 達利歐 Dalio $26M 加碼",
+      "closed_pos": 2,
+      "total_held_usd": 0,
+      "total_held_fmt": "—",
+      "whales_fmt": "索羅斯 Soros — 清倉 · 木頭姐 Cathie Wood — 清倉",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "巴菲特 Buffett",
-          "value_usd": 13986141890,
+          "name": "索羅斯 Soros",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 0,
+          "action": "exit"
+        }
+      ]
+    },
+    {
+      "symbol": "LRCX",
+      "name": "科林研發",
+      "theme": "AI Compute",
+      "signal": "sell",
+      "holders": 9,
+      "increased": 1,
+      "reduced": 5,
+      "new_pos": 2,
+      "closed_pos": 1,
+      "total_held_usd": 6811182621,
+      "total_held_fmt": "$6.8B",
+      "whales_fmt": "Dan Loeb — 清倉 · Philippe Laffont $4.1B 減碼 · Chase Coleman $1.4B 減碼 · Andreas Halvorsen $543M 加碼 · 達利歐 Dalio $407M 減碼 · Brad Gerstner $171M 新進",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "Dan Loeb",
+          "value_usd": 0,
+          "action": "exit"
+        },
+        {
+          "name": "Philippe Laffont",
+          "value_usd": 4091329827,
+          "action": "trim"
+        },
+        {
+          "name": "Chase Coleman",
+          "value_usd": 1370837288,
+          "action": "trim"
+        },
+        {
+          "name": "Andreas Halvorsen",
+          "value_usd": 543344313,
+          "action": "add"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 406560606,
+          "action": "trim"
+        },
+        {
+          "name": "Brad Gerstner",
+          "value_usd": 170766686,
+          "action": "new"
+        },
+        {
+          "name": "泰珀 Tepper",
+          "value_usd": 165748725,
           "action": "hold"
         },
         {
-          "name": "達利歐 Dalio",
-          "value_usd": 25651857,
-          "action": "add"
-        }
-      ]
-    },
-    {
-      "symbol": "COP",
-      "name": "ConocoPhillips",
-      "theme": "Energy / Oil & Gas",
-      "signal": "buy",
-      "holders": 1,
-      "increased": 0,
-      "reduced": 0,
-      "new_pos": 1,
-      "closed_pos": 0,
-      "total_held_usd": 2384531,
-      "total_held_fmt": "$2M",
-      "whales_fmt": "達利歐 Dalio $2M 新進",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 2384531,
-          "action": "new"
-        }
-      ]
-    },
-    {
-      "symbol": "TER",
-      "name": "泰瑞達",
-      "theme": "Semiconductor Equipment (WFE)",
-      "signal": "sell",
-      "holders": 3,
-      "increased": 0,
-      "reduced": 3,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 1082102935,
-      "total_held_fmt": "$1.1B",
-      "whales_fmt": "Stephen Mandel $722M 減碼 · 木頭姐 Cathie Wood $312M 減碼 · 達利歐 Dalio $48M 減碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
           "name": "Stephen Mandel",
-          "value_usd": 722411827,
-          "action": "trim"
-        },
-        {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 311971420,
-          "action": "trim"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 47719688,
-          "action": "trim"
-        }
-      ]
-    },
-    {
-      "symbol": "ONTO",
-      "name": "Onto Innovation",
-      "theme": "Semiconductor Equipment (WFE)",
-      "signal": "split",
-      "holders": 4,
-      "increased": 2,
-      "reduced": 2,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 264635527,
-      "total_held_fmt": "$265M",
-      "whales_fmt": "Andreas Halvorsen $227M 減碼 · 達利歐 Dalio $23M 加碼 · 索羅斯 Soros $14M 加碼 · 木頭姐 Cathie Wood <$1M 減碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "Andreas Halvorsen",
-          "value_usd": 227429748,
-          "action": "trim"
-        },
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 22654674,
-          "action": "add"
-        },
-        {
-          "name": "索羅斯 Soros",
-          "value_usd": 14455117,
-          "action": "add"
-        },
-        {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 95988,
-          "action": "trim"
+          "value_usd": 47395697,
+          "action": "new"
         }
       ]
     }

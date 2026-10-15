@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-15",
+  "headline": "ASML 訂單爆滿之後,半導體設備的瓶頸換成了產能本身",
+  "theme": "Optical / AI Interconnect",
+  "regime": "neutral",
+  "picks": [
+    {
+      "symbol": "CRM",
+      "name": "Salesforce, Inc.",
+      "tier": "ready",
+      "theme": "AI Software",
+      "rsi": 53.6,
+      "ma_stack": "bullish",
+      "price": null,
+      "business": "Salesforce, Inc. provides customer relationship management technology services that connect companies and customers together in the United States, Europe, and the Asia Pacific. The company offers Agentforce, which enables customers to buil…",
+      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
+      "rr": null
+    },
+    {
+      "symbol": "LRCX",
+      "name": "科林研發",
+      "tier": "ready",
+      "theme": "AI Compute",
+      "rsi": 37.3,
+      "ma_stack": "mixed",
+      "price": null,
+      "business": "WFE 蝕刻/沉積龍頭,3D NAND 主力,HBM 擴產直接受惠。",
+      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
+      "rr": null
+    }
+  ],
+  "sell_signals": {},
+  "policy": [
+    {
+      "topic": "川普 × 個股機會",
+      "title": "Massachusetts Could Set a New Standard for AI Safety",
+      "summary_zh": "麻州可能率先訂出 AI 安全標準,州層級立法往往成為全國性企業的實質合規門檻,將推升模型治理與資料合規相關支出。",
+      "source": "Governing"
+    },
+    {
+      "topic": "川普 × 個股機會",
+      "title": "QUICK SPARK: Bank of America Stock Eyes Worst Day Since Trump’s Tariffs Shock",
+      "summary_zh": "美國銀行股價面臨自關稅衝擊以來最差的單日表現,反映市場對利率路徑與信用環境的疑慮升溫。",
+      "source": "Benzinga"
+    },
+    {
+      "topic": "地緣 / 國際 / 能源",
+      "title": "A Taiwanese Youth’s Perspective: TSMC’s US Expansion and the American Dream",
+      "summary_zh": "台積電赴美擴產持續引發台灣年輕世代對產業外移的討論,這條供應鏈的地理重配置仍在進行中。",
+      "source": "Global Taiwan Institute"
+    }
+  ],
+  "themes": [],
+  "stats": {
+    "n_picks": 2,
+    "n_themes": 0,
+    "journal_total": 610
+  },
+  "_note": "命中率/超額待回測樣本成熟;entry/alpha/vol 未提供(歷史不足)。"
+}
