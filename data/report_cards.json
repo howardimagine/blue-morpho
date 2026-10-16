@@ -1,30 +1,78 @@
 {
-  "date": "2026-10-15",
-  "headline": "ASML 訂單爆滿之後,半導體設備的瓶頸換成了產能本身",
-  "theme": "Optical / AI Interconnect",
+  "date": "2026-10-16",
+  "headline": "原油庫存意外大減,油氣是這週唯一還在走高的一塊",
+  "theme": "Energy / Oil & Gas",
   "regime": "neutral",
   "picks": [
     {
-      "symbol": "CRM",
-      "name": "Salesforce, Inc.",
+      "symbol": "VEEV",
+      "name": "Veeva Systems Inc.",
       "tier": "ready",
-      "theme": "AI Software",
-      "rsi": 53.6,
+      "theme": "Healthcare AI / Digital Health",
+      "rsi": 66.9,
       "ma_stack": "bullish",
       "price": null,
-      "business": "Salesforce, Inc. provides customer relationship management technology services that connect companies and customers together in the United States, Europe, and the Asia Pacific. The company offers Agentforce, which enables customers to buil…",
+      "business": "Veeva Systems Inc. provides cloud-based software for the life sciences industry in North America, Europe, the Asia Pacific, the Middle East, Africa, and Latin America. The company offers Veeva Commercial Cloud comprising Veeva Vault CRM Su…",
+      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面 MA 結構為 <strong>bullish</strong>，整體偏多。",
+      "rr": null
+    },
+    {
+      "symbol": "EOG",
+      "name": "EOG Resources, Inc.",
+      "tier": "ready",
+      "theme": "Energy / Oil & Gas",
+      "rsi": 67.7,
+      "ma_stack": "bullish",
+      "price": null,
+      "business": "EOG Resources, Inc., together with its subsidiaries, explores for, develops, produces, and markets crude oil, natural gas liquids, and natural gas in producing basins in the United States, the Republic of Trinidad and Tobago, and internati…",
       "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
       "rr": null
     },
     {
-      "symbol": "LRCX",
-      "name": "科林研發",
+      "symbol": "EQIX",
+      "name": "Equinix, Inc.",
       "tier": "ready",
-      "theme": "AI Compute",
-      "rsi": 37.3,
+      "theme": "Cloud Infrastructure",
+      "rsi": 41.1,
       "ma_stack": "mixed",
       "price": null,
-      "business": "WFE 蝕刻/沉積龍頭,3D NAND 主力,HBM 擴產直接受惠。",
+      "business": "Equinix, Inc. shortens the path to boundless connectivity anywhere in the world. Its digital infrastructure, data center footprint and interconnected ecosystems empower innovations that enhance our work, life and planet. Equinix connects e…",
+      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
+      "rr": null
+    },
+    {
+      "symbol": "ANET",
+      "name": "Arista Networks, Inc.",
+      "tier": "ready",
+      "theme": "Cloud Infrastructure",
+      "rsi": 42.7,
+      "ma_stack": "mixed",
+      "price": null,
+      "business": "Arista Networks, Inc. engages in the development, marketing, and sale of data-driven, client to cloud networking solutions for AI, data center, campus, and routing environments in the Americas, Europe, the Middle East, Africa, and the Asia…",
+      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
+      "rr": null
+    },
+    {
+      "symbol": "COST",
+      "name": "Costco Wholesale Corporation",
+      "tier": "ready",
+      "theme": "Defensive Compounders",
+      "rsi": 69.6,
+      "ma_stack": "mixed",
+      "price": null,
+      "business": "Costco Wholesale Corporation, together with its subsidiaries, engages in the operation of membership warehouses in the United States, Puerto Rico, Canada, Mexico, Japan, the United Kingdom, Korea, Australia, Taiwan, China, Spain, France, S…",
+      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過半數以上 Screener 條件。",
+      "rr": null
+    },
+    {
+      "symbol": "ENTG",
+      "name": "英特格",
+      "tier": "ready",
+      "theme": "AI Compute",
+      "rsi": 49.5,
+      "ma_stack": "mixed",
+      "price": null,
+      "business": "半導體製程關鍵材料/化學/過濾;先進製程升級的隱形受惠者。",
       "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
       "rr": null
     }
@@ -33,28 +81,28 @@
   "policy": [
     {
       "topic": "川普 × 個股機會",
-      "title": "Massachusetts Could Set a New Standard for AI Safety",
-      "summary_zh": "麻州可能率先訂出 AI 安全標準,州層級立法往往成為全國性企業的實質合規門檻,將推升模型治理與資料合規相關支出。",
-      "source": "Governing"
+      "title": "Secret documents reveal donors behind $330 million for Trump’s ballroom",
+      "summary_zh": "華盛頓郵報取得文件,揭露資助白宮宴會廳專案的捐助者名單。此事屬政治透明度議題,對產業基本面無直接影響,但凸顯企業政治捐獻的曝光風險。",
+      "source": "The Washington Post"
     },
     {
       "topic": "川普 × 個股機會",
-      "title": "QUICK SPARK: Bank of America Stock Eyes Worst Day Since Trump’s Tariffs Shock",
-      "summary_zh": "美國銀行股價面臨自關稅衝擊以來最差的單日表現,反映市場對利率路徑與信用環境的疑慮升溫。",
-      "source": "Benzinga"
+      "title": "Nvidia and Cisco confirm multimillion-dollar donations to Trump's White House ballroom",
+      "summary_zh": "輝達與思科證實向白宮宴會廳專案捐出數百萬美元。兩家公司同屬 AI 基礎建設供應鏈核心,此舉反映大型科技業與行政部門關係日益緊密。",
+      "source": "CNBC"
     },
     {
       "topic": "地緣 / 國際 / 能源",
-      "title": "A Taiwanese Youth’s Perspective: TSMC’s US Expansion and the American Dream",
-      "summary_zh": "台積電赴美擴產持續引發台灣年輕世代對產業外移的討論,這條供應鏈的地理重配置仍在進行中。",
-      "source": "Global Taiwan Institute"
+      "title": "TSMC Q3: The AI Boom Isn’t Fully Priced In (NYSE:TSM)",
+      "summary_zh": "市場評論認為台積電第三季表現顯示 AI 需求尚未被充分反映在股價。此觀點代表算力鏈需求面訊息仍偏正向,但本週資金面並未同步買單。",
+      "source": "Seeking Alpha"
     }
   ],
   "themes": [],
   "stats": {
-    "n_picks": 2,
+    "n_picks": 6,
     "n_themes": 0,
-    "journal_total": 610
+    "journal_total": 616
   },
   "_note": "命中率/超額待回測樣本成熟;entry/alpha/vol 未提供(歷史不足)。"
 }

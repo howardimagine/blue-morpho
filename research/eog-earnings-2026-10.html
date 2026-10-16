@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../theme.js"></script>
+<title>EOG 11.8 倍 TTM 的背後:市場已按 2027 衰退定價,待驗的是毛利率黏性 — Blue Morpho 財報深研</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<style>
+  :root{ --bg:#02020a; --panel:#0b0b1a; --panel2:#0a0e17; --line:#1a2238;
+    --cy:#00f3ff; --gr:#00ff9d; --rd:#ff5d5d; --am:#ffd000; --pp:#7a5cff;
+    --tx:#e0f7fa; --tx2:#cfe3ee; --mut:#8895a8;
+    --mono:"JetBrains Mono","SF Mono","Menlo","Consolas",monospace;
+    --sans:-apple-system,"PingFang TC","Noto Sans TC",sans-serif; }
+  *{box-sizing:border-box}
+  html,body{margin:0;overflow-x:hidden;max-width:100%}
+  body{background:var(--bg);color:var(--tx2);font-family:var(--sans);line-height:1.8;
+    background-image:radial-gradient(1200px 600px at 70% -10%,rgba(0,243,255,.06),transparent 60%);}
+  .wrap{max-width:860px;margin:0 auto;padding:32px 20px 80px}
+  .kick{font-family:var(--mono);font-size:12px;letter-spacing:.22em;color:var(--cy);text-transform:uppercase}
+  h1{font-family:var(--mono);font-size:clamp(1.5rem,4.5vw,2.2rem);line-height:1.25;color:var(--tx);
+    font-weight:700;margin:6px 0 14px;letter-spacing:.01em}
+  h2{font-family:var(--mono);font-size:1.05rem;color:var(--cy);margin:36px 0 10px;letter-spacing:.04em}
+  h2::before{content:"▎ ";color:var(--cy)}
+  h3{font-size:1rem;color:var(--tx);margin:20px 0 6px}
+  p{margin:10px 0}
+  b,strong{color:var(--tx)}
+  a{color:var(--cy);text-decoration:none;border-bottom:1px solid rgba(0,243,255,.3)}
+  .tldr{background:linear-gradient(180deg,rgba(0,243,255,.06),transparent);border:1px solid var(--line);
+    border-radius:8px;padding:16px 18px;margin:14px 0;font-size:.95rem}
+  .warn{background:rgba(255,208,0,.05);border:1px solid rgba(255,208,0,.3);
+    border-radius:8px;padding:14px 16px;margin:14px 0;font-size:.9rem;color:var(--am)}
+  .steel{background:rgba(122,92,255,.06);border:1px solid rgba(122,92,255,.4);
+    border-radius:8px;padding:16px 18px;margin:16px 0}
+  .steel h3{color:var(--pp);margin-top:0}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;margin:14px 0}
+  .cardhd{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--cy);margin-bottom:6px;text-transform:uppercase}
+  .chart{width:100%;height:420px}
+  .chart.sm{height:340px}
+  .leg{display:flex;gap:16px;justify-content:center;margin-top:8px;font-size:11px;font-family:var(--mono)}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.86rem}
+  th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:right}
+  th:first-child,td:first-child{text-align:left}
+  thead th{color:var(--cy);font-family:var(--mono);font-size:11px;letter-spacing:.06em;
+    text-transform:uppercase;border-bottom:1px solid var(--cy)}
+  tbody tr:hover{background:rgba(0,243,255,.03)}
+  .pos{color:var(--gr)} .neg{color:var(--rd)} .mut{color:var(--mut)}
+  .pill{display:inline-block;font-family:var(--mono);font-size:10px;padding:2px 8px;border-radius:4px;
+    border:1px solid var(--line);color:var(--mut)}
+  hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+  .foot{color:var(--mut);font-size:.78rem;margin-top:30px;line-height:1.7}
+  ul{padding-left:20px} li{margin:6px 0}
+  .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;
+    font-family:var(--mono);font-size:12px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+  .topbar a{border:0}
+  .topbar .brand{color:var(--cy);letter-spacing:.2em;font-weight:700}
+  .topbar .nav a{color:var(--mut);margin-left:16px}
+  .topbar .nav a:hover{color:var(--cy)}
+
+  :root:not([data-theme="dark"]){ --bg:#ffffff; --panel:#f6f8fb; --panel2:#edf1f6; --line:#dce3ec;
+    --cy:#0891b2; --gr:#ea580c; --rd:#1d4ed8; --am:#f59e0b; --pp:#0ea5e9; --tx:#0b1220; --tx2:#334155; --mut:#64748b; }
+  .theme-btn{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;color:var(--mut);background:transparent;border:1px solid var(--line);border-radius:4px;padding:4px 8px;cursor:pointer;margin-left:10px}
+</style>
+</head><body><div class="wrap">
+  <div class="topbar"><a href="/" class="brand">◆ BLUE MORPHO</a>
+    <div class="nav"><a href="/industries.html">產業</a><a href="/stocks.html">個股</a><a href="/weekly.html">週報</a></div></div>
+  <div class="kick">Blue Morpho · 財報深研 · EOG · 資料截至 2026-10-16</div>
+  <h1>EOG 11.8 倍 TTM 的背後:市場已按 2027 衰退定價,待驗的是毛利率黏性</h1>
+  <div class="tldr"><b>一句話論點</b>:現價 152.62 約等於 FY26 共識 17.55 的 8.7 倍、FY27 共識 15.26 的 10.0 倍,倍數上沒有明顯錯價;多空分水嶺是 11/5 在營收環比約 -17% 的季度裡,毛利率(Q2 為 80.6%)與營益率(40.9%)能守到哪。兩者同時守住(GM≥78%、OM≥38%),FY27 的衰退假設要往上修;掉到 GM&lt;74% 或 OM&lt;35%,峰值季的說法大致成立,我們的切角就錯了。因為 Q1+Q2 已實現,FY26 的情境區間天然偏窄,我們給 bear -15% / bull +7%。<br><br><span class="pill">切角</span> 市場現在的想法是:2026 是週期高點。FY26 共識 EPS 17.55,FY27 只有 15.26(-13%),目標價中值 158.5 僅比現價高 3.9%——翻譯過來就是「已經合理、等著衰退」。我們想追的不是油價,而是毛利率:近四季從 61.8% 走到 80.6%,擴張 19 個百分點。如果這主要是價格推的,11/5 當營收環比掉約 17% 時它會同步回吐;如果裡面有成本或組合的結構成分,它會黏在高位,那 FY27 的 -13% 就偏保守。要先承認的是:這條毛利率序列自己不穩(2024Q4 曾出現 97.7%),所以我們不會只看毛利率,而是要求毛利率與營益率同時過關,否則這個切角就該被判無效。</div>
+  <div class="warn"><b>時效</b>:這是 2026-10-16 的快照,下次財報 2026-11-05(共識 EPS 4.39)。情境 EPS 為本文估算(base = 賣方下一財年共識),假設列於表內;不是公司或賣方數字。</div>
+
+  <h2>公司在做什麼</h2>
+  <p>EOG Resources 是美國的油氣上游生產商,在美國本土多個產區以及千里達與托巴哥探勘、開發、生產並銷售原油、天然氣液與天然氣,另有集輸、處理與行銷業務。獲利結構很直接:把產出的油與氣以市價賣出,扣掉鑽完井與營運成本,價差就是利潤,所以獲利高度綁在商品價格與單位成本這兩條線上。公司 1985 年成立、總部在休士頓,前身為 Enron Oil &amp; Gas Company。</p>
+  <div class="card"><div class="cardhd">近 8 季 · 營收 $B 與毛利率</div><div id="qchart" class="chart sm"></div></div>
+  <table><thead><tr><th>季</th><th>營收</th><th>毛利率</th><th>營益率</th><th>稀釋 EPS</th><th>營收 YoY</th></tr></thead><tbody><tr><td>2024Q3<span class='mut'> 2024-09</span></td><td>$5.87B</td><td>68.2%</td><td>35.6%</td><td>2.95</td><td class='neg'>—</td></tr><tr><td>2024Q4<span class='mut'> 2024-12</span></td><td>$5.65B</td><td>97.7%</td><td>28.2%</td><td>2.23</td><td class='neg'>—</td></tr><tr><td>2025Q1<span class='mut'> 2025-03</span></td><td>$5.84B</td><td>68.3%</td><td>31.8%</td><td>2.65</td><td class='neg'>—</td></tr><tr><td>2025Q2<span class='mut'> 2025-06</span></td><td>$5.36B</td><td>64.4%</td><td>32.6%</td><td>2.46</td><td class='neg'>—</td></tr><tr><td>2025Q3<span class='mut'> 2025-09</span></td><td>$5.73B</td><td>61.8%</td><td>32.0%</td><td>2.7</td><td class='neg'>-2%</td></tr><tr><td>2025Q4<span class='mut'> 2025-12</span></td><td>$5.64B</td><td>77.8%</td><td>44.1%</td><td>1.3</td><td class='neg'>-0%</td></tr><tr><td>2026Q1<span class='mut'> 2026-03</span></td><td>$6.76B</td><td>79.3%</td><td>38.4%</td><td>3.7</td><td class='pos'>+16%</td></tr><tr><td>2026Q2<span class='mut'> 2026-06</span></td><td>$8.62B</td><td>80.6%</td><td>40.9%</td><td>5.15</td><td class='pos'>+61%</td></tr></tbody></table>
+  <p class="mut" style="font-size:.85rem">TTM:EPS 12.85 · 本益比 11.8× · EV/Sales 3.1× · FCF 殖利率 8.3% · ROIC 16% · 近 4 季 FCF $6.6B、回購 $2.9B、股利 $2.2B</p>
+
+  <h2>11/5 真正的資訊不在 beat,在營收下滑季的利潤率</h2><p>「會不會超標」這題已經沒什麼資訊量了。EOG 近八次財報全數超標,但幅度並非一路收斂:+14.3%、+7.5%、+2.5%、+4.0%、+10.2%、+3.2%、+5.6%、+2.0%,中位數約 +4.8%,最近一次(2026-08-04)是 +2.0%。更重要的是,11/5 的共識 EPS 4.39、營收 7.14B,相對 2026Q2 的 5.15 與 8.62B,本身就隱含約 -15% 與 -17% 的環比下滑——價格回落這件事賣方早就寫進去了,照著掉不構成利空。</p><p>真正還沒被驗證的是利潤率在營收下滑季的表現。近四季毛利率 61.8% → 77.8% → 79.3% → 80.6%,如果這主要由油氣價格推動,營收環比掉 17% 時它理應同步回吐到 70% 出頭;如果有成本或產品組合的結構成分,它會黏在 78% 以上。這是財報當天就能對帳的二選一題,比 EPS 多兩毛錢有用。</p><p>但這個支點需要先打折扣。2024Q4 毛利率是 97.7%、同季營益率只有 28.2%,這種跳動說明毛利率的認列在不同季之間未必完全可比;此外 2025Q4 的營益率 44.1% 是八季最高,稀釋 EPS 1.30 卻是八季最低,代表毛利線以下存在集中於單一季度的項目。所以我們把判準改成「毛利率與營益率要同時過關」,單靠毛利率我們不敢下結論。</p><h2>錢從哪裡來:毛利率漲 19pp,營益率只跟上 9pp</h2><p>擴張的一半在中途漏掉了,這是我們對「結構性毛利」只信一半的原因。從 2025Q3 到 2026Q2,毛利率從 61.8% 升到 80.6%(+19pp),營益率只從 32.0% 升到 40.9%(+9pp)。中間約 10 個百分點說明毛利線以下的費用在同期一起膨脹,或兩條線的認列口徑並不完全平行。對投資人來說,真正落到 EPS 的是營益率那 9 個百分點,不是那 19 個。</p><p>現金面比損益表乾淨。近四季自由現金流 6.6B,對 80B 市值是 8.3% 的 FCF 殖利率;同期回購 2.9B、股利 2.2B,合計 5.1B,約佔 FCF 的 77%,ROIC 16%。但要誠實標註分母:這 8.3% 出現在一個單季營收曾 YoY +61% 的年度,它證明的是「這一年公司確實把錢賺到也發出去」,不等於便宜。</p><p>回購是這裡唯一不靠油價的 EPS 貢獻。若維持近四季約 7.25 億美元的季均節奏,以現價推算的 5.24 億股(市值 ÷ 股價,屬推算非公告)來看,每季約消化 0.9% 的股數、年化約 3.6% 的市值。反過來,如果 11/5 看到當季回購明顯低於這個節奏,通常意味資本支出排擠或管理層不認為現價便宜——那比 EPS 差兩毛更有方向性。</p><h2>情境:FY26 的區間天然很窄,真正的槓桿在 FY27</h2><p>先把錨放好。現價 152.62 對 FY26 共識 17.55 是 8.7 倍、對 FY27 共識 15.26 是 10.0 倍;賣方目標中值 158.5 等於給 FY27 10.4 倍,只比現價高 3.9%。近期評等也是分裂的:Morgan Stanley 維持 Equal Weight、目標上調至 163,Scotiabank 以 Sector Perform、144 起評,UBS 與 Wells Fargo 掛 Buy,Raymond James Strong Buy,Truist Hold、Citigroup Neutral。沒有人喊崩,也沒有人喊大便宜。</p><p>FY26 剩下的可變空間不到一半,這點要先講清楚。Q1(3.70)與 Q2(5.15)已實現約 8.85,FY26 共識 17.55 的其餘部分落在 H2;扣掉 Q3 共識 4.39,隱含 Q4 約 4.3。但注意口徑:季表的稀釋 EPS 與「財報 vs 共識」的實際值(Q1 3.41、Q2 5.07)並非同一套,用後者推算隱含 Q4 會變成約 4.7。所以我們把隱含 Q4 看成 4.3-4.7 的區間,而去年同期 2025Q4 只有 1.30——FY26 共識的最後一塊磚放在歷史上最不穩定的季度上,這本身就是 bear 情境最具體的入口。</p><p>兩個情境因此是不對稱的。bear -15%(EPS 約 14.9,對應 10.2 倍):Q3 營收約 6.7B、比共識低約 6%,毛利率回吐到 72-74%、營益率退到 33-35%,Q3 EPS 約 3.4-3.5;Q4 再來一次 2025Q4 式的毛利線下壓縮。bull +7%(EPS 約 18.8,對應 8.1 倍):Q3 營收約 7.7B、比共識高約 8%,毛利率守在 80% 以上、營益率 41-42%,Q3 EPS 約 5.0,Q4 維持同量級。本益比落差只有約 2 倍——這檔股票現在的賠率來自 E,不是 P/E。真正的大槓桿其實在 FY27:若毛利率黏性成立,共識那 -13% 是最需要被修的數字,但那要等 11/5 之後兩個季度才看得出來。</p><h2>Steelman:兩邊最強的話先說完</h2><p>看空最強的版本是:商品股在利潤率最高的那一季通常不是買點。2026Q2 營收 YoY +61%、毛利率 80.6%、營益率 40.9%,八季裡每一項都最好看;共識自己把 FY27 砍到 15.26,等於賣方也認定這是峰值。我們無法反駁「油價不可外推」這一點,真的不能。我們唯一的回應是把賭注從「價格會不會續高」挪到「營收環比 -17% 時利潤率守不守得住」——後者比猜油價容易證偽,但它並沒有否定峰值論,只是把它變成一個可以當天檢驗的版本。</p><p>看多最強的版本是:8.3% 的 FCF 殖利率、16% 的 ROIC、近四季 5.1B 股東回報,配 11.8 倍 TTM 本益比,以這個現金品質不算貴。我們部分同意但要打折:6.6B 是高點年度的 FCF,若 FY27 真如共識掉約 13%,同樣股價下的 FCF 殖利率會回到 7% 出頭,那就只是一檔正常的大型 E&amp;P。所以我們不想把論點放在「便宜」,而是放在「市場已經按衰退年定價,因此『不衰退』那條路的定價權重偏低」。</p><p>兩個 steelman 有共同盲點,也是我們願意站的位置:它們都在爭論水準(油價高低、估值貴賤),而 11/5 能提供的是結構資訊(利潤率在營收下滑季的黏性)。如果當天毛利率與營益率一起塌,看空方在這場爭論裡的勝率就明顯高於我們,我們不會再去找替代解釋。</p><h2>我可能錯在哪</h2><p>第一,口徑風險是我們最沒把握的一塊。2024Q4 毛利率 97.7%、營益率 28.2%,這種跳動說明毛利率的認列未必跨季可比;整篇的支點是那 19 個百分點的擴張,如果其中相當部分來自分類或一次性項目,支點就鬆了。這也是我們在 watch 清單裡同時盯營益率、而不只盯毛利率的理由。</p><p>第二,我們沒有量價拆分。資料裡沒有產量、實現價、單位成本或庫存井,所以無法證明毛利率擴張有多少來自成本、多少來自價格。用「營收環比 -17% 的季度」當自然實驗是次佳做法,不是直接證據。</p><p>第三,Q4 的非營運項目我們無法預測,而它正好承擔了 bear 情境一半以上的下檔。FY26 共識隱含的 Q4 約 4.3-4.7,去年同期 1.30,我們在這一格上沒有任何資訊優勢,只是接受共識。第四,一次 20% 級別的油價位移會同時改寫營收、毛利率與資本配置,屆時討論毛利率黏性沒有意義;另外本文用到的股數(約 5.24 億股)是用市值除以股價推得,不是公告數,回購對股數的影響只能當量級參考。</p>
+
+  <h2>情境 EPS 與對應本益比</h2>
+  <div class="card"><div class="cardhd">下一財年 EPS · bear / base / bull(本文估算)</div><div id="scen" class="chart sm"></div></div>
+  <table><thead><tr><th>情境</th><th>EPS</th><th>現價 $152.62 對應本益比</th><th>10× 合理價</th><th style="text-align:left">假設</th></tr></thead><tbody>
+    <tr><td>Bear</td><td>$14.92</td><td>10×</td><td>$149</td><td style="text-align:left">Q3 營收約 6.7B(比共識 7.14B 低約 6%),毛利率從 80.6% 回吐到 72-74%、營益率退到 33-35%,Q3 EPS 落在 3.4-3.5(較共識 4.39 低約兩成);Q4 再出現一次 2025Q4 式的毛利線下壓縮,EPS 約 2.6(仍高於去年同期的 1.30)。全年約 14.9,對應現價 10.2 倍。要誠實標註:這條路徑有一半以上的下檔來自我們無法預測的 Q4 非營運項目,不是純粹的價格效果。</td></tr>
+    <tr><td><b>Base</b>(賣方共識)</td><td><b>$17.55</b></td><td>9×</td><td>$175</td><td style="text-align:left">下一財年共識 EPS</td></tr>
+    <tr><td>Bull</td><td>$18.78</td><td>8×</td><td>$188</td><td style="text-align:left">Q3 營收約 7.7B(比共識高約 8%),毛利率守在 80% 以上、營益率 41-42%,Q3 EPS 約 5.0(較共識高約 14%);Q4 無營收共識可對,假設與 Q3 同量級、利潤率延續,加上季均約 7.25 億美元回購每季約減 0.9% 股數。全年約 18.8,對應 8.1 倍。上檔只有 +7% 是因為 Q1+Q2 已實現約 8.85,FY26 可變部分不到一半——結構論若成立,真正的重估會發生在 FY27 共識,而不是 FY26。</td></tr>
+  </tbody></table>
+  <p class="mut" style="font-size:.85rem">合理本益比 10× 的理由:我們不喊貴賤,只給相對錨。現價等於 FY27 共識 15.26 的 10.0 倍、FY26 共識 17.55 的 8.7 倍;賣方目標低 138 / 中 158.5 / 高 193 換算成 FY27 分別是 9.0 / 10.4 / 12.6 倍,9-11 倍這個帶($137-168)基本涵蓋了市場的分歧。取中點 10 倍、對應約 153,幾乎就是現價——意思是倍數本身沒有明顯錯價,報酬要靠 E。若 11/5 之後毛利率黏性被證實、FY27 從 -13% 修到接近持平(這是我們的假設,不是資料),同樣 10 倍指向的價位才會明顯高於現價。。賣方目標價 中值 $158.5(高 $193 / 低 $138)。</p>
+
+  <h2>財報 vs 共識(EPS)</h2>
+  <table><thead><tr><th>公布日</th><th>共識</th><th>實際</th><th>差距</th></tr></thead><tbody><tr><td>2026-08-04</td><td>4.97</td><td>5.07</td><td class='pos'>+2.0%</td></tr><tr><td>2026-05-05</td><td>3.23</td><td>3.41</td><td class='pos'>+5.6%</td></tr><tr><td>2026-02-24</td><td>2.2</td><td>2.27</td><td class='pos'>+3.2%</td></tr><tr><td>2025-11-06</td><td>2.46</td><td>2.71</td><td class='pos'>+10.2%</td></tr><tr><td>2025-08-07</td><td>2.23</td><td>2.32</td><td class='pos'>+4.0%</td></tr><tr><td>2025-05-01</td><td>2.8</td><td>2.87</td><td class='pos'>+2.5%</td></tr><tr><td>2025-02-28</td><td>2.55</td><td>2.74</td><td class='pos'>+7.5%</td></tr><tr><td>2024-11-08</td><td>3.01</td><td>3.44</td><td class='pos'>+14.3%</td></tr></tbody></table>
+
+  <h2>要盯什麼(可對帳)</h2>
+  <table><thead><tr><th>訊號</th><th>門檻</th><th style="text-align:left">意義</th></tr></thead><tbody><tr><td>Q3 2026 毛利率(對照 Q2 的 80.6%)</td><td>≥78% 偏向結構論;&lt;74% 偏向價格論</td><td style='text-align:left'>在營收環比約 -17% 的季度檢驗毛利率黏性,是這份財報最接近二選一的題目</td></tr><tr><td>Q3 2026 營益率(對照 Q1 38.4%、Q2 40.9%)</td><td>≥38% 偏多;&lt;35% 代表毛利線下費用重新吃掉擴張</td><td style='text-align:left'>毛利率漲 19pp 但營益率只漲 9pp,落到 EPS 的是後者;毛利率序列不穩,這條是必要的共同驗證</td></tr><tr><td>營收 vs 共識 7.14B</td><td>&gt;7.4B 為量能抵銷價格;&lt;6.8B 觸發 bear 路徑</td><td style='text-align:left'>共識已內含環比約 -17%,照著掉不是利空,偏離才有資訊</td></tr><tr><td>EPS vs 共識 4.39</td><td>未達標或僅持平才有定價意義;小幅超標屬常態</td><td style='text-align:left'>八次全 beat、中位數約 +4.8%,beat 本身已無溢價,斷鏈才是新資訊</td></tr><tr><td>當季回購金額(近四季 2.9B,季均約 0.725B)</td><td>&lt;0.6B 為警訊;&gt;0.8B 視為管理層認同現價</td><td style='text-align:left'>資本配置是唯一不靠油價的 EPS 貢獻,也是管理層對自家估值的直接表態</td></tr></tbody></table>
+  <div class="steel"><h3>可證偽的論點</h3><p>我們認為 11/5 的 Q3 財報會在營收環比下滑的同時,毛利率守住 ≥78%、營益率守住 ≥38%,使 FY27 共識 15.26 的 -13% 看起來偏保守;若毛利率跌破 74% 或營益率跌破 35%,我們就是錯的,峰值季的說法成立。</p></div>
+
+  <div class="foot">資料來源:FMP(季報表、現金流、TTM 指標、共識目標價與評等、財報 vs 共識、年度 EPS 共識,2026-10-16);公司簡介 FMP profile;新聞 Google News(近 14 天):<a href='https://news.google.com/rss/articles/CBMiwwFBVV95cUxPOUVGdDZRRF9GUnBUbFVJajhrS2hCX3Z5RWp4YzE2bEVqU0cxRzVnMkpOdDVGNTJabDdBZWxpYlRPR18wbHFPc3dGc2xlQ2dEeFZRT2ZCczI5aF9BYk5LWmI4Qm84eGNITHFrY1l0bDRqQlZxOXUwbHI0Q1pldmhkNFR6WTdzYUVOMnR6Y3JFbjBXNkZ3RE5nZFhmS3JJRTkteWF5ZTRMWUNZcDJyOVdLWncwakhKSURoa21TNmJlUzlNdDg?oc=5'>EOG Resources Q2 2026 Earnings Call: Complete Transcript</a>(Benzinga 10-15) · <a href='https://news.google.com/rss/articles/CBMiwgFBVV95cUxQTWp0UHlGMWdmem85cUdWUVdaS092TnB4MTVXZ0NwYzQ1ams5VG5iOEdacURHMWtkcV9SbW50QzMwc3hibUJpRVpPZ1hCbHZubEhBbGdZa21MSjZRREk2MG4wWVpfU2hua3BPLVgwX2Zwd3VYQkhEZF9yTk9pSWxTbTV2MUlublpoVFlQYmY5TDRXN1BEQTNyUk9kTVUtT2JvYzVpRFNSVDZCTTRFOTRyZ29reHF0a1pCWmR6cTdNTjAxUQ?oc=5'>EOG Resources, Inc. $EOG Stock Sold by Curated Wealth Partne</a>(MarketBeat 10-15) · <a href='https://news.google.com/rss/articles/CBMi2AFBVV95cUxQV0ROTkNmV1dGYjRkNm4tdzRfRU5USmhoUzNaMTFoVi1yWjc3X2NYem9TWTdJWUVIa1EwNEhRNE9NaFVtSW5PYTRnbFVuZURDV1BiNnpKSjRlSjZySWlfeVpXZFM3S084OEhJSUlMSGo5QjMtUlVaRXBHbjBrb21iNUtfWkhVMXlDTW43ei03T1hiLS1FcFBsanF0T3pqZDRVbTNYbHp2TWNDWmpWbGY2b2VGbmRWOHJXb3U1V05vZjJ4VzkxVnZDcTBwYVlxUV9IeDRKek5tYXM?oc=5'>Wells Fargo Sticks to Their Buy Rating for EOG Resources (EO</a>(The Globe and Mail 10-15) · <a href='https://news.google.com/rss/articles/CBMinwFBVV95cUxNWWR5M3MyYlcxbXZZZ3lnU2RLUU4xVWlRU01SSkdMQ2ZidlBtRElacFZOWlAxOUV1Y3Q4NWJpNXR0Q1pJWWVqN1ppN0t2SmNCU3BoY2FjNmJicFpMUXRuNFI4UUVkdTRzNFNJdmRDQUVhLTRnSnVjTVZ3Y1Z2bXZUYU5XOHRiUHNUQVFvam94a1dEU0I5UEFMVC1SSjBoRTA?oc=5'>EOG Maintained by Morgan Stanley -- Price Target Raised to $</a>(GuruFocus 10-15) · <a href='https://news.google.com/rss/articles/CBMi0wFBVV95cUxQYzkwMGFCc2R2T1AxMDdud3RSdjBORnVSak95SDJkWDFKVEZTVU1MUzBiV0t4RVlnS0JOaVZHUHhqcVJYUGFZbC15Ti02UjMwcVV0bEJkeENKNWhWdzRwXzladlRQSm1lYTVkX0tUV2hIb093WGZQWEtvd2J2Sk1Jd3Y3Mm5YNURFLWpjSG4wQ3NnZDBTUXJ3MzBJVlJlTzFxS292bk9PdzQwd3IxXzhYdE5HWGt1SXk4Q1JoeHhCQkl6VlJwY0N4VXdwUkJJX2NJeHIw?oc=5'>EOG Resources (NYSE:EOG) Stock Gets Price Target Increase fr</a>(MarketBeat 10-15) · <a href='https://news.google.com/rss/articles/CBMi2wFBVV95cUxNU1YxMTV4TTFQSXJoZzc1bGZrdkNXZnJWMDdzLVB1OFAzNW5oX1FWMm1PdVF5WDRFVUdsS3ZySEFpN0UyN2U2eDlCTXNEckhfenNoMnhJX3dFWk9PWG95amJxdDVuVFVWNFRFRVhBT1hGblZHVVlPWFlOYW1SS2hwUnpyRjBzem5ETVFOR09aWDhrTzlGVkxxYUh2azFvelBwQUhmajU0SFp3TkZpSExrbEV6ZEZTcnhlZ2Nfa1lZZnpyRWp5MlB5eEJucV9QOGduclk0SUJCX2VFSzA?oc=5'>Scotiabank Initiates Coverage on EOG Resources With Sector P</a>(www.marketscreener.com 10-15)。
+    文字由 Blue Morpho 研究引擎(Claude)依上列資料撰寫,經第二輪對抗審稿(修正 12 處);情境與合理本益比為估計。非投資建議。</div>
+</div>
+<script>
+const V=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const MONO='"JetBrains Mono","SF Mono",monospace';
+const TIP={backgroundColor:V('--panel'),borderColor:V('--line'),textStyle:{color:V('--tx2'),fontFamily:MONO,fontSize:11}};
+function mk(id){const c=echarts.init(document.getElementById(id),null,{renderer:'canvas'});window.addEventListener('resize',()=>c.resize());return c;}
+mk('qchart').setOption({backgroundColor:'transparent',grid:{left:44,right:44,top:20,bottom:30},tooltip:Object.assign({trigger:'axis'},TIP),
+  xAxis:{type:'category',data:["2024Q3", "2024Q4", "2025Q1", "2025Q2", "2025Q3", "2025Q4", "2026Q1", "2026Q2"],axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:10},axisLine:{lineStyle:{color:V('--line')}}},
+  yAxis:[{type:'value',name:'$B',axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9},splitLine:{lineStyle:{color:V('--panel')}}},
+         {type:'value',name:'GM%',min:30,max:70,axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9,formatter:'{value}%'},splitLine:{show:false}}],
+  series:[{name:'營收 $B',type:'bar',data:[5.87, 5.65, 5.84, 5.36, 5.73, 5.64, 6.76, 8.62],itemStyle:{color:V('--cy'),borderRadius:[3,3,0,0]},barWidth:18},
+          {name:'毛利率',type:'line',yAxisIndex:1,data:[68.2, 97.7, 68.3, 64.4, 61.8, 77.8, 79.3, 80.6],itemStyle:{color:V('--gr')},lineStyle:{width:2},symbol:'circle'}]});
+mk('scen').setOption({backgroundColor:'transparent',grid:{left:44,right:14,top:16,bottom:28},tooltip:Object.assign({trigger:'axis',valueFormatter:v=>'$'+v},TIP),
+  xAxis:{type:'category',data:['Bear','Base','Bull'],axisLabel:{color:V('--tx2'),fontFamily:MONO,fontSize:11},axisLine:{lineStyle:{color:V('--line')}}},
+  yAxis:{type:'value',axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9,formatter:'${value}'},splitLine:{lineStyle:{color:V('--panel')}}},
+  series:[{type:'bar',data:[{value:14.92,itemStyle:{color:V('--rd')}},{value:17.55,itemStyle:{color:V('--cy')}},{value:18.78,itemStyle:{color:V('--gr')}}],
+           barWidth:36,itemStyle:{borderRadius:[3,3,0,0]},label:{show:true,position:'top',color:V('--tx2'),fontFamily:MONO,fontSize:11,formatter:p=>'$'+p.value}}]});
+</script></body></html>
