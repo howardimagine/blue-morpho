@@ -1,79 +1,43 @@
 {
-  "date": "2026-10-16",
-  "headline": "原油庫存意外大減,油氣是這週唯一還在走高的一塊",
+  "date": "2026-10-19",
+  "headline": "醫療器材逆勢站上輪動前排,糖尿病這一層最先動起來",
   "theme": "Energy / Oil & Gas",
   "regime": "neutral",
   "picks": [
     {
-      "symbol": "VEEV",
-      "name": "Veeva Systems Inc.",
+      "symbol": "DXCM",
+      "name": "DexCom, Inc.",
       "tier": "ready",
-      "theme": "Healthcare AI / Digital Health",
-      "rsi": 66.9,
-      "ma_stack": "bullish",
-      "price": null,
-      "business": "Veeva Systems Inc. provides cloud-based software for the life sciences industry in North America, Europe, the Asia Pacific, the Middle East, Africa, and Latin America. The company offers Veeva Commercial Cloud comprising Veeva Vault CRM Su…",
-      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面 MA 結構為 <strong>bullish</strong>，整體偏多。",
-      "rr": null
-    },
-    {
-      "symbol": "EOG",
-      "name": "EOG Resources, Inc.",
-      "tier": "ready",
-      "theme": "Energy / Oil & Gas",
-      "rsi": 67.7,
-      "ma_stack": "bullish",
-      "price": null,
-      "business": "EOG Resources, Inc., together with its subsidiaries, explores for, develops, produces, and markets crude oil, natural gas liquids, and natural gas in producing basins in the United States, the Republic of Trinidad and Tobago, and internati…",
-      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
-      "rr": null
-    },
-    {
-      "symbol": "EQIX",
-      "name": "Equinix, Inc.",
-      "tier": "ready",
-      "theme": "Cloud Infrastructure",
-      "rsi": 41.1,
+      "theme": "Medical Devices",
+      "rsi": 50.3,
       "ma_stack": "mixed",
       "price": null,
-      "business": "Equinix, Inc. shortens the path to boundless connectivity anywhere in the world. Its digital infrastructure, data center footprint and interconnected ecosystems empower innovations that enhance our work, life and planet. Equinix connects e…",
+      "business": "DexCom, Inc., a medical device company, focuses on the design, development, and commercialization of continuous glucose monitoring (CGM) systems for the management of diabetes and metabolic health in the United States and internationally.…",
       "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
       "rr": null
     },
     {
-      "symbol": "ANET",
-      "name": "Arista Networks, Inc.",
+      "symbol": "AMZN",
+      "name": "亞馬遜",
       "tier": "ready",
       "theme": "Cloud Infrastructure",
-      "rsi": 42.7,
+      "rsi": 45.0,
       "ma_stack": "mixed",
       "price": null,
-      "business": "Arista Networks, Inc. engages in the development, marketing, and sale of data-driven, client to cloud networking solutions for AI, data center, campus, and routing environments in the Americas, Europe, the Middle East, Africa, and the Asia…",
+      "business": "電商 + AWS 雲服務;Trainium 自研 AI 晶片(透過 MRVL 代工)。",
       "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
       "rr": null
     },
     {
-      "symbol": "COST",
-      "name": "Costco Wholesale Corporation",
+      "symbol": "DLR",
+      "name": "Digital Realty Trust, Inc.",
       "tier": "ready",
-      "theme": "Defensive Compounders",
-      "rsi": 69.6,
+      "theme": "Cloud Infrastructure",
+      "rsi": 44.4,
       "ma_stack": "mixed",
       "price": null,
-      "business": "Costco Wholesale Corporation, together with its subsidiaries, engages in the operation of membership warehouses in the United States, Puerto Rico, Canada, Mexico, Japan, the United Kingdom, Korea, Australia, Taiwan, China, Spain, France, S…",
+      "business": "Digital Realty Trust, Inc. owns, acquires, develops, and operates data centers through its operating partnership subsidiary, Digital Realty Trust, L.P. The company is focused on providing data center, colocation, and interconnection soluti…",
       "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過半數以上 Screener 條件。",
-      "rr": null
-    },
-    {
-      "symbol": "ENTG",
-      "name": "英特格",
-      "tier": "ready",
-      "theme": "AI Compute",
-      "rsi": 49.5,
-      "ma_stack": "mixed",
-      "price": null,
-      "business": "半導體製程關鍵材料/化學/過濾;先進製程升級的隱形受惠者。",
-      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
       "rr": null
     }
   ],
@@ -81,28 +45,22 @@
   "policy": [
     {
       "topic": "川普 × 個股機會",
-      "title": "Secret documents reveal donors behind $330 million for Trump’s ballroom",
-      "summary_zh": "華盛頓郵報取得文件,揭露資助白宮宴會廳專案的捐助者名單。此事屬政治透明度議題,對產業基本面無直接影響,但凸顯企業政治捐獻的曝光風險。",
-      "source": "The Washington Post"
+      "title": "US stocks hover near their latest record in mixed trading on Wall Street",
+      "summary_zh": "美股在接近高點附近呈現分歧走勢,道瓊與那斯達克方向不一,顯示資金在不同類股之間移動而非整體進出。",
+      "source": "Boston Herald"
     },
     {
       "topic": "川普 × 個股機會",
-      "title": "Nvidia and Cisco confirm multimillion-dollar donations to Trump's White House ballroom",
-      "summary_zh": "輝達與思科證實向白宮宴會廳專案捐出數百萬美元。兩家公司同屬 AI 基礎建設供應鏈核心,此舉反映大型科技業與行政部門關係日益緊密。",
-      "source": "CNBC"
-    },
-    {
-      "topic": "地緣 / 國際 / 能源",
-      "title": "TSMC Q3: The AI Boom Isn’t Fully Priced In (NYSE:TSM)",
-      "summary_zh": "市場評論認為台積電第三季表現顯示 AI 需求尚未被充分反映在股價。此觀點代表算力鏈需求面訊息仍偏正向,但本週資金面並未同步買單。",
-      "source": "Seeking Alpha"
+      "title": "US stocks hover near their latest record in mixed trading on Wall Street; Dow Jones rose and Nasdaq composite slipped",
+      "summary_zh": "同一則行情描述指出道瓊走高而那斯達克收低,科技與傳產的背離是近期盤面的主要特徵。",
+      "source": "ABC7 Los Angeles"
     }
   ],
   "themes": [],
   "stats": {
-    "n_picks": 6,
+    "n_picks": 3,
     "n_themes": 0,
-    "journal_total": 616
+    "journal_total": 619
   },
   "_note": "命中率/超額待回測樣本成熟;entry/alpha/vol 未提供(歷史不足)。"
 }

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../theme.js"></script>
+<title>52% 的增量營益率,只有三成是量:DexCom 10/29 的真正賭注 — Blue Morpho 財報深研</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<style>
+  :root{ --bg:#02020a; --panel:#0b0b1a; --panel2:#0a0e17; --line:#1a2238;
+    --cy:#00f3ff; --gr:#00ff9d; --rd:#ff5d5d; --am:#ffd000; --pp:#7a5cff;
+    --tx:#e0f7fa; --tx2:#cfe3ee; --mut:#8895a8;
+    --mono:"JetBrains Mono","SF Mono","Menlo","Consolas",monospace;
+    --sans:-apple-system,"PingFang TC","Noto Sans TC",sans-serif; }
+  *{box-sizing:border-box}
+  html,body{margin:0;overflow-x:hidden;max-width:100%}
+  body{background:var(--bg);color:var(--tx2);font-family:var(--sans);line-height:1.8;
+    background-image:radial-gradient(1200px 600px at 70% -10%,rgba(0,243,255,.06),transparent 60%);}
+  .wrap{max-width:860px;margin:0 auto;padding:32px 20px 80px}
+  .kick{font-family:var(--mono);font-size:12px;letter-spacing:.22em;color:var(--cy);text-transform:uppercase}
+  h1{font-family:var(--mono);font-size:clamp(1.5rem,4.5vw,2.2rem);line-height:1.25;color:var(--tx);
+    font-weight:700;margin:6px 0 14px;letter-spacing:.01em}
+  h2{font-family:var(--mono);font-size:1.05rem;color:var(--cy);margin:36px 0 10px;letter-spacing:.04em}
+  h2::before{content:"▎ ";color:var(--cy)}
+  h3{font-size:1rem;color:var(--tx);margin:20px 0 6px}
+  p{margin:10px 0}
+  b,strong{color:var(--tx)}
+  a{color:var(--cy);text-decoration:none;border-bottom:1px solid rgba(0,243,255,.3)}
+  .tldr{background:linear-gradient(180deg,rgba(0,243,255,.06),transparent);border:1px solid var(--line);
+    border-radius:8px;padding:16px 18px;margin:14px 0;font-size:.95rem}
+  .warn{background:rgba(255,208,0,.05);border:1px solid rgba(255,208,0,.3);
+    border-radius:8px;padding:14px 16px;margin:14px 0;font-size:.9rem;color:var(--am)}
+  .steel{background:rgba(122,92,255,.06);border:1px solid rgba(122,92,255,.4);
+    border-radius:8px;padding:16px 18px;margin:16px 0}
+  .steel h3{color:var(--pp);margin-top:0}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;margin:14px 0}
+  .cardhd{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--cy);margin-bottom:6px;text-transform:uppercase}
+  .chart{width:100%;height:420px}
+  .chart.sm{height:340px}
+  .leg{display:flex;gap:16px;justify-content:center;margin-top:8px;font-size:11px;font-family:var(--mono)}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.86rem}
+  th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:right}
+  th:first-child,td:first-child{text-align:left}
+  thead th{color:var(--cy);font-family:var(--mono);font-size:11px;letter-spacing:.06em;
+    text-transform:uppercase;border-bottom:1px solid var(--cy)}
+  tbody tr:hover{background:rgba(0,243,255,.03)}
+  .pos{color:var(--gr)} .neg{color:var(--rd)} .mut{color:var(--mut)}
+  .pill{display:inline-block;font-family:var(--mono);font-size:10px;padding:2px 8px;border-radius:4px;
+    border:1px solid var(--line);color:var(--mut)}
+  hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+  .foot{color:var(--mut);font-size:.78rem;margin-top:30px;line-height:1.7}
+  ul{padding-left:20px} li{margin:6px 0}
+  .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;
+    font-family:var(--mono);font-size:12px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+  .topbar a{border:0}
+  .topbar .brand{color:var(--cy);letter-spacing:.2em;font-weight:700}
+  .topbar .nav a{color:var(--mut);margin-left:16px}
+  .topbar .nav a:hover{color:var(--cy)}
+
+  :root:not([data-theme="dark"]){ --bg:#ffffff; --panel:#f6f8fb; --panel2:#edf1f6; --line:#dce3ec;
+    --cy:#0891b2; --gr:#ea580c; --rd:#1d4ed8; --am:#f59e0b; --pp:#0ea5e9; --tx:#0b1220; --tx2:#334155; --mut:#64748b; }
+  .theme-btn{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;color:var(--mut);background:transparent;border:1px solid var(--line);border-radius:4px;padding:4px 8px;cursor:pointer;margin-left:10px}
+</style>
+</head><body><div class="wrap">
+  <div class="topbar"><a href="/" class="brand">◆ BLUE MORPHO</a>
+    <div class="nav"><a href="/industries.html">產業</a><a href="/stocks.html">個股</a><a href="/weekly.html">週報</a></div></div>
+  <div class="kick">Blue Morpho · 財報深研 · DXCM · 資料截至 2026-10-19</div>
+  <h1>52% 的增量營益率,只有三成是量:DexCom 10/29 的真正賭注</h1>
+  <div class="tldr"><b>一句話論點</b>:DexCom 過去兩年的增量營益率是 52%,但拆開只有約三成來自量,其餘是毛利率(+370bp)與費用紀律(費用 +16% vs 營收 +32%)。10/29 要驗的是這個比例能不能撐住。順帶一提:用公布口徑算,共識 0.674 是 YoY 約 +10%,不是衰退——拿表上的 GAAP 0.70 去比會得到相反的錯誤結論。<br><br><span class="pill">切角</span> 市場把 DexCom 當成「量的故事」:第二型與非胰島素族群滲透、TAM 再擴張。但把 2024Q3 到 2026Q2 攤開來算,這兩年的增量營益率是 52%——每多一塊錢營收,落到營業利益 0.52 元,遠高於當期 24.3% 的營益率。再拆一層就會發現,這 52% 裡只有約三成來自量,其餘來自毛利率位移(+370bp)與費用紀律(營業費用兩年只增 16%,營收增 32%)。我們的切角是:33 倍買的其實是這條斜率的延續,而斜率的兩個來源一個有物理上限、一個只能用一次。另外有個容易誤讀的細節——公布口徑下去年同期是 0.61 而非表上的 0.70,所以 0.674 的共識是 YoY 約 +10%,不是衰退。</div>
+  <div class="warn"><b>時效</b>:這是 2026-10-19 的快照,下次財報 2026-10-29(共識 EPS 0.674)。情境 EPS 為本文估算(base = 賣方下一財年共識),假設列於表內;不是公司或賣方數字。</div>
+
+  <h2>公司在做什麼</h2>
+  <p>DexCom 做的是連續血糖監測(CGM):一枚貼在身上的感測器持續量測血糖,把數據傳到手機或第三方 App,取代傳統扎手指。客戶是糖尿病患者與醫療院所,產品線含 G6、開發中的 G7、面向基礎族群的 Dexcom ONE、遠端監測 Dexcom Share 與 Real-Time API,並與 Verily 有合作。賺錢方式是硬體帶動之後,感測器耗材週期性重複購買,現金流接近訂閱型態。</p>
+  <div class="card"><div class="cardhd">近 8 季 · 營收 $B 與毛利率</div><div id="qchart" class="chart sm"></div></div>
+  <table><thead><tr><th>季</th><th>營收</th><th>毛利率</th><th>營益率</th><th>稀釋 EPS</th><th>營收 YoY</th></tr></thead><tbody><tr><td>2024Q3<span class='mut'> 2024-09</span></td><td>$0.99B</td><td>59.7%</td><td>15.3%</td><td>0.34</td><td class='neg'>—</td></tr><tr><td>2024Q4<span class='mut'> 2024-12</span></td><td>$1.11B</td><td>58.9%</td><td>17.0%</td><td>0.38</td><td class='neg'>—</td></tr><tr><td>2025Q1<span class='mut'> 2025-03</span></td><td>$1.04B</td><td>56.9%</td><td>12.9%</td><td>0.27</td><td class='neg'>—</td></tr><tr><td>2025Q2<span class='mut'> 2025-06</span></td><td>$1.16B</td><td>59.5%</td><td>18.4%</td><td>0.45</td><td class='neg'>—</td></tr><tr><td>2025Q3<span class='mut'> 2025-09</span></td><td>$1.21B</td><td>60.5%</td><td>20.1%</td><td>0.7</td><td class='pos'>+22%</td></tr><tr><td>2025Q4<span class='mut'> 2025-12</span></td><td>$1.26B</td><td>62.9%</td><td>25.6%</td><td>0.68</td><td class='pos'>+13%</td></tr><tr><td>2026Q1<span class='mut'> 2026-03</span></td><td>$1.19B</td><td>62.9%</td><td>21.4%</td><td>0.51</td><td class='pos'>+15%</td></tr><tr><td>2026Q2<span class='mut'> 2026-06</span></td><td>$1.31B</td><td>63.4%</td><td>24.3%</td><td>0.64</td><td class='pos'>+13%</td></tr></tbody></table>
+  <p class="mut" style="font-size:.85rem">TTM:EPS 2.53 · 本益比 33.2× · EV/Sales 6.6× · FCF 殖利率 4.3% · ROIC 22% · 近 4 季 FCF $1.4B、回購 $1.1B、股利 $0.0B</p>
+
+  <h2>先對齊口徑:0.674 不是衰退,是 YoY 約 +10%</h2><p>這份財報最容易被誤讀的是 Q3 的同比基期。季表上 2025Q3 的稀釋 EPS 是 0.70,但當季財報公布的實際值是 0.61;同一季營益率只有 20.1%,低於 2026Q2 的 24.3%,EPS 卻更高,代表那 0.09 的差額來自營業線以下。資料沒告訴我們它是什麼,我們也不猜。</p><p>口徑差並不穩定,這點初稿型分析常搞錯。由近而遠對帳四次:+0.06、+0.05、0.00、−0.09。所以把季表 GAAP 和共識混著比會出錯。用公布(調整後)口徑看,共識 0.674 對去年的 0.61 是 +10%;用 GAAP 看則變成 −4%。我們後面所有情境一律掛在公布口徑上。</p><p>順帶一個估值的小修正:TTM EPS 2.53 含了那 0.09;若剔除約為 2.44,本益比就從資料給的 33.2 倍變成約 35 倍(直接用 86.04 ÷ 2.53 算是 34 倍,口徑微差不影響結論)。差距不大,但方向是「比帳面再貴一點」,不是更便宜。</p><h2>真正的切角:增量營益率 52%,量只占三成</h2><p>把 2024Q3 當起點、2026Q2 當終點:營收 $0.99B → $1.31B(+32%),營業利益約 $151M → $318M(+110%)。增量營益率 52%,也就是每多一塊錢營收有 0.52 元落到營業利益,遠高於當期 24.3% 的營益率。我們認為市場用 33 倍買的,大致就是這條斜率會延續。</p><p>拆成三塊看會清楚很多:純量的貢獻(以起點 15.3% 營益率計)約 $49M;毛利率從 59.7% 走到 63.4%(+370bp)貢獻約 $48M;費用紀律貢獻約 $69M——營業費用兩年只從約 $440M 增到約 $512M(+16%),營收卻增了 32%。三塊相加約 $167M,量占不到三成。</p><p>這為什麼可證偽:毛利率與費用率是水平位移,有上限;量才是斜率。粗算一下,若毛利率停在 63% 附近、費用恢復接近營收的成長,常態增量營益率大約會從 52% 退到四成上下,EPS 成長就會向「營收十位數初段 + 回購」收斂。我們要強調的是:這還沒發生——近四季營收 YoY 是 13% / 15% / 13%,相當持平,減速目前只存在於 Q3 共識隱含的 +10% 裡($1.33B 對去年 $1.21B)。</p><h2>第二引擎:現金比帳面獲利多出約五成</h2><p>看多方最硬的一塊是現金。TTM 自由現金流 $1.4B;用市值 $32B 除以股價 86.04 回推約 3.72 億股,乘上 TTM EPS 2.53 得 GAAP 淨利約 $0.94B,也就是 FCF 約為帳面獲利的 1.4–1.5 倍。換個說法:FCF 殖利率 4.3%,盈餘殖利率約 3%。用本益比看這家公司,會比用現金看它貴。</p><p>回購是第三引擎,但不該高估。近四季回購 $1.1B,等於 FCF 的 79%、市值的 3.4%,股利為零。問題是資料裡沒有股數與股權酬勞,所以「買回 3.4% 市值」不等於「EPS 加 3.4%」;我們保守抓年化 1.5–2.5%,而這也是我們模型裡最不確定的一塊。</p><p>最後是季節形狀。Q1 偏弱(2025Q1 營益率 12.9%、2026Q1 21.4%),Q4 偏強(2025Q4 25.6%)。公布口徑下 H1 2026 是 0.56 + 0.70 = 1.26,全年共識 2.67 扣掉 Q3 共識 0.674,隱含 Q4 約 0.74,比 2025Q4 的 0.68 高約 9%。所以 10/29 的看點之一,是這個 0.74 在財報後看起來保守還是吃力。</p><h2>情境:FY26 的分散度天生很窄,賭注其實在 FY27</h2><p>先講一件結構性的事:base 2.66955 是 2026-12-31 結束的財年,而公布口徑的 H1 已經鎖定在 1.26,只剩 H2 的 1.41 可以變動。這代表全年 EPS 要偏離 18%,H2 得偏離三成以上——在「毛利率回落 150–200bp」這種假設下根本算不出來。我們因此把情境帶寬收窄,並把真正的分歧放到 FY27。</p><p>Bear(−11%,約 2.38):H2 營收略低於共識(Q3 約 $1.31B,YoY +8–9%),毛利率自 63.4% 回落至 61.5% 附近,營業費用不同步收斂,H2 營益率約 19–20%(對比 H1 的 22.9%、以及共識隱含的 23–24%),H2 營業利益較隱含低約兩成,H2 EPS 約 1.12,全年約 2.38,對現價約 36 倍。外推到 FY27 大約 2.6–2.8,比共識 3.13 低 10–17%。</p><p>Bull(+7%,約 2.86):H2 營收略高於共識(Q3 約 $1.36B,YoY +12%),毛利率再進約 100bp 到 64.5%,費用槓桿把 H2 營益率推到 26–27%,再加年化 1.5–2.5% 的股數減少,H2 EPS 約 1.60,全年約 2.86,對現價約 30 倍。在這條路徑上,FY27 的 3.13 才算有支撐。</p><p>合理本益比我們放 28(合理區間 25–32)。往上的理由是現金:FCF 是 GAAP 淨利的 1.4–1.5 倍、ROIC 22%、耗材重複購買的收入形態;往下的理由是斜率:營收 YoY 已在 13% 附近,毛利率與費用這兩個位移型來源的易摘果實不多了。28 倍錨在 FY26 的 2.67 約 $75(低於現價約 13%);錨在 FY27 的 3.13 約 $87.5,幾乎等於現價——也就是市場目前大致是用 FY27 在定價。相對座標:賣方中值 95.5 相當於 FY27 的 30.6 倍、低標 77 相當於 24.6 倍、高標 115 相當於 36.8 倍;第三方 GuruFocus 的 GF Value 103.59(對應 10/15 股價 87.71)是他們的模型,不是我們的。</p><h2>Steelman:兩邊最強的反論</h2><p>看多最強版本:成本曲線是永久性下移,不是一次性。10/18 Seeking Alpha 一篇文章的標題主張 15 天感測器在第二型浪潮到來「之前」就把成本曲線壓下去了;若屬實,單位經濟會被重設一次,而量還在後面。配上 FCF 是帳面獲利的 1.4–1.5 倍、ROIC 22%、近期 BTIG、RBC、TD Cowen、Truist、Argus、Canaccord 六家清一色正面,33 倍對這種資產未必苛刻。這個論點我們打不倒——我們沒有渠道、用戶增量或定價資料可以反證,若成本曲線是分段下移,52% 的斜率還能再撐幾季。我們只能設條件:它要求營收 YoY 在 Q3 之後回升,而不是停在 10%。</p><p>看空最強版本:毛利率五季從 56.9% 拉到 63.4%(約 +650bp),費用兩年只增 16%,好摘的果子摘得差不多;一旦兩者走平,EPS 成長就只剩營收十位數初段加回購兩個百分點,配 33–35 倍是負的風險溢酬。我們的回應是:邏輯成立,但尚未發生——62.9% / 62.9% / 63.4% 這三季看不出明確頂部,公布口徑的超標也已連四次(最近兩次 +20.3%、+14.6%)。所以這目前是風險,不是事實。</p><p>我們的位置偏向「相對不便宜」,不是看空。同樣的錢,買到的是一個增量營益率已經很高、而量還要自我證明的資產;這是順序問題,不是貴賤問題。我們傾向等 10/29 把毛利率的持續性與營收的斜率各給一個數字,再決定要不要為 FY27 的 3.13 付錢。</p><h2>我可能錯在哪</h2><p>第一,共識營收可能只是保守。我們拿 $1.33B 隱含的 +10% 當減速證據,但資料只有 EPS 的歷史超標紀錄、沒有營收的;如果營收共識本來就偏低,我們整段「減速」會是誤判。第二,起點選擇其實對我們不利:52% 是用資料最早的 2024Q3 當起點算的,若改用 2024Q4 或 2025Q2 當起點,增量營益率會算到 65–70%——槓桿可能比我們說的還強,也可能只是 2025Q1 低基期在作怪,我們分不出來。</p><p>第三,口徑。我們把 2025Q3 那 0.09 當成營業線以下的一次性,但資料沒有說明;若它其實是經常性的,我們的同比基期就算錯了。第四,回購。我們看不到股數與股權酬勞,1.5–2.5% 的假設可能偏低,公司若在股價回落時加碼,bull 的 +7% 就偏保守。第五,評價本身可以維持很久:六家券商一致正面,de-rating 不會因為我們覺得該發生就發生。</p><p>最後一個誠實的限制:我們手上只有八季損益表、現金流摘要與一張共識表,沒有渠道數據、新用戶增量或定價協議。所以我們的做法是把論點壓成幾個 10/29 當天就能用公開數字否證的門檻,錯了就認。</p>
+
+  <h2>情境 EPS 與對應本益比</h2>
+  <div class="card"><div class="cardhd">下一財年 EPS · bear / base / bull(本文估算)</div><div id="scen" class="chart sm"></div></div>
+  <table><thead><tr><th>情境</th><th>EPS</th><th>現價 $86.04 對應本益比</th><th>28× 合理價</th><th style="text-align:left">假設</th></tr></thead><tbody>
+    <tr><td>Bear</td><td>$2.38</td><td>36×</td><td>$67</td><td style="text-align:left">公布口徑 H1 已鎖定 1.26,只有 H2 可變。假設 Q3 營收約 $1.31B(YoY +8–9%)、毛利率自 63.4% 回落至 61.5% 附近、營業費用不同步收斂使 H2 營益率降到 19–20%(H1 為 22.9%,共識隱含 23–24%),H2 營業利益較隱含低約兩成,H2 EPS 約 1.12,全年約 2.38,對現價約 36 倍;外推 FY27 約 2.6–2.8,較共識 3.13 低 10–17%。</td></tr>
+    <tr><td><b>Base</b>(賣方共識)</td><td><b>$2.67</b></td><td>32×</td><td>$75</td><td style="text-align:left">下一財年共識 EPS</td></tr>
+    <tr><td>Bull</td><td>$2.86</td><td>30×</td><td>$80</td><td style="text-align:left">Q3 營收約 $1.36B(YoY +12%),毛利率再進約 100bp 到 64.5%,費用槓桿把 H2 營益率推到 26–27%,加年化 1.5–2.5% 的股數減少,H2 EPS 約 1.60,全年約 2.86,對現價約 30 倍。此路徑下增量營益率維持在 55% 以上,FY27 的 3.13 才算有支撐。</td></tr>
+  </tbody></table>
+  <p class="mut" style="font-size:.85rem">合理本益比 28× 的理由:合理區間 25–32,取中值 28。往上的理由:FCF $1.4B 約為推算 GAAP 淨利 $0.94B 的 1.4–1.5 倍、FCF 殖利率 4.3%、ROIC 22%、耗材重複購買的收入形態。往下的理由:營收 YoY 已在 13% 附近,毛利率與費用這兩個位移型的獲利來源空間有限。28 倍錨 FY26 的 2.67 約 $75(低於現價約 13%),錨 FY27 的 3.13 約 $87.5(約等於現價),賣方中值 95.5 相當於 FY27 的 30.6 倍。。賣方目標價 中值 $95.5(高 $115 / 低 $77)。</p>
+
+  <h2>財報 vs 共識(EPS)</h2>
+  <table><thead><tr><th>公布日</th><th>共識</th><th>實際</th><th>差距</th></tr></thead><tbody><tr><td>2026-07-30</td><td>0.611</td><td>0.7</td><td class='pos'>+14.6%</td></tr><tr><td>2026-04-30</td><td>0.4656</td><td>0.56</td><td class='pos'>+20.3%</td></tr><tr><td>2026-02-12</td><td>0.65</td><td>0.68</td><td class='pos'>+4.6%</td></tr><tr><td>2025-10-30</td><td>0.576</td><td>0.61</td><td class='pos'>+5.9%</td></tr><tr><td>2025-07-30</td><td>0.4436</td><td>0.48</td><td class='pos'>+8.2%</td></tr><tr><td>2025-05-01</td><td>0.3272</td><td>0.32</td><td class='neg'>-2.2%</td></tr><tr><td>2025-02-13</td><td>0.4792</td><td>0.45</td><td class='neg'>-6.1%</td></tr><tr><td>2024-10-24</td><td>0.44</td><td>0.45</td><td class='pos'>+2.3%</td></tr></tbody></table>
+
+  <h2>要盯什麼(可對帳)</h2>
+  <table><thead><tr><th>訊號</th><th>門檻</th><th style="text-align:left">意義</th></tr></thead><tbody><tr><td>Q3 毛利率 vs 2026Q2 的 63.4%</td><td>≥63.5% 為續航;62.0–63.4% 為走平;&lt;62.0% 為回吐</td><td style='text-align:left'>直接檢驗成本曲線是結構性下移還是已經完成的一次性台階,是這次財報資訊量最高的單一數字。</td></tr><tr><td>Q3 營收 vs 共識 $1.33B(對去年 $1.21B 約 +10%)</td><td>≥$1.36B(YoY ≥12%)我們的減速論受挫;≤$1.32B(≤9%)則確認</td><td style='text-align:left'>決定量能不能接棒。毛利率走平又碰上營收個位數成長,EPS 成長就會塌回十位數初段。</td></tr><tr><td>Q3 增量營益率 =(本季營業利益 − 去年同期約 $243M)÷ 營收增量</td><td>≥55% 斜率續命;35–55% 正在正常化;&lt;35% 槓桿退潮</td><td style='text-align:left'>這條最貼近我們的核心論點:兩年平均是 52%,本季落在哪一段,決定 33 倍是外推還是透支。</td></tr><tr><td>隱含 Q4 的獲利門檻(公布口徑)</td><td>2.67 − H1 的 1.26 − Q3 共識 0.674 ≈ 0.74,對比 2025Q4 的 0.68 約高 9%</td><td style='text-align:left'>若 Q3 超標但管理層對下半年的口吻讓 0.74 顯得吃力,這次 beat 的含金量要打折。</td></tr><tr><td>回購節奏</td><td>季均維持約 $275M(近四季合計 $1.1B)</td><td style='text-align:left'>回購是 EPS 第三引擎(占 FCF 79%、市值 3.4%);若放緩,bull 的 +7% 要再砍 1–2 個百分點。</td></tr></tbody></table>
+  <div class="steel"><h3>可證偽的論點</h3><p>我們認為 10/29 真正被定價的,是過去兩年 52% 增量營益率裡「只有三成來自量」這個結構能不能改變,而不是 EPS 會不會超標(公布口徑下 0.674 本就是 YoY 約 +10%,不是衰退)。若 Q3 同時出現營收 ≥$1.36B 與毛利率 ≥63.5%、使增量營益率仍在 55% 以上,我們這套「槓桿正在正常化」的看法就是錯的。</p></div>
+
+  <div class="foot">資料來源:FMP(季報表、現金流、TTM 指標、共識目標價與評等、財報 vs 共識、年度 EPS 共識,2026-10-19);公司簡介 FMP profile;新聞 Google News(近 14 天):<a href='https://news.google.com/rss/articles/CBMiswFBVV95cUxPSzdIY3JDVW9RT3kwZEM1VDZKZjUxVTZHMXFRUVd0VFNScERKVUR1Z1hZeGdLN0dscDhmaG5ocGEtR3BwbGtNMmZxNmc1SEdzV19RckI3eGp4UG9NUXpJZk1GMkdtVHZZLW1rWjV0QmVYX2NBTFk1dmdaRnZnWFZFR2tDR0VPcU5IYmx2TmxYcGhlb3JpU256WVFLVkZKYkQ1RG1wYVdQNGZZRHpIWGI4LXRuZw?oc=5'>DexCom: The 15-Day Sensor Lowered The Cost Curve Before The </a>(Seeking Alpha 10-18) · <a href='https://news.google.com/rss/articles/CBMid0FVX3lxTE4tRTdjbUVyUjZwZDZwOHZ4U0M3WERyQzUxX2k3cld4c3V4LXpFMWc4MTZ4emtkWW1oUGoxQV9vS1RCdFBvU2piY1BQT2s5d0JDOFg4TlhNbV96cDZ6YlhPa3BONDJCVWxlTmdfT1QtQ284S01xNG5J?oc=5'>DexCom (NasdaqGS:DXCM) Stock Forecast &amp; Analyst Predictions</a>(Simply Wall Street 10-15) · <a href='https://news.google.com/rss/articles/CBMivwFBVV95cUxOUl9hanhoVkFmMFFTR19UcEFfTGpHc1F4OG1hdGo3c0lVV2lQRjZXMXNyak5mQ3cyNVVWUVI2c3ZTTl8xWnJHSWZpVm1sUjBVNUNKM0pwd2YxMFhCNTNRRGQxWk5Bbll0a18wYWRlNmVFLXJSdndlZmd0UmtYVUxSZEpqeXM2VkZpWjFJSnlCV0stSkxpNHFCTjN0a2dDWHlvTFRpbXMzZEVjVHZzR0M0anE0VXU1UTVQODJwQzB1TQ?oc=5'>DexCom Inc. stock outperforms competitors on strong trading </a>(MarketWatch 10-15) · <a href='https://news.google.com/rss/articles/CBMiqwFBVV95cUxPZ1RId3NObmE0ajBZeDVEQllGaW1WMnQteGpScjFyNmNHTWx2dEltQkZ2b3dhWE5mWTFQOVdrNGpOeFJ1TGxPRVJ6LUtGSUdtSS14RGYzeUF6Sm50TXpnSWJ3Mm5reEpTd0EyV19LTF9qNE4tcnlZSU9ZcEN2SlhBM2Q0SU5KZ0toTldDQTFpTUtpWDBucDY0T0pYN0NwaUx3azhQelRRODdnb1k?oc=5'>A Look at DexCom Inc (DXCM) After 5.1% Gain -- GF Value $103</a>(GuruFocus 10-15) · <a href='https://news.google.com/rss/articles/CBMixAFBVV95cUxQMGY5cC1sYkZ5OGpRVHlJNUx2SFNyZjl3Rk1XeTM2U0xEdko1X29LeHZqaFJxRE56b1RhTnpIS2RzMWEwUERUazAxZlBubjVrd0lXcDVUNGh4MmJ3U0JVRmpMS01laV90VVNUb3JQclAwcDFabVBrcmhOSVM3RzVrSHhvSEpIajdYb2R0WGY4WkVJd29NWUFlYjR0Qi1HT0k1ZTVXdFdnRGpOM19UNHRiZFU3dDl6WmtzaUVGck8yTVdmTjFH0gHKAUFVX3lxTE1YTjNzUVBpek5tMElYZW5uN3JwMUllR1BGSnNCajdxU1ZUSDB3cnY4cHFOUHA0YW9tQzlPb18yS0FkbGU3TXZoTkQ4R1FtZUEzQTFjR3RPTnRQeG9xTkFKWnhRWjlrNWdHSTZYUWpLWFp0WXNlWHNtenNZZGJOTzlhRHlkWnNyNWN4eHk1NVpkV2NWdmVwQ1NtT2pEOHU1SUxRYnZEbWF1ZFZVWGRJcWtTemVtU185bWFHeGluRVlGYkFGM1E2a2Z4MUE?oc=5'>DexCom (DXCM) Just Drew Fresh Attention, So What Is The Mark</a>(Simply Wall Street 10-15) · <a href='https://news.google.com/rss/articles/CBMibkFVX3lxTE9nYkpTMW4tYnNSODdsbGNHWEo3SWlPb0JiSDZJQkY5YkNsLVJsRm9JcTQwUU9HY284WjdJMmFHLURKSVhqQk0yTXBsZF92VkxDQVZiRnF2YWRSTXhXU0swWDROYWtGLUI4aFE3OEp3?oc=5'>DexCom (Nasdaq:DXCM) - Stock Analysis</a>(Simply Wall Street 10-14)。
+    文字由 Blue Morpho 研究引擎(Claude)依上列資料撰寫,經第二輪對抗審稿(修正 13 處);情境與合理本益比為估計。非投資建議。</div>
+</div>
+<script>
+const V=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const MONO='"JetBrains Mono","SF Mono",monospace';
+const TIP={backgroundColor:V('--panel'),borderColor:V('--line'),textStyle:{color:V('--tx2'),fontFamily:MONO,fontSize:11}};
+function mk(id){const c=echarts.init(document.getElementById(id),null,{renderer:'canvas'});window.addEventListener('resize',()=>c.resize());return c;}
+mk('qchart').setOption({backgroundColor:'transparent',grid:{left:44,right:44,top:20,bottom:30},tooltip:Object.assign({trigger:'axis'},TIP),
+  xAxis:{type:'category',data:["2024Q3", "2024Q4", "2025Q1", "2025Q2", "2025Q3", "2025Q4", "2026Q1", "2026Q2"],axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:10},axisLine:{lineStyle:{color:V('--line')}}},
+  yAxis:[{type:'value',name:'$B',axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9},splitLine:{lineStyle:{color:V('--panel')}}},
+         {type:'value',name:'GM%',min:30,max:70,axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9,formatter:'{value}%'},splitLine:{show:false}}],
+  series:[{name:'營收 $B',type:'bar',data:[0.99, 1.11, 1.04, 1.16, 1.21, 1.26, 1.19, 1.31],itemStyle:{color:V('--cy'),borderRadius:[3,3,0,0]},barWidth:18},
+          {name:'毛利率',type:'line',yAxisIndex:1,data:[59.7, 58.9, 56.9, 59.5, 60.5, 62.9, 62.9, 63.4],itemStyle:{color:V('--gr')},lineStyle:{width:2},symbol:'circle'}]});
+mk('scen').setOption({backgroundColor:'transparent',grid:{left:44,right:14,top:16,bottom:28},tooltip:Object.assign({trigger:'axis',valueFormatter:v=>'$'+v},TIP),
+  xAxis:{type:'category',data:['Bear','Base','Bull'],axisLabel:{color:V('--tx2'),fontFamily:MONO,fontSize:11},axisLine:{lineStyle:{color:V('--line')}}},
+  yAxis:{type:'value',axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9,formatter:'${value}'},splitLine:{lineStyle:{color:V('--panel')}}},
+  series:[{type:'bar',data:[{value:2.38,itemStyle:{color:V('--rd')}},{value:2.67,itemStyle:{color:V('--cy')}},{value:2.86,itemStyle:{color:V('--gr')}}],
+           barWidth:36,itemStyle:{borderRadius:[3,3,0,0]},label:{show:true,position:'top',color:V('--tx2'),fontFamily:MONO,fontSize:11,formatter:p=>'$'+p.value}}]});
+</script></body></html>
