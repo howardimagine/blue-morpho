@@ -1,43 +1,43 @@
 {
-  "date": "2026-10-19",
-  "headline": "醫療器材逆勢站上輪動前排,糖尿病這一層最先動起來",
+  "date": "2026-10-20",
+  "headline": "科技股續跌的這兩天,錢往油氣的現金流擠,康菲石油排在前面",
   "theme": "Energy / Oil & Gas",
   "regime": "neutral",
   "picks": [
     {
-      "symbol": "DXCM",
-      "name": "DexCom, Inc.",
+      "symbol": "COP",
+      "name": "ConocoPhillips",
       "tier": "ready",
-      "theme": "Medical Devices",
-      "rsi": 50.3,
-      "ma_stack": "mixed",
+      "theme": "Energy / Oil & Gas",
+      "rsi": 71.2,
+      "ma_stack": "bullish",
       "price": null,
-      "business": "DexCom, Inc., a medical device company, focuses on the design, development, and commercialization of continuous glucose monitoring (CGM) systems for the management of diabetes and metabolic health in the United States and internationally.…",
-      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
+      "business": "ConocoPhillips explores for, produces, transports, and markets crude oil, bitumen, natural gas, liquefied natural gas (LNG), and natural gas liquids. It operates in five segments: Alaska; Lower 48; Canada; Europe, Middle East and North Afr…",
+      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面 MA 結構為 <strong>bullish</strong>，整體偏多。",
       "rr": null
     },
     {
-      "symbol": "AMZN",
-      "name": "亞馬遜",
+      "symbol": "CVX",
+      "name": "Chevron Corporation",
       "tier": "ready",
-      "theme": "Cloud Infrastructure",
-      "rsi": 45.0,
-      "ma_stack": "mixed",
+      "theme": "Energy / Oil & Gas",
+      "rsi": 69.5,
+      "ma_stack": "bullish",
       "price": null,
-      "business": "電商 + AWS 雲服務;Trainium 自研 AI 晶片(透過 MRVL 代工)。",
-      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
+      "business": "Chevron Corporation, through its subsidiaries, engages in the integrated energy and chemicals operations in the United States and internationally. It operates through Upstream, Downstream, and All Other segments. The Upstream segment engag…",
+      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面 MA 結構為 <strong>bullish</strong>，整體偏多。",
       "rr": null
     },
     {
-      "symbol": "DLR",
-      "name": "Digital Realty Trust, Inc.",
+      "symbol": "CSCO",
+      "name": "Cisco Systems, Inc.",
       "tier": "ready",
       "theme": "Cloud Infrastructure",
-      "rsi": 44.4,
+      "rsi": 41.6,
       "ma_stack": "mixed",
       "price": null,
-      "business": "Digital Realty Trust, Inc. owns, acquires, develops, and operates data centers through its operating partnership subsidiary, Digital Realty Trust, L.P. The company is focused on providing data center, colocation, and interconnection soluti…",
-      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過半數以上 Screener 條件。",
+      "business": "Cisco Systems, Inc. designs, develops, and sells technologies that help to power, secure, and draw insights from the internet in the Americas, Europe, the Middle East, Africa, the Asia Pacific, Japan, and China. The company offers data cen…",
+      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
       "rr": null
     }
   ],
@@ -45,22 +45,22 @@
   "policy": [
     {
       "topic": "川普 × 個股機會",
-      "title": "US stocks hover near their latest record in mixed trading on Wall Street",
-      "summary_zh": "美股在接近高點附近呈現分歧走勢,道瓊與那斯達克方向不一,顯示資金在不同類股之間移動而非整體進出。",
-      "source": "Boston Herald"
+      "title": "Why Is Palantir Technologies Stock Gaining Monday?",
+      "summary_zh": "媒體檢視 Palantir 週一走強的原因,市場把它與政府相關需求的預期連在一起。這類題材的波動來自預期而非當期訂單。",
+      "source": "Benzinga"
     },
     {
       "topic": "川普 × 個股機會",
-      "title": "US stocks hover near their latest record in mixed trading on Wall Street; Dow Jones rose and Nasdaq composite slipped",
-      "summary_zh": "同一則行情描述指出道瓊走高而那斯達克收低,科技與傳產的背離是近期盤面的主要特徵。",
-      "source": "ABC7 Los Angeles"
+      "title": "XLAB Stock Surges 20% On NVIDIA GPU Server Deal",
+      "summary_zh": "XLAB 因取得 NVIDIA GPU 伺服器相關合作而大漲,顯示市場對算力供應鏈的消息仍相當敏感。",
+      "source": "StocksToTrade"
     }
   ],
   "themes": [],
   "stats": {
     "n_picks": 3,
     "n_themes": 0,
-    "journal_total": 619
+    "journal_total": 622
   },
   "_note": "命中率/超額待回測樣本成熟;entry/alpha/vol 未提供(歷史不足)。"
 }

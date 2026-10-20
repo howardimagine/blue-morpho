@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../theme.js"></script>
+<title>共識 11.25 的隱藏條件:COP 下半年要再做兩次 Q2 的 36.7% — Blue Morpho 財報深研</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<style>
+  :root{ --bg:#02020a; --panel:#0b0b1a; --panel2:#0a0e17; --line:#1a2238;
+    --cy:#00f3ff; --gr:#00ff9d; --rd:#ff5d5d; --am:#ffd000; --pp:#7a5cff;
+    --tx:#e0f7fa; --tx2:#cfe3ee; --mut:#8895a8;
+    --mono:"JetBrains Mono","SF Mono","Menlo","Consolas",monospace;
+    --sans:-apple-system,"PingFang TC","Noto Sans TC",sans-serif; }
+  *{box-sizing:border-box}
+  html,body{margin:0;overflow-x:hidden;max-width:100%}
+  body{background:var(--bg);color:var(--tx2);font-family:var(--sans);line-height:1.8;
+    background-image:radial-gradient(1200px 600px at 70% -10%,rgba(0,243,255,.06),transparent 60%);}
+  .wrap{max-width:860px;margin:0 auto;padding:32px 20px 80px}
+  .kick{font-family:var(--mono);font-size:12px;letter-spacing:.22em;color:var(--cy);text-transform:uppercase}
+  h1{font-family:var(--mono);font-size:clamp(1.5rem,4.5vw,2.2rem);line-height:1.25;color:var(--tx);
+    font-weight:700;margin:6px 0 14px;letter-spacing:.01em}
+  h2{font-family:var(--mono);font-size:1.05rem;color:var(--cy);margin:36px 0 10px;letter-spacing:.04em}
+  h2::before{content:"▎ ";color:var(--cy)}
+  h3{font-size:1rem;color:var(--tx);margin:20px 0 6px}
+  p{margin:10px 0}
+  b,strong{color:var(--tx)}
+  a{color:var(--cy);text-decoration:none;border-bottom:1px solid rgba(0,243,255,.3)}
+  .tldr{background:linear-gradient(180deg,rgba(0,243,255,.06),transparent);border:1px solid var(--line);
+    border-radius:8px;padding:16px 18px;margin:14px 0;font-size:.95rem}
+  .warn{background:rgba(255,208,0,.05);border:1px solid rgba(255,208,0,.3);
+    border-radius:8px;padding:14px 16px;margin:14px 0;font-size:.9rem;color:var(--am)}
+  .steel{background:rgba(122,92,255,.06);border:1px solid rgba(122,92,255,.4);
+    border-radius:8px;padding:16px 18px;margin:16px 0}
+  .steel h3{color:var(--pp);margin-top:0}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;margin:14px 0}
+  .cardhd{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--cy);margin-bottom:6px;text-transform:uppercase}
+  .chart{width:100%;height:420px}
+  .chart.sm{height:340px}
+  .leg{display:flex;gap:16px;justify-content:center;margin-top:8px;font-size:11px;font-family:var(--mono)}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.86rem}
+  th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:right}
+  th:first-child,td:first-child{text-align:left}
+  thead th{color:var(--cy);font-family:var(--mono);font-size:11px;letter-spacing:.06em;
+    text-transform:uppercase;border-bottom:1px solid var(--cy)}
+  tbody tr:hover{background:rgba(0,243,255,.03)}
+  .pos{color:var(--gr)} .neg{color:var(--rd)} .mut{color:var(--mut)}
+  .pill{display:inline-block;font-family:var(--mono);font-size:10px;padding:2px 8px;border-radius:4px;
+    border:1px solid var(--line);color:var(--mut)}
+  hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+  .foot{color:var(--mut);font-size:.78rem;margin-top:30px;line-height:1.7}
+  ul{padding-left:20px} li{margin:6px 0}
+  .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;
+    font-family:var(--mono);font-size:12px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+  .topbar a{border:0}
+  .topbar .brand{color:var(--cy);letter-spacing:.2em;font-weight:700}
+  .topbar .nav a{color:var(--mut);margin-left:16px}
+  .topbar .nav a:hover{color:var(--cy)}
+
+  :root:not([data-theme="dark"]){ --bg:#ffffff; --panel:#f6f8fb; --panel2:#edf1f6; --line:#dce3ec;
+    --cy:#0891b2; --gr:#ea580c; --rd:#1d4ed8; --am:#f59e0b; --pp:#0ea5e9; --tx:#0b1220; --tx2:#334155; --mut:#64748b; }
+  .theme-btn{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;color:var(--mut);background:transparent;border:1px solid var(--line);border-radius:4px;padding:4px 8px;cursor:pointer;margin-left:10px}
+</style>
+</head><body><div class="wrap">
+  <div class="topbar"><a href="/" class="brand">◆ BLUE MORPHO</a>
+    <div class="nav"><a href="/industries.html">產業</a><a href="/stocks.html">個股</a><a href="/weekly.html">週報</a></div></div>
+  <div class="kick">Blue Morpho · 財報深研 · COP · 資料截至 2026-10-20</div>
+  <h1>共識 11.25 的隱藏條件:COP 下半年要再做兩次 Q2 的 36.7%</h1>
+  <div class="tldr"><b>一句話論點</b>:市場在吵油價方向,但 11/5 真正要對帳的是水位:FY26 共識 11.25 隱含下半年毛利率要維持在 2026Q2 的 36.7% 附近(Q3 共識 3.00 大約對應 34–36%),而共識自己又把 FY27 放在 10.27、比下半年年化低約 16%。我們賭的是時點——回落可能早於共識的排程;若 Q3 毛利率 ≥34% 且 Q4 指引撐得住 3.0 以上,我們就錯了。<br><br><span class="pill">切角</span> 市場的爭論停在油價往哪走(近兩週一邊有研究喊「原油北上」,一邊有分析師以估值為由降評)。我們認為被忽略的是賣方估計本身的形狀:FY2026 共識 11.25,上半年已實現約 5.1,剩下的約 6.1 幾乎平分給 Q3、Q4——Q3 共識 3.00 搭配 18.54B 營收,用 Q1 與 Q2 的「毛利率→淨利率」斜率粗估,大約需要 34–36% 的毛利率,等於要求 2026Q2 的峰值水位原封不動再撐兩季。但同一批模型又把 FY2027 放在 10.27,比下半年年化的約 12.2 低約 16%。換句話說,共識不是不知道會回落,而是把回落排在 2027。我們的非共識命題是:回落更可能提早一到兩季,下修壓力集中在 2026 的最後兩張財報。這在 11/5 的毛利率與 Q4 指引上可以直接對帳,也可以被推翻。</div>
+  <div class="warn"><b>時效</b>:這是 2026-10-20 的快照,下次財報 2026-11-05(共識 EPS 3)。情境 EPS 為本文估算(base = 賣方下一財年共識),假設列於表內;不是公司或賣方數字。</div>
+
+  <h2>公司在做什麼</h2>
+  <p>ConocoPhillips 是 1917 年成立、總部在休士頓的上游能源公司:在全球探勘、開採油氣,再經運輸與行銷賣給煉廠、公用事業與 LNG 買家。產品包含原油、瀝青、天然氣、LNG 與天然氣液,資產橫跨北美頁岩與緻密油、北美與歐亞澳的常規油氣、多個 LNG 專案,以及加拿大油砂。它賺的是「售價減去開採與運輸成本」的價差,所以獲利與油氣價格高度連動。</p>
+  <div class="card"><div class="cardhd">近 8 季 · 營收 $B 與毛利率</div><div id="qchart" class="chart sm"></div></div>
+  <table><thead><tr><th>季</th><th>營收</th><th>毛利率</th><th>營益率</th><th>稀釋 EPS</th><th>營收 YoY</th></tr></thead><tbody><tr><td>2024Q3<span class='mut'> 2024-09</span></td><td>$13.04B</td><td>27.9%</td><td>22.3%</td><td>1.76</td><td class='neg'>—</td></tr><tr><td>2024Q4<span class='mut'> 2024-12</span></td><td>$14.24B</td><td>29.4%</td><td>20.8%</td><td>1.9</td><td class='neg'>—</td></tr><tr><td>2025Q1<span class='mut'> 2025-03</span></td><td>$16.52B</td><td>30.7%</td><td>25.5%</td><td>2.23</td><td class='neg'>—</td></tr><tr><td>2025Q2<span class='mut'> 2025-06</span></td><td>$14.00B</td><td>25.1%</td><td>18.6%</td><td>1.56</td><td class='neg'>—</td></tr><tr><td>2025Q3<span class='mut'> 2025-09</span></td><td>$15.03B</td><td>24.1%</td><td>18.3%</td><td>1.38</td><td class='pos'>+15%</td></tr><tr><td>2025Q4<span class='mut'> 2025-12</span></td><td>$13.39B</td><td>19.2%</td><td>13.1%</td><td>1.16</td><td class='neg'>-6%</td></tr><tr><td>2026Q1<span class='mut'> 2026-03</span></td><td>$15.76B</td><td>27.3%</td><td>21.5%</td><td>1.78</td><td class='neg'>-5%</td></tr><tr><td>2026Q2<span class='mut'> 2026-06</span></td><td>$19.16B</td><td>36.7%</td><td>31.2%</td><td>3.23</td><td class='pos'>+37%</td></tr></tbody></table>
+  <p class="mut" style="font-size:.85rem">TTM:EPS 7.55 · 本益比 19.2× · EV/Sales 3.0× · FCF 殖利率 5.8% · ROIC 8% · 近 4 季 FCF $10.1B、回購 $5.4B、股利 $4.1B</p>
+
+  <h2>要對帳的不是超不超標,是下半年的毛利率水位</h2><p>問「會不會超標」在 COP 身上幾乎沒有資訊量。過去八次財報七次超標,超標幅度中位數約 +9.2%,唯一一次落後正好是報 2025Q4 的那次(共識 1.07、實際 1.02)。有價差的問題是另一個:要讓 FY2026 共識 11.25 成立,下半年得長成什麼樣的損益表。</p><p>算術先攤開,而且兩種口徑都給你,因為共識是調整後、損益表是 GAAP:調整後上半年實際 1.89 + 3.24 = 5.13(GAAP 是 1.78 + 3.23 = 5.01),減去 Q3 共識 3.00,殘差把 Q4 推到約 3.1–3.25。對照去年同期的 Q4:調整後 1.02、GAAP 1.16。結論只有一句——共識要求 Q4 做到去年同期的近三倍。</p><p>Q3 本身也不輕鬆。共識 3.00 配 18.54B 營收,若用 2026Q1(毛利率 27.3%、淨利率約 13.5%)與 2026Q2(36.7%、約 20.2%)連出的斜率反推,大致需要 34–36% 的毛利率。這是粗估,稅率與業外項目可能讓它偏個一兩個百分點,但方向清楚:賣方模型不是把 Q2 當一次性,而是把它當新水位。</p><h2>波動來自價格不是產量:增量營益率約 60–65%</h2><p>八季裡,營收區間 13.04B 到 19.16B,不到 1.5 倍;毛利率卻從 19.2% 盪到 36.7%,相差 17.5 個百分點。這告訴我們:COP 的利潤變異主要來自價差,不是量。用「營收達不達標」判斷這檔股票,方向就偏了——同樣的營收可以配出兩張完全不同的損益表。</p><p>把它量化成一個係數。2026Q2 對 2025Q2:營收多 5.16B,營業利益從約 2.6B 升到約 6.0B,增量營益率約 65%。反向看 2025Q3 到 Q4:營收少 1.64B,營業利益少約 1.0B,約 61%。也就是說,營收每變動 1 美元,大約有 60–65 美分直接落到營業利益,上下行都成立。這是我們稍後設定 bear/bull 幅度時唯一能被檢驗的錨,不是拍腦袋。</p><h2>這是一門現金分配的生意,而且回報是順週期的</h2><p>近四季自由現金流 10.1B,回購 5.4B 加股利 4.1B 共 9.5B,約等於 FCF 的 94%、市值的 5.5%;TTM FCF 殖利率 5.8%。結論句:COP 把現金幾乎全數發回股東,ROIC 只有 8%,代表再投資複利不是這家公司的主要故事。</p><p>但「幾乎全發回」反過來說,就是股東回報完全綁在 FCF 上,FCF 收斂時回購會是最先讓路的那一項。股利 4.1B 對市值 174B 約 2.4%,與 10/19 那則「2.3% 殖利率只是故事的開始」的標題口徑一致;我們只看得到標題,只能推測它指的是股利以外的回購——而回購恰好也是最容易被砍的一塊。</p><h2>情境與估值:不是便宜或貴,是賠率</h2><p>先給相對座標。現價 145.24 對 FY26 共識 11.25 是 12.9x,對 FY27 的 10.27 是 14.1x,TTM 本益比則是 19.2。賣方目標價中值 156(距現價 +7.4%)、高 189、低 130(-10%),RBC 維持 152,另有分析師剛以估值為由降評。這裡要誠實:FY27 低於 FY26,市場已經部分計入均值回歸,所以我們的主張不是「大家太樂觀」,而是「回落的時點可能早一點」。</p><p>bear 設 -20%(FY26 EPS 約 9.0,現價 16.1x):假設下半年營收比共識路徑低約 6%(Q3 約 17.4B 而非 18.54B),毛利率退回 27% 一帶——那是 TTM 27.7%、八季平均 27.6%,也就是 2026Q1 的水準,對共識隱含的約 35% 是 -8pp。用 60% 的傳導係數算回來,約落在 -20%。</p><p>bull 設 +14%(FY26 EPS 約 12.8,現價 11.3x):毛利率守在 36% 附近——注意這只是「與共識打平」,不是加分,因為共識已經把利潤率用滿;多出來的部分幾乎全來自營收比共識高約 5–6%,再加上年化 5.4B(約市值 3%)的回購縮分母。bull 的結構本身就說明一件事:在這個共識水位上,好消息必須來自量或價的再上一階。</p><p>合理倍數我們用 13x,理由是估計斜率向下(FY27 比 FY26 低 8.7%)、ROIC 僅 8%、成長靠價格而非再投資。13x 乘上穿越週期的 10.3–11.25,得到 134–146,與現價重疊;中值目標 156 則相當於 13.9x FY26 或 15.2x FY27。所以現價的問題不是貴或便宜,是賠率:上檔要靠共識成立,下檔要賭共識不被整排下修。</p><h2>Steelman:三條最強反論,我們有兩條打不倒</h2><p>(1) 賣方對 E&amp;P 的估計本來就滯後,COP 八季七勝、中位數 +9.2%;若 Q3 照中位數打出約 3.28,Q4 只需要約 2.85–2.95 就能湊到 11.25,我們指出的張力自己就消一半。(2) 2025Q4 的 19.2% 毛利率本身可能才是異常值,用最差的一季去定義 Q4 的季節性並不公平。(3) 就算 FY26 下修 20% 到 9.0,16x 的本益比配上(以同比例粗估的)約 4.6% FCF 殖利率,對一家握有 LNG 與油砂長尾資產的大型 E&amp;P,稱不上災難。</p><p>第 (1)、(2) 條我們打不倒,直說。資料裡沒有油價、產量、單位成本與 LNG 開工時程,我們無法判定 2025Q4 的壓縮究竟是價格、維護還是一次性項目;而「共識偏保守」在 COP 身上有八季紀錄撐腰。所以我們的結論不是方向性看空,而是賠率不夠好:上檔被中值 156 的 +7.4% 與一則估值降評壓著,下檔若下半年毛利率真的回到 27% 一帶,鬆動的不只 11.25,10.27 也會跟著往下。第 (3) 條我們部分同意——這正是我們不談做空、只談不對稱性的原因。</p><h2>我可能錯在哪</h2><p>最大的口徑風險:我們用「季度毛利率的形狀」反推 E&amp;P 的獲利持續性,本來就粗糙。COP 的營收含運輸與行銷,毛利率不等於桶油開採成本,中間還有庫存與時點效應。更直接的是 GAAP 與調整後的落差——2025Q3 兩者差了 0.23(1.61 對 1.38),光這個差距就可能吃掉我們指出的部分 Q4 殘差張力。</p><p>第二個風險更基本:我們假設共識的季度分布是 Q3 3.00 加 Q4 殘差。如果賣方實際的拆分更前重後輕,我們指出的張力根本不存在,立論地基就塌一半。這是 11/5 之後最先要回頭檢查的東西。</p><p>第三是宏觀。近期有研究在喊原油北上;若油價走的是趨勢性上行而非區間震盪,高毛利率可以待很久,我們的 bear 會太早、bull 會太保守,13x 也會是套在太低的 EPS 上。我們不預測油價,只想把話說清楚:在 12.9x 的起點買 COP,你主要買的是價格假設的延續性,而不是成本結構或再投資報酬的改善。</p>
+
+  <h2>情境 EPS 與對應本益比</h2>
+  <div class="card"><div class="cardhd">下一財年 EPS · bear / base / bull(本文估算)</div><div id="scen" class="chart sm"></div></div>
+  <table><thead><tr><th>情境</th><th>EPS</th><th>現價 $145.24 對應本益比</th><th>13× 合理價</th><th style="text-align:left">假設</th></tr></thead><tbody>
+    <tr><td>Bear</td><td>$9.00</td><td>16×</td><td>$117</td><td style="text-align:left">下半年營收比共識路徑低約 6%(Q3 約 17.4B,而非共識的 18.54B),毛利率由共識隱含的約 35% 退回 27% 一帶(TTM 27.7%、八季平均 27.6%,即 2026Q1 的水準),相當於 -8pp;以資料算出的 60% 增量營益率傳導,FY26 EPS 約 9.0,現價 16.1x。此情境下回購可能先放緩,分母的保護有限。</td></tr>
+    <tr><td><b>Base</b>(賣方共識)</td><td><b>$11.25</b></td><td>13×</td><td>$146</td><td style="text-align:left">下一財年共識 EPS</td></tr>
+    <tr><td>Bull</td><td>$12.83</td><td>11×</td><td>$167</td><td style="text-align:left">毛利率守在 36% 附近(與共識隱含水位打平,不額外加分),超額全部來自營收比共識高約 5–6%(季均回到 19.5B 一帶,延續 Q2 的 19.16B),再加年化 5.4B、約市值 3% 的回購縮減股本;以 60–65% 的傳導係數算,FY26 EPS 約 12.8,現價 11.3x。</td></tr>
+  </tbody></table>
+  <p class="mut" style="font-size:.85rem">合理本益比 13× 的理由:週期性 E&amp;P 不該套成長倍數:ROIC 僅 8%,估計斜率向下(FY27 共識 10.27 比 FY26 的 11.25 低 8.7%),成長來自價格而非再投資。13x 乘上穿越週期的 10.3–11.25 得 134–146,與現價 145.24 重疊;對照之下中值目標 156 相當於 13.9x FY26 或 15.2x FY27。若油價走趨勢性上行,錯的會是 EPS 太低,而不是倍數太低。。賣方目標價 中值 $156(高 $189 / 低 $130)。</p>
+
+  <h2>財報 vs 共識(EPS)</h2>
+  <table><thead><tr><th>公布日</th><th>共識</th><th>實際</th><th>差距</th></tr></thead><tbody><tr><td>2026-08-06</td><td>2.9</td><td>3.24</td><td class='pos'>+11.7%</td></tr><tr><td>2026-04-30</td><td>1.72</td><td>1.89</td><td class='pos'>+9.9%</td></tr><tr><td>2026-02-05</td><td>1.07</td><td>1.02</td><td class='neg'>-4.7%</td></tr><tr><td>2025-11-06</td><td>1.41</td><td>1.61</td><td class='pos'>+14.2%</td></tr><tr><td>2025-08-07</td><td>1.35</td><td>1.42</td><td class='pos'>+5.2%</td></tr><tr><td>2025-05-08</td><td>2.05</td><td>2.09</td><td class='pos'>+2.0%</td></tr><tr><td>2025-02-06</td><td>1.78</td><td>1.98</td><td class='pos'>+11.2%</td></tr><tr><td>2024-10-31</td><td>1.64</td><td>1.78</td><td class='pos'>+8.5%</td></tr></tbody></table>
+
+  <h2>要盯什麼(可對帳)</h2>
+  <table><thead><tr><th>訊號</th><th>門檻</th><th style="text-align:left">意義</th></tr></thead><tbody><tr><td>Q3 毛利率</td><td>≥34% / 29–34% / &lt;29%</td><td style='text-align:left'>共識 3.00 配 18.54B 大約對應 34–36%。≥34% 表示 2026Q2 的 36.7% 不是單季現象,bull 路線還活;&lt;29%(接近 TTM 27.7%)等於 FY26 的 11.25 當天就需要下修。</td></tr><tr><td>Q3 營收 vs 共識 18.54B</td><td>&gt;19.0B 或 &lt;17.5B</td><td style='text-align:left'>&gt;19.0B 代表 Q2 的 19.16B 量能延續;&lt;17.5B 則顯示 Q2 的跳升含時點成分,Q4 那個 3.1–3.25 的殘差更難成立。</td></tr><tr><td>EPS 相對共識 3.00 的超標幅度</td><td>超標 &lt;5% 或落後</td><td style='text-align:left'>八季七勝、中位數 +9.2%。若只小贏甚至落後,代表賣方模型已追上基本面,慣性超標這條支撐消失,也是估值降評派的直接彈藥。</td></tr><tr><td>Q4 指引(產量、維護停機、資本支出)</td><td>是否足以支撐約 3.1–3.25 的隱含 Q4 EPS</td><td style='text-align:left'>這是我們論點的核心對帳點。若指引暗示 Q4 產量下滑或維護加重,FY26 的 11.25 與 FY27 的 10.27 會一起被往下拉。</td></tr><tr><td>財報後 FY27 共識(現為 10.27)的移動方向</td><td>FY26 下修但 FY27 不動 / 兩者同時下修</td><td style='text-align:left'>只有 FY26 下修,代表只是時點位移,我們的切角對、但傷害有限;兩者同時下修,才是水位被重新定義。</td></tr><tr><td>單季股東回報節奏</td><td>單季回購 &lt;1.3B(對比近四季 5.4B 的年化節奏)</td><td style='text-align:left'>近四季回購加股利 9.5B 約佔 FCF 的 94%。回購縮手等於公司自己認為現金流在收斂,5.8% 的 FCF 殖利率故事先鬆一環。</td></tr></tbody></table>
+  <div class="steel"><h3>可證偽的論點</h3><p>我們認為 FY26 共識 11.25 隱含的下半年毛利率偏高(Q3 約需 34–36%,Q4 殘差約 3.1–3.25),回落有機會早於共識排定的 2027;在 12.9x 的起點,上下檔賠率不夠好——這是賠率判斷,不是做空主張。若 11/5 的 Q3 毛利率 ≥34%,且 Q4 指引足以支撐 3.0 以上的 EPS,我們就是錯的。</p></div>
+
+  <div class="foot">資料來源:FMP(季報表、現金流、TTM 指標、共識目標價與評等、財報 vs 共識、年度 EPS 共識,2026-10-20);公司簡介 FMP profile;新聞 Google News(近 14 天):<a href='https://news.google.com/rss/articles/CBMijwFBVV95cUxQUWp1T1h0azhMMlpiQ3d1RjNxMWJqUG43MllTcG9idDJUUXJoZlJEUEE4ZF9qU0tFM0pkenk5UnU3cUVYT2wyZU95WGlUdWhEQjMxMl9GYjZReUVUVDYwdnVvZTc2UHhkWTNjTVVoWUZIcFhZNDQzWE14Zml5NjROdXplN0lscXBoaENLWm0zNA?oc=5'>ConocoPhillips’ 2.3% Yield Is Just the Start of the Story</a>(Yahoo Finance 10-19) · <a href='https://news.google.com/rss/articles/CBMi0gFBVV95cUxNQ3JDS2laVHMyU3M2N0VnUGNIeHptLUFIYm45NEpFbEhKd3FhbXFwd0xHUEo4VXlaTzNnOGViY21WNWZWczVOMlBmb2VkNWdWMXlPN0ZZa3JZV1lNbDMwck4zQkZhNUFlU0JzM09zb0hwWHhGLVRjWW9nM3FVQk50UmVHOU9sY1plYUpCSHh0aEpXdUJ2YTV3aW9iSjdIMGQ4UnNkY1BoNzQ3cjhlNVJZVjRjT1BzN1dsQzhGM2w0MTJnZ200ZU5qeTlia0M3VXp5cVE?oc=5'>ConocoPhillips stock: RBC keeps USD 152.00 target for Conoco</a>(ad-hoc-news.de 10-19) · <a href='https://news.google.com/rss/articles/CBMipgFBVV95cUxOYll5cnJXOUhKbHB3UHJPTTF3NW1xYjJoZ3FQMHQ5ajB1YmRueE11bDBDNURBZ29YeGRDTXZxai1sREYxbWFXU1ZxRnJxWkltLWlxRElGemJZX1pHTDRYb2U3MXotZmNZbUhDRnFrX3dDaEd5VWFJRTdyWmt6bzB3Q3RqeVFKRUFrX2hvd0dnV1FCeHFhMnI0ak83WGhudWJuX3lBRUdB?oc=5'>S&amp;P 500 After-Hours Losers on Oct. 19: DGX, COP, STLD, WRB</a>(ChartMill 10-19) · <a href='https://news.google.com/rss/articles/CBMi6gFBVV95cUxQWkJIMndhZWptZ001UXVFR3RXb0pVcTFqNVBobDFRZTRwLWtFNk44aUdQTXFnUUxzYXZzNFNNZW11dTBVdzROS1ktODNTV284V2VhWm85SGE5UzM4VEZWczVlUldGRllOa0NZS2FNYVNZRFgyZTI5enE1YTBPMkp6OW9CcUlDaVlOQ1VyWlBLbkc2M1Q0YWFZVHVYd2dtQnM3YTdSdEo2VUJsanR2NkEzU2RNc2hKaDdsVXN4WFF3UkVVTVB2TnJ5MmN4NGN2akNjX2FHVEFqTGNjeHZ3ZkwtS2NHRTgtcWNfNkE?oc=5'>Buy 5 Giant Oil Explorers to Tap the Northward Journey of Cr</a>(The Globe and Mail 10-19) · <a href='https://news.google.com/rss/articles/CBMiggFBVV95cUxNMGJFVnc1cXJTZU05OFBxSWdvWXlqM3VXM0lGU24tY0JhTU5PSlM0R1JHdTF2bk53YThtT3hCeGFRWkpreUZjaGtPQnlBNGNySDEtbDY5OGhLUGJsWTNhNVZXbmdlQzRENmYzeUkzS21jYU0tU2lXOW1WYVJaYXFUalZB?oc=5'>How To Trade (COP.UN) (COP.UN:CA)</a>(Stock Traders Daily 10-19) · <a href='https://news.google.com/rss/articles/CBMiuwFBVV95cUxQYWlrSWVRbDluWDVBQXBhNkpvRHkzaktuRWRyd0NEb3BvbWJiQ0JTQ3BKcjhEbjM5WGJrT3Z1eWpoZVRsZURwcXk1dk00UTFsclRod3lkWDdCaElWd1dYN3ZwblRRRTMtNGJkbmlwSFlLZ3JvLTNRWEhIeTdBYUxSdlFvM1htYlR0bDVtdzJaLWRZbVZKV0RrcU8xOThUSldlTi0teDY2ZUVhRjRiVkd0WUsxaW1IYzhmRVVr?oc=5'>Gerdes downgrades ConocoPhillips stock rating on valuation B</a>(Investing.com Canada 10-19)。
+    文字由 Blue Morpho 研究引擎(Claude)依上列資料撰寫,經第二輪對抗審稿(修正 12 處);情境與合理本益比為估計。非投資建議。</div>
+</div>
+<script>
+const V=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const MONO='"JetBrains Mono","SF Mono",monospace';
+const TIP={backgroundColor:V('--panel'),borderColor:V('--line'),textStyle:{color:V('--tx2'),fontFamily:MONO,fontSize:11}};
+function mk(id){const c=echarts.init(document.getElementById(id),null,{renderer:'canvas'});window.addEventListener('resize',()=>c.resize());return c;}
+mk('qchart').setOption({backgroundColor:'transparent',grid:{left:44,right:44,top:20,bottom:30},tooltip:Object.assign({trigger:'axis'},TIP),
+  xAxis:{type:'category',data:["2024Q3", "2024Q4", "2025Q1", "2025Q2", "2025Q3", "2025Q4", "2026Q1", "2026Q2"],axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:10},axisLine:{lineStyle:{color:V('--line')}}},
+  yAxis:[{type:'value',name:'$B',axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9},splitLine:{lineStyle:{color:V('--panel')}}},
+         {type:'value',name:'GM%',min:30,max:70,axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9,formatter:'{value}%'},splitLine:{show:false}}],
+  series:[{name:'營收 $B',type:'bar',data:[13.04, 14.24, 16.52, 14.0, 15.03, 13.39, 15.76, 19.16],itemStyle:{color:V('--cy'),borderRadius:[3,3,0,0]},barWidth:18},
+          {name:'毛利率',type:'line',yAxisIndex:1,data:[27.9, 29.4, 30.7, 25.1, 24.1, 19.2, 27.3, 36.7],itemStyle:{color:V('--gr')},lineStyle:{width:2},symbol:'circle'}]});
+mk('scen').setOption({backgroundColor:'transparent',grid:{left:44,right:14,top:16,bottom:28},tooltip:Object.assign({trigger:'axis',valueFormatter:v=>'$'+v},TIP),
+  xAxis:{type:'category',data:['Bear','Base','Bull'],axisLabel:{color:V('--tx2'),fontFamily:MONO,fontSize:11},axisLine:{lineStyle:{color:V('--line')}}},
+  yAxis:{type:'value',axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9,formatter:'${value}'},splitLine:{lineStyle:{color:V('--panel')}}},
+  series:[{type:'bar',data:[{value:9.00,itemStyle:{color:V('--rd')}},{value:11.25,itemStyle:{color:V('--cy')}},{value:12.83,itemStyle:{color:V('--gr')}}],
+           barWidth:36,itemStyle:{borderRadius:[3,3,0,0]},label:{show:true,position:'top',color:V('--tx2'),fontFamily:MONO,fontSize:11,formatter:p=>'$'+p.value}}]});
+</script></body></html>
