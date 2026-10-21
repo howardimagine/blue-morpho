@@ -1,64 +1,27 @@
 {
-  "date": "2026-10-20",
-  "headline": "科技股續跌的這兩天,錢往油氣的現金流擠,康菲石油排在前面",
-  "theme": "Energy / Oil & Gas",
+  "date": "2026-10-21",
+  "headline": "本週無清楚突破",
+  "theme": "Cloud Infrastructure",
   "regime": "neutral",
-  "picks": [
-    {
-      "symbol": "COP",
-      "name": "ConocoPhillips",
-      "tier": "ready",
-      "theme": "Energy / Oil & Gas",
-      "rsi": 71.2,
-      "ma_stack": "bullish",
-      "price": null,
-      "business": "ConocoPhillips explores for, produces, transports, and markets crude oil, bitumen, natural gas, liquefied natural gas (LNG), and natural gas liquids. It operates in five segments: Alaska; Lower 48; Canada; Europe, Middle East and North Afr…",
-      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面 MA 結構為 <strong>bullish</strong>，整體偏多。",
-      "rr": null
-    },
-    {
-      "symbol": "CVX",
-      "name": "Chevron Corporation",
-      "tier": "ready",
-      "theme": "Energy / Oil & Gas",
-      "rsi": 69.5,
-      "ma_stack": "bullish",
-      "price": null,
-      "business": "Chevron Corporation, through its subsidiaries, engages in the integrated energy and chemicals operations in the United States and internationally. It operates through Upstream, Downstream, and All Other segments. The Upstream segment engag…",
-      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面 MA 結構為 <strong>bullish</strong>，整體偏多。",
-      "rr": null
-    },
-    {
-      "symbol": "CSCO",
-      "name": "Cisco Systems, Inc.",
-      "tier": "ready",
-      "theme": "Cloud Infrastructure",
-      "rsi": 41.6,
-      "ma_stack": "mixed",
-      "price": null,
-      "business": "Cisco Systems, Inc. designs, develops, and sells technologies that help to power, secure, and draw insights from the internet in the Americas, Europe, the Middle East, Africa, the Asia Pacific, Japan, and China. The company offers data cen…",
-      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
-      "rr": null
-    }
-  ],
+  "picks": [],
   "sell_signals": {},
   "policy": [
     {
       "topic": "川普 × 個股機會",
-      "title": "Why Is Palantir Technologies Stock Gaining Monday?",
-      "summary_zh": "媒體檢視 Palantir 週一走強的原因,市場把它與政府相關需求的預期連在一起。這類題材的波動來自預期而非當期訂單。",
-      "source": "Benzinga"
+      "title": "Nvidia, Apple each gave $25 million for Trump's ballroom, Washington Post reports",
+      "summary_zh": null,
+      "source": "Reuters"
     },
     {
       "topic": "川普 × 個股機會",
-      "title": "XLAB Stock Surges 20% On NVIDIA GPU Server Deal",
-      "summary_zh": "XLAB 因取得 NVIDIA GPU 伺服器相關合作而大漲,顯示市場對算力供應鏈的消息仍相當敏感。",
-      "source": "StocksToTrade"
+      "title": "Sununu’s lobbying firm sought tariff relief for big corporations",
+      "summary_zh": null,
+      "source": "American Journal News"
     }
   ],
   "themes": [],
   "stats": {
-    "n_picks": 3,
+    "n_picks": 0,
     "n_themes": 0,
     "journal_total": 622
   },

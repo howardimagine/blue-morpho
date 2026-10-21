@@ -1,13 +1,13 @@
 {
-  "date": "2026-10-20",
+  "date": "2026-10-21",
   "method": "完整掃描宇宙(全產業)。分數 = 品質底分(0–1):技術面(均線×RSI×距高×動能)+ 基本面(成長/品質/估值),每產業由高到低排。● 近期推薦 = 引擎近三期曾選入(與分數獨立的標籤,代表輪動選股)· 潛力 = 同主題達標未入選。",
   "themes": [
     {
       "theme": "Cloud Infrastructure",
       "n": 9,
-      "rs_1m": 2.93,
-      "rs_3m": 20.86,
-      "news_7d": 81,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
       "stocks": [
         {
           "symbol": "MSFT",
@@ -95,9 +95,9 @@
     {
       "theme": "Energy / Oil & Gas",
       "n": 7,
-      "rs_1m": 6.54,
-      "rs_3m": 15.09,
-      "news_7d": 94,
+      "rs_1m": null,
+      "rs_3m": null,
+      "news_7d": null,
       "stocks": [
         {
           "symbol": "EOG",

@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-21",
+  "headline": "本週無清楚突破",
+  "theme": "Cloud Infrastructure",
+  "regime": "neutral",
+  "picks": [],
+  "sell_signals": {},
+  "policy": [
+    {
+      "topic": "川普 × 個股機會",
+      "title": "Nvidia, Apple each gave $25 million for Trump's ballroom, Washington Post reports",
+      "summary_zh": null,
+      "source": "Reuters"
+    },
+    {
+      "topic": "川普 × 個股機會",
+      "title": "Sununu’s lobbying firm sought tariff relief for big corporations",
+      "summary_zh": null,
+      "source": "American Journal News"
+    }
+  ],
+  "themes": [],
+  "stats": {
+    "n_picks": 0,
+    "n_themes": 0,
+    "journal_total": 622
+  },
+  "_note": "命中率/超額待回測樣本成熟;entry/alpha/vol 未提供(歷史不足)。"
+}
