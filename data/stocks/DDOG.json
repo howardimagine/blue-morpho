@@ -13,17 +13,17 @@
     {
       "key": "theme_tailwind",
       "label": "主題順風",
-      "score": 7.1
+      "score": 6.4
     },
     {
       "key": "technical_setup",
       "label": "技術形態",
-      "score": 8.3
+      "score": 5.9
     },
     {
       "key": "macro_context",
       "label": "總經環境",
-      "score": 5.2
+      "score": 5.5
     },
     {
       "key": "business_quality",
@@ -42,6 +42,14 @@
     }
   ],
   "tracking": [
+    {
+      "date": "2026-10-26",
+      "theme": "AI Software",
+      "tier": "ready",
+      "entry": null,
+      "alpha_4w": null,
+      "vol": null
+    },
     {
       "date": "2026-10-12",
       "theme": "AI Software",

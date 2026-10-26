@@ -1,0 +1,108 @@
+{
+  "date": "2026-10-26",
+  "headline": "利率決議這週揭曉,這兩天的買盤落在資安與雲端基建",
+  "theme": "Cloud Infrastructure",
+  "regime": "neutral",
+  "picks": [
+    {
+      "symbol": "VEEV",
+      "name": "Veeva Systems Inc.",
+      "tier": "ready",
+      "theme": "Healthcare AI / Digital Health",
+      "rsi": 76.2,
+      "ma_stack": "bullish",
+      "price": null,
+      "business": "Veeva Systems Inc. provides cloud-based software for the life sciences industry in North America, Europe, the Asia Pacific, the Middle East, Africa, and Latin America. The company offers Veeva Commercial Cloud comprising Veeva Vault CRM Su…",
+      "why": "主題面，Cloud Infrastructure 本週相對 SPY 的 1 個月強度排名靠前，市場資金持續流入。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面 MA 結構為 <strong>bullish</strong>，整體偏多。",
+      "rr": null
+    },
+    {
+      "symbol": "EOG",
+      "name": "EOG Resources, Inc.",
+      "tier": "ready",
+      "theme": "Energy / Oil & Gas",
+      "rsi": 76.4,
+      "ma_stack": "bullish",
+      "price": null,
+      "business": "EOG Resources, Inc., together with its subsidiaries, explores for, develops, produces, and markets crude oil, natural gas liquids, and natural gas in producing basins in the United States, the Republic of Trinidad and Tobago, and internati…",
+      "why": "主題面，Cloud Infrastructure 本週相對 SPY 的 1 個月強度排名靠前，市場資金持續流入。 近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面 MA 結構為 <strong>bullish</strong>，整體偏多。",
+      "rr": null
+    },
+    {
+      "symbol": "EA",
+      "name": "Electronic Arts Inc.",
+      "tier": "ready",
+      "theme": "Gaming",
+      "rsi": 75.6,
+      "ma_stack": "bullish",
+      "price": null,
+      "business": "Electronic Arts Inc. develops, markets, publishes, and delivers games, content, and services for game consoles, PCs, and mobile phones worldwide. It develops and publishes games and experiences across diverse genres, such as sports, racing…",
+      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
+      "rr": null
+    },
+    {
+      "symbol": "CRWD",
+      "name": "CrowdStrike",
+      "tier": "ready",
+      "theme": "Cybersecurity",
+      "rsi": 55.9,
+      "ma_stack": "bullish",
+      "price": null,
+      "business": "雲原生端點防護(Falcon)龍頭;AI 驅動威脅偵測。",
+      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面呈現「uptrend, near highs」，MA 結構為 <strong>bullish</strong>，RSI 43.5。",
+      "rr": null
+    },
+    {
+      "symbol": "DDOG",
+      "name": "Datadog, Inc.",
+      "tier": "ready",
+      "theme": "AI Software",
+      "rsi": 53.2,
+      "ma_stack": "bullish",
+      "price": null,
+      "business": "Datadog, Inc. operates an observability and security platform for cloud applications in the United States and internationally. The company's products comprise infrastructure and application performance monitoring, log management, observabi…",
+      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
+      "rr": null
+    },
+    {
+      "symbol": "NOW",
+      "name": "ServiceNow",
+      "tier": "ready",
+      "theme": "AI Software",
+      "rsi": 70.0,
+      "ma_stack": "bullish",
+      "price": null,
+      "business": "企業工作流(IT/HR)SaaS;agentic AI(Now Assist)變現加速中。",
+      "why": "主題面，Cloud Infrastructure 本週相對 SPY 的 1 個月強度排名靠前，市場資金持續流入。 基本面通過半數以上 Screener 條件。 技術面 MA 結構為 <strong>mixed</strong>，整體偏多。",
+      "rr": null
+    }
+  ],
+  "sell_signals": {},
+  "policy": [
+    {
+      "topic": "川普 × 個股機會",
+      "title": "SpaceX and Tesla have high election stakes as Elon Musk pours $366 million into campaigns",
+      "summary_zh": "馬斯克投入大筆資金參與選舉活動,SpaceX 與特斯拉在選舉結果上的利害關係被放大檢視。政治押注與企業監管風險開始互相牽動。",
+      "source": "CNBC"
+    },
+    {
+      "topic": "川普 × 個股機會",
+      "title": "Social Security's Trump Bump-Driven 2027 COLA Is Historic in 3 Unique Ways",
+      "summary_zh": "社會安全金的生活成本調整因政策因素出現歷史性變化,對退休族群的可支配所得是直接的加項,消費端的低價通路通常最先感受到。",
+      "source": "The Motley Fool"
+    },
+    {
+      "topic": "地緣 / 國際 / 能源",
+      "title": "EXCLUSIVE: Samsung, SK Hynix upgrading China plants to make more advanced chips, people say",
+      "summary_zh": "外電指出三星與 SK 海力士正升級中國廠以生產更先進的記憶體。若落實,將牽動華府對出口管制的下一步,資料中心硬體的供應與成本都是變數。",
+      "source": "Reuters"
+    }
+  ],
+  "themes": [],
+  "stats": {
+    "n_picks": 6,
+    "n_themes": 0,
+    "journal_total": 628
+  },
+  "_note": "命中率/超額待回測樣本成熟;entry/alpha/vol 未提供(歷史不足)。"
+}
