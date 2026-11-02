@@ -1,174 +1,149 @@
 {
   "as_of": "2026-08-14",
   "n_whales": 19,
-  "generated_at": "2026-10-26T08:51:15+00:00",
+  "generated_at": "2026-11-02T00:35:43+00:00",
   "stocks": [
     {
-      "symbol": "VEEV",
-      "name": "Veeva Systems Inc.",
+      "symbol": "EXAS",
+      "name": "EXAS",
       "theme": "Healthcare AI / Digital Health",
-      "signal": "buy",
-      "holders": 1,
+      "signal": "split",
+      "holders": 2,
       "increased": 0,
-      "reduced": 0,
+      "reduced": 1,
       "new_pos": 1,
       "closed_pos": 0,
-      "total_held_usd": 5449926,
-      "total_held_fmt": "$5M",
-      "whales_fmt": "達利歐 Dalio $5M 新進",
+      "total_held_usd": 2535086,
+      "total_held_fmt": "$3M",
+      "whales_fmt": "索羅斯 Soros $2M 新進 · 達利歐 Dalio <$1M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
-          "name": "達利歐 Dalio",
-          "value_usd": 5449926,
+          "name": "索羅斯 Soros",
+          "value_usd": 1979185,
           "action": "new"
+        },
+        {
+          "name": "達利歐 Dalio",
+          "value_usd": 555901,
+          "action": "trim"
         }
       ]
     },
     {
-      "symbol": "EOG",
-      "name": "EOG Resources, Inc.",
-      "theme": "Energy / Oil & Gas",
-      "signal": "buy",
-      "holders": 1,
-      "increased": 1,
-      "reduced": 0,
+      "symbol": "EW",
+      "name": "Edwards Lifesciences Corporatio",
+      "theme": "Medical Devices",
+      "signal": "split",
+      "holders": 4,
+      "increased": 2,
+      "reduced": 2,
       "new_pos": 0,
       "closed_pos": 0,
-      "total_held_usd": 69980124,
-      "total_held_fmt": "$70M",
-      "whales_fmt": "達利歐 Dalio $70M 加碼",
+      "total_held_usd": 264635527,
+      "total_held_fmt": "$265M",
+      "whales_fmt": "Andreas Halvorsen $227M 減碼 · 達利歐 Dalio $23M 加碼 · 索羅斯 Soros $14M 加碼 · 木頭姐 Cathie Wood <$1M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
+          "name": "Andreas Halvorsen",
+          "value_usd": 227429748,
+          "action": "trim"
+        },
+        {
           "name": "達利歐 Dalio",
-          "value_usd": 69980124,
+          "value_usd": 22654674,
           "action": "add"
-        }
-      ]
-    },
-    {
-      "symbol": "EA",
-      "name": "Electronic Arts Inc.",
-      "theme": "Gaming",
-      "signal": "sell",
-      "holders": 1,
-      "increased": 0,
-      "reduced": 0,
-      "new_pos": 0,
-      "closed_pos": 1,
-      "total_held_usd": 199091790,
-      "total_held_fmt": "$199M",
-      "whales_fmt": "達利歐 Dalio — 清倉 · 索羅斯 Soros $199M 持有",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "達利歐 Dalio",
-          "value_usd": 0,
-          "action": "exit"
         },
         {
           "name": "索羅斯 Soros",
-          "value_usd": 199091790,
-          "action": "hold"
+          "value_usd": 14455117,
+          "action": "add"
+        },
+        {
+          "name": "木頭姐 Cathie Wood",
+          "value_usd": 95988,
+          "action": "trim"
         }
       ]
     },
     {
-      "symbol": "CRWD",
-      "name": "CrowdStrike",
-      "theme": "Cybersecurity",
-      "signal": "split",
-      "holders": 2,
-      "increased": 1,
+      "symbol": "COST",
+      "name": "Costco Wholesale Corporation",
+      "theme": "Defensive Compounders",
+      "signal": "sell",
+      "holders": 1,
+      "increased": 0,
       "reduced": 1,
       "new_pos": 0,
       "closed_pos": 0,
-      "total_held_usd": 36989396,
-      "total_held_fmt": "$37M",
-      "whales_fmt": "達利歐 Dalio $19M 加碼 · 木頭姐 Cathie Wood $18M 減碼",
+      "total_held_usd": 24792761,
+      "total_held_fmt": "$25M",
+      "whales_fmt": "達利歐 Dalio $25M 減碼",
       "ownership_pct": null,
       "ownership_delta_pt": null,
       "holders_delta": null,
       "whales": [
         {
           "name": "達利歐 Dalio",
-          "value_usd": 18960213,
+          "value_usd": 24792761,
+          "action": "trim"
+        }
+      ]
+    },
+    {
+      "symbol": "AFRM",
+      "name": "Affirm Holdings, Inc.",
+      "theme": "Payments / FinTech",
+      "signal": "split",
+      "holders": 0,
+      "increased": 0,
+      "reduced": 0,
+      "new_pos": 0,
+      "closed_pos": 0,
+      "total_held_usd": 0,
+      "total_held_fmt": "—",
+      "whales_fmt": "",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": []
+    },
+    {
+      "symbol": "EQIX",
+      "name": "Equinix, Inc.",
+      "theme": "Cloud Infrastructure",
+      "signal": "buy",
+      "holders": 3,
+      "increased": 1,
+      "reduced": 1,
+      "new_pos": 1,
+      "closed_pos": 0,
+      "total_held_usd": 1337909078,
+      "total_held_fmt": "$1.3B",
+      "whales_fmt": "Philippe Laffont $1.3B 加碼 · 達利歐 Dalio $10M 減碼 · 德魯肯米勒 Druckenmiller <$1M 新進",
+      "ownership_pct": null,
+      "ownership_delta_pt": null,
+      "holders_delta": null,
+      "whales": [
+        {
+          "name": "Philippe Laffont",
+          "value_usd": 1327501387,
           "action": "add"
         },
         {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 18029183,
-          "action": "trim"
-        }
-      ]
-    },
-    {
-      "symbol": "DDOG",
-      "name": "Datadog, Inc.",
-      "theme": "AI Software",
-      "signal": "sell",
-      "holders": 2,
-      "increased": 0,
-      "reduced": 2,
-      "new_pos": 0,
-      "closed_pos": 0,
-      "total_held_usd": 57229731,
-      "total_held_fmt": "$57M",
-      "whales_fmt": "木頭姐 Cathie Wood $55M 減碼 · 索羅斯 Soros $3M 減碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "木頭姐 Cathie Wood",
-          "value_usd": 54714133,
-          "action": "trim"
-        },
-        {
-          "name": "索羅斯 Soros",
-          "value_usd": 2515598,
-          "action": "trim"
-        }
-      ]
-    },
-    {
-      "symbol": "NOW",
-      "name": "ServiceNow",
-      "theme": "AI Software",
-      "signal": "sell",
-      "holders": 3,
-      "increased": 0,
-      "reduced": 2,
-      "new_pos": 1,
-      "closed_pos": 0,
-      "total_held_usd": 154622247,
-      "total_held_fmt": "$155M",
-      "whales_fmt": "Chase Coleman $87M 減碼 · 達利歐 Dalio $63M 新進 · 索羅斯 Soros $5M 減碼",
-      "ownership_pct": null,
-      "ownership_delta_pt": null,
-      "holders_delta": null,
-      "whales": [
-        {
-          "name": "Chase Coleman",
-          "value_usd": 86719591,
-          "action": "trim"
-        },
-        {
           "name": "達利歐 Dalio",
-          "value_usd": 63080626,
-          "action": "new"
+          "value_usd": 10388459,
+          "action": "trim"
         },
         {
-          "name": "索羅斯 Soros",
-          "value_usd": 4822030,
-          "action": "trim"
+          "name": "德魯肯米勒 Druckenmiller",
+          "value_usd": 19232,
+          "action": "new"
         }
       ]
     }

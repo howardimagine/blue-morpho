@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="../theme.js"></script>
+<title>Costco 的營益率改善換了引擎:從毛利率換成費用率,44 倍前瞻在賭營收不減速 — Blue Morpho 財報深研</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+<style>
+  :root{ --bg:#02020a; --panel:#0b0b1a; --panel2:#0a0e17; --line:#1a2238;
+    --cy:#00f3ff; --gr:#00ff9d; --rd:#ff5d5d; --am:#ffd000; --pp:#7a5cff;
+    --tx:#e0f7fa; --tx2:#cfe3ee; --mut:#8895a8;
+    --mono:"JetBrains Mono","SF Mono","Menlo","Consolas",monospace;
+    --sans:-apple-system,"PingFang TC","Noto Sans TC",sans-serif; }
+  *{box-sizing:border-box}
+  html,body{margin:0;overflow-x:hidden;max-width:100%}
+  body{background:var(--bg);color:var(--tx2);font-family:var(--sans);line-height:1.8;
+    background-image:radial-gradient(1200px 600px at 70% -10%,rgba(0,243,255,.06),transparent 60%);}
+  .wrap{max-width:860px;margin:0 auto;padding:32px 20px 80px}
+  .kick{font-family:var(--mono);font-size:12px;letter-spacing:.22em;color:var(--cy);text-transform:uppercase}
+  h1{font-family:var(--mono);font-size:clamp(1.5rem,4.5vw,2.2rem);line-height:1.25;color:var(--tx);
+    font-weight:700;margin:6px 0 14px;letter-spacing:.01em}
+  h2{font-family:var(--mono);font-size:1.05rem;color:var(--cy);margin:36px 0 10px;letter-spacing:.04em}
+  h2::before{content:"▎ ";color:var(--cy)}
+  h3{font-size:1rem;color:var(--tx);margin:20px 0 6px}
+  p{margin:10px 0}
+  b,strong{color:var(--tx)}
+  a{color:var(--cy);text-decoration:none;border-bottom:1px solid rgba(0,243,255,.3)}
+  .tldr{background:linear-gradient(180deg,rgba(0,243,255,.06),transparent);border:1px solid var(--line);
+    border-radius:8px;padding:16px 18px;margin:14px 0;font-size:.95rem}
+  .warn{background:rgba(255,208,0,.05);border:1px solid rgba(255,208,0,.3);
+    border-radius:8px;padding:14px 16px;margin:14px 0;font-size:.9rem;color:var(--am)}
+  .steel{background:rgba(122,92,255,.06);border:1px solid rgba(122,92,255,.4);
+    border-radius:8px;padding:16px 18px;margin:16px 0}
+  .steel h3{color:var(--pp);margin-top:0}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;margin:14px 0}
+  .cardhd{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--cy);margin-bottom:6px;text-transform:uppercase}
+  .chart{width:100%;height:420px}
+  .chart.sm{height:340px}
+  .leg{display:flex;gap:16px;justify-content:center;margin-top:8px;font-size:11px;font-family:var(--mono)}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.86rem}
+  th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:right}
+  th:first-child,td:first-child{text-align:left}
+  thead th{color:var(--cy);font-family:var(--mono);font-size:11px;letter-spacing:.06em;
+    text-transform:uppercase;border-bottom:1px solid var(--cy)}
+  tbody tr:hover{background:rgba(0,243,255,.03)}
+  .pos{color:var(--gr)} .neg{color:var(--rd)} .mut{color:var(--mut)}
+  .pill{display:inline-block;font-family:var(--mono);font-size:10px;padding:2px 8px;border-radius:4px;
+    border:1px solid var(--line);color:var(--mut)}
+  hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+  .foot{color:var(--mut);font-size:.78rem;margin-top:30px;line-height:1.7}
+  ul{padding-left:20px} li{margin:6px 0}
+  .topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;
+    font-family:var(--mono);font-size:12px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+  .topbar a{border:0}
+  .topbar .brand{color:var(--cy);letter-spacing:.2em;font-weight:700}
+  .topbar .nav a{color:var(--mut);margin-left:16px}
+  .topbar .nav a:hover{color:var(--cy)}
+
+  :root:not([data-theme="dark"]){ --bg:#ffffff; --panel:#f6f8fb; --panel2:#edf1f6; --line:#dce3ec;
+    --cy:#0891b2; --gr:#ea580c; --rd:#1d4ed8; --am:#f59e0b; --pp:#0ea5e9; --tx:#0b1220; --tx2:#334155; --mut:#64748b; }
+  .theme-btn{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;color:var(--mut);background:transparent;border:1px solid var(--line);border-radius:4px;padding:4px 8px;cursor:pointer;margin-left:10px}
+</style>
+</head><body><div class="wrap">
+  <div class="topbar"><a href="/" class="brand">◆ BLUE MORPHO</a>
+    <div class="nav"><a href="/industries.html">產業</a><a href="/stocks.html">個股</a><a href="/weekly.html">週報</a></div></div>
+  <div class="kick">Blue Morpho · 財報深研 · COST · 資料截至 2026-11-02</div>
+  <h1>Costco 的營益率改善換了引擎:從毛利率換成費用率,44 倍前瞻在賭營收不減速</h1>
+  <div class="tldr"><b>一句話論點</b>:COST 近兩季的營益率改善不是毛利率給的,而是營收 +11~12% 帶出的費用率槓桿(代理值從 9.0% 降到 8.7%);12/10 這季共識卻只給 +10.3% 營收、+9.6% EPS,等於假設利潤率持平。若營收退到高個位數而毛利率續降,44.4 倍的容錯空間很薄——但我們也承認,成熟店的費用率有可能在營收放緩時仍自然改善。<br><br><span class="pill">切角</span> 市場把 COST 當成「會員費年金 + 毛利率穩定擴張」的複利機,因此給 44.4 倍前瞻本益比。我們認為被漏看的是引擎換了:FY2026 上半年毛利率 YoY 是正的(Q1 13.1% vs 12.9%、Q2 12.8% vs 12.5%),下半年轉負(Q3 12.8% vs 13.0%、Q4 12.7% vs 12.9%),但營益率反而持平到走高(Q3 4.0%、Q4 4.0% vs 3.9%)。差額全在費用率(毛利率−營益率)壓縮上,而費用率槓桿的燃料是雙位數營收。這是品質不同的利潤:它的續航綁在營收不能減速上,而這個命題 12/10 就能對帳。</div>
+  <div class="warn"><b>時效</b>:這是 2026-11-02 的快照,下次財報 2026-12-10(共識 EPS 4.93)。情境 EPS 為本文估算(base = 賣方下一財年共識),假設列於表內;不是公司或賣方數字。</div>
+
+  <h2>公司在做什麼</h2>
+  <p>Costco 經營會員制量販倉儲,橫跨美國、加拿大、墨西哥、日本、韓國、英國、西班牙、法國、冰島、中國、台灣等市場。店內賣生鮮、乾貨、酒類、家電、3C、輪胎、服飾、傢俱到汽車保養與票券,品項少但量大,混合知名品牌與自有品牌。顧客多為家庭與小型商家,先付年費才能進場。商業模式是以極低加價率賣商品換取客流與續卡,業界普遍理解其穩定利潤高度仰賴每年重收的會員費——不過本次資料並未拆出會員費金額與續卡率,我們全文只能用合併毛利率與費用率推論。</p>
+  <div class="card"><div class="cardhd">近 8 季 · 營收 $B 與毛利率</div><div id="qchart" class="chart sm"></div></div>
+  <table><thead><tr><th>季</th><th>營收</th><th>毛利率</th><th>營益率</th><th>稀釋 EPS</th><th>營收 YoY</th></tr></thead><tbody><tr><td>2025Q1<span class='mut'> 2024-11</span></td><td>$62.15B</td><td>12.9%</td><td>3.5%</td><td>4.04</td><td class='neg'>—</td></tr><tr><td>2025Q2<span class='mut'> 2025-02</span></td><td>$63.72B</td><td>12.5%</td><td>3.6%</td><td>4.02</td><td class='neg'>—</td></tr><tr><td>2025Q3<span class='mut'> 2025-05</span></td><td>$63.20B</td><td>13.0%</td><td>4.0%</td><td>4.28</td><td class='neg'>—</td></tr><tr><td>2025Q4<span class='mut'> 2025-08</span></td><td>$86.16B</td><td>12.9%</td><td>3.9%</td><td>5.87</td><td class='neg'>—</td></tr><tr><td>2026Q1<span class='mut'> 2025-11</span></td><td>$67.31B</td><td>13.1%</td><td>3.7%</td><td>4.5</td><td class='pos'>+8%</td></tr><tr><td>2026Q2<span class='mut'> 2026-02</span></td><td>$69.60B</td><td>12.8%</td><td>3.7%</td><td>4.58</td><td class='pos'>+9%</td></tr><tr><td>2026Q3<span class='mut'> 2026-05</span></td><td>$70.53B</td><td>12.8%</td><td>4.0%</td><td>4.93</td><td class='pos'>+12%</td></tr><tr><td>2026Q4<span class='mut'> 2026-08</span></td><td>$95.72B</td><td>12.7%</td><td>4.0%</td><td>6.75</td><td class='pos'>+11%</td></tr></tbody></table>
+  <p class="mut" style="font-size:.85rem">TTM:EPS 20.76 · 本益比 48.7× · EV/Sales 1.4× · FCF 殖利率 2.1% · ROIC 19% · 近 4 季 FCF $9.4B、回購 $0.8B、股利 $2.5B</p>
+
+  <h2>一、EPS 猜不猜得中,不是 12/10 的重點</h2><p>先把雜訊清掉:COST 的 EPS 幾乎沒有意外空間,拿它當交易變數的期望值很低。過去 8 次財報六次超標、兩次不如預期,偏離幅度依序是 +6.6%、−1.7%、+0.9%、+1.2%、+5.4%、+0.7%、−1.4%、+3.2%,中位數約 +1%,最差也只有 −1.7%。賣方模型貼得很緊,所以「這季 EPS 會不會超標」對 1012 美元的股價解釋力很弱。</p><p>真正有分歧的,是損益表中間那兩行在 FY2026 年內換了方向。毛利率 YoY:Q1 13.1%(去年 12.9%)、Q2 12.8%(12.5%)、Q3 12.8%(13.0%)、Q4 12.7%(12.9%)——上半年加分、下半年連兩季各減 20 個基點。但同期營益率 Q3 4.0% 持平、Q4 4.0% 對 3.9% 還升 10 個基點。中間的差額,就是費用率。</p><p>用(毛利率 − 營益率)當 SG&amp;A 比率的代理值,結論很乾淨:上半年的利潤是毛利率給的,下半年的利潤是費用率給的。FY26Q1 9.4%(去年 9.4%,持平)、Q2 9.1%(8.9%,變差 20bp)、Q3 8.8%(9.0%,改善 20bp)、Q4 8.7%(9.0%,改善 30bp)。兩種利潤的可持續性並不相同,而 12/10 這份財報是第一個驗證點。</p><h2>二、成長是真的,但沒有任何財務工程在幫忙</h2><p>FY2026 的盈餘成長幾乎全部是營運賺來的,沒有股本工程的成分。全年營收 303.2B(67.31+69.60+70.53+95.72)對 FY2025 的 275.2B 成長 10.1%;EPS 從 18.21 升到 20.76,成長 14.0%。以營收加權算,全年營益率從約 3.76% 升到約 3.86%(+10bp),營收 × 營益率大致能解釋 13 個百分點的 EPS 成長,剩下的落在股數與營業外項目——本資料未拆,我們不臆測。營收 YoY 則是從 Q1 +8%、Q2 +9% 墊高到 Q3 +12%、Q4 +11% 後持平,費用率槓桿出現的時點,正好對上營收墊高的時點。</p><p>現金面很乾淨,但也很沒有彈性。近四季自由現金流 94 億美元,股利 25 億、回購僅 8 億;以 449B 市值算,FCF 殖利率 2.1%,實際發到股東手上的現金回報率只有約 0.73%,其中回購佔市值 0.18%,等於股數幾乎沒縮。ROIC 19%、EV/Sales 1.4,這是一家把錢留在體內再投資的公司。</p><p>這件事兩面讀。好處是盈餘品質乾淨,19% 的 ROIC 說明再投資報酬不低;壞處是一旦營運減速,沒有緩衝裝置——每年留下的約 61 億現金(94 − 25 − 8)如果不轉成更快的展店或更大的回購,對每股盈餘的短期貢獻接近零。</p><p>下一季共識自己也透露了假設:營收 74.25B 對去年 67.31B 是 +10.3%,EPS 4.93 對 4.50 是 +9.6%——EPS 成長略低於營收成長,意思是賣方並未在模型裡放進利潤率擴張,而是假設營收續強、利潤率持平。那麼反過來問:如果營收只做到 +8%,EPS 要靠什麼補到 4.93?這是我們認為被輕描淡寫的地方。</p><h2>三、情境:不講貴或便宜,講什麼條件下 44 倍站得住</h2><p>以下一財年(2027-08-30)共識 EPS 22.79 為基準。現價 1012.28 對應 44.4 倍前瞻;對再下一年的 25.03 是 40.4 倍;TTM 本益比 48.7。我們不喊絕對估值,只問每個情境下隱含倍數是多少、那個倍數需要什麼成立。</p><p>熊市 −12%(EPS 約 20.1):假設營收成長從 +10.1% 正常化到 +5%(全年約 318B),毛利率從 FY26 的約 12.8% 再退約 30bp 到 12.5%,且營收放緩使費用率代理值停在約 8.95%(無槓桿),營益率落到 3.55%。營業利益約 113 億,比 FY26 的約 117 億少 3~4%,EPS 回到 20 出頭,現價對應約 50 倍。要誠實說:這裡面「毛利率續降」已經在發生,「營收退到 +5%」還沒有——下季共識仍是 +10.3%,所以這是一個需要明顯降檔的情境,不是順勢外推。</p><p>牛市 +12%(EPS 約 25.5):假設營收維持 +12%(約 340B),毛利率回到 12.9%(+約 20bp),費用率代理值再壓約 30bp 到 8.65%,營益率推升到 4.25%,營業利益年增逾兩成。這等於把 FY2028 共識 25.03 提前一年達成,現價對應 39.7 倍,反而比今天便宜。條件是毛利率「同時」回升而營收「不」減速——而過去兩季的毛利率方向與此相反。</p><p>相對面的訊息在賣方目標價的分布:中值 1100 對 FY27 共識是 48.3 倍,最低 955 是 41.9 倍,最高 1275 是 56 倍。也就是說,連最保守的那份模型都沒有放進明顯的倍數壓縮,下檔共識大約只有 −5.6%。六家近期評等中四家正向、兩家中性(RBC Sector Perform、DA Davidson Neutral)。這不代表股價一定會跌破 955,但代表「若營收降檔」這個情境在賣方目標價裡幾乎沒有被標價。</p><h2>四、Steelman:把我們打醒的兩種說法</h2><p>最強的多方反論是:毛利率下滑是 Costco 的功能,不是故障。整套模型就是把規模效益以降價形式還給會員,換取客流與續卡,利潤的穩定源頭是每年重收的會員費,而不是商品加價率;毛利率 −20bp 搭配營收 +11%,正是飛輪正常運轉的樣子。反過來,毛利率一路擴張而營收減速才該擔心。這個論點我們大致接受,這也是為什麼我們談的是倍數條件,而不是做空。</p><p>我們的回應是把它變成可檢查的對帳題,而不是宣稱它錯:如果毛利率下滑是主動投資,補償就必須出現在營收上。若 12/10 同時出現「毛利率 ≤12.9%」與「營收 YoY &lt;8%」,主動讓利的解釋就站不住,費用率槓桿多半也會一起熄火。這裡我們得承認方法上的硬限制:本資料未拆出會員費金額與續卡率,我們只能用合併毛利率與費用率推論;如果公司在財報裡揭露會員費與續卡率仍在加速,多方這條反論我們打不倒。</p><p>最強的空方反論是:48.7 倍 TTM 本身就是論點,任何一次 10% 的成長失誤都會引發殺估值。這在算術上沒錯,但我們不會把它當成交易主張——高倍數可以維持很久,而且本資料沒有任何可支持「倍數即將修正」的事件。我們的立場因此是條件式的:不是現在貴,而是現價已經把「營收續 10%+、費用率續改善」當成底線假設,而近兩季的毛利率方向對這個底線提出了第一個疑問。</p><h2>五、我可能錯在哪</h2><p>第一,20bp 可能只是噪音。COST 的毛利率受油品、黃金珠寶等低加價率品類佔比擺動影響不小,我們把連兩季 −20bp 讀成趨勢,有可能是把兩個獨立的波動串成故事。如果 FY27Q1 毛利率跳回 13.2% 以上,我們這條推論直接作廢,而且必須承認是過度詮釋。</p><p>第二,費用率槓桿未必和營收綁得那麼死。倉儲零售成熟店的勞動與攤提本來就會隨單店銷售自然稀釋,即使營收減速到 +7~8%,費用率代理值仍可能再改善 10~20bp。若真如此,營益率可以在營收放緩時守住 4.0%,我們的熊市 −12% 就過頭了,比較合理的下檔是 −5% 到 −8%。</p><p>第三,倍數可能根本不動。近兩週能找到的 COST 相關新聞,全是 Summit Global 減碼、Vise Technologies 買進 4,439 股、三井住友信託賣出這類 13F 流水帳,沒有一則公司層級的爭議(同期其他標題如 Home Depot、Palantir 與本案無關)。沒有人需要重新思考這檔股票,倍數就可能靠慣性撐著,久到我們的「條件」在帳面上成立、股價卻沒有反應。</p><p>第四,我們的合理前瞻本益比 40 倍(區間 36–44)是一個判斷,不是推導。它的錨點是:現價 1012.28 恰好等於 FY2028 共識 25.03 的 40.4 倍,也就是市場已經把盈餘提前一年定價;若只給它提前零年、用 40 倍乘 FY27 的 22.79,合理價約 912,比現價低約 10%,也低於最保守的賣方目標價 955。如果市場長期願意為 19% ROIC、約 10% 盈餘成長、低景氣敏感度的資產付 45 倍以上,那錯的是我們的折現框架,不是 Costco。</p>
+
+  <h2>情境 EPS 與對應本益比</h2>
+  <div class="card"><div class="cardhd">下一財年 EPS · bear / base / bull(本文估算)</div><div id="scen" class="chart sm"></div></div>
+  <table><thead><tr><th>情境</th><th>EPS</th><th>現價 $1012.28 對應本益比</th><th>40× 合理價</th><th style="text-align:left">假設</th></tr></thead><tbody>
+    <tr><td>Bear</td><td>$20.06</td><td>50×</td><td>$802</td><td style="text-align:left">營收成長從 FY26 的 +10.1% 降到 +5%(全年約 318B),毛利率從約 12.8% 再退約 30bp 至 12.5%,營收放緩使費用率代理值停在約 8.95%(槓桿消失),營益率由約 3.86% 落到 3.55%。營業利益約 113 億(FY26 約 117 億),EPS 約 20.1,現價對應約 50 倍。注意:毛利率下滑已在發生,營收降到 +5% 尚未發生。</td></tr>
+    <tr><td><b>Base</b>(賣方共識)</td><td><b>$22.79</b></td><td>44×</td><td>$912</td><td style="text-align:left">下一財年共識 EPS</td></tr>
+    <tr><td>Bull</td><td>$25.53</td><td>40×</td><td>$1021</td><td style="text-align:left">營收維持 +12%(約 340B),毛利率回升約 20bp 至 12.9%,費用率代理值再壓約 30bp 至 8.65%,營益率升到 4.25%,營業利益年增約 23%。EPS 約 25.5,等於把 FY2028 共識 25.03 提前一年達成,現價對應 39.7 倍。</td></tr>
+  </tbody></table>
+  <p class="mut" style="font-size:.85rem">合理本益比 40× 的理由:錨點而非精算:現價 1012.28 等於 FY2028 共識 25.03 的 40.4 倍,代表市場已把盈餘提前一年定價。若只給 FY27 共識 22.79 同樣的 40 倍,合理價約 912(較現價低約 10%),合理區間我們放 36–44 倍——下緣對應營收降到高個位數、利潤率持平;上緣需要毛利率重回 YoY 擴張,而不是只靠費用率槓桿。。賣方目標價 中值 $1100(高 $1275 / 低 $955)。</p>
+
+  <h2>財報 vs 共識(EPS)</h2>
+  <table><thead><tr><th>公布日</th><th>共識</th><th>實際</th><th>差距</th></tr></thead><tbody><tr><td>2026-09-24</td><td>6.54</td><td>6.75</td><td class='pos'>+3.2%</td></tr><tr><td>2026-05-28</td><td>5</td><td>4.93</td><td class='neg'>-1.4%</td></tr><tr><td>2026-03-05</td><td>4.55</td><td>4.58</td><td class='pos'>+0.7%</td></tr><tr><td>2025-12-11</td><td>4.27</td><td>4.5</td><td class='pos'>+5.4%</td></tr><tr><td>2025-09-25</td><td>5.8</td><td>5.87</td><td class='pos'>+1.2%</td></tr><tr><td>2025-05-29</td><td>4.24</td><td>4.28</td><td class='pos'>+0.9%</td></tr><tr><td>2025-03-06</td><td>4.09</td><td>4.02</td><td class='neg'>-1.7%</td></tr><tr><td>2024-12-12</td><td>3.79</td><td>4.04</td><td class='pos'>+6.6%</td></tr></tbody></table>
+
+  <h2>要盯什麼(可對帳)</h2>
+  <table><thead><tr><th>訊號</th><th>門檻</th><th style="text-align:left">意義</th></tr></thead><tbody><tr><td>FY27Q1 毛利率(去年同期 13.1%)</td><td>≥13.2% 多方勝;12.9~13.1% 中性;≤12.8% 確認連三季 YoY 下滑</td><td style='text-align:left'>判斷 H2 FY26 的毛利率下滑是品類組合噪音,還是結構性讓利/競爭壓縮</td></tr><tr><td>費用率代理值(毛利率 − 營益率),去年同期 9.4%</td><td>≤9.2% 代表槓桿續航;≥9.5% 代表槓桿熄火</td><td style='text-align:left'>近兩季營益率改善幾乎全靠這一項,它若反轉,營益率 4.0% 的水準就難維持</td></tr><tr><td>營收 vs 共識 74.25B(YoY +10.3%)</td><td>≥74.25B 維持雙位數;&lt;73.0B(約 +8.5%)進入減速軌道</td><td style='text-align:left'>費用率槓桿的燃料是營收規模;營收退到高個位數,熊市情境的機率上升</td></tr><tr><td>營益率(去年同期 3.7%)</td><td>≥3.9% 偏多;3.7% 符合共識;≤3.6% 偏向熊市假設</td><td style='text-align:left'>共識只假設利潤率持平(EPS +9.6% &lt; 營收 +10.3%),營益率是這季少數的超額變數</td></tr><tr><td>季度回購金額(近四季僅 8 億,股利 25 億)</td><td>單季回購 &gt;8 億即屬顯著轉向</td><td style='text-align:left'>FCF 94 億扣股利後每年約留 61 億;配置是否轉向股東,是管理層對自家估值態度的直接訊號</td></tr></tbody></table>
+  <div class="steel"><h3>可證偽的論點</h3><p>可證偽主張:12/10(FY27Q1)毛利率將 ≤13.1%(持平或 YoY 下滑),且營益率若要優於去年同期 3.7%,必須靠費用率代理值壓到 9.2% 以下。若毛利率 ≥13.2% 且營收 ≥74.25B 同時成立,我們這條推論就是錯的。</p></div>
+
+  <div class="foot">資料來源:FMP(季報表、現金流、TTM 指標、共識目標價與評等、財報 vs 共識、年度 EPS 共識,2026-11-02);公司簡介 FMP profile;新聞 Google News(近 14 天):<a href='https://news.google.com/rss/articles/CBMi2gFBVV95cUxQa0ZZQ1ZBdENIWUlpUEp1QTFpN1huLUgwSV8zbV96WFJHX0NUeW1pdkpuSFc0SzBicWhFM0kyNkxhMXBfYWNmbXBoSGUxVk1Xcy1aOFhRSUdBa092X2tNMGlJV3hOeFNya21rRnZrVUR6amIzNW04OXRmSVlSbDBlY1hnVlRTQlpMcGtGdzlGQkhvRVhYM2VlVlduUWtlY2FxdTJfRi15cjdrbmFzQ2ZYSHlBN3ktc1ZlRVM3TnlrVDJodnpvcHFScDJSZjNhNWdQYlFsMHBSdFdUQQ?oc=5'>Costco Wholesale Corporation $COST Stock: Summit Global Inve</a>(MarketBeat 11-01) · <a href='https://news.google.com/rss/articles/CBMi1AFBVV95cUxPTG45cDV2aC1XTS1VcUp4bHQxR0hmR2JBQW9LaHczVWxiUGtlRkU2cUlMcVRMbERyNWtqOHZFLTBRX1A1Zl9XeEFCM1RzQjZ1NjNxU0VYeUlZUmQ4MmdsU01wdWoxa21CVGJBejNYakwwcXdmZ1hMUVJNbXBFNzVFSDZ3RHZXbDBjeDB3YXVuSnMyQzYzMlpCTmltZ1FBY0Z2dXNBb3BpcjZGYWRMckZKQndoSm5PUzdYWmJOSHdxUFlHRzdQdlNzTV9aSkJ5Zi1mS3gyRw?oc=5'>4,439 Costco Wholesale Corporation $COST Shares Bought by Vi</a>(MarketBeat 11-01) · <a href='https://news.google.com/rss/articles/CBMi2AFBVV95cUxOM3NCbjgtQnNPYW9uNjZoXzhFS0JOUFZ5VU9hRTNxNEdyeG9LbWVKYkVBTnBuTmtSdjVSNkRyTVBHR1lkYXdXWEZvQ1p1LWs3Y2NiY3dOZ1dwd2VuejVUX0hseWVpOGhlNXFpUC11MXl5cVZoY25JVUtCS0dwN1BBVHE5MV9yeWpJdk5aczZPNl96VDI5dW1BX2dpTjZnelJRV2FZb05RdHNQSzRJenRSaHVrY3VtY21oNHRGZUJoUjNNQ0tqdVVfRUN6eDRYSlRCa3NBUWp2b18?oc=5'>Costco Wholesale Corporation $COST Shares Sold by Sumitomo M</a>(MarketBeat 11-01) · <a href='https://news.google.com/rss/articles/CBMitAFBVV95cUxQa3ZxRkNJOWdJT3FuamdlcXczSTVvdHdwSXFwM0dsamJaR2ozSHpTUEktTWNvRDZ4ajBzVVlidGNQcmZMZGZQLTNFeUMzTTF6Mk44RDJ0ZDVlNXFYRVZXbGJPSXlSMlcxZEZuMDFJak9oandzdXdMTnF1OHBmTzdZNVUzdXgxWEJiOXZmTXVfdndMQjF0S0NFV3gzRzNQQXkyaFlVOEF6VS1GT3BEUHlZNmZfc3M?oc=5'>He Tried Shorting Jim Cramer’s Stock Picks. It Cost Him More</a>(Morningstar 11-01) · <a href='https://news.google.com/rss/articles/CBMirAFBVV95cUxQR0p0dWk3MU1BZkZPV2tVclRRR3ZsR3JYY2hkZDVCNnR1VHkwUU1Fbk9Mc3VVdEI4TXR3TGx4Vlg2Q1VXc3dPNXVNbDFqblU1VUVwbEp2UVEybHBKR1B2UVVkOF9uYVQtNk80b29wanQtSFE1ZHo2MGhBV1BqbkE1TjdnVW5CelBldmE0S3pzSzk4N2hiVjg1OWdmcmlOcTA3RDRWbHljc3RmVW9l?oc=5'>What Is The True Hidden Price Of Home Depot Stock?</a>(Trefis 11-01) · <a href='https://news.google.com/rss/articles/CBMiigFBVV95cUxNZTdQU0Uxbmx0V0JQUjl3NG1UNUxXd252UU1pYUh1UnE1NHplMW1BcHFFSnFNRS1IZlFmcko3b1I5RndFY01HaWZhQl9uM3pRcnlrVzBURmtMMjRyUXpNMUdZUjFrU21yRjFaRFo4WXRwbTYxWjV2VEF6UnNOZG5TZFRzVzg1S0E1Rmc?oc=5'>Prediction: This Will Be Palantir&#x27;s Stock Price by Year-End </a>(The Motley Fool 11-01)。
+    文字由 Blue Morpho 研究引擎(Claude)依上列資料撰寫,經第二輪對抗審稿(修正 11 處);情境與合理本益比為估計。非投資建議。</div>
+</div>
+<script>
+const V=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const MONO='"JetBrains Mono","SF Mono",monospace';
+const TIP={backgroundColor:V('--panel'),borderColor:V('--line'),textStyle:{color:V('--tx2'),fontFamily:MONO,fontSize:11}};
+function mk(id){const c=echarts.init(document.getElementById(id),null,{renderer:'canvas'});window.addEventListener('resize',()=>c.resize());return c;}
+mk('qchart').setOption({backgroundColor:'transparent',grid:{left:44,right:44,top:20,bottom:30},tooltip:Object.assign({trigger:'axis'},TIP),
+  xAxis:{type:'category',data:["2025Q1", "2025Q2", "2025Q3", "2025Q4", "2026Q1", "2026Q2", "2026Q3", "2026Q4"],axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:10},axisLine:{lineStyle:{color:V('--line')}}},
+  yAxis:[{type:'value',name:'$B',axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9},splitLine:{lineStyle:{color:V('--panel')}}},
+         {type:'value',name:'GM%',min:30,max:70,axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9,formatter:'{value}%'},splitLine:{show:false}}],
+  series:[{name:'營收 $B',type:'bar',data:[62.15, 63.72, 63.2, 86.16, 67.31, 69.6, 70.53, 95.72],itemStyle:{color:V('--cy'),borderRadius:[3,3,0,0]},barWidth:18},
+          {name:'毛利率',type:'line',yAxisIndex:1,data:[12.9, 12.5, 13.0, 12.9, 13.1, 12.8, 12.8, 12.7],itemStyle:{color:V('--gr')},lineStyle:{width:2},symbol:'circle'}]});
+mk('scen').setOption({backgroundColor:'transparent',grid:{left:44,right:14,top:16,bottom:28},tooltip:Object.assign({trigger:'axis',valueFormatter:v=>'$'+v},TIP),
+  xAxis:{type:'category',data:['Bear','Base','Bull'],axisLabel:{color:V('--tx2'),fontFamily:MONO,fontSize:11},axisLine:{lineStyle:{color:V('--line')}}},
+  yAxis:{type:'value',axisLabel:{color:V('--mut'),fontFamily:MONO,fontSize:9,formatter:'${value}'},splitLine:{lineStyle:{color:V('--panel')}}},
+  series:[{type:'bar',data:[{value:20.06,itemStyle:{color:V('--rd')}},{value:22.79,itemStyle:{color:V('--cy')}},{value:25.53,itemStyle:{color:V('--gr')}}],
+           barWidth:36,itemStyle:{borderRadius:[3,3,0,0]},label:{show:true,position:'top',color:V('--tx2'),fontFamily:MONO,fontSize:11,formatter:p=>'$'+p.value}}]});
+</script></body></html>

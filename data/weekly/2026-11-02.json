@@ -1,0 +1,108 @@
+{
+  "date": "2026-11-02",
+  "headline": "那斯達克單日急殺,錢退回好市多這類防禦型現金流",
+  "theme": "Energy / Oil & Gas",
+  "regime": "neutral",
+  "picks": [
+    {
+      "symbol": "EXAS",
+      "name": "EXAS",
+      "tier": "ready",
+      "theme": "Healthcare AI / Digital Health",
+      "rsi": 76.4,
+      "ma_stack": "bullish",
+      "price": null,
+      "business": "",
+      "why": "主題面，Energy / Oil & Gas 本週相對 SPY 的 1 個月強度排名靠前，市場資金持續流入。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
+      "rr": null
+    },
+    {
+      "symbol": "EW",
+      "name": "Edwards Lifesciences Corporatio",
+      "tier": "enter",
+      "theme": "Medical Devices",
+      "rsi": 59.9,
+      "ma_stack": "bullish",
+      "price": null,
+      "business": "Edwards Lifesciences Corporation provides products and technologies to treat advanced cardiovascular diseases in the United States, Europe, Japan, and internationally. It offers transcatheter heart valve replacement products for minimally…",
+      "why": "主題面，Energy / Oil & Gas 本週相對 SPY 的 1 個月強度排名靠前，市場資金持續流入。 近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。 技術面呈現「uptrend, near highs」，MA 結構為 <strong>bullish</strong>，RSI 65.8。",
+      "rr": null
+    },
+    {
+      "symbol": "COST",
+      "name": "Costco Wholesale Corporation",
+      "tier": "ready",
+      "theme": "Defensive Compounders",
+      "rsi": 66.9,
+      "ma_stack": "mixed",
+      "price": null,
+      "business": "Costco Wholesale Corporation, together with its subsidiaries, engages in the operation of membership warehouses in the United States, Puerto Rico, Canada, Mexico, Japan, the United Kingdom, Korea, Australia, Taiwan, China, Spain, France, S…",
+      "why": "主題面，Energy / Oil & Gas 本週相對 SPY 的 1 個月強度排名靠前，市場資金持續流入。 近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過半數以上 Screener 條件。",
+      "rr": null
+    },
+    {
+      "symbol": "AFRM",
+      "name": "Affirm Holdings, Inc.",
+      "tier": "ready",
+      "theme": "Payments / FinTech",
+      "rsi": 50.5,
+      "ma_stack": "bullish",
+      "price": null,
+      "business": "Affirm Holdings, Inc. operates payment network in the United States, Canada, and internationally. Its platform includes point-of-sale payment solution for consumers, merchant commerce solutions, and a consumer-focused app. The company's co…",
+      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
+      "rr": null
+    },
+    {
+      "symbol": "EQIX",
+      "name": "Equinix, Inc.",
+      "tier": "ready",
+      "theme": "Cloud Infrastructure",
+      "rsi": 51.8,
+      "ma_stack": "mixed",
+      "price": null,
+      "business": "Equinix, Inc. shortens the path to boundless connectivity anywhere in the world. Its digital infrastructure, data center footprint and interconnected ecosystems empower innovations that enhance our work, life and planet. Equinix connects e…",
+      "why": "主題面雖非最強，但仍處於資金不離場的中段位置。 近期出現高 confidence 的多方催化新聞，是觸發追蹤的重要因素。 基本面通過 Screener 多項條件（營收成長、毛利率、機構持股），屬高品質名單。",
+      "rr": null
+    }
+  ],
+  "sell_signals": {},
+  "policy": [
+    {
+      "topic": "川普 × 個股機會",
+      "title": "Intel Q3 Earnings Preview: Stock Down 34% From Highs, Could a Rally Get President Trump to Highlight Shares?",
+      "summary_zh": "英特爾財報前,股價距高點仍有明顯距離,市場討論若股價走強是否會再度成為白宮點名的題材。政治關注度本身已成為半導體股的額外變數。",
+      "source": "TradingView"
+    },
+    {
+      "topic": "川普 × 個股機會",
+      "title": "Nvidia Earnings Send Chip Stocks Higher, But Reported New Trump Tariff Plans Could Broaden The Trade Fight",
+      "summary_zh": "輝達財報帶動晶片族群走高,但同時傳出新的關稅規劃,可能把貿易摩擦的範圍進一步擴大,對供應鏈橫跨多地的硬體廠是新的不確定性。",
+      "source": "Stocktwits"
+    },
+    {
+      "topic": "聯準會 / 利率",
+      "title": "US stocks hold steady as the countdown ticks to a Federal Reserve decision on interest rates",
+      "summary_zh": "在聯準會利率決定倒數的這段時間,美股整體偏向按兵不動,顯示資金在結果出爐前不願意押單邊方向。",
+      "source": "WANE 15"
+    },
+    {
+      "topic": "地緣 / 國際 / 能源",
+      "title": "TSMC: The Toll Road Of The AI Economy Is On Sale (NYSE:TSM)",
+      "summary_zh": "有分析把台積電形容為 AI 經濟的收費站,認為當前評價相對其產業地位偏低。論點核心在於先進製程的不可替代性。",
+      "source": "Seeking Alpha"
+    },
+    {
+      "topic": "地緣 / 國際 / 能源",
+      "title": "Anthropic Files IPO Prospectus, Rarely Singles Out TSMC in Warning Over Advanced Chip Concentration Risk in Taiwan",
+      "summary_zh": "Anthropic 的上市文件罕見單獨點名台積電,警示先進晶片產能過度集中於台灣的風險,等於把地理集中度寫進公開風險揭露。",
+      "source": "BigGo Finance"
+    }
+  ],
+  "themes": [],
+  "stats": {
+    "n_picks": 5,
+    "n_themes": 0,
+    "journal_total": 633
+  },
+  "_note": "命中率/超額待回測樣本成熟;entry/alpha/vol 未提供(歷史不足)。"
+}
